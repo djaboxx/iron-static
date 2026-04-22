@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "ableton-mcp": {
+      "type": "stdio",
+      "command": "/Users/darnold/git/iron-static/.venv/bin/ableton-mcp",
+      "env": {}
+    }
+  }
+}

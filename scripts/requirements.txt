@@ -7,5 +7,12 @@ scipy>=1.11.0
 # MIDI generation
 mido>=1.3.0
 
+# Audio-to-MIDI transcription (audio_to_midi.py)
+basic-pitch>=0.3.0      # Spotify pitch tracker — ONNX backend, no GPU needed
+demucs>=4.0.0           # Meta stem separator (drums/bass/other/vocals)
+
+# Ableton bridge (ableton_push.py)
+python-hcl2>=4.3.0      # HCL config file parser for session templates
+
 # General utilities
 argparse  # stdlib in Python 3.2+

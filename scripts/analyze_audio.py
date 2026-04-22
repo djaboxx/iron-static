@@ -63,8 +63,9 @@ def analyze_bpm(y, sr) -> dict:
         import librosa
 
         tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
+        tempo_val = float(tempo.item() if hasattr(tempo, 'item') else tempo)
         return {
-            "bpm": float(round(tempo, 1)),
+            "bpm": round(tempo_val, 1),
             "beat_count": int(len(beats)),
             "confidence": "librosa_beat_track"
         }

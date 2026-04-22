@@ -100,6 +100,10 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 | Skill | File | When to use |
 |---|---|---|
 | `analyze-audio` | `.github/skills/analyze-audio/SKILL.md` | When given an audio file to analyze |
+| `audio-to-midi` | `.github/skills/audio-to-midi/SKILL.md` | When converting audio or stems to MIDI sequences |
+| `ableton-launch` | `.github/skills/ableton-launch/SKILL.md` | When opening Ableton or checking if it's running |
+| `ableton-push` | `.github/skills/ableton-push/SKILL.md` | When pushing MIDI to Ableton, setting up rigs, or controlling playback |
+| `analyze-ableton-logs` | `.github/skills/analyze-ableton-logs/SKILL.md` | When diagnosing Ableton Remote Script errors or log output |
 | `create-preset` | `.github/skills/create-preset/SKILL.md` | When creating or documenting instrument patches |
 | `midi-craft` | `.github/skills/midi-craft/SKILL.md` | When writing, generating, or evolving MIDI sequences |
 | `music-theory` | `.github/skills/music-theory/SKILL.md` | When answering theory questions or planning harmonic content |
