@@ -1,0 +1,629 @@
+{
+  "manual": "MiniBrute-2S-Manual-EN.pdf",
+  "pdf_path": "instruments/arturia-minibrute-2s/manuals/MiniBrute-2S-Manual-EN.pdf",
+  "txt_path": "instruments/arturia-minibrute-2s/manuals/MiniBrute-2S-Manual-EN.txt",
+  "indexed_at": "2026-04-22T14:27:26.089150",
+  "page_count": 171,
+  "sections": [
+    {
+      "title": "USER MANUAL",
+      "page": 1
+    },
+    {
+      "title": "Special Thanks",
+      "page": 2
+    },
+    {
+      "title": "DIRECTION",
+      "page": 2
+    },
+    {
+      "title": "ENGINEERING",
+      "page": 2
+    },
+    {
+      "title": "MANUAL",
+      "page": 2
+    },
+    {
+      "title": "DESIGN",
+      "page": 2
+    },
+    {
+      "title": "SOUND DESIGN",
+      "page": 2
+    },
+    {
+      "title": "BETA TESTERS",
+      "page": 2
+    },
+    {
+      "title": "FRANCE",
+      "page": 2
+    },
+    {
+      "title": "Control Center software",
+      "page": 3
+    },
+    {
+      "title": "Special Message Section",
+      "page": 4
+    },
+    {
+      "title": "1.   Read and understand all the instructions.",
+      "page": 4
+    },
+    {
+      "title": "2.    Always follow the instructions on the instrument.",
+      "page": 4
+    },
+    {
+      "title": "7.    Use only the provided AC adapter, as specified by Arturia.",
+      "page": 4
+    },
+    {
+      "title": "10.    Do not spill any kind of liquid onto the instrument.",
+      "page": 4
+    },
+    {
+      "title": "13.    Do not expose the instrument to hot sunlight.",
+      "page": 4
+    },
+    {
+      "title": "14.    Do not use the instrument when there is a gas leak nearby.",
+      "page": 4
+    },
+    {
+      "title": "Introduction",
+      "page": 6
+    },
+    {
+      "title": "Table Of Contents",
+      "page": 7
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "page": 9
+    },
+    {
+      "title": "Yves Usson and a couple of wired friends",
+      "page": 9
+    },
+    {
+      "title": "The Arturia MiniBrute 2S analog synthesizer",
+      "page": 10
+    },
+    {
+      "title": "2. INSTALLATION",
+      "page": 12
+    },
+    {
+      "title": "Purpose                    Connector type",
+      "page": 13
+    },
+    {
+      "title": "Headphones",
+      "page": 13
+    },
+    {
+      "title": "USB                        Standard USB type B",
+      "page": 13
+    },
+    {
+      "title": "The MiniBrute 2S rear panel",
+      "page": 14
+    },
+    {
+      "title": "3. QUICK START",
+      "page": 16
+    },
+    {
+      "title": "VCO 2 is being used as a sub-oscillator",
+      "page": 17
+    },
+    {
+      "title": "VCO 2 / Filter settings for the Filter Sweep",
+      "page": 18
+    },
+    {
+      "title": "Examples of the ADSR envelope",
+      "page": 22
+    },
+    {
+      "title": "The Sync button",
+      "page": 23
+    },
+    {
+      "title": "The Arp/Loop section",
+      "page": 24
+    },
+    {
+      "title": "4. HARDWARE OVERVIEW",
+      "page": 28
+    },
+    {
+      "title": "The top panel of the MiniBrute 2S",
+      "page": 29
+    },
+    {
+      "title": "The Sequencer section of the MiniBrute 2S",
+      "page": 30
+    },
+    {
+      "title": "1. Press Play to start the pattern",
+      "page": 31
+    },
+    {
+      "title": "2.   Hold the Transpose pad and then...",
+      "page": 31
+    },
+    {
+      "title": "4.   Press the [Octave +] pad to shift the pattern upward by octaves.",
+      "page": 31
+    },
+    {
+      "title": "1.   Press Play to start the pattern",
+      "page": 32
+    },
+    {
+      "title": "2.   Hold the Transpose pad",
+      "page": 32
+    },
+    {
+      "title": "5. THE TOP PANEL",
+      "page": 34
+    },
+    {
+      "title": "The LFO 1 section",
+      "page": 34
+    },
+    {
+      "title": "The VCO 1 section",
+      "page": 36
+    },
+    {
+      "title": "The VCO 2 section",
+      "page": 39
+    },
+    {
+      "title": "The Filter section",
+      "page": 41
+    },
+    {
+      "title": "Experimenting with RM modulation",
+      "page": 43
+    },
+    {
+      "title": "The Amplifier section",
+      "page": 45
+    },
+    {
+      "title": "The Oscillator mixer section",
+      "page": 47
+    },
+    {
+      "title": "The ADSR Envelope section",
+      "page": 49
+    },
+    {
+      "title": "The AD Envelope section",
+      "page": 49
+    },
+    {
+      "title": "Switch",
+      "page": 50
+    },
+    {
+      "title": "AD Envelope response",
+      "page": 50
+    },
+    {
+      "title": "6. BASICS OF SYNTHESIS",
+      "page": 52
+    },
+    {
+      "title": "The output of a random noise generator",
+      "page": 53
+    },
+    {
+      "title": "The generation of an Ultrasaw waveform",
+      "page": 54
+    },
+    {
+      "title": "The pulse width of a square wave can be modulated",
+      "page": 54
+    },
+    {
+      "title": "How a low-pass filter affects the sound",
+      "page": 57
+    },
+    {
+      "title": "How a band-pass filter affects the sound",
+      "page": 57
+    },
+    {
+      "title": "How a high-pass filter affects the sound",
+      "page": 57
+    },
+    {
+      "title": "How a notch filter affects the sound",
+      "page": 58
+    },
+    {
+      "title": "The Amplifier is the final stage of the signal",
+      "page": 59
+    },
+    {
+      "title": "Attack",
+      "page": 61
+    },
+    {
+      "title": "Decay",
+      "page": 61
+    },
+    {
+      "title": "Sustain",
+      "page": 62
+    },
+    {
+      "title": "Release",
+      "page": 62
+    },
+    {
+      "title": "Starting point for ADSR/filter envelope example",
+      "page": 63
+    },
+    {
+      "title": "7. THE PATCH BAY",
+      "page": 64
+    },
+    {
+      "title": "The MiniBrute 2S patch bay",
+      "page": 64
+    },
+    {
+      "title": "The input and output jacks have different",
+      "page": 65
+    },
+    {
+      "title": "Direct waveform outputs",
+      "page": 65
+    },
+    {
+      "title": "Blue labels show default input routings",
+      "page": 66
+    },
+    {
+      "title": "The Sequencer section of",
+      "page": 67
+    },
+    {
+      "title": "These labels indicate internal voltages",
+      "page": 68
+    },
+    {
+      "title": "Hard Sync example patch",
+      "page": 71
+    },
+    {
+      "title": "The VCO",
+      "page": 74
+    },
+    {
+      "title": "The EXT",
+      "page": 75
+    },
+    {
+      "title": "The AMP section",
+      "page": 77
+    },
+    {
+      "title": "The Inverter section",
+      "page": 77
+    },
+    {
+      "title": "The ADSR section",
+      "page": 78
+    },
+    {
+      "title": "The AD section",
+      "page": 79
+    },
+    {
+      "title": "The VCA section",
+      "page": 81
+    },
+    {
+      "title": "The Attenuators section",
+      "page": 82
+    },
+    {
+      "title": "The Sequencer section",
+      "page": 84
+    },
+    {
+      "title": "The MIDI section",
+      "page": 87
+    },
+    {
+      "title": "8. SEQ / ARP: SHARED FEATURES",
+      "page": 89
+    },
+    {
+      "title": "Shared",
+      "page": 90
+    },
+    {
+      "title": "Description",
+      "page": 90
+    },
+    {
+      "title": "Independent features         Description",
+      "page": 90
+    },
+    {
+      "title": "The MiniBrute 2S transport section",
+      "page": 91
+    },
+    {
+      "title": "Shared features                Description",
+      "page": 91
+    },
+    {
+      "title": "Independent features           Description",
+      "page": 91
+    },
+    {
+      "title": "Shared features        Description",
+      "page": 92
+    },
+    {
+      "title": "Independent features                 Description",
+      "page": 92
+    },
+    {
+      "title": "The extremes of the Swing setting",
+      "page": 96
+    },
+    {
+      "title": "Gate track",
+      "page": 97
+    },
+    {
+      "title": "The Chromatic scale",
+      "page": 102
+    },
+    {
+      "title": "Major",
+      "page": 102
+    },
+    {
+      "title": "Minor",
+      "page": 102
+    },
+    {
+      "title": "Dorian",
+      "page": 103
+    },
+    {
+      "title": "Mixolydian",
+      "page": 103
+    },
+    {
+      "title": "Harmonic Minor",
+      "page": 103
+    },
+    {
+      "title": "Blues",
+      "page": 103
+    },
+    {
+      "title": "The User Scale is programmable",
+      "page": 104
+    },
+    {
+      "title": "9. SEQUENCER BASICS",
+      "page": 105
+    },
+    {
+      "title": "10. SEQUENCE EDITING",
+      "page": 114
+    },
+    {
+      "title": "The Step encoders",
+      "page": 122
+    },
+    {
+      "title": "The Last Step button and the Page buttons",
+      "page": 124
+    },
+    {
+      "title": "Original                        New",
+      "page": 127
+    },
+    {
+      "title": "Action                   Reason",
+      "page": 127
+    },
+    {
+      "title": "11. ARPEGGIATOR BASICS",
+      "page": 131
+    },
+    {
+      "title": "Those same notes as an arpeggio",
+      "page": 131
+    },
+    {
+      "title": "An example of notes in a chord",
+      "page": 131
+    },
+    {
+      "title": "12. ARP/LOOP FEATURES",
+      "page": 140
+    },
+    {
+      "title": "The Looper with the Alternating playback direction",
+      "page": 140
+    },
+    {
+      "title": "13. INTRODUCTION: THE MIDI CONTROL CENTER",
+      "page": 142
+    },
+    {
+      "title": "A check mark indicates",
+      "page": 143
+    },
+    {
+      "title": "14. MIDI CONTROL CENTER",
+      "page": 146
+    },
+    {
+      "title": "The Template Browser",
+      "page": 146
+    },
+    {
+      "title": "The Device Memories",
+      "page": 147
+    },
+    {
+      "title": "The Local Templates",
+      "page": 148
+    },
+    {
+      "title": "Send a Template to",
+      "page": 148
+    },
+    {
+      "title": "MiniBrute 2S",
+      "page": 148
+    },
+    {
+      "title": "Send a Bank of 16",
+      "page": 149
+    },
+    {
+      "title": "The Template Utility",
+      "page": 151
+    },
+    {
+      "title": "The Import/Export",
+      "page": 151
+    },
+    {
+      "title": "Editing a knob value",
+      "page": 152
+    },
+    {
+      "title": "Selecting a pull-down menu option",
+      "page": 152
+    },
+    {
+      "title": "Metronome",
+      "page": 156
+    },
+    {
+      "title": "Resolution",
+      "page": 156
+    },
+    {
+      "title": "Change",
+      "page": 156
+    },
+    {
+      "title": "Fixed Velocity",
+      "page": 156
+    },
+    {
+      "title": "Mode",
+      "page": 156
+    },
+    {
+      "title": "Value",
+      "page": 156
+    },
+    {
+      "title": "LFO1         Key",
+      "page": 156
+    },
+    {
+      "title": "Retrig",
+      "page": 156
+    },
+    {
+      "title": "LFO2         Key",
+      "page": 156
+    },
+    {
+      "title": "Global Transpose",
+      "page": 159
+    },
+    {
+      "title": "Enable",
+      "page": 159
+    },
+    {
+      "title": "Transpose Input",
+      "page": 159
+    },
+    {
+      "title": "Transpose Center   Full MIDI note",
+      "page": 159
+    },
+    {
+      "title": "Pitch              range",
+      "page": 159
+    },
+    {
+      "title": "Full   MIDI    range   for",
+      "page": 160
+    },
+    {
+      "title": "Specifies which played note will change the voltage",
+      "page": 160
+    },
+    {
+      "title": "Full MIDI range",
+      "page": 160
+    },
+    {
+      "title": "15. SHIFT FUNCTIONS",
+      "page": 164
+    },
+    {
+      "title": "Combination                         Result",
+      "page": 165
+    },
+    {
+      "title": "Change Root Note",
+      "page": 165
+    },
+    {
+      "title": "Erase a pattern in a specific bank",
+      "page": 165
+    },
+    {
+      "title": "Load a pattern in a specific bank",
+      "page": 165
+    },
+    {
+      "title": "Paste a pattern in a specific bank",
+      "page": 165
+    },
+    {
+      "title": "16. DECLARATION OF CONFORMITY",
+      "page": 171
+    },
+    {
+      "title": "USA",
+      "page": 171
+    },
+    {
+      "title": "CANADA",
+      "page": 171
+    },
+    {
+      "title": "EUROPE",
+      "page": 171
+    }
+  ]
+}

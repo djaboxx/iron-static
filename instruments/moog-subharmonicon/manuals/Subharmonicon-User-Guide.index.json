@@ -1,0 +1,873 @@
+{
+  "manual": "Subharmonicon-User-Guide.pdf",
+  "pdf_path": "instruments/moog-subharmonicon/manuals/Subharmonicon-User-Guide.pdf",
+  "txt_path": "instruments/moog-subharmonicon/manuals/Subharmonicon-User-Guide.txt",
+  "indexed_at": "2026-04-22T14:27:25.871696",
+  "page_count": 58,
+  "sections": [
+    {
+      "title": "IMPORTANT SAFETY INSTRUCTIONS",
+      "page": 4
+    },
+    {
+      "title": "1. Read all the instructions before using the product.",
+      "page": 4
+    },
+    {
+      "title": "6. Do not operate in direct sunlight.",
+      "page": 4
+    },
+    {
+      "title": "TABLE OF CONTENTS",
+      "page": 5
+    },
+    {
+      "title": "OSCILLATORS            PAGE 18",
+      "page": 6
+    },
+    {
+      "title": "FILTERS        PAGE 23",
+      "page": 6
+    },
+    {
+      "title": "SUBHARMONICON",
+      "page": 6
+    },
+    {
+      "title": "1. Subharmonicon Semi-Modular Analog Polyrhythmic Synthesizer",
+      "page": 7
+    },
+    {
+      "title": "2. Power Supply",
+      "page": 7
+    },
+    {
+      "title": "3. DIN Socket to 3.5mm Plug (Type A) MIDI Adapter",
+      "page": 7
+    },
+    {
+      "title": "4. Patch Sheet Overlays",
+      "page": 7
+    },
+    {
+      "title": "5. Owner\u2019s Manual",
+      "page": 7
+    },
+    {
+      "title": "6. Patch Cables",
+      "page": 7
+    },
+    {
+      "title": "7. Registration Card",
+      "page": 7
+    },
+    {
+      "title": "POWER",
+      "page": 7
+    },
+    {
+      "title": "Power Supply",
+      "page": 7
+    },
+    {
+      "title": "AUDIO OUT /",
+      "page": 7
+    },
+    {
+      "title": "KENSINGTON SECURITY SLOT",
+      "page": 7
+    },
+    {
+      "title": "ABOUT SUBHARMONICON",
+      "page": 8
+    },
+    {
+      "title": "Each rhythm generator can be        and VCA",
+      "page": 8
+    },
+    {
+      "title": "INTRODUCTION",
+      "page": 9
+    },
+    {
+      "title": "A BRIEF HISTORY",
+      "page": 9
+    },
+    {
+      "title": "UNDERSTANDING SUBHARMONICS",
+      "page": 9
+    },
+    {
+      "title": "In the world of synthesizers and electronic",
+      "page": 9
+    },
+    {
+      "title": "UNDERSTANDING POLYRHYTHMS",
+      "page": 10
+    },
+    {
+      "title": "Polyrhythms employ multiple rhythms",
+      "page": 10
+    },
+    {
+      "title": "Subharmonicon rhythm generator uses",
+      "page": 10
+    },
+    {
+      "title": "These individual rhythm generators",
+      "page": 10
+    },
+    {
+      "title": "EXPLORING YOUR SUBHARMONICON",
+      "page": 11
+    },
+    {
+      "title": "START YOUR EXPLORATION",
+      "page": 11
+    },
+    {
+      "title": "LISTENING TO VCO 1",
+      "page": 11
+    },
+    {
+      "title": "TUNING VCO 1",
+      "page": 11
+    },
+    {
+      "title": "Press the QUANTIZE button until no lights are lit",
+      "page": 11
+    },
+    {
+      "title": "ADDING IN A SUBHARMONIC OSCILLATOR",
+      "page": 12
+    },
+    {
+      "title": "CREATING A SEQUENCE",
+      "page": 12
+    },
+    {
+      "title": "TUNING STEP 1",
+      "page": 13
+    },
+    {
+      "title": "ADVANCING TO STEP 2",
+      "page": 13
+    },
+    {
+      "title": "Press the NEXT button to advance to Step 2",
+      "page": 13
+    },
+    {
+      "title": "ADVANCING TO STEP 3",
+      "page": 13
+    },
+    {
+      "title": "Press the NEXT button to advance to Step 3",
+      "page": 13
+    },
+    {
+      "title": "ADVANCING TO STEP 4",
+      "page": 13
+    },
+    {
+      "title": "Press the NEXT button to advance to",
+      "page": 13
+    },
+    {
+      "title": "PLAYING YOUR SEQUENCE",
+      "page": 14
+    },
+    {
+      "title": "ADJUSTING THE TIMING",
+      "page": 14
+    },
+    {
+      "title": "CREATING A POLYRHYTHM",
+      "page": 14
+    },
+    {
+      "title": "EXPLORING THE FILTER",
+      "page": 15
+    },
+    {
+      "title": "CHANGING THE WAVE",
+      "page": 15
+    },
+    {
+      "title": "TWEAKING THE ENVELOPES",
+      "page": 15
+    },
+    {
+      "title": "SUMMARY",
+      "page": 16
+    },
+    {
+      "title": "THE OSCILLATORS",
+      "page": 17
+    },
+    {
+      "title": "Each voltage controlled",
+      "page": 17
+    },
+    {
+      "title": "These subharmonic oscillators",
+      "page": 17
+    },
+    {
+      "title": "OSCILLATOR 1 PARAMETERS",
+      "page": 17
+    },
+    {
+      "title": "VCO 1 FREQ",
+      "page": 17
+    },
+    {
+      "title": "OSCILLATOR 2 PARAMETERS",
+      "page": 18
+    },
+    {
+      "title": "VCO 2 FREQ",
+      "page": 18
+    },
+    {
+      "title": "SHARED OSCILLATOR PARAMETERS",
+      "page": 20
+    },
+    {
+      "title": "QUANTIZE",
+      "page": 20
+    },
+    {
+      "title": "THE MIXER",
+      "page": 20
+    },
+    {
+      "title": "The mixer sets the",
+      "page": 20
+    },
+    {
+      "title": "Subharmonicon sound",
+      "page": 20
+    },
+    {
+      "title": "VCO 1 LEVEL",
+      "page": 20
+    },
+    {
+      "title": "VCO 2 LEVEL",
+      "page": 21
+    },
+    {
+      "title": "THE FILTER",
+      "page": 22
+    },
+    {
+      "title": "CUTOFF",
+      "page": 22
+    },
+    {
+      "title": "RESONANCE",
+      "page": 22
+    },
+    {
+      "title": "VOLUME",
+      "page": 22
+    },
+    {
+      "title": "VCF EG",
+      "page": 23
+    },
+    {
+      "title": "VCF ATTACK",
+      "page": 23
+    },
+    {
+      "title": "VCF DECAY",
+      "page": 23
+    },
+    {
+      "title": "VCF EG AMT",
+      "page": 23
+    },
+    {
+      "title": "VCA EG",
+      "page": 23
+    },
+    {
+      "title": "VCA ATTACK",
+      "page": 23
+    },
+    {
+      "title": "VCA DECAY",
+      "page": 24
+    },
+    {
+      "title": "TEMPO",
+      "page": 24
+    },
+    {
+      "title": "THE SEQUENCERS",
+      "page": 25
+    },
+    {
+      "title": "SEQUENCER 1",
+      "page": 25
+    },
+    {
+      "title": "STEP 1 THROUGH STEP 4",
+      "page": 25
+    },
+    {
+      "title": "The STEP knobs individually affect the values",
+      "page": 25
+    },
+    {
+      "title": "Rotating the STEP knob clockwise will add a",
+      "page": 25
+    },
+    {
+      "title": "Rotating the STEP knob counter-clockwise will",
+      "page": 25
+    },
+    {
+      "title": "SEQUENCER 2",
+      "page": 26
+    },
+    {
+      "title": "STEP knob clockwise will add a control signal to",
+      "page": 26
+    },
+    {
+      "title": "SHARED SEQUENCER PARAMETERS",
+      "page": 27
+    },
+    {
+      "title": "SEQ OCT",
+      "page": 27
+    },
+    {
+      "title": "TRANSPORT CONTROLS",
+      "page": 27
+    },
+    {
+      "title": "PLAY",
+      "page": 27
+    },
+    {
+      "title": "TRIGGER",
+      "page": 27
+    },
+    {
+      "title": "RESET",
+      "page": 28
+    },
+    {
+      "title": "NEXT",
+      "page": 28
+    },
+    {
+      "title": "THE POLYRHYTHM SECTION",
+      "page": 29
+    },
+    {
+      "title": "SEQ 1 and SEQ 2 buttons associated with each",
+      "page": 29
+    },
+    {
+      "title": "But as you begin to combine multiple rhythm",
+      "page": 29
+    },
+    {
+      "title": "RHYTHM 1",
+      "page": 29
+    },
+    {
+      "title": "SEQ 1",
+      "page": 29
+    },
+    {
+      "title": "SEQ 2",
+      "page": 29
+    },
+    {
+      "title": "THE PATCHBAY",
+      "page": 30
+    },
+    {
+      "title": "VCO 1                            VCA",
+      "page": 30
+    },
+    {
+      "title": "VCO 1 SUB                        VCO 1",
+      "page": 30
+    },
+    {
+      "title": "VCO 1 PWM                        VCO 1 SUB 1",
+      "page": 30
+    },
+    {
+      "title": "VCA                              VCO 1 SUB 2",
+      "page": 30
+    },
+    {
+      "title": "VCO 2                            VCA EG",
+      "page": 30
+    },
+    {
+      "title": "VCO 2 SUB                        VCO 2",
+      "page": 30
+    },
+    {
+      "title": "VCO 2 PWM                        VCO 2 SUB 1",
+      "page": 30
+    },
+    {
+      "title": "CUTOFF                           VCO 2 SUB 2",
+      "page": 30
+    },
+    {
+      "title": "PLAY                             VCF EG",
+      "page": 30
+    },
+    {
+      "title": "RESET                            SEQ 1",
+      "page": 30
+    },
+    {
+      "title": "TRIGGER                          SEQ 1 CLK",
+      "page": 30
+    },
+    {
+      "title": "RHYTHM 1                         SEQ 2",
+      "page": 30
+    },
+    {
+      "title": "RHYTHM 2                         SEQ 2 CLK",
+      "page": 30
+    },
+    {
+      "title": "RHYTHM 3                         CLOCK",
+      "page": 30
+    },
+    {
+      "title": "RHYTHM 4                         TRIGGER",
+      "page": 30
+    },
+    {
+      "title": "CLOCK",
+      "page": 30
+    },
+    {
+      "title": "ROW ONE",
+      "page": 30
+    },
+    {
+      "title": "VCO 1 INPUT",
+      "page": 30
+    },
+    {
+      "title": "VCO 1 SUB INPUT",
+      "page": 30
+    },
+    {
+      "title": "VCO 1 PWM INPUT",
+      "page": 31
+    },
+    {
+      "title": "VCA OUTPUT",
+      "page": 31
+    },
+    {
+      "title": "ROW TWO",
+      "page": 31
+    },
+    {
+      "title": "VCO 1 OUTPUT",
+      "page": 31
+    },
+    {
+      "title": "VCO 1 SUB 1 OUTPUT",
+      "page": 31
+    },
+    {
+      "title": "VCO 1 SUB 2 OUTPUT",
+      "page": 31
+    },
+    {
+      "title": "VCA INPUT",
+      "page": 32
+    },
+    {
+      "title": "ROW THREE",
+      "page": 32
+    },
+    {
+      "title": "VCO 2 INPUT",
+      "page": 32
+    },
+    {
+      "title": "VCO 2 SUB INPUT",
+      "page": 32
+    },
+    {
+      "title": "VCO 2 PWM INPUT",
+      "page": 32
+    },
+    {
+      "title": "VCA EG OUTPUT",
+      "page": 32
+    },
+    {
+      "title": "ROW FOUR",
+      "page": 33
+    },
+    {
+      "title": "VCO 2 OUTPUT",
+      "page": 33
+    },
+    {
+      "title": "VCO 2 SUB 1 OUTPUT",
+      "page": 33
+    },
+    {
+      "title": "VCO 2 SUB 2 OUTPUT",
+      "page": 33
+    },
+    {
+      "title": "CUTOFF INPUT",
+      "page": 33
+    },
+    {
+      "title": "ROW FIVE",
+      "page": 33
+    },
+    {
+      "title": "PLAY INPUT",
+      "page": 33
+    },
+    {
+      "title": "RESET INPUT",
+      "page": 34
+    },
+    {
+      "title": "TRIGGER INPUT",
+      "page": 34
+    },
+    {
+      "title": "VCF EG OUTPUT",
+      "page": 34
+    },
+    {
+      "title": "ROW SIX",
+      "page": 34
+    },
+    {
+      "title": "RHYTHM 1 INPUT",
+      "page": 34
+    },
+    {
+      "title": "RHYTHM 2 INPUT",
+      "page": 34
+    },
+    {
+      "title": "RHYTHM 3 INPUT",
+      "page": 35
+    },
+    {
+      "title": "RHYTHM 4 INPUT",
+      "page": 35
+    },
+    {
+      "title": "ROW SEVEN",
+      "page": 35
+    },
+    {
+      "title": "SEQ 1 OUTPUT",
+      "page": 35
+    },
+    {
+      "title": "SEQ 1 CLK OUTPUT",
+      "page": 35
+    },
+    {
+      "title": "SEQ 2 OUTPUT",
+      "page": 35
+    },
+    {
+      "title": "SEQ 2 CLK OUTPUT",
+      "page": 36
+    },
+    {
+      "title": "ROW EIGHT",
+      "page": 36
+    },
+    {
+      "title": "MIDI IN INPUT",
+      "page": 36
+    },
+    {
+      "title": "CLOCK INPUT",
+      "page": 36
+    },
+    {
+      "title": "CLOCK OUTPUT",
+      "page": 36
+    },
+    {
+      "title": "TRIGGER OUTPUT",
+      "page": 36
+    },
+    {
+      "title": "USING SUBHARMONICON TO CLOCK YOUR DFAM",
+      "page": 37
+    },
+    {
+      "title": "Use a patch cable to connect the",
+      "page": 37
+    },
+    {
+      "title": "Subharmonicon CLOCK output jack to",
+      "page": 37
+    },
+    {
+      "title": "This will allow Subharmonicon to serve",
+      "page": 37
+    },
+    {
+      "title": "SEQ 1 CLK and SEQ 2 CLK outputs to clock",
+      "page": 37
+    },
+    {
+      "title": "SUBHARMONICON                       DFAM",
+      "page": 37
+    },
+    {
+      "title": "SYNCING SUBHARMONICON TO YOUR MOTHER-32",
+      "page": 38
+    },
+    {
+      "title": "Mother-32 ASSIGN output jack",
+      "page": 38
+    },
+    {
+      "title": "This will allow Mother-32 to serve",
+      "page": 38
+    },
+    {
+      "title": "SUBHARMONICON                          MOTHER-32",
+      "page": 38
+    },
+    {
+      "title": "USING SUBHARMONICON AS A EURORACK MODULE",
+      "page": 39
+    },
+    {
+      "title": "TO INSTALL THE SUBHARMONICON IN A EURORACK SYSTEM",
+      "page": 39
+    },
+    {
+      "title": "1. Disconnect external power from the unit.",
+      "page": 39
+    },
+    {
+      "title": "5. Look at the back of your Subharmonicon",
+      "page": 39
+    },
+    {
+      "title": "6. Connect PIN-1 (-12V) of the power ribbon",
+      "page": 39
+    },
+    {
+      "title": "7. After power is connected, your",
+      "page": 39
+    },
+    {
+      "title": "Subharmonicon may be installed into the",
+      "page": 39
+    },
+    {
+      "title": "8. Once fully installed, you may power up",
+      "page": 39
+    },
+    {
+      "title": "GLOBAL PARAMETERS",
+      "page": 40
+    },
+    {
+      "title": "FINE TUNE",
+      "page": 40
+    },
+    {
+      "title": "MIDI OPERATIONS",
+      "page": 41
+    },
+    {
+      "title": "MIDI CC replaces the",
+      "page": 42
+    },
+    {
+      "title": "OR logic advances the",
+      "page": 43
+    },
+    {
+      "title": "Rhythm Generator",
+      "page": 43
+    },
+    {
+      "title": "Logic",
+      "page": 43
+    },
+    {
+      "title": "SysEx files can be found at",
+      "page": 43
+    },
+    {
+      "title": "PRESETS",
+      "page": 44
+    },
+    {
+      "title": "AQUATIC CHORDS",
+      "page": 44
+    },
+    {
+      "title": "MELLOW HARMONIES",
+      "page": 44
+    },
+    {
+      "title": "POINT ZERO",
+      "page": 45
+    },
+    {
+      "title": "THREE HANDS ON THE WHEEL",
+      "page": 46
+    },
+    {
+      "title": "BATERIA",
+      "page": 46
+    },
+    {
+      "title": "SPIRAL WAYS",
+      "page": 47
+    },
+    {
+      "title": "STAR-GATE",
+      "page": 47
+    },
+    {
+      "title": "POLY ROCK",
+      "page": 48
+    },
+    {
+      "title": "CLOUD PATH",
+      "page": 48
+    },
+    {
+      "title": "OSCILLATOR 1",
+      "page": 55
+    },
+    {
+      "title": "VCO 1",
+      "page": 55
+    },
+    {
+      "title": "SUB 1",
+      "page": 55
+    },
+    {
+      "title": "RHYTHM 1               SUB 1",
+      "page": 55
+    },
+    {
+      "title": "RHYTHM 2",
+      "page": 55
+    },
+    {
+      "title": "RHYTHM 3",
+      "page": 55
+    },
+    {
+      "title": "OSCILLATOR 2",
+      "page": 55
+    },
+    {
+      "title": "VCO 2",
+      "page": 55
+    },
+    {
+      "title": "RHYTHM 4",
+      "page": 55
+    },
+    {
+      "title": "SIGNAL FLOW",
+      "page": 55
+    },
+    {
+      "title": "SPECIFICATIONS",
+      "page": 56
+    },
+    {
+      "title": "ANALOG SOUND ENGINE",
+      "page": 56
+    },
+    {
+      "title": "PATCHBAY",
+      "page": 56
+    },
+    {
+      "title": "REAR PANEL",
+      "page": 56
+    },
+    {
+      "title": "DIMENSIONS",
+      "page": 56
+    },
+    {
+      "title": "POWER CONSUMPTION",
+      "page": 56
+    },
+    {
+      "title": "EURORACK SPECS",
+      "page": 56
+    },
+    {
+      "title": "ACCESSORIES",
+      "page": 56
+    },
+    {
+      "title": "GIG BAG",
+      "page": 56
+    },
+    {
+      "title": "EMPTY 60HP CASE",
+      "page": 56
+    },
+    {
+      "title": "EMPTY 104HP CASE",
+      "page": 56
+    },
+    {
+      "title": "BACKUP POWER SUPPLY",
+      "page": 56
+    },
+    {
+      "title": "RETURNING YOUR PRODUCT TO MOOG MUSIC",
+      "page": 57
+    },
+    {
+      "title": "WHAT WE WILL DO",
+      "page": 57
+    },
+    {
+      "title": "HOW TO INITIATE YOUR WARRANTY",
+      "page": 57
+    },
+    {
+      "title": "CARING FOR SUBHARMONICON",
+      "page": 57
+    },
+    {
+      "title": "Subharmonicon User Manual Version 1",
+      "page": 57
+    }
+  ]
+}

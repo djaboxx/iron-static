@@ -107,6 +107,9 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 | `create-preset` | `.github/skills/create-preset/SKILL.md` | When creating or documenting instrument patches |
 | `midi-craft` | `.github/skills/midi-craft/SKILL.md` | When writing, generating, or evolving MIDI sequences |
 | `music-theory` | `.github/skills/music-theory/SKILL.md` | When answering theory questions or planning harmonic content |
+| `sysex-capture` | `.github/skills/sysex-capture/SKILL.md` | When receiving, parsing, or cataloging a SysEx dump from any instrument |
+| `manual-lookup` | `.github/skills/manual-lookup/SKILL.md` | When answering questions from instrument manuals (specs, MIDI, parameters) |
+| `instrument-onboard` | `.github/skills/instrument-onboard/SKILL.md` | When adding a new instrument: folder structure, manual index, param map, SysEx wiring |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
 

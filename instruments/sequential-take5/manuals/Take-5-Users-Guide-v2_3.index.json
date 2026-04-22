@@ -1,0 +1,1817 @@
+{
+  "manual": "Take-5-Users-Guide-v2_3.pdf",
+  "pdf_path": "instruments/sequential-take5/manuals/Take-5-Users-Guide-v2_3.pdf",
+  "txt_path": "instruments/sequential-take5/manuals/Take-5-Users-Guide-v2_3.txt",
+  "indexed_at": "2026-04-22T14:27:22.083662",
+  "page_count": 117,
+  "sections": [
+    {
+      "title": "C O M PA C T 5 - V O I C E P O LY S Y N T H",
+      "page": 1
+    },
+    {
+      "title": "Sequential LLC",
+      "page": 3
+    },
+    {
+      "title": "USA",
+      "page": 3
+    },
+    {
+      "title": "Tested to Comply",
+      "page": 4
+    },
+    {
+      "title": "With FCC Standards",
+      "page": 4
+    },
+    {
+      "title": "CLASS B",
+      "page": 4
+    },
+    {
+      "title": "CALIFORNIA PROP 65 WARNING",
+      "page": 4
+    },
+    {
+      "title": "THE SEQUENTIAL CREW",
+      "page": 5
+    },
+    {
+      "title": "THE TAKE 5 SOUND DESIGN TEAM",
+      "page": 5
+    },
+    {
+      "title": "A Few Words of Thanks",
+      "page": 6
+    },
+    {
+      "title": "Table of Contents",
+      "page": 7
+    },
+    {
+      "title": "Appendix A:",
+      "page": 8
+    },
+    {
+      "title": "Appendix B:",
+      "page": 8
+    },
+    {
+      "title": "Rear Panel Connections",
+      "page": 11
+    },
+    {
+      "title": "1. Power On/Off\u2014This rocker switch controls power on and off to the",
+      "page": 11
+    },
+    {
+      "title": "2. AC Power Connector\u2014Accepts a standard, grounded IEC power",
+      "page": 11
+    },
+    {
+      "title": "3. Electric Shock Hazard Warning\u2014These symbols warn that you risk",
+      "page": 11
+    },
+    {
+      "title": "4. USB\u2014For bidirectional MIDI communication with a computer. The",
+      "page": 11
+    },
+    {
+      "title": "5. MIDI In, Out, Thru\u2014Standard 5-pin MIDI DIN connectors for",
+      "page": 11
+    },
+    {
+      "title": "6. Footswitch\u2014Accepts a momentary, normally open or normally closed",
+      "page": 11
+    },
+    {
+      "title": "8. Audio Outputs\u2014Unbalanced, \u00bc inch audio outputs. The Take 5",
+      "page": 12
+    },
+    {
+      "title": "9. Headphones \u2014 \u00bc inch stereo headphone jack. Headphone volume is",
+      "page": 12
+    },
+    {
+      "title": "Setting Up the Take 5",
+      "page": 12
+    },
+    {
+      "title": "3. Turn on the Take 5.",
+      "page": 12
+    },
+    {
+      "title": "4. Connect the left and right audio out connectors on the back of the",
+      "page": 12
+    },
+    {
+      "title": "5. Turn up the volume on your amp/mixer/powered speakers.",
+      "page": 12
+    },
+    {
+      "title": "6. Turn up the volume on the Take 5.",
+      "page": 12
+    },
+    {
+      "title": "Tune the Oscillators and Filters",
+      "page": 13
+    },
+    {
+      "title": "1. Press the global settings button.",
+      "page": 13
+    },
+    {
+      "title": "2. With the select knob, choose the cal voices command.",
+      "page": 13
+    },
+    {
+      "title": "3. Press the write button.",
+      "page": 13
+    },
+    {
+      "title": "Listen to the Factory Sounds",
+      "page": 13
+    },
+    {
+      "title": "The Bank and Program Select controls",
+      "page": 13
+    },
+    {
+      "title": "1. Hold down the bank button then press a program selector (1-16)",
+      "page": 14
+    },
+    {
+      "title": "2. Release the bank button and press a program selector button (1-16)",
+      "page": 14
+    },
+    {
+      "title": "1. Hold bank and press 5. Release the bank button.",
+      "page": 14
+    },
+    {
+      "title": "2. Press program selector button 12.",
+      "page": 14
+    },
+    {
+      "title": "Using the Main Display",
+      "page": 14
+    },
+    {
+      "title": "Basic Program",
+      "page": 14
+    },
+    {
+      "title": "The main display",
+      "page": 14
+    },
+    {
+      "title": "Editing Programs",
+      "page": 15
+    },
+    {
+      "title": "Creating a Program from Scratch",
+      "page": 15
+    },
+    {
+      "title": "2. With the select knob, choose the basic program command.",
+      "page": 15
+    },
+    {
+      "title": "4. The Take 5 resets its parameters to the Basic Program.",
+      "page": 15
+    },
+    {
+      "title": "Saving a Program",
+      "page": 15
+    },
+    {
+      "title": "1. Press the write button. The LED begins blinking.",
+      "page": 15
+    },
+    {
+      "title": "1. Press the write button. Its LED begins blinking.",
+      "page": 16
+    },
+    {
+      "title": "2. Hold down the bank button then press a program selector button to",
+      "page": 16
+    },
+    {
+      "title": "3. Release the bank button and press a program selector button (1-16)",
+      "page": 16
+    },
+    {
+      "title": "Canceling Save",
+      "page": 16
+    },
+    {
+      "title": "Live Panel Mode",
+      "page": 16
+    },
+    {
+      "title": "1. Chose an appropriate sound.",
+      "page": 17
+    },
+    {
+      "title": "2. Press the -1 oct button to activate the Low Split point feature and",
+      "page": 17
+    },
+    {
+      "title": "4. Release the -1 oct button and -2 oct buttons.",
+      "page": 17
+    },
+    {
+      "title": "Note G1",
+      "page": 17
+    },
+    {
+      "title": "Setting the Low Split point",
+      "page": 17
+    },
+    {
+      "title": "Exploring the Take 5 in More Depth",
+      "page": 18
+    },
+    {
+      "title": "Global Settings",
+      "page": 19
+    },
+    {
+      "title": "Global",
+      "page": 19
+    },
+    {
+      "title": "Accessing Global settings",
+      "page": 19
+    },
+    {
+      "title": "1. Press the globals button.",
+      "page": 19
+    },
+    {
+      "title": "2. Use the select knob to scroll through the list of parameters.",
+      "page": 19
+    },
+    {
+      "title": "3. Use the value knob to set a selected parameter.",
+      "page": 19
+    },
+    {
+      "title": "1. Master Coarse: -12\u2026+12\u2014Master Transpose control; a setting of",
+      "page": 19
+    },
+    {
+      "title": "2. Master Fine: -50\u2026+50\u2014Master Fine Tune control; 0 centered. Steps",
+      "page": 19
+    },
+    {
+      "title": "3. Local Control: All Off, Key/Wheels Off, On\u2014When on (the default),",
+      "page": 20
+    },
+    {
+      "title": "4. Mono/Stereo: Stereo, Mono\u2014The Take 5 defaults to stereo operation.",
+      "page": 20
+    },
+    {
+      "title": "5. Pot Mode: Relative, Passthru, Jump\u2014The rotary controls on the Take",
+      "page": 20
+    },
+    {
+      "title": "6. Foot Function: Sustain, Arp Hold, Arp Hold Momentary, Seq Start/",
+      "page": 21
+    },
+    {
+      "title": "7. Pedal Polarity: Normal, Reversed\u2014There are two types of pedals,",
+      "page": 21
+    },
+    {
+      "title": "8. Pedal Function: Breath CC2, Foot CC4, Exp CC11, LPF Full, LPF",
+      "page": 21
+    },
+    {
+      "title": "9. Aftertouch On: On, Off\u2014Selects whether aftertouch (key pressure) is",
+      "page": 21
+    },
+    {
+      "title": "10. Aftertouch Curve: Curve 1... Curve 8\u2014Sets one of eight pressure",
+      "page": 21
+    },
+    {
+      "title": "11. Velocity Curve: Curve 1... Curve 7\u2014Sets one of the seven velocity",
+      "page": 22
+    },
+    {
+      "title": "12. Scale (Alt Tuning): Equal Temperment, 1\u202665\u2014Selects one of the Take",
+      "page": 22
+    },
+    {
+      "title": "13. Screen Saver: On, Off\u2014The Take 5 display has a built-in screen",
+      "page": 22
+    },
+    {
+      "title": "14. MIDI Channel: All, 1\u202616\u2014Selects which MIDI channel to send and",
+      "page": 22
+    },
+    {
+      "title": "15. Clock Mode Out: Sets the synthesizer\u2019s ability to send and receive",
+      "page": 22
+    },
+    {
+      "title": "16. Clock Cable In: MIDI, USB\u2014Sets the port (MIDI or USB) by which",
+      "page": 22
+    },
+    {
+      "title": "17. Clock Cable Out: MIDI, USB, ALL\u2014Sets the port by which MIDI",
+      "page": 23
+    },
+    {
+      "title": "18. MIDI Param Send: Off, CC, NRPN\u2014Changes to the values of front",
+      "page": 23
+    },
+    {
+      "title": "19. MIDI Param Receive: Off, CC, NRPN\u2014Sets the method by which",
+      "page": 23
+    },
+    {
+      "title": "20. MIDI Control On: Off, On\u2014When On, the synth will respond to",
+      "page": 23
+    },
+    {
+      "title": "21. MIDI Sysex On: On, Off\u2014Sets whether MIDI System Exclusive data",
+      "page": 23
+    },
+    {
+      "title": "22. MIDI Sysex Cable: MIDI, USB\u2014Sets the port, MIDI or USB, by",
+      "page": 23
+    },
+    {
+      "title": "23. MIDI Out Select: Off, MIDI, USB, All\u2014Sets the port(s) by which",
+      "page": 23
+    },
+    {
+      "title": "24. MIDI Program Send: Off, On\u2014When On, the synth will transmit",
+      "page": 23
+    },
+    {
+      "title": "25. MIDI Program Receive: Off, On\u2014When On, the synth will respond",
+      "page": 23
+    },
+    {
+      "title": "26. MIDI Arp Notes: Off, On\u2014When On, the synth\u2019s Arpeggiator outputs",
+      "page": 23
+    },
+    {
+      "title": "27. Arp Beat Sync: Off, Quantize\u2014When set to quantize, Arpeggiator",
+      "page": 24
+    },
+    {
+      "title": "28. Basic Program\u2014Press write to load a basic, template program into",
+      "page": 24
+    },
+    {
+      "title": "29. Cal Wheels\u2014Calibrates the Pitch and Mod wheels.",
+      "page": 24
+    },
+    {
+      "title": "31. Reset Globals\u2014Sets the global parameters to the factory default",
+      "page": 24
+    },
+    {
+      "title": "32. Dump Preset\u2014Transmits the current program in SysEx format via",
+      "page": 24
+    },
+    {
+      "title": "33. Dump Bank\u2014Transmits the current bank in SysEx format via the",
+      "page": 24
+    },
+    {
+      "title": "34. Dump All Banks\u2014Transmits all User Banks in SysEx format via the",
+      "page": 24
+    },
+    {
+      "title": "Oscillators",
+      "page": 25
+    },
+    {
+      "title": "OSC 1",
+      "page": 26
+    },
+    {
+      "title": "OSC 2",
+      "page": 26
+    },
+    {
+      "title": "The Oscillators section",
+      "page": 26
+    },
+    {
+      "title": "1. Press the global button.",
+      "page": 26
+    },
+    {
+      "title": "2. Use the select knob to navigate to the basic program command, then",
+      "page": 26
+    },
+    {
+      "title": "4. Hold down a note on the keyboard and in the oscillators section,",
+      "page": 26
+    },
+    {
+      "title": "5. Turn up the level of Oscillator 2 in the Mixer and experiment with",
+      "page": 26
+    },
+    {
+      "title": "6. Experiment with the octave knob on the oscillators and notice how",
+      "page": 27
+    },
+    {
+      "title": "Oscillator Parameters",
+      "page": 27
+    },
+    {
+      "title": "Oscillator 1",
+      "page": 28
+    },
+    {
+      "title": "Oscillator 2",
+      "page": 28
+    },
+    {
+      "title": "Oscillator hard sync",
+      "page": 28
+    },
+    {
+      "title": "Mixer",
+      "page": 29
+    },
+    {
+      "title": "OSC 1          OSC 1 SUB",
+      "page": 29
+    },
+    {
+      "title": "OSC 2            NOISE",
+      "page": 29
+    },
+    {
+      "title": "The Mixer section",
+      "page": 29
+    },
+    {
+      "title": "Mixer Parameters",
+      "page": 29
+    },
+    {
+      "title": "Filter",
+      "page": 30
+    },
+    {
+      "title": "The Filter section",
+      "page": 30
+    },
+    {
+      "title": "Filter Parameters",
+      "page": 31
+    },
+    {
+      "title": "Envelopes",
+      "page": 32
+    },
+    {
+      "title": "ENV 1",
+      "page": 33
+    },
+    {
+      "title": "Aux",
+      "page": 33
+    },
+    {
+      "title": "ENV 2",
+      "page": 33
+    },
+    {
+      "title": "Amp",
+      "page": 33
+    },
+    {
+      "title": "ENV ROUTING",
+      "page": 33
+    },
+    {
+      "title": "About the Filter Envelope",
+      "page": 33
+    },
+    {
+      "title": "A typical 5-stage DADSR envelope",
+      "page": 34
+    },
+    {
+      "title": "3. Play a note. At this point you may not hear anything because you\u2019ve",
+      "page": 34
+    },
+    {
+      "title": "4. In the Envelopes section, turn the amount knob of Env 1 (which is",
+      "page": 34
+    },
+    {
+      "title": "7. Now experiment with the Filter Envelope\u2019s attack knob. Notice how",
+      "page": 35
+    },
+    {
+      "title": "8. Now hold down a note and experiment with the Filter Envelope\u2019s",
+      "page": 35
+    },
+    {
+      "title": "11. Continue experimenting with various Filter Envelope settings while",
+      "page": 35
+    },
+    {
+      "title": "Envelope Parameters",
+      "page": 35
+    },
+    {
+      "title": "About the Amp Envelope",
+      "page": 37
+    },
+    {
+      "title": "Envelope 2 parameters",
+      "page": 37
+    },
+    {
+      "title": "2. Repeatedly strike a note on the keyboard as you turn the Amplifier",
+      "page": 38
+    },
+    {
+      "title": "3. Reset the attack parameter to zero (fully counter-clockwise).",
+      "page": 38
+    },
+    {
+      "title": "6. Set the decay parameter to 3 o\u2019clock.",
+      "page": 38
+    },
+    {
+      "title": "Auxiliary Envelope",
+      "page": 38
+    },
+    {
+      "title": "Low Frequency Oscillators",
+      "page": 39
+    },
+    {
+      "title": "Sawtooth",
+      "page": 40
+    },
+    {
+      "title": "LFO waveshapes",
+      "page": 40
+    },
+    {
+      "title": "Global/Mono LFO Versus Per Voice/Poly LFO",
+      "page": 40
+    },
+    {
+      "title": "LFO Parameters",
+      "page": 41
+    },
+    {
+      "title": "Modulation",
+      "page": 43
+    },
+    {
+      "title": "The Modulation assignment controls",
+      "page": 43
+    },
+    {
+      "title": "1. Choose a source.",
+      "page": 44
+    },
+    {
+      "title": "2. Choose a destination.",
+      "page": 44
+    },
+    {
+      "title": "Indicates mod slot number",
+      "page": 44
+    },
+    {
+      "title": "Use this knob to            Use this knob to",
+      "page": 44
+    },
+    {
+      "title": "Mono and Poly Modulation Sources/Destinations",
+      "page": 44
+    },
+    {
+      "title": "Modulation Examples",
+      "page": 45
+    },
+    {
+      "title": "1. In the lfo section, set LFO 1 to triangle and set frequency to a",
+      "page": 45
+    },
+    {
+      "title": "3. Use the value knob to scroll through the various mod sources and",
+      "page": 45
+    },
+    {
+      "title": "4. Use the value knob to set the amount to 30.",
+      "page": 45
+    },
+    {
+      "title": "6. Hold down a note on the keyboard and turn the Mod wheel. You should",
+      "page": 46
+    },
+    {
+      "title": "2. Use the value knob to scroll through the various mod sources and",
+      "page": 46
+    },
+    {
+      "title": "5. Use the value knob to set the amount to your preference. Higher",
+      "page": 46
+    },
+    {
+      "title": "Unison",
+      "page": 47
+    },
+    {
+      "title": "1. Press and hold the unison button.",
+      "page": 47
+    },
+    {
+      "title": "2. With the unison switch held down, use the value knob to choose the",
+      "page": 47
+    },
+    {
+      "title": "Setting the number of Unison voices",
+      "page": 47
+    },
+    {
+      "title": "1. Press program settings button.",
+      "page": 47
+    },
+    {
+      "title": "2. With the select knob, choose the unison detune command",
+      "page": 47
+    },
+    {
+      "title": "3. Use the value knob to set the amount of detuning. A setting of 0 is",
+      "page": 47
+    },
+    {
+      "title": "11. Unison Detune",
+      "page": 47
+    },
+    {
+      "title": "Detuning Unison voices",
+      "page": 47
+    },
+    {
+      "title": "Using Chord Memory",
+      "page": 48
+    },
+    {
+      "title": "1. Hold down a chord on the keyboard (5 notes maximum).",
+      "page": 48
+    },
+    {
+      "title": "2. Press the unison switch. The chord voicing is memorized. Play a few",
+      "page": 48
+    },
+    {
+      "title": "3. If you save the program, the unison chord memory is saved with it.",
+      "page": 48
+    },
+    {
+      "title": "1. Turn off Unison.",
+      "page": 48
+    },
+    {
+      "title": "2. Hold down a single note.",
+      "page": 48
+    },
+    {
+      "title": "3. Press the unison button.",
+      "page": 48
+    },
+    {
+      "title": "4. Save the program again.",
+      "page": 48
+    },
+    {
+      "title": "Effects",
+      "page": 49
+    },
+    {
+      "title": "Effect Types",
+      "page": 49
+    },
+    {
+      "title": "1. Press the effect on/off button to turn it on.",
+      "page": 50
+    },
+    {
+      "title": "3. Turn the depth/mix knob clockwise to blend in the processed signal.",
+      "page": 50
+    },
+    {
+      "title": "1. Press the reverb on/off button to turn it on.",
+      "page": 50
+    },
+    {
+      "title": "2. Turn the mix knob clockwise to blend in the processed signal.",
+      "page": 50
+    },
+    {
+      "title": "3. Use the decay knob to adjust the length of the reverb tail.",
+      "page": 50
+    },
+    {
+      "title": "4. Use the pre-delay knob to adjust the pre-delay.",
+      "page": 50
+    },
+    {
+      "title": "Vintage Knob",
+      "page": 51
+    },
+    {
+      "title": "VINTAGE",
+      "page": 51
+    },
+    {
+      "title": "The Vintage knob",
+      "page": 51
+    },
+    {
+      "title": "Overdrive",
+      "page": 51
+    },
+    {
+      "title": "OVERDRIVE",
+      "page": 51
+    },
+    {
+      "title": "The Overdrive knob",
+      "page": 51
+    },
+    {
+      "title": "Arpeggiator",
+      "page": 52
+    },
+    {
+      "title": "TAP TEMPO              MODE      REPEAT        PLAY",
+      "page": 52
+    },
+    {
+      "title": "The Clock and the Arpeggiator",
+      "page": 52
+    },
+    {
+      "title": "1. Press the Arpeggiator on/off button to turn it on.",
+      "page": 53
+    },
+    {
+      "title": "2. Hold down one or more notes on the keyboard. The Arpeggiator plays",
+      "page": 53
+    },
+    {
+      "title": "4. In the display menu, adjust settings such as mode, octave range,",
+      "page": 53
+    },
+    {
+      "title": "Arpeggiator Momentary Sustain Mode",
+      "page": 53
+    },
+    {
+      "title": "1. Press the global button then use the select knob to scroll to foot",
+      "page": 53
+    },
+    {
+      "title": "2. Use the value knob to select sustain, arp hold, or arp hold mom,",
+      "page": 53
+    },
+    {
+      "title": "MIDI Note Output from the Arpeggiator",
+      "page": 54
+    },
+    {
+      "title": "2. Use the value knob to select on.",
+      "page": 54
+    },
+    {
+      "title": "1. Connect the MIDI or USB output of the Take 5 to the MIDI or USB",
+      "page": 54
+    },
+    {
+      "title": "2. On the Take 5, press the global button, then use the select knob to",
+      "page": 54
+    },
+    {
+      "title": "4. Press the global button again to exit the Global menu.",
+      "page": 54
+    },
+    {
+      "title": "5. On the external device, set the MIDI Channel and MIDI Receive port",
+      "page": 54
+    },
+    {
+      "title": "6. Hold down a chord on the Take 5 or start Sequencer playback. The",
+      "page": 54
+    },
+    {
+      "title": "Arpeggiator Parameters",
+      "page": 55
+    },
+    {
+      "title": "Arp Mode           Behavior",
+      "page": 55
+    },
+    {
+      "title": "Random             Plays notes in random order",
+      "page": 55
+    },
+    {
+      "title": "Clock Parameters",
+      "page": 56
+    },
+    {
+      "title": "Name                 Tempo      Timing Division",
+      "page": 56
+    },
+    {
+      "title": "Step Sequencer",
+      "page": 57
+    },
+    {
+      "title": "1. Press the record button.",
+      "page": 57
+    },
+    {
+      "title": "1. Press play. The sequence begins playback.",
+      "page": 57
+    },
+    {
+      "title": "2. Press and hold record and press a key on the keyboard. Middle C",
+      "page": 57
+    },
+    {
+      "title": "Master Volume/Program Volume",
+      "page": 58
+    },
+    {
+      "title": "15. ProgVolume",
+      "page": 58
+    },
+    {
+      "title": "Setting Program Volume in the program menu",
+      "page": 58
+    },
+    {
+      "title": "1. Choose a program.",
+      "page": 58
+    },
+    {
+      "title": "2. Press the program button to the lower left of the display.",
+      "page": 58
+    },
+    {
+      "title": "3. Use the select knob to locate 18. prog volume.",
+      "page": 58
+    },
+    {
+      "title": "4. Use the value knob to set the volume level. 127 is the default.",
+      "page": 58
+    },
+    {
+      "title": "5. Press the write button twice to save the program.",
+      "page": 58
+    },
+    {
+      "title": "Transpose",
+      "page": 59
+    },
+    {
+      "title": "The Keyboard Transpose controls",
+      "page": 59
+    },
+    {
+      "title": "Hold",
+      "page": 59
+    },
+    {
+      "title": "The Hold button",
+      "page": 59
+    },
+    {
+      "title": "Glide",
+      "page": 60
+    },
+    {
+      "title": "The Glide Controls",
+      "page": 60
+    },
+    {
+      "title": "1. Press the glide button to turn Glide on.",
+      "page": 60
+    },
+    {
+      "title": "2. Play a series of notes up and down the keyboard while you turn the",
+      "page": 60
+    },
+    {
+      "title": "Glide Modes",
+      "page": 60
+    },
+    {
+      "title": "1. Press the program button.",
+      "page": 61
+    },
+    {
+      "title": "2. Use the select knob to locate the glide mode parameter.",
+      "page": 61
+    },
+    {
+      "title": "3. Use the value knob to choose a glide mode.",
+      "page": 61
+    },
+    {
+      "title": "4. Play a series of notes up and down the keyboard to hear the effect.",
+      "page": 61
+    },
+    {
+      "title": "2. Use the select knob to locate the osc 1 glide parameter.",
+      "page": 61
+    },
+    {
+      "title": "6. When you\u2019re finished, press the write button twice to save the",
+      "page": 61
+    },
+    {
+      "title": "Pitch and Mod Wheels",
+      "page": 62
+    },
+    {
+      "title": "PITCH          MOD",
+      "page": 62
+    },
+    {
+      "title": "The Pitch and Modulation wheels",
+      "page": 62
+    },
+    {
+      "title": "Pitch Wheel",
+      "page": 62
+    },
+    {
+      "title": "2. Use the select knob to locate the pitch bend up parameter.",
+      "page": 62
+    },
+    {
+      "title": "3. Use the value knob to choose a bend interval.",
+      "page": 62
+    },
+    {
+      "title": "4. Hold a note and move the Pitch wheel to hear the effect.",
+      "page": 62
+    },
+    {
+      "title": "6. Use the value knob to choose a bend interval.",
+      "page": 62
+    },
+    {
+      "title": "7. Hold a note and move the Pitch wheel to hear the effect.",
+      "page": 62
+    },
+    {
+      "title": "Modulation Wheel",
+      "page": 63
+    },
+    {
+      "title": "5. Use the value knob to set the modulation amount to your preference.",
+      "page": 63
+    },
+    {
+      "title": "Using the Mod Matrix to assign the Mod Wheel",
+      "page": 63
+    },
+    {
+      "title": "Adding Aftertouch",
+      "page": 64
+    },
+    {
+      "title": "1. Press the mod button. The Mod Matrix appears in the display.",
+      "page": 64
+    },
+    {
+      "title": "2. Use the select knob to scroll through the various mod sources and",
+      "page": 64
+    },
+    {
+      "title": "4. Hold down a note on the keyboard. Then, press harder.",
+      "page": 64
+    },
+    {
+      "title": "5. Hold a note and move the Pitch wheel to hear the effect.",
+      "page": 64
+    },
+    {
+      "title": "6. Use the value knob to set the amount to your preference. Higher",
+      "page": 64
+    },
+    {
+      "title": "Use this knob to             Use this knob to",
+      "page": 65
+    },
+    {
+      "title": "Additional Program Menu Items",
+      "page": 65
+    },
+    {
+      "title": "4. Key Mode: Low, High, Last\u2014Key Mode determines what note has",
+      "page": 65
+    },
+    {
+      "title": "18. Program Volume: 0-127\u2014Sets the program-level volume of a patch,",
+      "page": 65
+    },
+    {
+      "title": "25. Scale: Use Global, 1-65\u2014Sets the scale mode for the current",
+      "page": 65
+    },
+    {
+      "title": "Short Version",
+      "page": 66
+    },
+    {
+      "title": "5. Set Oscillator 1\u2019s octave knob to -2.",
+      "page": 66
+    },
+    {
+      "title": "6. Set filter cutoff to zero.",
+      "page": 66
+    },
+    {
+      "title": "7. In the envelopes section, set Envelope 1\u2019s amount fully clockwise.",
+      "page": 66
+    },
+    {
+      "title": "8. Set filter resonance to a 9 o\u2019clock position.",
+      "page": 66
+    },
+    {
+      "title": "9. Play a low note on the keyboard. Instant synth bass!",
+      "page": 66
+    },
+    {
+      "title": "10. Experiment with Envelope 1 (the Filter Envelope) amount and decay",
+      "page": 66
+    },
+    {
+      "title": "Long Version with Explanations",
+      "page": 67
+    },
+    {
+      "title": "1. In the oscillators section, the Sawtooth waveform is selected by",
+      "page": 67
+    },
+    {
+      "title": "2. Select the sawtooth waveshape.",
+      "page": 67
+    },
+    {
+      "title": "1. Press and hold down a key and turn the filter\u2019s cutoff knob. Notice",
+      "page": 68
+    },
+    {
+      "title": "2. Return the cutoff knob to its 12 o\u2019clock position.",
+      "page": 68
+    },
+    {
+      "title": "5. Set the filter cutoff to zero.",
+      "page": 68
+    },
+    {
+      "title": "8. Play some low notes and listen to the sound. Classic synth bass.",
+      "page": 68
+    },
+    {
+      "title": "1. Experiment with the Filter Envelope\u2019s amount knob. Notice how",
+      "page": 68
+    },
+    {
+      "title": "3. Experiment with the Filter Envelope\u2019s cutoff knob.",
+      "page": 68
+    },
+    {
+      "title": "5. Now repeatedly strike a note on the keyboard as you turn the Filter",
+      "page": 69
+    },
+    {
+      "title": "Creating Synth Brass",
+      "page": 69
+    },
+    {
+      "title": "5. In the filter section, set cutoff to a 9 o\u2019clock position.",
+      "page": 69
+    },
+    {
+      "title": "6. Set resonance to a 10 o\u2019clock position.",
+      "page": 69
+    },
+    {
+      "title": "7. Set envelope 1\u2019s, amount to a 3 o\u2019clock position.",
+      "page": 69
+    },
+    {
+      "title": "10. Play some chords and listen to the sound. Classic synth brass.",
+      "page": 69
+    },
+    {
+      "title": "11. Use the vintage knob to make the brass sound even more organic by",
+      "page": 69
+    },
+    {
+      "title": "1. In the mod section, press the source button.",
+      "page": 70
+    },
+    {
+      "title": "6. Play some notes in the upper range of the keyboard. Classic synth",
+      "page": 70
+    },
+    {
+      "title": "7. Experiment with different envelope amount and decay settings.",
+      "page": 70
+    },
+    {
+      "title": "Turning Synth Brass into a String Pad",
+      "page": 71
+    },
+    {
+      "title": "2. In the filter section, set the cutoff to 12 o\u2019clock.",
+      "page": 71
+    },
+    {
+      "title": "3. In the env 1 (Filter) section, set the amount to 2 o\u2019clock",
+      "page": 71
+    },
+    {
+      "title": "6. Play some chords. You\u2019ve now got a good basic string pad.",
+      "page": 71
+    },
+    {
+      "title": "Making the String Pad More Lush",
+      "page": 71
+    },
+    {
+      "title": "3. In the Mixer section, set the osc 1 sub knob to 1 o\u2019clock.",
+      "page": 71
+    },
+    {
+      "title": "5. Set the amount parameter to +8.",
+      "page": 71
+    },
+    {
+      "title": "6. On lfo 1: global, set frequency to 10 o\u2019clock.",
+      "page": 71
+    },
+    {
+      "title": "8. Set the amount parameter to -39.",
+      "page": 71
+    },
+    {
+      "title": "9. On lfo 1: global, set frequency to 9 o\u2019clock.",
+      "page": 71
+    },
+    {
+      "title": "10. Play some chords and listen to the sound.",
+      "page": 71
+    },
+    {
+      "title": "Adding Effects to the String Pad",
+      "page": 72
+    },
+    {
+      "title": "1. In the effect section, press the on button.",
+      "page": 72
+    },
+    {
+      "title": "2. Turn the type knob and choose phaser.",
+      "page": 72
+    },
+    {
+      "title": "3. Set time to 8 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "4. Set depth/mix to 12 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "5. Set feedback/misc to 12 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "6. Set depth/mix to 12 o\u2019clock",
+      "page": 72
+    },
+    {
+      "title": "Adding Reverb to the String Pad",
+      "page": 72
+    },
+    {
+      "title": "1. In the reverb section, press the on button.",
+      "page": 72
+    },
+    {
+      "title": "2. Turn the mix knob to 10 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "3. Set damping to 2 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "4. Set predelay to 2 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "5. Set decay to 3 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "6. Set tone to 11 o\u2019clock.",
+      "page": 72
+    },
+    {
+      "title": "7. Play some chords. Experiment with the decay, predelay, and tone",
+      "page": 72
+    },
+    {
+      "title": "Creating a Hard-Sync Lead",
+      "page": 73
+    },
+    {
+      "title": "4. In the oscillators section, set both oscillators to sawtooth.",
+      "page": 73
+    },
+    {
+      "title": "5. Enable the sync 2-1 button. (See page 19 for an explanation of hard",
+      "page": 73
+    },
+    {
+      "title": "8. In the envelope section, set the envelopes to env 1: aux and env 2",
+      "page": 73
+    },
+    {
+      "title": "10. Set the amount to 127.",
+      "page": 73
+    },
+    {
+      "title": "11. Set the destination to osc1 fine.",
+      "page": 73
+    },
+    {
+      "title": "14. Play some notes. Classic hard-sync lead!",
+      "page": 73
+    },
+    {
+      "title": "15. Experiment with Envelope 1\u2019s Attack, Decay, Sustain, and Release",
+      "page": 73
+    },
+    {
+      "title": "Use this knob to              Use this knob to",
+      "page": 74
+    },
+    {
+      "title": "Adding Effects to the Lead",
+      "page": 74
+    },
+    {
+      "title": "1. In the effects section, press the effect 1 button.",
+      "page": 74
+    },
+    {
+      "title": "2. Use the type knob to select delay.",
+      "page": 74
+    },
+    {
+      "title": "3. Set time to 12 o\u2019clock.",
+      "page": 74
+    },
+    {
+      "title": "4. Set depth/mix to 9 o\u2019clock.",
+      "page": 74
+    },
+    {
+      "title": "5. Set feedback/misc to 9 o\u2019clock.",
+      "page": 74
+    },
+    {
+      "title": "6. Play some notes. Perfect hard-sync lead!",
+      "page": 74
+    },
+    {
+      "title": "A Final Word",
+      "page": 75
+    },
+    {
+      "title": "Modulation Sources",
+      "page": 76
+    },
+    {
+      "title": "No Source",
+      "page": 76
+    },
+    {
+      "title": "Osc 2",
+      "page": 76
+    },
+    {
+      "title": "Noise",
+      "page": 76
+    },
+    {
+      "title": "LFO 1",
+      "page": 76
+    },
+    {
+      "title": "LFO 2",
+      "page": 76
+    },
+    {
+      "title": "Env 1",
+      "page": 76
+    },
+    {
+      "title": "Env 2",
+      "page": 76
+    },
+    {
+      "title": "Voice Spread",
+      "page": 76
+    },
+    {
+      "title": "Pitch Bend",
+      "page": 76
+    },
+    {
+      "title": "Mod Wheel",
+      "page": 76
+    },
+    {
+      "title": "Pressure",
+      "page": 76
+    },
+    {
+      "title": "Breath",
+      "page": 76
+    },
+    {
+      "title": "Foot Pedal",
+      "page": 76
+    },
+    {
+      "title": "Expression Pedal",
+      "page": 76
+    },
+    {
+      "title": "Velocity",
+      "page": 76
+    },
+    {
+      "title": "Note Number",
+      "page": 76
+    },
+    {
+      "title": "Filter Out",
+      "page": 76
+    },
+    {
+      "title": "Random",
+      "page": 76
+    },
+    {
+      "title": "Audio Out",
+      "page": 76
+    },
+    {
+      "title": "Modulation Destinations",
+      "page": 77
+    },
+    {
+      "title": "No Dest                  LFO 1 Amt",
+      "page": 77
+    },
+    {
+      "title": "Osc 1 Octave             LFO 2 Amt",
+      "page": 77
+    },
+    {
+      "title": "Osc 2 Octave             LFO All Amt",
+      "page": 77
+    },
+    {
+      "title": "Osc 1 Fine Freq          Env 1 Amt",
+      "page": 77
+    },
+    {
+      "title": "Osc 2 Fine Freq          Env 2 Amt",
+      "page": 77
+    },
+    {
+      "title": "Osc All Fine Freq        Env 1 Attack",
+      "page": 77
+    },
+    {
+      "title": "Osc 1 Shape              Env 2 Attack",
+      "page": 77
+    },
+    {
+      "title": "Osc 2 Shape              Env 1 Decay",
+      "page": 77
+    },
+    {
+      "title": "Osc All Shape            Env 2 Decay",
+      "page": 77
+    },
+    {
+      "title": "Osc 1 Level              Env 1 Release",
+      "page": 77
+    },
+    {
+      "title": "Osc 2 Level              Env 2 Release",
+      "page": 77
+    },
+    {
+      "title": "Osc FM Level             Mod 1 Amount",
+      "page": 77
+    },
+    {
+      "title": "Sub Level                Mod 2 Amount",
+      "page": 77
+    },
+    {
+      "title": "Noise                    Mod 3 Amount",
+      "page": 77
+    },
+    {
+      "title": "Drive                    Mod 4 Amount",
+      "page": 77
+    },
+    {
+      "title": "Cutoff                   Mod 5 Amount",
+      "page": 77
+    },
+    {
+      "title": "Resonance                Mod 6 Amount",
+      "page": 77
+    },
+    {
+      "title": "Overdrive                Mod 7 Amount",
+      "page": 77
+    },
+    {
+      "title": "Panning                  Mod 8 Amount",
+      "page": 77
+    },
+    {
+      "title": "FX Mix                   Mod 9 Amount",
+      "page": 77
+    },
+    {
+      "title": "FX Time                  Mod 10 Amount",
+      "page": 77
+    },
+    {
+      "title": "FX Misc                  Mod 11 Amount",
+      "page": 77
+    },
+    {
+      "title": "Reverb Mix               Mod 12 Amount",
+      "page": 77
+    },
+    {
+      "title": "Reverb Size              Mod 13 Amount",
+      "page": 77
+    },
+    {
+      "title": "Reverb PreDelay          Mod 14 Amount",
+      "page": 77
+    },
+    {
+      "title": "Reverb Decay             Mod 15 Amount",
+      "page": 77
+    },
+    {
+      "title": "Reverb Tone              Mod 16 Amount",
+      "page": 77
+    },
+    {
+      "title": "LFO 1 Freq               Vintage Amount",
+      "page": 77
+    },
+    {
+      "title": "LFO 2 Freq",
+      "page": 77
+    },
+    {
+      "title": "LFO All Freq",
+      "page": 77
+    },
+    {
+      "title": "Troubleshooting",
+      "page": 78
+    },
+    {
+      "title": "1. Recall the Basic Program. (Global>BasicProgram>Write)",
+      "page": 78
+    },
+    {
+      "title": "2. If the problem is still there, check the following:",
+      "page": 78
+    },
+    {
+      "title": "Resetting the Global Parameters",
+      "page": 80
+    },
+    {
+      "title": "Contacting Technical Support",
+      "page": 80
+    },
+    {
+      "title": "Warranty Repair",
+      "page": 81
+    },
+    {
+      "title": "Calibrating the VCOs and Filters",
+      "page": 82
+    },
+    {
+      "title": "2. Use the select knob to select cal voices, then press write.",
+      "page": 82
+    },
+    {
+      "title": "Calibrating the Pitch and Mod Wheels",
+      "page": 82
+    },
+    {
+      "title": "Programs and Banks",
+      "page": 83
+    },
+    {
+      "title": "1. Connect your synthesizer to a computer using a USB cable.",
+      "page": 83
+    },
+    {
+      "title": "3. Press the global button on the Take 5.",
+      "page": 83
+    },
+    {
+      "title": "5. Use the select knob to select dump preset, dump bank, or dump all",
+      "page": 83
+    },
+    {
+      "title": "6. Press write. The program or bank is exported.",
+      "page": 83
+    },
+    {
+      "title": "1. Connect two Take 5 synthesizers together using MIDI cables and the",
+      "page": 83
+    },
+    {
+      "title": "5. Press write. The program or bank is exported to the other Take 5.",
+      "page": 84
+    },
+    {
+      "title": "Importing Programs and Banks",
+      "page": 84
+    },
+    {
+      "title": "1. Connect your synthesizer to a computer using a USB cable (or MIDI",
+      "page": 84
+    },
+    {
+      "title": "2. Press the global button on the Take 5.",
+      "page": 84
+    },
+    {
+      "title": "3. Use the select knob to select midi sysex cable, then use the value",
+      "page": 84
+    },
+    {
+      "title": "4. Open your MIDI librarian software and configure it to send SysEx",
+      "page": 84
+    },
+    {
+      "title": "2. Harmonic Series",
+      "page": 85
+    },
+    {
+      "title": "3. Carlos Harmonic Twelve Tone",
+      "page": 85
+    },
+    {
+      "title": "4. Meantone Temperament",
+      "page": 85
+    },
+    {
+      "title": "8. Pythagorean C",
+      "page": 86
+    },
+    {
+      "title": "9. Just Intonation in A with 7-Limit Tritone at D#",
+      "page": 86
+    },
+    {
+      "title": "12. Other Music 7-Limit Black Keys in C",
+      "page": 86
+    },
+    {
+      "title": "13. Dan Schmidt Pelog/Slendro",
+      "page": 87
+    },
+    {
+      "title": "14. Yamaha Just Major C",
+      "page": 87
+    },
+    {
+      "title": "15. Yamaha Just Minor C",
+      "page": 87
+    },
+    {
+      "title": "16. Harry Partch 11-Limit 43 Note Just Intonation",
+      "page": 87
+    },
+    {
+      "title": "17. Arabic 12-Tone",
+      "page": 88
+    },
+    {
+      "title": "20. Terry Riley\u2019s Harp of New Albion scale, Inverse Malcolm\u2019s",
+      "page": 90
+    },
+    {
+      "title": "Monochord",
+      "page": 90
+    },
+    {
+      "title": "21. Lute tuning of Giovanni Maria Artusi (1603). 1/4-comma w.",
+      "page": 90
+    },
+    {
+      "title": "23. Bulgarian Bagpipe tuning, Empirically Measured.",
+      "page": 91
+    },
+    {
+      "title": "24. Wendy Carlos\u2019 Alpha Scale with Perfect Fifth Divided in",
+      "page": 92
+    },
+    {
+      "title": "25. Wendy Carlos\u2019 Beta Scale with Perfect Fifth Divided by",
+      "page": 93
+    },
+    {
+      "title": "26. Wendy Carlos\u2019 Gamma Scale with Third Divided by Eleven",
+      "page": 94
+    },
+    {
+      "title": "27. Carlos Super Just",
+      "page": 95
+    },
+    {
+      "title": "28. Jon Catler 24-tone JI from \u201cOver and Under the 13 Limit\u201d",
+      "page": 95
+    },
+    {
+      "title": "29. John Chalmers JI-1, Based loosely on Wronski\u2019s and simi-",
+      "page": 96
+    },
+    {
+      "title": "30. John Chalmers JI-3, 15 16 17 18 19 20 21 on 1/1, 15-20 on",
+      "page": 96
+    },
+    {
+      "title": "31. John Chalmers JI-4, 15 16 17 18 19 20 on 1/1, same on 4/3,",
+      "page": 97
+    },
+    {
+      "title": "32. Chinese scale, 4th century",
+      "page": 97
+    },
+    {
+      "title": "33. Chinese Lu scale by Huai Nan Zi, Han era. (P. Amiot 1780,",
+      "page": 98
+    },
+    {
+      "title": "34. Colonna 1",
+      "page": 98
+    },
+    {
+      "title": "35. Colonna 2 - Second 12 Note Subset of the Colonna Scale",
+      "page": 99
+    },
+    {
+      "title": "36. Ivor Darreg\u2019s 19 ratios in 5-limit JI for his Megalyra Family",
+      "page": 99
+    },
+    {
+      "title": "37. Dorian Diatonic Tonos",
+      "page": 100
+    },
+    {
+      "title": "38. Almost Equal 12-tone Subset of Duodenarium",
+      "page": 100
+    },
+    {
+      "title": "39. Ellis\u2019s Just Harmonium",
+      "page": 101
+    },
+    {
+      "title": "40. Bali/Java Slendro, Siam 7, empirical",
+      "page": 101
+    },
+    {
+      "title": "41. Tibetian Ceremonial, empirical",
+      "page": 102
+    },
+    {
+      "title": "42. Erlangen, revised",
+      "page": 102
+    },
+    {
+      "title": "43. Euler - Monochord (1739)",
+      "page": 103
+    },
+    {
+      "title": "44. Fokker\u2019s 7-limit 12-tone Just Scale",
+      "page": 103
+    },
+    {
+      "title": "45. Bagpipe tuning from Fortuna (\u201cTry Key of G with F Natural\u201d)",
+      "page": 104
+    },
+    {
+      "title": "46. Gamelan Udan Mas (approx) s6,p6,p7,s1,p1,s2,p2,p3,s3,p",
+      "page": 104
+    },
+    {
+      "title": "47. Kraig Grady\u2019s 7-limit \u201cCentaur\u201d Scale, 1987.",
+      "page": 105
+    },
+    {
+      "title": "48. Harmonics 1 to 12 and Subharmonics Mixed",
+      "page": 105
+    },
+    {
+      "title": "49. Michael Harrison, Ppiano Tuning for \u201cRevelation\u201d (2001)",
+      "page": 106
+    },
+    {
+      "title": "50. Helmholtz\u2019s two-keyboard Harmonium Tuning Untempered,",
+      "page": 107
+    },
+    {
+      "title": "51. North Indian Gamut, Modern Hindustani 12 Selected from",
+      "page": 108
+    },
+    {
+      "title": "52. Carnatic Gamut. Kuppuswami: Carnatic Music and the",
+      "page": 108
+    },
+    {
+      "title": "53. Observed South Indian Tuning of a vina, Ellis",
+      "page": 109
+    },
+    {
+      "title": "55. Alternate 7-limit 12-tone Scale",
+      "page": 110
+    },
+    {
+      "title": "56. Kurzweil \u201cJust with Natural b7th\u201d, is Sauveur Just with 7/4",
+      "page": 110
+    },
+    {
+      "title": "60. Rousseau\u2019s Monochord, Dictionnaire de musique (1768)",
+      "page": 113
+    },
+    {
+      "title": "61. Persian santur tuning. 1/1=E in Original",
+      "page": 114
+    },
+    {
+      "title": "62. Vallotti & Young (Vallotti Version)",
+      "page": 114
+    },
+    {
+      "title": "63. LaMonte Young, Tuning of For Guitar \u201858. 1/1 March \u201892,",
+      "page": 115
+    },
+    {
+      "title": "64. LaMonte Young\u2019s Well-Tuned Piano",
+      "page": 115
+    },
+    {
+      "title": "65. Thomas Young - well temperament (1807). Also Luigi",
+      "page": 116
+    }
+  ]
+}

@@ -1,0 +1,1609 @@
+{
+  "manual": "Digitakt-User-Manual_ENG_OS1.52A.pdf",
+  "pdf_path": "instruments/elektron-digitakt-mk1/manuals/Digitakt-User-Manual_ENG_OS1.52A.pdf",
+  "txt_path": "instruments/elektron-digitakt-mk1/manuals/Digitakt-User-Manual_ENG_OS1.52A.txt",
+  "indexed_at": "2026-04-22T14:27:22.380101",
+  "page_count": 96,
+  "sections": [
+    {
+      "title": "Digitakt",
+      "page": 1
+    },
+    {
+      "title": "User Manual",
+      "page": 1
+    },
+    {
+      "title": "FCC compliance statement",
+      "page": 2
+    },
+    {
+      "title": "Canada",
+      "page": 2
+    },
+    {
+      "title": "European Union regulation compliance statement",
+      "page": 2
+    },
+    {
+      "title": "Legal disclaimer",
+      "page": 2
+    },
+    {
+      "title": "IMPORTANT SAFETY AND MAINTENANCE INSTRUCTIONS",
+      "page": 3
+    },
+    {
+      "title": "1. Do not use this unit near water.",
+      "page": 3
+    },
+    {
+      "title": "10. Only use attachments/accessories specified by the manufacturer.",
+      "page": 3
+    },
+    {
+      "title": "WARNING",
+      "page": 3
+    },
+    {
+      "title": "SOUND PEAKS",
+      "page": 3
+    },
+    {
+      "title": "SAFETY INSTRUCTIONS FOR THE POWER ADAPTER",
+      "page": 3
+    },
+    {
+      "title": "RESTART",
+      "page": 3
+    },
+    {
+      "title": "TABLE OF CONTENTS",
+      "page": 4
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "page": 10
+    },
+    {
+      "title": "1.1 CONVENTIONS IN THIS MANUAL",
+      "page": 10
+    },
+    {
+      "title": "Make up   Dry/Wet    Output",
+      "page": 10
+    },
+    {
+      "title": "Gain       Mix",
+      "page": 10
+    },
+    {
+      "title": "2. THE DIGITAKT",
+      "page": 11
+    },
+    {
+      "title": "The Elektron Team",
+      "page": 11
+    },
+    {
+      "title": "3. PANEL LAYOUT AND CONNECTORS",
+      "page": 12
+    },
+    {
+      "title": "3.1 FRONT PANEL",
+      "page": 12
+    },
+    {
+      "title": "Sync A             Sync B",
+      "page": 12
+    },
+    {
+      "title": "Level/Data",
+      "page": 12
+    },
+    {
+      "title": "Sound Browser",
+      "page": 12
+    },
+    {
+      "title": "FUNC",
+      "page": 12
+    },
+    {
+      "title": "Metronome",
+      "page": 12
+    },
+    {
+      "title": "Quick",
+      "page": 12
+    },
+    {
+      "title": "Mute    13",
+      "page": 12
+    },
+    {
+      "title": "Mute Mode",
+      "page": 12
+    },
+    {
+      "title": "2. Screen.",
+      "page": 12
+    },
+    {
+      "title": "3.2 REAR CONNECTORS",
+      "page": 14
+    },
+    {
+      "title": "1. POWER, Switch for turning the unit on and off.",
+      "page": 14
+    },
+    {
+      "title": "3.3 SETTING UP AND STARTING THE DIGITAKT",
+      "page": 14
+    },
+    {
+      "title": "2. Connect OUTPUT L/R from the Digitakt to your mixer or amplifier.",
+      "page": 14
+    },
+    {
+      "title": "4. DIGITAKT SOUND ARCHITECTURE",
+      "page": 15
+    },
+    {
+      "title": "4.1 AUDIO VOICES                        FILTER",
+      "page": 15
+    },
+    {
+      "title": "ENVELOPE",
+      "page": 15
+    },
+    {
+      "title": "SAMPLE          OVER-               MULTIMODE",
+      "page": 15
+    },
+    {
+      "title": "PAN                            TO MIXER",
+      "page": 15
+    },
+    {
+      "title": "DRIVE                 FILTER  ENVELOPE",
+      "page": 15
+    },
+    {
+      "title": "ENGINE",
+      "page": 15
+    },
+    {
+      "title": "SAMPLE          OVER-",
+      "page": 15
+    },
+    {
+      "title": "PLAYBACK                    AMP BASE-WIDTH",
+      "page": 15
+    },
+    {
+      "title": "AMP",
+      "page": 15
+    },
+    {
+      "title": "MULTIMODE",
+      "page": 15
+    },
+    {
+      "title": "DELAY    PAN   REVERB                  TO MIXER",
+      "page": 15
+    },
+    {
+      "title": "DRIVE           FILTER/EQ",
+      "page": 15
+    },
+    {
+      "title": "ENVELOPE                    FILTER",
+      "page": 15
+    },
+    {
+      "title": "SEND            SEND",
+      "page": 15
+    },
+    {
+      "title": "LFO                ENVELOPE",
+      "page": 15
+    },
+    {
+      "title": "FADE",
+      "page": 15
+    },
+    {
+      "title": "LFO",
+      "page": 15
+    },
+    {
+      "title": "ENVELOPE        DESTINATION",
+      "page": 15
+    },
+    {
+      "title": "4.2 EFFECTS",
+      "page": 15
+    },
+    {
+      "title": "FROM EFFECT SENDS",
+      "page": 15
+    },
+    {
+      "title": "DELAYEFFECT SENDS",
+      "page": 15
+    },
+    {
+      "title": "FROM                         TO MIXER",
+      "page": 15
+    },
+    {
+      "title": "REVERB",
+      "page": 15
+    },
+    {
+      "title": "DELAY           SEND        TO MIXER",
+      "page": 15
+    },
+    {
+      "title": "SEND TO MIXER OR OUTPUTS L/R",
+      "page": 15
+    },
+    {
+      "title": "REVERB   TO MIXER OR OUTPUTS L/R",
+      "page": 15
+    },
+    {
+      "title": "DELAY RETURNS              FROM USB",
+      "page": 15
+    },
+    {
+      "title": "FROM AUDIO VOICES          DELAY RETURNS",
+      "page": 15
+    },
+    {
+      "title": "MIXER             COMPRESSOR           OUTPUTS L/R",
+      "page": 15
+    },
+    {
+      "title": "FROM INPUT L/R",
+      "page": 15
+    },
+    {
+      "title": "PRE COMP           POST COMP",
+      "page": 15
+    },
+    {
+      "title": "REVERB RETURNS",
+      "page": 15
+    },
+    {
+      "title": "5. OVERVIEW OF THE DIGITAKT DATA STRUCTURE",
+      "page": 16
+    },
+    {
+      "title": "PROJECT",
+      "page": 16
+    },
+    {
+      "title": "5.2 DATA STRUCTURE",
+      "page": 16
+    },
+    {
+      "title": "5.3 ABOUT THE TRACKS",
+      "page": 17
+    },
+    {
+      "title": "6. INTERACTING WITH THE DIGITAKT",
+      "page": 18
+    },
+    {
+      "title": "1. The current bank and pattern.",
+      "page": 18
+    },
+    {
+      "title": "2. The current pattern name.",
+      "page": 18
+    },
+    {
+      "title": "3. The current tempo.",
+      "page": 18
+    },
+    {
+      "title": "6. The current active track.",
+      "page": 18
+    },
+    {
+      "title": "7. Track type. Audio (SMP) track or MIDI (MID) track.",
+      "page": 18
+    },
+    {
+      "title": "6.1 SCREEN NAVIGATION",
+      "page": 18
+    },
+    {
+      "title": "6.2 PARAMETER EDITING",
+      "page": 18
+    },
+    {
+      "title": "6.3 QUICK SCROLLING",
+      "page": 19
+    },
+    {
+      "title": "6.4 COPY, CLEAR, AND PASTE",
+      "page": 19
+    },
+    {
+      "title": "6.5 THE NAMING SCREEN",
+      "page": 19
+    },
+    {
+      "title": "6.6 OVERBRIDGE",
+      "page": 20
+    },
+    {
+      "title": "6.7 CLASS COMPLIANT DEVICE",
+      "page": 20
+    },
+    {
+      "title": "6.8 BACKING UP THE DIGITAKT",
+      "page": 20
+    },
+    {
+      "title": "1. Connect the Elektron device to the computer via USB.",
+      "page": 20
+    },
+    {
+      "title": "3. In Transfer, click the EXPLORE tab to open the EXPLORE page.",
+      "page": 20
+    },
+    {
+      "title": "7. QUICK START",
+      "page": 21
+    },
+    {
+      "title": "7.1 PLAYING THE FACTORY PRESETS",
+      "page": 21
+    },
+    {
+      "title": "2. Press [TRIG 1] key to select the first pattern of bank A.",
+      "page": 21
+    },
+    {
+      "title": "3. Press [PLAY] to listen to pattern A01.",
+      "page": 21
+    },
+    {
+      "title": "5. Press [STOP] to stop playback.",
+      "page": 21
+    },
+    {
+      "title": "1. Make sure a pattern is playing.",
+      "page": 21
+    },
+    {
+      "title": "2. Press the [FUNC] + [BANK] key to enter MUTE mode.",
+      "page": 21
+    },
+    {
+      "title": "7.2 SAMPLING FROM THE EXTERNAL INPUTS",
+      "page": 22
+    },
+    {
+      "title": "1. Connect your audio source to the INPUT L/R inputs of the Digitakt.",
+      "page": 22
+    },
+    {
+      "title": "5. Use RLEN to set the length of the sampling.",
+      "page": 22
+    },
+    {
+      "title": "9. Press [YES] to save the sample.",
+      "page": 22
+    },
+    {
+      "title": "8. DIGITAKT CONTROLS",
+      "page": 23
+    },
+    {
+      "title": "8.1 TRIG KEYS",
+      "page": 23
+    },
+    {
+      "title": "8.2 ROTARY ENCODERS",
+      "page": 23
+    },
+    {
+      "title": "8.3 KEY BEHAVIOR",
+      "page": 23
+    },
+    {
+      "title": "8.4 MIDI NOTES",
+      "page": 23
+    },
+    {
+      "title": "8.5 MODES",
+      "page": 23
+    },
+    {
+      "title": "9. PATTERNS, KITS, SOUNDS, AND SAMPLES",
+      "page": 26
+    },
+    {
+      "title": "9.1 THE +DRIVE SOUND LIBRARY AND THE SOUND POOL",
+      "page": 26
+    },
+    {
+      "title": "1. Press [FUNC] + [SONG MODE] to open the IMPORT/EXPORT menu.",
+      "page": 26
+    },
+    {
+      "title": "4. Press [RIGHT] to open the SOUND OPERATIONS menu.",
+      "page": 27
+    },
+    {
+      "title": "5. Select COPY TO ... and then press [YES].",
+      "page": 27
+    },
+    {
+      "title": "6. Select SOUND POOL, and then press [YES].",
+      "page": 27
+    },
+    {
+      "title": "9.2 SOUND BROWSER",
+      "page": 27
+    },
+    {
+      "title": "9.3 SOUND MANAGER",
+      "page": 27
+    },
+    {
+      "title": "9.4 PLAYING A SOUND",
+      "page": 29
+    },
+    {
+      "title": "PLAYING A SOUND WITH AN EXTERNAL MIDI UNIT",
+      "page": 29
+    },
+    {
+      "title": "9.5 EDITING A SOUND",
+      "page": 29
+    },
+    {
+      "title": "9.6 SAVING A SOUND",
+      "page": 29
+    },
+    {
+      "title": "2. Select EXPORT SOUND, and then press [YES].",
+      "page": 29
+    },
+    {
+      "title": "9.7 ASSIGNING A SAMPLE",
+      "page": 30
+    },
+    {
+      "title": "2. Press [SRC] to open the SOURCE parameter page.",
+      "page": 30
+    },
+    {
+      "title": "3. Turn DATA ENTRY knob D to bring up a list of samples.",
+      "page": 30
+    },
+    {
+      "title": "10. THE SEQUENCER",
+      "page": 31
+    },
+    {
+      "title": "10.1 BASIC PATTERN OPERATIONS",
+      "page": 31
+    },
+    {
+      "title": "10.2 EDITING A PATTERN",
+      "page": 31
+    },
+    {
+      "title": "5. Press [PLAY] to listen to the sequence.",
+      "page": 32
+    },
+    {
+      "title": "4. Press [STOP] to stop both recording and playback of the sequencer.",
+      "page": 33
+    },
+    {
+      "title": "STANDARD mode",
+      "page": 33
+    },
+    {
+      "title": "5. Press [FUNC] + [TRK] to toggle the chromatic mode keyboard on",
+      "page": 33
+    },
+    {
+      "title": "9. Press [RECORD] to exit STEP RECORDING mode.",
+      "page": 33
+    },
+    {
+      "title": "JUMP mode",
+      "page": 33
+    },
+    {
+      "title": "10.3 MICRO TIMING MENU",
+      "page": 34
+    },
+    {
+      "title": "10.4 RETRIG MENU",
+      "page": 34
+    },
+    {
+      "title": "10.5 TRIG PARAMETERS PAGE",
+      "page": 35
+    },
+    {
+      "title": "10.6 QUANTIZE MENU",
+      "page": 35
+    },
+    {
+      "title": "10.7 METRONOME MENU",
+      "page": 35
+    },
+    {
+      "title": "10.8 SCALE MENU",
+      "page": 35
+    },
+    {
+      "title": "10.9 SEQUENCER FEATURES",
+      "page": 37
+    },
+    {
+      "title": "1. Press [RECORD] to enter GRID RECORDING mode.",
+      "page": 37
+    },
+    {
+      "title": "ADDING A CONDITIONAL LOCK",
+      "page": 38
+    },
+    {
+      "title": "10.10 CHAINS",
+      "page": 40
+    },
+    {
+      "title": "1. Press [BANK] + [TRIG 9\u201316] key to select bank.",
+      "page": 40
+    },
+    {
+      "title": "10.11 SONG MODE",
+      "page": 40
+    },
+    {
+      "title": "1. SONG ROW (Range 01\u201399)",
+      "page": 41
+    },
+    {
+      "title": "12. SONG SLOT and SONG NAME.",
+      "page": 41
+    },
+    {
+      "title": "2. Press [SONG MODE] + [RIGHT] to open the SONG EDIT screen.",
+      "page": 41
+    },
+    {
+      "title": "7. Press [NO] to exit the SONG EDIT screen.",
+      "page": 42
+    },
+    {
+      "title": "SONG mode and",
+      "page": 42
+    },
+    {
+      "title": "11. AUDIO TRACK PARAMETERS",
+      "page": 43
+    },
+    {
+      "title": "11.1 EDITING THE AUDIO TRACK PARAMETERS",
+      "page": 43
+    },
+    {
+      "title": "11.2 TRIG PARAMETERS PAGE",
+      "page": 43
+    },
+    {
+      "title": "11.3 SRC PAGE",
+      "page": 44
+    },
+    {
+      "title": "11.4 FLTR PAGE 1",
+      "page": 44
+    },
+    {
+      "title": "AMPLITUDE",
+      "page": 45
+    },
+    {
+      "title": "Delay",
+      "page": 45
+    },
+    {
+      "title": "Sustain",
+      "page": 45
+    },
+    {
+      "title": "TIME",
+      "page": 45
+    },
+    {
+      "title": "11.5 FLTR PAGE 2",
+      "page": 45
+    },
+    {
+      "title": "11.6 AMP PAGE",
+      "page": 46
+    },
+    {
+      "title": "Attack   Hold      Decay",
+      "page": 47
+    },
+    {
+      "title": "Attack                     Decay",
+      "page": 47
+    },
+    {
+      "title": "Hold",
+      "page": 47
+    },
+    {
+      "title": "Attack",
+      "page": 47
+    },
+    {
+      "title": "11.7 LFO PAGE 1",
+      "page": 47
+    },
+    {
+      "title": "11.8 LFO PAGE 2",
+      "page": 48
+    },
+    {
+      "title": "TRI",
+      "page": 48
+    },
+    {
+      "title": "SIN",
+      "page": 48
+    },
+    {
+      "title": "SQR",
+      "page": 48
+    },
+    {
+      "title": "WAVEFORM",
+      "page": 48
+    },
+    {
+      "title": "SAW",
+      "page": 48
+    },
+    {
+      "title": "EXP",
+      "page": 48
+    },
+    {
+      "title": "RMP",
+      "page": 48
+    },
+    {
+      "title": "RND",
+      "page": 48
+    },
+    {
+      "title": "MULT",
+      "page": 49
+    },
+    {
+      "title": "12. MIDI TRACK PARAMETERS",
+      "page": 50
+    },
+    {
+      "title": "12.1 EDITING THE MIDI TRACK PARAMETERS",
+      "page": 50
+    },
+    {
+      "title": "12.2 TRIG PARAMETERS PAGE",
+      "page": 50
+    },
+    {
+      "title": "12.3 SRC PAGE",
+      "page": 51
+    },
+    {
+      "title": "12.4 FLTR PAGE (CC VALUE)",
+      "page": 51
+    },
+    {
+      "title": "12.5 AMP PAGE (CC SELECT)",
+      "page": 52
+    },
+    {
+      "title": "12.6 LFO PAGE",
+      "page": 52
+    },
+    {
+      "title": "13. FX AND MIXER PARAMETERS",
+      "page": 54
+    },
+    {
+      "title": "13.1 EDITING THE FX PARAMETERS",
+      "page": 54
+    },
+    {
+      "title": "13.2 DELAY",
+      "page": 54
+    },
+    {
+      "title": "TIME setting    Divide ratio",
+      "page": 54
+    },
+    {
+      "title": "13.3 REVERB",
+      "page": 55
+    },
+    {
+      "title": "13.4 COMPRESSOR (MASTER PAGE 1)",
+      "page": 56
+    },
+    {
+      "title": "The Digitakt compressor",
+      "page": 57
+    },
+    {
+      "title": "Sidechain  Filter   Gain   Dynamics",
+      "page": 57
+    },
+    {
+      "title": "Control",
+      "page": 57
+    },
+    {
+      "title": "Signal",
+      "page": 57
+    },
+    {
+      "title": "13.5 INTERNAL MIXER (MASTER PAGE 2)",
+      "page": 57
+    },
+    {
+      "title": "13.6 EXTERNAL MIXER (MASTER PAGE 3)",
+      "page": 58
+    },
+    {
+      "title": "14. SAMPLING",
+      "page": 59
+    },
+    {
+      "title": "14.1 SAMPLING MENU",
+      "page": 59
+    },
+    {
+      "title": "14.2 SAMPLING AUDIO",
+      "page": 60
+    },
+    {
+      "title": "1. If you use an external audio source, connect it to the Digitakt.",
+      "page": 60
+    },
+    {
+      "title": "14.3 DIRECT SAMPLING",
+      "page": 60
+    },
+    {
+      "title": "14.4 ASSIGNING A SAMPLE TO A TRACK FROM THE +DRIVE",
+      "page": 61
+    },
+    {
+      "title": "4. Press [YES] to confirm.",
+      "page": 61
+    },
+    {
+      "title": "5. Press [SETTINGS] to exit SETTINGS menu.",
+      "page": 61
+    },
+    {
+      "title": "8. Press [YES] to load the sample to the track.",
+      "page": 61
+    },
+    {
+      "title": "14.5 SAMPLE PLAYBACK",
+      "page": 61
+    },
+    {
+      "title": "1. Press [SRC] to access the SOURCE page.",
+      "page": 61
+    },
+    {
+      "title": "2. Use DATA ENTRY knob B to set the PLAY MODE behavior of the sample.",
+      "page": 61
+    },
+    {
+      "title": "15. SETTINGS MENU",
+      "page": 62
+    },
+    {
+      "title": "15.1 PROJECT",
+      "page": 62
+    },
+    {
+      "title": "15.2 SAMPLES",
+      "page": 63
+    },
+    {
+      "title": "1. Press [SETTINGS], and then open the SAMPLES menu.",
+      "page": 63
+    },
+    {
+      "title": "5. Select LOAD TO PROJ and press [YES].",
+      "page": 63
+    },
+    {
+      "title": "3. Press [FUNC] + [YES]. to open the +Drive library",
+      "page": 64
+    },
+    {
+      "title": "4. Navigate to the sample you want to use, and then press [YES].",
+      "page": 64
+    },
+    {
+      "title": "1. Navigate to the directory that contains samples you want to rename.",
+      "page": 65
+    },
+    {
+      "title": "4. Select RENAME and press [YES].",
+      "page": 65
+    },
+    {
+      "title": "5. Use the NAMING screen to rename the sample and then press [YES].",
+      "page": 65
+    },
+    {
+      "title": "1. Navigate to the directory that contains samples you want to move.",
+      "page": 65
+    },
+    {
+      "title": "4. Select SEL FOR MOVE and press [YES].",
+      "page": 65
+    },
+    {
+      "title": "6. Press the [LEFT] arrow key, and then highlight MOVE HERE.",
+      "page": 65
+    },
+    {
+      "title": "7. Press [YES] to move the samples.",
+      "page": 65
+    },
+    {
+      "title": "1. Connect Digitakt to the computer via USB.",
+      "page": 65
+    },
+    {
+      "title": "4. In Transfer, click the EXPLORE tab to open the EXPLORE page.",
+      "page": 65
+    },
+    {
+      "title": "5. On the top right side, in the drop-down menu, select \u201cSamples\u201d.",
+      "page": 65
+    },
+    {
+      "title": "4. In Transfer, click EXPLORE to open the EXPLORE page.",
+      "page": 66
+    },
+    {
+      "title": "15.3 SONG",
+      "page": 66
+    },
+    {
+      "title": "Clears the active song",
+      "page": 66
+    },
+    {
+      "title": "Opens a screen where you can select and load songs",
+      "page": 67
+    },
+    {
+      "title": "15.4 PATTERN MENU",
+      "page": 67
+    },
+    {
+      "title": "15.5 MIDI CONFIG",
+      "page": 68
+    },
+    {
+      "title": "15.6 SYSEX DUMP",
+      "page": 70
+    },
+    {
+      "title": "15.7 AUDIO ROUTING (GLOBAL)",
+      "page": 72
+    },
+    {
+      "title": "15.8 GLOBAL FX/MIX",
+      "page": 72
+    },
+    {
+      "title": "15.9 SYSTEM",
+      "page": 73
+    },
+    {
+      "title": "1. Download the Digitakt OS file from the Elektron website.",
+      "page": 74
+    },
+    {
+      "title": "2. Connect the Elektron device to the computer via USB.",
+      "page": 74
+    },
+    {
+      "title": "3. Open the Transfer application on your computer.",
+      "page": 74
+    },
+    {
+      "title": "6. On your device. Press [YES] to confirm the OS update.",
+      "page": 74
+    },
+    {
+      "title": "16. STARTUP MENU",
+      "page": 75
+    },
+    {
+      "title": "16.1 TEST MODE",
+      "page": 75
+    },
+    {
+      "title": "16.2 EMPTY RESET",
+      "page": 75
+    },
+    {
+      "title": "16.3 FACTORY RESET",
+      "page": 75
+    },
+    {
+      "title": "16.4 OS UPGRADE",
+      "page": 75
+    },
+    {
+      "title": "4. Press the [TRIG 4] key to enter OS UPGRADE mode.",
+      "page": 75
+    },
+    {
+      "title": "16.5 EXIT",
+      "page": 75
+    },
+    {
+      "title": "17. SETUP EXAMPLES",
+      "page": 76
+    },
+    {
+      "title": "17.1 DIGITAKT WITH A MONOPHONIC BASS MACHINE",
+      "page": 76
+    },
+    {
+      "title": "1. Prepare a bassline pattern on the bass machine.",
+      "page": 76
+    },
+    {
+      "title": "6. Press [PLAY] on the Digitakt.",
+      "page": 76
+    },
+    {
+      "title": "17.2 DIGITAKT WITH A SMART PHONE",
+      "page": 76
+    },
+    {
+      "title": "17.3 CONTROLLING A SYNTHESIZER USING THE MIDI TRACKS",
+      "page": 77
+    },
+    {
+      "title": "3. In the same menu set OUTPUT to MIDI.",
+      "page": 77
+    },
+    {
+      "title": "18. USEFUL KEY COMBINATIONS (QUICK KEYS)",
+      "page": 78
+    },
+    {
+      "title": "GENERAL",
+      "page": 78
+    },
+    {
+      "title": "TRACK/PATTERN/BANK SELECT",
+      "page": 78
+    },
+    {
+      "title": "NAMING",
+      "page": 78
+    },
+    {
+      "title": "SAVING AND RELOADING",
+      "page": 78
+    },
+    {
+      "title": "NAVIGATING",
+      "page": 78
+    },
+    {
+      "title": "MENU ACCESS",
+      "page": 78
+    },
+    {
+      "title": "SEQUENCER SETTINGS",
+      "page": 78
+    },
+    {
+      "title": "SEQUENCER RECORDING",
+      "page": 79
+    },
+    {
+      "title": "MUTES",
+      "page": 79
+    },
+    {
+      "title": "MODES",
+      "page": 79
+    },
+    {
+      "title": "CLEAR TRACK/CLEAR PATTERN",
+      "page": 79
+    },
+    {
+      "title": "RESET PARAMETERS",
+      "page": 79
+    },
+    {
+      "title": "RANDOMIZE PARAMETERS",
+      "page": 79
+    },
+    {
+      "title": "MACHINE SELECT",
+      "page": 79
+    },
+    {
+      "title": "DIRECT SAMPLING",
+      "page": 79
+    },
+    {
+      "title": "SAMPLE/SOUND/TRIG PREVIEW",
+      "page": 79
+    },
+    {
+      "title": "SONG MODE",
+      "page": 79
+    },
+    {
+      "title": "19. TECHNICAL INFORMATION",
+      "page": 81
+    },
+    {
+      "title": "ELECTRICAL SPECIFICATIONS                  HARDWARE",
+      "page": 81
+    },
+    {
+      "title": "Sturdy steel casing",
+      "page": 81
+    },
+    {
+      "title": "Maximum recommended ambient operating",
+      "page": 81
+    },
+    {
+      "title": "20. CREDITS AND CONTACT INFORMATION",
+      "page": 81
+    },
+    {
+      "title": "Johannes Algelind",
+      "page": 81
+    },
+    {
+      "title": "Magnus Forsell                             Sweden",
+      "page": 81
+    },
+    {
+      "title": "Fabian Hundertmark",
+      "page": 81
+    },
+    {
+      "title": "Thomas Jansson",
+      "page": 81
+    },
+    {
+      "title": "Jimmy Myhrman",
+      "page": 81
+    },
+    {
+      "title": "Viktor Nilsson",
+      "page": 81
+    },
+    {
+      "title": "Jean Michel Pepin",
+      "page": 81
+    },
+    {
+      "title": "David Revelj",
+      "page": 81
+    },
+    {
+      "title": "Mattias Rickardsson",
+      "page": 81
+    },
+    {
+      "title": "Martin Sigby",
+      "page": 81
+    },
+    {
+      "title": "ADDITIONAL DESIGN",
+      "page": 81
+    },
+    {
+      "title": "Johan Damerau",
+      "page": 81
+    },
+    {
+      "title": "Thomas Ekelund",
+      "page": 81
+    },
+    {
+      "title": "Simon Mattisson",
+      "page": 81
+    },
+    {
+      "title": "Olle Petersson",
+      "page": 81
+    },
+    {
+      "title": "DOCUMENTATION",
+      "page": 81
+    },
+    {
+      "title": "1. Press [FUNC] + [SRC] to open the MACHINE menu.",
+      "page": 82
+    },
+    {
+      "title": "Start",
+      "page": 83
+    },
+    {
+      "title": "Loop Position",
+      "page": 83
+    },
+    {
+      "title": "Length",
+      "page": 83
+    },
+    {
+      "title": "1. Select the Slice machine for the active track.",
+      "page": 87
+    },
+    {
+      "title": "2. Place trigs on the sequencer.",
+      "page": 87
+    },
+    {
+      "title": "3. Press [YES] to open the ALLOCATE SLICE menu",
+      "page": 87
+    },
+    {
+      "title": "6. Press [NO] to exit the menu.",
+      "page": 87
+    },
+    {
+      "title": "TRACK",
+      "page": 88
+    },
+    {
+      "title": "TRIG PARAMETERS",
+      "page": 88
+    },
+    {
+      "title": "SOURCE",
+      "page": 88
+    },
+    {
+      "title": "FILTER",
+      "page": 88
+    },
+    {
+      "title": "LFO 1",
+      "page": 89
+    },
+    {
+      "title": "LFO 2",
+      "page": 89
+    },
+    {
+      "title": "DELAY",
+      "page": 89
+    },
+    {
+      "title": "COMPRESSOR",
+      "page": 90
+    },
+    {
+      "title": "EXTERNAL IN MIXER",
+      "page": 90
+    },
+    {
+      "title": "CC VAL",
+      "page": 90
+    },
+    {
+      "title": "VAL1                                             70",
+      "page": 90
+    },
+    {
+      "title": "VAL2                                             71",
+      "page": 90
+    },
+    {
+      "title": "VAL3                                             72",
+      "page": 90
+    },
+    {
+      "title": "VAL4                    73",
+      "page": 91
+    },
+    {
+      "title": "VAL5                    74",
+      "page": 91
+    },
+    {
+      "title": "VAL6                    75",
+      "page": 91
+    },
+    {
+      "title": "VAL7                    76",
+      "page": 91
+    },
+    {
+      "title": "VAL8                    77",
+      "page": 91
+    },
+    {
+      "title": "MISC",
+      "page": 91
+    },
+    {
+      "title": "INDEX",
+      "page": 94
+    },
+    {
+      "title": "LED INTENSITY 73",
+      "page": 94
+    },
+    {
+      "title": "Global 72                           LINEAR LOCKS 87",
+      "page": 94
+    },
+    {
+      "title": "Pattern 68",
+      "page": 94
+    },
+    {
+      "title": "AUDIO TRACK PARAMETERS 43            M",
+      "page": 94
+    },
+    {
+      "title": "LFO 47                               Oneshot 82",
+      "page": 94
+    },
+    {
+      "title": "Source 44                            Repitch 85",
+      "page": 94
+    },
+    {
+      "title": "Trig 43                              Slice 86",
+      "page": 94
+    },
+    {
+      "title": "Werp 83",
+      "page": 94
+    },
+    {
+      "title": "MIDI TRACK PARAMETERS 50",
+      "page": 94
+    },
+    {
+      "title": "CHAINS 40",
+      "page": 94
+    },
+    {
+      "title": "CHROMATIC MODE 23",
+      "page": 94
+    },
+    {
+      "title": "LFO 52",
+      "page": 94
+    },
+    {
+      "title": "CLASS COMPLIANT 20",
+      "page": 94
+    },
+    {
+      "title": "Source 51",
+      "page": 94
+    },
+    {
+      "title": "COMPRESSOR 56",
+      "page": 94
+    },
+    {
+      "title": "Trig 50",
+      "page": 94
+    },
+    {
+      "title": "CONDITIONAL LOCKS 38",
+      "page": 94
+    },
+    {
+      "title": "CONNECTORS 14",
+      "page": 94
+    },
+    {
+      "title": "MUTE MODE 24",
+      "page": 94
+    },
+    {
+      "title": "CREDITS AND CONTACT INFORMATION 81   N",
+      "page": 94
+    },
+    {
+      "title": "NAMING SCREEN 19",
+      "page": 94
+    },
+    {
+      "title": "DATA STRUCTURE 16                    O",
+      "page": 94
+    },
+    {
+      "title": "Patterns 16                         OS UPGRADE 74",
+      "page": 94
+    },
+    {
+      "title": "Project 16                          OVERBRIDGE 20",
+      "page": 94
+    },
+    {
+      "title": "Samples 16                           USB config 73",
+      "page": 94
+    },
+    {
+      "title": "Sounds 16                           OVERDRIVE 46",
+      "page": 94
+    },
+    {
+      "title": "DELAY 54",
+      "page": 94
+    },
+    {
+      "title": "DIRECT SAMPLING 60                   P",
+      "page": 94
+    },
+    {
+      "title": "PANEL LAYOUT 12",
+      "page": 94
+    },
+    {
+      "title": "EARLY STARTUP MENU 75                PATTERNS",
+      "page": 94
+    },
+    {
+      "title": "Grid recording mode 32",
+      "page": 94
+    },
+    {
+      "title": "Live recording mode 32",
+      "page": 94
+    },
+    {
+      "title": "FACTORY RESET 75",
+      "page": 94
+    },
+    {
+      "title": "Parameter locks 37",
+      "page": 94
+    },
+    {
+      "title": "FILL MODE 39",
+      "page": 94
+    },
+    {
+      "title": "Pattern control 31",
+      "page": 94
+    },
+    {
+      "title": "Selecting a pattern 31",
+      "page": 94
+    },
+    {
+      "title": "FX PARAMETERS 54",
+      "page": 94
+    },
+    {
+      "title": "Tempo 31",
+      "page": 94
+    },
+    {
+      "title": "Delay 54",
+      "page": 94
+    },
+    {
+      "title": "Trig Types 32",
+      "page": 94
+    },
+    {
+      "title": "Reverb 55",
+      "page": 94
+    },
+    {
+      "title": "Assigning a sample 30",
+      "page": 94
+    },
+    {
+      "title": "Editing a sound 29",
+      "page": 94
+    },
+    {
+      "title": "GRID RECORDING MODE 32",
+      "page": 94
+    },
+    {
+      "title": "Playing a sound 29",
+      "page": 94
+    },
+    {
+      "title": "KITS 26                              PROJECTS 62",
+      "page": 94
+    },
+    {
+      "title": "Load 62",
+      "page": 94
+    },
+    {
+      "title": "Save 62                                 SETTINGS 62",
+      "page": 95
+    },
+    {
+      "title": "Samples 65                               System 73",
+      "page": 95
+    },
+    {
+      "title": "Controlling a synthesizer using the MIDI tracks 77",
+      "page": 95
+    },
+    {
+      "title": "SOUND BROWSER 27",
+      "page": 95
+    },
+    {
+      "title": "RETRIG MENU 34                           SOUNDS",
+      "page": 95
+    },
+    {
+      "title": "Editing a Sound 29",
+      "page": 95
+    },
+    {
+      "title": "Overview 26",
+      "page": 95
+    },
+    {
+      "title": "SAFETY AND MAINTENANCE 3",
+      "page": 95
+    },
+    {
+      "title": "Playing a Sound 29",
+      "page": 95
+    },
+    {
+      "title": "SAMPLES 63",
+      "page": 95
+    },
+    {
+      "title": "Purging 29",
+      "page": 95
+    },
+    {
+      "title": "Create a new destination directory 65",
+      "page": 95
+    },
+    {
+      "title": "Saving a Sound 29",
+      "page": 95
+    },
+    {
+      "title": "Loading 63",
+      "page": 95
+    },
+    {
+      "title": "SWING 39",
+      "page": 95
+    },
+    {
+      "title": "Moving 65",
+      "page": 95
+    },
+    {
+      "title": "SYSEX DUMP 70",
+      "page": 95
+    },
+    {
+      "title": "Removing unused 65",
+      "page": 95
+    },
+    {
+      "title": "Renaming 65                             T",
+      "page": 95
+    },
+    {
+      "title": "Unloading 64                            TRIGS 32",
+      "page": 95
+    },
+    {
+      "title": "SCALE 24",
+      "page": 95
+    },
+    {
+      "title": "SCALES 93",
+      "page": 95
+    },
+    {
+      "title": "SCALE SETUP",
+      "page": 95
+    },
+    {
+      "title": "Length per pattern mode 36",
+      "page": 95
+    },
+    {
+      "title": "Length per track mode 36",
+      "page": 95
+    },
+    {
+      "title": "SCREEN SAVER 18",
+      "page": 95
+    },
+    {
+      "title": "SEQUENCER 31",
+      "page": 95
+    },
+    {
+      "title": "Conditional locks 38",
+      "page": 95
+    },
+    {
+      "title": "Editing a pattern 31",
+      "page": 95
+    },
+    {
+      "title": "Metronome 35",
+      "page": 95
+    },
+    {
+      "title": "Micro timing 34",
+      "page": 95
+    },
+    {
+      "title": "Retrig Menu 34",
+      "page": 95
+    },
+    {
+      "title": "Scale Menu 35",
+      "page": 95
+    },
+    {
+      "title": "Swing 39",
+      "page": 95
+    },
+    {
+      "title": "Trig parameters page 35",
+      "page": 95
+    },
+    {
+      "title": "SEQUENCER RECORDING MODES",
+      "page": 95
+    }
+  ]
+}

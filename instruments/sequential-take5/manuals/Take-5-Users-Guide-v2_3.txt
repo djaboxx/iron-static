@@ -1,0 +1,4569 @@
+=== PAGE 1 ===
+C O M PA C T 5 - V O I C E P O LY S Y N T H
+
+
+
+
+                                     ®
+
+=== PAGE 2 ===
+
+=== PAGE 3 ===
+User’s Guide
+         Version 2.0
+         May, 2025
+
+
+
+
+       Sequential LLC
+1527 Stockton Street, 3rd Floor
+  San Francisco, CA 94133
+            USA
+
+
+
+    ©2025 Sequential LLC
+     www.sequential.com
+
+=== PAGE 4 ===
+                             Tested to Comply
+                             With FCC Standards
+                             CLASS B
+   This device complies with Part 15 of the FCC Rules. Operation is subject to the
+   following two conditions: (1) This device may not cause harmful interference and
+   (2) this device must accept any interference received, including interference that
+   may cause undesired operation.
+
+   This Class B digital apparatus meets all requirements of the Canadian Interference-
+   Causing Equipment Regulations.
+
+   Cet appareil numerique de la classe B respecte toutes les exigences du Reglement sur
+   le materiel brouilleur du Canada.
+
+   For pluggable equipment, the socket-outlet must be installed near the equipment and must
+   be easily accessible.
+
+
+
+For Technical Support, email: support@sequential.com
+
+
+
+
+This device is to be serviced by a Sequential-qualified technician only. Service technician
+must exercise due caution when opening the device to avoid electric shock and the device
+being unsecured when open.
+
+
+
+CALIFORNIA PROP 65 WARNING
+This product may expose you to chemicals including BPA, which is known to the State of
+California to cause cancer and birth defects or other reproductive harm. Though inde-
+pendent laboratory testing has certified that our products are several orders of magnitude
+below safe limits, it is our responsibility to alert you to this fact and direct you to:
+https://www.p65warnings.ca.gov for more information.
+
+=== PAGE 5 ===
+THE SEQUENTIAL CREW
+Gerry Bassermann, Ezra Buchla, Gus Callahan, Joseph Carley, Fabien Cesari, Bob Coover,
+Carson Day, Sally Decker, David Gibbons, Tony Karavidas, Mark Kono, Justin Labrecque,
+Andy Lambert, Michelle Marshall, Steven Morkert, Julio Ortiz, Denise Smith, Mitchell Stahl-
+mann, Steve Starkweather, Brian Tester, and Taiho Yamada.
+
+THE TAKE 5 SOUND DESIGN TEAM
+Drew Neumann, Francis Preve, Gil Assayas (GLASYS), Huston Singletary, James Terris,
+Julian Pollack (J3PO), Kurt Kurasaki, Matia Simovich, Paul Schilling, Peter Dyer, Robert
+Rich.
+
+Special thanks to Robert Rich for the alternative tunings.
+
+
+
+
+Take 5 User’s Guide                                                                   ﻿       v
+
+=== PAGE 6 ===
+A Few Words of Thanks
+Thank you for purchasing the Take 5. Our goal with this awesome little synth was
+to give you a very compact, very powerful instrument that you could take pretty
+much anywhere and sound great. Whether it’s your first synth, your gigging
+synth, or just the right synth to fit your studio space, we think you’re going to
+love it. Yes, it’s compact, but it’s pure Sequential and it sounds huge.
+
+So hook it up, turn it up, and start making music!
+
+Cheers,
+
+
+
+
+vi   A Few Words of Thanks                                             Sequential
+
+=== PAGE 7 ===
+                           Table of Contents
+
+
+   Chapter 1: Getting Started. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 1
+    Rear Panel Connections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+    Setting Up the Take 5. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+      Tune the Oscillators and Filters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+      Listen to the Factory Sounds. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+      Using the Main Display. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+      Editing Programs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+      Creating a Program from Scratch. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+      Saving a Program. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+      Canceling Save. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+      Live Panel Mode. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+      Using Low Split. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+    Exploring the Take 5 in More Depth. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+
+   Chapter 2: Take 5 Controls .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+    Global Settings. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+    Oscillators. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+       Oscillator Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+       Additional Oscillator Parameters (Program Menu). . . . . . . . . . . . . . . . . . 19
+    Mixer Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+    Filter. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+       Filter Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+       Additional Filter Parameters (Program Menu) . . . . . . . . . . . . . . . . . . . . . 22
+    Envelopes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+       About the Filter Envelope. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+       Envelope Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+       Additional Envelope Parameters (Program Menu). . . . . . . . . . . . . . . . . . 27
+    About the Amp Envelope. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+    Auxiliary Envelope. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+    Low Frequency Oscillators. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+       Global LFO Versus Per-Voice LFO. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+       LFO Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+       Additional LFO Parameters (Program Menu). . . . . . . . . . . . . . . . . . . . . . 33
+    Modulation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+       Modulation Examples. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+    Unison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+       Using Chord Memory. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+
+
+Take 5 User’s Guide                                                                     Table of Contents                   vii
+
+=== PAGE 8 ===
+         Effects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+         Vintage Knob. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+         Overdrive. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+         Arpeggiator. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+           Arpeggiator “Momentary Sustain” Mode. . . . . . . . . . . . . . . . . . . . . . . . . . 44
+           MIDI Note Output from the Arpeggiator . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+           Arpeggiator Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+         Clock Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+         Sequencer. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+         Master Volume/Program Volume. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+         Transpose . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+         Hold. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+         Glide. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+           Glide Modes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+         Pitch and Mod Wheels. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+           Pitch Wheel. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+           Modulation Wheel. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+         Adding Aftertouch. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+         Additional Program Menu Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+
+       Chapter 3: Creating Sounds. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 57
+         Synthesis 101: Synth Bass. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+         Creating Synth Brass. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+           Turning Synth Brass into a String Pad. . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+         Creating a Hard-Sync Lead. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+         A Final Word. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+
+       Appendix A:
+       Modulation Sources.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 67
+
+       Appendix B:
+       Modulation Destinations .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 68
+
+       Appendix C: Troubleshooting and Support.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 69
+         Troubleshooting. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+         Resetting the Global Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+         Contacting Technical Support. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+         Warranty Repair. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+
+
+
+
+viii      Table of Contents                                                                                                   Sequential
+
+=== PAGE 9 ===
+   Appendix D: Calibrating the Take 5 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 73
+    Calibrating the VCOs and Filters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+    Calibrating the Pitch and Mod Wheels . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+    Resetting the Global Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+    Importing Programs and Banks. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+
+   Appendix F: Alternative Tunings. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 76
+
+
+
+
+Take 5 User’s Guide                                                             Table of Contents                ix
+
+=== PAGE 10 ===
+Chapter 1: Getting Started
+The Take 5 is a compact and powerful 5-voice poly synth. It combines
+the warmth and punch of two analog, voltage-controlled oscillators and a
+Prophet-5 Rev4-lineage analog filter with an array of digital effects and
+a host of modulation capabilities. The result is a classic, warm, organic-
+sounding subtractive synth with a modern voice.
+
+This chapter of your user’s guide provides an overview of essential tasks
+such as how to make basic audio connections and how to edit and save
+sounds. Later chapters explain each of the parameters of the Take 5,
+as well as how to program sounds and how to use the global menu to
+manage its overall behavior.
+
+We’ve designed the Take 5 to be as easy to use as possible. Its essential
+controls are within easy reach on its front panel, so don’t hesitate to dive
+in and start turning knobs and pressing buttons. Then, when you’re ready,
+dig into this user’s guide to explore the deeper parts of the synth.
+
+
+
+
+Take 5 User’s Guide                          Chapter 1: Getting Started   1
+
+=== PAGE 11 ===
+    1     2                 3
+
+
+
+
+Rear Panel Connections
+The rear panel of the Take 5 has connectors for power, USB, MIDI,
+audio, and pedals.
+
+1. Power On/Off—This rocker switch controls power on and off to the
+Take 5.
+
+2. AC Power Connector—Accepts a standard, grounded IEC power
+cord. Operates over a range of 100 to 240 volts, 50 to 60 Hz, and 14W.
+
+3. Electric Shock Hazard Warning—These symbols warn that you risk
+electrical shock if you open the Take 5 enclosure. Please do not open.
+
+4. USB—For bidirectional MIDI communication with a computer. The
+Take 5 is a Class Compliant USB device and does not require additional
+drivers when used with Mac OS or Windows.
+
+5. MIDI In, Out, Thru—Standard 5-pin MIDI DIN connectors for
+communicating with MIDI-equipped devices.
+
+6. Footswitch—Accepts a momentary, normally open or normally closed
+footswitch to control sustain or to latch the Arpeggiator on when keys are
+held.
+
+7. Pedal—Accepts a standard expression pedal that has a variable resis-
+tor on a TRS (tip-ring-sleeve) ¼ inch phone plug. Once connected, you
+
+
+2       Rear Panel Connections                                  Sequential
+
+=== PAGE 12 ===
+         4         5                     6   7     8      9
+
+can use the modulation matrix to route the pedal to control a variety of
+things such as volume or filter cutoff frequency to add expressiveness to
+live performance.
+
+8. Audio Outputs—Unbalanced, ¼ inch audio outputs. The Take 5
+sounds great in stereo, but can be switched to mono if needed. See
+“Global Settings” on page 10.
+
+9. Headphones — ¼ inch stereo headphone jack. Headphone volume is
+controlled by the master volume knob on the front panel.
+
+
+
+Setting Up the Take 5
+Here’s how to get your Take 5 up and running:
+
+     1. Plug the power cable into the power connector on the back of the Take 5.
+     2. If you have an expression pedal, connect it to the pedal jack on the
+        back of the Take 5. You can use it to control volume, filter cutoff, and
+        other aspects of a sound. If you have a sustain pedal, connect it to the
+        ftswitch jack on the back of the Take 5.
+
+     3. Turn on the Take 5.
+     4. Connect the left and right audio out connectors on the back of the
+        Take 5 to your amp/mixer/powered speakers using unbalanced, ¼ inch
+        audio cables.
+     5. Turn up the volume on your amp/mixer/powered speakers.
+     6. Turn up the volume on the Take 5.
+
+
+
+
+Take 5 User’s Guide                                    Setting Up the Take 5       3
+
+=== PAGE 13 ===
+Tune the Oscillators and Filters
+The first time you use the Take 5, run its built-in oscillator and filter cali-
+bration procedure. Repeat the calibration procedure if needed over the
+next few days. The Take 5 learns the range of temperatures and will keep
+itself in tune over this range.
+
+    To calibrate the oscillators and filters:
+
+     1. Press the global settings button.
+     2. With the select knob, choose the cal voices command.
+     3. Press the write button.
+     4. The Take 5 performs its auto-calibration procedure. Don’t turn off the
+        power while it’s doing this.
+     5. When finished, the front panel controls return to normal and you can play
+        the Take 5.
+
+
+Listen to the Factory Sounds
+The Take 5 contains 512 programs. These are divided into two sets of 256
+programs — a Factory set and a User set.
+
+     •   When the factory button is lit, the 128 permanent Factory programs
+         are active. These cannot be overwritten.
+     •   When the factory button is not lit, the 128 User programs are active.
+         You can freely edit and save these. As shipped from the factory, the
+         Factory and User presets are identical.
+
+Most factory programs have a sequence associated with them. A quick and
+easy way to audition programs is to press the Sequencer’s play button to hear
+its associated sequence.
+
+
+
+
+                         The Bank and Program Select controls
+
+
+
+
+4    Setting Up the Take 5                                             Sequential
+
+=== PAGE 14 ===
+    To choose a program:
+
+     1. Hold down the bank button then press a program selector (1-16)
+        button to specify the “hundreds” bank of the program.
+     2. Release the bank button and press a program selector button (1-16)
+        to select one of the 16 presets in the chosen bank.
+
+    To choose program 512, for example:
+
+     1. Hold bank and press 5. Release the bank button.
+     2. Press program selector button 12.
+
+
+Using the Main Display
+The most frequently used controls on the Take 5 are on its front panel.
+But there are additional Global settings and Program-specific settings
+accessible in its main display.
+
+For example, pressing the program settings button gives you access to
+several program-related parameters such as pitch bend wheel range,
+unison detuning, envelope delay time, and more. You can select and edit
+these additional parameters using select and value knobs located below
+the display.
+
+The select knob is for scrolling through the list of available parameters
+and commands. The value knob is for setting values.
+
+
+
+                             120             1/16
+
+                                Basic Program
+                             Up+Down          BBD
+
+
+
+
+                               The main display
+
+
+
+
+Take 5 User’s Guide                                 Setting Up the Take 5   5
+
+=== PAGE 15 ===
+Editing Programs
+All of the sound-shaping controls of the Take 5 appear on its front panel.
+To edit an existing program, just turn a knob and listen to its effect. Keep
+turning knobs and pressing buttons and if you like what you’ve created,
+save the program (see “Saving a Program” on page 6).
+
+
+Creating a Program from Scratch
+The Take 5 makes it easy to create a new sound from scratch by provid-
+ing a “basic program” that you can quickly recall at any time. This
+provides a simple starting point that you can quickly build on. It consists
+of a single oscillator (sawtooth), basic filter settings, basic envelope
+settings, and simple mod and pitch wheel setups.
+
+    To recall the Basic Program:
+
+     1. Press the global settings button.
+     2. With the select knob, choose the basic program command.
+     3. Press the write button.
+     4. The Take 5 resets its parameters to the Basic Program.
+
+
+
+           Shortcut for creating the Basic Program: Hold down the transpose down button
+    then press the low split -2 button.
+
+
+
+Saving a Program
+To save a program, you have to save it to the User bank. If you edit a Factory
+program, saving the sound will save it to the User bank.
+
+    To save a User program to the same preset location:
+
+     1. Press the write button. The LED begins blinking.
+     2. Press the write button a second time. The LED stops blinking and the
+        program is saved to its current location.
+
+
+
+
+6    Setting Up the Take 5                                                  Sequential
+
+=== PAGE 16 ===
+    To save a program to a different location:
+
+     1. Press the write button. Its LED begins blinking.
+     2. Hold down the bank button then press a program selector button to
+        specify the “hundreds” bank of the program.
+     3. Release the bank button and press a program selector button (1-16)
+     4. Press the write button again. The LED stops blinking and the program
+        is saved.
+
+
+Canceling Save
+    To cancel the Save process:
+
+     •   If the write button LED is flashing, press the program settings button.
+         The LED stops flashing and saving is canceled. You can return to editing
+         if you want.
+
+
+Live Panel Mode
+The Take 5 also features a “live panel” mode in which its sound switches
+to the current settings of its knobs and switches. In other words, the current
+preset is ignored and what you see on the front panel is what you hear. This
+is a great mode for learning, experimentation, and instant gratification.
+
+    To enter live panel mode:
+     •   Press the preset button to toggle it off. Changing Banks or Programs
+         with Preset off won’t affect the sound.
+
+    To return to preset mode:
+
+     •   Press the preset button again to toggle it on.
+
+
+
+
+Take 5 User’s Guide                                       Setting Up the Take 5   7
+
+=== PAGE 17 ===
+Using Low Split (Take 5 Keyboard only)
+The Take 5 has a useful feature called low split that allows you to make
+wider use of its 44-note keyboard by dividing the keyboard into two
+separate key ranges. You can set the split point to your preference.
+
+In essence it enables you to transpose the lower half of the keyboard
+either 1 or 2 octaves lower than normal.
+
+By default the split point is set to middle C in the Basic Program, but you
+can set it to a different point according to your preference. This makes it
+possible to play lower-register bass parts with your left hand while play-
+ing chords or lead parts with your right hand. The program is the same
+for both key ranges.
+
+    To use Low Split:
+
+     1. Chose an appropriate sound.
+     2. Press the -1 oct button to activate the Low Split point feature and
+        transpose the pitch of notes below middle C down by 1 octave.
+     3. Alternatively, press the -2 oct button to activate the Low Split point
+        feature and transpose the pitch of notes below middle C down by 2
+        octaves.
+
+    To set a custom Low Split point:
+
+     1. Chose an appropriate sound.
+     2. Press and hold both the low split -1 oct button and -2 oct button. The
+        Low Split parameters appear in the display.
+     3. Either press the desired key/split point on the Take 5 keyboard, or use
+        the value knob to set the split point to your preference.
+     4. Release the -1 oct button and -2 oct buttons.
+
+
+                          120      LOW SPLIT          1/16
+                                    Note G1
+
+                          Up+Down                      BBD
+
+
+                              Setting the Low Split point
+
+
+8   Setting Up the Take 5                                              Sequential
+
+=== PAGE 18 ===
+Exploring the Take 5 in More Depth
+Before you explore the sound creation possibilities of the Take 5, we’d
+like to point you toward a few things that will help you tailor it to your
+needs. The better you know it, the more you’ll get out of it.
+
+First, read “Global Settings” on page 10. There are many useful
+settings and functions found in the Global menu that will affect the
+overall behavior of your Take 5, including tuning, MIDI connections,
+calibration, and more. In particular, read about Pot Modes and determine
+which works best for you when you’re editing sounds.
+
+Also, in “Rear Panel Connections” on page 1 read about the various
+connectors on the back of your Take 5 and how you can use its various
+pedal, audio, MIDI, and USB inputs and outputs.
+
+Finally, be on the lookout for tips and notes scattered throughout this
+manual to gain a better working knowledge of the Take 5. We wish you
+many hours of musical exploration!
+
+
+
+
+Take 5 User’s Guide                  Exploring the Take 5 in More Depth      9
+
+=== PAGE 19 ===
+Chapter 2: Take 5 Controls
+This chapter explains all of the front-panel controls of the Take 5,
+section by section and the role each plays in synthesizing sounds. If
+you’re just getting started with synthesis, take a look at Chapter 4,
+Creating Sounds, for step-by-step tutorials on how to program some
+classic sounds such as synth bass, brass, strings, and more.
+
+
+Global Settings
+Global settings are parameters that affect all programs. These include
+settings such as MIDI Channel, Velocity and Aftertouch curves, and
+others. Press the global button to access them.
+
+
+      press to
+       access                     120             1/16
+       Global
+        menu                         Basic Program
+                                  Up+Down          BBD
+
+
+
+
+                              Accessing Global settings
+
+
+     To set a Global parameter:
+
+      1. Press the globals button.
+      2. Use the select knob to scroll through the list of parameters.
+      3. Use the value knob to set a selected parameter.
+
+Here are descriptions of all of the global menu parameters:
+
+1. Master Coarse: -12…+12—Master Transpose control; a setting of
+0 is the equivalent of concert pitch. This control steps in semitones one
+octave up (+12) or down (-12).
+
+2. Master Fine: -50…+50—Master Fine Tune control; 0 centered. Steps
+in cents as much as a quarter-tone up (+50) or down (-50).
+
+
+
+10   Chapter 2: Take 5 Controls                                          Sequential
+
+=== PAGE 20 ===
+3. Local Control: All Off, Key/Wheels Off, On—When on (the default),
+the keyboard and front panel controls directly affect the Take 5. When
+off, the controls are transmitted via MIDI but do not directly affect the
+“local” synth (that is, the Take 5). This is primarily useful for avoiding
+MIDI data loops that can occur with some external sequencers. When
+key/wheels off is selected, the front controls are enabled (so that you can
+edit them) but the keyboard and Pitch/Mod wheels are off.
+
+4. Mono/Stereo: Stereo, Mono—The Take 5 defaults to stereo operation.
+When set to Mono, this parameter defeats all pan settings and modula-
+tion, effectively making each of the outputs a mono output.
+
+5. Pot Mode: Relative, Passthru, Jump—The rotary controls on the Take
+5’s front panel are a mixture of “endless” rotary encoders and potentiom-
+eters or “pots.” The pots are identifiable by their lined knobs and limited
+amount of travel. There are three pot modes to determine how the synth
+reacts when the programmable parameters are edited. (Master volume is
+not programmable, so these modes don’t apply.)
+
+When set to relative, changes are relative to the stored setting. In Rela-
+tive mode, the full value range is not available until either the minimum
+or maximum value and the respective lower or upper limit of the pot’s
+travel is reached.
+
+For example, the Resonance parameter has a value range of 0 to 254.
+Let’s say the physical position of the Resonance pot is 12 o’clock. If
+you switch to a program that has a different Resonance setting and turn
+the pot all the way up, it may not go to its maximum value. To get to the
+maximum value, you first have to turn down until the value is at the other
+extreme and the pot is at the limit of its travel (in this case, 0 and fully
+counter-clockwise, respectively).
+
+In passthru mode, turning the pot has no effect until after the edited
+value equals the preset value (that is, until the edited value “passes
+through” the stored value).
+
+jump mode uses an absolute value based upon the position of the pot
+when edited: turn a pot and the value jumps immediately from the stored
+value to the edited value.
+
+
+
+Take 5 User’s Guide                                      Global Settings   11
+
+=== PAGE 21 ===
+6. Foot Function: Sustain, Arp Hold, Arp Hold Momentary, Seq Start/
+Stop—Sets the function for the Sustain pedal input at the rear of the
+synthesizer. Selecting sustain chooses normal sustain pedal operation.
+Selecting arp hold and pressing the sustain pedal causes the Arpeggiator
+to hold the current arpeggio as if you had pressed the hold button on the
+front panel. Selecting hold mom (momentary) causes the Arpeggiator to
+sustain (even when you release the notes on the keyboard) for as long as
+you hold down the pedal. Releasing the Sustain pedal stops the Arpeg-
+giator.
+
+Seq Start/Stop allows any connected and compatible foot pedal to control
+Start and Stop functions on the Take 5’s sequencer.
+
+7. Pedal Polarity: Normal, Reversed—There are two types of pedals,
+normally open and normally closed. Either type can be used with the
+Sustain switch input. This setting allows you to accommodate both
+models in case yours behaves in a way that is the opposite of what you
+expect due to its polarity. Connect your pedal and choose the appropriate
+setting based on its behavior.
+
+8. Pedal Function: Breath CC2, Foot CC4, Exp CC11, LPF Full, LPF
+Half—When you use an expression pedal connected to the pedal jack to
+control filter cutoff, this sets the range of modulation sent. With lpf full
+selected, an expression pedal connected to the filter jack will control
+filter cutoff frequency within its full range of 0-1024 (fully closed to
+fully open). With lpf half selected, an expression pedal connected to
+the filter jack will control filter cutoff frequency within half of its range
+(fully closed to half open).
+
+9. Aftertouch On: On, Off—Selects whether aftertouch (key pressure) is
+enabled or disabled. If disabled, the Take 5 will neither respond to nor
+transmit aftertouch/key pressure data.
+
+10. Aftertouch Curve: Curve 1... Curve 8—Sets one of eight pressure
+curves for the keyboard to adjust the aftertouch to your playing style.
+
+
+
+
+12   Global Settings                                               Sequential
+
+=== PAGE 22 ===
+11. Velocity Curve: Curve 1... Curve 7—Sets one of the seven velocity
+curves for the keyboard to adjust the velocity response to your playing style.
+
+12. Scale (Alt Tuning): Equal Temperment, 1…65—Selects one of the Take
+5’s 65 built-in tunings. Set to 1. equal temperment, the tuning is standard,
+chromatic tuning. Choosing 2 through 65 selects an alternative, non-chro-
+matic, non-Western scale that can be used to emulate ethnic instruments or in
+other creative ways. See “Appendix F: Alternative Tunings” on page 78 for
+a description of each tuning. Additional tunings can be imported as a SysEx
+message.
+
+13. Screen Saver: On, Off—The Take 5 display has a built-in screen
+saver that puts it to sleep when not in use. This feature is designed to
+prolong the life of the display and we recommend using it. If, however,
+you want to disable this feature you can do so by setting it to off.
+
+14. MIDI Channel: All, 1…16—Selects which MIDI channel to send and
+receive data, 1 to 16. Choosing all receives on all 16 channels.
+
+15. Clock Mode Out: Sets the synthesizer’s ability to send and receive
+MIDI clock messages:
+     •   off: MIDI Clock is neither sent nor received
+
+     •   out: MIDI Clock is sent, but not received.
+
+     •   out no s/s (no start and stop): Sends MIDI Clock but does not send
+         MIDI Start or Stop commands.
+     •   in: MIDI Clock is received, but not sent.
+
+     •   in thru: MIDI Clock is received and passed to MIDI Out
+
+     •   in no s/s (no start and stop): Receives MIDI Clock but does not respond
+         to MIDI Start or Stop command.
+
+
+
+          With in and in thru modes, if no MIDI clock is present at the selected input, the
+    Arpeggiator and Sequencer will not function.
+
+
+16. Clock Cable In: MIDI, USB—Sets the port (MIDI or USB) by which
+MIDI clock is received.
+
+
+
+
+Take 5 User’s Guide                                                Global Settings       13
+
+=== PAGE 23 ===
+17. Clock Cable Out: MIDI, USB, ALL—Sets the port by which MIDI
+clock is sent.
+
+18. MIDI Param Send: Off, CC, NRPN—Changes to the values of front
+panel controls are transmitted via MIDI as Non-registered Parameter
+Number (NRPN) controllers or as Continuous Controllers (CC). Trans-
+mission of parameters can also be turned off.
+
+
+           NRPNs are the preferred method of parameter transmission, since they cover
+     the complete range of all parameters, while CCs are limited to a range of 128.
+
+
+19. MIDI Param Receive: Off, CC, NRPN—Sets the method by which
+parameter changes are received via MIDI. As with transmission, NRPNs
+are the preferred method.
+
+20. MIDI Control On: Off, On—When On, the synth will respond to
+MIDI controllers, including Pitch Wheel, Mod Wheel, Pedal, Breath,
+Volume, and Expression.
+
+21. MIDI Sysex On: On, Off—Sets whether MIDI System Exclusive data
+will be received or ignored.
+
+22. MIDI Sysex Cable: MIDI, USB—Sets the port, MIDI or USB, by
+which System Exclusive data will be transmitted and received.
+
+23. MIDI Out Select: Off, MIDI, USB, All—Sets the port(s) by which
+MIDI data will be transmitted.
+
+24. MIDI Program Send: Off, On—When On, the synth will transmit
+MIDI Program Change and other SysEx messages to the MIDI Out.
+
+25. MIDI Program Receive: Off, On—When On, the synth will respond
+to received MIDI Program Change and other SysEx messages.
+
+26. MIDI Arp Notes: Off, On—When On, the synth’s Arpeggiator outputs
+MIDI note numbers. You can use this feature to drive other MIDI-
+equipped devices such as synthesizers and drum machines.
+
+
+
+
+14   Global Settings                                                       Sequential
+
+=== PAGE 24 ===
+27. Arp Beat Sync: Off, Quantize—When set to quantize, Arpeggiator
+note playback occurs only on the beat (relative to the current clock divide
+setting) regardless of when you press a key on the keyboard.
+
+28. Basic Program—Press write to load a basic, template program into
+the edit buffer. Press the Write button again to save it to memory. As a
+shortcut, press the transpose down and latch buttons simultaneously on
+the Take 5 Keyboard, and hold lfo shape + lfo select and press bank on
+the Take 5 Module..
+
+29. Cal Wheels—Calibrates the Pitch and Mod wheels.
+
+30. Cal Voices—Calibrates the voltage controlled oscillators and filters.
+
+31. Reset Globals—Sets the global parameters to the factory default
+settings.
+
+32. Dump Preset—Transmits the current program in SysEx format via
+the selected MIDI port. Dumped programs will load back into the same
+location in memory when imported back into the synth via MIDI.
+
+33. Dump Bank—Transmits the current bank in SysEx format via the
+selected MIDI port. (See “MIDI SysEx Cable: on page 14.) Dumped
+banks will load back into the same location in memory when imported
+back into the synth via MIDI.
+
+34. Dump All Banks—Transmits all User Banks in SysEx format via the
+selected MIDI port. (See “MIDI SysEx Cable: on page 14.) Dumped
+banks will load back into the same location in memory when imported
+back into the synth via MIDI.
+
+
+
+
+Take 5 User’s Guide                                    Global Settings   15
+
+=== PAGE 25 ===
+Oscillators
+Oscillators generate the raw building blocks of the Take 5’s sound by
+producing waveforms, each of which has its own sound character based
+on its harmonic content. The Take 5 has two analog, voltage-controlled
+oscillators and a sub-oscillator.
+
+Oscillators 1 and 2 generate sine, sawtooth, and pulse waves. You can
+vary the shape of these waveshapes from one to another using the shape
+knob. This allows for a variety of different waveshapes and timbres.
+
+
+
+
+   Pulse wave wide                                Pulse wave narrow
+
+Oscillator pulse width (pulse wave)
+
+
+
+
+16    Oscillators                                             Sequential
+
+=== PAGE 26 ===
+                                                                    pulse
+                                                  sine              wide
+                                                         sawtooth
+
+
+
+
+                                                                              pulse
+              OSC 1
+                                                                             narrow
+
+
+
+
+              OSC 2
+
+
+
+
+                               The Oscillators section
+
+
+    To listen to the oscillators:
+
+     1. Press the global button.
+     2. Use the select knob to navigate to the basic program command, then
+        press the write button to set the synth to the Basic Program.
+     3. In the basic program, only Oscillator 1 is audible. (The levels of Oscil-
+        lator 2 and the Sub Oscillator and Noise are set to zero in the Mixer by
+        default.)
+     4. Hold down a note on the keyboard and in the oscillators section,
+        turn the shape knob left and right to hear the waveshape change from
+        sine to sawtooth to pulse. (Sawtooth is selected by default in the basic
+        program.) Note that when using shape with the pulse wave, it’s possible
+        to make the pulse width so narrow that the sound “disappears.”
+     5. Turn up the level of Oscillator 2 in the Mixer and experiment with
+        setting each oscillator to a different waveshape. Experiment with the
+        pitch knob on the oscillators and notice how slightly detuning the oscil-
+        lators in relation to each other creates movement and thickness in their
+
+
+
+
+Take 5 User’s Guide                                                         Oscillators   17
+
+=== PAGE 27 ===
+        combined sound. Try tuning one oscillator to an interval such as a third,
+        a fifth, or a sixth.
+     6. Experiment with the octave knob on the oscillators and notice how
+        setting each oscillator to a different octave influences their combined
+        sound.
+     7. Rotate the filter’s cutoff and resonance knobs to see how this affects
+        the sound of the oscillators.
+     8. With Oscillator 1 and 2 on, press the sync button on Oscillator 1, and
+        set it’s octave to +2. Then rotate the pitch knob on Oscillator 1 while
+        you hold a note. This is the classic hard sync sound that you’ve prob-
+        ably heard before. Instead of rotating the pitch knob by hand, you can
+        use the modulation matrix to route an envelope to Oscillator 1 to sweep
+        the oscillator’s pitch and create this effect each time you play a note.
+        You’ll learn more about the mod matrix in “Modulation” on page 34.
+
+
+Oscillator Parameters
+Octave: Sets the base frequency of an oscillator over a 5-octave range. The
+global master coarse and master fine settings affect the pitch of the
+oscillators. See “Global Settings” on page 10 for more information.
+
+Pitch: Fine tune control with a range of 7 semitones (a major 5th) up or
+down. The 12 o’clock position is detented.
+
+Shape: Selects the waveshape generated by the oscillator. Oscillators 1
+and 2 produce sine, sawtooth, and pulse analog waveshapes. These wave-
+shapes are continuously variable.
+
+In the modulation matrix you can use a modulator such as an LFO
+waveshape or one of the Take 5 envelopes to modulate the waveshape
+of Oscillator 1 or 2 or both simultaneously, this changes the “pulse”
+width of the selected waveform, which modifies its harmonic content and
+timbre. To learn more about how to use modulation, see “Modulation” on
+page 34.
+
+Sync 2-1: Off, On—Turns on oscillator hard sync. When an oscillator is
+hard synced, its wave cycle is forced to conform to another oscillator’s
+wave cycle and is forced to reset each time the master oscillator’s wave
+
+
+
+
+18   Oscillators                                                       Sequential
+
+=== PAGE 28 ===
+cycle restarts. This causes the synced oscillator to create harmonically
+complex waveforms — particularly when the synced oscillator’s pitch is
+set higher than the master oscillator’s pitch. See “Creating a Hard-Sync
+Lead” on page 65 to learn how to set up a classic oscillator hard sync
+sound.
+
+
+               Oscillator 1
+
+
+               Oscillator 2
+
+               Oscillator 1
+                synced to
+               Oscillator 2
+
+                              Oscillator hard sync
+
+
+
+
+Additional Oscillator Parameters (Program Menu)
+Additional oscillator parameters are accessible by pressing the front-
+panel program button and scrolling through the list that appears.
+
+Osc 1 Key Follow: Off, On—When on, oscillator 1 tracks the keyboard
+or note data received via MIDI. When off, the oscillator plays at its base
+frequency setting, though its pitch may be affected by modulation from other
+sources.
+
+Osc 2 Key Follow: Off, On—When on, oscillator 2 tracks the keyboard
+or note data received via MIDI. When off, the oscillator plays at its base
+frequency setting, though its pitch may be affected by modulation from other
+sources.
+
+Osc 1 Glide: 0...127—Sets oscillator 1 glide (portamento) amount. Glide
+causes the pitch of a note to glide smoothly up or down from the pitch of
+the previously played note. It can be set independently for each oscilla-
+tor. Low values are shorter/faster. The glide switch must be on to hear
+the effect of glide rate. For a detailed explanation, see “Glide” on page
+51.
+
+
+
+
+Take 5 User’s Guide                                         Oscillators   19
+
+=== PAGE 29 ===
+Osc 2 Glide: 0...127—Sets oscillator 2 glide (portamento) amount. Glide
+causes the pitch of a note to glide smoothly up or down from the pitch of
+the previously played note. It can be set independently for each oscillator.
+Low values are shorter/faster. The glide switch must be on to hear the
+effect of glide rate. For a detailed explanation, see “Glide” on page 51
+
+Osc 1 Fine Freq: Fine tune control with a range of 7 semitones (a major
+5th) up or down. The 12 o’clock position is centered.
+
+Osc 2 Fine Freq: Fine tune control with a range of 7 semitones (a major
+5th) up or down. The 12 o’clock position is centered.
+
+Osc 2 Filter Bypass: Off, On— Oscillator 2 can be set to bypass the filter
+stage entirely. By sending Oscillator 2 directly to the amp stage, this feature
+allows for layered, textural sounds. Program A02 White Room Hoover is a great
+example of the use of Osc 2 Filter Bypass.
+
+
+Mixer
+The Mixer section is where you set the levels of the various sound gener-
+ators on the Take 5. These include oscillators 1 and 2, the sub oscillator
+and the noise generator. You must turn up at least one of these sources
+in order to make sound with the Take 5. Alternatively, you can make the
+filter generate its own sine wave by turning up resonance all the way so
+that it self-oscillates.
+
+
+
+
+                              OSC 1          OSC 1 SUB
+
+
+
+
+                              OSC 2            NOISE
+
+
+
+
+                                 The Mixer section
+
+
+
+
+Mixer Parameters
+
+20   Oscillators                                                     Sequential
+
+=== PAGE 30 ===
+Osc 1: Sets the output level of oscillator 1.
+
+Osc 1 Sub: Sets the output level of the sub oscillator.
+
+Osc 2: Sets the output level of oscillator 2.
+
+FM 2 -1: When on, applies frequency modulation from Oscillator 2
+to Oscillator 1. The Oscillator 2 level knob controls the amount. Use
+frequency modulation to create complex harmonics and metallic textures
+by tuning Oscillator 2 to different intervals.
+
+Noise: Sets the output level of the white/pink noise generator. Rotating
+the knob clockwise from 0 increases the level of white noise. Rotating
+the knob counter-clockwise from 0 increases the level of pink noise.
+
+
+
+Filter
+The function of the filter is to subtract frequencies from the sound
+produced by the oscillators and noise generator, thereby changing the
+overall harmonic content of the synth’s sound. This change is varied over
+time using the Filter Envelope to produce more dynamic timbres.
+
+
+
+
+                                  The Filter section
+
+
+
+
+    To hear the effect of the filter:
+
+     1. Recall the Basic Program by pressing the global button and using the
+
+
+Take 5 User’s Guide                                                Filter   21
+
+=== PAGE 31 ===
+         select knob to navigate to the basic program command, then press
+         write.
+
+     2. Hold down a note and rotate the filter’s cutoff knob. Notice how it cuts
+        the high frequencies as you rotate counter-clockwise, making the sound
+        of the oscillator less bright. If you turn the cutoff knob fully counter-
+        clockwise you’ll filter out all frequencies and hear nothing.
+     3. Return the cutoff knob to its halfway position, hold down a note again
+        then turn the resonance knob about halfway up.
+     4. Rotate the filter’s cutoff knob again and listen to the sound change as a
+        band of frequencies near the cutoff is amplified. This is how to create a
+        classic resonant filter sweep.
+
+In the previous example, you controlled the filter cutoff by hand. In most
+cases, you will use the Filter Envelope to do this. To learn more about the
+Filter Envelope, see “About the Filter Envelope” on page 24.
+
+
+Filter Parameters
+Cutoff: Sets the filter’s cutoff frequency.
+
+Resonance: Emphasizes a narrow band of frequencies around the cutoff
+frequency. High levels of resonance can cause the filter to self-oscillate
+and generate its own pitch.
+
+Drive: Increases signal input to the filter, boosting volume and adding
+harmonic saturation and warmth. The effect of Drive can be subtle
+depending on the amplitude and harmonic content of a signal.
+
+
+
+
+22   Filter                                                           Sequential
+
+=== PAGE 32 ===
+Additional Filter Parameters (Program Menu)
+Additional Filter parameters are accessible by pressing the front-panel
+program button and scrolling through the list that appears. The parameter
+explained below does not appear on the front panel.
+
+Key>LPF Freq: 0...127—Sets the amount of modulation from the
+keyboard to the filter’s cutoff frequency. Any setting above zero means
+that the higher the note played on the keyboard, the more the filter opens.
+This is useful for adding brightness to a sound as higher notes are played,
+which is typically how acoustic instruments behave. When set to zero,
+keyboard filter tracking is off, meaning that filter frequency is unaffected by
+playing higher or lower notes on the keyboard. When set to 127, the filter
+will track in half-step increments, which can be useful if you are using
+the filter to generate a pitch through self-oscillation.
+
+
+
+Envelopes
+The Take 5 has two 5-stage envelope generators (attack, decay, sustain,
+release, plus delay). They are useful for creating modulation that varies
+over time according to the shape of the envelope. Routing an envelope to
+Filter Cutoff, for example, causes the filter to open or close according to
+the contour of the envelope. Routing an envelope to Amplifier causes the
+volume to change according to the contour of the envelope.
+
+Similarly, using one of the envelopes as an auxiliary envelope and rout-
+ing it to a different destination in the mod matrix allows you to apply
+modulation that changes according to the contour of the envelope.
+
+There are many creative ways to use the Envelopes:
+
+     •   Use the mod matrix to route Envelope 1 or 2 to one of the oscillators’
+         fine (pitch) parameter to create the classic “pitch blip” effect used in
+         many synth lead sounds.
+     •   Use the mod matrix to route Envelope 1 or 2 to one or both of the
+         oscillators’ shape parameter to make their timbre evolve according to
+         envelope’s contour.
+     •   Use the mod matrix to route Envelope 1 or 2 with a fast attack and
+         short decay to noise (level) to add a percussive attack to a sound.
+         (Noise should be set to zero in the Mixer.)
+
+
+Take 5 User’s Guide                                               Envelopes      23
+
+=== PAGE 33 ===
+Using the Env Routing Button to Assign the Envelopes
+The env routing button provides a way to assign the envelopes to
+specific destinations. Pressing the env routing button toggles through the
+various options.
+
+
+         ENV 1
+          Filter
+          Aux
+
+
+
+         ENV 2
+          Amp
+          Filter+Amp
+          Filter+Gate
+
+          ENV ROUTING
+
+
+
+
+     Env 1 Destinations:
+
+     •   filter - Envelope 1 controls Filter Cutoff frequency
+
+     •   aux - Envelope 1 functions as an auxiliary envelope that can be used
+         to modulate a destination selected through the Mod Matrix. The Aux
+         setting is available when Env 2 is set to filter + amp or filter + gate.
+
+     Env 2 Destinations:
+
+     •   amp - Envelope 2 controls the Amplifier (loudness)
+
+     •   filter + amp - Envelope 2 controls both Filter Cutoff frequency and the
+         Amplifier (loudness). Note that if the Env 2 velocity button is on, it
+         affects only Filter Cutoff and not Amplifier volume.
+     •   filter + gate - Envelope 2 controls Filter Cutoff frequency while
+         Amplifier volume is simply triggered (gated) on/off each time you
+         press a key on the Take 5 keyboard. Note that if the Env 2 velocity
+         button is on, it affects only Filter Cutoff and not Amplifier volume.
+
+
+
+About the Filter Envelope
+Routing Envelope 1 or 2 to the Filter shapes the harmonic characteristics
+of a synthesized sound by giving you filtering control with each of the
+envelope stages (attack, decay, sustain, release).
+
+A filter envelope is one of the most important aspects of a synthesized
+sound. Without an envelope, the filter would be static and unchanging. It
+24   About the Filter Envelope                                          Sequential
+
+=== PAGE 34 ===
+would stay open or closed by a fixed amount that wouldn’t change over
+the duration of a sound. That’s not very expressive or interesting to listen
+to — and it’s not how most real-world instruments behave.
+
+In general, sounds produced by an acoustic instrument are brighter at their
+beginning (the attack stage) and grow mellower as they die out (the decay
+and release stages). In other words, their harmonic content changes over
+time. This is exactly what the filter envelope is designed to emulate.
+
+
+       ENV 1
+        Filter
+        Aux
+
+
+
+       ENV 2
+        Amp                                 Envelope 1 parameters
+        Filter+Amp
+        Filter+Gate
+
+
+
+                                             attack   decay   sustain    release
+        ENV ROUTING
+
+
+
+
+                      amplitude
+                                     delay
+
+                      time
+
+                                  note on                               note off
+                                   A typical 5-stage DADSR envelope
+
+
+    To hear the effect of the Filter Envelope:
+
+     1. Recall the Basic Program by pressing the global button and using the
+        select knob to navigate to the basic program command, then press
+        write.
+
+     2. Hold down a note and rotate the filter’s cutoff knob to set it to an
+        8 o’clock position.
+     3. Play a note. At this point you may not hear anything because you’ve
+        closed the filter significantly.
+     4. In the Envelopes section, turn the amount knob of Env 1 (which is
+        routed to the Filter by default) to a 3 o’clock position.
+
+
+
+
+Take 5 User’s Guide                                                     About the Filter Envelope   25
+
+=== PAGE 35 ===
+     5. Play a note. Notice how the sound has changed. The Filter Envelope is
+        controlling filter cutoff by the amount you set with the amount knob.
+     6. Repeatedly strike a note on the keyboard as you turn the Filter Enve-
+        lope’s decay knob clockwise and counterclockwise. Notice how it
+        changes the sound as the note decays faster or slower after its initial
+        attack stage.
+     7. Now experiment with the Filter Envelope’s attack knob. Notice how
+        the attack becomes faster or slower.
+     8. Now hold down a note and experiment with the Filter Envelope’s
+        sustain knob. This controls how wide the filter stays open while you
+        hold down a key on the keyboard.
+     9. The Filter Envelope’s release parameter acts in conjunction with the
+        Amplifier Envelope (Envelope 2 by default), so to hear its effect, first
+        set the Amp Envelope’s release value to a 1 o’clock position.
+     10. Now repeatedly strike a note on the keyboard as you turn the Filter
+        Envelope’s release knob clockwise and counterclockwise. Notice how
+        the note fades out faster or slower as you change the release value.
+     11. Continue experimenting with various Filter Envelope settings while
+         you adjust Envelope 1’s amount knob. Notice how greater amount
+         settings amplify the effect of the envelope on the filter.
+
+As noted above, the Filter Envelope and Amplifier Envelope often work
+in conjunction, with the Filter Envelope controlling how the filter opens
+and closes and the Amplifier Envelope controlling how the Amplifier
+controls the overall volume shape of the sounds you create. To learn
+more about the Amplifier Envelope, see “About the Amp Envelope” on
+page 28.
+
+
+Envelope Parameters
+Attack: Sets the attack time of the envelope. The higher the setting, the
+slower the attack time and the longer it takes for the filter to open from
+the level set with the filter cutoff knob to the level set by the filter enve-
+lope amount. Percussive sounds typically have sharp (short) attacks.
+
+Decay: Sets the decay time of the envelope. After a sound reaches the
+filter frequency set at its attack stage, decay controls how quickly the
+filter then transitions to the cutoff frequency set with the sustain knob.
+The higher the setting, the longer the decay. Percussive sounds, such as
+synth bass, typically have shorter decays (and a generous amount of low-
+
+26   About the Filter Envelope                                         Sequential
+
+=== PAGE 36 ===
+pass filter resonance).
+
+Sustain: Sets the filter cutoff frequency for the sustained portion of the
+sound. The sound will stay at this filter frequency for as long as a note is
+held on the keyboard.
+
+Release: Sets the release time of the envelope. This controls how
+quickly the filter closes after a note is released.
+
+Velocity On/Off: On, Off—Allows key velocity to influence filter cutoff
+frequency. If on, the harder you play, the more the filter will open and the
+brighter the sound will be. If off, key velocity will not affect the filter.
+This control allows for more touch-sensitive sounds.
+
+Amount: Sets the amount of modulation from the filter envelope to the
+filter’s cutoff frequency. Any setting above zero means that each time
+you strike a key, the filter envelope controls how the filter opens and
+closes. Higher amounts more dramatically affect the cutoff frequency.
+This control is bipolar. Positive settings produce standard behavior.
+Negative settings invert the envelope.
+
+
+Additional Envelope Parameters (Program Menu)
+Additional Envelope parameters are accessible by pressing the front-
+panel program button and scrolling through the list that appears. The
+parameters below do not appear on the front panel.
+
+Env Retrig: Off, Env1
+
+Env Repeat: Off, Env1, Env2, Env1+2— When on, the Delay, Attack,
+and Decay segments of the selected envelope repeat indefinitely. Sustain
+still affects the level at which the Decay segment ends, but instead of
+sustaining at a fixed level while a key is held down, Delay, Attack, and
+Decay loop until the key is released. (The Release segment begins when
+the key is released, just as it does when Repeat is off.) You can hear the
+effect of Envelope 2 set to Env Repeat mode in program G06 Bubbly.
+
+Env 1 Delay: 0...127—Sets a delay between the time the envelope is
+triggered (note on) and when the attack portion actually begins.
+
+Env 2 Delay: 0...127—Sets a delay between the time the envelope is
+triggered (note on) and when the attack portion actually begins.
+
+Take 5 User’s Guide                              About the Filter Envelope   27
+
+=== PAGE 37 ===
+About the Amp Envelope
+After passing through the filters, a synthesized sound goes into an
+amplifier, which controls its overall volume. The Amp envelope is used
+to shape the volume characteristics of a sound over time by giving you
+control over these stages. Along with the Filter envelope, this is one of
+the most important aspects of a synthesized sound.
+
+Without a volume envelope, the volume of a sound wouldn’t change
+over the duration of a note. It would begin immediately, remain at its full
+volume for its duration of the note, then end immediately when the note
+was released. Again, that’s not very interesting sonically and it’s not typi-
+cally how instruments behave in the real world.
+
+To give you a real-world example, the main difference between the sound
+of the wind and the sound of a snare drum is that they have very different
+volume envelopes. Otherwise, they are essentially both white noise.
+Wind has a relatively slow attack, a long sustain, and a long decay and
+release. A ENV
+           snare 1
+                     drum has a sharp attack, no sustain, and very little decay
+or release. But
+             Filter
+             Aux
+                    again, they are both fundamentally white noise.
+
+          ENV 2
+            Amp
+            Filter+Amp
+            Filter+Gate
+
+           ENV ROUTING
+
+
+
+
+                                            Envelope 2 parameters
+
+
+
+                                                  attack   decay   sustain    release
+
+
+
+
+                          amplitude
+                                          delay
+
+                          time
+
+                                       note on                               note off
+
+
+                                      A typical 5-stage, DADSR envelope
+
+
+The Amplifier Envelope works in conjunction with the Filter Envelope,
+with the Filter Envelope controlling how the filter opens and closes and
+the Amplifier Envelope controlling how the Amplifier controls the overall
+28   About the Amp Envelope                                                             Sequential
+
+=== PAGE 38 ===
+volume shape of the sounds you create.
+
+    To hear the effect of the Amplifier Envelope:
+
+     1. Recall the Basic Program by pressing the global button and using the
+        select knob to navigate to the basic program command, then press write.
+
+     2. Repeatedly strike a note on the keyboard as you turn the Amplifier
+        Envelope’s attack knob clockwise. Notice how the attack becomes
+        slower and more gradual the further you turn the knob.
+     3. Reset the attack parameter to zero (fully counter-clockwise).
+     4. Next, repeatedly strike a note on the keyboard as you turn the Ampli-
+        fier Envelope’s sustain to zero. Notice how it changes the sound so that
+        the sound no longer sustains even if you hold down the key. The only
+        sound you hear is from the decay portion of the sound.
+     5. Now, with sustain still set to zero, repeatedly strike a note on the
+        keyboard as you turn the Amplifier Envelope’s decay knob clockwise
+        and counterclockwise. Notice how it changes the sound as the note
+        decays faster or slower after its initial attack stage.
+     6. Set the decay parameter to 3 o’clock.
+     7. With decay set to 3 o’clock and sustain still set to zero, repeatedly
+        strike a note on the keyboard as you turn the Amplifier Envelope’s
+        release knob clockwise. Notice how the release becomes longer the
+        further you turn the knob.
+     8. Continue experimenting with various Amplifier Envelope settings while
+        you also adjust the Filter Envelope to hear how these two modulators
+        interact.
+
+
+
+Auxiliary Envelope
+Envelope 1 can be designated as an Auxiliary envelope using the front-
+panel env routing button. By doing so, you can set its shape as you wish
+and use the modulation matrix to route it to a specific mod destination
+to create modulation that varies over time according to the shape of the
+envelope. Routing an envelope to an oscillator’s frequency, for example,
+causes the oscillator’s pitch to rise and fall according to the contour of
+the envelope.
+
+
+     Either of the Take 5’s envelopes can be routed to any destination (or multiple
+
+
+Take 5 User’s Guide                                            Auxiliary Envelope     29
+
+=== PAGE 39 ===
+destinations) using the modulation matrix. See “Modulation” on page 34 for more details.
+
+
+There are many ways to make creative use of the Auxiliary Envelopes:
+
+     •    Route an envelope to one of the oscillators’ osc 1 oct parameter to
+          create the classic “pitch blip” effect used in many synth lead sounds.
+     •    Route an envelope to the filter’s cutoff parameter (in addition to the
+          standard Filter Envelope) to create a more complex filter envelope
+          shape.
+     •    Route an envelope to one or more of the oscillators’ shape parameter to
+          make their timbre evolve according to envelope’s contour.
+     •    Route an envelope with a fast attack and short decay to noise level to
+          add a percussive attack to a sound. (Noise should be set to zero in the
+          Mixer.)
+
+
+Low Frequency Oscillators
+LFOs are special-purpose oscillators that produce a frequency that is
+typically below the range of human hearing (although these can actu-
+ally extend into the audio range if set to their maximum frequency). The
+LFOs are used for periodic modulation such as vibrato (periodic pitch
+modulation) and tremolo (periodic amplitude modulation). They can also
+be used as modulation sources for any of the many modulatable param-
+eters in the Take 5.
+
+The LFOs produce a variety of waveshapes, including triangle, sawtooth,
+reverse sawtooth, square, and s&h (sample & hold/random). Though
+most often used for low-frequency modulation, the Take 5 LFOs can actu-
+ally function at speeds that extend into the audible range for extreme effects.
+
+                   LFO 1: GLOBAL                         LFO 2: PER VOICE
+
+
+
+
+                          CLK SYNC   DEST                         CLK SYNC   DEST
+
+                       The Take 5 Keyboard’s Low Frequency Oscillators
+
+
+
+
+30   Low Frequency Oscillators                                                      Sequential
+
+=== PAGE 40 ===
+                        The Module’s Low Frequency Oscillators
+
+
+The triangle wave is bipolar. That is, its waveshape is positive for half of its
+cycle and negative for the other half. This makes it possible to generate a
+vibrato that goes alternately sharp and flat in equal amounts on either side of
+a center frequency.
+
+The square, sawtooth, reverse sawtooth, and sample & hold (random)
+waves generate only positive values. In the case of the square wave, this
+makes it possible to generate trills.
+
+           Triangle     Sawtooth     Reverse        Square       Sample & Hold
+                                     Sawtooth
+
+
+       0
+
+
+                                   LFO waveshapes
+
+
+The LFOs can be free-running or synced to the Arpeggiator, Sequencer, or
+MIDI clock for tempo-synced effects such as filter sweeps, tremolo, and so on.
+
+
+Global/Mono LFO Versus Per Voice/Poly LFO
+The Take 5 has two separate LFOs. LFO 1 is “global” and LFO 2 is
+“poly(phonic)”. It’s useful to understand the difference:
+
+
+Global/Mono LFO (LFO 1)
+LFO 1 is a global, or monophonic, LFO and is a single modulator that
+is applied to all voices in a program equally — with no variation from
+voice to voice. A simple example of this is using LFO 1 to modulate Osc
+1 Freq. Doing so will change the pitch of all notes you play in exactly the
+same way and with the same timing. In other words, if you play a chord,
+
+
+Take 5 User’s Guide                                 Low Frequency Oscillators    31
+
+=== PAGE 41 ===
+and strike each note within the chord at slightly different times, the notes
+will shift their pitch together in perfect sync with each other with no
+variation from note to note/voice to voice.
+
+Per Voice/Poly LFO (LFO 2)
+
+LFO 2 is a polyphonic, or per-voice, modulator that is applied to each
+voice individually, and can vary from voice to voice. A simple example
+of this is using LFO 2 to modulate Osc 1 Freq. Doing so will change
+the pitch of all notes that you play, but the modulation will be applied
+individually to each note. In other words, if you play a chord, and strike
+each note within the chord at slightly different times, each note will be
+modulated individually beginning from the time it is struck, making the
+cycle of the pitch shift different from note to note/voice to voice. It’s a
+subtle but noticeable difference.
+
+
+LFO Parameters
+Frequency: Sets the frequency of the selected LFO from a slow .022Hz
+to a fast 500Hz. This is affected by the clk sync (clock sync) parameter
+as explained below.
+
+Amount: Sets the amount of LFO modulation routed to the selected
+destination. Setting an amount here applies the selected modulation
+continuously. You can also use the modulation matrix to route an LFO
+to additional destinations and use a different modulation amount if you
+want.
+
+Shape: Triangle, Sawtooth, Reverse Sawtooth, Square, S&H—This
+button sets the waveshape of the selected LFO.
+
+Clock Sync: When on, the LFO synchronizes with the master clock,
+which controls the Arpeggiator, Sequencer, and certain effects such as the
+various delays.
+
+Destination: Various—Routes the selected LFO to one of the many
+modulation destinations within the synthesizer. These appear in the
+display. You can also use the modulation matrix to route an LFO to addi-
+tional destinations.
+
+
+
+32   Low Frequency Oscillators                                    Sequential
+
+=== PAGE 42 ===
+LFO: 1, 2—Found only on the module version of the Take 5, this button
+selects between LFO 1 and 2. The shared LFO parameter controls will
+allow adjustments to the selected LFO.
+
+
+
+There are many ways to make creative use of the LFOs:
+
+      •   Route an LFO to the fine parameter of the oscillators to create vibrato
+          (triangle wave) or random pitches (s&h/random wave).
+      •   Route an LFO’s triangle wave to the filter’s cutoff parameter and use
+          a medium freq and amount setting to create a wah-wah effect, or use
+          a slow freq setting and low amount setting to create subtle harmonic
+          movement.
+      •   Route an LFO’s square wave to the amplifier’s amount parameter and
+          use a medium freq and amount setting to create a tremolo effect.
+      •   Route an LFO to an oscillator’s shape parameter to make its timbre
+          evolve.
+      •   Route the LFO’s triangle wave to the time parameter of the stereo delay
+          and use a slow freq and low amount setting to create a chorus effect.
+
+
+     Any LFO can be routed to any destination (or multiple destinations) using the
+modulation matrix. See “Appendix B:
+Modulation Destinations” on page 69 for a list of destinations.
+
+
+
+Additional LFO Parameters (Program Menu)
+Additional LFO parameters are accessible by pressing the front-panel
+program button and scrolling through the list that appears. The param-
+eters explained below do not appear on the front panel.
+
+LFO 1 Reset: Off, On—When off, the LFO is free running. When on,
+the LFO is re-started each time a new note is played. However, if the first
+note is held and more notes are played, the LFO does not reset on the
+newly played notes. LFO reset is useful if you want to ensure that the full
+cycle of the waveshape is applied each time you strike a key.
+
+LFO 2 Reset: Off, On—When off, the LFO is free running. When on,
+the LFO is re-started each time a new note is played. wave reset is set
+
+
+Take 5 User’s Guide                                     Low Frequency Oscillators    33
+
+=== PAGE 43 ===
+independently for each LFO. This is useful if you want to ensure that the
+full cycle of the waveshape is applied each time you strike a key.
+
+LFO 1 Slew: 0-127— Adding slew to an LFO smooths out the wave-
+shapes by slowing down the speed at which voltage levels change, also
+known as slewing the voltage. Adding slew can change a square wave
+LFO to a ramp, for example. Program A03 DigiBalalaika has Slew
+added to both LFOs, set to S+H waveforms. You can hear how the Slew
+parameter changes the normally sharp edges of a sample and hold LFO
+to sinuous curves.
+
+LFO 2 Slew: 0-127—As above, adds slew to LFO 2’s waveform.
+
+
+
+              There is a shortcut for routing an LFO to a front-panel destination (provided
+     that the destination is a valid destination). Simply hold down the dest button of the
+     desired LFO, then move the knob or control you want to use as a destination (the filter
+     cutoff, for example). Set the amount using the LFO amount knobs.
+
+
+
+
+Modulation
+Although the overall sonic character of the Take 5 is determined by its
+oscillators and filters, much of its power to make unique sounds comes
+from creative use of modulation. Modulation is the process of routing
+one parameter (used as a control voltage) to another parameter in order to
+change the way the targeted parameter behaves.
+
+
+
+
+                              The Modulation assignment controls
+
+
+The idea is simple:
+
+
+
+34   Modulation                                                                 Sequential
+
+=== PAGE 44 ===
+     1. Choose a source.
+     2. Choose a destination.
+     3. Set an amount. The amount can usually be either positive or negative.
+
+                                      Indicates mod slot number
+
+
+
+                                    120        MOD 1     1/16
+                      source                ModWheel M
+                     amount                 45                         Indicates whether
+                  destination               Overdrive M                a mod source/destination
+                                                                       is mono (M) or poly (P)
+                                    Up+Down               BBD
+
+
+
+
+                                select                       value
+
+
+
+                            Use this knob to            Use this knob to
+                             scroll through            set the mod source
+                            mod slots and                 mod amount
+                       source/amount/destination        mod destination
+
+
+You already understand and apply the concept of modulation whenever
+you use the filter envelope to control the filter’s cutoff frequency. In this
+case, the modulation source is the filter envelope (or more precisely, any
+of its controls, such as attack, decay, sustain, or release). The modulation
+destination is the filter’s cutoff frequency. The modulation amount is set
+with the Filter Envelope’s amount knob.
+
+There are 19 different modulation sources and 54 different destinations to
+choose from. This gives you a large number of sound-shaping options.
+
+
+
+             There are shortcuts for routing modulation to various front panel sources/desti-
+    nations. Simply hold down the source assign button and move the control you want to
+    use as a source (the Mod wheel, for example). Then hold down the destination assign
+    button and move the control that you want to use as a destination (filter cutoff, for
+    example). Set the amount with the value knob while referring to the display. Be aware
+    that not all front-panel controls can be used as a modulation source/destination.
+
+
+
+Mono and Poly Modulation Sources/Destinations
+
+
+
+
+Take 5 User’s Guide                                                           Modulation          35
+
+=== PAGE 45 ===
+There are two types of mod sources and destinations: mono and poly.
+In general, you don’t need to think too much about which to use when
+assigning modulation, but it’s useful to understand the difference.
+
+     •   A mono modulation source, such as LFO 1: Global, is a single modula-
+         tor that is applied to all voices in a program equally — with no varia-
+         tion from voice to voice. Other mono mod sources include the Pitch
+         Bend wheel or Mod wheel, which can be used to control oscillator
+         frequency (pitch) or other aspects of a sound depending on how you
+         assign it in the Mod Matrix (in the display).
+     •   A poly modulation source, such as Key Velocity, is a modulator that
+         is applied to each voice individually, and can vary in its amount from
+         voice to voice. A simple example of this is using key velocity to control
+         filter cutoff frequency per voice or the volume of individual voices
+         (Amp). Other poly mod sources include LFO 2, Envelope 1, Envelope
+         2, Note Number, and others. These can all be used to control things
+         such as the pitch of individual oscillators/voices, oscillator wave shape
+         per voice, and many other things.
+
+
+Modulation Examples
+Here are several modulation scenarios that illustrate how to use the modula-
+tion matrix. The examples provide step-by-step instructions for clarity. Some
+of these setups are built into the basic program, which you can recall from
+the global menu.
+
+To use the Mod wheel to add vibrato:
+     1. In the lfo section, set LFO 1 to triangle and set frequency to a
+        medium value. Set destination to osc all fine. Set amount to 0. (You
+        will control the amount with the Mod wheel.)
+     2. In the modulation section, press the source button. Use the select knob
+        to scroll to Mod Slot 1 if it’s not already displayed.
+     3. Use the value knob to scroll through the various mod sources and
+        choose mod wheel (As a shortcut for steps 2 and 3, you can hold down
+        the src assign button and move the Mod wheel.)
+     4. Use the value knob to set the amount to 30.
+     5. Use the value knob to scroll through the various mod destinations and
+        choose lfo 1 amt. (As a shortcut you can hold down the dest assign
+        button and move the LFO 1 amount knob.)
+
+
+
+36   Modulation Examples                                               Sequential
+
+=== PAGE 46 ===
+     6. Hold down a note on the keyboard and turn the Mod wheel. You should
+        hear vibrato.
+
+Use pressure as the modulation source instead of the Mod wheel in the
+previous example to add vibrato with key pressure/aftertouch.
+
+To use the Mod Wheel to control the filter cutoff:
+     1. In the modulation section, press the source button. Use the select knob to
+        scroll to Mod Slot 1 if it’s not already displayed.
+     2. Use the value knob to scroll through the various mod sources and
+        choose mod wheel.
+     3. Use the value knob to scroll through the various mod destinations and
+        choose cutoff.
+     4. Hold down a note on the keyboard (or press the hold button and play a
+        note on the keyboard) and move the Mod Wheel up and down.
+     5. Use the value knob to set the amount to your preference. Higher
+        amount settings cause the filter to open wider the farther up you move
+        the Mod Wheel. A negative amount setting will close the filter the
+        farther up you move the Mod Wheel.
+
+ Use pressure as the modulation source instead of the Mod Wheel slider
+in the previous example to open the filter (positive amount) or close the
+filter (negative amount) with key pressure (aftertouch.
+
+Other modulation ideas:
+    •   To create the classic “attack pitch blip” effect in many synth brass sounds,
+        choose a good two-oscillator synth brass sound. Set env 1 to aux and env
+        2 to filter + amp. In the Mod Matrix route env 1 osc 2 fine. Set env 1 to
+        Attack: 0, Decay: 9 o’Clock, Sustain: 0, and Release: 0 with an amount of
+        30.
+    •   Route an LFO to pan to create an auto-panning effect. Panning width is
+        controlled by the modulation amount. Panning speed is controlled by
+        the LFO frequency. Add a second mod path to control the LFO speed
+        with the Mod wheel for a controllable rotating speaker spin-up/spin-
+        down effect. Add the rotating speaker effect as Effect 1 and set up a
+        third mod path to control fx1 mix with the Mod wheel for even better
+        results.
+    •   Route velocity to overdrive to distort a synth lead sound the harder
+        you play.
+
+
+
+Take 5 User’s Guide                                     Modulation Examples       37
+
+=== PAGE 47 ===
+Unison
+When unison is on, the Take 5 acts like a monophonic synthesizer in
+that only 1 note can be played at a time. However, that one note can be
+powered by as many as five voices, depending on how many you choose
+to use.
+
+     To use Unison:
+
+     1. Press and hold the unison button.
+     2. With the unison switch held down, use the value knob to choose the
+        number of voices to stack, then release the Unison switch.
+
+
+
+                          120         UNISON        1/16
+                                    4 Voices
+
+                          Up+Down                    BBD
+
+
+                         Setting the number of Unison voices
+
+
+To detune the oscillators in Unison:
+
+     1. Press program settings button.
+     2. With the select knob, choose the unison detune command
+     3. Use the value knob to set the amount of detuning. A setting of 0 is
+        minimum detuning. A setting of 7 is maximum detuning.
+
+
+
+                          120       PROGRAM         1/16
+                            11. Unison Detune
+                                    3
+                          Up+Down                    BBD
+
+
+
+                                Detuning Unison voices
+
+
+
+
+38   Unison                                                           Sequential
+
+=== PAGE 48 ===
+Using Chord Memory
+Unison has a useful feature called chord memory. Instead of assigning
+voices to a single note, hold down a chord on the keyboard and press the
+unison switch. The Take 5 memorizes the notes of the chord. Single notes
+played on the keyboard then trigger all notes of the stored chord, trans-
+posing them as you play up or down the keyboard. Try using this feature
+to create powerful chord stabs.
+
+    To use chord memory:
+
+     1. Hold down a chord on the keyboard (5 notes maximum).
+     2. Press the unison switch. The chord voicing is memorized. Play a few
+        notes to listen to the result.
+     3. If you save the program, the unison chord memory is saved with it.
+
+    To clear chord memory:
+     1. Turn off Unison.
+     2. Hold down a single note.
+     3. Press the unison button.
+     4. Save the program again.
+
+
+Additional Unison Parameters (Program Menu)
+Additional Unison parameters are accessible by pressing the front-panel
+program button and scrolling through the list that appears.
+
+
+Unison Key Mode: Low, High, Last—Determines which note has priority
+when more than one note is played simultaneously in Unison mode. Low,
+selects low-note priority. High selects high-note priority. Last selects last-
+note priority.
+
+Unison Env Retrig: Off, On—Determines whether the envelopes are
+retriggered if a note is held while additional notes are played.
+
+
+
+
+Take 5 User’s Guide                                                 Unison       39
+
+=== PAGE 49 ===
+Effects
+You can add up to two digital effects per program. The first effect can be one of
+several classic device emulations, including various delays, chorus, flanging,
+and others. The second effect is a dedicated reverb with variable decay, pre-
+delay, damping, and tone. Effects are saved with programs.
+
+
+Effect Types
+     • Delay - classic stereo digital delay
+     • BBD - vintage bucket-brigade delay emulation
+     • Tape Delay 1 - vintage tape delay emulation
+     • Tape Delay 2 - vintage tape delay emulation with greater tape saturation
+     • Chorus - vintage stereo chorus
+     • Flanger - vintage through-zero flanger
+     • Phaser - vintage 6-stage phaser
+     • HP Filter - high-pass filter
+     • Distortion - classic op amp distortion
+     • Ring Mod - ring modulation
+     • Rotating Speaker - vintage rotating speaker emulation
+     • Lo-Fi - emulates the artifacts of a poorly -calibrated tape machine.
+     • Reverb (Effect 2) - plate reverb with variable time, tone, and early reflec-
+     tions.
+      EFFECT              TIME KNOB             DEPTH/MIX KNOB    FBACK/MISC KNOB
+
+      Stereo Delay        Time                  Mix               Feedback
+      BBD                 Time                  Mix               Feedback
+      Tape Delay 1        Time                  Mix               Feedback
+      Tape Delay 2        Time                  Mix               Feedback
+      Chorus              Rate                  Depth             LPF Cutoff
+      Flanger             Rate                  Depth             Feedback
+      Phaser              Rate                  Depth             Feedback
+      High-pass Filter    Frequency             Mix               Resonance
+      Distortion          Gain                  Output Level      Tone
+      Ring Modulation     Pitch/Carrier Freq    Mix               Pitch Track On/Off
+      Rotating Speaker    Speed                 Drive             Mic Distance
+      Lo-Fi               Wow&Flutter Spd       Wow&Flutter Amt   Tape Drive
+
+
+40   Effects                                                              Sequential
+
+=== PAGE 50 ===
+    To add an Effect:
+
+     1. Press the effect on/off button to turn it on.
+     2. Turn the type knob to select an effect. The effect name is shown in the
+        lower right of the main display. Names are abbreviated. For instance
+        “bbd” is the bucket-brigade delay. Refer to the previous list.
+     3. Turn the depth/mix knob clockwise to blend in the processed signal.
+     4. Use the time and feedback/misc knobs to adjust effect parameters. Refer to
+        the chart to see which parameters each of these knobs control
+
+    To add Reverb:
+
+     1. Press the reverb on/off button to turn it on.
+     2. Turn the mix knob clockwise to blend in the processed signal.
+     3. Use the decay knob to adjust the length of the reverb tail.
+     4. Use the pre-delay knob to adjust the pre-delay.
+     5. Use the tone knob to shape the frequency content of the reverb. The tone
+        parameter uses both high-pass and low-pass filtering to sculpt the reverb’s
+        sound.
+     6. Use the damping knob to adjust reverb damping (absorption of the high
+        frequencies of the reverb). Less damping allows high frequencies to decay
+        slower to create a brighter reverb sound. More damping darkens the sound
+        of the reverb.
+
+
+
+
+Take 5 User’s Guide                                                     Effects   41
+
+=== PAGE 51 ===
+Vintage Knob
+Because the Take 5 has analog VCOs and filters, it is capable of produc-
+ing many classic, vintage poly synth sounds, even though it was designed
+and constructed with state-of-the-art technology and components. To
+add even more vintage character, we designed the vintage knob, which
+introduces parameter variations from voice to voice. This type of behav-
+ior was a big part of why vintage synths sounded so warm, organic, and
+alive. Turning up the vintage knob adds progressively more variation
+between voices. Try it out!
+
+
+
+
+                                   VINTAGE
+
+                                The Vintage knob
+
+
+     To use the Vintage knob:
+
+     •   Turn the vintage knob clockwise to add progressively more variation
+         from voice to voice.
+
+
+
+Overdrive
+The Take 5 has an Overdrive effect that is separate from the digital
+effects available in the Effect and Reverb sections. A little Overdrive is
+great for adding harmonic complexity and an aggressive edge to sounds.
+The character of the Overdrive is affected by the harmonic content of a
+program. Sounds with more high-end will sound different than sounds
+with fewer harmonics.
+
+
+
+
+                                  OVERDRIVE
+
+                                The Overdrive knob
+
+
+     To add Overdrive:
+
+     •   Turn the overdrive knob clockwise to add progressively more drive.
+
+42   Vintage Knob                                                   Sequential
+
+=== PAGE 52 ===
+Arpeggiator
+The Arpeggiator allows you to hold a chord and the synthesizer will play
+a pattern based on the individual notes held. You can adjust the playback
+mode (up, down, up+down, random, assign.), the octave range (1, 2,
+or 3), the number of repeats per note, and the tempo. The Arpeggiator
+usually works best on sounds with a fast attack.
+
+While you hold down a chord, pressing any additional notes will add
+those notes to the arpeggio. You can change chords and notes and the
+arpeggio will continue to play as long as at least one note is always held.
+
+You can also use the hold feature with the Arpeggiator. When you enable
+hold, you can release the notes on the keyboard and the arpeggio will
+continue to play — with any additional notes that you play added to the
+arpeggio.
+
+To prevent the Arpeggiator from adding new notes to an arpeggio when
+keys are continuously held (and instead start a new arpeggio each time
+you change notes), turn arp relatch on in the Arpeggiator. To do this,
+press the program button and use the select knob to scroll to the arp
+relatch parameter. Use the value knob to set it to on.
+
+
+Set the tempo of the Arpeggiator with the tap tempo or bpm and divide
+controls. To use tap tempo, tap this button 4 times to set the tempo. You
+can also sync the Arpeggiator to external MIDI clock.
+
+
+                            CLOCK                    ARPEGGIATOR        STEP SEQ
+
+
+
+
+                      BPM         CLK DIVIDE        ON      OCTAVE        RECORD
+
+
+
+
+                            TAP TEMPO              MODE      REPEAT        PLAY
+
+
+
+
+                            The Clock and the Arpeggiator
+
+
+
+
+Take 5 User’s Guide                                                Arpeggiator     43
+
+=== PAGE 53 ===
+     To use the Arpeggiator:
+
+      1. Press the Arpeggiator on/off button to turn it on.
+      2. Hold down one or more notes on the keyboard. The Arpeggiator plays
+         them according to the settings you’ve chosen.
+      3. To latch the arpeggiator on (so that you don’t have to continuously hold
+         down notes) press the hold button.
+      4. In the display menu, adjust settings such as mode, octave range,
+         repeats, and bpm.
+
+      5. To synchronize a delay effect to the Arpeggiator, enable Effect 1, choose a
+         delay, then turn on sync in the delay’s parameter page in the display. Adjust
+         the delay’s time parameter as desired.
+
+
+Arpeggiator Momentary Sustain Mode
+The Take 5 allows you to use the sustain pedal to turn the Arpeggiator’s
+Hold function on and off and perform other Arpeggiator-related func-
+tions. To access this feature, use the foot function setting in the global
+menu.
+
+There are three modes to choose from:
+     •   sustain - With the Arpeggiator running in this mode, pressing and
+         holding the Sustain pedal sustains the notes, as the Sustain pedal
+         normally would.
+     •   arp hold - With the Arpeggiator running in this mode, pressing the
+         Sustain pedal once causes the Arpeggiator to hold the sequence (even
+         when you release the notes on the keyboard). Pressing it again stops the
+         Arpeggiator.
+     •   arp hold mom - With the Arpeggiator running in this mode, pressing
+         and holding the Sustain pedal causes the Arpeggiator to sustain (even
+         when you release the notes on the keyboard) for as long as you hold
+         down the pedal. Releasing the Sustain pedal stops the Arpeggiator.
+
+     To select the Arpeggiator’s sustain pedal mode:
+
+      1. Press the global button then use the select knob to scroll to foot
+         function.
+      2. Use the value knob to select sustain, arp hold, or arp hold mom,
+         depending on your preference. Press the global button again to exit
+         the Global menu.
+
+
+44   Arpeggiator                                                          Sequential
+
+=== PAGE 54 ===
+MIDI Note Output from the Arpeggiator
+The Arpeggiator outputs MIDI note messages. Any notes that you hold
+on the keyboard will be arpeggiated according to the current settings of
+the Arpeggiator and output over MIDI as MIDI notes. You can use this
+feature to drive other MIDI-equipped devices such as synthesizers and
+drum machines. To access this feature, use the midi arp notes setting in
+the global menu.
+
+    To enable MIDI Note output from the Arpeggiator:
+
+     1. Press the global button, then use the select knob to locate the midi
+        arp notes parameter.
+     2. Use the value knob to select on.
+
+    To control an external MIDI device:
+
+     1. Connect the MIDI or USB output of the Take 5 to the MIDI or USB
+        input of the external device, depending on which type of connection
+        the external device requires.
+     2. On the Take 5, press the global button, then use the select knob to
+        locate the midi cable out parameter.
+     3. Use the value knob to select midi, usb, or all, depending on how your
+        Take 5 and external device are connected.
+     4. Press the global button again to exit the Global menu.
+     5. On the external device, set the MIDI Channel and MIDI Receive port
+        to match the Take 5.
+     6. Hold down a chord on the Take 5 or start Sequencer playback. The
+        external device will be triggered by the arpeggiated or sequenced notes.
+
+
+
+
+Take 5 User’s Guide                                            Arpeggiator     45
+
+=== PAGE 55 ===
+Arpeggiator Parameters
+Arpeggiator On/Off: This button turns the Arpeggiator on and off.
+
+Arp Mode: Sets the order in which notes play when the Arpeggiator is on. The
+setting appears in the lower left of the display. See the table below.
+
+ Arp Mode           Behavior
+ Up                 Plays from lowest to highest note
+ Down               Plays from highest to lowest note
+ Up + Down          Plays from lowest to highest and back to lowest
+ Random             Plays notes in random order
+ Assign             Plays notes in the order the keys were pressed
+
+Octave: 1, 2, 3—Set to 1, only the held notes are arpeggiated. Set to 2,
+the held notes and the notes one octave above them will arpeggiate. Set
+to 3, the held notes and the notes one and two octaves above them arpeg-
+giate.
+
+Repeat: 1, 2, 3 —Set to off, each note in the arpeggio plays once. Set to
+1, each note in the arpeggio plays twice. Set to 2, each note in the arpeg-
+gio plays three times. Set to 3, each note in the arpeggio plays four times.
+
+Relatch (in the Program Menu): Off, On—Works in conjunction with
+hold. When hold and the Arpeggiator are on, and arp relatch is off,
+played notes are held on and arpeggiated, with additional played notes
+added to the held notes and the arpeggio. When arp relatch is on, played
+notes are held on and arpeggiated, but additional played notes will restart
+the arpeggio with the new notes. If you release all keys and play new
+notes, the arpeggio restarts using the new notes.
+
+
+
+
+46    Arpeggiator                                                        Sequential
+
+=== PAGE 56 ===
+Clock Parameters
+BPM: 30…250—Sets the tempo for the Arpeggiator in BPM (beats per
+minute). The tap tempo LED flashes at the BPM rate. When sync is enabled
+on the low-frequency oscillator, or enabled in the Effects section, the BPM
+rate affects the LFO frequency and/or delay effect. When syncing to an exter-
+nal MIDI clock source, the BPM setting has no effect.
+
+Clock Divide—Selects a basic note value relative to the BPM. See the table
+below:
+
+ Name                 Tempo      Timing Division
+ 1/2                  BPM/2      Half note
+ 1/4                  BPM        Quarter note
+ 1/8                  BPM x 2    Eighth note
+ 1/8 T                BPM x 3    Eighth note triplets
+ 1/16                 BPM x 4    Sixteenth note
+ 1/16 T               BPM x 6    Sixteenth note triplets
+ 1/32                 BPM x 8    Thirty-second note
+ 64th                 BPM x 16   Sixty-fourth note
+
+Tap Tempo—Pressing the tap tempo button 4 times sets the tempo. The
+LED flashes at the BPM rate you set.
+
+
+
+
+Take 5 User’s Guide                                        Step Sequencer   47
+
+=== PAGE 57 ===
+Step Sequencer
+The step sequencer allows you to record a series of notes and chords of up
+to 64 steps in length. You can record up to a 5-note chord on each step. It
+records note and velocity data, but not timing. You can add ties and rests
+after you have recorded notes/steps. Once you have recorded a sequence,
+you can play it back and adjust playback speed with the bpm control. You
+can also play along with a sequence (if there are voices available), and
+transpose its playback.
+
+     To program a sequence:
+
+      1. Press the record button.
+      2. Play the notes of your sequence on the keyboard. The display indicates
+         the current step as you play.
+
+
+
+           When recording a chord as a step, as long as you continue to hold at least one
+     note down, you can keep adding notes to the chord/step, and even use the transpose
+     buttons to extend the keyboard range while doing it.
+
+
+      3. To add a rest as you play, press the program settings button for that
+         step, then continue playing. To add multiple rests, press the program
+         settings button multiple times.
+      4. To add a “tie” that extends the length of a note, play a note, then press
+         the write button repeatedly to extend the note for the number of steps
+         you want.
+      5. When you’re done, press play to listen to your sequence. Use the bpm,
+         value, or tap tempo controls to adjust sequencer playback speed
+      6. To save the sequence, save the program and the two are saved together.
+
+
+
+            If you want to play live along with the sequencer, be sure to leave voices avail-
+     able. In other words, don’t play 5-note chords for every step in the sequence!
+
+
+     To transpose a sequence:
+      1. Press play. The sequence begins playback.
+      2. Press and hold record and press a key on the keyboard. Middle C
+         is the reference point. Playing a note above middle C transposes the
+         sequence higher by that interval. Playing a note below middle C trans-
+
+48   Step Sequencer                                                              Sequential
+
+=== PAGE 58 ===
+         poses the sequence lower by that interval.
+
+                      CLOCK                   ARPEGGIATOR            STEP SEQ
+
+
+
+
+                BPM         CLK DIVIDE       ON          OCTAVE        RECORD
+
+
+
+
+                      TAP TEMPO             MODE         REPEAT         PLAY
+
+
+
+
+                       The Clock, Arpeggiator, and Step Sequencer controls
+
+
+
+Master Volume/Program Volume
+The master output level of the Take 5 is controlled by the front-panel
+volume knob. In addition, the volume of an individual program can be
+set with the prog volume parameter in the program menu. This is useful
+for ensuring that your sounds have roughly the same volume from
+program to program.
+
+
+                                  120     PROGRAM        1/16
+                                    15. ProgVolume
+                                         127
+                                  Up+Down                 BBD
+
+
+
+                          Setting Program Volume in the program menu
+
+    To set the volume of an individual program:
+
+     1. Choose a program.
+     2. Press the program button to the lower left of the display.
+     3. Use the select knob to locate 18. prog volume.
+     4. Use the value knob to set the volume level. 127 is the default.
+     5. Press the write button twice to save the program.
+
+
+
+           MIDI volume can also influence the overall volume of the Take 5 if you are
+    controlling it from an external MIDI source.
+
+
+
+Take 5 User’s Guide                                Master Volume/Program Volume         49
+
+=== PAGE 59 ===
+Transpose
+The up and down buttons in the transpose section transpose the keyboard
+of the Take 5 Keyboard (not available on the Module) up or down in
+octaves. The LED indicates the current keyboard transposition state.
+Transposing the keyboard also changes the MIDI note numbers of the
+keys so that MIDI notes sent are also transposed. Transpose settings are
+global and are not saved with individual programs. Note that press one of
+the Transpose button won’t affect any keys currently held down. It only
+affects keys/notes played after you have transposed the keyboard.
+
+
+
+
+                        The Keyboard Transpose controls
+
+
+
+
+Hold
+When hold is on, any notes played will continue to play until hold is
+turned off. When used in conjunction with the Arpeggiator, notes are
+latched on.
+
+
+
+
+                                The Hold button
+
+
+
+
+50   Transpose                                                 Sequential
+
+=== PAGE 60 ===
+Glide
+Glide causes the pitch of a note to glide up or down from the pitch of the
+previously played note. Glide is turned on and off using the glide switch,
+but the rate must also be set. If the glide button is on, but rate is set to 0,
+glide has no effect. Glide can be set individually for each oscillator.
+
+
+
+
+                                The Glide Controls
+
+
+    To use Glide:
+
+     1. Press the glide button to turn Glide on.
+     2. Play a series of notes up and down the keyboard while you turn the
+        glide rate knob to adjust the amount of glide.
+
+
+
+Glide Modes
+There are four modes that determine how glide behaves. You can set
+your preferred mode using the program menu.
+
+Fixed Rate:The time to transition between notes varies with the interval
+between the notes; the greater the interval, the longer the transition time.
+The glide rate is fixed. This is the default glide mode.
+
+Fixed Rate A: The same as Fixed Rate, but glide is only applied when
+playing legato. That is, glide only occurs when a note is held until the
+next note is played. This effectively allows glide to be turned on and off
+from the keyboard. This mode is only available when Unison is on.
+
+Fixed Time: Glide is set to a fixed time, regardless of the interval
+between notes. This mode is only available when Unison is on.
+
+
+
+
+Take 5 User’s Guide                                                 Glide    51
+
+=== PAGE 61 ===
+Fixed Time A: The same as Fixed Time, but glide only occurs when
+playing legato.
+
+     To select a Glide Mode:
+
+      1. Press the program button.
+      2. Use the select knob to locate the glide mode parameter.
+      3. Use the value knob to choose a glide mode.
+      4. Play a series of notes up and down the keyboard to hear the effect.
+      5. Once you’ve chosen the desired mode, press the write button twice to
+         save the program.
+
+     To set the Glide Amount separately for each oscillator:
+
+      1. Press the program button.
+      2. Use the select knob to locate the osc 1 glide parameter.
+      3. Use the value knob to set the amount as you play a series of notes up
+         and down the keyboard to hear the effect.
+      4. Once you’ve chosen the desired amount of glide for oscillator 1, use
+         the select knob to locate the osc 2 glide parameter.
+      5. Use the value knob to set the desired amount of glide for oscillator 2 as
+         you play a series of notes up and down the keyboard to hear the effect.
+      6. When you’re finished, press the write button twice to save the
+         program.
+
+
+
+
+52   Glide                                                             Sequential
+
+=== PAGE 62 ===
+Pitch and Mod Wheels
+The Take 5 has a spring-loaded Pitch wheel and a Mod wheel. You can
+use these controls to enhance live performance by bending notes and
+adding modulation in real time as you play.
+
+
+
+
+                                PITCH          MOD
+
+                          The Pitch and Modulation wheels
+
+
+
+
+Pitch Wheel
+You can set a range in semitones for the Pitch wheel, depending on your
+playing preference. The upward range is 12 semitones (1 octave). The
+downward range is 24 semitones (2 octaves). Many musicians use a
+range of 2 semitones (a whole step) since this is the bend range of many
+acoustic instruments. For guitar whammy bar-type effects, you many
+wish to set a wider range.
+
+    To set the pitch bend range:
+
+     1. Press the program button.
+     2. Use the select knob to locate the pitch bend up parameter.
+     3. Use the value knob to choose a bend interval.
+     4. Hold a note and move the Pitch wheel to hear the effect.
+     5. Once you’ve set the bend up interval as desired, use the select knob to
+        locate the pitch bend down parameter.
+     6. Use the value knob to choose a bend interval.
+     7. Hold a note and move the Pitch wheel to hear the effect.
+     8. Once you’ve chosen the desired mode, press the write button twice to
+        save the program.
+
+Take 5 User’s Guide                                     Pitch and Mod Wheels   53
+
+=== PAGE 63 ===
+Modulation Wheel
+The Mod wheel controls the amount of modulation for any program that
+uses it as a modulation source. This allows you to “perform” modulation in
+real time by moving the wheel. This is a great way to add expressiveness
+to a sound or performance by using it to control vibrato, filter effects, and
+potentially a lot more.
+
+     To choose a modulation destination for the Mod wheel:
+
+      1. In the modulation section, press the src assign button. Use the select
+         knob to scroll to Mod Slot 1 if it’s not already displayed.
+      2. Use the value knob to scroll through the various mod sources and
+         choose mod wheel.
+      3. Use the value knob to scroll through the various mod destinations and
+         choose a parameter (such as cutoff).
+      4. Hold down a note on the keyboard (or press the hold button and play a
+         note on the keyboard) and turn the Mod wheel.
+      5. Use the value knob to set the modulation amount to your preference.
+         Higher amount settings add greater modulation the further you push
+         the Mod wheel. A negative amount setting will apply modulation in the
+         negative direction.
+
+
+
+           As a shortcut, you can hold down the src assign button and move the Mod
+     wheel to quickly assign this modulation path.
+
+
+                                       Indicates mod slot number
+
+
+
+                                     120        MOD 1     1/16
+                       source                ModWheel M
+                      amount                 45                         Indicates whether
+                   destination               Overdrive M                a mod source/destination
+                                                                        is mono (M) or poly (P)
+                                     Up+Down               BBD
+
+
+
+
+                                 select                       value
+
+
+
+                             Use this knob to            Use this knob to
+                              scroll through            set the mod source
+                             mod slots and                 mod amount
+                        source/amount/destination        mod destination
+                         Using the Mod Matrix to assign the Mod Wheel
+
+
+54   Pitch and Mod Wheels                                                               Sequential
+
+=== PAGE 64 ===
+Adding Aftertouch
+Aftertouch is a performance feature that allows you to add modula-
+tion to a sound by applying additional pressure to a key after the key is
+already down. The greater the pressure applied, the more modulation
+is applied. The Take 5 provides monophonic (or “channel”) aftertouch,
+which means that applying pressure to any key within a chord will apply
+modulation to all notes currently held.
+
+The Mod Matrix lets you choose the amount of modulation applied
+using aftertouch and also which parameters are modulated (oscillator
+frequency, filter frequency, sand so on). You can set either a positive or
+negative amount.
+
+For example, if you select the filter cutoff as modulation destination
+(cutoff), set a positive amount of pressure, then press a key harder, the
+filter cutoff frequency will increase, making the filter open wider and the
+sound become brighter.
+
+Conversely, if you select the filter frequency as destination, set a
+negative amount of pressure, then press a key harder, the filter cutoff
+frequency will be lowered, making the filter close more and the sound
+become more muted.
+
+    To choose aftertouch (pressure) as a source for modulation:
+
+     1. Press the mod button. The Mod Matrix appears in the display.
+     2. Use the select knob to scroll through the various mod sources and
+        choose pressure. (As a shortcut, hold down the src assign button and
+        press a key repeatedly to toggle through the available key-related mod
+        sources.)
+     3. Use the value knob to scroll through the various mod destinations and
+        choose a parameter (such as cutoff).
+     4. Hold down a note on the keyboard. Then, press harder.
+     5. Hold a note and move the Pitch wheel to hear the effect.
+     6. Use the value knob to set the amount to your preference. Higher
+        amount settings add greater modulation the harder you press a key. A
+        negative amount setting will apply modulation in the negative direction.
+
+
+
+Take 5 User’s Guide                                  Pitch and Mod Wheels      55
+
+=== PAGE 65 ===
+ The Take 5 provides eight different aftertouch/pressure response
+settings. The default setting provides a linear response. To choose a
+different response curve, use the aftertouch curve parameter in the
+global menu.
+
+
+                                    Indicates mod slot number
+
+
+
+                                  120        MOD 1      1/16
+                    source                 Pressure     M
+                   amount                  45                         Indicates whether
+                destination                Cutoff       M             a mod source/destination
+                                                                      is mono (M) or poly (P)
+                                  Up+Down                BBD
+
+
+
+
+                              select                        value
+
+
+
+                          Use this knob to             Use this knob to
+                           scroll through             set the mod source
+                          mod slots and                  mod amount
+                     source/amount/destination         mod destination
+
+
+                    Using the Mod Matrix to assign the pressure (aftertouch)
+
+
+
+
+Additional Program Menu Items
+4. Key Mode: Low, High, Last—Key Mode determines what note has
+priority when more than one note is played on the keyboard or over
+MIDI. This is most important when using Unison Mode.
+
+     •   Low Note priority causes the envelopes to be retriggered by the lowest
+         note played.
+     •   High Note priority causes the envelopes to be retriggered by the high-
+         est note played.
+     •   Last Note priority gives envelope trigger priority to the last note
+         played.
+
+18. Program Volume: 0-127—Sets the program-level volume of a patch,
+independent from the Master Volume control. This allows for easier level
+balancing across programs.
+
+25. Scale: Use Global, 1-65—Sets the scale mode for the current
+program. Any program can use the Global scale by selecting Use Global,
+or can be set to any of the 65 Alternate Tuning scales.
+56   Pitch and Mod Wheels                                                                 Sequential
+
+=== PAGE 66 ===
+Chapter 3: Creating Sounds
+The Take 5 can produce a huge variety of sounds. While the factory
+programs give you some idea of its scope, if you only make use of its presets,
+you’re not really using the Take 5 to its full potential. The real excitement is
+in creating sounds that are uniquely your own.
+
+This chapter provides some brief tutorials. While there isn’t enough space
+here to cover how to use every Take 5 function, the examples will help you
+get familiar with some basic concepts.
+
+
+
+Synthesis 101: Synth Bass
+Many great synth bass sounds consist of a single oscillator, a bit of filter
+resonance, the right envelope, and not much else. So start with the Basic
+Program and go from there.
+
+
+Short Version
+    To create a classic synth bass:
+
+     1. Press the global button.
+     2. Use the select knob to navigate to the basic program command, then
+        press the write button to set the synth to the Basic Program.
+     3. In the basic program, only Oscillator 1 is audible. (The levels of Oscil-
+        lator 2 and the Sub Oscillator and Noise are set to zero in the Mixer by
+        default.)
+     4. Repeatedly strike a note on the keyboard as you do the following and
+        listen to how the sound evolves:
+     5. Set Oscillator 1’s octave knob to -2.
+     6. Set filter cutoff to zero.
+     7. In the envelopes section, set Envelope 1’s amount fully clockwise.
+     8. Set filter resonance to a 9 o’clock position.
+     9. Play a low note on the keyboard. Instant synth bass!
+     10. Experiment with Envelope 1 (the Filter Envelope) amount and decay
+         settings to fine tune your synth bass sound.
+
+
+Take 5 User’s Guide                             Chapter 3: Creating Sounds     57
+
+=== PAGE 67 ===
+Long Version with Explanations
+Here’s a more detailed version that provides insight into the process.
+You’ll start with the Basic Program, then learn how to choose an appro-
+priate oscillator waveshape, how to use the filter, how to use the enve-
+lopes, and how to use Unison to fatten things up.
+
+In the Basic Program, only Oscillator 1 is audible. Its waveshape is set to
+sawtooth and its level is 127 in the mixer.
+
+     To start with the Basic Program:
+
+      1. Press the global button.
+      2. Use the select knob to navigate to the basic program command, then
+         press the write button to set the synth to the Basic Program.
+
+Each of the oscillator’s waveforms have their own unique sound:
+
+     •   The sawtooth waveform is a good starting point for sounds because it
+         has plenty of harmonics. This gives you a lot to work with in terms of a
+         raw sound that you can filter and modulate.
+     •   The pulse (square) wave is a good starting point, too, but sounds differ-
+         ent than the sawtooth, because of its different harmonic content. The
+         sawtooth has even and odd-numbered harmonics and the square wave
+         has odd-numbered harmonics. (Google this if you want to learn more.)
+     •   The sine wave has no harmonics. It’s useful used alone for its pure
+         tone, or in combination with another oscillator or sample(s) to reinforce
+         the fundamental pitch of a sound and add weight.
+
+     To listen to the various oscillator waveshapes:
+
+      1. In the oscillators section, the Sawtooth waveform is selected by
+         default. Play and hold a note, then turn the shape knob to step through
+         the various waveshapes.
+      2. Select the sawtooth waveshape.
+
+Next, you’ll use the filter to shape the raw sound of the sawtooth wave.
+
+
+
+
+58   Synthesis 101: Synth Bass                                         Sequential
+
+=== PAGE 68 ===
+    To adjust the filter:
+
+     1. Press and hold down a key and turn the filter’s cutoff knob. Notice
+        how it cuts the high frequencies as you rotate counter-clockwise,
+        making the sound of the oscillator less bright. If you turn the cutoff
+        knob fully counterclockwise you’ll filter out all frequencies and hear
+        nothing.
+     2. Return the cutoff knob to its 12 o’clock position.
+     3. Repeatedly strike a note and turn the resonance knob about halfway up.
+        Notice how the sound changes as a band of frequencies near the cutoff
+        is amplified.
+     4. Rotate the filter’s cutoff knob again and you’ll hear a classic resonant
+        filter sweep. You’re going to use this to create your synth bass.
+     5. Set the filter cutoff to zero.
+     6. In the envelopes section, set Envelope 1’s amount fully clockwise. This
+        will cause the Envelope 1 (the Filter Envelope) to modulate (open) the
+        filter as much as possible according to the shape of the envelope (its
+        attack, decay, sustain, and release settings).
+     7. Set filter resonance to a 9 o’clock position. This gives the synth bass its
+        funky “zap.”
+     8. Play some low notes and listen to the sound. Classic synth bass.
+
+
+
+    To tweak the sound:
+
+     1. Experiment with the Filter Envelope’s amount knob. Notice how
+        greater amount settings amplify the effect of the envelope on the filter.
+     2. Repeatedly strike a note on the keyboard as you turn the Filter Enve-
+        lope’s decay knob clockwise and counterclockwise. Notice how it
+        changes the sound as the note decays faster or slower.
+
+     3. Experiment with the Filter Envelope’s cutoff knob.
+     4. The Filter Envelope’s release parameter acts in conjunction with the
+        Amplifier Envelope. In other words, you can’t hear a long release on
+        the filter envelope if the amplifier envelope is short! So to hear the filter
+        envelope’s release parameter in action, set the both the Filter Envelope
+        and Amp Envelope’s release values to an 11 o’clock position.
+
+
+
+
+Take 5 User’s Guide                               Synthesis 101: Synth Bass       59
+
+=== PAGE 69 ===
+      5. Now repeatedly strike a note on the keyboard as you turn the Filter
+         Envelope’s release knob clockwise and counterclockwise. Notice how
+         the note fades out faster or slower as you change the release value.
+
+Now you know how to create a simple synth bass program using the
+most essential synthesizer components of the Take 5: the oscillators, the
+filters, and the envelopes. Using just these three things you can create an
+enormous variety of sounds. Keep experimenting with them and if you
+like what you’ve created, save the programs in one of the user banks.
+(See “Saving a Program” on page 10.)
+
+
+
+Creating Synth Brass
+Here’s another easy-to-construct sound: synth brass, with a classic “pitch
+blip” effect on the attack. In this example you’ll learn how to use an
+auxiliary envelope to modulate the pitch of oscillator 2 to simulate an
+aggressively blown horn effect.
+
+     To create synth brass:
+
+      1. Press the global button.
+      2. Use the select knob to navigate to the basic program command, then
+         press the write button to set the synth to the Basic Program.
+      3. In the mixer, turn Oscillator 2 fully clockwise to maximize its volume.
+         (Osc 1 is already at full.)
+      4. In the oscillators section, adjust the pitch knob on Oscillator 2 to
+         slightly detune it and thicken the sound.
+      5. In the filter section, set cutoff to a 9 o’clock position.
+      6. Set resonance to a 10 o’clock position.
+      7. Set envelope 1’s, amount to a 3 o’clock position.
+      8. Set envelope 1’s, attack to 10 o’clock, decay to 10 o’clock, sustain to
+         11 o’clock, and release to 10 o’clock.
+      9. Enable touch sensitivity by pressing and enabling the velocity button.
+      10. Play some chords and listen to the sound. Classic synth brass.
+      11. Use the vintage knob to make the brass sound even more organic by
+          adding parameter variations from voice to voice.
+
+
+60   Creating Synth Brass                                               Sequential
+
+=== PAGE 70 ===
+    To add a “pitch blip” to the brass sound:
+
+     1. In the mod section, press the source button.
+     2. Use the select knob to scroll to Mod Slot 3 if it’s not already displayed.
+     3. Use the value knob to scroll through the various mod sources and
+        choose env 1.
+     4. Use the select knob to to the value field then use the value knob to set
+        it to +5.
+     5. Use the select knob to scroll to the destination field then use the value
+        knob to choose osc2 fine.
+     6. Play some notes in the upper range of the keyboard. Classic synth
+        brass!
+     7. Experiment with different envelope amount and decay settings.
+
+
+                                  Indicates mod slot number
+
+
+
+                                120        MOD 3       1/16
+                  source                Env 1 P
+                 amount                 +5
+              destination               Osc2Fine P
+                                Up+Down                BBD
+
+
+
+
+                            select                       value
+
+
+
+                        Use this knob to            Use this knob to
+                         scroll through            set the mod source
+                        mod slots and                 mod amount
+                   source/amount/destination        mod destination
+
+
+
+
+Take 5 User’s Guide                                      Creating Synth Brass    61
+
+=== PAGE 71 ===
+Turning Synth Brass into a String Pad
+It’s a simple matter to turn the previous synth brass sound into a string
+pad by simply adjusting its envelope and filter settings.
+
+     To turn the synth brass into a string pad:
+
+      1. Remove the pitch blip effect by setting the env1 to osc2 fine value to 0.
+      2. In the filter section, set the cutoff to 12 o’clock.
+      3. In the env 1 (Filter) section, set the amount to 2 o’clock
+      4. Set env 1 (Filter) attack to 2 o’clock, decay to 2 o’clock, sustain to 2
+         o’clock, and release to 12 o’clock.
+      5. Set env 2 (Amp) attack to 2 o’clock, decay to 2 o’clock, sustain to 5
+         o’clock, and release to 12 o’clock.
+      6. Play some chords. You’ve now got a good basic string pad.
+
+Making the String Pad More Lush
+Now lets make the string pad more lush by using the LFOs to modulate
+the oscillator waveshapes and recreate the classic “pulse-width mod”
+strings found on many vintage synths.
+
+     To use waveshape mod to make the string pad more lush:
+
+      1. On Oscillator 1, set the shape knob to 2 o’clock (square/pulse wave).
+      2. On Oscillator 2, set the shape knob to 2 o’clock (square/pulse wave), as
+         well.
+      3. In the Mixer section, set the osc 1 sub knob to 1 o’clock.
+      4. On lfo 1: global press the dest button and using the controls in the
+         display, set the destination to osc1 shp (Oscillator 1 shape).
+      5. Set the amount parameter to +8.
+      6. On lfo 1: global, set frequency to 10 o’clock.
+      7. Next, On lfo 2: per voice press the dest button and using the controls
+         in the display, set the destination to osc2 shp (Oscillator 2 shape).
+      8. Set the amount parameter to -39.
+      9. On lfo 1: global, set frequency to 9 o’clock.
+      10. Play some chords and listen to the sound.
+
+62   Creating Synth Brass                                              Sequential
+
+=== PAGE 72 ===
+You are now modulating the waveshape of each oscillator differently.
+This gives the sound more animation. Try experimenting with different
+LFO frequency and amount settings.
+
+
+Adding Effects to the String Pad
+You can enhance the string pad adding an effect such as chorus, flanging,
+or phasing for a retro feel.
+
+    To add effects to the string pad:
+
+     1. In the effect section, press the on button.
+     2. Turn the type knob and choose phaser.
+     3. Set time to 8 o’clock.
+     4. Set depth/mix to 12 o’clock.
+     5. Set feedback/misc to 12 o’clock.
+     6. Set depth/mix to 12 o’clock
+     7. Play some chords. Retro string machine! For even more dramatic phas-
+        ing, set depth/mix and feedback/misc to 3 o’clock.
+     8. Experiment with changing the effect to the flanger or chorus and adjust
+        their settings to your preference.
+
+Adding Reverb to the String Pad
+Adding reverb can also enhance the string sound in a very lush way.
+
+    To add Reverb to the string pad:
+
+     1. In the reverb section, press the on button.
+     2. Turn the mix knob to 10 o’clock.
+     3. Set damping to 2 o’clock.
+     4. Set predelay to 2 o’clock.
+     5. Set decay to 3 o’clock.
+     6. Set tone to 11 o’clock.
+     7. Play some chords. Experiment with the decay, predelay, and tone
+        settings to fine tune the reverb sound to your preference.
+
+
+Take 5 User’s Guide                                   Creating Synth Brass   63
+
+=== PAGE 73 ===
+Creating a Hard-Sync Lead
+Here’s another classic sound: a hard-sync lead. A famous example of this
+is “Let’s Go” by the Cars (performed on a Prophet-5). In this example
+you’ll learn how to hard-sync the oscillators, pitch-modulate one of them
+with an auxiliary envelope, then add effects.
+
+     To create a hard-sync lead:
+
+      1. Press the global button.
+      2. Use the select knob to navigate to the basic program command, then
+         press the write button to set the synth to the Basic Program.
+      3. In the mixer, turn up Oscillator 2 to 127. (Osc 1 is already at 127.)
+      4. In the oscillators section, set both oscillators to sawtooth.
+      5. Enable the sync 2-1 button. (See page 19 for an explanation of hard
+         sync.)
+      6. Set Oscillator 1’s octave to 1. This will allow for a wide range of pitch
+         modulation in step 9.
+      7. Set Oscillator 2’s octave to -2. This will help create a more aggressive
+         hard-sync effect.
+      8. In the envelope section, set the envelopes to env 1: aux and env 2
+         filter + amp. This will allow you to use Envelope 1 as an auxiliary
+         envelope that will modulate the pitch of oscillator 1.
+      9. Press the mod button. In the display, use the select knob to choose env
+         1 as the source.
+      10. Set the amount to 127.
+      11. Set the destination to osc1 fine.
+      12. This routes Envelope 1 to modulate Oscillator 1 pitch according to its
+         ADSR (attack, decay, sustain, release) settings.
+      13. Set Envelope 1 (Aux) to attack: 9 o’clock, decay 2 o’clock, sustain
+         9 o’clock,, and release to 12 o’clock,. This will set the amount and
+         “shape” of the modulation.
+      14. Play some notes. Classic hard-sync lead!
+      15. Experiment with Envelope 1’s Attack, Decay, Sustain, and Release
+         settings to better understand how these affect the shape of pitch modu-
+         lation routed to Oscillator 1.
+
+64   Creating a Hard-Sync Lead                                           Sequential
+
+=== PAGE 74 ===
+                                  120       MOD 3      1/16
+                  source                Env 1 P
+                 amount                 +127
+              destination               Osc1Fine P
+                                  Up+Down               BBD
+
+
+
+
+                            select                        value
+
+
+
+                        Use this knob to              Use this knob to
+                         scroll through              set the mod source
+                        mod slots and                   mod amount
+                   source/amount/destination          mod destination
+
+
+
+
+Adding Effects to the Lead
+You can enhance the sync lead by adding some delay and reverb.
+
+    To add effects:
+
+     1. In the effects section, press the effect 1 button.
+     2. Use the type knob to select delay.
+     3. Set time to 12 o’clock.
+     4. Set depth/mix to 9 o’clock.
+     5. Set feedback/misc to 9 o’clock.
+     6. Play some notes. Perfect hard-sync lead!
+
+
+
+
+Take 5 User’s Guide                                 Creating a Hard-Sync Lead   65
+
+=== PAGE 75 ===
+A Final Word
+The examples given here are fairly basic, but they give you some idea of
+the power of synthesis. Imagine what you can create by using these as
+starting points, then modulating the filters, oscillators, and even effects
+with LFOs, Envelopes, and other modulation sources.
+
+It’s often useful to start with a simple sound and make it progressively
+more complex, while saving edited versions as you go so that you can
+retrace your steps and branch off at different points in the sound design
+process if you want.
+
+
+
+
+66   Creating a Hard-Sync Lead                                   Sequential
+
+=== PAGE 76 ===
+Appendix A:
+Modulation Sources
+ No Source
+ Osc 2
+ Noise
+ LFO 1
+ LFO 2
+ Env 1
+ Env 2
+ Voice Spread
+ Pitch Bend
+ Mod Wheel
+ Pressure
+ Breath
+ Foot Pedal
+ Expression Pedal
+ Velocity
+ Note Number
+ Filter Out
+ Random
+ DC
+ Audio Out
+
+
+
+
+Take 5 User’s Guide   Appendix A: Modulation Sources   67
+
+=== PAGE 77 ===
+Appendix B:
+Modulation Destinations
+No Dest                  LFO 1 Amt
+Osc 1 Octave             LFO 2 Amt
+Osc 2 Octave             LFO All Amt
+Osc 1 Fine Freq          Env 1 Amt
+Osc 2 Fine Freq          Env 2 Amt
+Osc All Fine Freq        Env 1 Attack
+Osc 1 Shape              Env 2 Attack
+Osc 2 Shape              Env 1 Decay
+Osc All Shape            Env 2 Decay
+Osc 1 Level              Env 1 Release
+Osc 2 Level              Env 2 Release
+Osc FM Level             Mod 1 Amount
+Sub Level                Mod 2 Amount
+Noise                    Mod 3 Amount
+Drive                    Mod 4 Amount
+Cutoff                   Mod 5 Amount
+Resonance                Mod 6 Amount
+Overdrive                Mod 7 Amount
+Panning                  Mod 8 Amount
+FX Mix                   Mod 9 Amount
+FX Time                  Mod 10 Amount
+FX Misc                  Mod 11 Amount
+Reverb Mix               Mod 12 Amount
+Reverb Size              Mod 13 Amount
+Reverb PreDelay          Mod 14 Amount
+Reverb Decay             Mod 15 Amount
+Reverb Tone              Mod 16 Amount
+LFO 1 Freq               Vintage Amount
+LFO 2 Freq
+LFO All Freq
+
+
+
+68   Appendix B:Modulation Destinations   Sequential
+
+=== PAGE 78 ===
+Appendix C: Troubleshooting
+and Support
+Troubleshooting
+If you’re experiencing problems or unexpected behavior from your Take
+5, here are a few typical scenarios and their solutions:
+
+    If the Take 5 isn’t producing sound:.
+
+     1. Recall the Basic Program. (Global>BasicProgram>Write)
+     2. If the problem is still there, check the following:
+     •   Volume - make sure it’s set to an appropriate value
+     •   Rear-panel output jacks - make your audio cables are connected to left/right
+         output.
+
+     •   In the global menu, make sure that local control is set to on.
+
+    If the sequencer or arpeggiator has stopped running:
+
+     •   Check the midi clock mode setting in global to ensure the Take 5 is set
+         to out or off. Or if set to in or in thru or in no s/s, make sure the Take
+         5 is receiving MIDI clock.
+
+    If some of the programs sound different than usual:
+
+     •   In the Global menu, check scale/alt tuning and make sure it’s set to
+         equal temperament. Also, check the Mod wheel position. The Mod
+         wheel can do more than just add vibrato. Also, check the clock mode
+         setting in the global menu to ensure the Take 5 is set to out or off.
+         Or if set to in or in thru or in no s/s, make sure the Take 5 is receiving
+         MIDI clock.
+
+    If there is a ground hum in the audio output:
+
+     •   USB can cause ground loops, so try to resolve any grounding issues
+         between the computer (if connected) and the Take 5. Or use MIDI, which is
+         opto-isolated.
+
+
+
+
+Take 5 User’s Guide                 Appendix C: Troubleshooting and Support        69
+
+=== PAGE 79 ===
+     If the Take 5 is behaving erratically:
+
+     •   This is almost always caused by a MIDI feedback loop. Make sure that
+         any MIDI Thru functionality is turned off on the MIDI interface/hard-
+         ware or in the MIDI software application. Disconnect all Take 5 MIDI
+         connections (MIDI and USB cables) and see if the problem persists.
+         You can also monitor the MIDI traffic with MIDI Monitor (Mac OS) or
+         MIDI-OX (Windows) to see if the Take 5 is being overrun with dupli-
+         cate messages.
+
+     If the Take 5 doesn’t seem to respond to its controls:
+
+     •   Make sure local control is on in the global menu.
+
+     If MIDI System Exclusive data is not transmitted/received:
+
+     •   Make sure that the midi sysex cable setting in the global menu is set
+         to usb or midi depending on which you are using to transmit or receive
+         MIDI messages.
+
+     If the Take 5 plays out of tune:
+
+     •   Check the master coarse and master fine parameter in the global
+         menu to make sure they are both set to 0.
+     •   You may need to recalibrate the oscillators. See “Calibrating the VCOs
+         and Filters” on page 73.
+
+     If the pitch or Mod wheel doesn’t go to full range:
+
+     •   Recalibrate the Pitch and Mod wheels. See “Calibrating the Pitch and
+         Mod Wheels” on page 73.
+
+     If the filter sounds strange or out of tune:
+
+     •   You may need to recalibrate the filters. See “Calibrating the VCOs and
+         Filters” on page 73.
+
+
+
+
+70   Appendix C: Troubleshooting and Support                          Sequential
+
+=== PAGE 80 ===
+Resetting the Global Parameters
+If you’re trying to track down a problem, it’s sometimes a good idea to
+reset the Global parameters to their defaults. This is a quick way to make
+sure that the Take 5 returns to its factory settings.
+
+    To reset all Global parameters to their default settings:
+
+     1. Press the global button.
+     2. Use the select knob to select reset globals, then press write. Globals are
+        reset. You can now can play the Take 5 again.
+
+
+Contacting Technical Support
+If you are still having a problem with the Take 5, contact Technical
+Support at support@sequential.com. Please include the purchase date of
+your Take 5, its serial number, and the operating system version. Press
+the global button to see this at the bottom of the main display.
+
+
+
+           If you haven’t already reset the Global parameters and run the calibration
+    routines (see Troubleshooting), you should do it before contacting Technical Support.
+    This is probably the first thing you will be asked to do.
+
+
+
+
+Take 5 User’s Guide                  Appendix C: Troubleshooting and Support           71
+
+=== PAGE 81 ===
+Warranty Repair
+Sequential warrants that the Take 5 will be free from defects in materials
+and/or workmanship for 1 year from the date of purchase. Please register
+your product online at www.sequential.com to establish the date of
+purchase. (This is not a requirement for warranty service, but it will help
+expedite the process.)
+
+Please contact support@sequential.com to determine the best course of
+action for getting your Take 5 repaired. For your own protection, as well
+as ours, please do not return any product to Sequential without a return
+authorization (RA) number. To issue an RA number, Technical Support
+needs:
+
+• Your name
+• Your return address
+• Your email address
+• A phone number where you can be reached
+• Your Take 5’s serial number
+• The date of purchase and where purchased
+
+If you need to return your instrument for repair, you are responsible for
+getting it to Sequential. We highly recommend insuring it and packing in
+the original packaging. Damage resulting from shipping a product with
+insufficient packaging is not covered by warranty.
+
+
+
+
+72   Appendix C: Troubleshooting and Support                     Sequential
+
+=== PAGE 82 ===
+Appendix D: Calibrating the Take 5
+Because the Take 5 is calibrated at the factory, controls such as the Pitch
+and Mod wheels, Touch Slider, and analog filters shouldn’t require
+re-calibration. But if you experience unexpected behavior with these
+controls, you can use the calibration function to tune them occasionally.
+
+
+Calibrating the VCOs and Filters
+    To calibrate the VCOs and filters:
+
+     1. Press the global button.
+     2. Use the select knob to select cal voices, then press write.
+     3. The synthesizer performs its auto-calibration procedure. Don’t turn off
+        the power while it’s doing this.
+     4. When finished, the front panel controls will return to normal and you
+        can play the Take 5 again.
+
+
+Calibrating the Pitch and Mod Wheels
+    To calibrate the Pitch and Mod wheels:
+
+     1. Press the global button.
+     2. Use the select knob to select cal wheels, then follow the instructions in
+        the display.
+     3. When finished, press the global button again to exit the global menu.
+        You can now can play the Take 5 again.
+
+
+Resetting the Global Parameters
+If you’re trying to track down a problem, it’s sometimes a good idea to
+reset the Global parameters to their defaults. This is a quick way to make
+sure that the Take 5 returns to its factory settings.
+
+    To reset all Global parameters to their default settings:
+
+     1. Press the global button.
+     2. Use the select knob to select reset globals, then press write. Globals are
+        reset. You can now can play the Take 5 again.
+
+
+
+Take 5 User’s Guide                      Appendix D: Calibrating the Take 5      73
+
+=== PAGE 83 ===
+Appendix E: Exporting and Importing
+Programs and Banks
+You can use the dump preset, dump bank, and dump all banks commands
+in the global menu to transmit the current program, bank, or all banks
+in SysEx format via the selected MIDI port. This allows you to save
+your programs so that you can share or archive them. You will need a
+computer and software application such as SysEx Librarian for Macin-
+tosh, or MIDIOX for Windows.
+
+     To export a program or bank as a SysEx file over USB:
+
+      1. Connect your synthesizer to a computer using a USB cable.
+      2. Open your MIDI librarian software (SysEx Librarian, etc.) and config-
+         ure it to receive SysEx messages.
+      3. Press the global button on the Take 5.
+      4. Use the select knob to select midi sysex cable, then use the value knob
+         to choose usb.
+      5. Use the select knob to select dump preset, dump bank, or dump all
+         banks, depending on which of these you would like to do.
+
+      6. Press write. The program or bank is exported.
+
+
+
+          Dumped programs will load back into the same bank and program location in
+     memory when received by the Take 5 via MIDI.
+
+
+Programs can also be dumped directly from one Take 5 to another using
+the MIDI DIN jack, if the midi sysex cable parameter is set to midi in the
+global menu.
+
+
+     To send a program or bank to another Take 5 as a SysEx file over MIDI:
+
+      1. Connect two Take 5 synthesizers together using MIDI cables and the
+         midi in and midi out jacks on their rear panels.
+
+      2. On both synthesizers, Press the global button and use the select knob
+         to select midi sysex cable, then use the value knob to choose midi.
+      3. On the Take 5 that you want to send the programs to, press the global
+         button again to exit the global menu.
+
+
+74   Appendix D: Calibrating the Take 5                                   Sequential
+
+=== PAGE 84 ===
+     4. On the Take 5 that you want to send the programs from, in the global
+        menu select dump preset, dump bank, or dump all banks, depending on
+        which of these you would like to do.
+     5. Press write. The program or bank is exported to the other Take 5.
+
+
+
+         Dumped programs will load back into the same bank and program location in
+    memory when received by the Take 5 via MIDI.
+
+
+
+Importing Programs and Banks
+You can use a MIDI librarian application such as such as SysEx Librar-
+ian for Macintosh, or MIDI-OX for Windows to transmit exported
+program or banks back into your Take 5. You will need a computer and
+an appropriate software application.
+
+    To import a program or bank as a SysEx file over MIDI:
+
+     1. Connect your synthesizer to a computer using a USB cable (or MIDI
+        cable, if you are using a dedicated MIDI interface).
+     2. Press the global button on the Take 5.
+     3. Use the select knob to select midi sysex cable, then use the value
+        knob to choose usb or midi, depending on which port you are using to
+        connect to your computer.
+    4. Open your MIDI librarian software and configure it to send SysEx
+       messages to your Take 5.
+    5. In the MIDI librarian, open the programs and/or banks you want to send.
+    6. Transmit the programs. The Take 5 should load them. They will replace
+       any existing programs in those same memory locations on the synth.
+
+
+
+         Programs will load back into the same bank and program locations from which
+   they were originally exported.
+
+
+
+
+Take 5 User’s Guide                       Appendix D: Calibrating the Take 5         75
+
+=== PAGE 85 ===
+Appendix F: Alternative Tunings
+By default, the Take 5 is set to standard, chromatic western tuning. Addi-
+tionally, it supports up to 64 additional alternative tunings, which you
+can access using the alt tunings parameter in the global menu.
+
+These 64 alternative tunings range from Equal temperament to Indo-
+nesian Gamelan tunings. If you want, you can replace these with other
+tunings that you can find on the Internet. These must be in SysEx format.
+You can download them into the Take 5 using SysEx Librarian for Mac
+or MIDI-OX for Windows.
+
+Here are descriptions of the default Take 5 alternative tunings:
+
+1. 12-Tone Equal Temperament (non-erasable)
+The default Western tuning, based on the twelfth root of two.
+
+2. Harmonic Series
+MIDI notes 36-95 reflect harmonics 2 through 60 based on the funda-
+mental of A = 27.5 Hz. The low C on a standard 5 octave keyboard acts
+as the root note (55Hz), and the harmonics play upwards from there. The
+remaining keys above and below the 5 octave range are filled with the
+same intervals as Carlos’ Harmonic 12 Tone that follows.
+
+3. Carlos Harmonic Twelve Tone
+Wendy Carlos’ twelve note scale based on octave-repeating harmonics.
+A = 1/1 (440 Hz). 1/1 17/16 9/8 19/16 5/4 21/16 11/8 3/2 13/8 27/16 7/4
+15/8
+
+4. Meantone Temperament
+An early tempered tuning, with better thirds than 12ET. Sounds best in
+the key of C. Use this to add an authentic touch to performances of early
+Baroque music. C=1/1 (260 Hz)
+
+5. 1/4 Tone Equal Temperament
+24 notes per octave, equally spaced 24root2 intervals. Mexican composer
+Julian Carillo used this for custom-built pianos in the early 20th century.
+
+
+
+76   Appendix F: Alternative Tunings                               Sequential
+
+=== PAGE 86 ===
+ 6. 19 Tone Equal Temperament
+ 19 notes per octave (19root2) offering better thirds than 12 ET, a better
+ overall compromise if you can figure out the keyboard patterns.
+
+ 7. 31 Tone Equal Temperament
+ Many people consider 31root2 to offer the best compromise towards just
+ intonation in an equal temperament, but it can get very tricky to keep
+ track of the intervals.
+
+ 8. Pythagorean C
+ One of the earliest tuning systems known from history, the Pythagorean
+ scale is constructed from an upward series of pure fifths (3/2) transposed
+ down into a single octave. The tuning works well for monophonic melo-
+ dies against fifth drones, but has a very narrow palate of good chords
+ to choose from. C=1/1 (261.625 Hz) 1/1 256/243 9/8 32/27 81/64 4/3
+ 729/512 3/2 128/81 27/16 16/9 243/128
+
+ 9. Just Intonation in A with 7-Limit Tritone at D#
+ A rather vanilla 5-limit small interval JI, except for a single 7/5 tritone
+ at D#, which offers some nice possibilities for rotating around bluesy
+ sevenths. A=1/1 (440 Hz) 1/1 16/15 9/8 6/5 5/4 7/5 3/2 8/5 5/3 9/5 15/8
+
+ 10. 3-5 Lattice in A
+ A pure 3 and 5-limit tuning which resolves to very symmetrical derived
+ relationships between notes. A=1/1 (440 Hz) 1/1 16/15 10/9 6/5 5/4 4/3
+ 64/45 3/2 8/5 5/3 16/9 15/8
+
+ 11. 3-7 Lattice in A
+ A pure 3 and 7-limit tuning which resolves to very symmetrical derived
+ relationships between notes. Some of the intervals are very close
+ together, offering several choices for the same nominal chords. A=1/1
+ (440 Hz) 1/1 9/8 8/7 7/6 9/7 21/16 4/3 3/2 32/21 12/7 7/4 63/32
+
+ 12. Other Music 7-Limit Black Keys in C
+ Created by the group Other Music for their homemade gamelan, this
+ offers a wide range of interesting chords and modes. C=1/1 (261.625 Hz)
+ 1/1 15/14 9/8 7/6 5/4 4/3 7/5 3/2 14/9 5/3 7/4 15/8
+
+Take 5 User’s Guide                      Appendix F: Alternative Tunings   77
+
+=== PAGE 87 ===
+13. Dan Schmidt Pelog/Slendro
+Created for the Berkeley Gamelan group, this tuning fits an Indonesian-
+style heptatonic Pelog on the white keys and pentatonic Slendro on the
+black keys, with B and Bb acting as 1/1 for their respective modes. Note
+that some of the notes will have the same frequency. By tuning the 1/1 to
+60 Hz, Dan found a creative way to incorporate the inevitable line hum
+into his scale. Bb, B = 1/1 (60 Hz) 1/1 1/1 9/8 7/6 5/4 4/3 11/8 3/2 3/2
+7/4 7/4 15/8
+
+14. Yamaha Just Major C
+When Yamaha decided to put preset microtunings into their FM synth
+product line, they selected this and the following tuning as representative
+just intonations. As such, they became the de-facto introduction to JI for
+many people. Just Major gives preferential treatment to major thirds on
+the sharps, and a good fourth relative to the second. C= 1/1 (261.625) 1/1
+16/15 9/8 6/5 5/4 4/3 45/32 3/2 8/5 5/3 16/9 15/8
+
+15. Yamaha Just Minor C
+Similar to Yamaha’s preset Just Major, the Just Minor gives preferential
+treatment to minor thirds on the sharps, and has a good fifth relative to
+the second. C= 1/1 (261.625) 1/1 25/24 10/9 6/5 5/4 4/3 45/32 3/2 8/5
+5/3 16/9 15/8
+
+16. Harry Partch 11-Limit 43 Note Just Intonation
+One of the pioneers of modern microtonal composition, Partch built
+a unique orchestra with this tuning during the first half of the 20th
+century, to perform his own compositions. The large number of intervals
+in this very dense scale offers a full vocabulary of expressive chords
+and complex key changes. The narrow spacing also allows fixed-
+pitched instruments like marimbas and organs to perform glissando-like
+passages. G = 1/1 (392 Hz, MIDI note 67)
+
+1/1 81/80 33/32 21/20 16/15 12/11 11/10 10/9 9/8 8/7 7/6 32/27 6/5 11/9
+5/4 14/11 9/7 21/16 4/3 27/20 11/8 7/5 10/7 16/11 40/27 3/2 32/21 14/9
+11/7 8/5 18/11 5/3 27/16 12/7 7/4 16/9 9/5 20/11 11/6 15/8 40/21 64/33
+160/81
+
+
+
+
+78   Appendix F: Alternative Tunings                             Sequential
+
+=== PAGE 88 ===
+17. Arabic 12-Tone
+A 12-tone approximation of an Arabic scale, which appears in some elec-
+tronic keyboards designed for use with Arabic music. Not a JI scale, nor
+equal tempered. These are the intervals in Cents relative to C:
+60 = Cents  0              
+61 = Cents +151          
+62 = Cents +204            
+63 = Cents +294              
+64 = Cents +355              
+65 = Cents +498
+66 = Cents +649              
+67 = Cents +702              
+68 = Cents +853            
+69 = Cents +906              
+
+70 = Cents +996              
+71 = Cents +1057            
+72 = Cents +1200
+
+
+
+
+Take 5 User’s Guide                   Appendix F: Alternative Tunings   79
+
+=== PAGE 89 ===
+18. 12 Out of 19-tET Scale from Mandelbaum’s Dissertation
+An interesting non-just 12 tone scale that has some unusual relationships.
+note 0=0
+note 1=63
+note 2=189
+note 3=253
+note 4=379
+note 5=505
+note 6=568
+note 7=695
+note 8=758
+note 9=884
+note 10=947
+note 11=1074
+
+note 12=1200
+
+
+19. 12 Out of 31-tET, Meantone Eb-G#
+note 0=0
+note 1=77
+note 2=194
+note 3=310
+note 4=387
+note 5=503
+note 6=581
+note 7=697
+note 8=774
+note 9=890
+note 10=1006
+note 11=1084
+note 12=1200
+
+
+
+
+80   Appendix F: Alternative Tunings                            Sequential
+
+=== PAGE 90 ===
+20. Terry Riley’s Harp of New Albion scale, Inverse Malcolm’s
+Monochord
+Original 1/1 on C#, here it is set to C.
+
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +111.731285     Ratio: 16/15 (JUST)
+62 = Cents +203.910002     Ratio: 9/8 (JUST)
+63 = Cents +315.641287     Ratio: 6/5 (JUST)
+64 = Cents +386.313714     Ratio: 5/4 (JUST)
+65 = Cents +498.044999     Ratio: 4/3 (JUST)
+66 = Cents +609.776284     Ratio: 64/45 (JUST)
+67 = Cents +701.955001     Ratio: 3/2 (JUST)
+68 = Cents +813.686286     Ratio: 8/5 (JUST)
+69 = Cents +884.358713     Ratio: 5/3 (JUST)
+70 = Cents +996.089998     Ratio: 16/9 (JUST)
+71 = Cents +1088.268715    Ratio: 15/8 (JUST)
+72 = Cents +1200.           Ratio: 2/1 (JUST)
+
+
+21. Lute tuning of Giovanni Maria Artusi (1603). 1/4-comma w.
+Acc. 1/2-way Naturals
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +96.578        Ratio: 8607/8140
+62 = Cents +193.157       Ratio: 2889/2584
+63 = Cents +289.735       Ratio: 11687/9886
+64 = Cents +386.313714    Ratio: 5/4 (JUST)
+65 = Cents +503.422       Ratio: 5267/3938
+66 = Cents +600.          Ratio: 11482/8119
+67 = Cents +696.578       Ratio: 7876/5267
+68 = Cents +793.157       Ratio: 14771/9342
+69 = Cents +889.735       Ratio: 11718/7009
+70 = Cents +986.314       Ratio: 17561/9934
+71 = Cents +1082.892      Ratio: 18204/9739
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+Take 5 User’s Guide                    Appendix F: Alternative Tunings   81
+
+=== PAGE 91 ===
+22. J.S. Bach “well temperament”, Acc. to Jacob Breetvelt’s Tuner
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +92.18          Ratio: 10472/9929
+62 = Cents +200.           Ratio: 5252/4679
+63 = Cents +296.09         Ratio: 11781/9929
+64 = Cents +390.225        Ratio: 9638/7693
+65 = Cents +500.           Ratio: 6793/5089
+66 = Cents +590.225        Ratio: 45/32 (just)
+67 = Cents +700.           Ratio: 10178/6793
+68 = Cents +794.135        Ratio: 15708/9929
+69 = Cents +895.1125       Ratio: 14857/8859
+70 = Cents +998.045        Ratio: 12503/7025
+71 = Cents +1090.225       Ratio: 18484/9847
+72 = Cents +1200.          Ratio: 2/1 (JUST)
+
+
+23. Bulgarian Bagpipe tuning, Empirically Measured.
+ 0 = Cents 0.              Ratio: 1/1 (JUST)
+ 1 = Cents +66.            Ratio: 5427/5224
+ 2 = Cents +202.           Ratio: 1925/1713
+ 3 = Cents +316.           Ratio: 11586/9653
+ 4 = Cents +399.           Ratio: 4965/3943
+ 5 = Cents +509.           Ratio: 7451/5553
+ 6 = Cents +640.           Ratio: 13435/9283
+ 7 = Cents +706.           Ratio: 857/570
+ 8 = Cents +803.           Ratio: 2681/1686
+ 9 = Cents +910.           Ratio: 12130/7171
+10 = Cents +1011.          Ratio: 1205/672
+11 = Cents +1092.          Ratio: 12599/6705
+12 = Cents +1200.          Ratio: 2/1 (JUST)
+
+
+
+
+82   Appendix F: Alternative Tunings                     Sequential
+
+=== PAGE 92 ===
+24. Wendy Carlos’ Alpha Scale with Perfect Fifth Divided in
+Nine. 19 Tone cycle
+Octaves are stretched, and the tuning is quite microtonal.
+ 0 = Cents 0.         Ratio: 1/1 (JUST)
+ 1 = Cents +78.       Ratio: 7241/6922
+ 2 = Cents +156.      Ratio: 8994/8219
+ 3 = Cents +234.      Ratio: 10686/9335
+ 4 = Cents +312.      Ratio: 11873/9915
+ 5 = Cents +390.      Ratio: 11636/9289
+ 6 = Cents +468.      Ratio: 13024/9939
+ 7 = Cents +546.      Ratio: 12433/9070
+ 8 = Cents +624.      Ratio: 11605/8093
+ 9 = Cents +702.      Ratio: 14999/9999
+10 = Cents +780.      Ratio: 3471/2212
+11 = Cents +858.      Ratio: 15361/9358
+12 = Cents +936.      Ratio: 11467/6678
+13 = Cents +1014.     Ratio: 17889/9959
+14 = Cents +1092.     Ratio: 12599/6705
+15 = Cents +1170.     Ratio: 18593/9459
+16 = Cents +1248.     Ratio: 14957/7274
+17 = Cents +1326.     Ratio: 8049/3742
+18 = Cents +1404.     Ratio: 9617/4274
+19 = Cents +1482.     Ratio: 1111/472
+
+
+
+
+Take 5 User’s Guide                     Appendix F: Alternative Tunings   83
+
+=== PAGE 93 ===
+25. Wendy Carlos’ Beta Scale with Perfect Fifth Divided by
+Eleven. 23-Tone Cycle
+Octaves are stretched, and the tuning is quite microtonal (First repeat
+shown.)
+ 0 = Cents 0.            Ratio: 1/1 (JUST)
+ 1 = Cents +63.8         Ratio: 6191/5967
+ 2 = Cents +127.6        Ratio: 9725/9034
+ 3 = Cents +191.4        Ratio: 7739/6929
+ 4 = Cents +255.2        Ratio: 8821/7612
+ 5 = Cents +319.         Ratio: 7636/6351
+ 6 = Cents +382.8        Ratio: 11690/9371
+ 7 = Cents +446.6        Ratio: 9007/6959
+ 8 = Cents +510.4        Ratio: 1500/1117
+ 9 = Cents +574.2        Ratio: 13547/9723
+10 = Cents +638.         Ratio: 12529/8667
+11 = Cents +701.8        Ratio: 5584/3723
+12 = Cents +765.6        Ratio: 9281/5964
+13 = Cents +829.4        Ratio: 15760/9761
+14 = Cents +893.2        Ratio: 1047/625
+15 = Cents +957.         Ratio: 9629/5540
+16 = Cents +1020.8       Ratio: 16551/9178
+17 = Cents +1084.6       Ratio: 16263/8692
+18 = Cents +1148.4       Ratio: 13585/6998
+19 = Cents +1212.2       Ratio: 17231/8555
+20 = Cents +1276.        Ratio: 12503/5983
+21 = Cents +1339.8       Ratio: 10583/4881
+22 = Cents +1403.6       Ratio: 12564/5585
+23 = Cents +1467.4       Ratio: 8727/3739
+
+
+
+
+84   Appendix F: Alternative Tunings                             Sequential
+
+=== PAGE 94 ===
+26. Wendy Carlos’ Gamma Scale with Third Divided by Eleven
+or Fifth by Twenty. 36 Tone
+Octaves are stretched, and the tuning is quite microtonal.
+ 0 = Cents 0.          Ratio: 1/1 (JUST)
+ 1 = Cents +35.099     Ratio: 1146/1123
+ 2 = Cents +70.198     Ratio: 7449/7153
+ 3 = Cents +105.297    Ratio: 4118/3875
+ 4 = Cents +140.396    Ratio: 475/438
+ 5 = Cents +175.495    Ratio: 5363/4846
+ 6 = Cents +210.594    Ratio: 3990/3533
+ 7 = Cents +245.693    Ratio: 11307/9811
+ 8 = Cents +280.792    Ratio: 4495/3822
+ 9 = Cents +315.891    Ratio: 9707/8088
+10 = Cents +350.99     Ratio: 1989/1624
+11 = Cents +386.089    Ratio: 1926/1541
+12 = Cents +421.188    Ratio: 7321/5740
+13 = Cents +456.287    Ratio: 2089/1605
+14 = Cents +491.386    Ratio: 8563/6447
+15 = Cents +526.485    Ratio: 6117/4513
+16 = Cents +561.584    Ratio: 148/107
+17 = Cents +596.683    Ratio: 2895/2051
+18 = Cents +631.782    Ratio: 7627/5295
+19 = Cents +666.881    Ratio: 13901/9457
+20 = Cents +701.98     Ratio: 3/2 (just)
+21 = Cents +737.079    Ratio: 5477/3578
+22 = Cents +772.178    Ratio: 6981/4469
+23 = Cents +807.277    Ratio: 14613/9167
+24 = Cents +842.376    Ratio: 10660/6553
+25 = Cents +877.475    Ratio: 1255/756
+26 = Cents +912.574    Ratio: 3959/2337
+27 = Cents +947.673    Ratio: 16513/9552
+28 = Cents +982.772    Ratio: 15424/8743
+29 = Cents +1017.871   Ratio: 7563/4201
+30 = Cents +1052.97    Ratio: 7367/4010
+31 = Cents +1088.069   Ratio: 11918/6357
+32 = Cents +1123.168   Ratio: 13310/6957
+33 = Cents +1158.267   Ratio: 17050/8733
+34 = Cents +1193.366   Ratio: 14586/7321
+35 = Cents +1228.465   Ratio: 13368/6575
+36 = Cents +1263.564   Ratio: 1276/615
+Take 5 User’s Guide                  Appendix F: Alternative Tunings   85
+
+=== PAGE 95 ===
+27. Carlos Super Just
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +104.95541         Ratio: 17/16 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +551.317942        Ratio: 11/8 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +840.527662        Ratio: 13/8 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +968.825906        Ratio: 7/4 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+28. Jon Catler 24-tone JI from “Over and Under the 13 Limit”
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +53.272943         Ratio: 33/32 (JUST)
+62 = Cents +111.731285        Ratio: 16/15 (JUST)
+63 = Cents +203.910002        Ratio: 9/8 (JUST)
+64 = Cents +231.174094        Ratio: 8/7 (JUST)
+65 = Cents +266.870906        Ratio: 7/6 (JUST)
+66 = Cents +315.641287        Ratio: 6/5 (JUST)
+67 = Cents +342.905379        Ratio: 128/105
+68 = Cents +359.472338        Ratio: 16/13 (JUST)
+69 = Cents +386.313714        Ratio: 5/4 (JUST)
+70 = Cents +470.780907        Ratio: 21/16 (JUST)
+71 = Cents +498.044999        Ratio: 4/3 (JUST)
+72 = Cents +551.317942        Ratio: 11/8 (JUST)
+73 = Cents +590.223716        Ratio: 45/32 (JUST)
+74 = Cents +648.682058        Ratio: 16/11 (JUST)
+75 = Cents +701.955001        Ratio: 3/2 (JUST)
+76 = Cents +813.686286        Ratio: 8/5 (JUST)
+77 = Cents +840.527662        Ratio: 13/8 (JUST)
+78 = Cents +884.358713        Ratio: 5/3 (JUST)
+79 = Cents +905.865003        Ratio: 27/16 (JUST)
+80 = Cents +968.825906        Ratio: 7/4 (JUST)
+81 = Cents +996.089998        Ratio: 16/9 (JUST)
+82 = Cents +1061.427339       Ratio: 24/13 (JUST)
+83 = Cents +1088.268715       Ratio: 15/8 (JUST)
+84 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+86   Appendix F: Alternative Tunings                 Sequential
+
+=== PAGE 96 ===
+29. John Chalmers JI-1, Based loosely on Wronski’s and simi-
+lar JI scales, May 2, 1997.
+(Chalmer’s book “Divisions of the Tetrachord” is a late 20th century
+masterwork, exploring the mathematical underpinnings of just tunings.)
+
+6 0 = Cents 0.             Ratio: 1/1 (JUST)
+ 61 = Cents +104.95541     Ratio: 17/16 (JUST)
+ 62 = Cents +203.910002    Ratio: 9/8 (JUST)
+ 63 = Cents +297.513016    Ratio: 19/16 (JUST)
+ 64 = Cents +386.313714    Ratio: 5/4 (JUST)
+ 65 = Cents +498.044999    Ratio: 4/3 (JUST)
+ 66 = Cents +603.000409    Ratio: 17/12 (JUST)
+ 67 = Cents +701.955001    Ratio: 3/2 (JUST)
+ 68 = Cents +795.558015    Ratio: 19/12 (JUST)
+ 69 = Cents +884.358713    Ratio: 5/3 (JUST)
+ 70 = Cents +999.468017    Ratio: 57/32 (JUST)
+ 71 = Cents +1088.268715   Ratio: 15/8 (JUST)
+ 72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+30. John Chalmers JI-3, 15 16 17 18 19 20 21 on 1/1, 15-20 on
+3/2, May 2, 1997.
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +111.731285     Ratio: 16/15 (JUST)
+62 = Cents +216.686695     Ratio: 17/15 (JUST)
+63 = Cents +315.641287     Ratio: 6/5 (JUST)
+64 = Cents +409.244301     Ratio: 19/15 (JUST)
+65 = Cents +498.044999     Ratio: 4/3 (JUST)
+66 = Cents +582.512193     Ratio: 7/5 (JUST)
+67 = Cents +701.955001     Ratio: 3/2 (JUST)
+68 = Cents +813.686286     Ratio: 8/5 (JUST)
+69 = Cents +918.641696     Ratio: 17/10 (JUST)
+70 = Cents +1017.596288    Ratio: 9/5 (JUST)
+71 = Cents +1111.199302    Ratio: 19/10 (JUST)
+72 = Cents +1200.          Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                   Appendix F: Alternative Tunings   87
+
+=== PAGE 97 ===
+31. John Chalmers JI-4, 15 16 17 18 19 20 on 1/1, same on 4/3,
++ 16/15 on 16/9
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +111.731285        Ratio: 16/15 (JUST)
+62 = Cents +216.686695        Ratio: 17/15 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +409.244301        Ratio: 19/15 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +609.776284        Ratio: 64/45 (JUST)
+67 = Cents +714.731694        Ratio: 68/45 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +907.289301        Ratio: 76/45 (JUST)
+70 = Cents +996.089998        Ratio: 16/9 (JUST)
+71 = Cents +1107.821284       Ratio: 256/135
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+32. Chinese scale, 4th century
+ 0 = Cents 0.             Ratio: 1/1 (JUST)
+ 1 = Cents +99.2          Ratio: 3735/3527
+ 2 = Cents +199.5         Ratio: 11126/9915
+ 3 = Cents +296.7         Ratio: 9181/7735
+ 4 = Cents +398.          Ratio: 10405/8268
+ 5 = Cents +492.9         Ratio: 448/337
+ 6 = Cents +595.2         Ratio: 11312/8021
+ 7 = Cents +699.          Ratio: 6439/4300
+ 8 = Cents +790.9         Ratio: 7578/4799
+ 9 = Cents +896.1         Ratio: 15436/9199
+10 = Cents +984.9         Ratio: 6357/3599
+11 = Cents +1091.4        Ratio: 1591/847
+12 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+88   Appendix F: Alternative Tunings                  Sequential
+
+=== PAGE 98 ===
+33. Chinese Lu scale by Huai Nan Zi, Han era. (P. Amiot 1780,
+Kurt Reinhard)
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +98.954592      Ratio: 18/17 (JUST)
+ 62 = Cents +203.910002    Ratio: 9/8 (JUST)
+ 63 = Cents +315.641287    Ratio: 6/5 (JUST)
+ 64 = Cents +394.347297    Ratio: 54/43 (JUST)
+ 65 = Cents +498.044999    Ratio: 4/3 (JUST)
+ 66 = Cents +608.351986    Ratio: 27/19 (JUST)
+ 67 = Cents +701.955001    Ratio: 3/2 (JUST)
+ 68 = Cents +800.909593    Ratio: 27/17 (JUST)
+ 69 = Cents +905.865003    Ratio: 27/16 (JUST)
+ 70 = Cents +1017.596288   Ratio: 9/5 (JUST)
+ 71 = Cents +1106.396986   Ratio: 36/19 (JUST)
+ 72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+34. Colonna 1
+Fabio Colonna lived in Naples, and published a treatise in 1618 called
+“La Sambuca Lincea”, which included a description of the instrument by
+that name which he built on commission from Scipione Stella, who had
+had the opportunity in 1594 to examine Vincentino’s “Archicembalo” —
+a 31-tone-per-octave (not equal-tempered) keyboard instrument.
+
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +70.672427      Ratio: 25/24 (JUST)
+62 = Cents +182.403712     Ratio: 10/9 (JUST)
+63 = Cents +287.359122     Ratio: 85/72 (JUST)
+64 = Cents +386.313714     Ratio: 5/4 (JUST)
+65 = Cents +498.044999     Ratio: 4/3 (JUST)
+66 = Cents +568.717426     Ratio: 25/18 (JUST)
+67 = Cents +701.955001     Ratio: 3/2 (JUST)
+68 = Cents +733.721654     Ratio: 55/36 (JUST)
+69 = Cents +884.358713     Ratio: 5/3 (JUST)
+70 = Cents +989.314122     Ratio: 85/48 (JUST)
+71 = Cents +1088.268715    Ratio: 15/8 (JUST)
+72 = Cents +1200.          Ratio: 2/1 (JUST)
+
+
+
+Take 5 User’s Guide                    Appendix F: Alternative Tunings   89
+
+=== PAGE 99 ===
+35. Colonna 2 - Second 12 Note Subset of the Colonna Scale
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +70.672427         Ratio: 25/24 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +582.512193        Ratio: 7/5 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +1017.596288       Ratio: 9/5 (JUST)
+71 = Cents +1049.362941       Ratio: 11/6 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+36. Ivor Darreg’s 19 ratios in 5-limit JI for his Megalyra Family
+Darreg was one of the great modern theorists of just intonation.
+
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +70.672427         Ratio: 25/24 (JUST)
+62 = Cents +111.731285        Ratio: 16/15 (JUST)
+63 = Cents +182.403712        Ratio: 10/9 (JUST)
+64 = Cents +203.910002        Ratio: 9/8 (JUST)
+65 = Cents +274.582429        Ratio: 75/64 (JUST)
+66 = Cents +315.641287        Ratio: 6/5 (JUST)
+67 = Cents +386.313714        Ratio: 5/4 (JUST)
+68 = Cents +498.044999        Ratio: 4/3 (JUST)
+69 = Cents +590.223716        Ratio: 45/32 (JUST)
+70 = Cents +609.776284        Ratio: 64/45 (JUST)
+71 = Cents +701.955001        Ratio: 3/2 (JUST)
+72 = Cents +772.627428        Ratio: 25/16 (JUST)
+73 = Cents +813.686286        Ratio: 8/5 (JUST)
+74 = Cents +884.358713        Ratio: 5/3 (JUST)
+75 = Cents +905.865003        Ratio: 27/16 (JUST)
+76 = Cents +976.537429        Ratio: 225/128
+77 = Cents +1017.596288       Ratio: 9/5 (JUST)
+78 = Cents +1088.268715       Ratio: 15/8 (JUST)
+79 = Cents +1200.             Ratio: 2/1 (JUST)
+
+90   Appendix F: Alternative Tunings                     Sequential
+
+=== PAGE 100 ===
+37. Dorian Diatonic Tonos
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +111.731285    Ratio: 16/15 (JUST)
+62 = Cents +231.174094    Ratio: 8/7 (JUST)
+63 = Cents +359.472338    Ratio: 16/13 (JUST)
+64 = Cents +427.372572    Ratio: 32/25 (JUST)
+65 = Cents +498.044999    Ratio: 4/3 (JUST)
+66 = Cents +571.725653    Ratio: 32/23 (JUST)
+67 = Cents +648.682058    Ratio: 16/11 (JUST)
+68 = Cents +813.686286    Ratio: 8/5 (JUST)
+69 = Cents +902.486984    Ratio: 32/19 (JUST)
+70 = Cents +996.089998    Ratio: 16/9 (JUST)
+71 = Cents +1095.04459    Ratio: 32/17 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+38. Almost Equal 12-tone Subset of Duodenarium
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +92.178716     Ratio: 135/128
+62 = Cents +203.910002    Ratio: 9/8 (JUST)
+63 = Cents +296.088718    Ratio: 1215/1024
+64 = Cents +405.866283    Ratio: 512/405
+65 = Cents +498.044999    Ratio: 4/3 (JUST)
+66 = Cents +609.776284    Ratio: 64/45 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +794.133717    Ratio: 405/256
+69 = Cents +903.911282    Ratio: 2048/1215
+70 = Cents +998.043719    Ratio: 3645/2048
+71 = Cents +1107.821284   Ratio: 256/135
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                  Appendix F: Alternative Tunings   91
+
+=== PAGE 101 ===
+39. Ellis’s Just Harmonium
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +111.731285        Ratio: 16/15 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +519.551289        Ratio: 27/20 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +1017.596288       Ratio: 9/5 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+40. Bali/Java Slendro, Siam 7, empirical
+0 = Cents 0.                  Ratio: 1/1 (JUST)
+61 = Cents +111.731285        Ratio: 16/15 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +519.551289        Ratio: 27/20 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +1017.596288       Ratio: 9/5 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+
+
+92   Appendix F: Alternative Tunings                Sequential
+
+=== PAGE 102 ===
+41. Tibetian Ceremonial, empirical
+ 0 = Cents 0.            Ratio: 1/1 (JUST)
+ 1 = Cents +58.          Ratio: 2762/2671
+ 2 = Cents +232.         Ratio: 6889/6025
+ 3 = Cents +310.         Ratio: 10601/8863
+ 4 = Cents +378.         Ratio: 11945/9602
+ 5 = Cents +522.         Ratio: 849/628
+ 6 = Cents +618.         Ratio: 483/338
+ 7 = Cents +725.         Ratio: 605/398
+ 8 = Cents +773.         Ratio: 13070/8363
+ 9 = Cents +896.         Ratio: 14076/8389
+10 = Cents +1019.        Ratio: 12585/6986
+11 = Cents +1086.        Ratio: 16205/8654
+
+
+42. Erlangen, revised
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +92.178716        Ratio: 135/128
+62 = Cents +203.910002       Ratio: 9/8 (JUST)
+63 = Cents +294.134997       Ratio: 32/27 (JUST)
+64 = Cents +386.313714       Ratio: 5/4 (JUST)
+65 = Cents +498.044999       Ratio: 4/3 (JUST)
+66 = Cents +590.223716       Ratio: 45/32 (JUST)
+67 = Cents +701.955001       Ratio: 3/2 (JUST)
+68 = Cents +794.133717       Ratio: 405/256
+69 = Cents +905.865003       Ratio: 27/16 (JUST)
+70 = Cents +996.089998       Ratio: 16/9 (JUST)
+71 = Cents +1088.268715      Ratio: 15/8 (JUST)
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                       Appendix F: Alternative Tunings   93
+
+=== PAGE 103 ===
+43. Euler - Monochord (1739)
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +70.672427         Ratio: 25/24 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +274.582429        Ratio: 75/64 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +590.223716        Ratio: 45/32 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +772.627428        Ratio: 25/16 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +976.537429        Ratio: 225/128
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.          Ratio: 2/1 (JUST)
+
+
+44. Fokker’s 7-limit 12-tone Just Scale
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +119.442808        Ratio: 15/14 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +266.870906        Ratio: 7/6 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +590.223716        Ratio: 45/32 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +821.397809        Ratio: 45/28 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +968.825906        Ratio: 7/4 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+
+
+94   Appendix F: Alternative Tunings                Sequential
+
+=== PAGE 104 ===
+45. Bagpipe tuning from Fortuna (“Try Key of G with F Natural”)
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +29.849602     Ratio: 117/115
+62 = Cents +187.681869    Ratio: 146/131
+63 = Cents +256.596489    Ratio: 196/169
+64 = Cents +343.090647    Ratio: 89/73 (JUST)
+65 = Cents +493.957077    Ratio: 141/106
+66 = Cents +548.648344    Ratio: 81/59 (JUST)
+67 = Cents +684.728649    Ratio: 150/101
+68 = Cents +729.878736    Ratio: 125/82 (JUST)
+69 = Cents +871.94838     Ratio: 139/84 (JUST)
+70 = Cents +985.798925    Ratio: 205/116
+71 = Cents +1049.362941   Ratio: 11/6 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+46. Gamelan Udan Mas (approx) s6,p6,p7,s1,p1,s2,p2,p3,s3,p
+4,s5,p5
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents 0.             Ratio: 1/1 (JUST)
+62 = Cents +182.403712    Ratio: 10/9 (JUST)
+63 = Cents +266.870906    Ratio: 7/6 (JUST)
+64 = Cents +427.372572    Ratio: 32/25 (JUST)
+65 = Cents +510.367002    Ratio: 47/35 (JUST)
+66 = Cents +571.725653    Ratio: 32/23 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +745.786052    Ratio: 20/13 (JUST)
+69 = Cents +996.089998    Ratio: 16/9 (JUST)
+70 = Cents +996.089998    Ratio: 16/9 (JUST)
+71 = Cents +1126.319346   Ratio: 23/12 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+73 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                  Appendix F: Alternative Tunings   95
+
+=== PAGE 105 ===
+47. Kraig Grady’s 7-limit “Centaur” Scale, 1987.
+See Xenharmonikon 16.
+
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +84.467193         Ratio: 21/20 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +266.870906        Ratio: 7/6 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +582.512193        Ratio: 7/5 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +764.915905        Ratio: 14/9 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +968.825906        Ratio: 7/4 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+48. Harmonics 1 to 12 and Subharmonics Mixed
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +203.910002        Ratio: 9/8 (JUST)
+62 = Cents +231.174094        Ratio: 8/7 (JUST)
+63 = Cents +386.313714        Ratio: 5/4 (JUST)
+64 = Cents +498.044999        Ratio: 4/3 (JUST)
+65 = Cents +551.317942        Ratio: 11/8 (JUST)
+66 = Cents +648.682058        Ratio: 16/11 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +968.825906        Ratio: 7/4 (JUST)
+70 = Cents +996.089998        Ratio: 16/9 (JUST)
+71 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+
+
+96   Appendix F: Alternative Tunings                Sequential
+
+=== PAGE 106 ===
+49. Michael Harrison, Ppiano Tuning for “Revelation” (2001)
+Original 1/1=F, here it is set to C.
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents -27.264092     Ratio: 63/64 (JUST)
+62 = Cents +203.910002    Ratio: 9/8 (JUST)
+63 = Cents +176.64591     Ratio: 567/512
+64 = Cents +407.820003    Ratio: 81/64 (JUST)
+65 = Cents +470.780907    Ratio: 21/16 (JUST)
+66 = Cents +611.730005    Ratio: 729/512
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +674.690909    Ratio: 189/128
+69 = Cents +905.865003    Ratio: 27/16 (JUST)
+70 = Cents +968.825906    Ratio: 7/4 (JUST)
+71 = Cents +1109.775004   Ratio: 243/128
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                   Appendix F: Alternative Tunings   97
+
+=== PAGE 107 ===
+50. Helmholtz’s two-keyboard Harmonium Tuning Untempered,
+24 notes per octave
+60 = Cents 0.                 Ratio: 1/1 (JUST)
+61 = Cents +92.178716         Ratio: 135/128
+62 = Cents +111.731285        Ratio: 16/15 (JUST)
+63 = Cents +182.403712        Ratio: 10/9 (JUST)
+64 = Cents +203.910002        Ratio: 9/8 (JUST)
+65 = Cents +274.582429        Ratio: 75/64 (JUST)
+66 = Cents +294.134997        Ratio: 32/27 (JUST)
+67 = Cents +386.313714        Ratio: 5/4 (JUST)
+68 = Cents +405.866283        Ratio: 512/405
+69 = Cents +478.49243         Ratio: 675/512
+70 = Cents +498.044999        Ratio: 4/3 (JUST)
+71 = Cents +590.223716        Ratio: 45/32 (JUST)
+72 = Cents +609.776284        Ratio: 64/45 (JUST)
+73 = Cents +680.448711        Ratio: 40/27 (JUST)
+74 = Cents +701.955001        Ratio: 3/2 (JUST)
+75 = Cents +772.627428        Ratio: 25/16 (JUST)
+76 = Cents +792.179997        Ratio: 128/81 (JUST)
+77 = Cents +884.358713        Ratio: 5/3 (JUST)
+78 = Cents +905.865003        Ratio: 27/16 (JUST)
+79 = Cents +976.537429        Ratio: 225/128
+80 = Cents +996.089998        Ratio: 16/9 (JUST)
+81 = Cents +1088.268715       Ratio: 15/8 (JUST)
+82 = Cents +1107.821284       Ratio: 256/135
+83 = Cents +1178.49371        Ratio: 160/81 (JUST)
+84 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+
+
+98   Appendix F: Alternative Tunings                 Sequential
+
+=== PAGE 108 ===
+51. North Indian Gamut, Modern Hindustani 12 Selected from
+22 or More Shrutis
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +111.731285    Ratio: 16/15 (JUST)
+62 = Cents +203.910002    Ratio: 9/8 (JUST)
+63 = Cents +315.641287    Ratio: 6/5 (JUST)
+64 = Cents +386.313714    Ratio: 5/4 (JUST)
+65 = Cents +498.044999    Ratio: 4/3 (JUST)
+66 = Cents +590.223716    Ratio: 45/32 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +813.686286    Ratio: 8/5 (JUST)
+69 = Cents +905.865003    Ratio: 27/16 (JUST)
+70 = Cents +1017.596288   Ratio: 9/5 (JUST)
+71 = Cents +1088.268715   Ratio: 15/8 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+52. Carnatic Gamut. Kuppuswami: Carnatic Music and the
+Tamils, p. v
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +98.954592     Ratio: 18/17 (JUST)
+62 = Cents +203.910002    Ratio: 9/8 (JUST)
+63 = Cents +315.641287    Ratio: 6/5 (JUST)
+64 = Cents +394.347297    Ratio: 54/43 (JUST)
+65 = Cents +498.044999    Ratio: 4/3 (JUST)
+66 = Cents +596.999591    Ratio: 24/17 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +800.909593    Ratio: 27/17 (JUST)
+69 = Cents +905.865003    Ratio: 27/16 (JUST)
+70 = Cents +1017.596288   Ratio: 9/5 (JUST)
+71 = Cents +1096.302298   Ratio: 81/43 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                  Appendix F: Alternative Tunings   99
+
+=== PAGE 109 ===
+53. Observed South Indian Tuning of a vina, Ellis
+Octaves are stretched.
+
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +97.           Ratio: 8644/8173
+62 = Cents +195.          Ratio: 10974/9805
+63 = Cents +312.          Ratio: 11873/9915
+64 = Cents +397.          Ratio: 3372/2681
+65 = Cents +515.          Ratio: 9782/7265
+66 = Cents +596.          Ratio: 12731/9023
+67 = Cents +692.          Ratio: 13439/9011
+68 = Cents +782.          Ratio: 6031/3839
+69 = Cents +883.          Ratio: 6793/4079
+70 = Cents +997.          Ratio: 4863/2734
+71 = Cents +1092.         Ratio: 12599/6705
+72 = Cents +1207.         Ratio: 15117/7528
+
+
+54. 7-limit 12-tone Scale
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +111.731285       Ratio: 16/15 (JUST)
+62 = Cents +203.910002       Ratio: 9/8 (JUST)
+63 = Cents +266.870906       Ratio: 7/6 (JUST)
+64 = Cents +386.313714       Ratio: 5/4 (JUST)
+65 = Cents +498.044999       Ratio: 4/3 (JUST)
+66 = Cents +582.512193       Ratio: 7/5 (JUST)
+67 = Cents +701.955001       Ratio: 3/2 (JUST)
+68 = Cents +813.686286       Ratio: 8/5 (JUST)
+69 = Cents +933.129094       Ratio: 12/7 (JUST)
+70 = Cents +968.825906       Ratio: 7/4 (JUST)
+71 = Cents +1088.268715      Ratio: 15/8 (JUST)
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+
+
+100 Appendix F: Alternative Tunings                 Sequential
+
+=== PAGE 110 ===
+55. Alternate 7-limit 12-tone Scale
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +70.672427     Ratio: 25/24 (JUST)
+62 = Cents +182.403712    Ratio: 10/9 (JUST)
+63 = Cents +266.870906    Ratio: 7/6 (JUST)
+64 = Cents +386.313714    Ratio: 5/4 (JUST)
+65 = Cents +470.780907    Ratio: 21/16 (JUST)
+66 = Cents +582.512193    Ratio: 7/5 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +813.686286    Ratio: 8/5 (JUST)
+69 = Cents +933.129094    Ratio: 12/7 (JUST)
+70 = Cents +968.825906    Ratio: 7/4 (JUST)
+71 = Cents +1088.268715   Ratio: 15/8 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+56. Kurzweil “Just with Natural b7th”, is Sauveur Just with 7/4
+60 = Cents 0.             Ratio: 1/1 (JUST)
+61 = Cents +70.672427     Ratio: 25/24 (JUST)
+62 = Cents +203.910002    Ratio: 9/8 (JUST)
+63 = Cents +315.641287    Ratio: 6/5 (JUST)
+64 = Cents +386.313714    Ratio: 5/4 (JUST)
+65 = Cents +498.044999    Ratio: 4/3 (JUST)
+66 = Cents +590.223716    Ratio: 45/32 (JUST)
+67 = Cents +701.955001    Ratio: 3/2 (JUST)
+68 = Cents +813.686286    Ratio: 8/5 (JUST)
+69 = Cents +884.358713    Ratio: 5/3 (JUST)
+70 = Cents +968.825906    Ratio: 7/4 (JUST)
+71 = Cents +1088.268715   Ratio: 15/8 (JUST)
+72 = Cents +1200.         Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                  Appendix F: Alternative Tunings 101
+
+=== PAGE 111 ===
+57. 3 and 7 prime rational interpretation of 17-tET
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +62.960904        Ratio: 28/27 (JUST)
+62 = Cents +140.949098       Ratio: 243/224
+63 = Cents +203.910002       Ratio: 9/8 (JUST)
+64 = Cents +294.134997       Ratio: 32/27 (JUST)
+65 = Cents +357.095901       Ratio: 896/729
+66 = Cents +435.084095       Ratio: 9/7 (JUST)
+67 = Cents +498.044999       Ratio: 4/3 (JUST)
+68 = Cents +561.005903       Ratio: 112/81 (JUST)
+69 = Cents +638.994097       Ratio: 81/56 (JUST)
+70 = Cents +701.955001       Ratio: 3/2 (JUST)
+71 = Cents +764.915905       Ratio: 14/9 (JUST)
+72 = Cents +842.904099       Ratio: 729/448
+73 = Cents +905.865003       Ratio: 27/16 (JUST)
+74 = Cents +996.089998       Ratio: 16/9 (JUST)
+75 = Cents +1059.050902      Ratio: 448/243
+76 = Cents +1137.039096      Ratio: 27/14 (JUST)
+77 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+
+
+102 Appendix F: Alternative Tunings                   Sequential
+
+=== PAGE 112 ===
+58. 11-limit ‘prime row’ from Ben Johnston’s “6th Quartet”.
+Not octave repeating, with some very narrow intervals. These are the
+first 30 pitches:
+
+ 0 = Cents 0.             Ratio: 1/1 (JUST)
+ 1 = Cents +70.672427      Ratio: 25/24 (JUST)
+ 2 = Cents +182.403712     Ratio: 10/9 (JUST)
+ 3 = Cents +274.582429     Ratio: 75/64 (JUST)
+ 4 = Cents +386.313714     Ratio: 5/4 (JUST)
+ 5 = Cents +505.756522     Ratio: 75/56 (JUST)
+ 6 = Cents +568.717426     Ratio: 25/18 (JUST)
+ 7 = Cents +733.721654     Ratio: 55/36 (JUST)
+ 8 = Cents +772.627428     Ratio: 25/16 (JUST)
+ 9 = Cents +884.358713     Ratio: 5/3 (JUST)
+10 = Cents +923.264486     Ratio: 75/44 (JUST)
+11 = Cents +1088.268715   Ratio: 15/8 (JUST)
+12 = Cents +1151.229619     Ratio: 35/18 (JUST)
+13 = Cents +1221.902045     Ratio: 875/432
+14 = Cents +1333.633331     Ratio: 175/81 (JUST)
+15 = Cents +1425.812047     Ratio: 875/384
+16 = Cents +1537.543332     Ratio: 175/72 (JUST)
+17 = Cents +1656.986141     Ratio: 125/48 (JUST)
+18 = Cents +1719.947045     Ratio: 875/324
+19 = Cents +1884.951273     Ratio: 1925/648
+20 = Cents +1923.857046     Ratio: 875/288
+21 = Cents +2035.588332     Ratio: 175/54 (JUST)
+22 = Cents +2074.494105     Ratio: 875/264
+23 = Cents +2239.498333     Ratio: 175/48 (JUST)
+24 = Cents +2302.459237     Ratio: 1225/324
+25 = Cents +2373.131664     Ratio: 30625/7776
+26 = Cents +2484.862949     Ratio: 6125/1458
+27 = Cents +2577.041666     Ratio: 30625/6912
+28 = Cents +2688.772951     Ratio: 6125/1296
+29 = Cents +2808.215759     Ratio: 4375/864
+
+30 = Cents +2871.176663     Ratio: 30625/5832
+
+Take 5 User’s Guide                    Appendix F: Alternative Tunings 103
+
+=== PAGE 113 ===
+59. 1/9-Harrison’s comma mean-tone scale
+60 = Cents 0.               Ratio: 1/1 (JUST)
+61 = Cents +74.23293        Ratio: 8315/7966
+62 = Cents +192.63798       Ratio: 6334/5667
+63 = Cents +266.870906      Ratio: 7/6 (JUST)
+64 = Cents +385.27596       Ratio: 6671/5340
+65 = Cents +503.68101       Ratio: 13025/9737
+66 = Cents +577.91394       Ratio: 2632/1885
+67 = Cents +696.31899       Ratio: 14567/9743
+68 = Cents +770.55192       Ratio: 9743/6243
+69 = Cents +888.95697       Ratio: 1885/1128
+70 = Cents +963.1899        Ratio: 13187/7560
+71 = Cents +1081.59495      Ratio: 1780/953
+72 = Cents +1200.           Ratio: 2/1 (JUST)
+
+
+60. Rousseau’s Monochord, Dictionnaire de musique (1768)
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +70.672427        Ratio: 25/24 (JUST)
+62 = Cents +203.910002       Ratio: 9/8 (JUST)
+63 = Cents +315.641287       Ratio: 6/5 (JUST)
+64 = Cents +386.313714       Ratio: 5/4 (JUST)
+65 = Cents +498.044999       Ratio: 4/3 (JUST)
+66 = Cents +568.717426       Ratio: 25/18 (JUST)
+67 = Cents +701.955001       Ratio: 3/2 (JUST)
+68 = Cents +813.686286       Ratio: 8/5 (JUST)
+69 = Cents +884.358713       Ratio: 5/3 (JUST)
+70 = Cents +1017.596288      Ratio: 9/5 (JUST)
+71 = Cents +1088.268715      Ratio: 15/8 (JUST)
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+
+
+104 Appendix F: Alternative Tunings                Sequential
+
+=== PAGE 114 ===
+61. Persian santur tuning. 1/1=E in Original
+Here it is set to C. Note that scale is 8 notes per octave, so it will not map
+normally to a 12 note keyboard.
+
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +129.99971        Ratio: 10727/9951
+62 = Cents +345.             Ratio: 4710/3859
+63 = Cents +490.00034        Ratio: 5797/4368
+64 = Cents +630.00051        Ratio: 8153/5666
+65 = Cents +849.99952        Ratio: 13952/8539
+66 = Cents +1034.99975       Ratio: 20/11 (just)
+67 = Cents +1137.00011       Ratio: 15866/8227
+68 = Cents +1200.            Ratio: 2/1 (JUST)
+69 = Cents +1329.99971       Ratio: 21454/9951
+70 = Cents +1545.            Ratio: 18281/7489
+71 = Cents +1690.00034       Ratio: 5797/2184
+72 = Cents +1830.00051       Ratio: 28347/9850
+73 = Cents +2049.99952       Ratio: 32211/9857
+74 = Cents +2234.99975       Ratio: 36331/9991
+75 = Cents +2337.00011       Ratio: 38073/9871
+76 = Cents +2400.            Ratio: 4/1 (JUST)
+
+
+62. Vallotti & Young (Vallotti Version)
+60 = Cents 0.              Ratio: 1/1 (JUST)
+61 = Cents +94.135         Ratio: 10487/9932
+62 = Cents +196.09         Ratio: 10851/9689
+63 = Cents +298.045        Ratio: 4679/3939
+64 = Cents +392.18         Ratio: 3843/3064
+65 = Cents +501.955        Ratio: 5467/4091
+66 = Cents +592.18         Ratio: 13863/9847
+67 = Cents +698.045        Ratio: 8182/5467
+68 = Cents +796.09         Ratio: 13019/8220
+69 = Cents +894.135        Ratio: 2427/1448
+70 = Cents +1000.          Ratio: 17189/9647
+71 = Cents +1090.225       Ratio: 18484/9847
+72 = Cents +1200.          Ratio: 2/1 (JUST)
+
+Take 5 User’s Guide                       Appendix F: Alternative Tunings 105
+
+=== PAGE 115 ===
+63. LaMonte Young, Tuning of For Guitar ‘58. 1/1 March ‘92,
+inv.of Mersenne lute 1
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +111.731285       Ratio: 16/15 (JUST)
+62 = Cents +182.403712       Ratio: 10/9 (JUST)
+63 = Cents +315.641287       Ratio: 6/5 (JUST)
+64 = Cents +386.313714       Ratio: 5/4 (JUST)
+65 = Cents +498.044999       Ratio: 4/3 (JUST)
+66 = Cents +590.223716       Ratio: 45/32 (JUST)
+67 = Cents +701.955001       Ratio: 3/2 (JUST)
+68 = Cents +813.686286       Ratio: 8/5 (JUST)
+69 = Cents +884.358713       Ratio: 5/3 (JUST)
+70 = Cents +1017.596288      Ratio: 9/5 (JUST)
+71 = Cents +1088.268715      Ratio: 15/8 (JUST)
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+64. LaMonte Young’s Well-Tuned Piano
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +176.64591        Ratio: 567/512
+62 = Cents +203.910002       Ratio: 9/8 (JUST)
+63 = Cents +239.606814       Ratio: 147/128
+64 = Cents +470.780907       Ratio: 21/16 (JUST)
+65 = Cents +443.516816       Ratio: 1323/1024
+66 = Cents +674.690909       Ratio: 189/128
+67 = Cents +701.955001       Ratio: 3/2 (JUST)
+68 = Cents +737.651813       Ratio: 49/32 (JUST)
+69 = Cents +968.825906       Ratio: 7/4 (JUST)
+70 = Cents +941.561815       Ratio: 441/256
+71 = Cents +1172.735908      Ratio: 63/32 (JUST)
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+
+
+
+106 Appendix F: Alternative Tunings                  Sequential
+
+=== PAGE 116 ===
+65. Thomas Young - well temperament (1807). Also Luigi
+Malerbi nr.2 (1794)
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +90.224996        Ratio: 256/243
+62 = Cents +196.09           Ratio: 10851/9689
+63 = Cents +294.134997       Ratio: 32/27 (JUST)
+64 = Cents +392.18           Ratio: 3843/3064
+65 = Cents +498.044999       Ratio: 4/3 (JUST)
+66 = Cents +588.269995       Ratio: 1024/729
+67 = Cents +698.045          Ratio: 8182/5467
+68 = Cents +792.179997       Ratio: 128/81 (JUST)
+69 = Cents +894.135          Ratio: 2427/1448
+70 = Cents +996.089998       Ratio: 16/9 (JUST)
+71 = Cents +1090.225         Ratio: 18484/9847
+72 = Cents +1200.            Ratio: 2/1 (JUST)
+
+Original 1/1 on C#, here it is set to C.
+
+60 = Cents 0.                Ratio: 1/1 (JUST)
+61 = Cents +111.731285       Ratio: 16/15 (JUST)
+62 = Cents +203.910002        Ratio: 9/8 (JUST)
+63 = Cents +315.641287        Ratio: 6/5 (JUST)
+64 = Cents +386.313714        Ratio: 5/4 (JUST)
+65 = Cents +498.044999        Ratio: 4/3 (JUST)
+66 = Cents +609.776284        Ratio: 64/45 (JUST)
+67 = Cents +701.955001        Ratio: 3/2 (JUST)
+68 = Cents +813.686286        Ratio: 8/5 (JUST)
+69 = Cents +884.358713        Ratio: 5/3 (JUST)
+70 = Cents +996.089998        Ratio: 16/9 (JUST)
+71 = Cents +1088.268715       Ratio: 15/8 (JUST)
+72 = Cents +1200.             Ratio: 2/1 (JUST)
+
+
+
+
+Take 5 User’s Guide                        Appendix F: Alternative Tunings 107
+
+=== PAGE 117 ===
+       Sequential LLC
+1527 Stockton Street, 3rd Floor
+  San Francisco, CA 94133
+            USA
+
+
+    ©2025 Sequential LLC
+     www.sequential.com

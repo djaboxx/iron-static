@@ -1,0 +1,841 @@
+{
+  "instrument": "rev2",
+  "source_manual": "Prophet-Rev2-Users-Guide-1.2.4.pdf",
+  "source_section": "Appendix E: MIDI Implementation \u2014 Program Parameter Data",
+  "notes": [
+    "nrpn_a is the Layer A NRPN number and the byte index in the unpacked SysEx payload.",
+    "nrpn_b is the Layer B NRPN offset (Layer B data follows Layer A in the dump).",
+    "Sequencer step note data (NRPNs 188+) follows the destination entries and is not in this table.",
+    "Parameters with nrpn_b=null are global (not per-layer)."
+  ],
+  "params": {
+    "0": {
+      "name": "Osc 1 Freq",
+      "nrpn_a": 0,
+      "nrpn_b": 2048,
+      "value_range": "0-120"
+    },
+    "1": {
+      "name": "Osc 1 Freq Fine",
+      "nrpn_a": 1,
+      "nrpn_b": 2049,
+      "value_range": "0-100"
+    },
+    "2": {
+      "name": "Osc 1 Shape",
+      "nrpn_a": 2,
+      "nrpn_b": 2050,
+      "value_range": "0-4"
+    },
+    "3": {
+      "name": "Osc 1 Glide",
+      "nrpn_a": 3,
+      "nrpn_b": 2051,
+      "value_range": "0-127"
+    },
+    "4": {
+      "name": "Osc. 1 KBD on/off",
+      "nrpn_a": 4,
+      "nrpn_b": 2052,
+      "value_range": "0-1"
+    },
+    "5": {
+      "name": "Osc 2 Freq",
+      "nrpn_a": 5,
+      "nrpn_b": 2053,
+      "value_range": "0-120"
+    },
+    "6": {
+      "name": "Osc 2 Freq Fine",
+      "nrpn_a": 6,
+      "nrpn_b": 2054,
+      "value_range": "0-100"
+    },
+    "7": {
+      "name": "Osc 2 Shape",
+      "nrpn_a": 7,
+      "nrpn_b": 2055,
+      "value_range": "0-4"
+    },
+    "8": {
+      "name": "Osc 2 Glide",
+      "nrpn_a": 8,
+      "nrpn_b": 2056,
+      "value_range": "0-127"
+    },
+    "9": {
+      "name": "Osc 2 Kbd on/off",
+      "nrpn_a": 9,
+      "nrpn_b": 2057,
+      "value_range": "0-1"
+    },
+    "10": {
+      "name": "Sync On/Off",
+      "nrpn_a": 10,
+      "nrpn_b": 2058,
+      "value_range": "0-1"
+    },
+    "11": {
+      "name": "Glide Mode",
+      "nrpn_a": 11,
+      "nrpn_b": 2059,
+      "value_range": "0-3"
+    },
+    "12": {
+      "name": "Slop",
+      "nrpn_a": 12,
+      "nrpn_b": 2060,
+      "value_range": "0-127"
+    },
+    "13": {
+      "name": "Osc Mix",
+      "nrpn_a": 13,
+      "nrpn_b": 2061,
+      "value_range": "0-127"
+    },
+    "14": {
+      "name": "Noise",
+      "nrpn_a": 14,
+      "nrpn_b": 2062,
+      "value_range": "0-127"
+    },
+    "15": {
+      "name": "Filter Cutoff",
+      "nrpn_a": 15,
+      "nrpn_b": 2063,
+      "value_range": "0-164"
+    },
+    "16": {
+      "name": "Filter Resonance",
+      "nrpn_a": 16,
+      "nrpn_b": 2064,
+      "value_range": "0-127"
+    },
+    "17": {
+      "name": "Keyboard Tracking",
+      "nrpn_a": 17,
+      "nrpn_b": 2065,
+      "value_range": "0-127"
+    },
+    "18": {
+      "name": "Audio Mod",
+      "nrpn_a": 18,
+      "nrpn_b": 2066,
+      "value_range": "0-127"
+    },
+    "19": {
+      "name": "2 pole/4 pole mode",
+      "nrpn_a": 19,
+      "nrpn_b": 2067,
+      "value_range": "0-1"
+    },
+    "20": {
+      "name": "Filter Envelope Amt",
+      "nrpn_a": 20,
+      "nrpn_b": 2068,
+      "value_range": "0-254"
+    },
+    "21": {
+      "name": "Filter Envelope Vel",
+      "nrpn_a": 21,
+      "nrpn_b": 2069,
+      "value_range": "0-127"
+    },
+    "22": {
+      "name": "Filter Envelope Dly",
+      "nrpn_a": 22,
+      "nrpn_b": 2070,
+      "value_range": "0-127"
+    },
+    "23": {
+      "name": "Filt Env Attack",
+      "nrpn_a": 23,
+      "nrpn_b": 2071,
+      "value_range": "0-127"
+    },
+    "24": {
+      "name": "Filt Env Decay",
+      "nrpn_a": 24,
+      "nrpn_b": 2072,
+      "value_range": "0-127"
+    },
+    "25": {
+      "name": "Filt Env Sustain",
+      "nrpn_a": 25,
+      "nrpn_b": 2073,
+      "value_range": "0-127"
+    },
+    "26": {
+      "name": "Filt Env Release",
+      "nrpn_a": 26,
+      "nrpn_b": 2074,
+      "value_range": "0-127"
+    },
+    "28": {
+      "name": "Pan Spread",
+      "nrpn_a": 28,
+      "nrpn_b": 2076,
+      "value_range": "0-127"
+    },
+    "29": {
+      "name": "Program Volume",
+      "nrpn_a": 29,
+      "nrpn_b": 2077,
+      "value_range": "0-127"
+    },
+    "30": {
+      "name": "VCA Env. Amt",
+      "nrpn_a": 30,
+      "nrpn_b": 2078,
+      "value_range": "0-127"
+    },
+    "31": {
+      "name": "VCA Env. Velo.",
+      "nrpn_a": 31,
+      "nrpn_b": 2079,
+      "value_range": "0-127"
+    },
+    "32": {
+      "name": "VCA Env. Del.",
+      "nrpn_a": 32,
+      "nrpn_b": 2080,
+      "value_range": "0-127"
+    },
+    "33": {
+      "name": "VCA Env. A",
+      "nrpn_a": 33,
+      "nrpn_b": 2081,
+      "value_range": "0-127"
+    },
+    "34": {
+      "name": "VCA Env. D",
+      "nrpn_a": 34,
+      "nrpn_b": 2082,
+      "value_range": "0-127"
+    },
+    "35": {
+      "name": "VCA Env. S",
+      "nrpn_a": 35,
+      "nrpn_b": 2083,
+      "value_range": "0-127"
+    },
+    "36": {
+      "name": "VCA Env. R",
+      "nrpn_a": 36,
+      "nrpn_b": 2084,
+      "value_range": "0-127"
+    },
+    "37": {
+      "name": "LFO 1 Freq.",
+      "nrpn_a": 37,
+      "nrpn_b": 2085,
+      "value_range": "0-150"
+    },
+    "38": {
+      "name": "LFO 1 Shape",
+      "nrpn_a": 38,
+      "nrpn_b": 2086,
+      "value_range": "0-4"
+    },
+    "39": {
+      "name": "LFO 1 Amt.",
+      "nrpn_a": 39,
+      "nrpn_b": 2087,
+      "value_range": "0-127"
+    },
+    "40": {
+      "name": "LFO 1 Dest.",
+      "nrpn_a": 40,
+      "nrpn_b": 2088,
+      "value_range": "0-52"
+    },
+    "41": {
+      "name": "LFO 1 Clock Sync",
+      "nrpn_a": 41,
+      "nrpn_b": 2089,
+      "value_range": "0-1"
+    },
+    "42": {
+      "name": "LFO 2 Freq.",
+      "nrpn_a": 42,
+      "nrpn_b": 2090,
+      "value_range": "0-150"
+    },
+    "43": {
+      "name": "LFO 2 Shape",
+      "nrpn_a": 43,
+      "nrpn_b": 2091,
+      "value_range": "0-4"
+    },
+    "44": {
+      "name": "LFO 2 Amt.",
+      "nrpn_a": 44,
+      "nrpn_b": 2092,
+      "value_range": "0-127"
+    },
+    "45": {
+      "name": "LFO 2 Dest.",
+      "nrpn_a": 45,
+      "nrpn_b": 2093,
+      "value_range": "0-52"
+    },
+    "46": {
+      "name": "LFO 2 Clock Sync",
+      "nrpn_a": 46,
+      "nrpn_b": 2094,
+      "value_range": "0-1"
+    },
+    "47": {
+      "name": "LFO 3 Freq.",
+      "nrpn_a": 47,
+      "nrpn_b": 2095,
+      "value_range": "0-150"
+    },
+    "48": {
+      "name": "LFO 3 Shape",
+      "nrpn_a": 48,
+      "nrpn_b": 2096,
+      "value_range": "0-4"
+    },
+    "49": {
+      "name": "LFO 3 Amt.",
+      "nrpn_a": 49,
+      "nrpn_b": 2097,
+      "value_range": "0-127"
+    },
+    "50": {
+      "name": "LFO 3 Dest.",
+      "nrpn_a": 50,
+      "nrpn_b": 2098,
+      "value_range": "0-52"
+    },
+    "51": {
+      "name": "LFO 3 Clock Sync",
+      "nrpn_a": 51,
+      "nrpn_b": 2099,
+      "value_range": "0-1"
+    },
+    "52": {
+      "name": "LFO 4 Freq.",
+      "nrpn_a": 52,
+      "nrpn_b": 2100,
+      "value_range": "0-150"
+    },
+    "53": {
+      "name": "LFO 4 Shape",
+      "nrpn_a": 53,
+      "nrpn_b": 2101,
+      "value_range": "0-4"
+    },
+    "54": {
+      "name": "LFO 4 Amt.",
+      "nrpn_a": 54,
+      "nrpn_b": 2102,
+      "value_range": "0-127"
+    },
+    "55": {
+      "name": "LFO 4 Dest.",
+      "nrpn_a": 55,
+      "nrpn_b": 2103,
+      "value_range": "0-52"
+    },
+    "56": {
+      "name": "LFO 4 Clock Sync",
+      "nrpn_a": 56,
+      "nrpn_b": 2104,
+      "value_range": "0-1"
+    },
+    "57": {
+      "name": "Env. 3 Dest.",
+      "nrpn_a": 57,
+      "nrpn_b": 2105,
+      "value_range": "0-52"
+    },
+    "58": {
+      "name": "Env. 3 Amt.",
+      "nrpn_a": 58,
+      "nrpn_b": 2106,
+      "value_range": "0-254"
+    },
+    "59": {
+      "name": "Env. 3 Velo.",
+      "nrpn_a": 59,
+      "nrpn_b": 2107,
+      "value_range": "0-127"
+    },
+    "60": {
+      "name": "Env. 3 Del.",
+      "nrpn_a": 60,
+      "nrpn_b": 2108,
+      "value_range": "0-127"
+    },
+    "61": {
+      "name": "Env. 3 A",
+      "nrpn_a": 61,
+      "nrpn_b": 2109,
+      "value_range": "0-127"
+    },
+    "62": {
+      "name": "Env. 3 D",
+      "nrpn_a": 62,
+      "nrpn_b": 2110,
+      "value_range": "0-127"
+    },
+    "63": {
+      "name": "Env. 3 S",
+      "nrpn_a": 63,
+      "nrpn_b": 2111,
+      "value_range": "0-127"
+    },
+    "64": {
+      "name": "Env. 3 R",
+      "nrpn_a": 64,
+      "nrpn_b": 2112,
+      "value_range": "0-127"
+    },
+    "65": {
+      "name": "Mod 1 Source",
+      "nrpn_a": 65,
+      "nrpn_b": 2113,
+      "value_range": "0-22"
+    },
+    "66": {
+      "name": "Mod 1 Amount",
+      "nrpn_a": 66,
+      "nrpn_b": 2114,
+      "value_range": "0-254"
+    },
+    "67": {
+      "name": "Mod 1 Destination",
+      "nrpn_a": 67,
+      "nrpn_b": 2115,
+      "value_range": "0-52"
+    },
+    "68": {
+      "name": "Mod 2 Source",
+      "nrpn_a": 68,
+      "nrpn_b": 2116,
+      "value_range": "0-22"
+    },
+    "69": {
+      "name": "Mod 2 Amount",
+      "nrpn_a": 69,
+      "nrpn_b": 2117,
+      "value_range": "0-254"
+    },
+    "70": {
+      "name": "Mod 2 Destination",
+      "nrpn_a": 70,
+      "nrpn_b": 2118,
+      "value_range": "0-52"
+    },
+    "71": {
+      "name": "Mod 3 Source",
+      "nrpn_a": 71,
+      "nrpn_b": 2119,
+      "value_range": "0-22"
+    },
+    "72": {
+      "name": "Mod 3 Amount",
+      "nrpn_a": 72,
+      "nrpn_b": 2120,
+      "value_range": "0-254"
+    },
+    "73": {
+      "name": "Mod 3 Destination",
+      "nrpn_a": 73,
+      "nrpn_b": 2121,
+      "value_range": "0-52"
+    },
+    "74": {
+      "name": "Mod 4 Source",
+      "nrpn_a": 74,
+      "nrpn_b": 2122,
+      "value_range": "0-22"
+    },
+    "75": {
+      "name": "Mod 4 Amount",
+      "nrpn_a": 75,
+      "nrpn_b": 2123,
+      "value_range": "0-254"
+    },
+    "76": {
+      "name": "Mod 4 Destination",
+      "nrpn_a": 76,
+      "nrpn_b": 2124,
+      "value_range": "0-52"
+    },
+    "77": {
+      "name": "Mod 5 Source",
+      "nrpn_a": 77,
+      "nrpn_b": 2125,
+      "value_range": "0-22"
+    },
+    "78": {
+      "name": "Mod 5 Amount",
+      "nrpn_a": 78,
+      "nrpn_b": 2126,
+      "value_range": "0-254"
+    },
+    "79": {
+      "name": "Mod 5 Destination",
+      "nrpn_a": 79,
+      "nrpn_b": 2127,
+      "value_range": "0-52"
+    },
+    "80": {
+      "name": "Mod 6 Source",
+      "nrpn_a": 80,
+      "nrpn_b": 2128,
+      "value_range": "0-22"
+    },
+    "81": {
+      "name": "Mod 6 Amount",
+      "nrpn_a": 81,
+      "nrpn_b": 2129,
+      "value_range": "0-254"
+    },
+    "82": {
+      "name": "Mod 6 Destination",
+      "nrpn_a": 82,
+      "nrpn_b": 2130,
+      "value_range": "0-52"
+    },
+    "83": {
+      "name": "Mod 7 Source",
+      "nrpn_a": 83,
+      "nrpn_b": 2131,
+      "value_range": "0-22"
+    },
+    "84": {
+      "name": "Mod 7 Amount",
+      "nrpn_a": 84,
+      "nrpn_b": 2132,
+      "value_range": "0-254"
+    },
+    "85": {
+      "name": "Mod 7 Destination",
+      "nrpn_a": 85,
+      "nrpn_b": 2133,
+      "value_range": "0-52"
+    },
+    "86": {
+      "name": "Mod 8 Source",
+      "nrpn_a": 86,
+      "nrpn_b": 2134,
+      "value_range": "0-22"
+    },
+    "87": {
+      "name": "Mod 8 Amount",
+      "nrpn_a": 87,
+      "nrpn_b": 2135,
+      "value_range": "0-254"
+    },
+    "88": {
+      "name": "Mod 8 Destination",
+      "nrpn_a": 88,
+      "nrpn_b": 2136,
+      "value_range": "0-52"
+    },
+    "97": {
+      "name": "Env. 3 Rpt. on/off",
+      "nrpn_a": 97,
+      "nrpn_b": 2145,
+      "value_range": "0-1"
+    },
+    "98": {
+      "name": "VCA Level",
+      "nrpn_a": 98,
+      "nrpn_b": 2146,
+      "value_range": "0-127"
+    },
+    "99": {
+      "name": "OSC 1 Note Reset",
+      "nrpn_a": 99,
+      "nrpn_b": 2147,
+      "value_range": "0-1"
+    },
+    "102": {
+      "name": "Osc. 1 Shape Mod",
+      "nrpn_a": 102,
+      "nrpn_b": 2150,
+      "value_range": "0-99"
+    },
+    "103": {
+      "name": "Osc. 2 Shape Mod",
+      "nrpn_a": 103,
+      "nrpn_b": 2151,
+      "value_range": "0-99"
+    },
+    "104": {
+      "name": "OSC 2 Note reset",
+      "nrpn_a": 104,
+      "nrpn_b": 2152,
+      "value_range": "0-1"
+    },
+    "105": {
+      "name": "LFO 1 Key Sync",
+      "nrpn_a": 105,
+      "nrpn_b": 2153,
+      "value_range": "0-1"
+    },
+    "106": {
+      "name": "LFO 2 Key Sync",
+      "nrpn_a": 106,
+      "nrpn_b": 2154,
+      "value_range": "0-1"
+    },
+    "107": {
+      "name": "LFO 3 Key Sync",
+      "nrpn_a": 107,
+      "nrpn_b": 2155,
+      "value_range": "0-1"
+    },
+    "108": {
+      "name": "LFO 4 Key Sync",
+      "nrpn_a": 108,
+      "nrpn_b": 2156,
+      "value_range": "0-1"
+    },
+    "110": {
+      "name": "Sub Osc.",
+      "nrpn_a": 110,
+      "nrpn_b": 2158,
+      "value_range": "0-127"
+    },
+    "111": {
+      "name": "Glide ON/OFF",
+      "nrpn_a": 111,
+      "nrpn_b": 2159,
+      "value_range": "0-1"
+    },
+    "113": {
+      "name": "Pitch Bend Range",
+      "nrpn_a": 113,
+      "nrpn_b": 2161,
+      "value_range": "0-12"
+    },
+    "114": {
+      "name": "Pan Mode",
+      "nrpn_a": 114,
+      "nrpn_b": 2162,
+      "value_range": "0-1"
+    },
+    "116": {
+      "name": "Mod Wheel Amt.",
+      "nrpn_a": 116,
+      "nrpn_b": 2164,
+      "value_range": "0-254"
+    },
+    "117": {
+      "name": "Mod Wheel Dest.",
+      "nrpn_a": 117,
+      "nrpn_b": 2165,
+      "value_range": "0-52"
+    },
+    "118": {
+      "name": "Pressure Amt.",
+      "nrpn_a": 118,
+      "nrpn_b": 2166,
+      "value_range": "0-254"
+    },
+    "119": {
+      "name": "Pressure Dest.",
+      "nrpn_a": 119,
+      "nrpn_b": 2167,
+      "value_range": "0-52"
+    },
+    "120": {
+      "name": "Breath Amt.",
+      "nrpn_a": 120,
+      "nrpn_b": 2168,
+      "value_range": "0-254"
+    },
+    "121": {
+      "name": "Breath Dest.",
+      "nrpn_a": 121,
+      "nrpn_b": 2169,
+      "value_range": "0-52"
+    },
+    "122": {
+      "name": "Velocity Amt.",
+      "nrpn_a": 122,
+      "nrpn_b": 2170,
+      "value_range": "0-254"
+    },
+    "123": {
+      "name": "Velocity Dest.",
+      "nrpn_a": 123,
+      "nrpn_b": 2171,
+      "value_range": "0-52"
+    },
+    "124": {
+      "name": "Foot Cntrlr Amt.",
+      "nrpn_a": 124,
+      "nrpn_b": 2172,
+      "value_range": "0-254"
+    },
+    "125": {
+      "name": "Foot Cntrlr Dest.",
+      "nrpn_a": 125,
+      "nrpn_b": 2173,
+      "value_range": "0-52"
+    },
+    "153": {
+      "name": "FX on/off",
+      "nrpn_a": 153,
+      "nrpn_b": 2201,
+      "value_range": "0-1"
+    },
+    "154": {
+      "name": "FX select",
+      "nrpn_a": 154,
+      "nrpn_b": 2202,
+      "value_range": "0-13"
+    },
+    "155": {
+      "name": "FX mix",
+      "nrpn_a": 155,
+      "nrpn_b": 2203,
+      "value_range": "0-127"
+    },
+    "156": {
+      "name": "FX param 1",
+      "nrpn_a": 156,
+      "nrpn_b": 2204,
+      "value_range": "0-255"
+    },
+    "157": {
+      "name": "FX param 2",
+      "nrpn_a": 157,
+      "nrpn_b": 2205,
+      "value_range": "0-127"
+    },
+    "158": {
+      "name": "FX clock sync",
+      "nrpn_a": 158,
+      "nrpn_b": 2206,
+      "value_range": "0-1"
+    },
+    "163": {
+      "name": "A/B Mode",
+      "nrpn_a": 163,
+      "nrpn_b": null,
+      "value_range": "0-2"
+    },
+    "164": {
+      "name": "Seq Start/Stop",
+      "nrpn_a": 164,
+      "nrpn_b": 2212,
+      "value_range": "0-1"
+    },
+    "167": {
+      "name": "Unison Detune",
+      "nrpn_a": 167,
+      "nrpn_b": 2215,
+      "value_range": "0-16"
+    },
+    "168": {
+      "name": "Unison on/off",
+      "nrpn_a": 168,
+      "nrpn_b": 2216,
+      "value_range": "0-1"
+    },
+    "169": {
+      "name": "Unison Mode",
+      "nrpn_a": 169,
+      "nrpn_b": 2217,
+      "value_range": "0-16"
+    },
+    "170": {
+      "name": "Keyboard Mode",
+      "nrpn_a": 170,
+      "nrpn_b": 2218,
+      "value_range": "0-5"
+    },
+    "171": {
+      "name": "Split Point",
+      "nrpn_a": 171,
+      "nrpn_b": null,
+      "value_range": "0-120"
+    },
+    "172": {
+      "name": "Arp. on/off",
+      "nrpn_a": 172,
+      "nrpn_b": 2220,
+      "value_range": "0-1"
+    },
+    "173": {
+      "name": "Arp. Mode",
+      "nrpn_a": 173,
+      "nrpn_b": 2221,
+      "value_range": "0-4"
+    },
+    "174": {
+      "name": "Arp. Range",
+      "nrpn_a": 174,
+      "nrpn_b": 2222,
+      "value_range": "0-2"
+    },
+    "175": {
+      "name": "Clock Divide",
+      "nrpn_a": 175,
+      "nrpn_b": 2223,
+      "value_range": "0-12"
+    },
+    "177": {
+      "name": "Arp. Repeats",
+      "nrpn_a": 177,
+      "nrpn_b": 2225,
+      "value_range": "0-3"
+    },
+    "178": {
+      "name": "Arp. Relatch",
+      "nrpn_a": 178,
+      "nrpn_b": 2226,
+      "value_range": "0-1"
+    },
+    "179": {
+      "name": "BPM Tempo",
+      "nrpn_a": 179,
+      "nrpn_b": 2227,
+      "value_range": "30-250"
+    },
+    "182": {
+      "name": "Gated Seq. Mode",
+      "nrpn_a": 182,
+      "nrpn_b": 2230,
+      "value_range": "0-4"
+    },
+    "183": {
+      "name": "Gated Seq. on/off",
+      "nrpn_a": 183,
+      "nrpn_b": 2231,
+      "value_range": "0-1"
+    },
+    "184": {
+      "name": "Seq. 1 Destination",
+      "nrpn_a": 184,
+      "nrpn_b": 2232,
+      "value_range": "0-52"
+    },
+    "185": {
+      "name": "Seq. 2 Destination",
+      "nrpn_a": 185,
+      "nrpn_b": 2233,
+      "value_range": "0-53"
+    },
+    "186": {
+      "name": "Seq. 3 Destination",
+      "nrpn_a": 186,
+      "nrpn_b": 2234,
+      "value_range": "0-52"
+    },
+    "187": {
+      "name": "Seq. 4 Destination",
+      "nrpn_a": 187,
+      "nrpn_b": 2235,
+      "value_range": "0-53"
+    }
+  }
+}

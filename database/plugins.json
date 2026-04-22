@@ -1,0 +1,4341 @@
+{
+  "scan_date": "2026-04-22",
+  "total": 619,
+  "instruments": [
+    {
+      "name": "Analog Four",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Elektron",
+      "path": "/Library/Audio/Plug-Ins/VST3/Elektron/Analog Four.vst3"
+    },
+    {
+      "name": "Analog Lab V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Analog Lab V.vst3"
+    },
+    {
+      "name": "Analog Rytm",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Elektron",
+      "path": "/Library/Audio/Plug-Ins/VST3/Elektron/Analog Rytm.vst3"
+    },
+    {
+      "name": "Arcade",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Arcade.vst3"
+    },
+    {
+      "name": "ARP 2600 V3",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/ARP 2600 V3.vst3"
+    },
+    {
+      "name": "Augmented STRINGS",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Augmented STRINGS.vst3"
+    },
+    {
+      "name": "B-3 V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/B-3 V2.vst3"
+    },
+    {
+      "name": "BBC Symphony Orchestra",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/BBC Symphony Orchestra.vst3"
+    },
+    {
+      "name": "Buchla Easel V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Buchla Easel V.vst3"
+    },
+    {
+      "name": "Clavinet V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Clavinet V.vst3"
+    },
+    {
+      "name": "CMI V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/CMI V.vst3"
+    },
+    {
+      "name": "CS-80 V3",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/CS-80 V3.vst3"
+    },
+    {
+      "name": "CZ V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/CZ V.vst3"
+    },
+    {
+      "name": "Dexed",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Dexed.vst"
+    },
+    {
+      "name": "Digitakt",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Elektron",
+      "path": "/Library/Audio/Plug-Ins/VST3/Elektron/Digitakt.vst3"
+    },
+    {
+      "name": "DX7 V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/DX7 V.vst3"
+    },
+    {
+      "name": "Emulator II V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Emulator II V.vst3"
+    },
+    {
+      "name": "Endlesss",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Endlesss.vst3"
+    },
+    {
+      "name": "Europa by Reason",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Europa by Reason.vst"
+    },
+    {
+      "name": "Farfisa V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Farfisa V.vst3"
+    },
+    {
+      "name": "Jun-6 V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Jun-6 V.vst3"
+    },
+    {
+      "name": "Jup-8 V4",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Jup-8 V4.vst3"
+    },
+    {
+      "name": "Komplete Kontrol",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Komplete Kontrol.vst3"
+    },
+    {
+      "name": "Kontakt",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Kontakt.vst3"
+    },
+    {
+      "name": "Kontakt 7",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Kontakt 7.vst3"
+    },
+    {
+      "name": "LABS",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/LABS.vst3"
+    },
+    {
+      "name": "Mariana",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Mariana.vst3"
+    },
+    {
+      "name": "Mellotron V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Mellotron V.vst3"
+    },
+    {
+      "name": "Mini V3",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Mini V3.vst3"
+    },
+    {
+      "name": "Minitaur Editor",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Minitaur Editor-VI.vst"
+    },
+    {
+      "name": "Modular V3",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Modular V3.vst3"
+    },
+    {
+      "name": "MoogMinitaur",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Minitaur Editor.vst3"
+    },
+    {
+      "name": "MoogMinitaur-VI",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Minitaur Editor-VI.vst3"
+    },
+    {
+      "name": "OP-Xa V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/OP-Xa V.vst3"
+    },
+    {
+      "name": "Piano V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Piano V2.vst3"
+    },
+    {
+      "name": "Pigments",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Pigments.vst3"
+    },
+    {
+      "name": "Prophet REV2 PlugSE",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Prophet REV2 PlugSE.vst3"
+    },
+    {
+      "name": "Prophet REV2 PlugSE Control",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Prophet REV2 PlugSE Control.vst3"
+    },
+    {
+      "name": "Prophet REV2 PlugSE Control Demo",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Users/darnold/Library/Audio/Plug-Ins/VST/Prophet REV2 PlugSE Control Demo.vst"
+    },
+    {
+      "name": "Prophet REV2 PlugSE Demo",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Users/darnold/Library/Audio/Plug-Ins/VST/Prophet REV2 PlugSE Demo.vst"
+    },
+    {
+      "name": "Prophet V3",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Prophet V3.vst3"
+    },
+    {
+      "name": "ProphetREV2Editor",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/ProphetREV2Editor.vst"
+    },
+    {
+      "name": "ProphetREV2MMEditor",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/ProphetREV2MMEditor.vst"
+    },
+    {
+      "name": "Reaktor 6",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Reaktor 6.vst3"
+    },
+    {
+      "name": "Reaktor 6 FX",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Reaktor 6 FX.vst"
+    },
+    {
+      "name": "Reason Rack Plugin",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Reason Rack Plugin.vst3"
+    },
+    {
+      "name": "SEM V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/SEM V2.vst3"
+    },
+    {
+      "name": "Solina V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Solina V2.vst3"
+    },
+    {
+      "name": "Stage-73 V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Stage-73 V2.vst3"
+    },
+    {
+      "name": "Synclavier V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Synclavier V.vst3"
+    },
+    {
+      "name": "Synthi V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Synthi V.vst3"
+    },
+    {
+      "name": "tal-noisemaker",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/TAL-NoiseMaker.vst3"
+    },
+    {
+      "name": "TR-808",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Roland",
+      "path": "/Library/Audio/Plug-Ins/VST3/Roland/TR-808.vst3"
+    },
+    {
+      "name": "UAD Empirical Labs Distressor",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Empirical Labs Distressor.vst3"
+    },
+    {
+      "name": "UAD Empirical Labs Distressor(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Empirical Labs Distressor(m).vst"
+    },
+    {
+      "name": "UAD Empirical Labs FATSO Jr",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Empirical Labs FATSO Jr.vst3"
+    },
+    {
+      "name": "UAD Empirical Labs FATSO Jr(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Empirical Labs FATSO Jr(m).vst"
+    },
+    {
+      "name": "UAD Empirical Labs FATSO Sr",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Empirical Labs FATSO Sr.vst3"
+    },
+    {
+      "name": "UAD Empirical Labs FATSO Sr(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Empirical Labs FATSO Sr(m).vst"
+    },
+    {
+      "name": "UAD Little Labs IBP",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Little Labs IBP.vst3"
+    },
+    {
+      "name": "UAD Little Labs IBP(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Little Labs IBP(m).vst"
+    },
+    {
+      "name": "UAD Little Labs VOG",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Little Labs VOG.vst3"
+    },
+    {
+      "name": "UAD Little Labs VOG(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Little Labs VOG(m).vst"
+    },
+    {
+      "name": "UAD Manley Massive Passive",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Manley Massive Passive.vst3"
+    },
+    {
+      "name": "UAD Manley Massive Passive MST",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Manley Massive Passive MST.vst3"
+    },
+    {
+      "name": "UAD Manley Massive Passive MST(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Manley Massive Passive MST(m).vst"
+    },
+    {
+      "name": "UAD Manley Massive Passive(m)",
+      "format": "VST2",
+      "type": "instrument",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Manley Massive Passive(m).vst"
+    },
+    {
+      "name": "uaudio_manley_massive_passive",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_manley_massive_passive.vst3"
+    },
+    {
+      "name": "uaudio_manley_massive_passive_m",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_manley_massive_passive_m.vst3"
+    },
+    {
+      "name": "uaudio_minimoog",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_minimoog.vst3"
+    },
+    {
+      "name": "Vocoder V",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Vocoder V.vst3"
+    },
+    {
+      "name": "VStation",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/VStation.vst3"
+    },
+    {
+      "name": "Wurli V2",
+      "format": "VST3",
+      "type": "instrument",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Wurli V2.vst3"
+    }
+  ],
+  "effects": [
+    {
+      "name": "BassStation",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/BassStation.vst"
+    },
+    {
+      "name": "BassStationStereo",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/BassStationStereo.vst"
+    },
+    {
+      "name": "Blackhole",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/Blackhole.vst3"
+    },
+    {
+      "name": "Blackhole No MIDI",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Blackhole No MIDI.component"
+    },
+    {
+      "name": "Console Recall",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Console/Console Recall.vst3"
+    },
+    {
+      "name": "CrushStation",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/CrushStation.vst3"
+    },
+    {
+      "name": "Crystallizer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Crystallizer.vst3"
+    },
+    {
+      "name": "Crystals",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/Crystals.vst3"
+    },
+    {
+      "name": "DB-33_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/DB-33.component"
+    },
+    {
+      "name": "DB-33FX_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/DB-33FX.component"
+    },
+    {
+      "name": "Decapitator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Decapitator.vst3"
+    },
+    {
+      "name": "Devil-Loc",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST/Soundtoys/Devil-Loc.vst"
+    },
+    {
+      "name": "Devil-Loc_Deluxe",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST/Soundtoys/Devil-Loc_Deluxe.vst"
+    },
+    {
+      "name": "DevilLoc",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Devil-Loc.vst3"
+    },
+    {
+      "name": "DevilLocDeluxe",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Devil-Loc_Deluxe.vst3"
+    },
+    {
+      "name": "EchoBoy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/EchoBoy.vst3"
+    },
+    {
+      "name": "EchoBoyJr",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/EchoBoyJr.vst3"
+    },
+    {
+      "name": "EffectRack",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/EffectRack.vst3"
+    },
+    {
+      "name": "FabFilter Pro-MB",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/FabFilter Pro-MB.vst3"
+    },
+    {
+      "name": "FabFilter Pro-Q 3",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/FabFilter Pro-Q 3.vst3"
+    },
+    {
+      "name": "FabFilter Saturn 2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/FabFilter Saturn 2.vst3"
+    },
+    {
+      "name": "FilterFreak1",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/FilterFreak1.vst3"
+    },
+    {
+      "name": "FilterFreak2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/FilterFreak2.vst3"
+    },
+    {
+      "name": "Guitar Rig 5",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Guitar Rig 5.vst"
+    },
+    {
+      "name": "Hybrid_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Hybrid.component"
+    },
+    {
+      "name": "Inf EQ",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Inf EQ.component"
+    },
+    {
+      "name": "LittleAlterBoy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittleAlterBoy.vst3"
+    },
+    {
+      "name": "LittleMicroShift",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittleMicroShift.vst3"
+    },
+    {
+      "name": "LittlePlate",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittlePlate.vst3"
+    },
+    {
+      "name": "LittlePrimalTap",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittlePrimalTap.vst3"
+    },
+    {
+      "name": "LittleRadiator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/LittleRadiator.vst3"
+    },
+    {
+      "name": "Loom_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Loom.component"
+    },
+    {
+      "name": "Loopcloud",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Loopcloud.vst"
+    },
+    {
+      "name": "Loopcloud Drum",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Loopmasters",
+      "path": "/Library/Audio/Plug-Ins/VST/Loopmasters/Loopcloud Drum.vst"
+    },
+    {
+      "name": "Loopcloud Play",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Loopmasters",
+      "path": "/Library/Audio/Plug-Ins/VST/Loopmasters/Loopcloud Play.vst"
+    },
+    {
+      "name": "MAnalyzer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/Tools/MAnalyzer.vst3"
+    },
+    {
+      "name": "MangledVerb",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/MangledVerb.vst3"
+    },
+    {
+      "name": "Matrix-12 V2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Matrix-12 V2.vst3"
+    },
+    {
+      "name": "MAutoAlign",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/Tools/MAutoAlign.vst3"
+    },
+    {
+      "name": "MAutoVolume",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/Dynamics/MAutoVolume.vst3"
+    },
+    {
+      "name": "MDrumLeveler",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/Dynamics/MDrumLeveler.vst3"
+    },
+    {
+      "name": "MDrumReplacer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/MDrumReplacer.vst3"
+    },
+    {
+      "name": "MDrumStrip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "MeldaProduction",
+      "path": "/Library/Audio/Plug-Ins/VST3/MeldaProduction/MDrumStrip.vst3"
+    },
+    {
+      "name": "MicroPitch",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/MicroPitch.vst3"
+    },
+    {
+      "name": "MicroShift",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/MicroShift.vst3"
+    },
+    {
+      "name": "MiniGrand_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/MiniGrand.component"
+    },
+    {
+      "name": "MPC",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/MPC.vst"
+    },
+    {
+      "name": "MPC Essentials",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/MPC Essentials.vst"
+    },
+    {
+      "name": "PanMan",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/PanMan.vst3"
+    },
+    {
+      "name": "PhaseMistress",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/PhaseMistress.vst3"
+    },
+    {
+      "name": "PrimalTap",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/PrimalTap.vst3"
+    },
+    {
+      "name": "Radiator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Radiator.vst3"
+    },
+    {
+      "name": "RC-20 Retro Color",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/RC-20 Retro Color.vst3"
+    },
+    {
+      "name": "Remix",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Acon Digital",
+      "path": "/Library/Audio/Plug-Ins/VST3/Acon Digital/Remix.vst3"
+    },
+    {
+      "name": "Rift Feedback Lite",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Rift Feedback Lite.vst3"
+    },
+    {
+      "name": "Rotary Mod",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/Rotary Mod.vst3"
+    },
+    {
+      "name": "Serato Sample",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Serato Sample.vst3"
+    },
+    {
+      "name": "ShimmerVerb",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/ShimmerVerb.vst3"
+    },
+    {
+      "name": "SieQ",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/SieQ.vst3"
+    },
+    {
+      "name": "Spring",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/Spring.vst3"
+    },
+    {
+      "name": "Suhr PT100",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Suhr PT100.vst3"
+    },
+    {
+      "name": "Supercharger",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/Supercharger.vst3"
+    },
+    {
+      "name": "Tremolator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Soundtoys",
+      "path": "/Library/Audio/Plug-Ins/VST3/Soundtoys/Tremolator.vst3"
+    },
+    {
+      "name": "TriceraChorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/TriceraChorus.vst3"
+    },
+    {
+      "name": "UAD 4K Buss Compressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD 4K Buss Compressor.vst3"
+    },
+    {
+      "name": "UAD 4K Buss Compressor(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD 4K Buss Compressor(m).vst"
+    },
+    {
+      "name": "UAD 4K Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD 4K Channel Strip.vst3"
+    },
+    {
+      "name": "UAD 4K Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD 4K Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD A-Type Multiband Enhancer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD A-Type Multiband Enhancer.vst3"
+    },
+    {
+      "name": "UAD A-Type Multiband Enhancer(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD A-Type Multiband Enhancer(m).vst"
+    },
+    {
+      "name": "UAD ADA Flanger",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD ADA Flanger.vst3"
+    },
+    {
+      "name": "UAD ADA Flanger(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD ADA Flanger(m).vst"
+    },
+    {
+      "name": "UAD ADA STD-1 Stereo Tapped Delay",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD ADA STD-1 Stereo Tapped Delay.vst3"
+    },
+    {
+      "name": "UAD ADA STD-1 Stereo Tapped Delay(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD ADA STD-1 Stereo Tapped Delay(m).vst"
+    },
+    {
+      "name": "UAD AKG BX 20",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD AKG BX 20.vst3"
+    },
+    {
+      "name": "UAD AKG BX 20(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD AKG BX 20(m).vst"
+    },
+    {
+      "name": "UAD Ampeg B15N",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Ampeg B15N.vst3"
+    },
+    {
+      "name": "UAD Ampeg B15N(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ampeg B15N(m).vst"
+    },
+    {
+      "name": "UAD Ampeg SVT3Pro",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Ampeg SVT3Pro.vst3"
+    },
+    {
+      "name": "UAD Ampeg SVT3Pro(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ampeg SVT3Pro(m).vst"
+    },
+    {
+      "name": "UAD Ampeg SVTVR",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Ampeg SVTVR.vst3"
+    },
+    {
+      "name": "UAD Ampeg SVTVR Classic",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Ampeg SVTVR Classic.vst3"
+    },
+    {
+      "name": "UAD Ampeg SVTVR Classic(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ampeg SVTVR Classic(m).vst"
+    },
+    {
+      "name": "UAD Ampeg SVTVR(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ampeg SVTVR(m).vst"
+    },
+    {
+      "name": "UAD Ampex ATR-102",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD Ampex ATR-102.vst3"
+    },
+    {
+      "name": "UAD Ampex ATR-102(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ampex ATR-102(m).vst"
+    },
+    {
+      "name": "UAD AMS DMX 15-80 S",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD AMS DMX 15-80 S.vst3"
+    },
+    {
+      "name": "UAD AMS DMX 15-80 S(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD AMS DMX 15-80 S(m).vst"
+    },
+    {
+      "name": "UAD AMS Neve DFC Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD AMS Neve DFC Channel Strip.vst3"
+    },
+    {
+      "name": "UAD AMS Neve DFC Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD AMS Neve DFC Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD AMS RMX16",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD AMS RMX16.vst3"
+    },
+    {
+      "name": "UAD AMS RMX16 Expanded",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD AMS RMX16 Expanded.vst3"
+    },
+    {
+      "name": "UAD AMS RMX16 Expanded(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD AMS RMX16 Expanded(m).vst"
+    },
+    {
+      "name": "UAD AMS RMX16(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD AMS RMX16(m).vst"
+    },
+    {
+      "name": "UAD Antares Auto-Tune Realtime",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/Pitch Correction/UAD Antares Auto-Tune Realtime.vst"
+    },
+    {
+      "name": "UAD Antares Auto-Tune Realtime(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Antares Auto-Tune Realtime(m).vst"
+    },
+    {
+      "name": "UAD API 2500",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD API 2500.vst3"
+    },
+    {
+      "name": "UAD API 2500(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API 2500(m).vst"
+    },
+    {
+      "name": "UAD API 550A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD API 550A.vst3"
+    },
+    {
+      "name": "UAD API 550A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API 550A(m).vst"
+    },
+    {
+      "name": "UAD API 560",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD API 560.vst3"
+    },
+    {
+      "name": "UAD API 560(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API 560(m).vst"
+    },
+    {
+      "name": "UAD API Preamp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD API Preamp.vst3"
+    },
+    {
+      "name": "UAD API Preamp(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API Preamp(m).vst"
+    },
+    {
+      "name": "UAD API Vision Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD API Vision Channel Strip.vst3"
+    },
+    {
+      "name": "UAD API Vision Channel Strip Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD API Vision Channel Strip Legacy.vst3"
+    },
+    {
+      "name": "UAD API Vision Channel Strip Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API Vision Channel Strip Legacy(m).vst"
+    },
+    {
+      "name": "UAD API Vision Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD API Vision Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD Auto-Tune Realtime Access",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Pitch Correction/UAD Auto-Tune Realtime Access.vst3"
+    },
+    {
+      "name": "UAD Auto-Tune Realtime Access(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Auto-Tune Realtime Access(m).vst"
+    },
+    {
+      "name": "UAD Auto-Tune Realtime Advanced",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Pitch Correction/UAD Auto-Tune Realtime Advanced.vst3"
+    },
+    {
+      "name": "UAD Auto-Tune Realtime Advanced(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Auto-Tune Realtime Advanced(m).vst"
+    },
+    {
+      "name": "UAD Auto-Tune Realtime X",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Pitch Correction/UAD Auto-Tune Realtime X.vst3"
+    },
+    {
+      "name": "UAD Avalon VT-737sp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Avalon VT-737sp.vst3"
+    },
+    {
+      "name": "UAD Avalon VT-737sp(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Avalon VT-737sp(m).vst"
+    },
+    {
+      "name": "UAD Bermuda Triangle",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Bermuda Triangle.vst3"
+    },
+    {
+      "name": "UAD Bermuda Triangle(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Bermuda Triangle(m).vst"
+    },
+    {
+      "name": "UAD Brigade Chorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Brigade Chorus.vst3"
+    },
+    {
+      "name": "UAD Brigade Chorus(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Brigade Chorus(m).vst"
+    },
+    {
+      "name": "UAD bx_digital V2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD bx_digital V2.vst3"
+    },
+    {
+      "name": "UAD bx_digital V2 Mono",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD bx_digital V2 Mono.vst3"
+    },
+    {
+      "name": "UAD bx_digital V2 Mono(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_digital V2 Mono(m).vst"
+    },
+    {
+      "name": "UAD bx_digital V3",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD bx_digital V3.vst3"
+    },
+    {
+      "name": "UAD bx_digital V3 mix",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD bx_digital V3 mix.vst3"
+    },
+    {
+      "name": "UAD bx_digital V3 mix(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_digital V3 mix(m).vst"
+    },
+    {
+      "name": "UAD bx_masterdesk",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD bx_masterdesk.vst3"
+    },
+    {
+      "name": "UAD bx_masterdesk Classic",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD bx_masterdesk Classic.vst3"
+    },
+    {
+      "name": "UAD bx_refinement",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD bx_refinement.vst3"
+    },
+    {
+      "name": "UAD bx_refinement(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_refinement(m).vst"
+    },
+    {
+      "name": "UAD bx_saturator V2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD bx_saturator V2.vst3"
+    },
+    {
+      "name": "UAD bx_saturator V2(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_saturator V2(m).vst"
+    },
+    {
+      "name": "UAD bx_subsynth",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD bx_subsynth.vst3"
+    },
+    {
+      "name": "UAD bx_subsynth(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_subsynth(m).vst"
+    },
+    {
+      "name": "UAD bx_tuner",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD bx_tuner.vst3"
+    },
+    {
+      "name": "UAD bx_tuner(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD bx_tuner(m).vst"
+    },
+    {
+      "name": "UAD C-Suite C-Axe",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD C-Suite C-Axe.vst3"
+    },
+    {
+      "name": "UAD C-Suite C-Axe(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD C-Suite C-Axe(m).vst"
+    },
+    {
+      "name": "UAD C-Suite C-Max",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD C-Suite C-Max.vst3"
+    },
+    {
+      "name": "UAD C-Suite C-Max(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD C-Suite C-Max(m).vst"
+    },
+    {
+      "name": "UAD C-Suite C-Vox",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD C-Suite C-Vox.vst3"
+    },
+    {
+      "name": "UAD C-Suite C-Vox(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD C-Suite C-Vox(m).vst"
+    },
+    {
+      "name": "UAD Cambridge",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Cambridge.vst3"
+    },
+    {
+      "name": "UAD Cambridge(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Cambridge(m).vst"
+    },
+    {
+      "name": "UAD Capitol Chambers",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Capitol Chambers.vst3"
+    },
+    {
+      "name": "UAD Capitol Chambers(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Capitol Chambers(m).vst"
+    },
+    {
+      "name": "UAD Century Tube Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Century Tube Channel Strip.vst3"
+    },
+    {
+      "name": "UAD Century Tube Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Century Tube Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD Chandler GAV19T",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Chandler GAV19T.vst3"
+    },
+    {
+      "name": "UAD Chandler GAV19T(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Chandler GAV19T(m).vst"
+    },
+    {
+      "name": "UAD Chandler Limited Curve Bender",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Chandler Limited Curve Bender.vst3"
+    },
+    {
+      "name": "UAD Chandler Limited Curve Bender(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Chandler Limited Curve Bender(m).vst"
+    },
+    {
+      "name": "UAD Chandler Limited Zener Limiter",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Chandler Limited Zener Limiter.vst3"
+    },
+    {
+      "name": "UAD Chandler Limited Zener Limiter(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Chandler Limited Zener Limiter(m).vst"
+    },
+    {
+      "name": "UAD Cooper Time Cube",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Cooper Time Cube.vst3"
+    },
+    {
+      "name": "UAD Cooper Time Cube(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Cooper Time Cube(m).vst"
+    },
+    {
+      "name": "UAD CS-1",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD CS-1.vst3"
+    },
+    {
+      "name": "UAD CS-1(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD CS-1(m).vst"
+    },
+    {
+      "name": "UAD Dangerous BAX EQ Master",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Dangerous BAX EQ Master.vst3"
+    },
+    {
+      "name": "UAD Dangerous BAX EQ Mix",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Dangerous BAX EQ Mix.vst3"
+    },
+    {
+      "name": "UAD Dangerous BAX EQ Mix(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Dangerous BAX EQ Mix(m).vst"
+    },
+    {
+      "name": "UAD dbx 160",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD dbx 160.vst3"
+    },
+    {
+      "name": "UAD dbx 160(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD dbx 160(m).vst"
+    },
+    {
+      "name": "UAD Diezel Herbert",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Diezel Herbert.vst3"
+    },
+    {
+      "name": "UAD Diezel Herbert(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Diezel Herbert(m).vst"
+    },
+    {
+      "name": "UAD Diezel VH4",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Diezel VH4.vst3"
+    },
+    {
+      "name": "UAD Diezel VH4(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Diezel VH4(m).vst"
+    },
+    {
+      "name": "UAD DreamVerb",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD DreamVerb.vst3"
+    },
+    {
+      "name": "UAD DreamVerb(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD DreamVerb(m).vst"
+    },
+    {
+      "name": "UAD Dytronics Cyclosonic Panner",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Dytronics Cyclosonic Panner.vst3"
+    },
+    {
+      "name": "UAD Dytronics Cyclosonic Panner(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Dytronics Cyclosonic Panner(m).vst"
+    },
+    {
+      "name": "UAD Dytronics Tri-Stereo Chorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Dytronics Tri-Stereo Chorus.vst3"
+    },
+    {
+      "name": "UAD Dytronics Tri-Stereo Chorus(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Dytronics Tri-Stereo Chorus(m).vst"
+    },
+    {
+      "name": "UAD Eden WT800",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Eden WT800.vst3"
+    },
+    {
+      "name": "UAD Eden WT800(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Eden WT800(m).vst"
+    },
+    {
+      "name": "UAD elysia alpha master",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD elysia alpha master.vst3"
+    },
+    {
+      "name": "UAD elysia alpha master(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD elysia alpha master(m).vst"
+    },
+    {
+      "name": "UAD elysia alpha mix",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD elysia alpha mix.vst3"
+    },
+    {
+      "name": "UAD elysia alpha mix(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD elysia alpha mix(m).vst"
+    },
+    {
+      "name": "UAD elysia mpressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD elysia mpressor.vst3"
+    },
+    {
+      "name": "UAD elysia mpressor(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD elysia mpressor(m).vst"
+    },
+    {
+      "name": "UAD EMT 140",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD EMT 140.vst3"
+    },
+    {
+      "name": "UAD EMT 140(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD EMT 140(m).vst"
+    },
+    {
+      "name": "UAD EMT 250",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD EMT 250.vst3"
+    },
+    {
+      "name": "UAD EMT 250(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD EMT 250(m).vst"
+    },
+    {
+      "name": "UAD ENGL E646 VS",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD ENGL E646 VS.vst3"
+    },
+    {
+      "name": "UAD ENGL E646 VS(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD ENGL E646 VS(m).vst"
+    },
+    {
+      "name": "UAD ENGL E765 RT",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD ENGL E765 RT.vst3"
+    },
+    {
+      "name": "UAD ENGL E765 RT(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD ENGL E765 RT(m).vst"
+    },
+    {
+      "name": "UAD ENGL Savage 120",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD ENGL Savage 120.vst3"
+    },
+    {
+      "name": "UAD ENGL Savage 120(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD ENGL Savage 120(m).vst"
+    },
+    {
+      "name": "UAD EP-34 Tape Echo",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD EP-34 Tape Echo.vst3"
+    },
+    {
+      "name": "UAD EP-34 Tape Echo(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD EP-34 Tape Echo(m).vst"
+    },
+    {
+      "name": "UAD Eventide H910 Harmonizer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Eventide H910 Harmonizer.vst3"
+    },
+    {
+      "name": "UAD Eventide H910 Harmonizer(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Eventide H910 Harmonizer(m).vst"
+    },
+    {
+      "name": "UAD Fairchild 660",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Fairchild 660.vst3"
+    },
+    {
+      "name": "UAD Fairchild 660(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fairchild 660(m).vst"
+    },
+    {
+      "name": "UAD Fairchild 670",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Fairchild 670.vst3"
+    },
+    {
+      "name": "UAD Fairchild 670 Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Fairchild 670 Legacy.vst3"
+    },
+    {
+      "name": "UAD Fairchild 670 Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fairchild 670 Legacy(m).vst"
+    },
+    {
+      "name": "UAD Fairchild 670(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fairchild 670(m).vst"
+    },
+    {
+      "name": "UAD Fender 55 Tweed Deluxe",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Fender 55 Tweed Deluxe.vst3"
+    },
+    {
+      "name": "UAD Fender 55 Tweed Deluxe(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fender 55 Tweed Deluxe(m).vst"
+    },
+    {
+      "name": "UAD Friedman BE100",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Friedman BE100.vst3"
+    },
+    {
+      "name": "UAD Friedman BE100(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Friedman BE100(m).vst"
+    },
+    {
+      "name": "UAD Friedman Buxom Betty",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Friedman Buxom Betty.vst3"
+    },
+    {
+      "name": "UAD Friedman Buxom Betty(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Friedman Buxom Betty(m).vst"
+    },
+    {
+      "name": "UAD Friedman DS40",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Friedman DS40.vst3"
+    },
+    {
+      "name": "UAD Friedman DS40(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Friedman DS40(m).vst"
+    },
+    {
+      "name": "UAD Fuchs Overdrive Supreme 50",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Fuchs Overdrive Supreme 50.vst3"
+    },
+    {
+      "name": "UAD Fuchs Overdrive Supreme 50(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fuchs Overdrive Supreme 50(m).vst"
+    },
+    {
+      "name": "UAD Fuchs Train II",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Fuchs Train II.vst3"
+    },
+    {
+      "name": "UAD Fuchs Train II(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Fuchs Train II(m).vst"
+    },
+    {
+      "name": "UAD Galaxy Tape Echo",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Galaxy Tape Echo.vst3"
+    },
+    {
+      "name": "UAD Galaxy Tape Echo(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Galaxy Tape Echo(m).vst"
+    },
+    {
+      "name": "UAD Gallien Krueger 800RB",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Gallien Krueger 800RB.vst3"
+    },
+    {
+      "name": "UAD Gallien Krueger 800RB(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Gallien Krueger 800RB(m).vst"
+    },
+    {
+      "name": "UAD Harrison 32C",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Harrison 32C.vst3"
+    },
+    {
+      "name": "UAD Harrison 32C SE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Harrison 32C SE.vst3"
+    },
+    {
+      "name": "UAD Harrison 32C SE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Harrison 32C SE(m).vst"
+    },
+    {
+      "name": "UAD Harrison 32C(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Harrison 32C(m).vst"
+    },
+    {
+      "name": "UAD Helios Type 69",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Helios Type 69.vst3"
+    },
+    {
+      "name": "UAD Helios Type 69 Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Helios Type 69 Legacy.vst3"
+    },
+    {
+      "name": "UAD Helios Type 69 Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Helios Type 69 Legacy(m).vst"
+    },
+    {
+      "name": "UAD Helios Type 69(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Helios Type 69(m).vst"
+    },
+    {
+      "name": "UAD Hemisphere Mic Collection",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Hemisphere Mic Collection.vst3"
+    },
+    {
+      "name": "UAD Hemisphere Mic Collection(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Hemisphere Mic Collection(m).vst"
+    },
+    {
+      "name": "UAD Hitsville EQ",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Hitsville EQ.vst3"
+    },
+    {
+      "name": "UAD Hitsville EQ Mastering",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Hitsville EQ Mastering.vst3"
+    },
+    {
+      "name": "UAD Hitsville EQ Mastering(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Hitsville EQ Mastering(m).vst"
+    },
+    {
+      "name": "UAD Hitsville EQ(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Hitsville EQ(m).vst"
+    },
+    {
+      "name": "UAD Hitsville Reverb Chambers",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Hitsville Reverb Chambers.vst3"
+    },
+    {
+      "name": "UAD Hitsville Reverb Chambers(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Hitsville Reverb Chambers(m).vst"
+    },
+    {
+      "name": "UAD Ibanez Tube Screamer TS808",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD Ibanez Tube Screamer TS808.vst3"
+    },
+    {
+      "name": "UAD Ibanez Tube Screamer TS808(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ibanez Tube Screamer TS808(m).vst"
+    },
+    {
+      "name": "UAD Korg SDD-3000",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Korg SDD-3000.vst3"
+    },
+    {
+      "name": "UAD Korg SDD-3000(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Korg SDD-3000(m).vst"
+    },
+    {
+      "name": "UAD LA-6176 Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD LA-6176 Channel Strip.vst3"
+    },
+    {
+      "name": "UAD LA-6176 Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD LA-6176 Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD Lexicon 224",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Lexicon 224.vst3"
+    },
+    {
+      "name": "UAD Lexicon 224(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Lexicon 224(m).vst"
+    },
+    {
+      "name": "UAD Lexicon 480L",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Lexicon 480L.vst3"
+    },
+    {
+      "name": "UAD Lexicon 480L(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Lexicon 480L(m).vst"
+    },
+    {
+      "name": "UAD Maag EQ4",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Maag EQ4.vst3"
+    },
+    {
+      "name": "UAD Maag EQ4(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Maag EQ4(m).vst"
+    },
+    {
+      "name": "UAD Manley Reference Mic Preamp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Manley Reference Mic Preamp.vst3"
+    },
+    {
+      "name": "UAD Manley Reference Mic Preamp(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Manley Reference Mic Preamp(m).vst"
+    },
+    {
+      "name": "UAD Manley Variable Mu",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Manley Variable Mu.vst3"
+    },
+    {
+      "name": "UAD Manley Variable Mu(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Manley Variable Mu(m).vst"
+    },
+    {
+      "name": "UAD Manley VOXBOX",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Manley VOXBOX.vst3"
+    },
+    {
+      "name": "UAD Manley VOXBOX(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Manley VOXBOX(m).vst"
+    },
+    {
+      "name": "UAD Marshall Bluesbreaker 1962",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Marshall Bluesbreaker 1962.vst3"
+    },
+    {
+      "name": "UAD Marshall Bluesbreaker 1962(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Marshall Bluesbreaker 1962(m).vst"
+    },
+    {
+      "name": "UAD Marshall JMP 2203",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Marshall JMP 2203.vst3"
+    },
+    {
+      "name": "UAD Marshall JMP 2203(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Marshall JMP 2203(m).vst"
+    },
+    {
+      "name": "UAD Marshall Plexi Classic",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Marshall Plexi Classic.vst3"
+    },
+    {
+      "name": "UAD Marshall Plexi Classic(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Marshall Plexi Classic(m).vst"
+    },
+    {
+      "name": "UAD Marshall Plexi Super Lead 1959",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Marshall Plexi Super Lead 1959.vst3"
+    },
+    {
+      "name": "UAD Marshall Plexi Super Lead 1959(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Marshall Plexi Super Lead 1959(m).vst"
+    },
+    {
+      "name": "UAD Marshall Silver Jubilee 2555",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Marshall Silver Jubilee 2555.vst3"
+    },
+    {
+      "name": "UAD Marshall Silver Jubilee 2555(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Marshall Silver Jubilee 2555(m).vst"
+    },
+    {
+      "name": "UAD MDWEQ5-3B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD MDWEQ5-3B.vst3"
+    },
+    {
+      "name": "UAD MDWEQ5-3B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD MDWEQ5-3B(m).vst"
+    },
+    {
+      "name": "UAD MDWEQ5-5B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD MDWEQ5-5B.vst3"
+    },
+    {
+      "name": "UAD MDWEQ5-5B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD MDWEQ5-5B(m).vst"
+    },
+    {
+      "name": "UAD Millennia NSEQ-2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Millennia NSEQ-2.vst3"
+    },
+    {
+      "name": "UAD Millennia NSEQ-2(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Millennia NSEQ-2(m).vst"
+    },
+    {
+      "name": "UAD Moog Multimode Filter",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Moog Multimode Filter.vst3"
+    },
+    {
+      "name": "UAD Moog Multimode Filter SE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Moog Multimode Filter SE.vst3"
+    },
+    {
+      "name": "UAD Moog Multimode Filter SE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Moog Multimode Filter SE(m).vst"
+    },
+    {
+      "name": "UAD Moog Multimode Filter XL",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Moog Multimode Filter XL.vst3"
+    },
+    {
+      "name": "UAD Moog Multimode Filter XL(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Moog Multimode Filter XL(m).vst"
+    },
+    {
+      "name": "UAD Moog Multimode Filter(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Moog Multimode Filter(m).vst"
+    },
+    {
+      "name": "UAD MXR Flanger-Doubler",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD MXR Flanger-Doubler.vst3"
+    },
+    {
+      "name": "UAD MXR Flanger-Doubler(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD MXR Flanger-Doubler(m).vst"
+    },
+    {
+      "name": "UAD Neve 1073",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Neve 1073.vst3"
+    },
+    {
+      "name": "UAD Neve 1073 Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 1073 Legacy.vst3"
+    },
+    {
+      "name": "UAD Neve 1073 Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1073 Legacy(m).vst"
+    },
+    {
+      "name": "UAD Neve 1073(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1073(m).vst"
+    },
+    {
+      "name": "UAD Neve 1073SE Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 1073SE Legacy.vst3"
+    },
+    {
+      "name": "UAD Neve 1073SE Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1073SE Legacy(m).vst"
+    },
+    {
+      "name": "UAD Neve 1081",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 1081.vst3"
+    },
+    {
+      "name": "UAD Neve 1081(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1081(m).vst"
+    },
+    {
+      "name": "UAD Neve 1081SE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 1081SE.vst3"
+    },
+    {
+      "name": "UAD Neve 1081SE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1081SE(m).vst"
+    },
+    {
+      "name": "UAD Neve 1084",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Neve 1084.vst3"
+    },
+    {
+      "name": "UAD Neve 1084(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 1084(m).vst"
+    },
+    {
+      "name": "UAD Neve 2254 E",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Neve 2254 E.vst3"
+    },
+    {
+      "name": "UAD Neve 2254 E Dual",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Neve 2254 E Dual.vst3"
+    },
+    {
+      "name": "UAD Neve 2254 E Dual(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 2254 E Dual(m).vst"
+    },
+    {
+      "name": "UAD Neve 2254 E(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 2254 E(m).vst"
+    },
+    {
+      "name": "UAD Neve 31102",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 31102.vst3"
+    },
+    {
+      "name": "UAD Neve 31102(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 31102(m).vst"
+    },
+    {
+      "name": "UAD Neve 31102SE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Neve 31102SE.vst3"
+    },
+    {
+      "name": "UAD Neve 31102SE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 31102SE(m).vst"
+    },
+    {
+      "name": "UAD Neve 33609 C",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Neve 33609 C.vst3"
+    },
+    {
+      "name": "UAD Neve 33609 C(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 33609 C(m).vst"
+    },
+    {
+      "name": "UAD Neve 33609SE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Neve 33609SE.vst3"
+    },
+    {
+      "name": "UAD Neve 33609SE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 33609SE(m).vst"
+    },
+    {
+      "name": "UAD Neve 88RS",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Neve 88RS.vst3"
+    },
+    {
+      "name": "UAD Neve 88RS Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Neve 88RS Legacy.vst3"
+    },
+    {
+      "name": "UAD Neve 88RS Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 88RS Legacy(m).vst"
+    },
+    {
+      "name": "UAD Neve 88RS(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve 88RS(m).vst"
+    },
+    {
+      "name": "UAD Neve Preamp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Neve Preamp.vst3"
+    },
+    {
+      "name": "UAD Neve Preamp(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Neve Preamp(m).vst"
+    },
+    {
+      "name": "UAD Ocean Way Mic Collection",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Ocean Way Mic Collection.vst3"
+    },
+    {
+      "name": "UAD Ocean Way Mic Collection 180",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Ocean Way Mic Collection 180.vst3"
+    },
+    {
+      "name": "UAD Ocean Way Studios",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Ocean Way Studios.vst3"
+    },
+    {
+      "name": "UAD Ocean Way Studios(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Ocean Way Studios(m).vst"
+    },
+    {
+      "name": "UAD OTO Biscuit 8-bit Effects",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD OTO Biscuit 8-bit Effects.vst3"
+    },
+    {
+      "name": "UAD OTO Biscuit 8-bit Effects(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD OTO Biscuit 8-bit Effects(m).vst"
+    },
+    {
+      "name": "UAD Oxford Dynamic EQ",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Oxford Dynamic EQ.vst3"
+    },
+    {
+      "name": "UAD Oxford Dynamic EQ(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford Dynamic EQ(m).vst"
+    },
+    {
+      "name": "UAD Oxford Envolution",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Oxford Envolution.vst3"
+    },
+    {
+      "name": "UAD Oxford Envolution(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford Envolution(m).vst"
+    },
+    {
+      "name": "UAD Oxford EQ",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Oxford EQ.vst3"
+    },
+    {
+      "name": "UAD Oxford EQ(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford EQ(m).vst"
+    },
+    {
+      "name": "UAD Oxford Inflator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Oxford Inflator.vst3"
+    },
+    {
+      "name": "UAD Oxford Inflator(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford Inflator(m).vst"
+    },
+    {
+      "name": "UAD Oxford Limiter",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Oxford Limiter.vst3"
+    },
+    {
+      "name": "UAD Oxford Limiter(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford Limiter(m).vst"
+    },
+    {
+      "name": "UAD Oxford SuprEsser DS",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Oxford SuprEsser DS.vst3"
+    },
+    {
+      "name": "UAD Oxford SuprEsser DS(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxford SuprEsser DS(m).vst"
+    },
+    {
+      "name": "UAD Oxide Tape",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD Oxide Tape.vst3"
+    },
+    {
+      "name": "UAD Oxide Tape(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Oxide Tape(m).vst"
+    },
+    {
+      "name": "UAD Precision Buss Compressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Precision Buss Compressor.vst3"
+    },
+    {
+      "name": "UAD Precision Buss Compressor(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Buss Compressor(m).vst"
+    },
+    {
+      "name": "UAD Precision Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD Precision Channel Strip.vst3"
+    },
+    {
+      "name": "UAD Precision Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD Precision De-Esser",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Precision De-Esser.vst3"
+    },
+    {
+      "name": "UAD Precision De-Esser(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision De-Esser(m).vst"
+    },
+    {
+      "name": "UAD Precision Delay Mod",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Precision Delay Mod.vst3"
+    },
+    {
+      "name": "UAD Precision Delay Mod L",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Precision Delay Mod L.vst3"
+    },
+    {
+      "name": "UAD Precision Delay Mod L(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Delay Mod L(m).vst"
+    },
+    {
+      "name": "UAD Precision Delay Mod(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Delay Mod(m).vst"
+    },
+    {
+      "name": "UAD Precision Enhancer Hz",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Precision Enhancer Hz.vst3"
+    },
+    {
+      "name": "UAD Precision Enhancer Hz(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Enhancer Hz(m).vst"
+    },
+    {
+      "name": "UAD Precision Enhancer kHz",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Precision Enhancer kHz.vst3"
+    },
+    {
+      "name": "UAD Precision Enhancer kHz(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Enhancer kHz(m).vst"
+    },
+    {
+      "name": "UAD Precision Equalizer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Precision Equalizer.vst3"
+    },
+    {
+      "name": "UAD Precision Equalizer(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Equalizer(m).vst"
+    },
+    {
+      "name": "UAD Precision K-Stereo",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Precision K-Stereo.vst3"
+    },
+    {
+      "name": "UAD Precision K-Stereo(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision K-Stereo(m).vst"
+    },
+    {
+      "name": "UAD Precision Limiter",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Precision Limiter.vst3"
+    },
+    {
+      "name": "UAD Precision Limiter(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Limiter(m).vst"
+    },
+    {
+      "name": "UAD Precision Maximizer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Precision Maximizer.vst3"
+    },
+    {
+      "name": "UAD Precision Maximizer(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Maximizer(m).vst"
+    },
+    {
+      "name": "UAD Precision Multiband",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Precision Multiband.vst3"
+    },
+    {
+      "name": "UAD Precision Multiband(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Multiband(m).vst"
+    },
+    {
+      "name": "UAD Precision Reflection Engine",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Precision Reflection Engine.vst3"
+    },
+    {
+      "name": "UAD Precision Reflection Engine(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Precision Reflection Engine(m).vst"
+    },
+    {
+      "name": "UAD Pultec EQP-1A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Pultec EQP-1A.vst3"
+    },
+    {
+      "name": "UAD Pultec EQP-1A Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Pultec EQP-1A Legacy.vst3"
+    },
+    {
+      "name": "UAD Pultec EQP-1A Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pultec EQP-1A Legacy(m).vst"
+    },
+    {
+      "name": "UAD Pultec EQP-1A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pultec EQP-1A(m).vst"
+    },
+    {
+      "name": "UAD Pultec HLF-3C",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Pultec HLF-3C.vst3"
+    },
+    {
+      "name": "UAD Pultec HLF-3C(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pultec HLF-3C(m).vst"
+    },
+    {
+      "name": "UAD Pultec MEQ-5",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Pultec MEQ-5.vst3"
+    },
+    {
+      "name": "UAD Pultec MEQ-5(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pultec MEQ-5(m).vst"
+    },
+    {
+      "name": "UAD Pultec-Pro Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Pultec-Pro Legacy.vst3"
+    },
+    {
+      "name": "UAD Pultec-Pro Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pultec-Pro Legacy(m).vst"
+    },
+    {
+      "name": "UAD Pure Plate",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD Pure Plate.vst3"
+    },
+    {
+      "name": "UAD Pure Plate(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Pure Plate(m).vst"
+    },
+    {
+      "name": "UAD Putnam Mic Collection",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Putnam Mic Collection.vst3"
+    },
+    {
+      "name": "UAD Putnam Mic Collection 180",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Putnam Mic Collection 180.vst3"
+    },
+    {
+      "name": "UAD Raw",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Raw.vst3"
+    },
+    {
+      "name": "UAD Raw(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Raw(m).vst"
+    },
+    {
+      "name": "UAD RealVerb-Pro",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Reverb and Room/UAD RealVerb-Pro.vst3"
+    },
+    {
+      "name": "UAD RealVerb-Pro(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD RealVerb-Pro(m).vst"
+    },
+    {
+      "name": "UAD Roland CE-1",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD Roland CE-1.vst3"
+    },
+    {
+      "name": "UAD Roland CE-1(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Roland CE-1(m).vst"
+    },
+    {
+      "name": "UAD Roland Dimension D",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD Roland Dimension D.vst3"
+    },
+    {
+      "name": "UAD Roland Dimension D(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Roland Dimension D(m).vst"
+    },
+    {
+      "name": "UAD Roland RE-201",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/UAD Unused/UAD Roland RE-201.vst3"
+    },
+    {
+      "name": "UAD Roland RE-201(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Roland RE-201(m).vst"
+    },
+    {
+      "name": "UAD Shadow Hills Mastering Compressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Shadow Hills Mastering Compressor.vst3"
+    },
+    {
+      "name": "UAD Shadow Hills Mastering Compressor(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Shadow Hills Mastering Compressor(m).vst"
+    },
+    {
+      "name": "UAD Softube Amp Room Half-Stack",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Softube Amp Room Half-Stack.vst3"
+    },
+    {
+      "name": "UAD Softube Amp Room Half-Stack(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Amp Room Half-Stack(m).vst"
+    },
+    {
+      "name": "UAD Softube Bass Amp Room",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Softube Bass Amp Room.vst3"
+    },
+    {
+      "name": "UAD Softube Bass Amp Room 8x10",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Softube Bass Amp Room 8x10.vst3"
+    },
+    {
+      "name": "UAD Softube Bass Amp Room 8x10(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Bass Amp Room 8x10(m).vst"
+    },
+    {
+      "name": "UAD Softube Bass Amp Room(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Bass Amp Room(m).vst"
+    },
+    {
+      "name": "UAD Softube Metal Amp Room",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Softube Metal Amp Room.vst3"
+    },
+    {
+      "name": "UAD Softube Metal Amp Room(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Metal Amp Room(m).vst"
+    },
+    {
+      "name": "UAD Softube Vintage Amp Room",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Softube Vintage Amp Room.vst3"
+    },
+    {
+      "name": "UAD Softube Vintage Amp Room(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Vintage Amp Room(m).vst"
+    },
+    {
+      "name": "UAD Softube Vocoder",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD Softube Vocoder.vst3"
+    },
+    {
+      "name": "UAD Softube Vocoder(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Softube Vocoder(m).vst"
+    },
+    {
+      "name": "UAD Sound Machine Wood Works",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Sound Machine Wood Works.vst3"
+    },
+    {
+      "name": "UAD Sound Machine Wood Works(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Sound Machine Wood Works(m).vst"
+    },
+    {
+      "name": "UAD Sphere Mic Collection",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Sphere Mic Collection.vst3"
+    },
+    {
+      "name": "UAD Sphere Mic Collection 180",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Microphone/UAD Sphere Mic Collection 180.vst3"
+    },
+    {
+      "name": "UAD SPL Transient Designer",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD SPL Transient Designer.vst3"
+    },
+    {
+      "name": "UAD SPL Transient Designer(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SPL Transient Designer(m).vst"
+    },
+    {
+      "name": "UAD SPL TwinTube",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD SPL TwinTube.vst3"
+    },
+    {
+      "name": "UAD SPL TwinTube(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SPL TwinTube(m).vst"
+    },
+    {
+      "name": "UAD SPL Vitalizer MK2-T",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Special Processing/UAD SPL Vitalizer MK2-T.vst3"
+    },
+    {
+      "name": "UAD SPL Vitalizer MK2-T(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SPL Vitalizer MK2-T(m).vst"
+    },
+    {
+      "name": "UAD SSL E Channel Strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD SSL E Channel Strip.vst3"
+    },
+    {
+      "name": "UAD SSL E Channel Strip Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD SSL E Channel Strip Legacy.vst3"
+    },
+    {
+      "name": "UAD SSL E Channel Strip Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SSL E Channel Strip Legacy(m).vst"
+    },
+    {
+      "name": "UAD SSL E Channel Strip(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SSL E Channel Strip(m).vst"
+    },
+    {
+      "name": "UAD SSL G Bus Compressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD SSL G Bus Compressor.vst3"
+    },
+    {
+      "name": "UAD SSL G Bus Compressor Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD SSL G Bus Compressor Legacy.vst3"
+    },
+    {
+      "name": "UAD SSL G Bus Compressor Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SSL G Bus Compressor Legacy(m).vst"
+    },
+    {
+      "name": "UAD SSL G Bus Compressor(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD SSL G Bus Compressor(m).vst"
+    },
+    {
+      "name": "UAD Studer A800",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD Studer A800.vst3"
+    },
+    {
+      "name": "UAD Studer A800(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Studer A800(m).vst"
+    },
+    {
+      "name": "UAD Studio D Chorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Delay and Modulation/UAD Studio D Chorus.vst3"
+    },
+    {
+      "name": "UAD Studio D Chorus(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Studio D Chorus(m).vst"
+    },
+    {
+      "name": "UAD Suhr PT100",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Suhr PT100.vst3"
+    },
+    {
+      "name": "UAD Suhr PT100(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Suhr PT100(m).vst"
+    },
+    {
+      "name": "UAD Suhr SE100",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD Suhr SE100.vst3"
+    },
+    {
+      "name": "UAD Suhr SE100(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Suhr SE100(m).vst"
+    },
+    {
+      "name": "UAD Summit Audio TLA-100A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Summit Audio TLA-100A.vst3"
+    },
+    {
+      "name": "UAD Summit Audio TLA-100A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Summit Audio TLA-100A(m).vst"
+    },
+    {
+      "name": "UAD Teletronix LA-2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Teletronix LA-2.vst3"
+    },
+    {
+      "name": "UAD Teletronix LA-2(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Teletronix LA-2(m).vst"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Gray",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Teletronix LA-2A Gray.vst3"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Gray(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Teletronix LA-2A Gray(m).vst"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Teletronix LA-2A Legacy.vst3"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Teletronix LA-2A Legacy(m).vst"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Silver",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Teletronix LA-2A Silver.vst3"
+    },
+    {
+      "name": "UAD Teletronix LA-2A Silver(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Teletronix LA-2A Silver(m).vst"
+    },
+    {
+      "name": "UAD Teletronix LA-3A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Teletronix LA-3A.vst3"
+    },
+    {
+      "name": "UAD Teletronix LA-3A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Teletronix LA-3A(m).vst"
+    },
+    {
+      "name": "UAD Thermionic Culture Vulture",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Tape and Saturation/UAD Thermionic Culture Vulture.vst3"
+    },
+    {
+      "name": "UAD Thermionic Culture Vulture(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Thermionic Culture Vulture(m).vst"
+    },
+    {
+      "name": "UAD Tonelux Tilt",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Tonelux Tilt.vst3"
+    },
+    {
+      "name": "UAD Tonelux Tilt Live",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Tonelux Tilt Live.vst3"
+    },
+    {
+      "name": "UAD Tonelux Tilt Live(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tonelux Tilt Live(m).vst"
+    },
+    {
+      "name": "UAD Tonelux Tilt(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tonelux Tilt(m).vst"
+    },
+    {
+      "name": "UAD Trident A-Range",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Trident A-Range.vst3"
+    },
+    {
+      "name": "UAD Trident A-Range(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Trident A-Range(m).vst"
+    },
+    {
+      "name": "UAD TS Overdrive",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Guitar and Bass/UAD TS Overdrive.vst3"
+    },
+    {
+      "name": "UAD TS Overdrive(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD TS Overdrive(m).vst"
+    },
+    {
+      "name": "UAD Tube-Tech CL 1B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Tube-Tech CL 1B.vst3"
+    },
+    {
+      "name": "UAD Tube-Tech CL 1B mk II",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Tube-Tech CL 1B mk II.vst3"
+    },
+    {
+      "name": "UAD Tube-Tech CL 1B mk II(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tube-Tech CL 1B mk II(m).vst"
+    },
+    {
+      "name": "UAD Tube-Tech CL 1B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tube-Tech CL 1B(m).vst"
+    },
+    {
+      "name": "UAD Tube-Tech ME 1B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Tube-Tech ME 1B.vst3"
+    },
+    {
+      "name": "UAD Tube-Tech ME 1B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tube-Tech ME 1B(m).vst"
+    },
+    {
+      "name": "UAD Tube-Tech PE 1C",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Equalizers/UAD Tube-Tech PE 1C.vst3"
+    },
+    {
+      "name": "UAD Tube-Tech PE 1C(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Tube-Tech PE 1C(m).vst"
+    },
+    {
+      "name": "UAD UA 1176 Rev A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 1176 Rev A.vst3"
+    },
+    {
+      "name": "UAD UA 1176 Rev A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 1176 Rev A(m).vst"
+    },
+    {
+      "name": "UAD UA 1176AE",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 1176AE.vst3"
+    },
+    {
+      "name": "UAD UA 1176AE(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 1176AE(m).vst"
+    },
+    {
+      "name": "UAD UA 1176LN Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 1176LN Legacy.vst3"
+    },
+    {
+      "name": "UAD UA 1176LN Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 1176LN Legacy(m).vst"
+    },
+    {
+      "name": "UAD UA 1176LN Rev E",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 1176LN Rev E.vst3"
+    },
+    {
+      "name": "UAD UA 1176LN Rev E(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 1176LN Rev E(m).vst"
+    },
+    {
+      "name": "UAD UA 1176SE Legacy",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 1176SE Legacy.vst3"
+    },
+    {
+      "name": "UAD UA 1176SE Legacy(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 1176SE Legacy(m).vst"
+    },
+    {
+      "name": "UAD UA 175-B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 175-B.vst3"
+    },
+    {
+      "name": "UAD UA 175-B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 175-B(m).vst"
+    },
+    {
+      "name": "UAD UA 176",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD UA 176.vst3"
+    },
+    {
+      "name": "UAD UA 176(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 176(m).vst"
+    },
+    {
+      "name": "UAD UA 610-A",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD UA 610-A.vst3"
+    },
+    {
+      "name": "UAD UA 610-A(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 610-A(m).vst"
+    },
+    {
+      "name": "UAD UA 610-B",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD UA 610-B.vst3"
+    },
+    {
+      "name": "UAD UA 610-B(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD UA 610-B(m).vst"
+    },
+    {
+      "name": "UAD V76 Preamp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Channel Strip and Preamp/UAD V76 Preamp.vst3"
+    },
+    {
+      "name": "UAD V76 Preamp(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD V76 Preamp(m).vst"
+    },
+    {
+      "name": "UAD Valley People Dyna-mite",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Valley People Dyna-mite.vst3"
+    },
+    {
+      "name": "UAD Valley People Dyna-mite(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Valley People Dyna-mite(m).vst"
+    },
+    {
+      "name": "UAD Vertigo VSC-2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Compressors and Limiters/UAD Vertigo VSC-2.vst3"
+    },
+    {
+      "name": "UAD Vertigo VSC-2(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Vertigo VSC-2(m).vst"
+    },
+    {
+      "name": "UAD Vertigo VSM-3",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST3/Universal Audio/Mastering/UAD Vertigo VSM-3.vst3"
+    },
+    {
+      "name": "UAD Vertigo VSM-3(m)",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": "Universal Audio",
+      "path": "/Library/Audio/Plug-Ins/VST/Universal Audio/UAD Mono/UAD Vertigo VSM-3(m).vst"
+    },
+    {
+      "name": "uaudio_175_b",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_175_b.vst3"
+    },
+    {
+      "name": "uaudio_176",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_176.vst3"
+    },
+    {
+      "name": "uaudio_ampex_atr-102_tape",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_ampex_atr-102_tape.vst3"
+    },
+    {
+      "name": "uaudio_api_2500",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_api_2500.vst3"
+    },
+    {
+      "name": "uaudio_avalon_vt-737sp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_avalon_vt-737sp.vst3"
+    },
+    {
+      "name": "uaudio_brigade_chorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_brigade_chorus.vst3"
+    },
+    {
+      "name": "uaudio_capitol_chambers",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_capitol_chambers.vst3"
+    },
+    {
+      "name": "uaudio_century_channel_strip",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_century_channel_strip.vst3"
+    },
+    {
+      "name": "uaudio_dbx_160",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_dbx_160.vst3"
+    },
+    {
+      "name": "uaudio_distressor",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_distressor.vst3"
+    },
+    {
+      "name": "uaudio_fairchild_660",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_fairchild_660.vst3"
+    },
+    {
+      "name": "uaudio_fairchild_670",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_fairchild_670.vst3"
+    },
+    {
+      "name": "uaudio_galaxy_tape_echo",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_galaxy_tape_echo.vst3"
+    },
+    {
+      "name": "uaudio_la3a",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_la3a.vst3"
+    },
+    {
+      "name": "uaudio_la_6176",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_la_6176.vst3"
+    },
+    {
+      "name": "uaudio_lexicon_224",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_lexicon_224.vst3"
+    },
+    {
+      "name": "uaudio_manley_voxbox",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_manley_voxbox.vst3"
+    },
+    {
+      "name": "uaudio_neve_1073",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_neve_1073.vst3"
+    },
+    {
+      "name": "uaudio_oxide_tape",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_oxide_tape.vst3"
+    },
+    {
+      "name": "uaudio_pultec_eqp-1a",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_pultec_eqp-1a.vst3"
+    },
+    {
+      "name": "uaudio_pultec_hlf-3c",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_pultec_hlf-3c.vst3"
+    },
+    {
+      "name": "uaudio_pultec_meq-5",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_pultec_meq-5.vst3"
+    },
+    {
+      "name": "uaudio_pure_plate",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_pure_plate.vst3"
+    },
+    {
+      "name": "uaudio_showtime_amp",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_showtime_amp.vst3"
+    },
+    {
+      "name": "uaudio_studer_a800",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_studer_a800.vst3"
+    },
+    {
+      "name": "uaudio_studio_d_chorus",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_studio_d_chorus.vst3"
+    },
+    {
+      "name": "uaudio_teletronix_la-2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_teletronix_la-2.vst3"
+    },
+    {
+      "name": "uaudio_teletronix_la-2a_gray",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_teletronix_la-2a_gray.vst3"
+    },
+    {
+      "name": "uaudio_teletronix_la-2a_silver",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_teletronix_la-2a_silver.vst3"
+    },
+    {
+      "name": "uaudio_ua_1176_rev_a",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_ua_1176_rev_a.vst3"
+    },
+    {
+      "name": "uaudio_ua_1176ae",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_ua_1176ae.vst3"
+    },
+    {
+      "name": "uaudio_ua_1176ln_rev_e",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/uaudio_ua_1176ln_rev_e.vst3"
+    },
+    {
+      "name": "UltraTap",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/UltraTap.vst3"
+    },
+    {
+      "name": "Undulator",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": "Eventide",
+      "path": "/Library/Audio/Plug-Ins/VST3/Eventide/Undulator.vst3"
+    },
+    {
+      "name": "VacuumPro_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/VacuumPro.component"
+    },
+    {
+      "name": "VBC FG-Grey",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/VBC FG-Grey.component"
+    },
+    {
+      "name": "VBC FG-MU",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/VBC FG-MU.component"
+    },
+    {
+      "name": "VBC FG-Red",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/VBC FG-Red.component"
+    },
+    {
+      "name": "VBC Rack",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/VBC Rack.component"
+    },
+    {
+      "name": "Velvet_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Velvet.component"
+    },
+    {
+      "name": "Virtual Mix Rack",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Virtual Mix Rack.component"
+    },
+    {
+      "name": "Virtual Tape Machines",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Virtual Tape Machines.component"
+    },
+    {
+      "name": "VOX Continental V2",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/VOX Continental V2.vst3"
+    },
+    {
+      "name": "Waves StudioRack for OBS",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Waves StudioRack for OBS.vst"
+    },
+    {
+      "name": "WaveShell1-AU 11.0",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 11.0.component"
+    },
+    {
+      "name": "WaveShell1-AU 13.0.0",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 13.0.component"
+    },
+    {
+      "name": "WaveShell1-AU 13.1.201",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 13.1.component"
+    },
+    {
+      "name": "WaveShell1-AU 13.3.0",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 13.3.component"
+    },
+    {
+      "name": "WaveShell1-AU 13.4.132",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 13.4.component"
+    },
+    {
+      "name": "WaveShell1-AU 13.5.125",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 13.5.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.0.83",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.0.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.12.90",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.12.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.19.23",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.19.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.2.52",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.2.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.21.96",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.21.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.25.57",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.25.component"
+    },
+    {
+      "name": "WaveShell1-AU 14.3.42",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell1-AU 14.3.component"
+    },
+    {
+      "name": "WaveShell1-VST3 11.0.0",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 11.0.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 13.0.0",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 13.0.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 13.1.201",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 13.1.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 13.3.0",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 13.3.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 13.4.132",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 13.4.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 13.5.125",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 13.5.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.0.83",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.0.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.12.90",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.12.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.19.23",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.19.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.2.52",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.2.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.21.96",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.21.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.25.57",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.25.vst3"
+    },
+    {
+      "name": "WaveShell1-VST3 14.3.42",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell1-VST3 14.3.vst3"
+    },
+    {
+      "name": "WaveShell2-AU 13.0.0",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell2-AU 13.0.component"
+    },
+    {
+      "name": "WaveShell2-VST3 13.0.0",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell2-VST3 13.0.vst3"
+    },
+    {
+      "name": "WaveShell3-AU 13.0.1",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/WaveShell3-AU 13.0.component"
+    },
+    {
+      "name": "WaveShell3-VST3 13.0.1",
+      "format": "VST3",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST3/WaveShell3-VST3 13.0.vst3"
+    },
+    {
+      "name": "Xpand!2",
+      "format": "VST2",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/VST/Xpand!2.vst"
+    },
+    {
+      "name": "Xpand!2_x64",
+      "format": "AU",
+      "type": "effect",
+      "vendor": null,
+      "path": "/Library/Audio/Plug-Ins/Components/Xpand!2.component"
+    }
+  ]
+}

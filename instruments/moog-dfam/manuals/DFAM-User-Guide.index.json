@@ -1,0 +1,617 @@
+{
+  "manual": "DFAM-User-Guide.pdf",
+  "pdf_path": "instruments/moog-dfam/manuals/DFAM-User-Guide.pdf",
+  "txt_path": "instruments/moog-dfam/manuals/DFAM-User-Guide.txt",
+  "indexed_at": "2026-04-22T14:27:23.759563",
+  "page_count": 44,
+  "sections": [
+    {
+      "title": "IMPORTANT SAFETY INSTRUCTIONS",
+      "page": 4
+    },
+    {
+      "title": "1. Read all the instructions before using the product.",
+      "page": 4
+    },
+    {
+      "title": "TABLE OF CONTENTS",
+      "page": 5
+    },
+    {
+      "title": "UNPACKING AND INSPECTION",
+      "page": 6
+    },
+    {
+      "title": "1. DFAM Semi-Modular Analog Percussion Synthesizer",
+      "page": 6
+    },
+    {
+      "title": "2. Power Supply",
+      "page": 6
+    },
+    {
+      "title": "3. Owner\u2019s Manual",
+      "page": 6
+    },
+    {
+      "title": "4. Overlays",
+      "page": 6
+    },
+    {
+      "title": "5. Patch Cables",
+      "page": 6
+    },
+    {
+      "title": "6. Registration Card",
+      "page": 6
+    },
+    {
+      "title": "1. Headphones with a 1/4\" TRS plug, or a 1/4\" TS instrument cable",
+      "page": 6
+    },
+    {
+      "title": "SETUP AND CONNECTIONS",
+      "page": 6
+    },
+    {
+      "title": "POWER",
+      "page": 6
+    },
+    {
+      "title": "AUDIO OUT /",
+      "page": 6
+    },
+    {
+      "title": "DFAM OVERVIEW",
+      "page": 7
+    },
+    {
+      "title": "DFAM SIGNAL FLOW",
+      "page": 7
+    },
+    {
+      "title": "FREQ",
+      "page": 7
+    },
+    {
+      "title": "VCO 1",
+      "page": 7
+    },
+    {
+      "title": "LEVEL",
+      "page": 7
+    },
+    {
+      "title": "VCO 1                                  EXT",
+      "page": 7
+    },
+    {
+      "title": "EXT",
+      "page": 7
+    },
+    {
+      "title": "LEVEL            MIX                     PASS",
+      "page": 7
+    },
+    {
+      "title": "VCA",
+      "page": 7
+    },
+    {
+      "title": "VCF       CUT-",
+      "page": 7
+    },
+    {
+      "title": "SYNC                         NOISE/",
+      "page": 7
+    },
+    {
+      "title": "CV                                          VCF",
+      "page": 7
+    },
+    {
+      "title": "VCO 2",
+      "page": 7
+    },
+    {
+      "title": "VCO 2       VCF",
+      "page": 7
+    },
+    {
+      "title": "SEQ",
+      "page": 7
+    },
+    {
+      "title": "PITCH",
+      "page": 7
+    },
+    {
+      "title": "AMT",
+      "page": 7
+    },
+    {
+      "title": "AMPLITUDE            DECAY",
+      "page": 7
+    },
+    {
+      "title": "BY VELOCITY",
+      "page": 7
+    },
+    {
+      "title": "EG                     FM",
+      "page": 7
+    },
+    {
+      "title": "VELOCITY",
+      "page": 7
+    },
+    {
+      "title": "EXPLORING THE DFAM",
+      "page": 8
+    },
+    {
+      "title": "DEFAULT SETTINGS",
+      "page": 8
+    },
+    {
+      "title": "START THE SEQUENCER",
+      "page": 8
+    },
+    {
+      "title": "SET THE PITCH",
+      "page": 8
+    },
+    {
+      "title": "ADDING PUNCH",
+      "page": 8
+    },
+    {
+      "title": "GET THE PITCH JUMPING",
+      "page": 9
+    },
+    {
+      "title": "SEQUENCER VELOCITY",
+      "page": 9
+    },
+    {
+      "title": "RHYTHMIC VARIATION",
+      "page": 9
+    },
+    {
+      "title": "SEQUENCING PITCH",
+      "page": 9
+    },
+    {
+      "title": "PITCH VARIATION",
+      "page": 9
+    },
+    {
+      "title": "CHANGING THE WAVEFORMS",
+      "page": 10
+    },
+    {
+      "title": "ADDING AN OSCILLATOR",
+      "page": 10
+    },
+    {
+      "title": "CREATING HARMONY",
+      "page": 10
+    },
+    {
+      "title": "HARD SYNC",
+      "page": 10
+    },
+    {
+      "title": "LISTENING TO HARD SYNC",
+      "page": 10
+    },
+    {
+      "title": "PICK A SOUND",
+      "page": 10
+    },
+    {
+      "title": "EXPLORING FM",
+      "page": 11
+    },
+    {
+      "title": "FILTERING SOUND",
+      "page": 11
+    },
+    {
+      "title": "FILTER MODULATION",
+      "page": 11
+    },
+    {
+      "title": "FILTER ARTICULATION",
+      "page": 11
+    },
+    {
+      "title": "NOISE AS A SOUND SOURCE",
+      "page": 11
+    },
+    {
+      "title": "NOISE AS A MODULATION SOURCE",
+      "page": 12
+    },
+    {
+      "title": "SET THE NOISE MODULATION",
+      "page": 12
+    },
+    {
+      "title": "SHORTENING VCA DECAY",
+      "page": 12
+    },
+    {
+      "title": "EXTENDING THE VCA DECAY",
+      "page": 12
+    },
+    {
+      "title": "SOFTENING THE ATTACK",
+      "page": 12
+    },
+    {
+      "title": "VCO 1 FREQUENCY / VCO 2 FREQUENCY",
+      "page": 13
+    },
+    {
+      "title": "1. With the VCO FREQUENCY knobs",
+      "page": 13
+    },
+    {
+      "title": "2. With the Sequencer PITCH 1-8 knobs (See page 22)",
+      "page": 13
+    },
+    {
+      "title": "3. With the VCO EG AMOUNT knobs (See page 16)",
+      "page": 13
+    },
+    {
+      "title": "VCO 1 WAVE / VCO 2 WAVE",
+      "page": 13
+    },
+    {
+      "title": "TRIANGLE",
+      "page": 13
+    },
+    {
+      "title": "SQUARE",
+      "page": 13
+    },
+    {
+      "title": "OSCILLATOR INTERACTION",
+      "page": 14
+    },
+    {
+      "title": "MASTER OSCILLATOR",
+      "page": 14
+    },
+    {
+      "title": "The sonic characteristics",
+      "page": 14
+    },
+    {
+      "title": "FM can be described as",
+      "page": 14
+    },
+    {
+      "title": "OSCILLATOR MODULATION",
+      "page": 15
+    },
+    {
+      "title": "SEQ PITCH MOD",
+      "page": 15
+    },
+    {
+      "title": "OFF",
+      "page": 15
+    },
+    {
+      "title": "VCO DECAY",
+      "page": 15
+    },
+    {
+      "title": "VCO 1 EG AMOUNT / VCO 2 EG AMOUNT",
+      "page": 16
+    },
+    {
+      "title": "CENTER POSITION",
+      "page": 16
+    },
+    {
+      "title": "MIXER",
+      "page": 16
+    },
+    {
+      "title": "VCO 1 LEVEL",
+      "page": 16
+    },
+    {
+      "title": "NOISE / EXT LEVEL",
+      "page": 17
+    },
+    {
+      "title": "VCO 2 LEVEL",
+      "page": 17
+    },
+    {
+      "title": "VCF",
+      "page": 17
+    },
+    {
+      "title": "CUTOFF",
+      "page": 18
+    },
+    {
+      "title": "LOW PASS MODE",
+      "page": 18
+    },
+    {
+      "title": "HIGH PASS MODE",
+      "page": 18
+    },
+    {
+      "title": "RESONANCE",
+      "page": 18
+    },
+    {
+      "title": "RESONANCE knob does not have the",
+      "page": 18
+    },
+    {
+      "title": "With the RESONANCE knob set to its",
+      "page": 18
+    },
+    {
+      "title": "VCF DECAY",
+      "page": 19
+    },
+    {
+      "title": "VCF EG AMOUNT",
+      "page": 19
+    },
+    {
+      "title": "NOISE / VCF MOD",
+      "page": 20
+    },
+    {
+      "title": "VCA EG",
+      "page": 20
+    },
+    {
+      "title": "FAST",
+      "page": 20
+    },
+    {
+      "title": "SLOW",
+      "page": 20
+    },
+    {
+      "title": "VCA DECAY",
+      "page": 21
+    },
+    {
+      "title": "VOLUME",
+      "page": 21
+    },
+    {
+      "title": "ANALOG 8-STEP SEQUENCER",
+      "page": 22
+    },
+    {
+      "title": "STEP CONTROLS",
+      "page": 22
+    },
+    {
+      "title": "RUN / STOP",
+      "page": 22
+    },
+    {
+      "title": "TEMPO",
+      "page": 23
+    },
+    {
+      "title": "ADVANCE",
+      "page": 23
+    },
+    {
+      "title": "TRIGGER",
+      "page": 23
+    },
+    {
+      "title": "PATCHBAY",
+      "page": 24
+    },
+    {
+      "title": "AVAILABLE INPUTS",
+      "page": 24
+    },
+    {
+      "title": "AVAILABLE OUTPUTS",
+      "page": 24
+    },
+    {
+      "title": "INPUT",
+      "page": 24
+    },
+    {
+      "title": "OUTPUT",
+      "page": 25
+    },
+    {
+      "title": "SYNCING MULTIPLE DFAMS",
+      "page": 30
+    },
+    {
+      "title": "PRIMARY UNIT                 SECONDARY UNIT",
+      "page": 30
+    },
+    {
+      "title": "SECONDARY UNIT",
+      "page": 30
+    },
+    {
+      "title": "PRIMARY UNIT",
+      "page": 30
+    },
+    {
+      "title": "SYNCING DFAM WITH A MOTHER-32",
+      "page": 31
+    },
+    {
+      "title": "To Sync your DFAM to a",
+      "page": 31
+    },
+    {
+      "title": "MOTHER-32                               DFAM",
+      "page": 31
+    },
+    {
+      "title": "DFAM",
+      "page": 31
+    },
+    {
+      "title": "MOTHER-32",
+      "page": 31
+    },
+    {
+      "title": "USING DFAM AS A EURORACK MODULE",
+      "page": 32
+    },
+    {
+      "title": "TO INSTALL THE DFAM IN A EURORACK SYSTEM",
+      "page": 32
+    },
+    {
+      "title": "1. Disconnect external power from the unit.",
+      "page": 32
+    },
+    {
+      "title": "6. Connect PIN-1 (-12V) of the power ribbon cable",
+      "page": 32
+    },
+    {
+      "title": "GND",
+      "page": 32
+    },
+    {
+      "title": "PIN 1 STRIPE",
+      "page": 32
+    },
+    {
+      "title": "8. Once fully installed, you may power up your Eurorack system.",
+      "page": 32
+    },
+    {
+      "title": "PRESETS",
+      "page": 33
+    },
+    {
+      "title": "MUSIC BOX",
+      "page": 33
+    },
+    {
+      "title": "NOTES",
+      "page": 33
+    },
+    {
+      "title": "QUICK HATS",
+      "page": 33
+    },
+    {
+      "title": "FM TOYS",
+      "page": 34
+    },
+    {
+      "title": "SEQUENCED BASS",
+      "page": 34
+    },
+    {
+      "title": "KICK / SNARE / FM OSC 2",
+      "page": 35
+    },
+    {
+      "title": "FILTER AS AN OSCILLATOR",
+      "page": 35
+    },
+    {
+      "title": "INSANE TOMS",
+      "page": 36
+    },
+    {
+      "title": "SWING TIME",
+      "page": 36
+    },
+    {
+      "title": "SEQUENCER AS AN OSCILLATOR",
+      "page": 37
+    },
+    {
+      "title": "TALKING DRUM",
+      "page": 37
+    },
+    {
+      "title": "SPECIFICATIONS",
+      "page": 40
+    },
+    {
+      "title": "ANALOG SOUND ENGINE",
+      "page": 40
+    },
+    {
+      "title": "ANALOG SEQUENCER",
+      "page": 40
+    },
+    {
+      "title": "REAR PANEL",
+      "page": 40
+    },
+    {
+      "title": "DIMENSIONS",
+      "page": 40
+    },
+    {
+      "title": "POWER CONSUMPTION",
+      "page": 40
+    },
+    {
+      "title": "EURORACK SPECS",
+      "page": 40
+    },
+    {
+      "title": "ACCESSORIES",
+      "page": 40
+    },
+    {
+      "title": "GIG BAG",
+      "page": 40
+    },
+    {
+      "title": "BACKUP POWER SUPPLY",
+      "page": 40
+    },
+    {
+      "title": "SERVICE AND SUPPORT INFORMATION",
+      "page": 41
+    },
+    {
+      "title": "RETURNING YOUR PRODUCT TO MOOG MUSIC",
+      "page": 41
+    },
+    {
+      "title": "MOOG MUSIC",
+      "page": 41
+    },
+    {
+      "title": "WHAT WE WILL DO",
+      "page": 41
+    },
+    {
+      "title": "HOW TO INITIATE YOUR WARRANTY",
+      "page": 41
+    },
+    {
+      "title": "CARING FOR THE DRUMMER FROM ANOTHER MOTHER",
+      "page": 41
+    }
+  ]
+}

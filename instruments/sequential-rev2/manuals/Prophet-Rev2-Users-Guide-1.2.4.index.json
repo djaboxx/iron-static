@@ -1,0 +1,1801 @@
+{
+  "manual": "Prophet-Rev2-Users-Guide-1.2.4.pdf",
+  "pdf_path": "instruments/sequential-rev2/manuals/Prophet-Rev2-Users-Guide-1.2.4.pdf",
+  "txt_path": "instruments/sequential-rev2/manuals/Prophet-Rev2-Users-Guide-1.2.4.txt",
+  "indexed_at": "2026-04-22T14:27:21.265971",
+  "page_count": 111,
+  "sections": [
+    {
+      "title": "Sequential LLC",
+      "page": 3
+    },
+    {
+      "title": "USA",
+      "page": 3
+    },
+    {
+      "title": "Tested to Comply",
+      "page": 4
+    },
+    {
+      "title": "With FCC Standards",
+      "page": 4
+    },
+    {
+      "title": "FOR HOME OR OFFICE USE",
+      "page": 4
+    },
+    {
+      "title": "CALIFORNIA PROP 65 WARNING",
+      "page": 4
+    },
+    {
+      "title": "Table of Contents",
+      "page": 5
+    },
+    {
+      "title": "Appendix A:",
+      "page": 7
+    },
+    {
+      "title": "Appendix B:",
+      "page": 7
+    },
+    {
+      "title": "SOUND DESIGN",
+      "page": 8
+    },
+    {
+      "title": "THE SEQUENTIAL CREW",
+      "page": 8
+    },
+    {
+      "title": "A Few Words of Thanks",
+      "page": 9
+    },
+    {
+      "title": "Getting Started",
+      "page": 10
+    },
+    {
+      "title": "MAIN/A OUTPUT                 B OUTPUT",
+      "page": 10
+    },
+    {
+      "title": "Poly Seq",
+      "page": 10
+    },
+    {
+      "title": "MISC PARAMS",
+      "page": 10
+    },
+    {
+      "title": "Triangle",
+      "page": 10
+    },
+    {
+      "title": "Sawtooth",
+      "page": 10
+    },
+    {
+      "title": "Rev Saw",
+      "page": 10
+    },
+    {
+      "title": "Square",
+      "page": 10
+    },
+    {
+      "title": "SYNC",
+      "page": 10
+    },
+    {
+      "title": "Down                Up",
+      "page": 10
+    },
+    {
+      "title": "PITCH   MOD           TRANSPOSE",
+      "page": 10
+    },
+    {
+      "title": "Prophet Rev2 front panel",
+      "page": 10
+    },
+    {
+      "title": "Sound Banks",
+      "page": 10
+    },
+    {
+      "title": "EFFECT",
+      "page": 11
+    },
+    {
+      "title": "U1 P1          120",
+      "page": 11
+    },
+    {
+      "title": "Filter Sweep",
+      "page": 11
+    },
+    {
+      "title": "Compare       Edit Layer B",
+      "page": 11
+    },
+    {
+      "title": "LOW-PASS FILTER",
+      "page": 11
+    },
+    {
+      "title": "Program and Bank controls",
+      "page": 11
+    },
+    {
+      "title": "CTAVE",
+      "page": 11
+    },
+    {
+      "title": "Selecting",
+      "page": 11
+    },
+    {
+      "title": "NOISE",
+      "page": 11
+    },
+    {
+      "title": "Programs",
+      "page": 11
+    },
+    {
+      "title": "OSC SLOP          POLE knob to select",
+      "page": 11
+    },
+    {
+      "title": "ATTACK                   DECAY           SUSTAIN",
+      "page": 11
+    },
+    {
+      "title": "2. Turn the program knob to select a program within that bank.",
+      "page": 11
+    },
+    {
+      "title": "Editing Programs",
+      "page": 11
+    },
+    {
+      "title": "Comparing an Edited Program to its Original State",
+      "page": 12
+    },
+    {
+      "title": "1. Edit a program.",
+      "page": 12
+    },
+    {
+      "title": "2. Press the compare button. It lights up, indicating compare mode.",
+      "page": 12
+    },
+    {
+      "title": "3. Play the keyboard to hear the saved version of the sound.",
+      "page": 12
+    },
+    {
+      "title": "1. Press and hold the misc parameter button.",
+      "page": 12
+    },
+    {
+      "title": "2. Turn any parameter knob. The value appears in the display.",
+      "page": 12
+    },
+    {
+      "title": "Creating a Program from Scratch",
+      "page": 12
+    },
+    {
+      "title": "1. Press the global button.",
+      "page": 13
+    },
+    {
+      "title": "2. Use the parameter knob to select basic program.",
+      "page": 13
+    },
+    {
+      "title": "3. Press the write button.",
+      "page": 13
+    },
+    {
+      "title": "Saving a Program",
+      "page": 13
+    },
+    {
+      "title": "1. Press the write button. Its LED begins blinking.",
+      "page": 13
+    },
+    {
+      "title": "Canceling Save",
+      "page": 13
+    },
+    {
+      "title": "Comparing Before You Save",
+      "page": 14
+    },
+    {
+      "title": "1. Get ready to save by pressing the write button. It starts flashing.",
+      "page": 14
+    },
+    {
+      "title": "2. Press the compare button. Its LED lights up.",
+      "page": 14
+    },
+    {
+      "title": "3. Use the bank and program knobs to navigate to the sound you want to",
+      "page": 14
+    },
+    {
+      "title": "Naming a Program",
+      "page": 14
+    },
+    {
+      "title": "2. Turn the parameter knob to move the cursor forward or backward",
+      "page": 14
+    },
+    {
+      "title": "3. Turn the value knob to select a character.",
+      "page": 14
+    },
+    {
+      "title": "4. When you\u2019re done naming the program, press the write button again.",
+      "page": 14
+    },
+    {
+      "title": "Working with Stacked or Split Programs",
+      "page": 15
+    },
+    {
+      "title": "Button is lit when",
+      "page": 15
+    },
+    {
+      "title": "PROGRAM",
+      "page": 15
+    },
+    {
+      "title": "Press to enable",
+      "page": 15
+    },
+    {
+      "title": "Layer B editing",
+      "page": 15
+    },
+    {
+      "title": "BANK",
+      "page": 15
+    },
+    {
+      "title": "Split and Stack buttons",
+      "page": 15
+    },
+    {
+      "title": "Stacked Programs",
+      "page": 16
+    },
+    {
+      "title": "1. Press the edit layer b button. Layer B editing is enabled.",
+      "page": 16
+    },
+    {
+      "title": "2. Change any parameters to change the sound of Layer B.",
+      "page": 16
+    },
+    {
+      "title": "3. Press the edit layer b button again to turn off Layer B editing.",
+      "page": 16
+    },
+    {
+      "title": "2. Change any parameters. The parameters are changed on both Layer A",
+      "page": 16
+    },
+    {
+      "title": "2. Turn the parameter knob and select copy layer a to b.",
+      "page": 17
+    },
+    {
+      "title": "3. Press the write button. Layer A is copied to Layer B.",
+      "page": 17
+    },
+    {
+      "title": "2. Turn the parameter knob and select copy layer b to a.",
+      "page": 17
+    },
+    {
+      "title": "3. Press the write button. Layer B is copied to Layer A.",
+      "page": 17
+    },
+    {
+      "title": "2. Turn the parameter knob and select swap a and b.",
+      "page": 17
+    },
+    {
+      "title": "3. Press the write button. Layer A and B are swapped.",
+      "page": 17
+    },
+    {
+      "title": "Split Programs",
+      "page": 18
+    },
+    {
+      "title": "1. Make sure the split a|b button is lit.",
+      "page": 18
+    },
+    {
+      "title": "3. Release the split a|b button.",
+      "page": 18
+    },
+    {
+      "title": "Moving to the Next Level",
+      "page": 19
+    },
+    {
+      "title": "Connections",
+      "page": 21
+    },
+    {
+      "title": "1. AC Power Connector\u2014Accepts a standard, grounded IEC power",
+      "page": 21
+    },
+    {
+      "title": "2. USB\u2014For bidirectional MIDI communication with a computer. The",
+      "page": 21
+    },
+    {
+      "title": "3. MIDI In, Out, and Thru\u2014Standard 5-pin MIDI DIN connectors.",
+      "page": 21
+    },
+    {
+      "title": "4. Sequencer\u2014Accepts a momentary, normally open or normally closed",
+      "page": 21
+    },
+    {
+      "title": "5. Sustain\u2014Accepts a momentary, normally open or normally closed",
+      "page": 21
+    },
+    {
+      "title": "B OUTPUT   MAIN A OUTPUT",
+      "page": 22
+    },
+    {
+      "title": "PEDAL/CV",
+      "page": 22
+    },
+    {
+      "title": "6. Pedal/CV\u2014Accepts a standard expression pedal that has a variable",
+      "page": 22
+    },
+    {
+      "title": "8. Main/ A Audio Outputs\u2014Unbalanced, \u00bc inch audio outputs. These",
+      "page": 22
+    },
+    {
+      "title": "9. Headphones\u2014A \u00bc inch stereo headphone jack. Headphone volume is",
+      "page": 22
+    },
+    {
+      "title": "Global Settings",
+      "page": 23
+    },
+    {
+      "title": "1. Master Coarse Tune: -12\u2026+12\u2014Master Transpose control, 0 is",
+      "page": 23
+    },
+    {
+      "title": "2. Master Fine Tune: -50\u2026+50\u2014Master Fine Tune control; 0 centered.",
+      "page": 23
+    },
+    {
+      "title": "3. MIDI Channel: All, 1\u202616\u2014Selects which MIDI channel to send and",
+      "page": 23
+    },
+    {
+      "title": "4. MIDI Clock Mode: Sets the synthesizer\u2019s ability to send and receive",
+      "page": 23
+    },
+    {
+      "title": "5. MIDI Clock Cable: MIDI Port, USB\u2014Sets the port, MIDI or USB, by",
+      "page": 23
+    },
+    {
+      "title": "6. MIDI Param Send: Off, CC, NRPN\u2014Changes to the values of front",
+      "page": 23
+    },
+    {
+      "title": "7. MIDI Param Receive: Off, CC, NRPN\u2014Sets the method by which",
+      "page": 24
+    },
+    {
+      "title": "8. MIDI Control Enable: Off, On\u2014When On, the synth will respond to",
+      "page": 24
+    },
+    {
+      "title": "9. MIDI Program Enable: Off, On\u2014When On, the synth will respond",
+      "page": 24
+    },
+    {
+      "title": "10. MIDI Program Send: On, Off\u2014When enabled, selecting a program",
+      "page": 24
+    },
+    {
+      "title": "11. MIDI Sysex Cable: None, MIDI Port, USB\u2014Sets the port, MIDI or",
+      "page": 24
+    },
+    {
+      "title": "12. MIDI Out Select: Off, MIDI, USB, MIDI+USB\u2014Sets the port by which",
+      "page": 24
+    },
+    {
+      "title": "13. MIDI Arp+Seq: Off, On\u2014When On, the synth\u2019s arpeggiator and",
+      "page": 24
+    },
+    {
+      "title": "14. Arp Beat Sync: Off, Quantize\u2014When set to quantize, Arpeggiator",
+      "page": 24
+    },
+    {
+      "title": "15. Multi Mode: On, Off\u2014Multi Mode allows separate MIDI control of",
+      "page": 24
+    },
+    {
+      "title": "16. Local Control: Off, On\u2014When on (the default), the keyboard and",
+      "page": 25
+    },
+    {
+      "title": "17. Velocity Curve: Curve 1... Curve 8\u2014Sets one of the eight velocity",
+      "page": 25
+    },
+    {
+      "title": "19. Mono/Stereo: Stereo, Mono\u2014The Prophet Rev2 defaults to stereo",
+      "page": 25
+    },
+    {
+      "title": "20. Pot Mode: Relative, Passthru, Jump\u2014The rotary controls on the",
+      "page": 25
+    },
+    {
+      "title": "21. Alt Tuning: Equal Temperment, 1\u202617\u2014Selects one of the Prophet",
+      "page": 26
+    },
+    {
+      "title": "22. Screen Saver: On, Off\u2014The Prophet Rev2 display has a built-",
+      "page": 27
+    },
+    {
+      "title": "23. Seq Pedal Mode: Normal, Trigger, Gate, T-G\u2014Selects the mode for",
+      "page": 27
+    },
+    {
+      "title": "24. Foot Assign: Breath CC2, Foot CC4, Exp CC11, Volume, LPF Full,",
+      "page": 27
+    },
+    {
+      "title": "25. Pedal Polarity: Normal, Reversed\u2014There are two types of momen-",
+      "page": 27
+    },
+    {
+      "title": "26. Sustain Arp: Arp hold, Sustain\u2014Sets the function for the Sustain",
+      "page": 28
+    },
+    {
+      "title": "27. Save Edit B: Off, On\u2014When off, disables saving of Layer B when",
+      "page": 28
+    },
+    {
+      "title": "28. Calibrate Wheels\u2014Calibrates the Pitch and Mod wheels.",
+      "page": 28
+    },
+    {
+      "title": "29. Basic Program\u2014Loads a basic, template program.",
+      "page": 28
+    },
+    {
+      "title": "31. Reset Globals\u2014Sets the global parameters to the factory default",
+      "page": 28
+    },
+    {
+      "title": "32. Dump Program\u2014Transmits the current program in SysEx format via",
+      "page": 28
+    },
+    {
+      "title": "33. Dump Bank\u2014Transmits the current bank in SysEx format via the",
+      "page": 28
+    },
+    {
+      "title": "34. Dump All Banks\u2014Transmits all four User Banks in SysEx format",
+      "page": 28
+    },
+    {
+      "title": "33. Dump Scale\u2014Transmits the currently active alternative tuning scale",
+      "page": 29
+    },
+    {
+      "title": "34. Dump All Scales\u2014Transmits the entire set of 16 alternative tuning",
+      "page": 29
+    },
+    {
+      "title": "Oscillators",
+      "page": 29
+    },
+    {
+      "title": "OSCILLATORS",
+      "page": 29
+    },
+    {
+      "title": "Pulse",
+      "page": 29
+    },
+    {
+      "title": "Pulse                  1             2",
+      "page": 29
+    },
+    {
+      "title": "The Oscillator section",
+      "page": 29
+    },
+    {
+      "title": "Oscillator Parameters",
+      "page": 30
+    },
+    {
+      "title": "Oscillator 1",
+      "page": 31
+    },
+    {
+      "title": "Oscillator 2",
+      "page": 31
+    },
+    {
+      "title": "Oscillator hard sync",
+      "page": 31
+    },
+    {
+      "title": "Filter",
+      "page": 32
+    },
+    {
+      "title": "The Prophet Rev2 Filter",
+      "page": 32
+    },
+    {
+      "title": "Filter Envelope",
+      "page": 34
+    },
+    {
+      "title": "A typical 5-stage DADSR envelope",
+      "page": 34
+    },
+    {
+      "title": "Amplifier Envelope",
+      "page": 36
+    },
+    {
+      "title": "AMPLIFIER",
+      "page": 36
+    },
+    {
+      "title": "PAN SPREAD         ENV AMOUNT    VELOCITY   DELAY",
+      "page": 36
+    },
+    {
+      "title": "ATTACK             DECAY        SUSTAIN   RELEASE",
+      "page": 36
+    },
+    {
+      "title": "Auxiliary Envelope",
+      "page": 38
+    },
+    {
+      "title": "AUXILIARY ENVELOPE",
+      "page": 39
+    },
+    {
+      "title": "DESTINATION    ENV AMOUNT    VELOCITY    DELAY",
+      "page": 39
+    },
+    {
+      "title": "ATTACK       DECAY       SUSTAIN    RELEASE",
+      "page": 39
+    },
+    {
+      "title": "The Auxiliary Envelope",
+      "page": 39
+    },
+    {
+      "title": "Low Frequency Oscillators",
+      "page": 40
+    },
+    {
+      "title": "LOW FREQUENCY OSCILLATORS",
+      "page": 40
+    },
+    {
+      "title": "SHAPE    Random     FREQUENCY CLK SYNC",
+      "page": 40
+    },
+    {
+      "title": "DESTINATION         AMOUNT   KEY SYNC",
+      "page": 40
+    },
+    {
+      "title": "The Low Frequency Oscillators",
+      "page": 40
+    },
+    {
+      "title": "LFO waveshapes",
+      "page": 41
+    },
+    {
+      "title": "Modulation",
+      "page": 42
+    },
+    {
+      "title": "1. Choose a source.",
+      "page": 42
+    },
+    {
+      "title": "2. Choose a destination.",
+      "page": 42
+    },
+    {
+      "title": "3. Set an amount. The amount can either be positive or negative.",
+      "page": 42
+    },
+    {
+      "title": "MODULATION",
+      "page": 42
+    },
+    {
+      "title": "SOURCE          SELECT",
+      "page": 42
+    },
+    {
+      "title": "DESTINATION       AMOUNT",
+      "page": 42
+    },
+    {
+      "title": "The Modulation section",
+      "page": 42
+    },
+    {
+      "title": "Modulation Parameters",
+      "page": 43
+    },
+    {
+      "title": "Modulation Examples",
+      "page": 43
+    },
+    {
+      "title": "1. In the low frequency oscillators section, set LFO 1 to triangle and",
+      "page": 43
+    },
+    {
+      "title": "2. In the modulation section, press the source button. Use the param-",
+      "page": 43
+    },
+    {
+      "title": "6. Hold down a note on the keyboard and turn the mod wheel. You should",
+      "page": 43
+    },
+    {
+      "title": "Effects",
+      "page": 45
+    },
+    {
+      "title": "ON/OFF          SELECT      MIX",
+      "page": 45
+    },
+    {
+      "title": "CLK SYNC           PARAM 1   PARAM 2",
+      "page": 45
+    },
+    {
+      "title": "The Effect section",
+      "page": 45
+    },
+    {
+      "title": "1. Press the on/off switch to turn on effects.",
+      "page": 46
+    },
+    {
+      "title": "4. Use the param 1 and param 2 knobs to adjust the effect\u2019s parameters",
+      "page": 46
+    },
+    {
+      "title": "Effects Parameters",
+      "page": 47
+    },
+    {
+      "title": "Arpeggiator",
+      "page": 49
+    },
+    {
+      "title": "CLOCK                    ARP",
+      "page": 49
+    },
+    {
+      "title": "BPM               DIVIDE         MODE",
+      "page": 49
+    },
+    {
+      "title": "TAP TEMPO                 ON/OFF",
+      "page": 49
+    },
+    {
+      "title": "The Clock and Arpeggiator controls",
+      "page": 49
+    },
+    {
+      "title": "1. Press the arpeggiator on/off switch to turn it on.",
+      "page": 50
+    },
+    {
+      "title": "2. Hold down one or more notes on the keyboard. The arpeggiator plays",
+      "page": 50
+    },
+    {
+      "title": "4. Adjust settings such as mode, octave, repeats, and bpm.",
+      "page": 50
+    },
+    {
+      "title": "Arpeggiator Beat Sync",
+      "page": 50
+    },
+    {
+      "title": "1. Press the global button, then use parameter knob to select arp beat",
+      "page": 50
+    },
+    {
+      "title": "2. Turn the value knob to select quantize.",
+      "page": 50
+    },
+    {
+      "title": "3. Press the global button again to exit the Global menu.",
+      "page": 50
+    },
+    {
+      "title": "1. Press the global button then use parameter knob to select sustain",
+      "page": 51
+    },
+    {
+      "title": "2. Turn the value knob to select either arp hold, sustain, or arp hold",
+      "page": 51
+    },
+    {
+      "title": "MIDI Note Output from the Arpeggiator and Sequencer",
+      "page": 51
+    },
+    {
+      "title": "2. Turn the value knob to select on.",
+      "page": 51
+    },
+    {
+      "title": "1. Connect the MIDI or USB output of the Rev2 to the MIDI or USB input",
+      "page": 52
+    },
+    {
+      "title": "2. On the Rev2, press the global button, then use the parameter knob",
+      "page": 52
+    },
+    {
+      "title": "4. Press the global button again to exit the Global menu.",
+      "page": 52
+    },
+    {
+      "title": "5. On the external device, set the the MIDI Channel and MIDI Receive",
+      "page": 52
+    },
+    {
+      "title": "Arpeggiator Parameters",
+      "page": 52
+    },
+    {
+      "title": "Arp Mode         Behavior",
+      "page": 52
+    },
+    {
+      "title": "Up               Plays from lowest to highest note",
+      "page": 52
+    },
+    {
+      "title": "Down             Plays from highest to lowest note",
+      "page": 52
+    },
+    {
+      "title": "Random           Plays notes in random order",
+      "page": 52
+    },
+    {
+      "title": "Clock Parameters",
+      "page": 53
+    },
+    {
+      "title": "Name                Tempo       Timing Division",
+      "page": 53
+    },
+    {
+      "title": "Half                BPM/2       Half note",
+      "page": 53
+    },
+    {
+      "title": "Quarter             BPM         Quarter note",
+      "page": 53
+    },
+    {
+      "title": "Sequencer",
+      "page": 54
+    },
+    {
+      "title": "Press to toggle between",
+      "page": 54
+    },
+    {
+      "title": "SEQUENCER",
+      "page": 54
+    },
+    {
+      "title": "Gated",
+      "page": 54
+    },
+    {
+      "title": "Poly",
+      "page": 54
+    },
+    {
+      "title": "TYPE                   MODE       TRACK",
+      "page": 54
+    },
+    {
+      "title": "Only",
+      "page": 54
+    },
+    {
+      "title": "DESTINATION   RECORD",
+      "page": 54
+    },
+    {
+      "title": "The Sequencer",
+      "page": 54
+    },
+    {
+      "title": "Polyphonic Sequencer",
+      "page": 54
+    },
+    {
+      "title": "Programming the Polyphonic Sequencer",
+      "page": 56
+    },
+    {
+      "title": "1. Press the record button.",
+      "page": 56
+    },
+    {
+      "title": "2. Perform the sequence on the keyboard. The display indicates the",
+      "page": 56
+    },
+    {
+      "title": "5. To step back in the sequence, turn the sequencer\u2019s parameter knob",
+      "page": 56
+    },
+    {
+      "title": "6. When you\u2019re done, press play to listen to your sequence.",
+      "page": 56
+    },
+    {
+      "title": "7. To save the sequence, save the program and they are saved together.",
+      "page": 56
+    },
+    {
+      "title": "1. Press play. The sequence plays back at the current BPM setting.",
+      "page": 56
+    },
+    {
+      "title": "2. To stop playback, press play again.",
+      "page": 56
+    },
+    {
+      "title": "1. Press play. The sequence begins playback.",
+      "page": 57
+    },
+    {
+      "title": "2. Press and hold record and press a key on the keyboard. \u201cMiddle C\u201d",
+      "page": 57
+    },
+    {
+      "title": "Editing a Polyphonic Sequence",
+      "page": 57
+    },
+    {
+      "title": "1. Press the sequencer\u2019s record button.",
+      "page": 57
+    },
+    {
+      "title": "4. Use the sequencer\u2019s value knob to change the note (C0 - G10). Turn",
+      "page": 57
+    },
+    {
+      "title": "5. If you make a mistake, or simply want to re-enter a note or change",
+      "page": 57
+    },
+    {
+      "title": "7. To save the sequence, save the program by pressing the write button",
+      "page": 57
+    },
+    {
+      "title": "Copying a Polyphonic Sequence Between Layers",
+      "page": 58
+    },
+    {
+      "title": "2. Turn the parameter knob and select copy seq a to b.",
+      "page": 58
+    },
+    {
+      "title": "2. Turn the parameter knob and select copy seq b to a.",
+      "page": 58
+    },
+    {
+      "title": "2. Turn the parameter knob and select swap seq a and b.",
+      "page": 58
+    },
+    {
+      "title": "Gated Sequencer",
+      "page": 58
+    },
+    {
+      "title": "1. Press the type button and toggle to the gated sequencer.",
+      "page": 59
+    },
+    {
+      "title": "2. Press the mode button and use the value knob to select the desired",
+      "page": 59
+    },
+    {
+      "title": "3. Use the track knob to select desired track.",
+      "page": 59
+    },
+    {
+      "title": "4. Press the destination button and use the value knob to select the",
+      "page": 59
+    },
+    {
+      "title": "5. Use the parameter knob to navigate to step 1 (or any desired step,",
+      "page": 59
+    },
+    {
+      "title": "8. When you\u2019re done, hold down a key to listen to your sequence.",
+      "page": 60
+    },
+    {
+      "title": "9. To save the sequence, save the program and they are saved together.",
+      "page": 60
+    },
+    {
+      "title": "Using Slew",
+      "page": 60
+    },
+    {
+      "title": "Sequencer Parameters",
+      "page": 61
+    },
+    {
+      "title": "Name                Tempo        Timing Division",
+      "page": 62
+    },
+    {
+      "title": "Half                BPM/2        Half note",
+      "page": 62
+    },
+    {
+      "title": "Qtr                 BPM          Quarter note",
+      "page": 62
+    },
+    {
+      "title": "Unison",
+      "page": 63
+    },
+    {
+      "title": "UNISON                  HOLD",
+      "page": 63
+    },
+    {
+      "title": "The Unison button",
+      "page": 63
+    },
+    {
+      "title": "Down",
+      "page": 63
+    },
+    {
+      "title": "TRANSPOSE PARAMETER",
+      "page": 63
+    },
+    {
+      "title": "Parameter                         Unison Mode",
+      "page": 63
+    },
+    {
+      "title": "Use this knob to",
+      "page": 63
+    },
+    {
+      "title": "Unison Mode parameter",
+      "page": 63
+    },
+    {
+      "title": "1. Press the unison button.",
+      "page": 64
+    },
+    {
+      "title": "3. Use the value knob to choose the number of voices to stack.",
+      "page": 64
+    },
+    {
+      "title": "5. Use the value knob to choose the amount of detuning.",
+      "page": 64
+    },
+    {
+      "title": "Using Chord Memory",
+      "page": 64
+    },
+    {
+      "title": "2. Turn the value knob fully clockwise to choose chord.",
+      "page": 64
+    },
+    {
+      "title": "3. Hold down a chord on the keyboard.",
+      "page": 64
+    },
+    {
+      "title": "4. Press the unison button. The chord voicing is memorized. Play a few",
+      "page": 64
+    },
+    {
+      "title": "5. If you save the program, the unison chord memory is saved with it.",
+      "page": 64
+    },
+    {
+      "title": "2. Press the unison button. The chord voicing is memorized. Play a few",
+      "page": 64
+    },
+    {
+      "title": "2. Turn the value knob to choose the number of voices to stack.",
+      "page": 65
+    },
+    {
+      "title": "Key Modes and Unison Mode",
+      "page": 65
+    },
+    {
+      "title": "2. Play a few notes to listen to the result.",
+      "page": 65
+    },
+    {
+      "title": "Master Volume/Program Volume",
+      "page": 66
+    },
+    {
+      "title": "Program Volume",
+      "page": 66
+    },
+    {
+      "title": "Press to toggle on",
+      "page": 66
+    },
+    {
+      "title": "Misc Parameters",
+      "page": 66
+    },
+    {
+      "title": "1. Choose a program.",
+      "page": 66
+    },
+    {
+      "title": "2. Hold down a chord on the keyboard.",
+      "page": 66
+    },
+    {
+      "title": "3. Turn the value knob to set the volume level from 1 to 127.",
+      "page": 66
+    },
+    {
+      "title": "4. Save the program. (See \u201cSaving a Program\u201d on page 4.)",
+      "page": 66
+    },
+    {
+      "title": "Pan Spread",
+      "page": 67
+    },
+    {
+      "title": "Pans individual voices",
+      "page": 67
+    },
+    {
+      "title": "PAN SPREAD   ENV AMOUNT    VELOCITY   DELAY",
+      "page": 67
+    },
+    {
+      "title": "ATTACK     DECAY        SUSTAIN   RELEASE",
+      "page": 67
+    },
+    {
+      "title": "Transpose",
+      "page": 67
+    },
+    {
+      "title": "Down                        Up",
+      "page": 67
+    },
+    {
+      "title": "TRANSPOSE",
+      "page": 67
+    },
+    {
+      "title": "The Transpose controls",
+      "page": 67
+    },
+    {
+      "title": "Hold",
+      "page": 68
+    },
+    {
+      "title": "N          HOLD",
+      "page": 68
+    },
+    {
+      "title": "The Hold button",
+      "page": 68
+    },
+    {
+      "title": "Glide",
+      "page": 68
+    },
+    {
+      "title": "GLIDE",
+      "page": 68
+    },
+    {
+      "title": "RATE",
+      "page": 68
+    },
+    {
+      "title": "The Glide controls",
+      "page": 68
+    },
+    {
+      "title": "1. Press the glide button.",
+      "page": 68
+    },
+    {
+      "title": "2. Play a series of notes up and down the keyboard while you turn the",
+      "page": 68
+    },
+    {
+      "title": "4. Next, use the parameter knob to scroll to osc 2 glide.",
+      "page": 69
+    },
+    {
+      "title": "3. Turn the value knob to set the mode.",
+      "page": 69
+    },
+    {
+      "title": "4. Play a series of notes up and down the keyboard to hear the effect.",
+      "page": 69
+    },
+    {
+      "title": "Pitch and Mod Wheels",
+      "page": 70
+    },
+    {
+      "title": "Pitch            Mod",
+      "page": 70
+    },
+    {
+      "title": "The Pitch and Modulation wheels",
+      "page": 70
+    },
+    {
+      "title": "Pitch Wheel",
+      "page": 70
+    },
+    {
+      "title": "2. Turn the value knob to set the range in semitones.",
+      "page": 70
+    },
+    {
+      "title": "3. Hold a note and move the pitch wheel wheel to hear the effect.",
+      "page": 70
+    },
+    {
+      "title": "Modulation Wheel",
+      "page": 71
+    },
+    {
+      "title": "1. In the modulation section, press the source button. Use the param-",
+      "page": 71
+    },
+    {
+      "title": "3. Use the parameter knob to select the dest field. Use the value knob",
+      "page": 71
+    },
+    {
+      "title": "5. Use the parameter knob to select the amount field. Use the value",
+      "page": 71
+    },
+    {
+      "title": "Adding Aftertouch",
+      "page": 71
+    },
+    {
+      "title": "4. Hold down a note on the keyboard. Then, press harder.",
+      "page": 72
+    },
+    {
+      "title": "Exporting Programs and Banks",
+      "page": 76
+    },
+    {
+      "title": "1. Connect your synthesizer to a computer using a USB cable.",
+      "page": 76
+    },
+    {
+      "title": "3. Press the global button on your synth.",
+      "page": 76
+    },
+    {
+      "title": "5. Use the parameter knob to select dump prog, dump bank, or dump all",
+      "page": 76
+    },
+    {
+      "title": "6. Press write. The program or bank is exported",
+      "page": 76
+    },
+    {
+      "title": "1. Connect two Rev2 synthesizers together using MIDI cables and the",
+      "page": 77
+    },
+    {
+      "title": "3. On both synthesizers, use the parameter knob to select midi sysex",
+      "page": 77
+    },
+    {
+      "title": "5. Press write. The program or bank is exported to the other Rev2.",
+      "page": 77
+    },
+    {
+      "title": "Importing Programs and Banks",
+      "page": 77
+    },
+    {
+      "title": "1. Connect your synthesizer to a computer using a USB cable (or MIDI",
+      "page": 77
+    },
+    {
+      "title": "2. Press the global button on your Rev2.",
+      "page": 77
+    },
+    {
+      "title": "4. Open your MIDI librarian software and configure it to send SysEx",
+      "page": 77
+    },
+    {
+      "title": "6. Transmit the programs. The Prophet Rev2 should load them. They will",
+      "page": 78
+    },
+    {
+      "title": "Calibrating the Prophet Rev2",
+      "page": 78
+    },
+    {
+      "title": "Calibrating the Oscillators and Filters",
+      "page": 78
+    },
+    {
+      "title": "Calibrating the Pitch and Mod Wheels",
+      "page": 78
+    },
+    {
+      "title": "2. Use the parameter knob to select calibrate wheels, then follow the",
+      "page": 78
+    },
+    {
+      "title": "Resetting the Global Parameters",
+      "page": 79
+    },
+    {
+      "title": "2. Use the parameter knob to select reset globals, then press write.",
+      "page": 79
+    },
+    {
+      "title": "Using USB",
+      "page": 79
+    },
+    {
+      "title": "USB Notes",
+      "page": 79
+    },
+    {
+      "title": "Modulation Sources",
+      "page": 81
+    },
+    {
+      "title": "Off",
+      "page": 81
+    },
+    {
+      "title": "Seq 1",
+      "page": 81
+    },
+    {
+      "title": "Seq 2",
+      "page": 81
+    },
+    {
+      "title": "Seq 3",
+      "page": 81
+    },
+    {
+      "title": "Seq 4",
+      "page": 81
+    },
+    {
+      "title": "LFO 1",
+      "page": 81
+    },
+    {
+      "title": "LFO 2",
+      "page": 81
+    },
+    {
+      "title": "LFO 3",
+      "page": 81
+    },
+    {
+      "title": "LFO 4",
+      "page": 81
+    },
+    {
+      "title": "Env LPF",
+      "page": 81
+    },
+    {
+      "title": "Env VCA",
+      "page": 81
+    },
+    {
+      "title": "Env 3",
+      "page": 81
+    },
+    {
+      "title": "Pitchbend",
+      "page": 81
+    },
+    {
+      "title": "Mod Wheel",
+      "page": 81
+    },
+    {
+      "title": "Pressure",
+      "page": 81
+    },
+    {
+      "title": "Breath",
+      "page": 81
+    },
+    {
+      "title": "Foot Pedal",
+      "page": 81
+    },
+    {
+      "title": "Expression Pedal",
+      "page": 81
+    },
+    {
+      "title": "Velocity",
+      "page": 81
+    },
+    {
+      "title": "Note Number",
+      "page": 81
+    },
+    {
+      "title": "Noise",
+      "page": 81
+    },
+    {
+      "title": "Modulation Destinations",
+      "page": 82
+    },
+    {
+      "title": "Off                            VCA Attack",
+      "page": 82
+    },
+    {
+      "title": "Osc 1 Freq                     Env 3 Attack",
+      "page": 82
+    },
+    {
+      "title": "Osc 2 Freq                     Env All Attack",
+      "page": 82
+    },
+    {
+      "title": "Osc All Freq                   LPF Decay",
+      "page": 82
+    },
+    {
+      "title": "Osc 1 Level                    VCA Decay",
+      "page": 82
+    },
+    {
+      "title": "Osc Mix                        Env 3 Decay",
+      "page": 82
+    },
+    {
+      "title": "Noise Level                    Env All Decay",
+      "page": 82
+    },
+    {
+      "title": "Sub Osc Level                  LPF Release",
+      "page": 82
+    },
+    {
+      "title": "Osc 1 Shape                    VCA Release",
+      "page": 82
+    },
+    {
+      "title": "Osc 2 Shape                    Env 3 Release",
+      "page": 82
+    },
+    {
+      "title": "Osc All Shape                  Env All Release",
+      "page": 82
+    },
+    {
+      "title": "Filter Cutoff                  Mod 1 Amount",
+      "page": 82
+    },
+    {
+      "title": "Filter Resonance               Mod 2 Amount",
+      "page": 82
+    },
+    {
+      "title": "Filter Audio Mod               Mod 3 Amount",
+      "page": 82
+    },
+    {
+      "title": "VCA                            Mod 4 Amount",
+      "page": 82
+    },
+    {
+      "title": "Pan                            Mod 5 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO 1 Freq                     Mod 6 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO 2 Freq                     Mod 7 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO 3 Freq                     Mod 8 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO 4 Freq                     Osc Slop",
+      "page": 82
+    },
+    {
+      "title": "LFO All Freq                   FX Mix",
+      "page": 82
+    },
+    {
+      "title": "LFO 1 Amount                   FX Param 1",
+      "page": 82
+    },
+    {
+      "title": "LFO 2 Amount                   FX Param 2",
+      "page": 82
+    },
+    {
+      "title": "LFO 3 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO 4 Amount",
+      "page": 82
+    },
+    {
+      "title": "LFO All Amount",
+      "page": 82
+    },
+    {
+      "title": "LP Filter Env Amount",
+      "page": 82
+    },
+    {
+      "title": "Amp Env Amount",
+      "page": 82
+    },
+    {
+      "title": "Env 3 Amount",
+      "page": 82
+    },
+    {
+      "title": "Env All Amount",
+      "page": 82
+    },
+    {
+      "title": "LPF Attack",
+      "page": 82
+    },
+    {
+      "title": "2. Harmonic Series",
+      "page": 83
+    },
+    {
+      "title": "3. Carlos Harmonic Twelve Tone",
+      "page": 83
+    },
+    {
+      "title": "4. Meantone Temperament",
+      "page": 83
+    },
+    {
+      "title": "8. Pythagorean C",
+      "page": 84
+    },
+    {
+      "title": "9. Just Intonation in A with 7-Limit Tritone at D#",
+      "page": 84
+    },
+    {
+      "title": "12. Other Music 7-Limit Black Keys in C",
+      "page": 85
+    },
+    {
+      "title": "13. Dan Schmidt Pelog/Slendro",
+      "page": 85
+    },
+    {
+      "title": "14. Yamaha Just Major C",
+      "page": 85
+    },
+    {
+      "title": "15. Yamaha Just Minor C",
+      "page": 85
+    },
+    {
+      "title": "16. Harry Partch 11-Limit 43 Note Just Intonation",
+      "page": 86
+    },
+    {
+      "title": "17. Arabic 12-Tone",
+      "page": 86
+    },
+    {
+      "title": "Troubleshooting",
+      "page": 87
+    },
+    {
+      "title": "2. If the problem is still there, check the following:",
+      "page": 87
+    },
+    {
+      "title": "1. Power on the Prophet Rev2 while holding the glide switch to enter",
+      "page": 89
+    },
+    {
+      "title": "Contacting Technical Support",
+      "page": 89
+    },
+    {
+      "title": "Warranty Repair",
+      "page": 90
+    },
+    {
+      "title": "MIDI Messages",
+      "page": 92
+    },
+    {
+      "title": "System Real-Time Messages",
+      "page": 92
+    },
+    {
+      "title": "Status        Description",
+      "page": 92
+    },
+    {
+      "title": "Received Channel Messages",
+      "page": 92
+    },
+    {
+      "title": "Ignored if MIDI channel set to ALL",
+      "page": 92
+    },
+    {
+      "title": "Received Controller Messages",
+      "page": 93
+    },
+    {
+      "title": "Status      Second      Third          Description",
+      "page": 93
+    },
+    {
+      "title": "Volume",
+      "page": 93
+    },
+    {
+      "title": "MIDI volume to maximum",
+      "page": 93
+    },
+    {
+      "title": "Transmitted Channel Messages",
+      "page": 93
+    },
+    {
+      "title": "Transmitted Controller Messages",
+      "page": 94
+    },
+    {
+      "title": "Status      Second      Third      Description",
+      "page": 94
+    },
+    {
+      "title": "NRPN Messages",
+      "page": 96
+    },
+    {
+      "title": "Transmitted NRPN Messages",
+      "page": 96
+    },
+    {
+      "title": "Status       Description",
+      "page": 96
+    },
+    {
+      "title": "Received NRPN Messages",
+      "page": 97
+    },
+    {
+      "title": "Global Parameter Data",
+      "page": 98
+    },
+    {
+      "title": "Sequencer Normally Closed",
+      "page": 98
+    },
+    {
+      "title": "Mono/Stereo",
+      "page": 98
+    },
+    {
+      "title": "Program Parameter Data",
+      "page": 99
+    },
+    {
+      "title": "NRPN Layer   NRPN Layer   Value   Description",
+      "page": 99
+    },
+    {
+      "title": "A            B",
+      "page": 99
+    },
+    {
+      "title": "NRPN Layer   NRPN Layer   Value    Description",
+      "page": 102
+    },
+    {
+      "title": "NRPN Layer   NRPN Layer   Value     Description",
+      "page": 103
+    },
+    {
+      "title": "Step 1-16",
+      "page": 103
+    },
+    {
+      "title": "Note 1",
+      "page": 103
+    },
+    {
+      "title": "Velocity 1",
+      "page": 103
+    },
+    {
+      "title": "Note 2",
+      "page": 103
+    },
+    {
+      "title": "Velocity 2",
+      "page": 103
+    },
+    {
+      "title": "Note 3",
+      "page": 103
+    },
+    {
+      "title": "Velocity 3",
+      "page": 103
+    },
+    {
+      "title": "Note 4",
+      "page": 103
+    },
+    {
+      "title": "Velocity 4",
+      "page": 103
+    },
+    {
+      "title": "Note 5",
+      "page": 103
+    },
+    {
+      "title": "Velocity 5",
+      "page": 103
+    },
+    {
+      "title": "Note 6",
+      "page": 103
+    },
+    {
+      "title": "Velocity 6",
+      "page": 103
+    },
+    {
+      "title": "Control NRPN Data",
+      "page": 104
+    },
+    {
+      "title": "NRPN    Value             Description",
+      "page": 104
+    },
+    {
+      "title": "SysEx Messages",
+      "page": 104
+    },
+    {
+      "title": "Status      Description",
+      "page": 104
+    },
+    {
+      "title": "Request Program Dump",
+      "page": 105
+    },
+    {
+      "title": "Request Program Edit Buffer Dump",
+      "page": 105
+    },
+    {
+      "title": "Request Global Parameter Dump",
+      "page": 105
+    },
+    {
+      "title": "Program Data Dump",
+      "page": 106
+    },
+    {
+      "title": "Program Edit Buffer Data Dump",
+      "page": 106
+    },
+    {
+      "title": "Global Parameters Data Dump",
+      "page": 106
+    },
+    {
+      "title": "Value        Description",
+      "page": 106
+    },
+    {
+      "title": "Packed Data Format",
+      "page": 107
+    },
+    {
+      "title": "DSI-10266R",
+      "page": 111
+    }
+  ]
+}
