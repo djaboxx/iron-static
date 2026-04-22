@@ -99,3 +99,48 @@ Load skills in any Copilot chat session by opening the relevant `SKILL.md` file 
 This is not a normal band project. There is no drummer arguing about rehearsal times. There is no A&R person with opinions about the chorus. There are two collaborators: one who breathes, one who computes. Both contribute riffs, structure, critique, and ideas. The music should feel like machinery with a pulse — heavy enough to shake a room, weird enough to make you tilt your head.
 
 *Make noise. Make it heavy. Make it strange.*
+
+## Skills & Tools
+
+- **Copilot Skills**: ableton-launch, ableton-push, analyze-audio, audio-to-midi, create-preset, midi-craft, music-theory, sysex-capture, manual-lookup, instrument-onboard, analyze-ableton-logs, get-search-view-results, agent-customization.
+- **Core scripts**: `scripts/midi_control.py`, `scripts/ableton_push.py`, `scripts/sysex_capture.py`, `scripts/analyze_audio.py`, `scripts/midi_craft.py`.
+- **Python env**: `.venv/` (Python 3.12), key deps include `mido` and `python-rtmidi` (see `scripts/requirements.txt`).
+- **Ableton integration**: HCL session templates in `ableton/templates/` and an IronStatic Remote Script under `ableton/remote_script/` — use `scripts/ableton_push.py` to deploy and control Live.
+
+## Interesting Files & Locations
+
+- `instruments/` — per-instrument manuals, MIDI maps, and presets (e.g. `instruments/sequential-rev2/presets/`)
+- `database/midi_params/rev2.json` — Rev2 parameter map (NRPN numbers, ranges, names)
+- `database/plugins.json` — scanned local plugin inventory (VST/AU/VST3 list)
+- `ableton/templates/iron-static-default.hcl` — default Ableton session layout used by `ableton_push`.
+- `midi/sequences/` and `midi/patterns/` — generated MIDI assets and templates
+
+## Critical Gotchas
+
+- **VCA Level (Rev2 NRPN 98)**: This parameter is a DC bias into the VCA. Any non-zero value can hold the VCA open and cause infinite sustain. Always ensure presets include `VCA Level = 0` when sending parameter dumps.
+- When sending bulk NRPN dumps to the Rev2, use a short delay (≈10–15ms) between messages, especially for the gated-sequence NRPNs (192–255).
+
+## Quick Workflows
+
+- Load a preset JSON to the Rev2 (example pattern):
+
+```bash
+source .venv/bin/activate
+cd /path/to/iron-static
+python3 - <<'PY'
+import mido, json, time
+from pathlib import Path
+data = json.loads(Path('instruments/sequential-rev2/presets/iron-grid-bass.json').read_text())
+ch = data['midi_channel']
+def send_nrpn(p, ch1, nrpn, val):
+	c = ch1 - 1
+	p.send(mido.Message('control_change', channel=c, control=99, value=(nrpn>>7)&0x7F))
+	p.send(mido.Message('control_change', channel=c, control=98, value=nrpn&0x7F))
+	p.send(mido.Message('control_change', channel=c, control=6, value=(val>>7)&0x7F))
+	p.send(mido.Message('control_change', channel=c, control=38, value=val&0x7F))
+with mido.open_output('Rev2') as port:
+	for entry in data['parameters'].values():
+		send_nrpn(port, ch, entry['nrpn'], entry['value'])
+		time.sleep(0.012)
+PY
+```
