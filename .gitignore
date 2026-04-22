@@ -1,0 +1,49 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Ableton Live
+*.als.bak
+Backup/
+
+# Audio (large binaries — track with Git LFS instead)
+*.wav
+*.aiff
+*.aif
+*.mp3
+*.flac
+*.ogg
+*.m4a
+
+# PDF manuals are tracked (small and essential)
+# Exclude large sample packs dropped here by accident
+audio/samples/**/*.zip
+audio/samples/**/*.rar
+
+# MIDI (tracked normally)
+# *.mid — intentionally not ignored
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Secrets / credentials
+*.token
+credentials*.json
+token*.json
+.env
+.env.*
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# Logs
+*.log
