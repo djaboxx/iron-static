@@ -13,6 +13,7 @@ variable "gh_pat" {
 variable "gcp_project" {
   description = "GCP project ID. Set via: export TF_VAR_gcp_project=<project-id>"
   type        = string
+  default     = "happypathway-1522441039906"
 }
 
 variable "gcp_region" {
