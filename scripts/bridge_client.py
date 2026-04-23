@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 """
-bridge_client.py — IRON STATIC bridge command-line client and Python API
+bridge_client.py -- IRON STATIC bridge client
 
-Sends OSC commands to iron-static-bridge.amxd running in Ableton Live,
-listens on :7401 for responses.
+Talks to the IronStatic Remote Script (TCP/JSON, port 9877) running inside Live.
 
 Usage (CLI):
     python3 scripts/bridge_client.py ping
+    python3 scripts/bridge_client.py info
     python3 scripts/bridge_client.py transport play
     python3 scripts/bridge_client.py transport stop
     python3 scripts/bridge_client.py transport tempo 95.0
-    python3 scripts/bridge_client.py scene fire 0
     python3 scripts/bridge_client.py clip create 0 0 8.0
     python3 scripts/bridge_client.py clip clear 0 0
     python3 scripts/bridge_client.py clip write 0 0 /path/to/notes.json
-    python3 scripts/bridge_client.py clip append 0 0 /path/to/notes.json
+    python3 scripts/bridge_client.py clip fire 0 0
     python3 scripts/bridge_client.py reporter dump
-    python3 scripts/bridge_client.py reporter dump /path/to/output.json
 
 Python API:
     from scripts.bridge_client import BridgeClient
@@ -25,13 +23,9 @@ Python API:
         b.transport_tempo(95.0)
         b.clip_write(track=0, slot=0, notes_path="/tmp/notes.json")
 
-Notes JSON format:
-    {
-      "notes": [
-        {"pitch": 60, "start_time": 0.0, "duration": 0.25, "velocity": 100, "mute": 0},
-        ...
-      ]
-    }
+Protocol: TCP localhost:9877 -- one JSON object per connection.
+  Send:    {"type": "cmd_name", "params": {...}}
+  Receive: {"status": "success"|"error", "result": {...}}
 """
 
 import argparse
@@ -39,94 +33,36 @@ import json
 import logging
 import socket
 import sys
-import time
 from pathlib import Path
-
-from pythonosc import udp_client, dispatcher, osc_server
-from pythonosc.osc_message_builder import OscMessageBuilder
 
 log = logging.getLogger(__name__)
 
-BRIDGE_HOST   = "127.0.0.1"
-BRIDGE_TX_PORT = 7400   # we send to the bridge on this port
-BRIDGE_RX_PORT = 7401   # bridge sends responses here
-RESPONSE_TIMEOUT = 3.0  # seconds
+BRIDGE_HOST     = "127.0.0.1"
+BRIDGE_PORT     = 9877
+CONNECT_TIMEOUT = 5.0
 
 
-# ---------------------------------------------------------------------------
-# Low-level send/receive
-# ---------------------------------------------------------------------------
+def _call(cmd_type, params=None, host=BRIDGE_HOST, port=BRIDGE_PORT, timeout=CONNECT_TIMEOUT):
+    """Open TCP connection, send one JSON command, read one JSON response."""
+    payload = json.dumps({"type": cmd_type, "params": params or {}})
+    with socket.create_connection((host, port), timeout=timeout) as sock:
+        sock.sendall(payload.encode("utf-8"))
+        sock.shutdown(socket.SHUT_WR)
+        chunks = []
+        while True:
+            chunk = sock.recv(65536)
+            if not chunk:
+                break
+            chunks.append(chunk)
+    return json.loads(b"".join(chunks).decode("utf-8"))
 
-def _send_osc(address: str, *args, host: str = BRIDGE_HOST, port: int = BRIDGE_TX_PORT):
-    """Send a single OSC message to the bridge."""
-    client = udp_client.SimpleUDPClient(host, port)
-    client.send_message(address, list(args))
-    log.debug("sent %s %s", address, args)
-
-
-def _send_and_wait(address: str, *args, timeout: float = RESPONSE_TIMEOUT) -> dict:
-    """
-    Send OSC command and block until /ok or /error response arrives.
-    Returns {"status": "ok"|"error", "address": str, "message": str|None}.
-    """
-    result = {}
-
-    disp = dispatcher.Dispatcher()
-
-    def _on_ok(addr, *a):
-        result["status"]  = "ok"
-        result["address"] = a[0] if a else address
-
-    def _on_error(addr, *a):
-        result["status"]  = "error"
-        result["address"] = a[0] if a else address
-        result["message"] = a[1] if len(a) > 1 else ""
-
-    def _on_pong(addr, *a):
-        result["status"]  = "ok"
-        result["address"] = "/pong"
-
-    disp.map("/ok",    _on_ok)
-    disp.map("/error", _on_error)
-    disp.map("/pong",  _on_pong)
-
-    server = osc_server.ThreadingOSCUDPServer((BRIDGE_HOST, BRIDGE_RX_PORT), disp)
-    server.timeout = timeout
-
-    # Send the command
-    _send_osc(address, *args)
-
-    # Wait for response
-    deadline = time.time() + timeout
-    while not result and time.time() < deadline:
-        server.handle_request()
-
-    server.server_close()
-
-    if not result:
-        result = {"status": "timeout", "address": address, "message": "no response"}
-
-    return result
-
-
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
 
 class BridgeClient:
-    """
-    Context-manager wrapper for iron-static-bridge commands.
+    """Context-manager wrapper for IronStatic Remote Script commands."""
 
-    with BridgeClient() as b:
-        b.ping()
-        b.transport_tempo(95.0)
-        b.clip_write(track=0, slot=0, notes_path="outputs/notes.json")
-    """
-
-    def __init__(self, host: str = BRIDGE_HOST, port: int = BRIDGE_TX_PORT,
-                 timeout: float = RESPONSE_TIMEOUT):
-        self.host    = host
-        self.port    = port
+    def __init__(self, host=BRIDGE_HOST, port=BRIDGE_PORT, timeout=CONNECT_TIMEOUT):
+        self.host = host
+        self.port = port
         self.timeout = timeout
 
     def __enter__(self):
@@ -135,188 +71,135 @@ class BridgeClient:
     def __exit__(self, *_):
         pass
 
-    def _cmd(self, address: str, *args) -> dict:
-        r = _send_and_wait(address, *args, timeout=self.timeout)
-        if r["status"] == "error":
-            log.error("bridge error [%s]: %s", address, r.get("message", ""))
-        elif r["status"] == "timeout":
-            log.warning("bridge timeout: no response to %s", address)
-        return r
+    def _cmd(self, cmd_type, params=None):
+        try:
+            r = _call(cmd_type, params, host=self.host, port=self.port, timeout=self.timeout)
+            if r.get("status") == "error":
+                log.error("bridge error [%s]: %s", cmd_type, r.get("message", ""))
+            return r
+        except ConnectionRefusedError:
+            return {"status": "error",
+                    "message": "connection refused -- is IronStatic selected as Control Surface in Live?"}
+        except Exception as e:
+            return {"status": "error", "message": str(e)}
 
-    # Transport
+    def ping(self):
+        return self._cmd("get_session_info").get("status") == "success"
 
-    def ping(self) -> bool:
-        return self._cmd("/ping")["status"] == "ok"
+    def get_session_info(self):
+        return self._cmd("get_session_info")
 
-    def transport_play(self) -> dict:
-        return self._cmd("/transport/play")
+    def transport_play(self):
+        return self._cmd("start_playback")
 
-    def transport_stop(self) -> dict:
-        return self._cmd("/transport/stop")
+    def transport_stop(self):
+        return self._cmd("stop_playback")
 
-    def transport_tempo(self, bpm: float) -> dict:
-        return self._cmd("/transport/tempo", float(bpm))
+    def transport_tempo(self, bpm):
+        return self._cmd("set_tempo", {"tempo": float(bpm)})
 
-    # Scenes
+    def clip_create(self, track, slot, length_beats):
+        return self._cmd("create_clip", {
+            "track_index": int(track), "clip_index": int(slot), "length": float(length_beats)})
 
-    def scene_fire(self, index: int) -> dict:
-        return self._cmd("/scene/fire", int(index))
+    def clip_clear(self, track, slot):
+        return self._cmd("clear_clip", {"track_index": int(track), "clip_index": int(slot)})
 
-    # Clips
+    def clip_write(self, track, slot, notes_path):
+        p = Path(notes_path)
+        if not p.exists():
+            return {"status": "error", "message": f"notes file not found: {p}"}
+        notes = json.loads(p.read_text()).get("notes", [])
+        self.clip_clear(track, slot)
+        return self._cmd("add_notes_to_clip", {
+            "track_index": int(track), "clip_index": int(slot), "notes": notes})
 
-    def clip_create(self, track: int, slot: int, length_beats: float) -> dict:
-        return self._cmd("/clip/create", int(track), int(slot), float(length_beats))
+    def clip_fire(self, track, slot):
+        return self._cmd("fire_clip", {"track_index": int(track), "clip_index": int(slot)})
 
-    def clip_clear(self, track: int, slot: int) -> dict:
-        return self._cmd("/clip/clear", int(track), int(slot))
+    def clip_stop(self, track, slot):
+        return self._cmd("stop_clip", {"track_index": int(track), "clip_index": int(slot)})
 
-    def clip_write(self, track: int, slot: int, notes_path: str) -> dict:
-        """Replace all notes in clip from a JSON file."""
-        return self._cmd("/clip/write", int(track), int(slot), str(notes_path))
+    def clip_set_name(self, track, slot, name):
+        return self._cmd("set_clip_name", {
+            "track_index": int(track), "clip_index": int(slot), "name": name})
 
-    def clip_append(self, track: int, slot: int, notes_path: str) -> dict:
-        """Append notes to clip from a JSON file."""
-        return self._cmd("/clip/append", int(track), int(slot), str(notes_path))
-
-    # Reporter
-
-    def reporter_dump(self, output_path: str | None = None) -> dict:
-        if output_path:
-            return self._cmd("/reporter/dump", str(output_path))
-        return self._cmd("/reporter/dump")
-
-
-# ---------------------------------------------------------------------------
-# CLI helpers
-# ---------------------------------------------------------------------------
-
-def _require_args(parsed, names: list[str]):
-    for name in names:
-        if getattr(parsed, name, None) is None:
-            log.error("missing required argument: %s", name)
-            sys.exit(1)
+    def reporter_dump(self, output_path=None):
+        r = self._cmd("get_session_info")
+        if r.get("status") != "success":
+            return r
+        out = Path(output_path) if output_path else Path("outputs/live_state.json")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(r.get("result", {}), indent=2))
+        return {"status": "success", "result": {"path": str(out)}}
 
 
-def _print_result(r: dict):
-    status = r.get("status", "?")
-    if status == "ok":
-        print(f"ok  {r.get('address', '')}")
-    elif status == "error":
-        print(f"error  {r.get('address', '')}  {r.get('message', '')}", file=sys.stderr)
-        sys.exit(1)
+def _print_result(r):
+    if r.get("status") == "success":
+        result = r.get("result", {})
+        print(json.dumps(result, indent=2) if result else "ok")
     else:
-        print(f"timeout — no response from bridge (is iron-static-bridge.amxd loaded in Live?)",
-              file=sys.stderr)
-        sys.exit(2)
+        print(f"error: {r.get('message', 'unknown')}", file=sys.stderr)
+        sys.exit(1)
 
-
-# ---------------------------------------------------------------------------
-# CLI entry point
-# ---------------------------------------------------------------------------
 
 def main():
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
-
-    p = argparse.ArgumentParser(
-        description="IRON STATIC bridge client — sends OSC commands to Ableton Live",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__
-    )
-    p.add_argument("--host",    default=BRIDGE_HOST,    help="bridge host (default: 127.0.0.1)")
-    p.add_argument("--tx-port", type=int, default=BRIDGE_TX_PORT, help="bridge receive port (default: 7400)")
-    p.add_argument("--timeout", type=float, default=RESPONSE_TIMEOUT, help="response timeout in seconds")
+    p = argparse.ArgumentParser(description="IRON STATIC bridge client")
+    p.add_argument("--host",    default=BRIDGE_HOST)
+    p.add_argument("--port",    type=int, default=BRIDGE_PORT)
+    p.add_argument("--timeout", type=float, default=CONNECT_TIMEOUT)
     p.add_argument("-v", "--verbose", action="store_true")
-
     sub = p.add_subparsers(dest="group", required=True)
 
-    # ping
-    sub.add_parser("ping", help="check if bridge is alive")
+    sub.add_parser("ping")
+    sub.add_parser("info")
 
-    # transport
-    tp = sub.add_parser("transport", help="transport commands")
+    tp = sub.add_parser("transport")
     tp_sub = tp.add_subparsers(dest="action", required=True)
     tp_sub.add_parser("play")
     tp_sub.add_parser("stop")
-    tp_tempo = tp_sub.add_parser("tempo")
-    tp_tempo.add_argument("bpm", type=float)
+    tp_sub.add_parser("tempo").add_argument("bpm", type=float)
 
-    # scene
-    sc = sub.add_parser("scene", help="scene commands")
-    sc_sub = sc.add_subparsers(dest="action", required=True)
-    sc_fire = sc_sub.add_parser("fire")
-    sc_fire.add_argument("index", type=int)
-
-    # clip
-    cl = sub.add_parser("clip", help="clip commands")
+    cl = sub.add_parser("clip")
     cl_sub = cl.add_subparsers(dest="action", required=True)
+    for name, xargs in [("create", [("track",int),("slot",int),("beats",float)]),
+                        ("clear",  [("track",int),("slot",int)]),
+                        ("write",  [("track",int),("slot",int),("notes_file",Path)]),
+                        ("fire",   [("track",int),("slot",int)]),
+                        ("stop",   [("track",int),("slot",int)])]:
+        sp = cl_sub.add_parser(name)
+        for a, t in xargs:
+            sp.add_argument(a, type=t)
 
-    cl_create = cl_sub.add_parser("create")
-    cl_create.add_argument("track", type=int)
-    cl_create.add_argument("slot",  type=int)
-    cl_create.add_argument("beats", type=float)
-
-    cl_clear = cl_sub.add_parser("clear")
-    cl_clear.add_argument("track", type=int)
-    cl_clear.add_argument("slot",  type=int)
-
-    cl_write = cl_sub.add_parser("write")
-    cl_write.add_argument("track", type=int)
-    cl_write.add_argument("slot",  type=int)
-    cl_write.add_argument("notes_file", type=Path)
-
-    cl_append = cl_sub.add_parser("append")
-    cl_append.add_argument("track", type=int)
-    cl_append.add_argument("slot",  type=int)
-    cl_append.add_argument("notes_file", type=Path)
-
-    # reporter
-    rp = sub.add_parser("reporter", help="session state reporter")
+    rp = sub.add_parser("reporter")
     rp_sub = rp.add_subparsers(dest="action", required=True)
-    rp_dump = rp_sub.add_parser("dump")
-    rp_dump.add_argument("output_file", type=Path, nargs="?",
-                          help="override output path (default: outputs/live_state.json)")
+    rp_sub.add_parser("dump").add_argument("output_file", type=Path, nargs="?")
 
     args = p.parse_args()
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    with BridgeClient(host=args.host, port=args.tx_port, timeout=args.timeout) as b:
-
+    with BridgeClient(host=args.host, port=args.port, timeout=args.timeout) as b:
         if args.group == "ping":
-            _print_result(b._cmd("/ping"))
-
+            ok = b.ping()
+            print("ok -- Live is connected" if ok else "error -- no response")
+            sys.exit(0 if ok else 1)
+        elif args.group == "info":
+            _print_result(b.get_session_info())
         elif args.group == "transport":
-            if args.action == "play":
-                _print_result(b.transport_play())
-            elif args.action == "stop":
-                _print_result(b.transport_stop())
-            elif args.action == "tempo":
-                _print_result(b.transport_tempo(args.bpm))
-
-        elif args.group == "scene":
-            if args.action == "fire":
-                _print_result(b.scene_fire(args.index))
-
+            if args.action == "play":    _print_result(b.transport_play())
+            elif args.action == "stop":  _print_result(b.transport_stop())
+            elif args.action == "tempo": _print_result(b.transport_tempo(args.bpm))
         elif args.group == "clip":
-            if args.action == "create":
-                _print_result(b.clip_create(args.track, args.slot, args.beats))
-            elif args.action == "clear":
-                _print_result(b.clip_clear(args.track, args.slot))
-            elif args.action == "write":
-                if not args.notes_file.exists():
-                    print(f"error: notes file not found: {args.notes_file}", file=sys.stderr)
-                    sys.exit(1)
-                _print_result(b.clip_write(args.track, args.slot, str(args.notes_file.resolve())))
-            elif args.action == "append":
-                if not args.notes_file.exists():
-                    print(f"error: notes file not found: {args.notes_file}", file=sys.stderr)
-                    sys.exit(1)
-                _print_result(b.clip_append(args.track, args.slot, str(args.notes_file.resolve())))
-
+            if args.action == "create":  _print_result(b.clip_create(args.track, args.slot, args.beats))
+            elif args.action == "clear": _print_result(b.clip_clear(args.track, args.slot))
+            elif args.action == "write": _print_result(b.clip_write(args.track, args.slot, args.notes_file))
+            elif args.action == "fire":  _print_result(b.clip_fire(args.track, args.slot))
+            elif args.action == "stop":  _print_result(b.clip_stop(args.track, args.slot))
         elif args.group == "reporter":
-            if args.action == "dump":
-                path = str(args.output_file.resolve()) if args.output_file else None
-                _print_result(b.reporter_dump(path))
+            out = str(args.output_file) if getattr(args, "output_file", None) else None
+            _print_result(b.reporter_dump(out))
 
 
 if __name__ == "__main__":
