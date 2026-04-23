@@ -38,6 +38,8 @@ INSTRUMENT_SLUGS = {
     "dfam":         "moog-dfam",
     "subharmonicon":"moog-subharmonicon",
     "minibrute2s":  "arturia-minibrute-2s",
+    "rytm":         "elektron-analog-rytm",
+    "pigments":     "arturia-pigments",
 }
 
 # ---------------------------------------------------------------------------

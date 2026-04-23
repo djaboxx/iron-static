@@ -1,0 +1,704 @@
+{
+  "instrument": "rytm",
+  "source_manual": "Analog-Rytm-MKII-User-Manual_ENG_OS1.72_250130.txt",
+  "notes": [
+    "Entries keyed by 14-bit NRPN number = NRPN_MSB*128 + NRPN_LSB",
+    "cc_msb/cc_lsb may be null when not listed in a given table row.",
+    "Verify name offsets for SysEx parsing separately; name_offset left unset in sysex_capture.py unless you ask."
+  ],
+  "params": {
+    "384": {
+      "name": "Note",
+      "cc_msb": 3,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 0
+    },
+    "385": {
+      "name": "Velocity",
+      "cc_msb": 4,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 1
+    },
+    "386": {
+      "name": "Length",
+      "cc_msb": 5,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 2
+    },
+    "387": {
+      "name": "Synth Trig",
+      "cc_msb": 11,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 3
+    },
+    "388": {
+      "name": "Sample Trig",
+      "cc_msb": 12,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 4
+    },
+    "389": {
+      "name": "ENV Trig",
+      "cc_msb": 13,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 5
+    },
+    "390": {
+      "name": "LFO TRIG",
+      "cc_msb": 14,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 6
+    },
+    "392": {
+      "name": "Pulse Generator 1",
+      "cc_msb": 86,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 8
+    },
+    "393": {
+      "name": "Pulse Generator 2",
+      "cc_msb": 87,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 9
+    },
+    "398": {
+      "name": "Euclidean on/off",
+      "cc_msb": 117,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 14
+    },
+    "395": {
+      "name": "Rotation Generator 1",
+      "cc_msb": 89,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 11
+    },
+    "396": {
+      "name": "Rotation Generator 2",
+      "cc_msb": 90,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 12
+    },
+    "397": {
+      "name": "Track Rotation",
+      "cc_msb": 91,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 13
+    },
+    "394": {
+      "name": "Boolean Operator",
+      "cc_msb": 88,
+      "cc_lsb": null,
+      "nrpn_msb": 3,
+      "nrpn_lsb": 10
+    },
+    "228": {
+      "name": "Track Level",
+      "cc_msb": 95,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 100
+    },
+    "229": {
+      "name": "Track Mute (seq. mute)",
+      "cc_msb": 94,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 101
+    },
+    "230": {
+      "name": "Track Solo (seq. mute)",
+      "cc_msb": 93,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 102
+    },
+    "231": {
+      "name": "Track Machine Type",
+      "cc_msb": 15,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 103
+    },
+    "232": {
+      "name": "Active Scene",
+      "cc_msb": 92,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 104
+    },
+    "0": {
+      "name": "Performance Parameter 1",
+      "cc_msb": 35,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 0
+    },
+    "1": {
+      "name": "Performance Parameter 2",
+      "cc_msb": 36,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 1
+    },
+    "2": {
+      "name": "Performance Parameter 3",
+      "cc_msb": 37,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 2
+    },
+    "3": {
+      "name": "Performance Parameter 4",
+      "cc_msb": 39,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 3
+    },
+    "4": {
+      "name": "Performance Parameter 5",
+      "cc_msb": 40,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 4
+    },
+    "5": {
+      "name": "Performance Parameter 6",
+      "cc_msb": 41,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 5
+    },
+    "6": {
+      "name": "Performance Parameter 7",
+      "cc_msb": 42,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 6
+    },
+    "7": {
+      "name": "Performance Parameter 8",
+      "cc_msb": 43,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 7
+    },
+    "8": {
+      "name": "Performance Parameter 9",
+      "cc_msb": 44,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 8
+    },
+    "9": {
+      "name": "Performance Parameter 10",
+      "cc_msb": 45,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 9
+    },
+    "10": {
+      "name": "Performance Parameter 11",
+      "cc_msb": 46,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 10
+    },
+    "11": {
+      "name": "Performance Parameter 12",
+      "cc_msb": 47,
+      "cc_lsb": null,
+      "nrpn_msb": 0,
+      "nrpn_lsb": 11
+    },
+    "128": {
+      "name": "Level",
+      "cc_msb": 16,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 0
+    },
+    "129": {
+      "name": "Attack",
+      "cc_msb": 17,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 1
+    },
+    "130": {
+      "name": "Decay",
+      "cc_msb": 18,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 2
+    },
+    "131": {
+      "name": "Polarity",
+      "cc_msb": 19,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 3
+    },
+    "132": {
+      "name": "Sweep Time",
+      "cc_msb": 20,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 4
+    },
+    "133": {
+      "name": "LP Resonance",
+      "cc_msb": 21,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 5
+    },
+    "134": {
+      "name": "HP Frequency",
+      "cc_msb": 22,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 6
+    },
+    "135": {
+      "name": "Attack",
+      "cc_msb": 23,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 7
+    },
+    "136": {
+      "name": "Sample Tune",
+      "cc_msb": 24,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 8
+    },
+    "137": {
+      "name": "Sample Fine tune",
+      "cc_msb": 25,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 9
+    },
+    "138": {
+      "name": "Sample Bit Reduction",
+      "cc_msb": 26,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 10
+    },
+    "139": {
+      "name": "Sample Slot",
+      "cc_msb": 27,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 11
+    },
+    "140": {
+      "name": "Sample Start",
+      "cc_msb": 28,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 12
+    },
+    "141": {
+      "name": "Sample End",
+      "cc_msb": 29,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 13
+    },
+    "142": {
+      "name": "Sample Loop",
+      "cc_msb": 30,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 14
+    },
+    "143": {
+      "name": "Sample Level",
+      "cc_msb": 31,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 15
+    },
+    "144": {
+      "name": "Filter Attack Time",
+      "cc_msb": 70,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 16
+    },
+    "145": {
+      "name": "Filter Decay Time",
+      "cc_msb": 71,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 17
+    },
+    "146": {
+      "name": "Filter Sustain Level",
+      "cc_msb": 72,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 18
+    },
+    "147": {
+      "name": "Filter Release Time",
+      "cc_msb": 73,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 19
+    },
+    "148": {
+      "name": "Filter Frequency",
+      "cc_msb": 74,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 20
+    },
+    "149": {
+      "name": "Filter Resonance",
+      "cc_msb": 75,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 21
+    },
+    "150": {
+      "name": "Filter Mode",
+      "cc_msb": 76,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 22
+    },
+    "151": {
+      "name": "Filter Env Depth",
+      "cc_msb": 77,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 23
+    },
+    "152": {
+      "name": "Amp Attack Time",
+      "cc_msb": 78,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 24
+    },
+    "153": {
+      "name": "Amp Hold Time",
+      "cc_msb": 79,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 25
+    },
+    "154": {
+      "name": "Amp Decay Time",
+      "cc_msb": 80,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 26
+    },
+    "155": {
+      "name": "Amp Overdrive",
+      "cc_msb": 81,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 27
+    },
+    "156": {
+      "name": "Amp Delay Send",
+      "cc_msb": 82,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 28
+    },
+    "157": {
+      "name": "Amp Reverb Send",
+      "cc_msb": 83,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 29
+    },
+    "158": {
+      "name": "Amp Pan",
+      "cc_msb": 10,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 30
+    },
+    "159": {
+      "name": "Amp Volume",
+      "cc_msb": 7,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 31
+    },
+    "160": {
+      "name": "LFO Speed",
+      "cc_msb": 102,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 32
+    },
+    "161": {
+      "name": "LFO Multiplier",
+      "cc_msb": 103,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 33
+    },
+    "162": {
+      "name": "LFO Fade In/Out",
+      "cc_msb": 104,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 34
+    },
+    "163": {
+      "name": "LFO Destination",
+      "cc_msb": 105,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 35
+    },
+    "164": {
+      "name": "LFO Waveform",
+      "cc_msb": 106,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 36
+    },
+    "165": {
+      "name": "LFO Start Phase",
+      "cc_msb": 107,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 37
+    },
+    "166": {
+      "name": "LFO Trig Mode",
+      "cc_msb": 108,
+      "cc_lsb": null,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 38
+    },
+    "167": {
+      "name": "LFO Depth",
+      "cc_msb": 109,
+      "cc_lsb": 118,
+      "nrpn_msb": 1,
+      "nrpn_lsb": 39
+    },
+    "256": {
+      "name": "Delay Time",
+      "cc_msb": 16,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 0
+    },
+    "257": {
+      "name": "Delay Pingpong",
+      "cc_msb": 17,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 1
+    },
+    "258": {
+      "name": "Delay Stereo Width",
+      "cc_msb": 18,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 2
+    },
+    "259": {
+      "name": "Delay Feedback",
+      "cc_msb": 19,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 3
+    },
+    "260": {
+      "name": "Delay Highpass Filter",
+      "cc_msb": 20,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 4
+    },
+    "261": {
+      "name": "Delay Lowpass Filter",
+      "cc_msb": 21,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 5
+    },
+    "262": {
+      "name": "Delay Reverb Send",
+      "cc_msb": 22,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 6
+    },
+    "263": {
+      "name": "Delay Mix Volume",
+      "cc_msb": 23,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 7
+    },
+    "264": {
+      "name": "Reverb Predelay",
+      "cc_msb": 24,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 8
+    },
+    "265": {
+      "name": "Reverb Decay Time",
+      "cc_msb": 25,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 9
+    },
+    "266": {
+      "name": "Reverb Shelving Freq",
+      "cc_msb": 26,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 10
+    },
+    "267": {
+      "name": "Reverb Shelving Gain",
+      "cc_msb": 27,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 11
+    },
+    "268": {
+      "name": "Reverb Highpass Filter",
+      "cc_msb": 28,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 12
+    },
+    "269": {
+      "name": "Reverb Lowpass Filter",
+      "cc_msb": 29,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 13
+    },
+    "271": {
+      "name": "Reverb Mix Volume",
+      "cc_msb": 31,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 15
+    },
+    "272": {
+      "name": "Dist Amount",
+      "cc_msb": 70,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 16
+    },
+    "273": {
+      "name": "Dist Symmetry",
+      "cc_msb": 71,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 17
+    },
+    "274": {
+      "name": "Delay Overdrive",
+      "cc_msb": 72,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 18
+    },
+    "278": {
+      "name": "Delay Dist/Comp Routing (pre/post)",
+      "cc_msb": 76,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 22
+    },
+    "279": {
+      "name": "Reverb Dist/Comp Routing (pre/post)",
+      "cc_msb": 77,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 23
+    },
+    "280": {
+      "name": "Compressor Threshold",
+      "cc_msb": 78,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 24
+    },
+    "281": {
+      "name": "Compressor Attack Time",
+      "cc_msb": 79,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 25
+    },
+    "282": {
+      "name": "Compressor Release Time",
+      "cc_msb": 80,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 26
+    },
+    "283": {
+      "name": "Compressor Makeup Gain",
+      "cc_msb": 81,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 27
+    },
+    "284": {
+      "name": "Compressor Ratio",
+      "cc_msb": 82,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 28
+    },
+    "285": {
+      "name": "Compressor Sidechain EQ",
+      "cc_msb": 83,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 29
+    },
+    "286": {
+      "name": "Compressor Dry/Wet Mix",
+      "cc_msb": 84,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 30
+    },
+    "287": {
+      "name": "Compressor Output Volume",
+      "cc_msb": 85,
+      "cc_lsb": null,
+      "nrpn_msb": 2,
+      "nrpn_lsb": 31
+    }
+  }
+}

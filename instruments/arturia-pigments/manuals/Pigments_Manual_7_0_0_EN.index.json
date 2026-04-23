@@ -1,0 +1,1029 @@
+{
+  "manual": "Pigments_Manual_7_0_0_EN.pdf",
+  "pdf_path": "instruments/arturia-pigments/manuals/Pigments_Manual_7_0_0_EN.pdf",
+  "txt_path": "instruments/arturia-pigments/manuals/Pigments_Manual_7_0_0_EN.txt",
+  "indexed_at": "2026-04-23T00:11:37.896020",
+  "page_count": 280,
+  "sections": [
+    {
+      "title": "USER MANUAL",
+      "page": 1
+    },
+    {
+      "title": "Special Thanks",
+      "page": 2
+    },
+    {
+      "title": "DIRECTION",
+      "page": 2
+    },
+    {
+      "title": "PIGMENTS 7 TEAM",
+      "page": 2
+    },
+    {
+      "title": "PROJECT MANAGEMENT",
+      "page": 2
+    },
+    {
+      "title": "Samuel Limier",
+      "page": 2
+    },
+    {
+      "title": "PRODUCT MANAGEMENT",
+      "page": 2
+    },
+    {
+      "title": "DIGITAL SIGNAL PROCESSING",
+      "page": 2
+    },
+    {
+      "title": "DSP LIBRARIES",
+      "page": 2
+    },
+    {
+      "title": "SOFTWARE",
+      "page": 2
+    },
+    {
+      "title": "SOFTWARE LIBRARIES",
+      "page": 2
+    },
+    {
+      "title": "DESIGN",
+      "page": 2
+    },
+    {
+      "title": "SOUND DESIGN",
+      "page": 3
+    },
+    {
+      "title": "QUALITY ASSURANCE",
+      "page": 3
+    },
+    {
+      "title": "MANUAL",
+      "page": 3
+    },
+    {
+      "title": "IN-APP TUTORIALS",
+      "page": 3
+    },
+    {
+      "title": "Gustavo Bravetti",
+      "page": 3
+    },
+    {
+      "title": "BETA TESTING",
+      "page": 3
+    },
+    {
+      "title": "FRANCE",
+      "page": 3
+    },
+    {
+      "title": "Special Messages",
+      "page": 5
+    },
+    {
+      "title": "Precautions to Take During Use",
+      "page": 5
+    },
+    {
+      "title": "Introduction",
+      "page": 6
+    },
+    {
+      "title": "The Arturia team",
+      "page": 6
+    },
+    {
+      "title": "Table Of Contents",
+      "page": 7
+    },
+    {
+      "title": "1. WELCOME TO PIGMENTS 7",
+      "page": 14
+    },
+    {
+      "title": "2. ACTIVATION AND FIRST START",
+      "page": 22
+    },
+    {
+      "title": "Pigments Main Menu",
+      "page": 24
+    },
+    {
+      "title": "3. OVERVIEW AND USER INTERFACE",
+      "page": 28
+    },
+    {
+      "title": "Section                      Description",
+      "page": 28
+    },
+    {
+      "title": "The Save As window",
+      "page": 31
+    },
+    {
+      "title": "The Import Preset standby",
+      "page": 31
+    },
+    {
+      "title": "Export Preset and Export Bank",
+      "page": 32
+    },
+    {
+      "title": "The Export Preset option",
+      "page": 32
+    },
+    {
+      "title": "The Resize Window menu",
+      "page": 33
+    },
+    {
+      "title": "Scroll through the About display to see",
+      "page": 35
+    },
+    {
+      "title": "Pigments",
+      "page": 35
+    },
+    {
+      "title": "The Play View as it appears in Pigments 7",
+      "page": 38
+    },
+    {
+      "title": "1.   Engine 1 tab [p.78]",
+      "page": 39
+    },
+    {
+      "title": "2.    Engine 2 tab [p.78]",
+      "page": 39
+    },
+    {
+      "title": "3.    Utility Engine Tab [p.145]",
+      "page": 39
+    },
+    {
+      "title": "4.    Filter section [p.154]",
+      "page": 39
+    },
+    {
+      "title": "5.    Filter Routing/Amp Mod section [p.173]",
+      "page": 39
+    },
+    {
+      "title": "A note about Slide Mode",
+      "page": 46
+    },
+    {
+      "title": "MIDI Learn mode as it appears in the Synth view",
+      "page": 47
+    },
+    {
+      "title": "Play Mode sets Polyphony",
+      "page": 51
+    },
+    {
+      "title": "4. THE PRESET BROWSER",
+      "page": 54
+    },
+    {
+      "title": "Number    Area                 Description",
+      "page": 54
+    },
+    {
+      "title": "Search and Results",
+      "page": 54
+    },
+    {
+      "title": "2.        Sidebar [p.55]       Manage Banks, Favorites, and Playlists",
+      "page": 54
+    },
+    {
+      "title": "3.        Preset info [p.57]",
+      "page": 54
+    },
+    {
+      "title": "Search results displayed beneath Type tags",
+      "page": 59
+    },
+    {
+      "title": "Dragging a preset to a Playlist",
+      "page": 68
+    },
+    {
+      "title": "5. THE PLAY VIEW",
+      "page": 70
+    },
+    {
+      "title": "Number         Name                  Description",
+      "page": 71
+    },
+    {
+      "title": "Preset/Preset",
+      "page": 71
+    },
+    {
+      "title": "Selector",
+      "page": 71
+    },
+    {
+      "title": "2.             Macros",
+      "page": 71
+    },
+    {
+      "title": "Sound",
+      "page": 71
+    },
+    {
+      "title": "Engines",
+      "page": 71
+    },
+    {
+      "title": "4.             Filters",
+      "page": 71
+    },
+    {
+      "title": "Amplitude",
+      "page": 71
+    },
+    {
+      "title": "Envelope",
+      "page": 71
+    },
+    {
+      "title": "6.             Effects",
+      "page": 71
+    },
+    {
+      "title": "Controls              a Hold button",
+      "page": 71
+    },
+    {
+      "title": "6. INTRODUCTION TO SOUND ENGINES",
+      "page": 84
+    },
+    {
+      "title": "Harmonic engines",
+      "page": 84
+    },
+    {
+      "title": "Engine Name                  Description",
+      "page": 84
+    },
+    {
+      "title": "Engine Name                         Description",
+      "page": 85
+    },
+    {
+      "title": "Tuning controls for the",
+      "page": 87
+    },
+    {
+      "title": "Analog engine in",
+      "page": 87
+    },
+    {
+      "title": "Sample engine",
+      "page": 88
+    },
+    {
+      "title": "All engine types offer keyboard tracking in",
+      "page": 89
+    },
+    {
+      "title": "7. THE ANALOG ENGINE",
+      "page": 90
+    },
+    {
+      "title": "The Pigments Analog engine",
+      "page": 90
+    },
+    {
+      "title": "Control             Description",
+      "page": 90
+    },
+    {
+      "title": "Waveform",
+      "page": 91
+    },
+    {
+      "title": "8. THE WAVETABLE ENGINE",
+      "page": 96
+    },
+    {
+      "title": "The Pigments Wavetable engine",
+      "page": 96
+    },
+    {
+      "title": "The Wavetable visualizer in 3D view",
+      "page": 96
+    },
+    {
+      "title": "The Wavetable visualizer in 2D view",
+      "page": 97
+    },
+    {
+      "title": "The Wavetable Morph button",
+      "page": 97
+    },
+    {
+      "title": "Option         Description",
+      "page": 101
+    },
+    {
+      "title": "Source Name     Description",
+      "page": 102
+    },
+    {
+      "title": "Source Name           Description",
+      "page": 103
+    },
+    {
+      "title": "2.   Disable the Morph feature in the Wavetable parameter set.",
+      "page": 103
+    },
+    {
+      "title": "3.   Select the Skew waveform as your Source.",
+      "page": 103
+    },
+    {
+      "title": "Tuning method          Description",
+      "page": 107
+    },
+    {
+      "title": "Waveform      Description",
+      "page": 108
+    },
+    {
+      "title": "Sawtooth      Starts positive and falls",
+      "page": 108
+    },
+    {
+      "title": "9. THE SAMPLE ENGINE",
+      "page": 112
+    },
+    {
+      "title": "The Pigments Sample engine",
+      "page": 112
+    },
+    {
+      "title": "3.   Use the sample browser to import from a different source.",
+      "page": 112
+    },
+    {
+      "title": "Number        Name           Description",
+      "page": 117
+    },
+    {
+      "title": "Loop",
+      "page": 117
+    },
+    {
+      "title": "Number    Name       Description",
+      "page": 118
+    },
+    {
+      "title": "The grain shape",
+      "page": 123
+    },
+    {
+      "title": "Pop-Up",
+      "page": 124
+    },
+    {
+      "title": "Control       Description",
+      "page": 124
+    },
+    {
+      "title": "Options",
+      "page": 124
+    },
+    {
+      "title": "Start",
+      "page": 124
+    },
+    {
+      "title": "Pitch         Randomizes the pitch of grains",
+      "page": 124
+    },
+    {
+      "title": "Both",
+      "page": 124
+    },
+    {
+      "title": "Control        Description",
+      "page": 125
+    },
+    {
+      "title": "Density        Randomizes the Density setting",
+      "page": 125
+    },
+    {
+      "title": "Less Dense",
+      "page": 125
+    },
+    {
+      "title": "10. THE HARMONIC ENGINE",
+      "page": 128
+    },
+    {
+      "title": "The Pigments Harmonic engine",
+      "page": 128
+    },
+    {
+      "title": "The drop-down Partials Limit menu",
+      "page": 129
+    },
+    {
+      "title": "The partials viewer",
+      "page": 130
+    },
+    {
+      "title": "11. THE MODAL ENGINE",
+      "page": 138
+    },
+    {
+      "title": "The Pigments Modal engine",
+      "page": 138
+    },
+    {
+      "title": "The Resonator section",
+      "page": 139
+    },
+    {
+      "title": "The four modes of the Friction Exciter",
+      "page": 146
+    },
+    {
+      "title": "12. THE UTILITY ENGINE",
+      "page": 151
+    },
+    {
+      "title": "The Pigments Utility engine",
+      "page": 151
+    },
+    {
+      "title": "13. ENGINE CROSS MODULATION",
+      "page": 156
+    },
+    {
+      "title": "14. THE FILTERS",
+      "page": 160
+    },
+    {
+      "title": "Parameter      Description",
+      "page": 164
+    },
+    {
+      "title": "Parameter            Description",
+      "page": 165
+    },
+    {
+      "title": "Parameter     Description",
+      "page": 166
+    },
+    {
+      "title": "Parameter          Description",
+      "page": 167
+    },
+    {
+      "title": "Parameter         Description",
+      "page": 168
+    },
+    {
+      "title": "Parameter                   Description",
+      "page": 169
+    },
+    {
+      "title": "Parameter                         Description",
+      "page": 171
+    },
+    {
+      "title": "Frequency",
+      "page": 171
+    },
+    {
+      "title": "Modulation         amount",
+      "page": 171
+    },
+    {
+      "title": "Kbd                Adjusts keyboard tracking amount",
+      "page": 172
+    },
+    {
+      "title": "All-Pass           Defines the all-pass frequency",
+      "page": 172
+    },
+    {
+      "title": "Parameter                               Description",
+      "page": 173
+    },
+    {
+      "title": "Cutoff",
+      "page": 173
+    },
+    {
+      "title": "Parameter                     Description",
+      "page": 174
+    },
+    {
+      "title": "Modulation",
+      "page": 175
+    },
+    {
+      "title": "Mode",
+      "page": 177
+    },
+    {
+      "title": "15. FILTER ROUTING AND OUTPUT SECTION",
+      "page": 179
+    },
+    {
+      "title": "The filter blend knob is",
+      "page": 181
+    },
+    {
+      "title": "Amp Mod sources",
+      "page": 182
+    },
+    {
+      "title": "16. EFFECTS",
+      "page": 184
+    },
+    {
+      "title": "The FX selection menu",
+      "page": 185
+    },
+    {
+      "title": "The preset menu for each",
+      "page": 186
+    },
+    {
+      "title": "Shimmer effect",
+      "page": 186
+    },
+    {
+      "title": "The Delay effect",
+      "page": 190
+    },
+    {
+      "title": "Time       /",
+      "page": 190
+    },
+    {
+      "title": "Time Div",
+      "page": 190
+    },
+    {
+      "title": "Control               Description",
+      "page": 191
+    },
+    {
+      "title": "The Tape Echo effect",
+      "page": 191
+    },
+    {
+      "title": "Control         Description",
+      "page": 191
+    },
+    {
+      "title": "Time      /",
+      "page": 191
+    },
+    {
+      "title": "Control            Description",
+      "page": 192
+    },
+    {
+      "title": "The Pitch-Shifting Delay effect",
+      "page": 192
+    },
+    {
+      "title": "Spray                 Adds jitter to the delay time",
+      "page": 192
+    },
+    {
+      "title": "The Reverb effect",
+      "page": 193
+    },
+    {
+      "title": "The Shimmer effect",
+      "page": 194
+    },
+    {
+      "title": "The Compressor effect",
+      "page": 195
+    },
+    {
+      "title": "Control                  Description",
+      "page": 195
+    },
+    {
+      "title": "Attack",
+      "page": 195
+    },
+    {
+      "title": "Output Gain",
+      "page": 195
+    },
+    {
+      "title": "Reduction",
+      "page": 195
+    },
+    {
+      "title": "The Multiband Compressor effect",
+      "page": 196
+    },
+    {
+      "title": "Control      Description",
+      "page": 196
+    },
+    {
+      "title": "Threshold",
+      "page": 196
+    },
+    {
+      "title": "Band On/",
+      "page": 196
+    },
+    {
+      "title": "Off Icons",
+      "page": 196
+    },
+    {
+      "title": "Crossover    and mid bands",
+      "page": 196
+    },
+    {
+      "title": "Crossover    and high bands",
+      "page": 196
+    },
+    {
+      "title": "Above/",
+      "page": 196
+    },
+    {
+      "title": "Below",
+      "page": 196
+    },
+    {
+      "title": "Toggle",
+      "page": 196
+    },
+    {
+      "title": "Amount",
+      "page": 196
+    },
+    {
+      "title": "Release",
+      "page": 197
+    },
+    {
+      "title": "Band",
+      "page": 197
+    },
+    {
+      "title": "Outputs",
+      "page": 197
+    },
+    {
+      "title": "The Multi Filter effect",
+      "page": 197
+    },
+    {
+      "title": "The Parametric EQ",
+      "page": 198
+    },
+    {
+      "title": "Control                                 Description",
+      "page": 198
+    },
+    {
+      "title": "Low / Peak X / High Q",
+      "page": 198
+    },
+    {
+      "title": "Ratio",
+      "page": 199
+    },
+    {
+      "title": "The Vocoder effect",
+      "page": 199
+    },
+    {
+      "title": "The Modulator selection",
+      "page": 200
+    },
+    {
+      "title": "The Distortion effect",
+      "page": 201
+    },
+    {
+      "title": "Control                Description",
+      "page": 201
+    },
+    {
+      "title": "Drive                  Sets the distortion amount",
+      "page": 201
+    },
+    {
+      "title": "The BitCrusher effect",
+      "page": 202
+    },
+    {
+      "title": "The Corroder effect",
+      "page": 203
+    },
+    {
+      "title": "Corroder modulation sources",
+      "page": 204
+    },
+    {
+      "title": "Source       time applied to the input",
+      "page": 204
+    },
+    {
+      "title": "Spread       Sets the stereo spread of the effect",
+      "page": 204
+    },
+    {
+      "title": "The Super Unison effect",
+      "page": 205
+    },
+    {
+      "title": "Control                 Description",
+      "page": 205
+    },
+    {
+      "title": "The Chorus effect",
+      "page": 206
+    },
+    {
+      "title": "Depth        Controls the depth of the chorus",
+      "page": 206
+    },
+    {
+      "title": "Rate         Adjusts the speed of the chorus",
+      "page": 206
+    },
+    {
+      "title": "Voices",
+      "page": 206
+    },
+    {
+      "title": "The JUN-6 Chorus effect",
+      "page": 207
+    },
+    {
+      "title": "Dry/",
+      "page": 207
+    },
+    {
+      "title": "Controls the mix of dry and chorused signals",
+      "page": 207
+    },
+    {
+      "title": "Wet",
+      "page": 207
+    },
+    {
+      "title": "Rate",
+      "page": 207
+    },
+    {
+      "title": "The Flanger effect",
+      "page": 208
+    },
+    {
+      "title": "Depth        Sets the modulation depth",
+      "page": 208
+    },
+    {
+      "title": "The BL-20 Flanger effect",
+      "page": 209
+    },
+    {
+      "title": "Control          Description",
+      "page": 209
+    },
+    {
+      "title": "Feedback",
+      "page": 209
+    },
+    {
+      "title": "Mono",
+      "page": 209
+    },
+    {
+      "title": "Input",
+      "page": 209
+    },
+    {
+      "title": "The Phaser effect",
+      "page": 210
+    },
+    {
+      "title": "The Stereo Pan effect",
+      "page": 211
+    },
+    {
+      "title": "Linear Toggle         signal only",
+      "page": 211
+    },
+    {
+      "title": "17. SEQUENCER AND ARPEGGIATOR",
+      "page": 212
+    },
+    {
+      "title": "Arpeggiator playback mode menu",
+      "page": 224
+    },
+    {
+      "title": "18. SOUND DESIGN TIPS",
+      "page": 226
+    },
+    {
+      "title": "19. MODULATION ROUTINGS",
+      "page": 230
+    },
+    {
+      "title": "An LFO being used as a unipolar mod",
+      "page": 240
+    },
+    {
+      "title": "An LFO being used as a bipolar mod",
+      "page": 240
+    },
+    {
+      "title": "The modulation sidechain menu",
+      "page": 245
+    },
+    {
+      "title": "Eight basic knob states in Pigments",
+      "page": 246
+    },
+    {
+      "title": "Knob     ring     is",
+      "page": 246
+    },
+    {
+      "title": "Knob            ring",
+      "page": 246
+    },
+    {
+      "title": "Plus     sign     to",
+      "page": 246
+    },
+    {
+      "title": "Knob        may       have",
+      "page": 246
+    },
+    {
+      "title": "Mod source of matching",
+      "page": 246
+    },
+    {
+      "title": "Knob is eligible as mod",
+      "page": 246
+    },
+    {
+      "title": "1.   Select the Default preset",
+      "page": 248
+    },
+    {
+      "title": "2.   Select the LFO tab from the Mod source groups",
+      "page": 248
+    },
+    {
+      "title": "4.   Click the LFO 1 Mod source in the Modulation overview window",
+      "page": 248
+    },
+    {
+      "title": "5.   Hover over the Engine 1 Coarse tune control.",
+      "page": 248
+    },
+    {
+      "title": "11.   Return the mod amount to 0.50 (50%).",
+      "page": 248
+    },
+    {
+      "title": "20. MODULATION SOURCES",
+      "page": 249
+    },
+    {
+      "title": "The Pigments virtual keyboard in the Synth view",
+      "page": 249
+    },
+    {
+      "title": "Control           Description",
+      "page": 254
+    },
+    {
+      "title": "Decay",
+      "page": 254
+    },
+    {
+      "title": "Retrig",
+      "page": 254
+    },
+    {
+      "title": "Source",
+      "page": 254
+    },
+    {
+      "title": "Symmetry",
+      "page": 256
+    },
+    {
+      "title": "KeyTrack/Fade/",
+      "page": 256
+    },
+    {
+      "title": "Smooth",
+      "page": 256
+    },
+    {
+      "title": "Polarity button",
+      "page": 256
+    },
+    {
+      "title": "Value          Description",
+      "page": 262
+    },
+    {
+      "title": "Parameter             Description",
+      "page": 268
+    },
+    {
+      "title": "Parameter               Description",
+      "page": 269
+    },
+    {
+      "title": "Length             Adjusts the length of the cycle",
+      "page": 270
+    },
+    {
+      "title": "Parameter    Description",
+      "page": 272
+    },
+    {
+      "title": "The Combinate tab",
+      "page": 273
+    },
+    {
+      "title": "Mod",
+      "page": 273
+    },
+    {
+      "title": "Decides the math process that will be",
+      "page": 273
+    },
+    {
+      "title": "Controls how much the Mod affects the",
+      "page": 273
+    },
+    {
+      "title": "1. Start with the Default preset.",
+      "page": 273
+    },
+    {
+      "title": "2. Select the Combinate tab.",
+      "page": 273
+    },
+    {
+      "title": "6. Return to the Combinate tab.",
+      "page": 273
+    },
+    {
+      "title": "15. We'll go through the rest of the example with LFO 2 as the Source.",
+      "page": 274
+    },
+    {
+      "title": "16. Set Amount to zero, and select Type: Threshold.",
+      "page": 274
+    },
+    {
+      "title": "19. Set Amount to zero, and select Type: Offset.",
+      "page": 274
+    },
+    {
+      "title": "Type                                     Formula",
+      "page": 275
+    },
+    {
+      "title": "Parameter       Description",
+      "page": 277
+    },
+    {
+      "title": "Gain",
+      "page": 277
+    },
+    {
+      "title": "21. SOFTWARE LICENSE AGREEMENT",
+      "page": 279
+    }
+  ]
+}

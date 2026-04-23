@@ -1,0 +1,176 @@
+{
+  "instrument": "pigments",
+  "name": "Arturia Pigments",
+  "version": "7.0",
+  "source_manual": "Pigments_Manual_7_0_0_EN.pdf",
+  "source_section": "Chapter 3.7 — MIDI (Pigments has no fixed NRPN table; all CCs except reserved ones are user-assignable via MIDI Learn per preset)",
+  "midi_model": "flexible_cc_learn",
+  "notes": [
+    "Pigments does NOT have a fixed MIDI implementation chart. Parameter-to-CC assignments are made per-preset via MIDI Learn (right-click any knob → MIDI Learn → move controller).",
+    "The only fixed MIDI messages are the reserved ones listed below.",
+    "All CC numbers not listed as reserved (2–10, 12–63, 65–122) can be assigned to any parameter.",
+    "Macros M1–M4 are the primary performance controls and should be the first thing mapped per patch.",
+    "CC assignments are saved at the PRESET level — each preset has its own map.",
+    "MPE is supported: per-note pitch bend, pressure (CC 74 by default for slide), and slide."
+  ],
+  "fixed_midi": {
+    "pitch_bend": {
+      "description": "Pitch bend — hardcoded, range configurable in Settings",
+      "reserved": true
+    },
+    "aftertouch": {
+      "description": "Channel Aftertouch — hardcoded, assignable as mod source internally",
+      "reserved": true
+    },
+    "cc_01": {
+      "cc": 1,
+      "name": "Modulation Wheel",
+      "description": "Hardcoded modulation wheel input. Assignable as a mod source internally.",
+      "reserved": true,
+      "range": "0–127"
+    },
+    "cc_07": {
+      "cc": 7,
+      "name": "Master Volume",
+      "description": "Controls Master Volume knob (+6 to -70 dB). Hardcoded default, always active.",
+      "reserved": true,
+      "range": "0–127"
+    },
+    "cc_11": {
+      "cc": 11,
+      "name": "Expression Controller",
+      "description": "Expression — hardcoded, assignable as mod source internally.",
+      "reserved": true,
+      "range": "0–127"
+    },
+    "cc_64": {
+      "cc": 64,
+      "name": "Sustain Pedal",
+      "description": "Sustain — hardcoded. 0 = off, 64+ = on.",
+      "reserved": true,
+      "range": "0 / 127"
+    },
+    "cc_123": {
+      "cc": 123,
+      "name": "All Notes Off",
+      "description": "Stops all active notes. Hardcoded.",
+      "reserved": true,
+      "range": "0"
+    },
+    "cc_74_mpe": {
+      "cc": 74,
+      "name": "MPE Slide (default)",
+      "description": "Default CC for MPE Slide. Configurable in Settings → MPE → Slide CC.",
+      "reserved": false,
+      "notes": "Only active when MPE mode is enabled."
+    }
+  },
+  "recommended_iron_static_assignments": {
+    "description": "Recommended CC map for Digitakt-driven MIDI control of Pigments in the IRON STATIC rig. Apply via MIDI Learn in each Pigments preset.",
+    "assignments": [
+      { "cc": 20, "target": "Macro 1 (M1)", "purpose": "Main performance macro — tie to filter sweep or texture shift", "digitakt_knob": "MIDI track knob A" },
+      { "cc": 21, "target": "Macro 2 (M2)", "purpose": "Dynamics / envelope macro — attack/release feel", "digitakt_knob": "MIDI track knob B" },
+      { "cc": 22, "target": "Macro 3 (M3)", "purpose": "Modulation depth macro — LFO amount, FM amount", "digitakt_knob": "MIDI track knob C" },
+      { "cc": 23, "target": "Macro 4 (M4)", "purpose": "Effect wet/dry or spatial parameter", "digitakt_knob": "MIDI track knob D" },
+      { "cc": 74, "target": "Filter 1 Cutoff (F1 Cutoff)", "purpose": "Primary filter sweep — standard CC74 per GM2 convention", "digitakt_knob": "MIDI track knob E" },
+      { "cc": 71, "target": "Filter 1 Resonance", "purpose": "Filter resonance/Q", "digitakt_knob": "MIDI track knob F" },
+      { "cc": 75, "target": "Filter 2 Cutoff (F2 Cutoff)", "purpose": "Second filter sweep for dual-filter patches", "digitakt_knob": "MIDI track knob G" },
+      { "cc": 76, "target": "Filter 2 Resonance", "purpose": "Filter 2 resonance", "digitakt_knob": "MIDI track knob H" },
+      { "cc": 73, "target": "Amp Envelope Attack", "purpose": "Attack time", "digitakt_knob": "Optional" },
+      { "cc": 72, "target": "Amp Envelope Release", "purpose": "Release time", "digitakt_knob": "Optional" },
+      { "cc": 91, "target": "FX 1 Wet/Dry (Reverb or Chorus)", "purpose": "Effect send", "digitakt_knob": "Optional" },
+      { "cc": 93, "target": "FX 2 Wet/Dry (Delay)", "purpose": "Delay mix", "digitakt_knob": "Optional" }
+    ]
+  },
+  "key_parameters": {
+    "global": [
+      { "name": "Master Volume", "cc_fixed": 7, "range": "0–127", "notes": "Always active" },
+      { "name": "Pitch Bend", "cc_fixed": "pitch_bend", "range": "configurable semitones" },
+      { "name": "Macro 1", "pigments_id": "M1", "notes": "User-assignable to any CC" },
+      { "name": "Macro 2", "pigments_id": "M2", "notes": "User-assignable to any CC" },
+      { "name": "Macro 3", "pigments_id": "M3", "notes": "User-assignable to any CC" },
+      { "name": "Macro 4", "pigments_id": "M4", "notes": "User-assignable to any CC" }
+    ],
+    "engine_1": [
+      { "name": "E1 Coarse Tune", "section": "Engine 1" },
+      { "name": "E1 Fine Tune", "section": "Engine 1" },
+      { "name": "E1 Volume", "section": "Engine 1" },
+      { "name": "E1 Wavetable Position", "section": "Engine 1 (Wavetable)" },
+      { "name": "E1 FM Amount", "section": "Engine 1 (Analog/Wavetable)" },
+      { "name": "E1 Unison Detune", "section": "Engine 1" },
+      { "name": "E1 Pan", "section": "Engine 1" }
+    ],
+    "engine_2": [
+      { "name": "E2 Coarse Tune", "section": "Engine 2" },
+      { "name": "E2 Fine Tune", "section": "Engine 2" },
+      { "name": "E2 Volume", "section": "Engine 2" },
+      { "name": "E2 Wavetable Position", "section": "Engine 2 (Wavetable)" },
+      { "name": "E2 FM Amount", "section": "Engine 2 (Analog/Wavetable)" },
+      { "name": "E2 Unison Detune", "section": "Engine 2" },
+      { "name": "E2 Pan", "section": "Engine 2" }
+    ],
+    "filters": [
+      { "name": "F1 Cutoff", "pigments_id": "F1 Cutoff", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 2-Pigments track" },
+      { "name": "F1 Resonance", "pigments_id": "F1 Resonance" },
+      { "name": "F1 Drive", "pigments_id": "F1 Drive" },
+      { "name": "F1 Env Amount", "pigments_id": "F1 Env Amount" },
+      { "name": "F2 Cutoff", "pigments_id": "F2 Cutoff", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 6-Pigments track" },
+      { "name": "F2 Resonance", "pigments_id": "F2 Resonance" },
+      { "name": "F2 FM Amount", "pigments_id": "F2 FM Amount", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 6-Pigments track" },
+      { "name": "Filter Blend", "pigments_id": "Filter Blend", "notes": "Blends between F1 and F2 output" }
+    ],
+    "envelopes": [
+      { "name": "Env A Attack", "section": "Envelope A" },
+      { "name": "Env A Decay", "section": "Envelope A" },
+      { "name": "Env A Sustain", "section": "Envelope A" },
+      { "name": "Env A Release", "section": "Envelope A" },
+      { "name": "Env B Attack", "section": "Envelope B" },
+      { "name": "Env B Decay", "section": "Envelope B" },
+      { "name": "Env B Sustain", "section": "Envelope B" },
+      { "name": "Env B Release", "section": "Envelope B" },
+      { "name": "Env C Attack", "section": "Envelope C" },
+      { "name": "Env C Decay", "section": "Envelope C" },
+      { "name": "Env C Sustain", "section": "Envelope C" },
+      { "name": "Env C Release", "section": "Envelope C" }
+    ],
+    "lfos": [
+      { "name": "LFO 1 Rate", "section": "LFO 1" },
+      { "name": "LFO 1 Amount", "section": "LFO 1" },
+      { "name": "LFO 2 Rate", "section": "LFO 2" },
+      { "name": "LFO 2 Amount", "section": "LFO 2" },
+      { "name": "LFO 3 Rate", "section": "LFO 3" },
+      { "name": "LFO 3 Amount", "section": "LFO 3" }
+    ],
+    "fx": [
+      { "name": "FX 1 Mix", "section": "FX Chain" },
+      { "name": "FX 2 Mix", "section": "FX Chain" },
+      { "name": "FX 3 Mix", "section": "FX Chain" },
+      { "name": "Delay Mix", "section": "FX — Delay", "observed_params": ["DELAY", "FEEDBACK", "MIX"] },
+      { "name": "Reverb Mix", "section": "FX — Reverb" }
+    ],
+    "sequencer": [
+      { "name": "Seq BPM", "section": "Sequencer", "observed_in_ventura": true },
+      { "name": "Seq Swing", "section": "Sequencer" },
+      { "name": "Seq Gate", "section": "Sequencer" }
+    ]
+  },
+  "mpe_support": {
+    "enabled": true,
+    "per_note_pitch_bend": true,
+    "per_note_pressure": true,
+    "slide_cc": 74,
+    "notes": "MPE mode is toggled in Settings. When enabled, Macro 1 label may show 'Mpe'."
+  },
+  "how_to_assign_cc": {
+    "steps": [
+      "1. Right-click (or Ctrl+click) any knob or slider in Pigments.",
+      "2. Select 'MIDI Learn'.",
+      "3. Move the physical controller or send the CC from the Digitakt.",
+      "4. The CC is now bound to that parameter for this preset.",
+      "5. Save the preset to persist the assignment."
+    ],
+    "remove_assignment": "Right-click the red-outlined control → Remove MIDI Assignment.",
+    "view_all_assignments": "Open the MIDI tab in the side panel (gear icon). The list shows all current CC assignments for the loaded preset.",
+    "templates": "Use the MIDI Controller Menu in the MIDI tab to load a template for Arturia controllers (KeyLab, etc.) or Generic."
+  }
+}

@@ -1,0 +1,1601 @@
+{
+  "manual": "Analog-Rytm-MKII-User-Manual_ENG_OS1.72_250130.pdf",
+  "pdf_path": "instruments/elektron-analog-rytm/manuals/Analog-Rytm-MKII-User-Manual_ENG_OS1.72_250130.pdf",
+  "txt_path": "instruments/elektron-analog-rytm/manuals/Analog-Rytm-MKII-User-Manual_ENG_OS1.72_250130.txt",
+  "indexed_at": "2026-04-22T23:45:40.174466",
+  "page_count": 114,
+  "sections": [
+    {
+      "title": "Analog Rytm MKII",
+      "page": 1
+    },
+    {
+      "title": "User Manual",
+      "page": 1
+    },
+    {
+      "title": "FCC compliance statement",
+      "page": 2
+    },
+    {
+      "title": "Canada",
+      "page": 2
+    },
+    {
+      "title": "European Union regulation compliance statement",
+      "page": 2
+    },
+    {
+      "title": "Legal disclaimer",
+      "page": 2
+    },
+    {
+      "title": "IMPORTANT SAFETY AND MAINTENANCE INSTRUCTIONS",
+      "page": 3
+    },
+    {
+      "title": "1. Do not use this unit near water.",
+      "page": 3
+    },
+    {
+      "title": "11. Use attachments/accessories specified by the manufacturer.",
+      "page": 3
+    },
+    {
+      "title": "WARNING",
+      "page": 3
+    },
+    {
+      "title": "SOUND PEAKS",
+      "page": 3
+    },
+    {
+      "title": "SAFETY INSTRUCTIONS FOR THE POWER ADAPTER",
+      "page": 3
+    },
+    {
+      "title": "TABLE OF CONTENTS",
+      "page": 4
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "page": 8
+    },
+    {
+      "title": "1.1 CONVENTIONS IN THIS MANUAL",
+      "page": 8
+    },
+    {
+      "title": "2. THE ANALOG RYTM MKII",
+      "page": 9
+    },
+    {
+      "title": "The Elektron Team",
+      "page": 9
+    },
+    {
+      "title": "3. PANEL LAYOUT AND CONNECTORS",
+      "page": 10
+    },
+    {
+      "title": "3.1 FRONT PANEL",
+      "page": 10
+    },
+    {
+      "title": "4. QUICK PERF AMOUNT sets the amount of the chosen performance macro.",
+      "page": 10
+    },
+    {
+      "title": "10. Screen.",
+      "page": 10
+    },
+    {
+      "title": "3.2 REAR CONNECTORS",
+      "page": 12
+    },
+    {
+      "title": "1. POWER. Turns the unit on and off.",
+      "page": 12
+    },
+    {
+      "title": "3. USB. Use an A to B USB 2.0 connector cable to a computer host.",
+      "page": 12
+    },
+    {
+      "title": "3.3 SETTING UP AND STARTING THE ANALOG RYTM MKII",
+      "page": 12
+    },
+    {
+      "title": "4. ANALOG RYTM MKII SOUND ARCHITECTURE",
+      "page": 13
+    },
+    {
+      "title": "NOISE",
+      "page": 13
+    },
+    {
+      "title": "GENERATOR                             FILTER",
+      "page": 13
+    },
+    {
+      "title": "ENVELOPE",
+      "page": 13
+    },
+    {
+      "title": "INDIVIDUAL OUTPUT",
+      "page": 13
+    },
+    {
+      "title": "PERCUSSION",
+      "page": 13
+    },
+    {
+      "title": "MULTIMODE",
+      "page": 13
+    },
+    {
+      "title": "FILTER",
+      "page": 13
+    },
+    {
+      "title": "GENERATOR",
+      "page": 13
+    },
+    {
+      "title": "AMP ENVELOPE DELAY SEND REVERB SEND",
+      "page": 13
+    },
+    {
+      "title": "SAMPLE",
+      "page": 13
+    },
+    {
+      "title": "PLAYBACK",
+      "page": 13
+    },
+    {
+      "title": "ENGINE                    LFO        DESTINATION",
+      "page": 13
+    },
+    {
+      "title": "FADE",
+      "page": 13
+    },
+    {
+      "title": "FX TRACK",
+      "page": 13
+    },
+    {
+      "title": "FROM EFFECT SENDS",
+      "page": 13
+    },
+    {
+      "title": "LFO       DESTINATION",
+      "page": 13
+    },
+    {
+      "title": "DELAY                            TO EFFECT RETURNS",
+      "page": 13
+    },
+    {
+      "title": "SEND",
+      "page": 13
+    },
+    {
+      "title": "REVERB            TO EFFECT RETURNS",
+      "page": 13
+    },
+    {
+      "title": "EXT",
+      "page": 13
+    },
+    {
+      "title": "INPUT L/R",
+      "page": 13
+    },
+    {
+      "title": "4.1 VOICE CIRCUITS",
+      "page": 13
+    },
+    {
+      "title": "4.2 ABOUT MACHINES",
+      "page": 13
+    },
+    {
+      "title": "5. OVERVIEW OF THE ANALOG RYTM MKII DATA STRUCTURE",
+      "page": 14
+    },
+    {
+      "title": "SOUND LIBRARY",
+      "page": 14
+    },
+    {
+      "title": "SAMPLEBANK",
+      "page": 14
+    },
+    {
+      "title": "MASTER/SEND FX          12 DRUM SOUNDS",
+      "page": 14
+    },
+    {
+      "title": "5.2 DATA STRUCTURE",
+      "page": 14
+    },
+    {
+      "title": "5.3 ABOUT THE TRACKS",
+      "page": 15
+    },
+    {
+      "title": "6. INTERACTING WITH THE ANALOG RYTM MKII",
+      "page": 16
+    },
+    {
+      "title": "6.1 THE SCREEN",
+      "page": 16
+    },
+    {
+      "title": "2. Tempo.",
+      "page": 16
+    },
+    {
+      "title": "6. Track level.",
+      "page": 16
+    },
+    {
+      "title": "7. Track name.",
+      "page": 16
+    },
+    {
+      "title": "6.2 PARAMETER EDITING",
+      "page": 16
+    },
+    {
+      "title": "6.3 QUICK SCROLLING",
+      "page": 17
+    },
+    {
+      "title": "6.4 COPY, CLEAR AND PASTE",
+      "page": 17
+    },
+    {
+      "title": "6.5 THE NAMING SCREEN",
+      "page": 17
+    },
+    {
+      "title": "6.6 OVERBRIDGE",
+      "page": 17
+    },
+    {
+      "title": "USB",
+      "page": 17
+    },
+    {
+      "title": "6.7 CLASS COMPLIANT DEVICE",
+      "page": 18
+    },
+    {
+      "title": "1. Connect the Elektron device to the computer via USB.",
+      "page": 18
+    },
+    {
+      "title": "3. In Transfer, click the EXPLORE tab to open the EXPLORE page.",
+      "page": 18
+    },
+    {
+      "title": "7. QUICK START",
+      "page": 19
+    },
+    {
+      "title": "7.1 PLAYING THE FACTORY PRESETS",
+      "page": 19
+    },
+    {
+      "title": "1. Press [PLAY] to listen to pattern A01.",
+      "page": 19
+    },
+    {
+      "title": "4. Press [STOP] to stop playback.",
+      "page": 19
+    },
+    {
+      "title": "1. Make sure a pattern is playing.",
+      "page": 19
+    },
+    {
+      "title": "2. Press the [PERF] key to enter PERFORMANCE mode.",
+      "page": 19
+    },
+    {
+      "title": "2. Press the [SCNE] key to enter SCENE mode.",
+      "page": 19
+    },
+    {
+      "title": "2. Press the [CHRO] key to enter CHROMATIC mode.",
+      "page": 19
+    },
+    {
+      "title": "2. Press the [MUTE] key to enter MUTE mode.",
+      "page": 19
+    },
+    {
+      "title": "2. Press [TRK] + [PAD] 1\u201312 to select one of the twelve drum tracks.",
+      "page": 20
+    },
+    {
+      "title": "6. Press [PLAY] to listen to the pattern you created.",
+      "page": 20
+    },
+    {
+      "title": "EXAMPLE PATTERN",
+      "page": 20
+    },
+    {
+      "title": "8. ANALOG RYTM MKII CONTROLS",
+      "page": 21
+    },
+    {
+      "title": "8.1 PADS",
+      "page": 21
+    },
+    {
+      "title": "MULTI-OSCILLATOR",
+      "page": 21
+    },
+    {
+      "title": "SYNTHESIS SUITED FOR",
+      "page": 21
+    },
+    {
+      "title": "SYNTHESIS WITH ADDITIONAL",
+      "page": 21
+    },
+    {
+      "title": "PAD                       MACHINES",
+      "page": 21
+    },
+    {
+      "title": "5. BT (Bass Tom)          BT CLASSIC",
+      "page": 21
+    },
+    {
+      "title": "6. LT (Low Tom)           XT CLASSIC",
+      "page": 21
+    },
+    {
+      "title": "7. MT (Mid Tom)           XT CLASSIC",
+      "page": 21
+    },
+    {
+      "title": "8. HT (Hi Tom)            XT CLASSIC",
+      "page": 21
+    },
+    {
+      "title": "12. CB (Cow Bell)         CB CLASSIC, CB METALLIC + all CY machines",
+      "page": 21
+    },
+    {
+      "title": "8.2 MACHINES",
+      "page": 21
+    },
+    {
+      "title": "8.3 ROTARY ENCODERS",
+      "page": 22
+    },
+    {
+      "title": "8.4 PRAGMATIC OPERATION",
+      "page": 22
+    },
+    {
+      "title": "8.5 KEY BEHAVIOR",
+      "page": 22
+    },
+    {
+      "title": "8.6 MIDI NOTES",
+      "page": 22
+    },
+    {
+      "title": "8.7 MODE KEYS",
+      "page": 22
+    },
+    {
+      "title": "9. PROJECTS",
+      "page": 24
+    },
+    {
+      "title": "9.1 PROJECT MENU",
+      "page": 24
+    },
+    {
+      "title": "10. KITS AND SOUNDS",
+      "page": 26
+    },
+    {
+      "title": "10.1 THE +DRIVE SOUND LIBRARY AND THE SOUND POOL",
+      "page": 26
+    },
+    {
+      "title": "10.2 KIT MENU",
+      "page": 26
+    },
+    {
+      "title": "10.3 SCENE MODE",
+      "page": 28
+    },
+    {
+      "title": "10.4 PERFORMANCE MODE",
+      "page": 29
+    },
+    {
+      "title": "2. Release [QPER].",
+      "page": 31
+    },
+    {
+      "title": "10.5 SOUND MENU",
+      "page": 31
+    },
+    {
+      "title": "10.6 PLAYING A SOUND",
+      "page": 34
+    },
+    {
+      "title": "PLAYING A SOUND WITH AN EXTERNAL MIDI UNIT",
+      "page": 35
+    },
+    {
+      "title": "10.7 EDITING A SOUND",
+      "page": 35
+    },
+    {
+      "title": "10.8 SELECTING A SAMPLE",
+      "page": 35
+    },
+    {
+      "title": "10.9 EDITING THE FX",
+      "page": 36
+    },
+    {
+      "title": "11. THE SEQUENCER",
+      "page": 37
+    },
+    {
+      "title": "11.1 BASIC PATTERN OPERATIONS",
+      "page": 37
+    },
+    {
+      "title": "11.2 PATTERN MODES",
+      "page": 38
+    },
+    {
+      "title": "11.3 EDITING A PATTERN",
+      "page": 39
+    },
+    {
+      "title": "STANDARD mode",
+      "page": 40
+    },
+    {
+      "title": "6. Press [RECORD] to exit STEP RECORDING mode.",
+      "page": 40
+    },
+    {
+      "title": "JUMP mode",
+      "page": 40
+    },
+    {
+      "title": "11.4 RETRIG MENU",
+      "page": 41
+    },
+    {
+      "title": "11.5 TRACK MENU",
+      "page": 42
+    },
+    {
+      "title": "11.6 PATTERN MENU",
+      "page": 42
+    },
+    {
+      "title": "11.7 TRIG MENU",
+      "page": 43
+    },
+    {
+      "title": "11.8 TRIGS SETUP MENU",
+      "page": 45
+    },
+    {
+      "title": "11.9 FIXED VELOCITY",
+      "page": 45
+    },
+    {
+      "title": "11.10 CLICK TRACK",
+      "page": 45
+    },
+    {
+      "title": "11.11 SCALE MENU",
+      "page": 46
+    },
+    {
+      "title": "11.12 SEQUENCER FEATURES",
+      "page": 47
+    },
+    {
+      "title": "3. Clear trig locks by holding one or more trigs and press [PLAY].",
+      "page": 51
+    },
+    {
+      "title": "12. CHAINS AND SONGS",
+      "page": 53
+    },
+    {
+      "title": "12.1 CHAINS",
+      "page": 53
+    },
+    {
+      "title": "12.2 SONGS",
+      "page": 53
+    },
+    {
+      "title": "13. SAMPLING",
+      "page": 56
+    },
+    {
+      "title": "13.1 SAMPLING MENU",
+      "page": 56
+    },
+    {
+      "title": "13.2 SAMPLING WITH THE ANALOG RYTM MKII",
+      "page": 57
+    },
+    {
+      "title": "8. Press [YES] to save the sample.",
+      "page": 57
+    },
+    {
+      "title": "9. Name the sample and press [YES] again to confirm the save.",
+      "page": 57
+    },
+    {
+      "title": "13.3 DIRECT SAMPLING",
+      "page": 57
+    },
+    {
+      "title": "14. GLOBAL SETTINGS MENU",
+      "page": 58
+    },
+    {
+      "title": "14.1 PROJECT",
+      "page": 58
+    },
+    {
+      "title": "14.2 SAMPLES",
+      "page": 58
+    },
+    {
+      "title": "1. Press [GLOBAL SETTINGS], and then open the SAMPLES menu.",
+      "page": 59
+    },
+    {
+      "title": "1. Connect the Analog Rytm MKII to the computer via USB.",
+      "page": 60
+    },
+    {
+      "title": "4. In Transfer, click the EXPLORE tab to open the EXPLORE page.",
+      "page": 60
+    },
+    {
+      "title": "5. On the top right side, in the drop-down menu, select \u201cSamples\u201d.",
+      "page": 60
+    },
+    {
+      "title": "1. Connect Analog Rytm MKII to the computer via USB.",
+      "page": 60
+    },
+    {
+      "title": "4. In Transfer, click EXPLORE to open the EXPLORE page.",
+      "page": 60
+    },
+    {
+      "title": "14.3 GLOBAL SLOT",
+      "page": 61
+    },
+    {
+      "title": "14.4 MIDI CONFIG",
+      "page": 61
+    },
+    {
+      "title": "14.5 SYSEX DUMP",
+      "page": 63
+    },
+    {
+      "title": "14.6 AUDIO ROUTING",
+      "page": 65
+    },
+    {
+      "title": "14.7 CONTROL",
+      "page": 66
+    },
+    {
+      "title": "MODE",
+      "page": 67
+    },
+    {
+      "title": "14.8 SYSTEM",
+      "page": 67
+    },
+    {
+      "title": "2. Open the Transfer application on your computer.",
+      "page": 68
+    },
+    {
+      "title": "5. On your device. Press [YES] to confirm the OS update.",
+      "page": 68
+    },
+    {
+      "title": "15. STARTUP MENU",
+      "page": 70
+    },
+    {
+      "title": "15.1 TEST MODE",
+      "page": 70
+    },
+    {
+      "title": "15.2 EMPTY RESET",
+      "page": 70
+    },
+    {
+      "title": "15.3 FACTORY RESET",
+      "page": 70
+    },
+    {
+      "title": "15.4 OS UPGRADE",
+      "page": 70
+    },
+    {
+      "title": "1. Download the Analog Rytm MKII OS file from the Elektron website.",
+      "page": 70
+    },
+    {
+      "title": "4. Press the [TRIG 4] key to enter OS UPGRADE mode.",
+      "page": 70
+    },
+    {
+      "title": "15.5 EXIT",
+      "page": 70
+    },
+    {
+      "title": "16. SETUP EXAMPLES",
+      "page": 71
+    },
+    {
+      "title": "16.1 ANALOG RYTM MKII WITH A MONOPHONIC BASS MACHINE",
+      "page": 71
+    },
+    {
+      "title": "DIN SYNC 24",
+      "page": 71
+    },
+    {
+      "title": "1. Prepare a bassline pattern on the bass machine.",
+      "page": 71
+    },
+    {
+      "title": "PORT FUNC to DIN24",
+      "page": 71
+    },
+    {
+      "title": "6. Prepare a rhythm on the Analog Rytm MKII.",
+      "page": 71
+    },
+    {
+      "title": "16.2 ANALOG RYTM MKII WITH A STEREOPHONIC DRUM MACHINE",
+      "page": 71
+    },
+    {
+      "title": "MAIN OUT TO MIXER",
+      "page": 71
+    },
+    {
+      "title": "MONO TO STEREO SPLIT PHONE",
+      "page": 71
+    },
+    {
+      "title": "1. Prepare a rhythm pattern on your heritage drum machine.",
+      "page": 72
+    },
+    {
+      "title": "16.3 ANALOG RYTM MKII WITH OTHER ELEKTRON GEAR",
+      "page": 72
+    },
+    {
+      "title": "16.4 ANALOG RYTM MKII WITH A CLASS COMPLIANT DEVICE",
+      "page": 73
+    },
+    {
+      "title": "2. In the USB CONFIG menu, select USB AUDIO/MIDI.",
+      "page": 73
+    },
+    {
+      "title": "3. In the AUDIO ROUTING menu, make the following settings:",
+      "page": 73
+    },
+    {
+      "title": "17. USEFUL KEY COMBINATIONS (QUICK KEYS)",
+      "page": 74
+    },
+    {
+      "title": "GENERAL",
+      "page": 74
+    },
+    {
+      "title": "NAMING",
+      "page": 74
+    },
+    {
+      "title": "ASSIGN SYNTH / SAMPLE",
+      "page": 74
+    },
+    {
+      "title": "SAVING AND RELOADING",
+      "page": 74
+    },
+    {
+      "title": "NAVIGATING",
+      "page": 74
+    },
+    {
+      "title": "MENU ACCESS",
+      "page": 74
+    },
+    {
+      "title": "SEQUENCER SETTINGS",
+      "page": 74
+    },
+    {
+      "title": "MUTES AND SOLO",
+      "page": 75
+    },
+    {
+      "title": "SEQUENCER RECORDING",
+      "page": 75
+    },
+    {
+      "title": "CLEAR TRACK / CLEAR PATTERN",
+      "page": 75
+    },
+    {
+      "title": "SHIFTING TRIGS AROUND",
+      "page": 75
+    },
+    {
+      "title": "CHAIN EDITING",
+      "page": 75
+    },
+    {
+      "title": "DIRECT SAMPLING",
+      "page": 75
+    },
+    {
+      "title": "RANDOMIZE PARAMETERS",
+      "page": 75
+    },
+    {
+      "title": "SAMPLE/SOUND/TRIG PREVIEW",
+      "page": 75
+    },
+    {
+      "title": "18. TECHNICAL INFORMATION",
+      "page": 76
+    },
+    {
+      "title": "Control inputs",
+      "page": 76
+    },
+    {
+      "title": "Accepts CV and Expression pedals",
+      "page": 76
+    },
+    {
+      "title": "19. CREDITS AND CONTACT INFORMATION",
+      "page": 76
+    },
+    {
+      "title": "PRODUCT DESIGN AND DEVELOPMENT",
+      "page": 76
+    },
+    {
+      "title": "Oscar Albinsson",
+      "page": 76
+    },
+    {
+      "title": "CONTACT INFORMATION",
+      "page": 76
+    },
+    {
+      "title": "Johannes Algelind",
+      "page": 76
+    },
+    {
+      "title": "Magnus Forsell",
+      "page": 76
+    },
+    {
+      "title": "Jimmy Myhrman",
+      "page": 76
+    },
+    {
+      "title": "Viktor Nilsson",
+      "page": 76
+    },
+    {
+      "title": "David Revelj",
+      "page": 76
+    },
+    {
+      "title": "Mattias Rickardsson",
+      "page": 76
+    },
+    {
+      "title": "Martin Sigby",
+      "page": 76
+    },
+    {
+      "title": "Daniel Troberg",
+      "page": 76
+    },
+    {
+      "title": "ADDITIONAL DESIGN",
+      "page": 76
+    },
+    {
+      "title": "Magnus Almberg",
+      "page": 76
+    },
+    {
+      "title": "Ufuk Demir",
+      "page": 76
+    },
+    {
+      "title": "Thomas Ekelund",
+      "page": 76
+    },
+    {
+      "title": "SAMPLE PAGE 1",
+      "page": 77
+    },
+    {
+      "title": "SAMPLE PAGE 2",
+      "page": 78
+    },
+    {
+      "title": "AMP",
+      "page": 79
+    },
+    {
+      "title": "Appendix B).",
+      "page": 79
+    },
+    {
+      "title": "LFO",
+      "page": 80
+    },
+    {
+      "title": "DELAY",
+      "page": 81
+    },
+    {
+      "title": "REVERB",
+      "page": 81
+    },
+    {
+      "title": "DIST",
+      "page": 82
+    },
+    {
+      "title": "COMP",
+      "page": 82
+    },
+    {
+      "title": "TRIG PARAMETERS",
+      "page": 85
+    },
+    {
+      "title": "EUCLIDEAN PARAMETERS",
+      "page": 85
+    },
+    {
+      "title": "COMMON",
+      "page": 85
+    },
+    {
+      "title": "PERFORMANCE",
+      "page": 85
+    },
+    {
+      "title": "SYNTH",
+      "page": 86
+    },
+    {
+      "title": "DISTORTION",
+      "page": 88
+    },
+    {
+      "title": "COMPRESSOR",
+      "page": 88
+    },
+    {
+      "title": "BD PLASTIC",
+      "page": 88
+    },
+    {
+      "title": "BD SHARP",
+      "page": 88
+    },
+    {
+      "title": "BD HARD",
+      "page": 89
+    },
+    {
+      "title": "Level                16                1          0",
+      "page": 89
+    },
+    {
+      "title": "Tune                 17                1          1",
+      "page": 89
+    },
+    {
+      "title": "Decay                18                1          2",
+      "page": 89
+    },
+    {
+      "title": "Hold                 19                1          3",
+      "page": 89
+    },
+    {
+      "title": "Sweep Time           20                1          4",
+      "page": 89
+    },
+    {
+      "title": "Sweep Depth          21                1          5",
+      "page": 89
+    },
+    {
+      "title": "Waveform             22                1          6",
+      "page": 89
+    },
+    {
+      "title": "Transient Tick       23                1          7",
+      "page": 89
+    },
+    {
+      "title": "BD CLASSIC",
+      "page": 89
+    },
+    {
+      "title": "BD FM",
+      "page": 89
+    },
+    {
+      "title": "FM Amount            19                1          3",
+      "page": 89
+    },
+    {
+      "title": "FM Sweep Time        21                1          5",
+      "page": 89
+    },
+    {
+      "title": "FM Decay Time        22                1          6",
+      "page": 89
+    },
+    {
+      "title": "FM Tune              23                1          7",
+      "page": 89
+    },
+    {
+      "title": "BD SILKY",
+      "page": 89
+    },
+    {
+      "title": "Sweep Depth          19                1          3",
+      "page": 89
+    },
+    {
+      "title": "Hold                 21                1          5",
+      "page": 89
+    },
+    {
+      "title": "VCO Click            22                1          6",
+      "page": 89
+    },
+    {
+      "title": "Dust Level           23                1          7",
+      "page": 89
+    },
+    {
+      "title": "BD ACOUSTIC",
+      "page": 90
+    },
+    {
+      "title": "SD NATURAL",
+      "page": 90
+    },
+    {
+      "title": "SD HARD",
+      "page": 90
+    },
+    {
+      "title": "SD CLASSIC",
+      "page": 90
+    },
+    {
+      "title": "SD FM",
+      "page": 91
+    },
+    {
+      "title": "FM Tune              19                1          3",
+      "page": 91
+    },
+    {
+      "title": "FM Decay Time        20                1          4",
+      "page": 91
+    },
+    {
+      "title": "Noise Decay          21                1          5",
+      "page": 91
+    },
+    {
+      "title": "Noise Level          22                1          6",
+      "page": 91
+    },
+    {
+      "title": "FM Amount            23                1          7",
+      "page": 91
+    },
+    {
+      "title": "SD ACOUSTIC",
+      "page": 91
+    },
+    {
+      "title": "Noise Decay          19                1          3",
+      "page": 91
+    },
+    {
+      "title": "Hold Time            20                1          4",
+      "page": 91
+    },
+    {
+      "title": "Noise Level          21                1          5",
+      "page": 91
+    },
+    {
+      "title": "Impact               22                1          6",
+      "page": 91
+    },
+    {
+      "title": "Sweep Depth          23                1          7",
+      "page": 91
+    },
+    {
+      "title": "RS HARD",
+      "page": 91
+    },
+    {
+      "title": "Tick Level           20                1          4",
+      "page": 91
+    },
+    {
+      "title": "Symmetry             22                1          6",
+      "page": 91
+    },
+    {
+      "title": "Sweep Time           23                1          7",
+      "page": 91
+    },
+    {
+      "title": "RS CLASSIC",
+      "page": 91
+    },
+    {
+      "title": "Tune Osc 1           17                1          1",
+      "page": 91
+    },
+    {
+      "title": "Osc Balance          19                1          3",
+      "page": 91
+    },
+    {
+      "title": "Tune Osc 2           20                1          4",
+      "page": 91
+    },
+    {
+      "title": "Symmetry             21                1          5",
+      "page": 91
+    },
+    {
+      "title": "Tick Level           23                1          7",
+      "page": 91
+    },
+    {
+      "title": "CP CLASSIC",
+      "page": 92
+    },
+    {
+      "title": "Level               16                1          0",
+      "page": 92
+    },
+    {
+      "title": "Noise Tone          17                1          1",
+      "page": 92
+    },
+    {
+      "title": "Noise Decay         18                1          2",
+      "page": 92
+    },
+    {
+      "title": "Clap Number         19                1          3",
+      "page": 92
+    },
+    {
+      "title": "Clap Rate           20                1          4",
+      "page": 92
+    },
+    {
+      "title": "Noise Level         21                1          5",
+      "page": 92
+    },
+    {
+      "title": "Random Claps        22                1          6",
+      "page": 92
+    },
+    {
+      "title": "Clap Decay          23                1          7",
+      "page": 92
+    },
+    {
+      "title": "SY DUAL VCO",
+      "page": 92
+    },
+    {
+      "title": "Level               16",
+      "page": 92
+    },
+    {
+      "title": "Osc 1 Tune          17",
+      "page": 92
+    },
+    {
+      "title": "Osc 1 Decay         18",
+      "page": 92
+    },
+    {
+      "title": "Balance             19",
+      "page": 92
+    },
+    {
+      "title": "Osc 2 Detune        20",
+      "page": 92
+    },
+    {
+      "title": "Osc Config          21",
+      "page": 92
+    },
+    {
+      "title": "Osc 2 Decay         22",
+      "page": 92
+    },
+    {
+      "title": "Bend                23",
+      "page": 92
+    },
+    {
+      "title": "SY CHIP",
+      "page": 92
+    },
+    {
+      "title": "Tune                17",
+      "page": 92
+    },
+    {
+      "title": "Decay               18",
+      "page": 92
+    },
+    {
+      "title": "Waveform            19",
+      "page": 92
+    },
+    {
+      "title": "Speed               20",
+      "page": 92
+    },
+    {
+      "title": "Offset 2            21",
+      "page": 92
+    },
+    {
+      "title": "Offset 3            22",
+      "page": 92
+    },
+    {
+      "title": "Offset 4            23",
+      "page": 92
+    },
+    {
+      "title": "SY RAW",
+      "page": 92
+    },
+    {
+      "title": "Noise Level         19",
+      "page": 92
+    },
+    {
+      "title": "Waveform 1          21",
+      "page": 92
+    },
+    {
+      "title": "Waveform 2          22",
+      "page": 92
+    },
+    {
+      "title": "Balance             23",
+      "page": 92
+    },
+    {
+      "title": "BT CLASSIC",
+      "page": 93
+    },
+    {
+      "title": "CH CLASSIC",
+      "page": 93
+    },
+    {
+      "title": "CH METALLIC",
+      "page": 93
+    },
+    {
+      "title": "OH CLASSIC",
+      "page": 93
+    },
+    {
+      "title": "OH METALLIC",
+      "page": 93
+    },
+    {
+      "title": "HH BASIC",
+      "page": 94
+    },
+    {
+      "title": "HH LAB",
+      "page": 94
+    },
+    {
+      "title": "CY METALLIC",
+      "page": 94
+    },
+    {
+      "title": "CY CLASSIC",
+      "page": 94
+    },
+    {
+      "title": "CY RIDE",
+      "page": 94
+    },
+    {
+      "title": "UT NOISE",
+      "page": 95
+    },
+    {
+      "title": "UT IMPULSE",
+      "page": 95
+    },
+    {
+      "title": "NOTE                FUNCTION",
+      "page": 95
+    },
+    {
+      "title": "XT CLASSIC",
+      "page": 105
+    },
+    {
+      "title": "CB CLASSIC",
+      "page": 109
+    },
+    {
+      "title": "CB METALLIC",
+      "page": 109
+    },
+    {
+      "title": "INDEX",
+      "page": 112
+    },
+    {
+      "title": "GLOBAL 58",
+      "page": 112
+    },
+    {
+      "title": "A                           MIDI config 61",
+      "page": 112
+    },
+    {
+      "title": "ACCENT 49                   Sequencer config 67",
+      "page": 112
+    },
+    {
+      "title": "AMP 79",
+      "page": 112
+    },
+    {
+      "title": "B                          KEYBOARD SCALES 110",
+      "page": 112
+    },
+    {
+      "title": "BACKUP 18                  KEY COMBINATIONS 74",
+      "page": 112
+    },
+    {
+      "title": "KITS AND SOUNDS 26",
+      "page": 112
+    },
+    {
+      "title": "Clear kit 27",
+      "page": 112
+    },
+    {
+      "title": "CHAINS 53",
+      "page": 112
+    },
+    {
+      "title": "Editing a sound 35",
+      "page": 112
+    },
+    {
+      "title": "Detailed mode 53",
+      "page": 112
+    },
+    {
+      "title": "Kit menu 26",
+      "page": 112
+    },
+    {
+      "title": "Quick mode 53",
+      "page": 112
+    },
+    {
+      "title": "Load kit 26",
+      "page": 112
+    },
+    {
+      "title": "CHROMATIC MODE 23",
+      "page": 112
+    },
+    {
+      "title": "Playing a sound 34",
+      "page": 112
+    },
+    {
+      "title": "CLASS COMPLIANT 18",
+      "page": 112
+    },
+    {
+      "title": "Selecting a sample 35",
+      "page": 112
+    },
+    {
+      "title": "Audio routing 65",
+      "page": 112
+    },
+    {
+      "title": "Sound menu 31",
+      "page": 112
+    },
+    {
+      "title": "Setup example 73",
+      "page": 112
+    },
+    {
+      "title": "USB config 68             L",
+      "page": 112
+    },
+    {
+      "title": "COMPRESSOR 82              LED INTENSITY 67",
+      "page": 112
+    },
+    {
+      "title": "CONNECTORS 12",
+      "page": 112
+    },
+    {
+      "title": "MACHINES 21",
+      "page": 112
+    },
+    {
+      "title": "D                           Parameters 96",
+      "page": 112
+    },
+    {
+      "title": "DATA STRUCTURE 14          MICRO TIMING 39",
+      "page": 112
+    },
+    {
+      "title": "Kits 14                   MIDI 61",
+      "page": 112
+    },
+    {
+      "title": "Project 14                 MIDI config 61",
+      "page": 112
+    },
+    {
+      "title": "DELAY 81                   MUTE MODE 23",
+      "page": 112
+    },
+    {
+      "title": "DIRECT SAMPLING 57",
+      "page": 112
+    },
+    {
+      "title": "DISTORTION 82              N",
+      "page": 112
+    },
+    {
+      "title": "DRUM TRACK PARAMETERS 77   NAMING SCREEN 17",
+      "page": 112
+    },
+    {
+      "title": "Amp 79",
+      "page": 112
+    },
+    {
+      "title": "Filter 78                 O",
+      "page": 112
+    },
+    {
+      "title": "LFO 79                    OS UPGRADE 68",
+      "page": 112
+    },
+    {
+      "title": "Sample 77                 OVERBRIDGE 17",
+      "page": 112
+    },
+    {
+      "title": "E                          P",
+      "page": 112
+    },
+    {
+      "title": "EARLY STARTUP MENU 70      PAD SCALE 42",
+      "page": 112
+    },
+    {
+      "title": "EUCLIDEAN SEQUENCER 44     PAGE PLAYBACK 38",
+      "page": 112
+    },
+    {
+      "title": "PANEL LAYOUT 10",
+      "page": 112
+    },
+    {
+      "title": "F                          PARAMETER LOCKS 47",
+      "page": 112
+    },
+    {
+      "title": "FACTORY RESET 70           PATTERN MODES 38",
+      "page": 112
+    },
+    {
+      "title": "FILL MODE 49                Direct jump 38",
+      "page": 112
+    },
+    {
+      "title": "FILTER 78                   Direct start 38",
+      "page": 112
+    },
+    {
+      "title": "FIXED VELOCITY 45           Sequential 38",
+      "page": 112
+    },
+    {
+      "title": "FX TRACK PARAMETERS 81      Temp jump 39",
+      "page": 112
+    },
+    {
+      "title": "Compressor 82             PATTERNS",
+      "page": 112
+    },
+    {
+      "title": "Delay 81                   Creating 20",
+      "page": 112
+    },
+    {
+      "title": "FX LFO 83                  Live recording mode 40",
+      "page": 112
+    },
+    {
+      "title": "Reverb 81                  Parameter locks 47",
+      "page": 112
+    },
+    {
+      "title": "Pattern mode 38",
+      "page": 112
+    },
+    {
+      "title": "SONGS 53",
+      "page": 113
+    },
+    {
+      "title": "QUICK SCROLLING 17                       SOUNDS",
+      "page": 113
+    },
+    {
+      "title": "Editing a Sound 35",
+      "page": 113
+    },
+    {
+      "title": "Step recording mode 40                  SYSEX",
+      "page": 113
+    },
+    {
+      "title": "Sysex send 63",
+      "page": 113
+    },
+    {
+      "title": "SAFETY AND MAINTENANCE 3                 T",
+      "page": 113
+    },
+    {
+      "title": "Transferring from a computer 60          Global 65",
+      "page": 113
+    },
+    {
+      "title": "Transferring to a computer 60            Kit 27",
+      "page": 113
+    },
+    {
+      "title": "Sampling audio 57                       TRIGS",
+      "page": 113
+    },
+    {
+      "title": "SCALE SETUP                               Note 39",
+      "page": 113
+    },
+    {
+      "title": "SEQUENCER 37",
+      "page": 113
+    },
+    {
+      "title": "Accent 49                               V",
+      "page": 113
+    },
+    {
+      "title": "Conditional locks 48",
+      "page": 113
+    },
+    {
+      "title": "Editing a pattern 39",
+      "page": 113
+    },
+    {
+      "title": "Parameter locks 47",
+      "page": 113
+    },
+    {
+      "title": "Pattern control 37",
+      "page": 113
+    },
+    {
+      "title": "Pattern menu 42",
+      "page": 113
+    },
+    {
+      "title": "Pattern modes 38",
+      "page": 113
+    },
+    {
+      "title": "Retrig menu 41",
+      "page": 113
+    },
+    {
+      "title": "Scale menu 46",
+      "page": 113
+    },
+    {
+      "title": "Selecting a pattern 37",
+      "page": 113
+    }
+  ]
+}

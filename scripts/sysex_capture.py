@@ -97,6 +97,14 @@ INSTRUMENTS = {
         "parser": "raw",
         "note": "Elektron SysEx format is proprietary. Raw .syx is captured; use Elektron Transfer for full project restores.",
     },
+    "rytm": {
+        "name": "Elektron Analog Rytm",
+        "slug": "elektron-analog-rytm",
+        "mfr_id": (0x00, 0x20, 0x3C),
+        "can_parse": False,
+        "parser": "raw",
+        "note": "Elektron SysEx format is proprietary. Capture raw .syx to presets/raw/ and use Elektron Transfer/Overbridge for restores.",
+    },
     "minibrute2s": {
         "name": "Arturia MiniBrute 2S",
         "slug": "arturia-minibrute-2s",
@@ -118,6 +126,32 @@ INSTRUMENTS = {
         "can_parse": False,
         "parser": "panel_state_only",
         "note": "DFAM has no patch memory. Use the create-preset skill for panel-state documentation.",
+    },
+    "pigments": {
+        "name": "Arturia Pigments",
+        "slug": "arturia-pigments",
+        "can_parse": False,
+        "parser": "software_synth",
+        "note": "Software VST3/AU synth — no SysEx. MIDI CC assignments are per-preset via MIDI Learn. See database/midi_params/pigments.json for fixed and recommended assignments.",
+        "fixed_ccs": {
+            1: "Modulation Wheel",
+            7: "Master Volume",
+            11: "Expression",
+            64: "Sustain",
+            123: "All Notes Off",
+        },
+        "recommended_ccs": {
+            20: "Macro 1 (M1)",
+            21: "Macro 2 (M2)",
+            22: "Macro 3 (M3)",
+            23: "Macro 4 (M4)",
+            74: "Filter 1 Cutoff",
+            71: "Filter 1 Resonance",
+            75: "Filter 2 Cutoff",
+            76: "Filter 2 Resonance",
+            73: "Amp Env Attack",
+            72: "Amp Env Release",
+        },
     },
 }
 

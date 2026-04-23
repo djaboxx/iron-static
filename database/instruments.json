@@ -104,5 +104,43 @@
       "role": "Patchable semi-modular mono synth — aggressive bass, screaming leads",
       "patch_format": "panel_state_markdown"
     }
+    ,
+    {
+      "slug": "analog-rytm",
+      "name": "Elektron Analog Rytm",
+      "type": "drum_synth_sampler",
+      "manufacturer": "Elektron",
+      "midi_channels": {"default": 8},
+      "has_memory": true,
+      "is_semi_modular": false,
+      "sequencer": true,
+      "voices": 12,
+      "polyphony": "multi-voice per part",
+      "manual_path": "instruments/elektron-analog-rytm/manuals/",
+      "presets_path": "instruments/elektron-analog-rytm/presets/",
+      "readme": "instruments/elektron-analog-rytm/README.md",
+      "role": "Hybrid analog drum synth + sampler — punchy analog drums, sequencing and performance features"
+    },
+    {
+      "slug": "arturia-pigments",
+      "name": "Arturia Pigments",
+      "type": "software_polysynth",
+      "manufacturer": "Arturia",
+      "midi_channels": {"default": 8},
+      "has_memory": true,
+      "is_semi_modular": false,
+      "sequencer": true,
+      "voices": 32,
+      "polyphony": "up to 32-voice (configurable)",
+      "filter": "Multiple topologies (Ladder, MS-20, SEM, Buchla, Comb, etc.)",
+      "manual_path": "instruments/arturia-pigments/manuals/",
+      "presets_path": "instruments/arturia-pigments/presets/",
+      "readme": "instruments/arturia-pigments/README.md",
+      "role": "Primary software polysynth — pads, leads, modulated textures across 3 Ventura tracks",
+      "version": "7.0",
+      "format": "VST3 / AU",
+      "midi_model": "flexible_cc_learn",
+      "notes": "No fixed NRPN table. MIDI CCs are user-assignable per preset via MIDI learn. See database/midi_params/pigments.json for fixed and recommended assignments."
+    }
   ]
 }
