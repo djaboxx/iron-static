@@ -1,0 +1,151 @@
+{
+  "source": {
+    "song": "rust-protocol",
+    "track_index": 3,
+    "track_name": "4-Pigments",
+    "slot_index": 0,
+    "clip_name": "bass-line"
+  },
+  "meta": {
+    "bpm": 95.0,
+    "key": "A",
+    "scale": "phrygian",
+    "length_beats": 4.0,
+    "note_count": 8
+  },
+  "rhythm": {
+    "density": 1.0,
+    "hit_positions": [
+      0.0,
+      0.75,
+      1.25,
+      2.0,
+      2.75,
+      3.0,
+      3.5,
+      3.75
+    ],
+    "ioi": [
+      0.75,
+      0.5,
+      0.75,
+      0.75,
+      0.25,
+      0.5,
+      0.25,
+      0.25
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      8,
+      16
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      32,
+      35,
+      36,
+      38,
+      41,
+      50,
+      51
+    ],
+    "intervals": [
+      9,
+      3,
+      3,
+      1,
+      4,
+      19,
+      1
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 19,
+    "pitch_distribution": {
+      "32": 2,
+      "41": 1,
+      "38": 1,
+      "35": 1,
+      "36": 1,
+      "51": 1,
+      "50": 1
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 32,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 41,
+      "start_time": 0.75,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 38,
+      "start_time": 1.25,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 35,
+      "start_time": 2.0,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 36,
+      "start_time": 2.75,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 32,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 51,
+      "start_time": 3.5,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 100,
+      "mute": false
+    }
+  ]
+}

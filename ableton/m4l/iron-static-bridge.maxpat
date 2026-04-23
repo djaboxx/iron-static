@@ -25,6 +25,20 @@
     "boxes": [
       {
         "box": {
+          "id": "obj-secret",
+          "maxclass": "comment",
+          "text": "BUILD: IRON-7",
+          "fontsize": 18.0,
+          "fontface": 1,
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [200.0, 120.0, 240.0, 30.0],
+          "presentation": 1,
+          "presentation_rect": [200.0, 120.0, 240.0, 30.0]
+        }
+      },
+      {
+        "box": {
           "id": "obj-init",
           "maxclass": "newobj",
           "text": "live.thisdevice",

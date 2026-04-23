@@ -9,6 +9,8 @@
 #
 # Commands supported:
 #   get_session_info    — read tempo, time sig, track list
+#   get_clip_notes      — read all notes from a clip (read-only)
+#   get_clip_info       — read clip metadata (name, length, color)
 #   setup_rig           — create/name/configure tracks from a rig definition dict
 #   set_tempo           — set session tempo
 #   create_clip         — create a MIDI clip in a track/slot
@@ -37,7 +39,21 @@ HOST = "localhost"
 PORT = 9877
 
 
+_RELOADING = False
+
+
 def create_instance(c_instance):
+    global _RELOADING
+    if not _RELOADING:
+        try:
+            import importlib
+            import sys as _sys
+            _RELOADING = True
+            importlib.reload(_sys.modules[__name__])
+            _RELOADING = False
+            return _sys.modules[__name__].IronStatic(c_instance)
+        except Exception:
+            _RELOADING = False
     return IronStatic(c_instance)
 
 
@@ -50,9 +66,9 @@ class IronStatic(ControlSurface):
         self.server_thread = None
         self.client_threads = []
         self.running = False
-        self._start_server()
         self.log_message("IronStatic Remote Script initialized on port {}".format(PORT))
         self.show_message("IronStatic: listening on port {}".format(PORT))
+        self._start_server()
 
     def disconnect(self):
         self.running = False
@@ -145,6 +161,21 @@ class IronStatic(ControlSurface):
         try:
             if cmd_type == "get_session_info":
                 response["result"] = self._get_session_info()
+                return response
+
+            if cmd_type == "get_clip_notes":
+                response["result"] = self._get_clip_notes(
+                    params["track_index"], params["clip_index"])
+                return response
+
+            if cmd_type == "get_clip_info":
+                response["result"] = self._get_clip_info(
+                    params["track_index"], params["clip_index"])
+                return response
+
+            if cmd_type == "find_clip_by_name":
+                response["result"] = self._find_clip_by_name(
+                    params["name"], params.get("track_name"))
                 return response
 
             # All mutating commands must run on Ableton's main thread
@@ -245,15 +276,23 @@ class IronStatic(ControlSurface):
             self._song.signature_denominator = int(denom)
 
         tracks_def = params.get("tracks", [])
+        existing_count = len(self._song.tracks)
 
         for i, track_def in enumerate(tracks_def):
             track_name = track_def.get("name", "Track {}".format(i))
             midi_channel = track_def.get("midi_channel", i + 1)
             color = track_def.get("color", None)
 
-            # Always create a new MIDI track at the end
-            self._song.create_midi_track(-1)
-            track = self._song.tracks[len(self._song.tracks) - 1]
+            # Reuse existing tracks before creating new ones
+            if i < existing_count:
+                track = self._song.tracks[i]
+                if not track.has_midi_input:
+                    # Can't convert audio tracks — skip with warning
+                    self.log_message("IronStatic: track {} is audio, skipping".format(i))
+                    continue
+            else:
+                self._song.create_midi_track(-1)
+                track = self._song.tracks[len(self._song.tracks) - 1]
 
             track.name = track_name
 
@@ -318,6 +357,64 @@ class IronStatic(ControlSurface):
             "signature_denominator": self._song.signature_denominator,
             "track_count": len(self._song.tracks),
             "tracks": tracks,
+        }
+
+    def _find_clip_by_name(self, clip_name, track_name=None):
+        """Search all tracks (optionally filtered by track name) for a clip by name.
+        Returns {track_index, track_name, clip_index, clip_name} or raises."""
+        results = []
+        for i, track in enumerate(self._song.tracks):
+            if track_name and track.name.lower() != track_name.lower():
+                continue
+            for j, slot in enumerate(track.clip_slots):
+                if slot.has_clip and slot.clip.name.lower() == clip_name.lower():
+                    results.append({
+                        "track_index": i,
+                        "track_name":  track.name,
+                        "clip_index":  j,
+                        "clip_name":   slot.clip.name,
+                    })
+        if not results:
+            raise ValueError("No clip named '{}' found".format(clip_name))
+        return results[0] if len(results) == 1 else {"matches": results}
+
+    def _get_clip_info(self, track_index, clip_index):
+        clip = self._get_clip(track_index, clip_index)
+        return {
+            "name": clip.name,
+            "length": clip.length,
+            "is_playing": clip.is_playing,
+            "is_recording": clip.is_recording,
+            "loop_start": clip.loop_start,
+            "loop_end": clip.loop_end,
+            "color": clip.color if hasattr(clip, 'color') else None,
+        }
+
+    def _get_clip_notes(self, track_index, clip_index):
+        clip = self._get_clip(track_index, clip_index)
+        # get_notes(from_time, from_pitch, time_span, pitch_span)
+        # returns tuple of (pitch, time, duration, velocity, mute)
+        try:
+            raw_notes = clip.get_notes(0.0, 0, float(clip.length), 128)
+        except Exception as e:
+            self.log_message("IronStatic: get_clip_notes error: {}".format(e))
+            raw_notes = ()
+        notes = [
+            {
+                "pitch":      int(n[0]),
+                "start_time": float(n[1]),
+                "duration":   float(n[2]),
+                "velocity":   int(n[3]),
+                "mute":       bool(n[4]),
+            }
+            for n in raw_notes
+        ]
+        notes.sort(key=lambda n: (n["start_time"], n["pitch"]))
+        return {
+            "clip_name":   clip.name,
+            "clip_length": float(clip.length),
+            "note_count":  len(notes),
+            "notes":       notes,
         }
 
     # ------------------------------------------------------------------

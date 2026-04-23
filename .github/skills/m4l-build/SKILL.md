@@ -301,6 +301,88 @@ git add ableton/m4l/<device>.maxpat ableton/m4l/<device>.amxd ableton/m4l/js/<de
 
 ---
 
+## Remote Script Deployment
+
+The IronStatic Remote Script is a **Python TCP server** (port 9877) — it is distinct from M4L devices but shares the same Ableton integration surface.
+
+### CRITICAL: Live 12 ignores User Remote Scripts
+
+Live 12 Suite on macOS loads Remote Scripts **only from the app bundle**:
+```
+/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py
+```
+
+The user prefs directories below are **NOT scanned by Live 12.2+** — edits there will never take effect:
+```
+~/Library/Preferences/Ableton/Live X.X.X/User Remote Scripts/IronStatic/
+~/Library/Preferences/Ableton/Live X Suite/User Remote Scripts/IronStatic/
+```
+
+### Deploy Workflow
+
+```bash
+# 1. Edit source in repo
+#    ableton/remote_script/IronStatic/__init__.py
+
+# 2. Sync to user prefs (optional, for backup)
+cp ableton/remote_script/IronStatic/__init__.py \
+   ~/Library/Preferences/Ableton/Live\ 12.2.7/User\ Remote\ Scripts/IronStatic/__init__.py
+
+# 3. Deploy to app bundle (REQUIRED)
+python scripts/deploy_remote_script.py
+# or manually:
+cp ableton/remote_script/IronStatic/__init__.py \
+   "/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py"
+
+# 3b. CRITICAL: Recompile .pyc files with Python 3.11
+#     Ableton loads .pyc when present — a stale .pyc shadows the updated .py entirely.
+SCRIPT="/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py"
+python3.11 -m py_compile "$SCRIPT"
+# Copy freshly compiled .pyc to root-level (Ableton requires it here, not just __pycache__)
+cp "$(dirname $SCRIPT)/__pycache__/__init__.cpython-311.pyc" "$(dirname $SCRIPT)/__init__.pyc"
+
+# 4. Reload in Live
+#    Preferred: full Ableton restart — always picks up the new pyc cleanly.
+#    Quick path: deselect then reselect IronStatic in Ableton → Settings →
+#    Link/Tempo/MIDI → Control Surface. The _RELOADING guard triggers
+#    importlib.reload on toggle. BUT: if old client threads are still alive
+#    after disconnect(), they may keep handling commands from the old class.
+#    If new commands still return "Unknown command" after toggle → do a full restart.
+
+# 5. Verify
+grep -c 'your_new_function' \
+  "/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py"
+```
+
+### First-Time Install
+
+If the `_RELOADING` guard is not yet present in the deployed script, a **full Live restart** is required after the first app bundle deploy. After that, toggle-to-reload works.
+
+### Verify Script Loaded
+
+```bash
+# Check Live log for successful load
+grep -i 'ironStatic\|9877' ~/Library/Preferences/Ableton/Live\ 12.2.7/Log.txt | tail -5
+# Should see: "IronStatic Remote Script initialized on port 9877"
+
+# Ping the script
+python scripts/bridge_client.py ping
+```
+
+### Protocol
+
+TCP localhost:9877, one JSON object per connection:
+```json
+// Request
+{"type": "ping", "params": {}}
+// Response
+{"status": "success", "result": {...}}
+```
+
+Client: `scripts/bridge_client.py` — use `BridgeClient` class or CLI.
+
+---
+
 ## IRON STATIC Device Registry
 
 | Device | File | Status | Purpose |

@@ -75,7 +75,7 @@ class BridgeClient:
         try:
             r = _call(cmd_type, params, host=self.host, port=self.port, timeout=self.timeout)
             if r.get("status") == "error":
-                log.error("bridge error [%s]: %s", cmd_type, r.get("message", ""))
+                log.debug("bridge error [%s]: %s", cmd_type, r.get("message", ""))
             return r
         except ConnectionRefusedError:
             return {"status": "error",
@@ -124,6 +124,18 @@ class BridgeClient:
         return self._cmd("set_clip_name", {
             "track_index": int(track), "clip_index": int(slot), "name": name})
 
+    def clip_notes(self, track, slot):
+        return self._cmd("get_clip_notes", {"track_index": int(track), "clip_index": int(slot)})
+
+    def clip_info(self, track, slot):
+        return self._cmd("get_clip_info", {"track_index": int(track), "clip_index": int(slot)})
+
+    def clip_find_by_name(self, name, track_name=None):
+        params = {"name": name}
+        if track_name:
+            params["track_name"] = track_name
+        return self._cmd("find_clip_by_name", params)
+
     def reporter_dump(self, output_path=None):
         r = self._cmd("get_session_info")
         if r.get("status") != "success":
@@ -167,11 +179,19 @@ def main():
                         ("clear",  [("track",int),("slot",int)]),
                         ("write",  [("track",int),("slot",int),("notes_file",Path)]),
                         ("fire",   [("track",int),("slot",int)]),
-                        ("stop",   [("track",int),("slot",int)])]:
+                        ("stop",   [("track",int),("slot",int)]),
+                        ("notes",  [("track",int),("slot",int)]),
+                        ("info",   [("track",int),("slot",int)])]:
         sp = cl_sub.add_parser(name)
         for a, t in xargs:
             sp.add_argument(a, type=t)
-
+    sn = cl_sub.add_parser("set-name")
+    sn.add_argument("track", type=int)
+    sn.add_argument("slot",  type=int)
+    sn.add_argument("name",  type=str)
+    fn = cl_sub.add_parser("find")
+    fn.add_argument("name", type=str)
+    fn.add_argument("--on-track", default=None, metavar="TRACK_NAME")
     rp = sub.add_parser("reporter")
     rp_sub = rp.add_subparsers(dest="action", required=True)
     rp_sub.add_parser("dump").add_argument("output_file", type=Path, nargs="?")
@@ -192,11 +212,15 @@ def main():
             elif args.action == "stop":  _print_result(b.transport_stop())
             elif args.action == "tempo": _print_result(b.transport_tempo(args.bpm))
         elif args.group == "clip":
-            if args.action == "create":  _print_result(b.clip_create(args.track, args.slot, args.beats))
-            elif args.action == "clear": _print_result(b.clip_clear(args.track, args.slot))
-            elif args.action == "write": _print_result(b.clip_write(args.track, args.slot, args.notes_file))
-            elif args.action == "fire":  _print_result(b.clip_fire(args.track, args.slot))
-            elif args.action == "stop":  _print_result(b.clip_stop(args.track, args.slot))
+            if args.action == "create":   _print_result(b.clip_create(args.track, args.slot, args.beats))
+            elif args.action == "clear":  _print_result(b.clip_clear(args.track, args.slot))
+            elif args.action == "write":  _print_result(b.clip_write(args.track, args.slot, args.notes_file))
+            elif args.action == "fire":   _print_result(b.clip_fire(args.track, args.slot))
+            elif args.action == "stop":   _print_result(b.clip_stop(args.track, args.slot))
+            elif args.action == "notes":    _print_result(b.clip_notes(args.track, args.slot))
+            elif args.action == "info":     _print_result(b.clip_info(args.track, args.slot))
+            elif args.action == "set-name": _print_result(b.clip_set_name(args.track, args.slot, args.name))
+            elif args.action == "find":     _print_result(b.clip_find_by_name(args.name, getattr(args, "on_track", None)))
         elif args.group == "reporter":
             out = str(args.output_file) if getattr(args, "output_file", None) else None
             _print_result(b.reporter_dump(out))

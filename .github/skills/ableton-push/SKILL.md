@@ -65,6 +65,23 @@ python scripts/ableton_push.py fire --track Digitakt --clip 0
 python scripts/ableton_push.py stop --track Digitakt --clip 0
 ```
 
+### Find a clip by name
+```bash
+# Find any clip named "phrygian-riff" anywhere in the session
+python scripts/bridge_client.py clip find "phrygian-riff"
+
+# Restrict search to a specific track
+python scripts/bridge_client.py clip find "phrygian-riff" --on-track Rev2-A
+```
+Returns `{track_index, track_name, clip_index, clip_name}`.
+If multiple clips share the name, returns a `{matches: [...]}` list — use `--on-track` to disambiguate.
+
+### Learn a clip by name (pattern_learn)
+```bash
+python scripts/pattern_learn.py learn --name "phrygian-riff"
+python scripts/pattern_learn.py learn --name "phrygian-riff" --on-track Rev2-A
+```
+
 ### Set tempo
 ```bash
 python scripts/ableton_push.py set-tempo --bpm 140

@@ -89,7 +89,8 @@ def load_hcl(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
         raw = hcl2.load(f)
 
-    rig = {"name": path.stem, "tempo": 120.0, "time_signature": [4, 4], "tracks": []}
+    rig = {"name": path.stem, "tempo": 120.0, "time_signature": [4, 4],
+           "midi_out_port_index": 0, "midi_out_device_name": "", "tracks": []}
 
     for session_block in raw.get("session", []):
         if "name" in session_block:
@@ -98,6 +99,10 @@ def load_hcl(path: Path) -> dict:
             rig["tempo"] = float(session_block["tempo"])
         if "time_signature" in session_block:
             rig["time_signature"] = list(session_block["time_signature"])
+        if "midi_out_port_index" in session_block:
+            rig["midi_out_port_index"] = int(session_block["midi_out_port_index"])
+        if "midi_out_device_name" in session_block:
+            rig["midi_out_device_name"] = str(session_block["midi_out_device_name"]).strip('"')
 
     for track_entry in raw.get("track", []):
         for track_name_raw, track_attrs in track_entry.items():
@@ -116,12 +121,32 @@ def load_hcl(path: Path) -> dict:
             color = track_attrs.get("color", 0)
             if color is not None:
                 color = int(color)
-            rig["tracks"].append({
+            track = {
                 "name": track_name,
                 "midi_channel": int(track_attrs.get("midi_channel", 1)),
                 "color": color or 0,
                 "clips": clips,
-            })
+            }
+            # Per-track MIDI output overrides (fall back to session-level defaults at generate time)
+            if "midi_out_port_index" in track_attrs:
+                track["midi_out_port_index"] = int(track_attrs["midi_out_port_index"])
+            if "midi_out_device_name" in track_attrs:
+                track["midi_out_device_name"] = str(track_attrs["midi_out_device_name"]).strip('"')
+            # VST3/VST plugin block
+            plugin_entries = track_attrs.get("plugin", [])
+            if plugin_entries:
+                p = plugin_entries[0] if isinstance(plugin_entries, list) else plugin_entries
+                track["plugin"] = {
+                    "type":         str(p.get("type", "vst3")).strip('"').lower(),
+                    "name":         str(p.get("name", "")).strip('"'),
+                    "uid":          str(p.get("uid", "")).strip('"'),
+                    "path":         str(p.get("path", "")).strip('"'),
+                    "manufacturer": str(p.get("manufacturer", "")).strip('"'),
+                    "version":      str(p.get("version", "")).strip('"'),
+                    "sdk_version":  str(p.get("sdk_version", "VST 3.7.5")).strip('"'),
+                    "category":     str(p.get("category", "Instrument|Synth")).strip('"'),
+                }
+            rig["tracks"].append(track)
     return rig
 
 
@@ -555,8 +580,132 @@ def _freeze_sequencer(scene_count: int) -> str:
 </FreezeSequencer>"""
 
 
-def _device_chain(track_name: str, clip_slots_xml: str, scene_count: int, tempo: float, num: int, denom: int, is_main=False) -> str:
+def _vst3_plugin_device(plugin: dict) -> str:
+    """Generate a VST3 PluginDevice block for the <Devices> section of a track."""
+    import struct
+    dev_id    = _next_id()
+    on_at     = _next_id()
+    info_id   = _next_id()
+    preset_id = _next_id()
+
+    # Convert 32-char hex UID → 4 big-endian uint32 decimal values
+    uid_hex = plugin.get("uid", "").replace("-", "")
+    if len(uid_hex) == 32:
+        fields = struct.unpack(">4I", bytes.fromhex(uid_hex))
+    else:
+        fields = (0, 0, 0, 0)
+
+    name = plugin.get("name", "")
+    manufacturer = plugin.get("manufacturer", "")
+    mfr_enc  = manufacturer.replace(" ", "%20")
+    name_enc = name.replace(" ", "%20")
+    browser_path = f"query:Plugins#VST3:{mfr_enc}:{name_enc}"
+
+    return f"""\
+<PluginDevice Id="{dev_id}">
+  <LomId Value="0" />
+  <LomIdView Value="0" />
+  <IsExpanded Value="false" />
+  <On>
+    <LomId Value="0" />
+    <Manual Value="true" />
+    <AutomationTarget Id="{on_at}">
+      <LockEnvelope Value="0" />
+    </AutomationTarget>
+    <MidiCCOnOffThresholds>
+      <Min Value="64" />
+      <Max Value="127" />
+    </MidiCCOnOffThresholds>
+  </On>
+  <ParametersListWrapper LomId="0" />
+  <LastSelectedTimeableIndex Value="0" />
+  <LastSelectedClipEnvelopeIndex Value="0" />
+  <LastPresetRef>
+    <Value />
+  </LastPresetRef>
+  <LockedScripts />
+  <IsFolded Value="false" />
+  <ShouldShowPresetName Value="true" />
+  <UserName Value="" />
+  <Annotation Value="" />
+  <SourceContext>
+    <Value>
+      <BranchSourceContext Id="0">
+        <OriginalFileRef />
+        <BrowserContentPath Value="{browser_path}" />
+        <PresetRef />
+        <BranchDeviceId Value="" />
+      </BranchSourceContext>
+    </Value>
+  </SourceContext>
+  <PluginDesc>
+    <Vst3PluginInfo Id="{info_id}">
+      <WinPosX Value="0" />
+      <WinPosY Value="0" />
+      <Preset>
+        <Vst3Preset Id="{preset_id}">
+          <OverwriteProtectionNumber Value="2561" />
+          <ParameterSettings />
+          <IsOn Value="true" />
+          <PowerMacroControlIndex Value="-1" />
+          <PowerMacroMappingRange>
+            <Min Value="64" />
+            <Max Value="127" />
+          </PowerMacroMappingRange>
+          <IsFolded Value="false" />
+          <StoredAllParameters Value="true" />
+          <DeviceLomId Value="0" />
+          <DeviceViewLomId Value="0" />
+          <IsOnLomId Value="0" />
+          <ParametersListWrapperLomId Value="0" />
+          <Uid>
+            <Fields.0 Value="{fields[0]}" />
+            <Fields.1 Value="{fields[1]}" />
+            <Fields.2 Value="{fields[2]}" />
+            <Fields.3 Value="{fields[3]}" />
+          </Uid>
+          <DeviceType Value="1" />
+          <ProcessorState />
+          <ControllerState />
+          <Name Value="" />
+          <PresetRef />
+        </Vst3Preset>
+      </Preset>
+      <Name Value="{xesc(name, quote=True)}" />
+      <Uid>
+        <Fields.0 Value="{fields[0]}" />
+        <Fields.1 Value="{fields[1]}" />
+        <Fields.2 Value="{fields[2]}" />
+        <Fields.3 Value="{fields[3]}" />
+      </Uid>
+      <DeviceType Value="1" />
+    </Vst3PluginInfo>
+  </PluginDesc>
+  <Parameters />
+</PluginDevice>"""
+
+
+def _device_chain(track_name: str, clip_slots_xml: str, scene_count: int, tempo: float, num: int, denom: int, is_main=False, midi_channel: int = -1, midi_out_port: int = 0, midi_out_device: str = "", plugin: dict = None) -> str:
     lane_id = _next_id()
+
+    # Plugin tracks: no external MIDI routing
+    if plugin:
+        midi_out_target = "MidiOut/None"
+        midi_out_upper  = "None"
+        midi_out_lower  = ""
+    # MIDI output routing — bake channel if provided, otherwise no output
+    elif not is_main and midi_channel >= 1:
+        ch0 = midi_channel - 1  # Live stores channel 0-based in Target
+        midi_out_target  = f"MidiOut/External.{midi_out_port}/{ch0}"
+        midi_out_upper   = midi_out_device if midi_out_device else f"Ext: Out {midi_out_port + 1}"
+        midi_out_lower   = f"Ch. {midi_channel}"
+    else:
+        midi_out_target = "MidiOut/None"
+        midi_out_upper  = "None"
+        midi_out_lower  = ""
+
+    devices_xml = _vst3_plugin_device(plugin) if plugin else ""
+
     return f"""\
 <DeviceChain>
   <AutomationLanes>
@@ -580,11 +729,11 @@ def _device_chain(track_name: str, clip_slots_xml: str, scene_count: int, tempo:
     {_routing("AudioOut/Main", "Main", "")}
   </AudioOutputRouting>
   <MidiOutputRouting>
-    {_routing("MidiOut/None", "None", "")}
+    {_routing(midi_out_target, midi_out_upper, midi_out_lower)}
   </MidiOutputRouting>
   {_mixer_block(_next_id(), tempo, num, denom, is_main=is_main)}
   <DeviceChain>
-    <Devices />
+    {f"<Devices>{devices_xml}</Devices>" if devices_xml else "<Devices />"}
     <SignalModulations />
   </DeviceChain>
   {_main_sequencer(clip_slots_xml) if not is_main else ""}
@@ -592,9 +741,11 @@ def _device_chain(track_name: str, clip_slots_xml: str, scene_count: int, tempo:
 </DeviceChain>"""
 
 
-def _midi_track(track_id: int, idx: int, track_def: dict, scene_count: int, tempo: float, num: int, denom: int, root_note: int = 9, scale_idx: int = 5) -> str:
+def _midi_track(track_id: int, idx: int, track_def: dict, scene_count: int, tempo: float, num: int, denom: int, root_note: int = 9, scale_idx: int = 5, midi_out_port: int = 0, midi_out_device: str = "") -> str:
     name = track_def["name"]
     color = track_def.get("color", 0)
+    midi_channel = track_def.get("midi_channel", idx + 1)
+    plugin = track_def.get("plugin")
     clips_by_slot = {c["index"]: c for c in track_def.get("clips", [])}
 
     # Build one ClipSlot per scene
@@ -603,7 +754,9 @@ def _midi_track(track_id: int, idx: int, track_def: dict, scene_count: int, temp
         clip_def = clips_by_slot.get(s)
         slots_xml += _clip_slot(s, clip_def, root_note, scale_idx) + "\n    "
 
-    chain_xml = _device_chain(name, slots_xml.strip(), scene_count, tempo, num, denom)
+    chain_xml = _device_chain(name, slots_xml.strip(), scene_count, tempo, num, denom,
+                               midi_channel=midi_channel, midi_out_port=midi_out_port,
+                               midi_out_device=midi_out_device, plugin=plugin)
 
     return f"""\
 <MidiTrack Id="{track_id}" SelectedToolPanel="2" SelectedTransformationName="" SelectedGeneratorName="">
@@ -617,7 +770,7 @@ def _midi_track(track_id: int, idx: int, track_def: dict, scene_count: int, temp
   </TrackDelay>
   <Name>
     <EffectiveName Value="{xesc(name, quote=True)}" />
-    <UserName Value="" />
+    <UserName Value="{xesc(name, quote=True)}" />
     <Annotation Value="" />
     <MemorizedFirstClipName Value="" />
   </Name>
@@ -773,11 +926,20 @@ def generate_als(rig: dict, song_meta: dict) -> bytes:
     root_note = NOTE_NAME_ROOT.get(key_str, 9)       # default A
     scale_idx = SCALE_NAME_INDEX.get(scale_str, 5)   # default Phrygian
 
+    # MIDI output routing config (session-level defaults)
+    default_midi_out_port   = rig.get("midi_out_port_index", 0)
+    default_midi_out_device = rig.get("midi_out_device_name", "")
+
     # Build tracks XML
     tracks_xml = ""
     for idx, track_def in enumerate(rig["tracks"]):
         tid = _next_id()
-        tracks_xml += _midi_track(tid, idx, track_def, scene_count, tempo, num, denom, root_note, scale_idx) + "\n"
+        midi_out_port   = track_def.get("midi_out_port_index", default_midi_out_port)
+        midi_out_device = track_def.get("midi_out_device_name", default_midi_out_device)
+        tracks_xml += _midi_track(tid, idx, track_def, scene_count, tempo, num, denom,
+                                   root_note, scale_idx,
+                                   midi_out_port=midi_out_port,
+                                   midi_out_device=midi_out_device) + "\n"
 
     # Build scenes XML
     scenes_xml = ""

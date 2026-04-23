@@ -1,0 +1,60 @@
+{
+  "notes": [
+    {
+      "pitch": 35,
+      "start_time": 0.0,
+      "duration": 0.2701,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 32,
+      "start_time": 0.5,
+      "duration": 0.3475,
+      "velocity": 99,
+      "mute": false
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.0,
+      "duration": 0.4219,
+      "velocity": 99,
+      "mute": false
+    },
+    {
+      "pitch": 38,
+      "start_time": 1.5,
+      "duration": 0.2522,
+      "velocity": 99,
+      "mute": false
+    },
+    {
+      "pitch": 51,
+      "start_time": 2.0,
+      "duration": 0.2952,
+      "velocity": 100,
+      "mute": false
+    },
+    {
+      "pitch": 41,
+      "start_time": 2.5,
+      "duration": 0.3917,
+      "velocity": 99,
+      "mute": false
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.0,
+      "duration": 0.3519,
+      "velocity": 99,
+      "mute": false
+    },
+    {
+      "pitch": 35,
+      "start_time": 3.5,
+      "duration": 0.2823,
+      "velocity": 100,
+      "mute": false
+    }
+  ]
+}

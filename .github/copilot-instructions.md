@@ -252,6 +252,30 @@ See `docs/m4l-integration-plan.md` for the full build plan. Summary:
 ### AMXD File Location
 `ableton/m4l/` in this repo. JSON configs at `ableton/m4l/configs/`.
 
+### IronStatic Remote Script
+
+**The Remote Script is a Python TCP bridge (port 9877), NOT an M4L device.** Source lives at `ableton/remote_script/IronStatic/__init__.py` in the repo.
+
+**CRITICAL — Live 12 loads Remote Scripts from the app bundle, NOT user prefs:**
+- Loaded by Live: `/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py`
+- User prefs copies (`~/Library/Preferences/Ableton/Live X.X.X/User Remote Scripts/`) are **shadowed** and ignored
+- After any edit, always deploy with:
+  ```bash
+  python scripts/deploy_remote_script.py
+  ```
+  or manually:
+  ```bash
+  cp ~/Library/Preferences/Ableton/Live\ 12.2.7/User\ Remote\ Scripts/IronStatic/__init__.py \
+     "/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py"
+  # REQUIRED: recompile .pyc — stale .pyc shadows updated .py completely
+  SCRIPT="/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/MIDI Remote Scripts/IronStatic/__init__.py"
+  python3.11 -m py_compile "$SCRIPT"
+  cp "$(dirname $SCRIPT)/__pycache__/__init__.cpython-311.pyc" "$(dirname $SCRIPT)/__init__.pyc"
+  ```
+- **Reload without restarting Live**: deselect then reselect IronStatic in Ableton → Settings → Link/Tempo/MIDI → Control Surface (the `_RELOADING` guard enables `importlib.reload` on toggle). **Caveat**: if old client threads survive disconnect, new commands may still return "Unknown command" — do a full Live restart to be certain.
+- **First-time install**: requires a full Live restart after deploying to the app bundle
+- Live loads `.pyc` from the app bundle — no separate pyc copy needed when deploying `.py` only
+
 ### Key LOM Paths
 - Notes in/out: `live_set tracks N clip_slots M clip` → `add_new_notes` / `get_all_notes_extended`
 - Transport: `live_set` → `tempo`, `root_note`, `scale_name`, `is_playing`, `capture_midi`
