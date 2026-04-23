@@ -183,6 +183,8 @@ class IronStatic(ControlSurface):
                 "setup_rig", "set_tempo",
                 "create_clip", "add_notes_to_clip", "clear_clip",
                 "set_clip_name", "fire_clip", "stop_clip",
+                "fire_scene",
+                "set_scene_tempo", "set_scene_name",
                 "start_playback", "stop_playback",
             }
 
@@ -237,6 +239,13 @@ class IronStatic(ControlSurface):
             return self._fire_clip(params["track_index"], params["clip_index"])
         elif cmd_type == "stop_clip":
             return self._stop_clip(params["track_index"], params["clip_index"])
+        elif cmd_type == "fire_scene":
+            return self._fire_scene(params["scene_index"])
+        elif cmd_type == "set_scene_tempo":
+            return self._set_scene_tempo(params["scene_index"], params["tempo"],
+                                          params.get("numerator"), params.get("denominator"))
+        elif cmd_type == "set_scene_name":
+            return self._set_scene_name(params["scene_index"], params["name"])
         elif cmd_type == "start_playback":
             self._song.start_playing()
             return {"playing": True}
@@ -494,6 +503,35 @@ class IronStatic(ControlSurface):
             raise IndexError("Clip index {} out of range".format(clip_index))
         track.clip_slots[clip_index].stop()
         return {"stopped": True}
+
+    def _fire_scene(self, scene_index):
+        scenes = self._song.scenes
+        if scene_index < 0 or scene_index >= len(scenes):
+            raise IndexError("Scene index {} out of range".format(scene_index))
+        scenes[scene_index].fire()
+        return {"fired": True, "scene_index": scene_index}
+
+    def _set_scene_tempo(self, scene_index, tempo, numerator=None, denominator=None):
+        scenes = self._song.scenes
+        if scene_index < 0 or scene_index >= len(scenes):
+            raise IndexError("Scene index {} out of range".format(scene_index))
+        scene = scenes[scene_index]
+        scene.tempo = float(tempo)
+        if numerator is not None:
+            scene.time_signature_numerator = int(numerator)
+        if denominator is not None:
+            scene.time_signature_denominator = int(denominator)
+        return {
+            "scene_index": scene_index,
+            "tempo": scene.tempo,
+        }
+
+    def _set_scene_name(self, scene_index, name):
+        scenes = self._song.scenes
+        if scene_index < 0 or scene_index >= len(scenes):
+            raise IndexError("Scene index {} out of range".format(scene_index))
+        scenes[scene_index].name = name
+        return {"scene_index": scene_index, "name": scenes[scene_index].name}
 
     def _set_tempo(self, tempo):
         self._song.tempo = float(tempo)

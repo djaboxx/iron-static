@@ -98,6 +98,20 @@ class BridgeClient:
     def transport_tempo(self, bpm):
         return self._cmd("set_tempo", {"tempo": float(bpm)})
 
+    def scene_fire(self, scene_index):
+        return self._cmd("fire_scene", {"scene_index": int(scene_index)})
+
+    def scene_set_tempo(self, scene_index, tempo, numerator=None, denominator=None):
+        p = {"scene_index": int(scene_index), "tempo": float(tempo)}
+        if numerator is not None:
+            p["numerator"] = int(numerator)
+        if denominator is not None:
+            p["denominator"] = int(denominator)
+        return self._cmd("set_scene_tempo", p)
+
+    def scene_set_name(self, scene_index, name):
+        return self._cmd("set_scene_name", {"scene_index": int(scene_index), "name": name})
+
     def clip_create(self, track, slot, length_beats):
         return self._cmd("create_clip", {
             "track_index": int(track), "clip_index": int(slot), "length": float(length_beats)})
@@ -173,6 +187,18 @@ def main():
     tp_sub.add_parser("stop")
     tp_sub.add_parser("tempo").add_argument("bpm", type=float)
 
+    sc = sub.add_parser("scene")
+    sc_sub = sc.add_subparsers(dest="action", required=True)
+    sc_sub.add_parser("fire").add_argument("scene", type=int)
+    sc_tempo = sc_sub.add_parser("set-tempo")
+    sc_tempo.add_argument("scene", type=int)
+    sc_tempo.add_argument("bpm",   type=float)
+    sc_tempo.add_argument("--num", type=int, default=None, dest="numerator")
+    sc_tempo.add_argument("--den", type=int, default=None, dest="denominator")
+    sc_name = sc_sub.add_parser("set-name")
+    sc_name.add_argument("scene", type=int)
+    sc_name.add_argument("name",  type=str)
+
     cl = sub.add_parser("clip")
     cl_sub = cl.add_subparsers(dest="action", required=True)
     for name, xargs in [("create", [("track",int),("slot",int),("beats",float)]),
@@ -211,6 +237,10 @@ def main():
             if args.action == "play":    _print_result(b.transport_play())
             elif args.action == "stop":  _print_result(b.transport_stop())
             elif args.action == "tempo": _print_result(b.transport_tempo(args.bpm))
+        elif args.group == "scene":
+            if args.action == "fire":      _print_result(b.scene_fire(args.scene))
+            elif args.action == "set-tempo": _print_result(b.scene_set_tempo(args.scene, args.bpm, args.numerator, args.denominator))
+            elif args.action == "set-name":  _print_result(b.scene_set_name(args.scene, args.name))
         elif args.group == "clip":
             if args.action == "create":   _print_result(b.clip_create(args.track, args.slot, args.beats))
             elif args.action == "clear":  _print_result(b.clip_clear(args.track, args.slot))
