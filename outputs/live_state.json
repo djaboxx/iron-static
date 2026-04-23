@@ -1,0 +1,309 @@
+{
+  "tempo": 95,
+  "signature_numerator": 4,
+  "signature_denominator": 4,
+  "is_playing": 0,
+  "root_note": 9,
+  "scale_name": "Phrygian",
+  "timestamp": "2026-04-23T19:59:36.830Z",
+  "tracks": [
+    {
+      "index": 0,
+      "name": "1-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "main-groove",
+          "length": 8,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 8
+        },
+        {
+          "slot": 1,
+          "name": "break-a",
+          "length": 8,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 8
+        },
+        {
+          "slot": 2,
+          "name": "build",
+          "length": 16,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        },
+        {
+          "slot": 3,
+          "name": "drop",
+          "length": 8,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 8
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 1,
+      "name": "2-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "phryg-pad",
+          "length": 32,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 32
+        },
+        {
+          "slot": 1,
+          "name": "phryg-build",
+          "length": 16,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 2,
+      "name": "3-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "tension-lead",
+          "length": 16,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        },
+        {
+          "slot": 1,
+          "name": "release-line",
+          "length": 16,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 3,
+      "name": "4-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "phryg-stabs",
+          "length": 8,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 8
+        },
+        {
+          "slot": 1,
+          "name": "chaos-stabs",
+          "length": 4,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 4
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 4,
+      "name": "5-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "root-drone",
+          "length": 64,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 64
+        },
+        {
+          "slot": 1,
+          "name": "poly-shift",
+          "length": 32,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 32
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 5,
+      "name": "6-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "perc-main",
+          "length": 8,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 8
+        },
+        {
+          "slot": 1,
+          "name": "perc-fill",
+          "length": 4,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 4
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 6,
+      "name": "7-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "bass-main",
+          "length": 16,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        },
+        {
+          "slot": 1,
+          "name": "bass-var",
+          "length": 16,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 16
+        }
+      ],
+      "devices": []
+    },
+    {
+      "index": 7,
+      "name": "8-MIDI",
+      "is_midi": 1,
+      "is_audio": 0,
+      "mute": 0,
+      "arm": 0,
+      "playing_slot_index": 0,
+      "clips": [
+        {
+          "slot": 0,
+          "name": "atmo-main",
+          "length": 64,
+          "is_playing": 1,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 64
+        },
+        {
+          "slot": 1,
+          "name": "atmo-rise",
+          "length": 32,
+          "is_playing": 0,
+          "is_recording": 0,
+          "is_looping": 1,
+          "loop_start": 0,
+          "loop_end": 32
+        }
+      ],
+      "devices": []
+    }
+  ],
+  "scenes": [
+    {
+      "index": 0,
+      "name": "INTRO",
+      "tempo": -1
+    },
+    {
+      "index": 1,
+      "name": "VERSE",
+      "tempo": -1
+    },
+    {
+      "index": 2,
+      "name": "CHORUS",
+      "tempo": -1
+    },
+    {
+      "index": 3,
+      "name": "BREAK",
+      "tempo": -1
+    }
+  ]
+}

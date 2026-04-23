@@ -79,7 +79,9 @@ def load_hcl(path: Path) -> dict:
 
     # Parse track blocks — hcl2 returns [{track_name: {attrs}}]
     for track_entry in raw.get("track", []):
-        for track_name, track_attrs in track_entry.items():
+        for track_name_raw, track_attrs in track_entry.items():
+            # hcl2 preserves block-label quotes: '"Digitakt"' → 'Digitakt'
+            track_name = track_name_raw.strip('"')
             # hcl2 may wrap single-block attrs in a list
             if isinstance(track_attrs, list):
                 track_attrs = track_attrs[0]
@@ -91,7 +93,7 @@ def load_hcl(path: Path) -> dict:
                     clips.append({
                         "index": int(clip_entry.get("index", 0)),
                         "length": float(clip_entry.get("length", 4.0)),
-                        "name": clip_entry.get("name", "clip"),
+                        "name": str(clip_entry.get("name", "clip")).strip('"'),
                     })
 
             # Parse color — HCL passes hex literals as ints

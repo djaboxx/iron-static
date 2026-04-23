@@ -1,6 +1,11 @@
 {
   "_comment": "IRON STATIC song registry. Manage with: python scripts/manage_songs.py",
-  "_lifecycle": ["in-progress", "active", "released", "archived"],
+  "_lifecycle": [
+    "in-progress",
+    "active",
+    "released",
+    "archived"
+  ],
   "_active_rule": "Exactly one song should have status='active' at any time. Scripts and Copilot read the active song for context.",
   "songs": [
     {
@@ -21,6 +26,18 @@
         "outputs/ventura_summary.json",
         "outputs/midi_clips/ventura/"
       ]
+    },
+    {
+      "slug": "rust-protocol",
+      "title": "Rust Protocol",
+      "status": "active",
+      "als_path": null,
+      "key": "A",
+      "scale": "phrygian",
+      "bpm": 95.0,
+      "time_signature": null,
+      "notes": "",
+      "outputs": []
     }
   ]
 }

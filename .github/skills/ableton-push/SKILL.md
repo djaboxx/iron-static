@@ -137,5 +137,54 @@ python scripts/ableton_push.py fire --track Rev2-A --clip 0
 - **Track not found**: Run `status` first to confirm track names match exactly
 - **Clip slot occupied**: The `create_clip` command will error if a clip already exists in that slot — clear it in Ableton first
 
+---
+
+## Max for Live Device (.amxd) Format
+
+### CRITICAL: .amxd is a binary container, NOT plain JSON
+
+`.amxd` files cannot be created by simply renaming a `.maxpat` or `.json` file. Ableton will silently reject plain JSON files — you'll see a "no" cursor when trying to drag them onto tracks.
+
+**Binary format**: `ampf` magic header → `aaaa` section → `meta` section → `ptch` + uint32_LE length + JSON payload + `\n\x00` terminator.
+
+**Build script** (use this every time you need to create or update an .amxd):
+```python
+import struct, json
+
+TEMPLATE = "/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Misc/Max Devices/Max Audio Effect.amxd"
+with open(TEMPLATE, "rb") as f:
+    tpl = f.read()
+ptch_offset = tpl.index(b'ptch')
+fixed_header = tpl[:ptch_offset + 4]   # everything up to and including 'ptch'
+
+with open("my-device.maxpat") as f:
+    doc = json.load(f)
+json_bytes = json.dumps(doc, indent="\t", separators=(',', ' : ')).encode('utf-8') + b'\n\x00'
+amxd = fixed_header + struct.pack('<I', len(json_bytes)) + json_bytes
+with open("my-device.amxd", "wb") as f:
+    f.write(amxd)
+```
+
+### Device type is determined by `plugin~`/`plugout~`, NOT classname
+
+- **Audio Effect** (works on any track including Master): patcher must contain `plugin~` → `plugout~` passthrough. No `classname` field needed.
+- **MIDI Effect**: must contain `midiin`/`midiout`. Use `Max MIDI Effect.amxd` as template header.
+- **Instrument**: must contain `plugout~` but no `plugin~`. Use `Max Instrument.amxd` as template header.
+- Do NOT set `"classname": "MxDLiveAudioEffect"` — this field is not valid and causes rejection.
+- DO set `"classnamespace": "box"` — this is required.
+
+### Installing the device
+
+Ableton will NOT accept `.amxd` files dragged from arbitrary filesystem paths. Two options:
+1. **User Library** (recommended): copy to `~/Music/Ableton/User Library/Presets/Audio Effects/Max Audio Effect/`
+2. **Places**: add the folder as a Place in Ableton's browser sidebar, then drag from there.
+
+### JS files and autowatch
+
+- Place `session_reporter.js` in the same directory as the `.amxd`
+- `patcherrelativepath: "."` in `dependency_cache` tells Max to look in the same dir
+- `autowatch = 1` in the JS reloads automatically when the file changes on disk
+- `LiveAPI` only works when the device is loaded inside Ableton — NOT in standalone Max
+
 ## Script: [ableton_push.py](../../scripts/ableton_push.py)
 ## Remote Script: [IronStatic/__init__.py](../../ableton/remote_script/IronStatic/__init__.py)
