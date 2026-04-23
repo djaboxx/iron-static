@@ -1,0 +1,110 @@
+name: GCS Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to run'
+        required: true
+        default: 'status'
+        type: choice
+        options:
+          - status
+          - push
+          - pull
+          - index
+      prefix:
+        description: 'GCS path prefix to scope the operation (e.g. audio/recordings/raw/)'
+        required: false
+        default: ''
+      gcs_path:
+        description: 'Specific GCS key for the pull action (e.g. audio/recordings/raw/foo.wav)'
+        required: false
+        default: ''
+      tags:
+        description: 'Comma-separated tags to apply when pushing (e.g. rust-protocol,drums)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run — list what would happen without uploading or downloading'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet google-cloud-storage
+
+      - name: Run GCS sync
+        env:
+          GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
+          GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
+        run: |
+          set -euo pipefail
+          DRY=""
+          [ "${{ inputs.dry_run }}" = "true" ] && DRY="--dry-run"
+
+          case "${{ inputs.action }}" in
+            status)
+              PREFIX_ARG=""
+              [ -n "${{ inputs.prefix }}" ] && PREFIX_ARG="--prefix ${{ inputs.prefix }}"
+              python scripts/gcs_sync.py status $PREFIX_ARG
+              ;;
+
+            push)
+              if [ -z "${{ inputs.prefix }}" ]; then
+                echo "ERROR: 'prefix' input is required for the push action (sets the directory to upload)"
+                exit 1
+              fi
+              TAG_ARGS=""
+              IFS=',' read -ra TAGS <<< "${{ inputs.tags }}"
+              for tag in "${TAGS[@]}"; do
+                t="$(echo "$tag" | xargs)"
+                [ -n "$t" ] && TAG_ARGS="$TAG_ARGS --tag $t"
+              done
+              python scripts/gcs_sync.py push "${{ inputs.prefix }}" $TAG_ARGS $DRY
+              ;;
+
+            pull)
+              if [ -z "${{ inputs.gcs_path }}" ]; then
+                echo "ERROR: 'gcs_path' input is required for the pull action"
+                exit 1
+              fi
+              python scripts/gcs_sync.py pull "${{ inputs.gcs_path }}" $DRY
+              ;;
+
+            index)
+              PREFIX_ARG=""
+              [ -n "${{ inputs.prefix }}" ] && PREFIX_ARG="--prefix ${{ inputs.prefix }}"
+              python scripts/gcs_sync.py index $PREFIX_ARG $DRY
+              ;;
+          esac
+
+      - name: Commit updated manifest
+        if: (inputs.action == 'push' || inputs.action == 'index') && inputs.dry_run == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add database/gcs_manifest.json
+          git diff --staged --quiet || git commit -m "chore: update GCS manifest [skip ci]"
+          git push origin main
