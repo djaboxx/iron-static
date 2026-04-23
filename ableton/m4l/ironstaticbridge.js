@@ -113,7 +113,7 @@ function anything() {
 // ---------------------------------------------------------------------------
 
 function _handle_ping() {
-    _send("/pong");
+    _send_osc("/pong", []);
     _status("pong!");
 }
 
@@ -344,18 +344,33 @@ function _write_file(path, content) {
 }
 
 function _ok(cmd) {
-    _send("/ok " + cmd);
+    _send_osc("/ok", [cmd]);
     _status("ok " + cmd);
 }
 
 function _error(cmd, msg) {
-    _send("/error " + cmd + " " + msg);
+    _send_osc("/error", [cmd, msg]);
     _status("ERR " + cmd);
     post("iron-static-bridge ERROR [" + cmd + "]: " + msg + "\n");
 }
 
-function _send(msg) {
-    outlet(0, msg);
+// OSC string: null-terminated, padded to 4-byte boundary
+function _osc_str_bytes(s) {
+    var bytes = [];
+    for (var i = 0; i < s.length; i++) bytes.push(s.charCodeAt(i) & 0xFF);
+    bytes.push(0);
+    while (bytes.length % 4 !== 0) bytes.push(0);
+    return bytes;
+}
+
+// Encode and send an OSC message with only string args to udpsend on outlet 0
+function _send_osc(address, str_args) {
+    var bytes = _osc_str_bytes(address);
+    var tag = ",";
+    for (var i = 0; i < str_args.length; i++) tag += "s";
+    bytes = bytes.concat(_osc_str_bytes(tag));
+    for (var i = 0; i < str_args.length; i++) bytes = bytes.concat(_osc_str_bytes(str_args[i]));
+    outlet.apply(null, [0].concat(bytes));
 }
 
 function _status(msg) {
