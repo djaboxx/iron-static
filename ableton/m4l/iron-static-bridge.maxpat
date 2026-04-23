@@ -51,7 +51,7 @@
         "box": {
           "id": "obj-js",
           "maxclass": "newobj",
-          "text": "js ironstaticbridge.js",
+          "text": "js /Users/darnold/git/iron-static/ableton/m4l/js/ironstaticbridge.js",
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", ""],
