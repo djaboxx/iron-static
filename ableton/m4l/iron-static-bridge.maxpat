@@ -21,6 +21,7 @@
     "magnetictoedge": 0,
     "subpatcher_template": "",
     "assistshowspatchername": 0,
+    "classnamespace": "box",
     "boxes": [
       {
         "box": {
