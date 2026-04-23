@@ -46,6 +46,7 @@ terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.backup
 terraform/*.tfstate.*.backup
+terraform/gcs.tfbackend
 # terraform/.terraform.lock.hcl is intentionally committed (provider version lock)
 
 # VS Code

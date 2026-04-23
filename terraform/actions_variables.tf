@@ -13,3 +13,10 @@ resource "github_actions_variable" "gemini_model_pro" {
   variable_name = "GEMINI_MODEL_PRO"
   value         = "gemini-2.5-pro"
 }
+
+# GCS bucket name for large-file sync — not sensitive, so a variable (not secret)
+resource "github_actions_variable" "gcs_bucket" {
+  repository    = local.repository
+  variable_name = "GCS_BUCKET"
+  value         = var.gcs_large_files_bucket
+}

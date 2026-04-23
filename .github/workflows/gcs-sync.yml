@@ -58,7 +58,7 @@ jobs:
       - name: Run GCS sync
         env:
           GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
-          GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
         run: |
           set -euo pipefail
           DRY=""

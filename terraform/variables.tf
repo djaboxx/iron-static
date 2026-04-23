@@ -9,3 +9,19 @@ variable "gh_pat" {
   type        = string
   sensitive   = true
 }
+
+variable "gcp_project" {
+  description = "GCP project ID. Set via: export TF_VAR_gcp_project=<project-id>"
+  type        = string
+}
+
+variable "gcp_region" {
+  description = "GCS bucket location (multi-region or region). Default: US multi-region."
+  type        = string
+  default     = "US"
+}
+
+variable "gcs_large_files_bucket" {
+  description = "GCS bucket name for large IRON STATIC files (audio, samples, presets). Set via: export TF_VAR_gcs_large_files_bucket=iron-static-files"
+  type        = string
+}

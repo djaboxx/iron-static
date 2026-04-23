@@ -1,0 +1,8 @@
+# GCS backend configuration for Terraform state.
+# Copy this file to gcs.tfbackend, fill in your values, and run:
+#   terraform init -backend-config=gcs.tfbackend
+#
+# gcs.tfbackend is gitignored — never commit it (it identifies your infra).
+
+bucket = "iron-static-tf-state"   # GCS bucket you created for TF state
+prefix = "terraform/state"
