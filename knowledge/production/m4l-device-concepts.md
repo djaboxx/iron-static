@@ -244,7 +244,7 @@ call send_midi midi_message
 1. **`iron-static-bridge.amxd`** — unlocks everything; build this first
 2. **`session-reporter.amxd`** — gives Copilot situational awareness immediately
 3. **`pattern-injector.amxd`** — completes the generate→inject loop
-4. **`scene-tempo-map.amxd`** — directly useful for Ventura and future songs
+4. **`scene-tempo-map.amxd`** — directly useful for any odd-meter song; configs are per-song JSON files in `ableton/m4l/configs/`
 5. **`pigments-macro-lens.amxd`** — useful once Pigments performance workflow solidifies
 6. **`scale-broadcaster.amxd`** — nice-to-have for live hardware response
 7. **`arm-dispatcher.amxd`** — performance utility

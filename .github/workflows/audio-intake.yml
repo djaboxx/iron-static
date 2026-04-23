@@ -1,0 +1,79 @@
+name: Audio Intake
+
+on:
+  push:
+    paths:
+      - 'audio/recordings/raw/**'
+      - 'audio/recordings/stems/**'
+  workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+      scan_stems:
+        description: 'Also scan audio/recordings/stems/ for new files'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      no_llm:
+        description: 'Skip LLM call (dry run with stubs)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai librosa soundfile numpy
+
+      - name: Run audio intake processor
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: |
+          DATE_ARG=""
+          STEMS_ARG=""
+          NO_LLM_ARG=""
+          if [ -n "${{ inputs.date_override }}" ]; then
+            DATE_ARG="--date ${{ inputs.date_override }}"
+          fi
+          if [ "${{ inputs.scan_stems }}" = "true" ]; then
+            STEMS_ARG="--scan-stems"
+          fi
+          if [ "${{ inputs.no_llm }}" = "true" ]; then
+            NO_LLM_ARG="--no-llm"
+          fi
+          python scripts/run_audio_intake.py $DATE_ARG $STEMS_ARG $NO_LLM_ARG
+
+      - name: Commit analysis outputs
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add outputs/audio_analysis/ outputs/audio_intake_manifest.json knowledge/recordings/
+          git diff --staged --quiet || git commit -m "feat(audio): audio intake analysis [automated]"
+          git push

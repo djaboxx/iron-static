@@ -1,0 +1,53 @@
+name: Reference Digest
+
+on:
+  schedule:
+    - cron: '0 8 * * 3'   # Every Wednesday at 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  reference-digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai
+
+      - name: Run reference digest generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ inputs.date_override }}" ]; then
+            DATE_ARG="--date ${{ inputs.date_override }}"
+          fi
+          python scripts/run_reference_digest.py $DATE_ARG
+
+      - name: Commit reference digest
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add knowledge/references/
+          git diff --staged --quiet || git commit -m "feat(references): weekly reference digest [automated]"
+          git push

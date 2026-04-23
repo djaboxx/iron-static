@@ -136,7 +136,7 @@
       "manual_path": "instruments/arturia-pigments/manuals/",
       "presets_path": "instruments/arturia-pigments/presets/",
       "readme": "instruments/arturia-pigments/README.md",
-      "role": "Primary software polysynth — pads, leads, modulated textures across 3 Ventura tracks",
+      "role": "Primary software polysynth — pads, leads, and modulated textures",
       "version": "7.0",
       "format": "VST3 / AU",
       "midi_model": "flexible_cc_learn",

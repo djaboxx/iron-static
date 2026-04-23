@@ -1,0 +1,55 @@
+name: Repo Health Audit
+
+on:
+  schedule:
+    - cron: '0 7 * * 0'   # Every Sunday at 07:00 UTC
+  workflow_dispatch:        # Manual trigger from GitHub UI or CLI
+
+permissions:
+  contents: write           # Needed to commit audit outputs back to repo
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai
+
+      - name: Run repo health audit
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: python scripts/run_repo_health.py
+
+      - name: Commit audit outputs
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add outputs/repo_health.json outputs/repo_health_issues.md 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore(health): weekly repo audit [automated]"
+          git push
+
+      - name: Fail if hard errors found
+        run: |
+          python - <<'EOF'
+          import json, sys
+          data = json.load(open("outputs/repo_health.json"))
+          fails = data["summary"]["fail"]
+          if fails:
+              print(f"::error::Repo health audit found {fails} failure(s). See outputs/repo_health_issues.md")
+              sys.exit(1)
+          print(f"Audit passed: {data['summary']}")
+          EOF

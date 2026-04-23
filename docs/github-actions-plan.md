@@ -33,7 +33,7 @@ Set these at: `https://github.com/djaboxx/iron-static/settings/secrets/actions`
 **Trigger also**: `workflow_dispatch`
 
 **What it does**:
-1. Reads `knowledge/band-lore/manifesto.md` + current song inventory from `outputs/Ventura_clips.csv` (if present)
+1. Reads `knowledge/band-lore/manifesto.md` + active song context from `database/songs.json` (active entry) + `outputs/clips.csv` if present
 2. Sends a structured prompt to Gemini: "You are the machine half of IRON STATIC. Given this band's aesthetic and current work, generate 3 original musical ideas. For each: give a concept title, describe the intended texture and instrumentation using only instruments from this rig, suggest a scale/mode, a BPM range, a rough time signature, and a 2-bar melodic/rhythmic concept."
 3. Writes output to `knowledge/brainstorms/YYYY-MM-DD.md`
 4. Commits with message: `chore(brainstorm): weekly ideas [automated]`

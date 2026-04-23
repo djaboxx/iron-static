@@ -1,0 +1,249 @@
+{
+  "instrument": "analog-rytm",
+  "name": "Elektron Analog Rytm MKII",
+  "source_manual": "Analog-Rytm-MKII-User-Manual_ENG_OS1.72_250130.pdf",
+  "source_section": "Appendix C: MIDI (pp. 88-97)",
+  "notes": [
+    "Per-track CCs (TRIG, EUCLIDEAN, KIT, SYNTH, SAMPLE, FILTER, AMP, LFO) are sent on each track's individual MIDI channel (default: tracks 1-12 → channels 1-12).",
+    "FX CCs (Delay, Reverb, Distortion, Compressor) are sent on the auto-channel (default ch 13).",
+    "CC numbers in the FX section overlap with per-track SYNTH/SAMPLE sections — they operate on different MIDI channels.",
+    "NRPN MSB 0 = Performance parameters. NRPN MSB 1 = per-track parameters. NRPN MSB 2 = FX parameters. NRPN MSB 3 = Trig/Euclidean parameters.",
+    "Synth Parameters 1-8 (CC 16-23) are machine-dependent — exact parameter names differ per machine type (see machines section).",
+    "LFO Depth (CC 109 MSB + CC 118 LSB) is high-resolution.",
+    "MIDI Note Triggers: C0 (MIDI note 0) = Track 1 through B0 (MIDI note 11) = Track 12. C1-B4 (notes 12-59) = chromatic pitch trigger of the active track.",
+    "Analog Rytm does not support MIDI SysEx program dump — use CC/NRPN for real-time control.",
+    "Track Machine Type (CC 15) selects the synthesis engine for a track — see machines section for values."
+  ],
+  "midi_channels": {
+    "auto_channel": "Channel 13 (default, configurable). Used for FX and global CCs.",
+    "track_channels": "Channels 1-12 (one per drum track). Used for per-track TRIG/SYNTH/FILTER/AMP/LFO CCs.",
+    "performance_channel": "Auto-channel. Performance pads send on auto-channel."
+  },
+  "midi_note_triggers": {
+    "description": "MIDI notes sent to Analog Rytm trigger tracks or chromatic pitches",
+    "track_triggers": {
+      "C0 (0)":  "Track 1", "C#0 (1)": "Track 2",  "D0 (2)":  "Track 3",
+      "D#0 (3)": "Track 4", "E0 (4)":  "Track 5",  "F0 (5)":  "Track 6",
+      "F#0 (6)": "Track 7", "G0 (7)":  "Track 8",  "G#0 (8)": "Track 9",
+      "A0 (9)":  "Track 10","A#0 (10)":"Track 11", "B0 (11)": "Track 12"
+    },
+    "chromatic_range": "C1 (12) through B4 (59) — chromatic pitch trigger of the active track"
+  },
+  "params": {
+    "trig": {
+      "description": "TRIG page — sent on track MIDI channel",
+      "params": {
+        "note":        { "cc_msb": 3,  "nrpn_msb": 3, "nrpn_lsb": 0, "range": "0-127" },
+        "velocity":    { "cc_msb": 4,  "nrpn_msb": 3, "nrpn_lsb": 1, "range": "0-127" },
+        "length":      { "cc_msb": 5,  "nrpn_msb": 3, "nrpn_lsb": 2, "range": "0-127" },
+        "synth_trig":  { "cc_msb": 11, "nrpn_msb": 3, "nrpn_lsb": 3, "range": "0-1" },
+        "sample_trig": { "cc_msb": 12, "nrpn_msb": 3, "nrpn_lsb": 4, "range": "0-1" },
+        "env_trig":    { "cc_msb": 13, "nrpn_msb": 3, "nrpn_lsb": 5, "range": "0-1" },
+        "lfo_trig":    { "cc_msb": 14, "nrpn_msb": 3, "nrpn_lsb": 6, "range": "0-1" }
+      }
+    },
+    "euclidean": {
+      "description": "EUCLIDEAN page — sent on track MIDI channel",
+      "params": {
+        "pulse_gen1":      { "cc_msb": 86,  "nrpn_msb": 3, "nrpn_lsb": 8,  "range": "0-127" },
+        "pulse_gen2":      { "cc_msb": 87,  "nrpn_msb": 3, "nrpn_lsb": 9,  "range": "0-127" },
+        "boolean_op":      { "cc_msb": 88,  "nrpn_msb": 3, "nrpn_lsb": 10, "range": "0-3", "notes": "0=OR, 1=AND, 2=XOR, 3=NAND" },
+        "rotation_gen1":   { "cc_msb": 89,  "nrpn_msb": 3, "nrpn_lsb": 11, "range": "0-127" },
+        "rotation_gen2":   { "cc_msb": 90,  "nrpn_msb": 3, "nrpn_lsb": 12, "range": "0-127" },
+        "track_rotation":  { "cc_msb": 91,  "nrpn_msb": 3, "nrpn_lsb": 13, "range": "0-127" },
+        "euclidean_onoff": { "cc_msb": 117, "nrpn_msb": 3, "nrpn_lsb": 14, "range": "0-1" }
+      }
+    },
+    "kit": {
+      "description": "KIT page — sent on track MIDI channel",
+      "params": {
+        "track_level":   { "cc_msb": 95, "nrpn_msb": 1, "nrpn_lsb": 100, "range": "0-127" },
+        "track_mute":    { "cc_msb": 94, "nrpn_msb": 1, "nrpn_lsb": 101, "range": "0-1" },
+        "track_solo":    { "cc_msb": 93, "nrpn_msb": 1, "nrpn_lsb": 102, "range": "0-1" },
+        "machine_type":  { "cc_msb": 15, "nrpn_msb": 1, "nrpn_lsb": 103, "range": "0-127", "notes": "See machines section for values" },
+        "active_scene":  { "cc_msb": 92, "nrpn_msb": 1, "nrpn_lsb": 104, "range": "0-127" }
+      }
+    },
+    "performance": {
+      "description": "PERFORMANCE pads — sent on auto-channel. Pads 1-12.",
+      "params": {
+        "perf1":  { "cc_msb": 35, "nrpn_msb": 0, "nrpn_lsb": 0,  "range": "0-127" },
+        "perf2":  { "cc_msb": 36, "nrpn_msb": 0, "nrpn_lsb": 1,  "range": "0-127" },
+        "perf3":  { "cc_msb": 37, "nrpn_msb": 0, "nrpn_lsb": 2,  "range": "0-127" },
+        "perf4":  { "cc_msb": 38, "nrpn_msb": 0, "nrpn_lsb": 3,  "range": "0-127" },
+        "perf5":  { "cc_msb": 39, "nrpn_msb": 0, "nrpn_lsb": 4,  "range": "0-127" },
+        "perf6":  { "cc_msb": 40, "nrpn_msb": 0, "nrpn_lsb": 5,  "range": "0-127" },
+        "perf7":  { "cc_msb": 41, "nrpn_msb": 0, "nrpn_lsb": 6,  "range": "0-127" },
+        "perf8":  { "cc_msb": 42, "nrpn_msb": 0, "nrpn_lsb": 7,  "range": "0-127" },
+        "perf9":  { "cc_msb": 43, "nrpn_msb": 0, "nrpn_lsb": 8,  "range": "0-127" },
+        "perf10": { "cc_msb": 44, "nrpn_msb": 0, "nrpn_lsb": 9,  "range": "0-127" },
+        "perf11": { "cc_msb": 45, "nrpn_msb": 0, "nrpn_lsb": 10, "range": "0-127" },
+        "perf12": { "cc_msb": 46, "nrpn_msb": 0, "nrpn_lsb": 11, "range": "0-127" }
+      }
+    },
+    "synth": {
+      "description": "SYNTH page — machine-dependent parameters. CC 16-23 = Params 1-8. Sent on track MIDI channel.",
+      "params": {
+        "synth_param1": { "cc_msb": 16, "nrpn_msb": 1, "nrpn_lsb": 0, "range": "0-127", "notes": "Machine-dependent — see machines section" },
+        "synth_param2": { "cc_msb": 17, "nrpn_msb": 1, "nrpn_lsb": 1, "range": "0-127" },
+        "synth_param3": { "cc_msb": 18, "nrpn_msb": 1, "nrpn_lsb": 2, "range": "0-127" },
+        "synth_param4": { "cc_msb": 19, "nrpn_msb": 1, "nrpn_lsb": 3, "range": "0-127" },
+        "synth_param5": { "cc_msb": 20, "nrpn_msb": 1, "nrpn_lsb": 4, "range": "0-127" },
+        "synth_param6": { "cc_msb": 21, "nrpn_msb": 1, "nrpn_lsb": 5, "range": "0-127" },
+        "synth_param7": { "cc_msb": 22, "nrpn_msb": 1, "nrpn_lsb": 6, "range": "0-127" },
+        "synth_param8": { "cc_msb": 23, "nrpn_msb": 1, "nrpn_lsb": 7, "range": "0-127" }
+      }
+    },
+    "sample": {
+      "description": "SAMPLE page — sent on track MIDI channel",
+      "params": {
+        "tune":       { "cc_msb": 24, "nrpn_msb": 1, "nrpn_lsb": 8,  "range": "0-127" },
+        "fine_tune":  { "cc_msb": 25, "nrpn_msb": 1, "nrpn_lsb": 9,  "range": "0-127" },
+        "bit_reduce": { "cc_msb": 26, "nrpn_msb": 1, "nrpn_lsb": 10, "range": "0-127" },
+        "sample_slot":{ "cc_msb": 27, "nrpn_msb": 1, "nrpn_lsb": 11, "range": "0-127" },
+        "start_point":{ "cc_msb": 28, "nrpn_msb": 1, "nrpn_lsb": 12, "range": "0-127" },
+        "end_point":  { "cc_msb": 29, "nrpn_msb": 1, "nrpn_lsb": 13, "range": "0-127" },
+        "loop_point": { "cc_msb": 30, "nrpn_msb": 1, "nrpn_lsb": 14, "range": "0-127" },
+        "level":      { "cc_msb": 31, "nrpn_msb": 1, "nrpn_lsb": 15, "range": "0-127" }
+      }
+    },
+    "filter": {
+      "description": "FILTER page — sent on track MIDI channel",
+      "params": {
+        "env_attack":  { "cc_msb": 70, "nrpn_msb": 1, "nrpn_lsb": 16, "range": "0-127" },
+        "env_decay":   { "cc_msb": 71, "nrpn_msb": 1, "nrpn_lsb": 17, "range": "0-127" },
+        "env_sustain": { "cc_msb": 72, "nrpn_msb": 1, "nrpn_lsb": 18, "range": "0-127" },
+        "env_release": { "cc_msb": 73, "nrpn_msb": 1, "nrpn_lsb": 19, "range": "0-127" },
+        "freq":        { "cc_msb": 74, "nrpn_msb": 1, "nrpn_lsb": 20, "range": "0-127" },
+        "resonance":   { "cc_msb": 75, "nrpn_msb": 1, "nrpn_lsb": 21, "range": "0-127" },
+        "filter_mode": { "cc_msb": 76, "nrpn_msb": 1, "nrpn_lsb": 22, "range": "0-7" },
+        "env_depth":   { "cc_msb": 77, "nrpn_msb": 1, "nrpn_lsb": 23, "range": "0-127", "notes": "0=max negative, 64=zero, 127=max positive" }
+      }
+    },
+    "amp": {
+      "description": "AMP page — sent on track MIDI channel",
+      "params": {
+        "attack":      { "cc_msb": 78, "nrpn_msb": 1, "nrpn_lsb": 24, "range": "0-127" },
+        "hold":        { "cc_msb": 79, "nrpn_msb": 1, "nrpn_lsb": 25, "range": "0-127" },
+        "decay":       { "cc_msb": 80, "nrpn_msb": 1, "nrpn_lsb": 26, "range": "0-127" },
+        "overdrive":   { "cc_msb": 81, "nrpn_msb": 1, "nrpn_lsb": 27, "range": "0-127" },
+        "delay_send":  { "cc_msb": 82, "nrpn_msb": 1, "nrpn_lsb": 28, "range": "0-127" },
+        "reverb_send": { "cc_msb": 83, "nrpn_msb": 1, "nrpn_lsb": 29, "range": "0-127" },
+        "pan":         { "cc_msb": 10, "nrpn_msb": 1, "nrpn_lsb": 30, "range": "0-127", "notes": "0=L, 64=C, 127=R" },
+        "volume":      { "cc_msb": 7,  "nrpn_msb": 1, "nrpn_lsb": 31, "range": "0-127" }
+      }
+    },
+    "lfo": {
+      "description": "LFO page — sent on track MIDI channel. Depth is high-resolution (MSB + LSB).",
+      "params": {
+        "speed":       { "cc_msb": 102, "nrpn_msb": 1, "nrpn_lsb": 32, "range": "0-127" },
+        "multiplier":  { "cc_msb": 103, "nrpn_msb": 1, "nrpn_lsb": 33, "range": "0-127" },
+        "fade":        { "cc_msb": 104, "nrpn_msb": 1, "nrpn_lsb": 34, "range": "0-127" },
+        "destination": { "cc_msb": 105, "nrpn_msb": 1, "nrpn_lsb": 35, "range": "0-127" },
+        "waveform":    { "cc_msb": 106, "nrpn_msb": 1, "nrpn_lsb": 36, "range": "0-6", "notes": "0=Tri, 1=Sin, 2=Sqr, 3=Saw, 4=Exp, 5=Ramp, 6=Rnd" },
+        "start_phase": { "cc_msb": 107, "nrpn_msb": 1, "nrpn_lsb": 37, "range": "0-127" },
+        "trig_mode":   { "cc_msb": 108, "nrpn_msb": 1, "nrpn_lsb": 38, "range": "0-4", "notes": "0=Free, 1=Trg, 2=Hld, 3=One, 4=Hlf" },
+        "depth":       { "cc_msb": 109, "cc_lsb": 118, "nrpn_msb": 1, "nrpn_lsb": 39, "range": "0-127 (MSB), 0-127 (LSB)", "notes": "High-resolution: CC 109 (MSB) + CC 118 (LSB)" }
+      }
+    },
+    "fx_delay": {
+      "description": "FX Delay — sent on auto-channel",
+      "params": {
+        "time":         { "cc_msb": 16, "nrpn_msb": 2, "nrpn_lsb": 0, "range": "0-127" },
+        "pingpong":     { "cc_msb": 17, "nrpn_msb": 2, "nrpn_lsb": 1, "range": "0-1" },
+        "stereo_width": { "cc_msb": 18, "nrpn_msb": 2, "nrpn_lsb": 2, "range": "0-127" },
+        "feedback":     { "cc_msb": 19, "nrpn_msb": 2, "nrpn_lsb": 3, "range": "0-127" },
+        "highpass":     { "cc_msb": 20, "nrpn_msb": 2, "nrpn_lsb": 4, "range": "0-127" },
+        "lowpass":      { "cc_msb": 21, "nrpn_msb": 2, "nrpn_lsb": 5, "range": "0-127" },
+        "reverb_send":  { "cc_msb": 22, "nrpn_msb": 2, "nrpn_lsb": 6, "range": "0-127" },
+        "mix_volume":   { "cc_msb": 23, "nrpn_msb": 2, "nrpn_lsb": 7, "range": "0-127" }
+      }
+    },
+    "fx_reverb": {
+      "description": "FX Reverb — sent on auto-channel",
+      "params": {
+        "predelay":      { "cc_msb": 24, "nrpn_msb": 2, "nrpn_lsb": 8,  "range": "0-127" },
+        "decay_time":    { "cc_msb": 25, "nrpn_msb": 2, "nrpn_lsb": 9,  "range": "0-127" },
+        "shelving_freq": { "cc_msb": 26, "nrpn_msb": 2, "nrpn_lsb": 10, "range": "0-127" },
+        "shelving_gain": { "cc_msb": 27, "nrpn_msb": 2, "nrpn_lsb": 11, "range": "0-127" },
+        "highpass":      { "cc_msb": 28, "nrpn_msb": 2, "nrpn_lsb": 12, "range": "0-127" },
+        "lowpass":       { "cc_msb": 29, "nrpn_msb": 2, "nrpn_lsb": 13, "range": "0-127" },
+        "mix_volume":    { "cc_msb": 31, "nrpn_msb": 2, "nrpn_lsb": 15, "range": "0-127" }
+      }
+    },
+    "fx_distortion": {
+      "description": "FX Distortion — sent on auto-channel",
+      "params": {
+        "amount":              { "cc_msb": 70, "nrpn_msb": 2, "nrpn_lsb": 16, "range": "0-127" },
+        "symmetry":            { "cc_msb": 71, "nrpn_msb": 2, "nrpn_lsb": 17, "range": "0-127" },
+        "delay_overdrive":     { "cc_msb": 72, "nrpn_msb": 2, "nrpn_lsb": 18, "range": "0-127" },
+        "delay_dist_routing":  { "cc_msb": 76, "nrpn_msb": 2, "nrpn_lsb": 22, "range": "0-1" },
+        "reverb_dist_routing": { "cc_msb": 77, "nrpn_msb": 2, "nrpn_lsb": 23, "range": "0-1" }
+      }
+    },
+    "fx_compressor": {
+      "description": "FX Compressor — sent on auto-channel",
+      "params": {
+        "threshold":    { "cc_msb": 78, "nrpn_msb": 2, "nrpn_lsb": 24, "range": "0-127" },
+        "attack":       { "cc_msb": 79, "nrpn_msb": 2, "nrpn_lsb": 25, "range": "0-127" },
+        "release":      { "cc_msb": 80, "nrpn_msb": 2, "nrpn_lsb": 26, "range": "0-127" },
+        "makeup_gain":  { "cc_msb": 81, "nrpn_msb": 2, "nrpn_lsb": 27, "range": "0-127" },
+        "ratio":        { "cc_msb": 82, "nrpn_msb": 2, "nrpn_lsb": 28, "range": "0-127" },
+        "sidechain_eq": { "cc_msb": 83, "nrpn_msb": 2, "nrpn_lsb": 29, "range": "0-127" },
+        "dry_wet_mix":  { "cc_msb": 84, "nrpn_msb": 2, "nrpn_lsb": 30, "range": "0-127" },
+        "output_volume":{ "cc_msb": 85, "nrpn_msb": 2, "nrpn_lsb": 31, "range": "0-127" }
+      }
+    }
+  },
+  "machines": {
+    "description": "Synth Parameter mappings by machine type (all use CC 16-23 / NRPN MSB1, LSB 0-7)",
+    "BD_PLASTIC":   ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Hold Time", "VCO Click", "Dust Level"],
+    "BD_SHARP":     ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Hold Time", "Tick Level", "Waveform"],
+    "BD_HARD":      ["Level", "Tune", "Decay", "Hold", "Sweep Time", "Sweep Depth", "Waveform", "Transient Tick"],
+    "BD_CLASSIC":   ["Level", "Tune", "Decay", "Hold", "Sweep Time", "Sweep Depth", "Waveform", "Transient Tick"],
+    "BD_FM":        ["Level", "Tune", "Decay", "FM Amount", "Sweep Time", "FM Sweep Time", "FM Decay", "FM Tune"],
+    "BD_SILKY":     ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Hold", "VCO Click", "Dust Level"],
+    "BD_ACOUSTIC":  ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Hold Time", "Impact", "Waveform"],
+    "SD_NATURAL":   ["Level", "Tune", "Body Decay", "Noise Decay", "Noise LPF", "Noise Balance", "Noise Res", "Noise HPF"],
+    "SD_HARD":      ["Level", "Tune", "Decay", "Sweep Depth", "Tick Level", "Noise Decay", "Noise Level", "Sweep Time"],
+    "SD_CLASSIC":   ["Level", "Tune", "Decay", "Detune", "Snap Amount", "Noise Decay", "Noise Level", "Osc Balance"],
+    "SD_FM":        ["Level", "Tune", "Decay", "FM Tune", "FM Decay", "Noise Decay", "Noise Level", "FM Amount"],
+    "SD_ACOUSTIC":  ["Level", "Tune", "Decay", "Noise Decay", "Hold Time", "Noise Level", "Impact", "Sweep Depth"],
+    "RS_HARD":      ["Level", "Tune", "Decay", "Sweep Depth", "Tick Level", "Noise Level", "Symmetry", "Sweep Time"],
+    "RS_CLASSIC":   ["Level", "Tune Osc1", "Decay", "Osc Balance", "Tune Osc2", "Symmetry", "Noise Level", "Tick Level"],
+    "CP_CLASSIC":   ["Level", "Noise Tone", "Noise Decay", "Clap Number", "Clap Rate", "Noise Level", "Random Claps", "Clap Decay"],
+    "SY_DUAL_VCO":  ["Level", "Osc1 Tune", "Osc1 Decay", "Balance", "Osc2 Detune", "Osc Config", "Osc2 Decay", "Bend"],
+    "SY_CHIP":      ["Level", "Tune", "Decay", "Waveform", "Speed", "Offset2", "Offset3", "Offset4"],
+    "SY_RAW":       ["Level", "Tune", "Decay", "Noise Level", "Osc2 Detune", "Waveform1", "Waveform2", "Balance"],
+    "BT_CLASSIC":   ["Level", "Tune", "Decay", "Sweep Depth", "Noise Level", "Snap Type", null, null],
+    "LT_CLASSIC":   ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Noise Decay", "Noise Level", "Noise Tone"],
+    "MT_CLASSIC":   ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Noise Decay", "Noise Level", "Noise Tone"],
+    "HT_CLASSIC":   ["Level", "Tune", "Decay", "Sweep Depth", "Sweep Time", "Noise Decay", "Noise Level", "Noise Tone"],
+    "CH_CLASSIC":   ["Level", "Tune", "Decay", "Color", null, null, null, null],
+    "CH_METALLIC":  ["Level", "Tune", "Decay Time", null, null, null, null, null],
+    "OH_CLASSIC":   ["Level", "Tune", "Decay", "Color", null, null, null, null],
+    "OH_METALLIC":  ["Level", "Tune", "Decay Time", null, null, null, null, null],
+    "HH_BASIC":     ["Level", "Tune", "Decay", "Tone", "Transient Decay", "Osc Reset", null, null],
+    "HH_LAB":       ["Level", "Tune1", "Decay", "Tune2", "Tune3", "Tune4", "Tune5", "Tune6"],
+    "CY_METALLIC":  ["Level", "Tune", "Decay", "Tone", "Transient Decay", null, null, null],
+    "CY_CLASSIC":   ["Level", "Tune", "Decay", "Color", "Tone", null, null, null],
+    "CY_RIDE":      ["Level", "Tune", "Tail Decay", "Hit Decay", "Cymbal Type", "Component1", "Component2", "Component3"],
+    "CB_CLASSIC":   ["Level", "Tune", "Decay", "Detune", null, null, null, null],
+    "CB_METALLIC":  ["Level", "Tune", "Decay", "Detune", null, null, null, null],
+    "UT_NOISE":     ["Level", "LP Freq", "Decay", "Sweep Depth", "Sweep Time", "LP Res", "HP Freq", "Attack"],
+    "UT_IMPULSE":   ["Level", "Attack", "Decay", "Polarity", null, null, null, null]
+  },
+  "iron_static_usage": {
+    "primary_role": "Analog percussion engine — 12 drum tracks, each with its own synthesis machine. Driven standalone or via MIDI from DAW.",
+    "key_ccs_for_live_control": [
+      { "cc": 74, "name": "Filter Freq",     "use": "Real-time filter opens/closes on drum hits" },
+      { "cc": 7,  "name": "Track Volume",    "use": "Per-track volume automation" },
+      { "cc": 82, "name": "Delay Send",      "use": "Throw individual drums into delay on fills" },
+      { "cc": 83, "name": "Reverb Send",     "use": "Throw individual drums into reverb" },
+      { "cc": 81, "name": "Overdrive",       "use": "Drive individual tracks for aggression" },
+      { "cc": 92, "name": "Active Scene",    "use": "Scene morphing via Performance mode" },
+      { "cc": 78, "name": "Comp Threshold",  "use": "Auto: FX compressor pumping effect" }
+    ],
+    "notes": "Per-track FX sends (CC 82/83) on each track's channel allow individual drum routing to the global Delay/Reverb. Performance pads (CC 35-46) are ideal for real-time mix morphs — wire them to Ableton via auto-channel."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "_comment": "IRON STATIC song registry. Manage with: python scripts/manage_songs.py",
+  "_lifecycle": ["in-progress", "active", "released", "archived"],
+  "_active_rule": "Exactly one song should have status='active' at any time. Scripts and Copilot read the active song for context.",
+  "songs": [
+    {
+      "slug": "ventura",
+      "title": "Ventura",
+      "status": "archived",
+      "archived_reason": "Used as a test fixture for parse-als and extract-midi-clips skill development. Not an original IRON STATIC composition.",
+      "als_path": null,
+      "key": null,
+      "scale": null,
+      "bpm": null,
+      "time_signature": null,
+      "notes": "Ventura.als was brought in as an example Ableton project to develop and validate tooling. Outputs under outputs/Ventura_* and outputs/midi_clips/ventura/ are parse artifacts, not canonical IRON STATIC material.",
+      "outputs": [
+        "outputs/Ventura_clips.csv",
+        "outputs/Ventura_devices.json",
+        "outputs/Ventura_presets_map.json",
+        "outputs/ventura_summary.json",
+        "outputs/midi_clips/ventura/"
+      ]
+    }
+  ]
+}

@@ -15,5 +15,8 @@ demucs>=4.0.0           # Meta stem separator (drums/bass/other/vocals)
 # Ableton bridge (ableton_push.py)
 python-hcl2>=4.3.0      # HCL config file parser for session templates
 
+# LLM integration (automated workflows — not for interactive Copilot sessions)
+google-generativeai>=0.8.0
+
 # General utilities
 argparse  # stdlib in Python 3.2+

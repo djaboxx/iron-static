@@ -1,0 +1,3 @@
+# Audio intake logs are generated here by run_audio_intake.py
+# Each file is named YYYY-MM-DD.md (date of intake run)
+# Per-file analysis JSONs are written to outputs/audio_analysis/

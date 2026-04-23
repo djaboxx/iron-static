@@ -1,0 +1,53 @@
+name: Theory Pulse
+
+on:
+  schedule:
+    - cron: '0 8 * * 2'   # Every Tuesday at 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  theory-pulse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai
+
+      - name: Run theory pulse generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ inputs.date_override }}" ]; then
+            DATE_ARG="--date ${{ inputs.date_override }}"
+          fi
+          python scripts/run_theory_pulse.py $DATE_ARG
+
+      - name: Commit theory pulse document
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add knowledge/music-theory/pulse/
+          git diff --staged --quiet || git commit -m "feat(theory): weekly theory pulse [automated]"
+          git push

@@ -1,0 +1,86 @@
+name: Pattern Mutator
+
+on:
+  push:
+    paths:
+      - 'midi/patterns/*.mid'
+  workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+      pattern:
+        description: 'Specific pattern filename to mutate (e.g. kick_groove_v1.mid). Leave blank for all.'
+        required: false
+        default: ''
+      no_llm:
+        description: 'Skip LLM mutation brief (dry run)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      force:
+        description: 'Overwrite existing log for today'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  mutate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai mido
+
+      - name: Run pattern mutator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: |
+          DATE_ARG=""
+          PATTERN_ARG=""
+          NO_LLM_ARG=""
+          FORCE_ARG=""
+          if [ -n "${{ inputs.date_override }}" ]; then
+            DATE_ARG="--date ${{ inputs.date_override }}"
+          fi
+          if [ -n "${{ inputs.pattern }}" ]; then
+            PATTERN_ARG="--pattern ${{ inputs.pattern }}"
+          fi
+          if [ "${{ inputs.no_llm }}" = "true" ]; then
+            NO_LLM_ARG="--no-llm"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            FORCE_ARG="--force"
+          fi
+          python scripts/run_pattern_mutator.py $DATE_ARG $PATTERN_ARG $NO_LLM_ARG $FORCE_ARG
+
+      - name: Commit mutations
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add midi/patterns/ knowledge/patterns/
+          git diff --staged --quiet || git commit -m "feat(patterns): pattern mutations [automated]"
+          git push

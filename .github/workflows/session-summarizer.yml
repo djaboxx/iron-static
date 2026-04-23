@@ -1,0 +1,68 @@
+name: Session Summarizer
+
+on:
+  push:
+    paths:
+      - 'outputs/live_state.json'
+      - 'outputs/**_summary.json'
+      - 'outputs/**_clips.csv'
+  workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+      force:
+        description: 'Overwrite existing summary for this date'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet google-generativeai
+
+      - name: Run session summarizer
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_FAST: ${{ vars.GEMINI_MODEL_FAST }}
+          GEMINI_MODEL_PRO: ${{ vars.GEMINI_MODEL_PRO }}
+        run: |
+          DATE_ARG=""
+          FORCE_ARG=""
+          if [ -n "${{ inputs.date_override }}" ]; then
+            DATE_ARG="--date ${{ inputs.date_override }}"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            FORCE_ARG="--force"
+          fi
+          python scripts/run_session_summarizer.py $DATE_ARG $FORCE_ARG
+
+      - name: Commit session summary
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add knowledge/sessions/
+          git diff --staged --quiet || git commit -m "feat(sessions): session summary [automated]"
+          git push

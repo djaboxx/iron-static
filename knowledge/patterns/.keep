@@ -1,0 +1,3 @@
+# MIDI pattern mutation logs are generated here by run_pattern_mutator.py
+# Each file is named YYYY-MM-DD.md (date of mutation run)
+# Mutated MIDI files are written to midi/patterns/ with _mut_<type>_<date>.mid suffix

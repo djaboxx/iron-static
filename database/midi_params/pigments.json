@@ -110,13 +110,13 @@
       { "name": "E2 Pan", "section": "Engine 2" }
     ],
     "filters": [
-      { "name": "F1 Cutoff", "pigments_id": "F1 Cutoff", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 2-Pigments track" },
+      { "name": "F1 Cutoff", "pigments_id": "F1 Cutoff", "notes": "Commonly mapped; recommended CC74" },
       { "name": "F1 Resonance", "pigments_id": "F1 Resonance" },
       { "name": "F1 Drive", "pigments_id": "F1 Drive" },
       { "name": "F1 Env Amount", "pigments_id": "F1 Env Amount" },
-      { "name": "F2 Cutoff", "pigments_id": "F2 Cutoff", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 6-Pigments track" },
+      { "name": "F2 Cutoff", "pigments_id": "F2 Cutoff", "notes": "Commonly mapped; recommended CC75" },
       { "name": "F2 Resonance", "pigments_id": "F2 Resonance" },
-      { "name": "F2 FM Amount", "pigments_id": "F2 FM Amount", "observed_in_ventura": true, "notes": "Observed as mapped param in Ventura 6-Pigments track" },
+      { "name": "F2 FM Amount", "pigments_id": "F2 FM Amount", "notes": "FM amount modulation — expressive target for Macro assignment" },
       { "name": "Filter Blend", "pigments_id": "Filter Blend", "notes": "Blends between F1 and F2 output" }
     ],
     "envelopes": [

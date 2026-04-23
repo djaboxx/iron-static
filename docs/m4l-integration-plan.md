@@ -139,7 +139,7 @@ Seven devices were proposed in `knowledge/production/m4l-device-concepts.md`. He
 
 **Risk**: Low. Pure write-only LOM operations. The only gotcha is scene index alignment (JSON must match scene order).
 
-**IRON STATIC use case**: Directly applicable to Ventura's odd-meter structure. Load `ableton/m4l/configs/ventura_scenes.json` → press Apply → all scene tempos and time signatures set in one shot.
+**IRON STATIC use case**: Load `ableton/m4l/configs/[song-slug]_scenes.json` → press Apply → all scene tempos and time signatures set in one shot. Scene config files live alongside their song in `ableton/m4l/configs/`.
 
 ---
 
@@ -219,7 +219,7 @@ Seven devices were proposed in `knowledge/production/m4l-device-concepts.md`. He
 │    → sends OSC commands                                         │
 │                                   scene-tempo-map.amxd          │
 │  ableton/m4l/configs/             └── reads JSON config         │
-│    ventura_scenes.json                sets scene tempos/meters  │
+│    [song-slug]_scenes.json            sets scene tempos/meters  │
 │    → consumed by scene-tempo-map                                │
 │                                                                 │
 │  Hardware (MIDI ch16)                                           │
@@ -261,7 +261,7 @@ Seven devices were proposed in `knowledge/production/m4l-device-concepts.md`. He
 Build `session-reporter.amxd` first — it's the simplest device and immediately gives Copilot full session awareness without needing two-way communication.
 
 - [ ] Build `session-reporter.amxd`
-- [ ] Test: dump `outputs/live_state.json` from Ventura session
+- [ ] Test: dump `outputs/live_state.json` from an active session
 - [ ] Add script `scripts/session_query.py` — reads `live_state.json`, answers questions
 
 ### Milestone 2: Two-Way Bridge
@@ -281,10 +281,10 @@ Complete the generate → inject loop.
 - [ ] Test overdub mode: layer pattern onto existing clip
 
 ### Milestone 4: Scene Tempo Map
-Directly useful for Ventura and all future odd-meter songs.
+Directly useful for any odd-meter song. Scene configs are per-song JSON files.
 
 - [ ] Build `scene-tempo-map.amxd`
-- [ ] Create `ableton/m4l/configs/ventura_scenes.json` from Ventura structure
+- [ ] Create `ableton/m4l/configs/[active-song-slug]_scenes.json` for the active song
 - [ ] Test: load JSON → Apply → verify all scene tempos/meters in Live
 
 ### Milestone 5: Hardware Integration
@@ -321,7 +321,7 @@ Start with `session-reporter.amxd` — read-only, no complex state management, i
 `udpreceive` / `udpsend` are standard Max objects. OSC formatting uses `prepend`, `list`, and `route` objects. The `js` object can format JSON strings for outgoing messages.
 
 ### Level 5: Iterate and Test with Real Sets
-Always test against `Ventura.als` — it has 6 tracks, 3 Pigments instances, and known MIDI content, making it a reliable test fixture for all these devices.
+Always test against a real `.als` session. If no active song session exists yet, use any available session as a parse fixture — but keep fixture outputs out of `outputs/` (put them in `outputs/fixtures/` to distinguish from live session data).
 
 ---
 
@@ -332,7 +332,8 @@ For Copilot to provide maximum help building and debugging these devices, feed i
 | Data | Format | Why it helps |
 |---|---|---|
 | Current `outputs/live_state.json` | JSON | Full session context — track names, devices, playing state |
-| `outputs/Ventura_clips.csv` | CSV | MIDI clip inventory — which clips are available for injection |
+| `outputs/clips.csv` | CSV | MIDI clip inventory for the active song — which clips are available for injection |
+| `database/songs.json` | JSON | Active song context — slug, key, scale, BPM, .als path |
 | Max patcher screenshots | PNG | Diagnose wiring issues in amxd patches |
 | Ableton log output | Text | Diagnose M4L loading errors (use `analyze-ableton-logs` skill) |
 | SysEx dumps from hardware | .syx | Instrument preset state (when available) |

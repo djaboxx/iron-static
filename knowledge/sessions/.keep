@@ -1,0 +1,3 @@
+# Session summary documents are generated here by run_session_summarizer.py
+# Each file is named YYYY-MM-DD.md (date of summarization)
+# Input: outputs/live_state.json + outputs/*_summary.json + outputs/*_clips.csv

@@ -68,15 +68,27 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 - **Manual**: `instruments/arturia-pigments/manuals/`
 - **Presets**: `instruments/arturia-pigments/presets/` (`.pgtx` format)
 - **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/pigments.json`.
-- **Used in Ventura**: Tracks 2-Pigments, 5-Pigments, 6-Pigments
 
 ---
 
 ## Repository Conventions
 
+### Song Lifecycle
+
+Songs are tracked in `database/songs.json` and managed with `scripts/manage_songs.py`. Lifecycle: `in-progress` → `active` → `released` → `archived`.
+
+**Exactly one song should be `active` at any time.** Copilot reads the active song's key, scale, and BPM for context-aware generation. If no song is active, ask Dave before generating key-specific MIDI or theory content.
+
+```bash
+python scripts/manage_songs.py add --slug my-song --title "My Song" --key E --scale phrygian --bpm 138
+python scripts/manage_songs.py activate --slug my-song
+python scripts/manage_songs.py list
+python scripts/manage_songs.py release --slug my-song   # when done
+```
+
 ### File Naming
 - Presets: `[instrument-slug]_[descriptive-name]_[bpm-or-key-if-relevant].json` (for MIDI-dumpable params) or `[name].md` (for panel-state documentation)
-- MIDI: `[song-or-concept-slug]_[instrument]_[version].mid`
+- MIDI: `[song-slug]_[instrument]_[version].mid`
 - Ableton sessions: `[song-slug]_v[version].als`
 - Audio samples: `[category]_[description]_[bpm][key].wav`
 
@@ -193,7 +205,8 @@ The more context Copilot has, the more useful it is. Here's what to provide and 
 | Data | How to Get It | What It Unlocks |
 |---|---|---|
 | `outputs/live_state.json` | Trigger `session-reporter.amxd` in Live | Full track, clip, tempo, scale, device state |
-| `outputs/Ventura_clips.csv` | Already exists | MIDI clip inventory across the current project |
+| `outputs/clips.csv` | Trigger `session-reporter.amxd` or run `extract_midi_clips.py` | MIDI clip inventory for the active song |
+| `database/songs.json` | Already in repo | Active song context — key, scale, BPM, .als path |
 | Current song key, tempo, time signature | Just tell me | Key-aware MIDI generation, scale-correct patterns |
 | What you're hearing / feeling | Describe it in words | Sound design suggestions, arrangement ideas, theory context |
 | Panel state of semi-modular gear | Write it down (VCO tuning, envelope settings, patch cables) | Preset reconstruction, patch sheet docs |

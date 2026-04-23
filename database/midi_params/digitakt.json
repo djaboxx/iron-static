@@ -1,0 +1,192 @@
+{
+  "instrument": "digitakt",
+  "name": "Elektron Digitakt MK1",
+  "source_manual": "Digitakt-User-Manual_ENG_OS1.52A.pdf",
+  "source_section": "Appendix B: MIDI (pp. 88-91)",
+  "notes": [
+    "Per-track CCs are sent/received on each track's individual MIDI channel (default: tracks 1-8 → channels 1-8).",
+    "FX, External In Mixer, and Pattern Mute CCs are sent/received on the auto-channel (global channel, default ch 1).",
+    "CC numbers may overlap between per-track and FX sections because they operate on different MIDI channels.",
+    "LFO Depth (CC 109/119) is high-resolution: CC MSB + CC LSB pair for LFO1/LFO2 respectively.",
+    "NRPN MSB 1 = per-track parameters. NRPN MSB 2 = FX/global parameters.",
+    "For machine-specific SRC parameter assignments (knobs E, F, G → CC 20-22), see Appendix A in the manual.",
+    "Digitakt does not have a dedicated SysEx parameter dump — use MIDI CC/NRPN for parameter control."
+  ],
+  "midi_channels": {
+    "auto_channel": "Channel 1 (default, configurable). Used for FX, global, and pattern-level CCs.",
+    "track_channels": "Channels 1-8 (one per audio track, default = track index). Used for per-track CCs."
+  },
+  "params": {
+    "track": {
+      "description": "TRACK page — sent on auto-channel",
+      "params": {
+        "track_mute": { "cc_msb": 94, "nrpn_msb": 1, "nrpn_lsb": 101, "range": "0-127", "notes": "0 = unmuted" },
+        "track_level": { "cc_msb": 95, "nrpn_msb": 1, "nrpn_lsb": 100, "range": "0-127" }
+      }
+    },
+    "trig": {
+      "description": "TRIG page — sent on track MIDI channel",
+      "params": {
+        "note":         { "cc_msb": 3,  "nrpn_msb": 3, "nrpn_lsb": 0, "range": "0-127" },
+        "velocity":     { "cc_msb": 4,  "nrpn_msb": 3, "nrpn_lsb": 1, "range": "0-127" },
+        "length":       { "cc_msb": 5,  "nrpn_msb": 3, "nrpn_lsb": 2, "range": "0-127" },
+        "filter_trig":  { "cc_msb": 13, "nrpn_msb": null, "nrpn_lsb": null, "range": "0-1" },
+        "lfo_trig":     { "cc_msb": 14, "nrpn_msb": null, "nrpn_lsb": null, "range": "0-1" }
+      }
+    },
+    "src": {
+      "description": "SRC (Source) page — sent on track MIDI channel. Knobs E/F/G are machine-dependent.",
+      "params": {
+        "tune":           { "cc_msb": 16, "nrpn_msb": 1, "nrpn_lsb": 0, "range": "0-127", "notes": "0-63 = detune down, 64 = center, 65-127 = detune up" },
+        "play_mode":      { "cc_msb": 17, "nrpn_msb": 1, "nrpn_lsb": 1, "range": "0-5", "notes": "0=1shot, 1=loop, 2=pingpong, 3=reverse, 4=looprev, 5=pingpongrev" },
+        "bit_reduction":  { "cc_msb": 18, "nrpn_msb": 1, "nrpn_lsb": 2, "range": "0-127" },
+        "sample_select":  { "cc_msb": 19, "nrpn_msb": 1, "nrpn_lsb": 3, "range": "0-127" },
+        "knob_e_machine": { "cc_msb": 20, "nrpn_msb": 1, "nrpn_lsb": 4, "range": "0-127", "notes": "Machine-dependent — see Appendix A" },
+        "knob_f_machine": { "cc_msb": 21, "nrpn_msb": 1, "nrpn_lsb": 5, "range": "0-127", "notes": "Machine-dependent — see Appendix A" },
+        "knob_g_machine": { "cc_msb": 22, "nrpn_msb": 1, "nrpn_lsb": 6, "range": "0-127", "notes": "Machine-dependent — see Appendix A" },
+        "sample_level":   { "cc_msb": 23, "nrpn_msb": 1, "nrpn_lsb": 7, "range": "0-127" }
+      }
+    },
+    "filter": {
+      "description": "FLTR (Filter) page — sent on track MIDI channel",
+      "params": {
+        "filter_freq":          { "cc_msb": 74, "nrpn_msb": 1, "nrpn_lsb": 20, "range": "0-127" },
+        "resonance":            { "cc_msb": 75, "nrpn_msb": 1, "nrpn_lsb": 21, "range": "0-127" },
+        "filter_type":          { "cc_msb": 76, "nrpn_msb": 1, "nrpn_lsb": 22, "range": "0-7", "notes": "0=LP24, 1=LP12, 2=BP, 3=HP, etc." },
+        "env_attack":           { "cc_msb": 70, "nrpn_msb": 1, "nrpn_lsb": 16, "range": "0-127" },
+        "env_decay":            { "cc_msb": 71, "nrpn_msb": 1, "nrpn_lsb": 17, "range": "0-127" },
+        "env_sustain":          { "cc_msb": 72, "nrpn_msb": 1, "nrpn_lsb": 18, "range": "0-127" },
+        "env_release":          { "cc_msb": 73, "nrpn_msb": 1, "nrpn_lsb": 19, "range": "0-127" },
+        "env_depth":            { "cc_msb": 77, "nrpn_msb": 1, "nrpn_lsb": 23, "range": "0-127", "notes": "0 = max negative, 64 = zero, 127 = max positive" },
+        "env_delay":            { "cc_msb": 86, "nrpn_msb": 1, "nrpn_lsb": 50, "range": "0-127" },
+        "sample_rate_reduction":{ "cc_msb": 87, "nrpn_msb": 1, "nrpn_lsb": 53, "range": "0-127" },
+        "srr_base":             { "cc_msb": 84, "nrpn_msb": 1, "nrpn_lsb": 51, "range": "0-127" },
+        "srr_width":            { "cc_msb": 85, "nrpn_msb": 1, "nrpn_lsb": 52, "range": "0-127" },
+        "srr_routing":          { "cc_msb": 88, "nrpn_msb": 1, "nrpn_lsb": 54, "range": "0-1" }
+      }
+    },
+    "amp": {
+      "description": "AMP page — sent on track MIDI channel",
+      "params": {
+        "attack":       { "cc_msb": 78, "nrpn_msb": 1, "nrpn_lsb": 24, "range": "0-127" },
+        "hold":         { "cc_msb": 79, "nrpn_msb": 1, "nrpn_lsb": 25, "range": "0-127" },
+        "decay":        { "cc_msb": 80, "nrpn_msb": 1, "nrpn_lsb": 26, "range": "0-127" },
+        "overdrive":    { "cc_msb": 81, "nrpn_msb": 1, "nrpn_lsb": 27, "range": "0-127" },
+        "delay_send":   { "cc_msb": 82, "nrpn_msb": 1, "nrpn_lsb": 28, "range": "0-127" },
+        "reverb_send":  { "cc_msb": 83, "nrpn_msb": 1, "nrpn_lsb": 29, "range": "0-127" },
+        "pan":          { "cc_msb": 10, "nrpn_msb": 1, "nrpn_lsb": 30, "range": "0-127", "notes": "0=L, 64=C, 127=R" },
+        "volume":       { "cc_msb": 7,  "nrpn_msb": 1, "nrpn_lsb": 31, "range": "0-127" }
+      }
+    },
+    "lfo1": {
+      "description": "LFO 1 — sent on track MIDI channel. Depth is high-resolution (MSB + LSB).",
+      "params": {
+        "speed":       { "cc_msb": 102, "nrpn_msb": 1, "nrpn_lsb": 32, "range": "0-127" },
+        "multiplier":  { "cc_msb": 103, "nrpn_msb": 1, "nrpn_lsb": 33, "range": "0-127" },
+        "fade":        { "cc_msb": 104, "nrpn_msb": 1, "nrpn_lsb": 34, "range": "0-127", "notes": "0=max fade out, 64=no fade, 127=max fade in" },
+        "destination": { "cc_msb": 105, "nrpn_msb": 1, "nrpn_lsb": 35, "range": "0-127", "notes": "See Appendix C: LFO Modulation Destinations" },
+        "waveform":    { "cc_msb": 106, "nrpn_msb": 1, "nrpn_lsb": 36, "range": "0-6", "notes": "0=Tri, 1=Sin, 2=Sqr, 3=Saw, 4=Exp, 5=Ramp, 6=Rnd" },
+        "start_phase": { "cc_msb": 107, "nrpn_msb": 1, "nrpn_lsb": 37, "range": "0-127" },
+        "trig_mode":   { "cc_msb": 108, "nrpn_msb": 1, "nrpn_lsb": 38, "range": "0-4", "notes": "0=Free, 1=Trg, 2=Hld, 3=One, 4=Hlf" },
+        "depth":       { "cc_msb": 109, "cc_lsb": 61, "nrpn_msb": 1, "nrpn_lsb": 39, "range": "0-127 (MSB), 0-127 (LSB)", "notes": "High-resolution depth: send CC 109 (MSB) + CC 61 (LSB)" }
+      }
+    },
+    "lfo2": {
+      "description": "LFO 2 — sent on track MIDI channel. Depth is high-resolution (MSB + LSB).",
+      "params": {
+        "speed":       { "cc_msb": 112, "nrpn_msb": 1, "nrpn_lsb": 40, "range": "0-127" },
+        "multiplier":  { "cc_msb": 113, "nrpn_msb": 1, "nrpn_lsb": 41, "range": "0-127" },
+        "fade":        { "cc_msb": 114, "nrpn_msb": 1, "nrpn_lsb": 42, "range": "0-127" },
+        "destination": { "cc_msb": 115, "nrpn_msb": 1, "nrpn_lsb": 43, "range": "0-127" },
+        "waveform":    { "cc_msb": 116, "nrpn_msb": 1, "nrpn_lsb": 44, "range": "0-6" },
+        "start_phase": { "cc_msb": 117, "nrpn_msb": 1, "nrpn_lsb": 45, "range": "0-127" },
+        "trig_mode":   { "cc_msb": 118, "nrpn_msb": 1, "nrpn_lsb": 46, "range": "0-4" },
+        "depth":       { "cc_msb": 119, "cc_lsb": 63, "nrpn_msb": 1, "nrpn_lsb": 47, "range": "0-127 (MSB), 0-127 (LSB)", "notes": "High-resolution depth: send CC 119 (MSB) + CC 63 (LSB)" }
+      }
+    },
+    "fx_delay": {
+      "description": "FX Delay — sent on auto-channel",
+      "params": {
+        "time":          { "cc_msb": 85, "nrpn_msb": 2, "nrpn_lsb": 0, "range": "0-127" },
+        "pingpong":      { "cc_msb": 86, "nrpn_msb": 2, "nrpn_lsb": 1, "range": "0-1" },
+        "stereo_width":  { "cc_msb": 87, "nrpn_msb": 2, "nrpn_lsb": 2, "range": "0-127" },
+        "feedback":      { "cc_msb": 88, "nrpn_msb": 2, "nrpn_lsb": 3, "range": "0-127" },
+        "highpass":      { "cc_msb": 89, "nrpn_msb": 2, "nrpn_lsb": 4, "range": "0-127" },
+        "lowpass":       { "cc_msb": 90, "nrpn_msb": 2, "nrpn_lsb": 5, "range": "0-127" },
+        "reverb_send":   { "cc_msb": 91, "nrpn_msb": 2, "nrpn_lsb": 6, "range": "0-127" },
+        "mix_volume":    { "cc_msb": 92, "nrpn_msb": 2, "nrpn_lsb": 7, "range": "0-127" }
+      }
+    },
+    "fx_reverb": {
+      "description": "FX Reverb — sent on auto-channel",
+      "params": {
+        "predelay":      { "cc_msb": 24, "nrpn_msb": 2, "nrpn_lsb": 8,  "range": "0-127" },
+        "decay_time":    { "cc_msb": 25, "nrpn_msb": 2, "nrpn_lsb": 9,  "range": "0-127" },
+        "shelving_freq": { "cc_msb": 26, "nrpn_msb": 2, "nrpn_lsb": 10, "range": "0-127" },
+        "shelving_gain": { "cc_msb": 27, "nrpn_msb": 2, "nrpn_lsb": 11, "range": "0-127" },
+        "highpass":      { "cc_msb": 28, "nrpn_msb": 2, "nrpn_lsb": 12, "range": "0-127" },
+        "lowpass":       { "cc_msb": 29, "nrpn_msb": 2, "nrpn_lsb": 13, "range": "0-127" },
+        "pre_post_comp": { "cc_msb": 30, "nrpn_msb": 2, "nrpn_lsb": 14, "range": "0-1" },
+        "mix_volume":    { "cc_msb": 31, "nrpn_msb": 2, "nrpn_lsb": 15, "range": "0-127" }
+      }
+    },
+    "fx_compressor": {
+      "description": "FX Compressor — sent on auto-channel",
+      "params": {
+        "threshold":       { "cc_msb": 111, "nrpn_msb": 2, "nrpn_lsb": 16, "range": "0-127" },
+        "attack":          { "cc_msb": 112, "nrpn_msb": 2, "nrpn_lsb": 17, "range": "0-127" },
+        "release":         { "cc_msb": 113, "nrpn_msb": 2, "nrpn_lsb": 18, "range": "0-127" },
+        "makeup_gain":     { "cc_msb": 114, "nrpn_msb": 2, "nrpn_lsb": 19, "range": "0-127" },
+        "ratio":           { "cc_msb": 115, "nrpn_msb": 2, "nrpn_lsb": 20, "range": "0-127" },
+        "sidechain_source":{ "cc_msb": 116, "nrpn_msb": 2, "nrpn_lsb": 21, "range": "0-127" },
+        "sidechain_filter":{ "cc_msb": 117, "nrpn_msb": 2, "nrpn_lsb": 22, "range": "0-127" },
+        "dry_wet_mix":     { "cc_msb": 118, "nrpn_msb": 2, "nrpn_lsb": 23, "range": "0-127" },
+        "pattern_volume":  { "cc_msb": 119, "nrpn_msb": 2, "nrpn_lsb": 24, "range": "0-127" }
+      }
+    },
+    "fx_external_in": {
+      "description": "External In Mixer — sent on auto-channel",
+      "params": {
+        "input_l_level":      { "cc_msb": 102, "nrpn_msb": 2, "nrpn_lsb": 30, "range": "0-127" },
+        "input_l_pan":        { "cc_msb": 103, "nrpn_msb": 2, "nrpn_lsb": 31, "range": "0-127" },
+        "input_r_level":      { "cc_msb": 104, "nrpn_msb": 2, "nrpn_lsb": 32, "range": "0-127" },
+        "input_r_pan":        { "cc_msb": 105, "nrpn_msb": 2, "nrpn_lsb": 33, "range": "0-127" },
+        "input_l_delay_send": { "cc_msb": 106, "nrpn_msb": 2, "nrpn_lsb": 34, "range": "0-127" },
+        "input_r_delay_send": { "cc_msb": 107, "nrpn_msb": 2, "nrpn_lsb": 35, "range": "0-127" },
+        "input_l_reverb_send":{ "cc_msb": 108, "nrpn_msb": 2, "nrpn_lsb": 36, "range": "0-127" },
+        "input_r_reverb_send":{ "cc_msb": 109, "nrpn_msb": 2, "nrpn_lsb": 37, "range": "0-127" },
+        "stereo_input":       { "cc_msb": 84,  "nrpn_msb": 2, "nrpn_lsb": 38, "range": "0-1" }
+      }
+    },
+    "misc": {
+      "description": "MISC — sent on auto-channel",
+      "params": {
+        "pattern_mute": { "cc_msb": 110, "nrpn_msb": 1, "nrpn_lsb": 104, "range": "0-127" }
+      }
+    },
+    "midi_track_val": {
+      "description": "CC VAL parameters on FLTR page for MIDI tracks (not audio tracks)",
+      "params": {
+        "val1": { "cc_msb": 70 },
+        "val2": { "cc_msb": 71 },
+        "val3": { "cc_msb": 72 },
+        "val4": { "cc_msb": 73 },
+        "val5": { "cc_msb": 74 },
+        "val6": { "cc_msb": 75 },
+        "val7": { "cc_msb": 76 },
+        "val8": { "cc_msb": 77 }
+      }
+    }
+  },
+  "iron_static_usage": {
+    "primary_role": "Drum machine and MIDI sequencer hub — drives all external gear via MIDI tracks 1-8",
+    "key_ccs_for_digitakt": [
+      { "cc": 74, "name": "Filter Frequency", "use": "Parameter lock filter sweeps on audio tracks" },
+      { "cc": 7,  "name": "Track Volume",     "use": "Volume automation on audio tracks" },
+      { "cc": 10, "name": "Pan",              "use": "Stereo field automation" },
+      { "cc": 82, "name": "Delay Send",       "use": "Throw to delay on hits" },
+      { "cc": 83, "name": "Reverb Send",      "use": "Throw to reverb on hits" },
+      { "cc": 109,"name": "LFO1 Depth",       "use": "Parameter lock LFO intensity for fills/transitions" }
+    ]
+  }
+}

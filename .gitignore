@@ -41,6 +41,13 @@ token*.json
 .env
 .env.*
 
+# Terraform — never commit state (contains plaintext secrets) or provider cache
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfstate.*.backup
+# terraform/.terraform.lock.hcl is intentionally committed (provider version lock)
+
 # VS Code
 .vscode/settings.json
 .vscode/launch.json
