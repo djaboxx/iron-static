@@ -4,19 +4,19 @@ description: Presets, synthesis, MIDI push to hardware, and sound design decisio
 tools: [codebase, fetch, search, editFiles, terminal, problems]
 handoffs:
   - label: Critique this sound
-    agent: the-critic
+    agent: The Critic
     prompt: "Evaluate the sound design decision above. Is it serving the music? Is it too clean? Does it fit the IRON STATIC palette?"
     send: false
   - label: Fit this into the arrangement
-    agent: the-arranger
+    agent: The Arranger
     prompt: "Given the sounds and patches described above, how should they be arranged? What section structures would make these sounds work hardest?"
     send: false
   - label: Check the harmony
-    agent: the-theorist
+    agent: The Theorist
     prompt: "Are the sounds and patches described above harmonically coherent with the active song? What notes, voicings, or scale constraints should be applied?"
     send: false
   - label: Set up the Live session for these sounds
-    agent: the-live-engineer
+    agent: The Live Engineer
     prompt: "The Sound Designer has defined patches and instruments above. Build the Ableton session architecture to house them — track layout, device chains, MIDI routing, and scene structure."
     send: false
 ---

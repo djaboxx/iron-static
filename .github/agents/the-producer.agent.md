@@ -6,11 +6,11 @@ agents: [the-theorist, the-arranger, the-sound-designer, the-critic]
 argument-hint: "workflow to run: 'theory-to-hardware', 'patch-and-critique', or 'song-review'"
 handoffs:
   - label: Start a new patch instead
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "Design a new patch from scratch for the active song context."
     send: false
   - label: Start from theory instead
-    agent: the-theorist
+    agent: The Theorist
     prompt: "Analyze the harmonic and rhythmic content for the active song. Start from scratch."
     send: false
 ---

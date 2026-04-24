@@ -4,15 +4,15 @@ description: Music theory in the context of heavy electronic music and the IRON 
 tools: [codebase, fetch, search, editFiles, problems]
 handoffs:
   - label: Arrange this harmonic content
-    agent: the-arranger
+    agent: The Arranger
     prompt: "Using the harmonic and rhythmic analysis above, design an arrangement structure. Map the chord vocabulary and rhythmic patterns to sections."
     send: false
   - label: Build patches for these sounds
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "Based on the harmonic content and voicings described above, design presets and patches on the relevant instruments. The context is A Phrygian at 95 BPM."
     send: false
   - label: Challenge this theory
-    agent: the-critic
+    agent: The Critic
     prompt: "Evaluate the harmonic and theoretical decisions above. Are they serving the music or just being theoretically correct? Where is it too academic?"
     send: false
 ---

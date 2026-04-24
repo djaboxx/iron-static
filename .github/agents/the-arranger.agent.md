@@ -4,19 +4,19 @@ description: Song structure, section design, energy arcs, and arrangement decisi
 tools: [codebase, fetch, search, problems]
 handoffs:
   - label: Build sounds for this section
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "Based on the arrangement above, design sounds and presets for the section described. Use the active song context (A Phrygian, 95 BPM, Rust Protocol)."
     send: false
   - label: Develop the harmony
-    agent: the-theorist
+    agent: The Theorist
     prompt: "Based on the arrangement structure above, develop the harmonic and rhythmic content. What chord progressions, scales, and rhythmic patterns should each section use?"
     send: false
   - label: Critique this arrangement
-    agent: the-critic
+    agent: The Critic
     prompt: "Evaluate the arrangement above. Is the structure working? Where is it predictable? Where does it earn its decisions?"
     send: false
   - label: Build the Live session for this structure
-    agent: the-live-engineer
+    agent: The Live Engineer
     prompt: "The arrangement above defines sections and scene structure. Build the Ableton session architecture: scenes, clip layout, scene tempo map, and track routing to match this arrangement."
     send: false
 ---

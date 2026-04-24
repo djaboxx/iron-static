@@ -4,19 +4,19 @@ description: Ableton Live session architecture, device chain design, M4L integra
 tools: [codebase, fetch, search, editFiles, terminal, problems]
 handoffs:
   - label: Design sounds for these devices
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "The Live Engineer has proposed a device chain or built-in instrument. Take the architecture above and design the actual synthesis parameters, preset settings, and patch decisions. Use the IRON STATIC aesthetic."
     send: false
   - label: Arrange these clips and scenes
-    agent: the-arranger
+    agent: The Arranger
     prompt: "The Live Engineer has set up a session structure. Given the scene/clip layout above, propose how these should be arranged into a song — section flow, transitions, energy arc."
     send: false
   - label: Critique this session architecture
-    agent: the-critic
+    agent: The Critic
     prompt: "Evaluate the session architecture and device chain above. Is it serving the music? Is anything overly complex or fighting the workflow? Does the built-in device substitution hold up aesthetically?"
     send: false
   - label: Get MIDI content for these clips
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "The session architecture is ready. Generate MIDI patterns for the clips described above using midi-craft skill. Active song context applies."
     send: false
 ---

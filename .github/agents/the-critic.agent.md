@@ -4,15 +4,15 @@ description: Evaluates musical decisions, presets, arrangements, and theory for 
 tools: [codebase, search, problems]
 handoffs:
   - label: Revise the sound design
-    agent: the-sound-designer
+    agent: The Sound Designer
     prompt: "Based on the critique above, revise the preset or sound design. Address the specific issues raised."
     send: false
   - label: Revise the arrangement
-    agent: the-arranger
+    agent: The Arranger
     prompt: "Based on the critique above, revise the arrangement structure. Address the specific issues raised."
     send: false
   - label: Revise the harmonic content
-    agent: the-theorist
+    agent: The Theorist
     prompt: "Based on the critique above, reconsider the harmonic and rhythmic approach. What would make it less predictable or more effective?"
     send: false
 ---
