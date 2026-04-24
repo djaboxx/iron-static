@@ -27,6 +27,8 @@ audio/generated/*.flac
 # Slices from chop_and_rack.py — WAV slices go to GCS, metadata JSON and .adg are committed
 audio/generated/slices/**/*.wav
 audio/generated/slices/**/*.mp3
+# Ableton Analysis Files — auto-generated sidecar files, never committed
+**/*.asd
 
 # PDF manuals are tracked (small and essential)
 # Exclude large sample packs dropped here by accident
