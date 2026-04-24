@@ -302,6 +302,17 @@ def cmd_status(args, client: AbletonClient) -> None:
             kind=kind, flags=flag_str, **t))
 
 
+def cmd_create_track(args, client: AbletonClient) -> None:
+    params = {
+        "name": args.name,
+        "midi_channel": int(args.midi_channel),
+    }
+    if args.color is not None:
+        params["color"] = int(args.color)
+    result = client.require_success(client.send("create_track", params))
+    print("Created track [{index}] {name}  (MIDI ch {midi_channel})".format(**result))
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -361,6 +372,12 @@ def main() -> None:
     # status
     sub.add_parser("status", help="Show current session info")
 
+    # create-track
+    p_create = sub.add_parser("create-track", help="Append a new MIDI track to the session")
+    p_create.add_argument("--name", required=True, help="Track name")
+    p_create.add_argument("--midi-channel", type=int, default=1, help="MIDI channel (default: 1)")
+    p_create.add_argument("--color", type=int, default=None, help="Track color as integer")
+
     args = parser.parse_args()
 
     if args.quiet:
@@ -375,6 +392,7 @@ def main() -> None:
         "stop": cmd_stop,
         "set-tempo": cmd_set_tempo,
         "status": cmd_status,
+        "create-track": cmd_create_track,
     }
     dispatch[args.command](args, client)
 

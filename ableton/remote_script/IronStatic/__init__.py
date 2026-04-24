@@ -180,7 +180,7 @@ class IronStatic(ControlSurface):
 
             # All mutating commands must run on Ableton's main thread
             MUTATING = {
-                "setup_rig", "set_tempo",
+                "setup_rig", "create_track", "set_tempo",
                 "create_clip", "add_notes_to_clip", "clear_clip",
                 "set_clip_name", "fire_clip", "stop_clip",
                 "fire_scene",
@@ -225,6 +225,8 @@ class IronStatic(ControlSurface):
     def _run_mutating(self, cmd_type, params):
         if cmd_type == "setup_rig":
             return self._setup_rig(params)
+        elif cmd_type == "create_track":
+            return self._create_track(params)
         elif cmd_type == "set_tempo":
             return self._set_tempo(params["tempo"])
         elif cmd_type == "create_clip":
@@ -253,6 +255,60 @@ class IronStatic(ControlSurface):
             self._song.stop_playing()
             return {"playing": False}
         raise ValueError("Unhandled mutating command: {}".format(cmd_type))
+
+    # ------------------------------------------------------------------
+    # create_track — append a single MIDI track
+    # ------------------------------------------------------------------
+
+    def _create_track(self, params):
+        """
+        Append a new MIDI track at the end of the session.
+
+        params = {
+            "name": "Take5",
+            "midi_channel": 4,
+            "color": 10027263,   # optional
+            "clips": [           # optional
+                {"index": 0, "length": 4.0, "name": "main"}
+            ]
+        }
+        """
+        name = params.get("name", "New Track")
+        midi_channel = int(params.get("midi_channel", 1))
+        color = params.get("color", None)
+        clips = params.get("clips", [])
+
+        self._song.create_midi_track(-1)
+        track = self._song.tracks[len(self._song.tracks) - 1]
+        track.name = name
+
+        if color is not None:
+            try:
+                track.color = int(color)
+            except Exception:
+                pass
+
+        try:
+            track.current_output_sub_routing = str(midi_channel)
+        except Exception:
+            pass
+
+        for clip_def in clips:
+            slot_index = clip_def.get("index", 0)
+            length = float(clip_def.get("length", 4.0))
+            clip_name = clip_def.get("name", "")
+            if slot_index < len(track.clip_slots):
+                slot = track.clip_slots[slot_index]
+                if not slot.has_clip:
+                    slot.create_clip(length)
+                if clip_name:
+                    slot.clip.name = clip_name
+
+        return {
+            "index": len(self._song.tracks) - 1,
+            "name": track.name,
+            "midi_channel": midi_channel,
+        }
 
     # ------------------------------------------------------------------
     # setup_rig — the Iron Static-specific command

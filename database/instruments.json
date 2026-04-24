@@ -14,7 +14,10 @@
       "manual_path": "instruments/elektron-digitakt-mk1/manuals/",
       "presets_path": "instruments/elektron-digitakt-mk1/presets/",
       "readme": "instruments/elektron-digitakt-mk1/README.md",
-      "role": "Primary drum machine, sampler, and MIDI sequencer hub"
+      "role": "Primary drum machine, sampler, and MIDI sequencer hub",
+      "midi_port_patterns": ["Digitakt"],
+      "midi_usb": true,
+      "ableton_track_name": "Digitakt"
     },
     {
       "slug": "rev2",
@@ -31,7 +34,11 @@
       "manual_path": "instruments/sequential-rev2/manuals/",
       "presets_path": "instruments/sequential-rev2/presets/",
       "readme": "instruments/sequential-rev2/README.md",
-      "role": "Main polyphonic analog synth — pads, leads, textures"
+      "role": "Main polyphonic analog synth — pads, leads, textures",
+      "midi_port_patterns": ["Rev2", "Sequential Rev2"],
+      "midi_usb": true,
+      "ableton_track_name": "Rev2-A",
+      "ableton_track_names": ["Rev2-A", "Rev2-B"]
     },
     {
       "slug": "take5",
@@ -48,7 +55,10 @@
       "manual_path": "instruments/sequential-take5/manuals/",
       "presets_path": "instruments/sequential-take5/presets/",
       "readme": "instruments/sequential-take5/README.md",
-      "role": "Compact poly analog — punchy chords, tight leads"
+      "role": "Compact poly analog — punchy chords, tight leads",
+      "midi_port_patterns": ["Take5", "Take 5", "Sequential Take 5"],
+      "midi_usb": true,
+      "ableton_track_name": "Take5"
     },
     {
       "slug": "subharmonicon",
@@ -66,7 +76,10 @@
       "presets_path": "instruments/moog-subharmonicon/presets/",
       "readme": "instruments/moog-subharmonicon/README.md",
       "role": "Polyrhythmic drone and subharmonic depth machine",
-      "patch_format": "panel_state_markdown"
+      "patch_format": "panel_state_markdown",
+      "midi_port_patterns": [],
+      "midi_usb": false,
+      "ableton_track_name": "Subharmonicon"
     },
     {
       "slug": "dfam",
@@ -84,7 +97,10 @@
       "presets_path": "instruments/moog-dfam/presets/",
       "readme": "instruments/moog-dfam/README.md",
       "role": "Analog percussion synthesizer — kicks, industrial toms, metallic clang",
-      "patch_format": "panel_state_markdown"
+      "patch_format": "panel_state_markdown",
+      "midi_port_patterns": [],
+      "midi_usb": false,
+      "ableton_track_name": "DFAM"
     },
     {
       "slug": "minibrute2s",
@@ -102,7 +118,10 @@
       "presets_path": "instruments/arturia-minibrute-2s/presets/",
       "readme": "instruments/arturia-minibrute-2s/README.md",
       "role": "Patchable semi-modular mono synth — aggressive bass, screaming leads",
-      "patch_format": "panel_state_markdown"
+      "patch_format": "panel_state_markdown",
+      "midi_port_patterns": ["Minibrute", "MiniBrute 2S"],
+      "midi_usb": true,
+      "ableton_track_name": "Minibrute2S"
     }
     ,
     {
@@ -119,7 +138,10 @@
       "manual_path": "instruments/elektron-analog-rytm/manuals/",
       "presets_path": "instruments/elektron-analog-rytm/presets/",
       "readme": "instruments/elektron-analog-rytm/README.md",
-      "role": "Hybrid analog drum synth + sampler — punchy analog drums, sequencing and performance features"
+      "role": "Hybrid analog drum synth + sampler — punchy analog drums, sequencing and performance features",
+      "midi_port_patterns": ["Analog Rytm", "Rytm"],
+      "midi_usb": true,
+      "ableton_track_name": "AnalogRytm"
     },
     {
       "slug": "arturia-pigments",
@@ -140,7 +162,10 @@
       "version": "7.0",
       "format": "VST3 / AU",
       "midi_model": "flexible_cc_learn",
-      "notes": "No fixed NRPN table. MIDI CCs are user-assignable per preset via MIDI learn. See database/midi_params/arturia-pigments.json for fixed and recommended assignments."
+      "notes": "No fixed NRPN table. MIDI CCs are user-assignable per preset via MIDI learn. See database/midi_params/arturia-pigments.json for fixed and recommended assignments.",
+      "midi_port_patterns": [],
+      "midi_usb": false,
+      "ableton_track_name": null
     }
   ]
 }

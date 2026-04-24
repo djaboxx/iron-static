@@ -58,6 +58,52 @@ def main():
         if notes:
             context_lines.append(f"  Notes:          {notes}")
 
+        # MIDI rig scan — shows which instruments are physically connected
+        try:
+            import rtmidi  # type: ignore
+            instruments_path = Path("database/instruments.json")
+            if instruments_path.exists():
+                instruments = json.loads(instruments_path.read_text())["instruments"]
+                mid_in = rtmidi.MidiIn()
+                mid_out = rtmidi.MidiOut()
+                in_ports = mid_in.get_ports()
+                out_ports = mid_out.get_ports()
+                del mid_in, mid_out
+
+                all_ports_set = set(in_ports + out_ports)
+                online, offline, din_only = [], [], []
+                for inst in instruments:
+                    midi_usb = inst.get("midi_usb", True)
+                    if not midi_usb:
+                        din_only.append(inst["name"])
+                        continue
+                    patterns = inst.get("midi_port_patterns", [])
+                    if not patterns:
+                        continue
+                    matched = next(
+                        (p for p in all_ports_set
+                         if any(pat.lower() in p.lower() for pat in patterns)),
+                        None,
+                    )
+                    if matched:
+                        online.append(inst["name"])
+                    else:
+                        offline.append(inst["name"])
+
+                rig_lines = [
+                    "",
+                    f"MIDI RIG ({len(online)}/{len(online)+len(offline)} USB instruments online):",
+                ]
+                for n in online:
+                    rig_lines.append(f"  ✓ {n}")
+                for n in offline:
+                    rig_lines.append(f"  ✗ {n}  (not detected — check USB)")
+                for n in din_only:
+                    rig_lines.append(f"  ~ {n}  (DIN-only)")
+                context_lines += rig_lines
+        except ImportError:
+            pass  # rtmidi not installed; skip rig scan
+
         context_lines += [
             "",
             "This context is automatically injected at session start.",
