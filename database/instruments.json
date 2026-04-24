@@ -140,7 +140,7 @@
       "version": "7.0",
       "format": "VST3 / AU",
       "midi_model": "flexible_cc_learn",
-      "notes": "No fixed NRPN table. MIDI CCs are user-assignable per preset via MIDI learn. See database/midi_params/pigments.json for fixed and recommended assignments."
+      "notes": "No fixed NRPN table. MIDI CCs are user-assignable per preset via MIDI learn. See database/midi_params/arturia-pigments.json for fixed and recommended assignments."
     }
   ]
 }

@@ -67,7 +67,7 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 - **Key features**: 4 oscillator engines (Analog, Wavetable, Sample, Harmonic/Modal), 2 filter slots (multiple topologies), Macros M1–M4, MPE, internal 32-step sequencer
 - **Manual**: `instruments/arturia-pigments/manuals/`
 - **Presets**: `instruments/arturia-pigments/presets/` (`.pgtx` format)
-- **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/pigments.json`.
+- **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/arturia-pigments.json`.
 
 ---
 

@@ -14,13 +14,13 @@ Run the helper script:
 
 ```bash
 source .venv/bin/activate
-python3 scripts/parse_als.py "/path/to/Project.als" outputs/project_summary.json
+python3 scripts/parse_als.py "/path/to/MySong.als" outputs/ventura_summary.json
 ```
 
 The script writes:
-- `outputs/project_summary.json` — main JSON summary
-- `outputs/Project_clips.csv` — CSV of session + arrangement clips
-- `outputs/Project_devices.json` — per-track device index
+- `outputs/ventura_summary.json` — main JSON summary
+- `outputs/Ventura_clips.csv` — CSV of session + arrangement clips
+- `outputs/Ventura_devices.json` — per-track device index
 
 ## When to Use
 - Auditing large Ableton projects for clip ranges and instrument usage
