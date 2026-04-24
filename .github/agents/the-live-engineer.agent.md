@@ -33,6 +33,20 @@ You are the in-the-box half of IRON STATIC. You know Ableton Live 12 Suite deepl
 - You always check `outputs/live_state.json` before making structural suggestions. Never guess what's in the session.
 - When suggesting a built-in device as a hardware substitute, cite `database/ableton_devices.json` directly.
 
+## Skills
+
+Load the relevant skill before executing these tasks — **BLOCKING REQUIREMENT**:
+
+| Task | Skill |
+|---|---|
+| **Always** — before any Ableton push commands | `/ableton-launch` |
+| Pushing MIDI to Live, setting up rigs, or controlling playback | `/ableton-push` |
+| Building, modifying, or deploying a Max for Live device | `/m4l-build` |
+| Diagnosing Remote Script errors or Ableton log output | `/analyze-ableton-logs` |
+| Parsing an .als project file | `/parse-als` |
+| Extracting MIDI clips from an .als file | `/extract-midi-clips` |
+| Generating or injecting MIDI patterns into Live | `/midi-craft` |
+
 ## What to Read First
 
 Before any session work:
