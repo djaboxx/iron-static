@@ -58,6 +58,49 @@ def main():
         if notes:
             context_lines.append(f"  Notes:          {notes}")
 
+        # Brainstorm — extract working title and conceptual direction as session seed
+        brainstorm_path = active.get("brainstorm_path")
+        if brainstorm_path:
+            bp = Path(brainstorm_path)
+            if bp.exists():
+                bs_text = bp.read_text()
+                # Extract working title from "**Working Title:**" line in Section 1
+                wt_line = next(
+                    (l.strip() for l in bs_text.splitlines()
+                     if "working title" in l.lower() and ":" in l),
+                    None,
+                )
+                working_title = wt_line.split(":", 1)[-1].strip().strip('*" ') if wt_line else None
+                # Extract conceptual direction — lines after "## 5. Conceptual Direction"
+                concept_lines = []
+                in_concept = False
+                for line in bs_text.splitlines():
+                    if line.strip().startswith("## 5"):
+                        in_concept = True
+                        continue
+                    if in_concept:
+                        if line.startswith("##"):
+                            break
+                        stripped = line.strip()
+                        if stripped:
+                            concept_lines.append(stripped)
+                concept = " ".join(concept_lines[:3])  # first ~3 sentences
+
+                context_lines.append("")
+                context_lines.append(
+                    f"ACTIVE BRAINSTORM: {bp.name}"
+                    + (f" — Working Title: \"{working_title}\"" if working_title else "")
+                )
+                if concept:
+                    context_lines.append(f"  Concept: {concept}")
+                context_lines.append(
+                    f"  Full brainstorm: {brainstorm_path}"
+                )
+                context_lines.append(
+                    "  This brainstorm is the creative seed for this session. "
+                    "Read it before proposing any arrangement, patch, or pattern work."
+                )
+
         # MIDI rig scan — shows which instruments are physically connected
         try:
             import rtmidi  # type: ignore

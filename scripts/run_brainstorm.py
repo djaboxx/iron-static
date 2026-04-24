@@ -187,6 +187,16 @@ def main() -> None:
     out_path.write_text(content)
     log.info("Wrote %s", out_path.relative_to(REPO_ROOT))
 
+    # Register brainstorm_path on the active song in songs.json
+    if SONGS_DB.exists():
+        data = json.loads(SONGS_DB.read_text())
+        active = next((s for s in data.get("songs", []) if s.get("status") == "active"), None)
+        if active:
+            rel_path = str(out_path.relative_to(REPO_ROOT))
+            active["brainstorm_path"] = rel_path
+            SONGS_DB.write_text(json.dumps(data, indent=2) + "\n")
+            log.info("Registered brainstorm_path on '%s' in songs.json", active["slug"])
+
 
 if __name__ == "__main__":
     main()

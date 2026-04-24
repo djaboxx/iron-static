@@ -151,6 +151,23 @@ def cmd_active(args, db: dict) -> None:
     print(active["slug"])
 
 
+def cmd_set_brainstorm(args, db: dict) -> None:
+    songs = db["songs"]
+    slug = args.slug or next(
+        (s["slug"] for s in songs if s.get("status") == "active"), None
+    )
+    if not slug:
+        log.error("No active song and no --slug provided.")
+        sys.exit(1)
+    target = find_song(songs, slug)
+    if not target:
+        log.error("Song '%s' not found.", slug)
+        sys.exit(1)
+    target["brainstorm_path"] = args.path
+    save_db(db)
+    print(f"Set brainstorm_path on '{slug}': {args.path}")
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -191,6 +208,20 @@ def main():
     # active
     sub.add_parser("active", help="Print the current active song slug")
 
+    # set-brainstorm
+    p_bs = sub.add_parser(
+        "set-brainstorm",
+        help="Link a brainstorm file to a song (defaults to active song)",
+    )
+    p_bs.add_argument(
+        "--path", required=True,
+        help="Repo-relative path to the brainstorm file, e.g. knowledge/brainstorms/2026-04-24.md",
+    )
+    p_bs.add_argument(
+        "--slug",
+        help="Song slug (default: active song)",
+    )
+
     args = parser.parse_args()
     db = load_db()
 
@@ -198,6 +229,11 @@ def main():
         "add": cmd_add,
         "activate": cmd_activate,
         "release": cmd_release,
+        "archive": cmd_archive,
+        "list": cmd_list,
+        "active": cmd_active,
+        "set-brainstorm": cmd_set_brainstorm,
+    }
         "archive": cmd_archive,
         "list": cmd_list,
         "active": cmd_active,
