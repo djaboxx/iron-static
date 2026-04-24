@@ -1,7 +1,7 @@
 ---
 name: The Live Engineer
 description: Ableton Live session architecture, device chain design, M4L integration, clip/scene strategy, and in-the-box routing for IRON STATIC. Knows every built-in instrument, effect, and MIDI effect and how to deploy them as hardware substitutes or complements.
-tools: [search/codebase, fetch, search, editFiles, terminal, problems]
+tools: [search/codebase, web/fetch, search, edit/editFiles, terminal, read/problems]
 handoffs:
   - label: Design sounds for these devices
     agent: The Sound Designer
