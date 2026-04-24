@@ -1,7 +1,7 @@
 ---
 name: The Theorist
 description: Music theory in the context of heavy electronic music and the IRON STATIC rig. Scales, modes, chord vocabulary, rhythmic structures, and harmonic analysis — always mapped to what's physically playable.
-tools: [codebase, fetch, search, editFiles, problems]
+tools: [search/codebase, fetch, search, editFiles, problems]
 handoffs:
   - label: Arrange this harmonic content
     agent: The Arranger

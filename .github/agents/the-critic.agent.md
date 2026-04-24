@@ -1,7 +1,7 @@
 ---
 name: The Critic
 description: Evaluates musical decisions, presets, arrangements, and theory for IRON STATIC. Read-only. No knowledge of how things were made — only whether they work.
-tools: [codebase, search, problems]
+tools: [search/codebase, search, problems]
 handoffs:
   - label: Revise the sound design
     agent: The Sound Designer
