@@ -1,39 +1,24 @@
 ---
-description: Begin a studio session — load session state, check active song, propose what to work on next based on what's incomplete.
-agent: The Arranger
-tools: [codebase, search, fetch]
+description: Begin a studio session — run song-review, assess current state, and propose the highest-value next workflow.
+agent: The Producer
+tools: [codebase, editFiles, terminal, search, agent]
 ---
 
-# Session Start Workflow
+# Session Start
 
-Orient to the current state of the project and propose the highest-value next action.
+Run the `song-review` workflow. Orient to the current state of the project and hand Dave a prioritized action list with the specific agent and workflow to invoke for each item.
 
-## Step 1: Load Full Context
+## Instructions
 
-Read all of the following:
-- [database/songs.json](../../database/songs.json) — active song, status, key, BPM
-- [knowledge/band-lore/manifesto.md](../../knowledge/band-lore/manifesto.md) — the aesthetic filter
-- [knowledge/production/mixing-notes.md](../../knowledge/production/mixing-notes.md) — what's been learned
-- [knowledge/sound-design/synthesis-notes.md](../../knowledge/sound-design/synthesis-notes.md) — preset/synthesis state
-- If `outputs/live_state.json` exists, read it — that's the live Ableton session state
+Run the Producer's `song-review` workflow:
 
-Check what presets exist:
-- [instruments/sequential-take5/presets/catalog.json](../../instruments/sequential-take5/presets/catalog.json)
-- [instruments/sequential-rev2/presets/catalog.json](../../instruments/sequential-rev2/presets/catalog.json)
+1. **The Arranger**: Read `database/songs.json`, `knowledge/band-lore/manifesto.md`, `knowledge/production/mixing-notes.md`, `knowledge/sound-design/synthesis-notes.md`, and any preset catalogs. Assess what sections are defined, what's missing, and what the current energy arc looks like.
 
-## Step 2: Assess
+2. **The Critic**: Evaluate everything documented for the active song — presets, patterns, structure, open questions. Be direct. If something is wrong or predictable, say so.
 
-Answer these questions:
-1. What song is active? What is its current lifecycle stage?
-2. What sections of the arrangement are defined vs. missing?
-3. What instruments have presets documented for this song?
-4. What are the open questions — harmonic, structural, sound design?
+3. **Synthesize**: Produce a prioritized list of exactly 3 things to work on this session. For each:
+   - What it is
+   - Which Producer workflow or agent + prompt to invoke (`theory-to-hardware`, `patch-and-critique [instrument]`, `/new-patch`, `/theory-first`)
+   - Why it's the highest-value use of time right now
 
-## Step 3: Propose
-
-Give Dave a prioritized list of 3 things to work on this session, with reasoning. For each:
-- What it is
-- Which agent to use (and the `/theory-first`, `/new-patch` prompt to invoke, or handoff to use)
-- Why it's the highest-value use of time right now
-
-Be direct. If the project is missing a structural backbone, say so. If the bass patch is wrong, say so.
+After presenting the 3 options, wait for Dave to choose one — then dispatch the appropriate workflow.
