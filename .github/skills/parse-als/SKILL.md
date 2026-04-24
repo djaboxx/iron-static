@@ -1,3 +1,8 @@
+---
+name: parse-als
+description: "Parse Ableton Live .als project files (gzipped XML) and extract track list, clip metadata, global tempo, and device inventory."
+---
+
 # SKILL: parse-als
 
 ## Purpose

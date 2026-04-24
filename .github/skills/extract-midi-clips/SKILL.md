@@ -1,8 +1,12 @@
-Skill: extract-midi-clips
+---
+name: extract-midi-clips
+description: "Extract MIDI notes from Ableton .als clips and export them as standard .mid files using scripts/extract_midi_clips.py."
+---
 
-Purpose
--------
-Provide an agent command to extract MIDI notes from Ableton `.als` clips and export them as standard `.mid` files.
+# SKILL: extract-midi-clips
+
+## Purpose
+Extract MIDI notes from Ableton `.als` clips and export them as standard `.mid` files.
 
 Files
 -----

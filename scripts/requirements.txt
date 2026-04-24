@@ -6,6 +6,7 @@ scipy>=1.11.0
 
 # MIDI generation and SysEx capture
 mido>=1.3.0
+python-rtmidi>=1.5.0
 python-rtmidi>=1.4.9
 
 # OSC bridge client (iron-static-bridge.amxd)

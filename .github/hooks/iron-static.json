@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python3 .github/hooks/session_context.py",
+        "osx": "python3 .github/hooks/session_context.py",
+        "cwd": "."
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 .github/hooks/session_close.py",
+        "osx": "python3 .github/hooks/session_close.py",
+        "cwd": "."
+      }
+    ]
+  }
+}

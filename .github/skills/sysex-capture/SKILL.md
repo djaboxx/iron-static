@@ -1,3 +1,8 @@
+---
+name: sysex-capture
+description: "Receive a MIDI SysEx dump from any IRON STATIC instrument, parse the data, and catalog it as structured preset files in the repository."
+---
+
 # SKILL: sysex-capture
 
 ## Purpose

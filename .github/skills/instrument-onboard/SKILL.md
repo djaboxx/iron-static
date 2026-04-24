@@ -1,3 +1,8 @@
+---
+name: instrument-onboard
+description: "Fully onboard a new instrument into the IRON STATIC repo: folder structure, manual index, MIDI parameter map, and SysEx capture wiring."
+---
+
 # SKILL: instrument-onboard
 
 ## Purpose

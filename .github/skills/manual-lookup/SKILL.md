@@ -1,3 +1,8 @@
+---
+name: manual-lookup
+description: "Look up specifications, parameters, MIDI implementation details, and operational procedures from any IRON STATIC instrument manual."
+---
+
 # SKILL: manual-lookup
 
 ## Purpose
