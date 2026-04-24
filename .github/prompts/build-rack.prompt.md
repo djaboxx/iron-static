@@ -1,6 +1,5 @@
 ---
 description: Build an Instrument Rack on a specified track — checks Ableton is running, builds the rack from a chain spec, then fires a status check. Auto-removes existing non-rack instruments on the track before building.
-mode: agent
 agent: The Sound Designer
 tools: [terminal, search/codebase, edit/editFiles, read/problems]
 argument-hint: "track name (e.g. DFAM, Pigments, Take5)"

@@ -1,6 +1,5 @@
 ---
 description: Generate a structured audio creation spec for a specific sonic element, calibrated to the active song's brainstorm and reference digest. Optionally attempts audio generation via Google Lyria.
-mode: agent
 agent: The Alchemist
 tools: [search/codebase, edit/editFiles, terminal, read/problems]
 argument-hint: "target element (e.g. 'kick loop', 'bass texture', 'corroded pad')"

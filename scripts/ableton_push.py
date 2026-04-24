@@ -340,6 +340,27 @@ def cmd_get_params(args, client: AbletonClient) -> None:
         print("  [{index}] {name:<30} = {value:.4f}  (range {min:.2f}–{max:.2f})".format(**p))
 
 
+def cmd_inspect_drum_rack(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    result = client.require_success(client.send("inspect_drum_rack", {
+        "track_index": track_index,
+        "device_index": int(args.device),
+    }))
+    print("\n--- DRUM RACK: {} ({}) — {} chains ---".format(
+        result.get("device_name"), result.get("class_name"), result.get("num_chains")))
+    NOTE_NAMES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+    for pad in result.get("pads", []):
+        note = pad.get("receiving_note")
+        if note is not None:
+            note_name = "{}{}".format(NOTE_NAMES[note % 12], (note // 12) - 2)
+        else:
+            note_name = "?"
+        sample = pad.get("sample_path") or "(empty)"
+        print("  chain {:>2}  note {:>3} {:4}  {:20}  {}".format(
+            pad["chain_index"], note or 0, note_name, pad["name"][:20], sample))
+
+
+
 def cmd_set_param(args, client: AbletonClient) -> None:
     track_index = _resolve_track_index(args.track, client)
     params = {
@@ -537,6 +558,46 @@ def cmd_list_packs(args, client: AbletonClient) -> None:  # noqa: ARG001
     print("\n{} preset(s) found.".format(found_count))
 
 
+def cmd_load_adg(args, client: AbletonClient) -> None:
+    """Stage a local .adg file into the Live User Library, then load it onto a track.
+
+    Copies the .adg to:
+      ~/Music/Ableton/User Library/Presets/Instruments/Drum Rack/Iron Static/
+
+    Then calls load-preset so Live's browser can find and load it — no dragging required.
+
+    Example:
+        python scripts/ableton_push.py load-adg \\
+            --file ableton/racks/rust-protocol_corroded-v1.adg \\
+            --track "Corroded Pads"
+    """
+    import shutil
+    import os
+
+    adg_path = Path(args.file)
+    if not adg_path.exists():
+        log.error("ADG file not found: %s", adg_path)
+        sys.exit(1)
+
+    user_lib = Path(os.path.expanduser(
+        "~/Music/Ableton/User Library/Presets/Instruments/Drum Rack/Iron Static"
+    ))
+    user_lib.mkdir(parents=True, exist_ok=True)
+
+    dest = user_lib / adg_path.name
+    shutil.copy2(adg_path, dest)
+    log.info("Staged '%s' → %s", adg_path.name, dest)
+
+    # load-preset searches by name (with or without .adg extension)
+    track_index = _resolve_track_index(args.track, client)
+    preset_name = adg_path.stem  # strip .adg for the browser search
+    result = client.require_success(client.send("load_preset", {
+        "track_index": track_index,
+        "preset_name": preset_name,
+    }))
+    print("Loaded '{}' onto track '{}'".format(result["loaded"], result["track"]))
+
+
 def cmd_load_preset(args, client: AbletonClient) -> None:
     """Load a browser preset (.adg) onto a track by name — no dragging required.
 
@@ -664,6 +725,12 @@ def main() -> None:
     p_getparam.add_argument("--chain", default=None,
                             help="Chain navigation: chain_index or chain_index.device_index (e.g. 0 or 0.1)")
 
+    # inspect-drum-rack
+    p_idr = sub.add_parser("inspect-drum-rack",
+                           help="List all pads in a DrumGroupDevice with sample paths")
+    p_idr.add_argument("--track", required=True, help="Track name or index")
+    p_idr.add_argument("--device", required=True, help="Device index (usually 0)")
+
     # set-param
     p_setparam = sub.add_parser("set-param", help="Set a device parameter value")
     p_setparam.add_argument("--track", required=True, help="Track name or index")
@@ -738,6 +805,13 @@ def main() -> None:
     p_lpreset.add_argument("--preset", required=True,
                            help="Preset name as it appears in the browser (e.g. '808 Depth Charger Kit')")
 
+    # load-adg: stage a local .adg into User Library then load it
+    p_ladg = sub.add_parser(
+        "load-adg",
+        help="Copy a local .adg into the Live User Library and load it onto a track")
+    p_ladg.add_argument("--file", required=True, help="Path to the .adg file (e.g. ableton/racks/foo.adg)")
+    p_ladg.add_argument("--track", required=True, help="Track name or index to load onto")
+
     # create-clip
     p_cclip = sub.add_parser(
         "create-clip",
@@ -769,7 +843,8 @@ def main() -> None:
         "status":        cmd_status,
         "create-track":  cmd_create_track,
         "get-devices":   cmd_get_devices,
-        "get-params":    cmd_get_params,
+        "get-params":       cmd_get_params,
+        "inspect-drum-rack": cmd_inspect_drum_rack,
         "set-param":     cmd_set_param,
         "fire-scene":    cmd_fire_scene,
         "create-scene":  cmd_create_scene,
@@ -780,6 +855,7 @@ def main() -> None:
         "apply-preset":  cmd_apply_preset,
         "list-packs":    cmd_list_packs,
         "load-preset":   cmd_load_preset,
+        "load-adg":      cmd_load_adg,
         "create-clip":   cmd_create_clip,
         "set-clip-name": cmd_set_clip_name,
     }

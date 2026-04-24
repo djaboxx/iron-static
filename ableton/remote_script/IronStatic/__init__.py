@@ -198,6 +198,11 @@ class IronStatic(ControlSurface):
                     params.get("chain_index"), params.get("chain_device_index"))
                 return response
 
+            if cmd_type == "inspect_drum_rack":
+                response["result"] = self._inspect_drum_rack(
+                    params["track_index"], params["device_index"])
+                return response
+
             # All mutating commands must run on Ableton's main thread
             MUTATING = {
                 "setup_rig", "create_track", "create_scene", "set_tempo",
@@ -753,6 +758,63 @@ class IronStatic(ControlSurface):
             "class_name": getattr(device, "class_name", ""),
             "parameters": params,
         }
+
+    def _inspect_drum_rack(self, track_index, device_index):
+        """Return all pad chain info from a DrumGroupDevice.
+
+        For each active pad chain returns:
+            chain_index    — position in device.chains
+            receiving_note — MIDI note number that triggers this pad (36=C1)
+            name           — pad chain name
+            num_devices    — number of devices inside the chain
+            sample_path    — absolute path to the loaded sample, or None
+        """
+        device = self._get_device(track_index, device_index)
+        chains = getattr(device, "chains", None)
+        if chains is None:
+            raise ValueError("Device '{}' has no chains — not a Drum Rack".format(device.name))
+        pads = []
+        for i, chain in enumerate(chains):
+            # Live Remote Script API uses in_note (M4L/LOM calls it receiving_note)
+            receiving_note = getattr(chain, "in_note", None)
+            sample_path = None
+            for dev in chain.devices:
+                sp = self._find_simpler_sample_path(dev)
+                if sp is not None:
+                    sample_path = sp
+                    break
+            pads.append({
+                "chain_index": i,
+                "receiving_note": receiving_note,
+                "name": chain.name,
+                "num_devices": len(chain.devices),
+                "sample_path": sample_path,
+            })
+        return {
+            "device_name": device.name,
+            "class_name": getattr(device, "class_name", ""),
+            "num_chains": len(chains),
+            "pads": pads,
+        }
+
+    def _find_simpler_sample_path(self, device):
+        """Recursively search a device tree for a Simpler with a loaded sample.
+        Returns the file_path string or None.
+        """
+        class_name = getattr(device, "class_name", "")
+        if "Simpler" in class_name or "OriginalSimpler" in class_name:
+            sample = getattr(device, "sample", None)
+            if sample is not None:
+                fp = getattr(sample, "file_path", None)
+                if fp:
+                    return fp
+        # Recurse into rack chains
+        for chain in getattr(device, "chains", []):
+            for sub_dev in chain.devices:
+                result = self._find_simpler_sample_path(sub_dev)
+                if result is not None:
+                    return result
+        return None
 
     def _set_device_param(self, track_index, device_index, value,
                           param_index=None, param_name=None,

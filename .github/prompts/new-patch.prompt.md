@@ -1,6 +1,5 @@
 ---
 description: Start a new sound design session — design a patch for a specific instrument, push to hardware, then route to The Critic.
-mode: agent
 agent: The Sound Designer
 tools: [search/codebase, edit/editFiles, terminal, search, read/problems]
 argument-hint: "instrument name (e.g. take5, rev2, minibrute2s, pigments)"

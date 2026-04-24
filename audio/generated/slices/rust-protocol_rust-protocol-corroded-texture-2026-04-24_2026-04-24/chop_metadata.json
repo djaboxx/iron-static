@@ -1,0 +1,80 @@
+{
+  "song_slug": "rust-protocol",
+  "source_file": "/Users/darnold/git/iron-static/audio/generated/rust-protocol_corroded-texture_2026-04-24.mp3",
+  "date": "2026-04-24",
+  "rack_name": "rust-corroded-all-stems",
+  "adg_path": "/Users/darnold/git/iron-static/ableton/racks/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24.adg",
+  "slices_dir": "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24",
+  "gemini_model": "gemini-2.5-flash",
+  "chop_strategy": "Focusing on sonic ruptures, evolving rhythmic densities, and moments of distinct textural or harmonic introduction to provide varied building blocks for aggressive and atmospheric composition.",
+  "duration_seconds": 29.7,
+  "chops": [
+    {
+      "time": 0.0,
+      "reason": "recovered from slice_00_0.000s.wav"
+    },
+    {
+      "time": 6.7,
+      "reason": "recovered from slice_01_6.700s.wav"
+    },
+    {
+      "time": 11.0,
+      "reason": "recovered from slice_02_11.000s.wav"
+    },
+    {
+      "time": 14.8,
+      "reason": "recovered from slice_03_14.800s.wav"
+    },
+    {
+      "time": 17.5,
+      "reason": "recovered from slice_04_17.500s.wav"
+    },
+    {
+      "time": 20.1,
+      "reason": "recovered from slice_05_20.100s.wav"
+    },
+    {
+      "time": 24.1,
+      "reason": "recovered from slice_06_24.100s.wav"
+    },
+    {
+      "time": 27.0,
+      "reason": "recovered from slice_07_27.000s.wav"
+    }
+  ],
+  "slices": [
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_01_0.010s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_02_0.013s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_03_0.015s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_04_0.018s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_05_0.021s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_06_0.025s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/other/slice_07_0.027s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_01_0.010s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_02_0.013s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_03_0.015s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_04_0.018s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_05_0.021s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_06_0.025s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/drums/slice_07_0.027s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_01_0.010s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_02_0.013s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_03_0.015s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_04_0.018s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_05_0.021s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_06_0.025s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/bass/slice_07_0.027s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_01_0.010s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_02_0.013s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_03_0.015s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_04_0.018s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_05_0.021s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_06_0.025s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-corroded-texture-2026-04-24_2026-04-24/vocals/slice_07_0.027s.wav"
+  ],
+  "_note": "chop times recovered from root slice filenames after bad Gemini response"
+}
