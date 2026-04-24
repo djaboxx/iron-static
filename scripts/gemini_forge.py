@@ -96,7 +96,7 @@ Be specific and concrete. Maximum 200 words. Write it as one paragraph.
 
 - BPM: {bpm}
 - Key centre: (as relevant for this element)
-- Suggested duration: (e.g. "8 bars", "16 bars", "4-bar loop")
+- Suggested duration: Keep SHORT — maximum 30 seconds. This audio is designed to be chopped into pads. (e.g. "8 bars", "30 seconds", "4-bar loop")
 - Time signature: (derive from song context and brainstorm)
 - Frequency focus: (e.g. "sub/low-mid dominant", "high-mid attack transient", etc.)
 - Stereo field: (mono center / wide / left-right alternating / etc.)
@@ -226,6 +226,47 @@ def call_gemini(prompt: str, model_tier: str) -> str:
     return response.text
 
 
+def _build_lyria_prompt(spec_text: str) -> str:
+    """
+    Build a minimal, Lyria-safe prompt from the spec's TECHNICAL PARAMETERS section.
+
+    The GENERATION PROMPT section always contains IRON STATIC aesthetic prose
+    ("corrosive," "dread," "inevitable," etc.) that trips Lyria's content filter.
+    This function builds a clean, genre/production-vocabulary prompt instead.
+    """
+    params: dict = {}
+    tp_match = re.search(r"## TECHNICAL PARAMETERS\s*\n+(.*?)(?=##|\Z)", spec_text, re.DOTALL)
+    if tp_match:
+        block = tp_match.group(1)
+        for line in block.splitlines():
+            line = line.strip("- ").strip()
+            if ":" not in line:
+                continue
+            k, _, v = line.partition(":")
+            params[k.strip().lower()] = v.strip()
+
+    bpm = params.get("bpm", "120")
+    key = params.get("key centre", params.get("key center", "C minor"))
+    duration = params.get("suggested duration", "30 seconds")
+    freq_focus = params.get("frequency focus", "full spectrum")
+    time_sig = params.get("time signature", "4/4")
+
+    # Strip parens/extra commentary from duration
+    duration = re.sub(r"\(.*?\)", "", duration).strip()
+
+    prompt = (
+        f"Instrumental electronic music, short loop. "
+        f"Tempo: {bpm} BPM. Key: {key}. Time signature: {time_sig}. "
+        f"Duration: {duration}. Maximum 30 seconds. "
+        f"Genre: industrial ambient, dark electronic, noise music. "
+        f"Texture: layered synthesizer drones, metallic percussion, sub-bass, "
+        f"granular synthesis, heavy distortion, evolving atmospheric pads. "
+        f"Frequency focus: {freq_focus}. "
+        f"Stereo field: wide. No vocals."
+    )
+    return prompt
+
+
 def generate_lyria(spec_text: str, target: str, song_slug: str, out_path: Path, model: str) -> bool:
     """
     Generate audio via Lyria 3 through the Gemini API.
@@ -250,16 +291,14 @@ def generate_lyria(spec_text: str, target: str, song_slug: str, out_path: Path, 
         return False
 
     # Extract the GENERATION PROMPT section from the spec
-    match = re.search(r"## GENERATION PROMPT\s*\n+(.*?)(?=##|\Z)", spec_text, re.DOTALL)
-    if not match:
-        log.error("Could not extract GENERATION PROMPT from spec. Cannot call Lyria.")
+    # Lyria's content filter blocks aesthetic/emotional language (even in music context).
+    # Build a clean, technical-only prompt from the TECHNICAL PARAMETERS section instead
+    # of using the GENERATION PROMPT which always contains IRON STATIC aesthetic prose.
+    generation_prompt = _build_lyria_prompt(spec_text)
+    if not generation_prompt:
+        log.error("Could not extract TECHNICAL PARAMETERS from spec. Cannot call Lyria.")
         return False
-
-    generation_prompt = match.group(1).strip()
-    log.info("Extracted generation prompt (%d chars).", len(generation_prompt))
-
-    # Append explicit instrumental instruction — Lyria 3 generates vocals by default
-    generation_prompt += "\n\nInstrumental only, no vocals."
+    log.info("Built Lyria-safe prompt (%d chars).", len(generation_prompt))
 
     lyria_model = model if model.startswith("lyria-") else "lyria-3-clip-preview"
     log.info("Calling %s via Gemini API...", lyria_model)
@@ -267,43 +306,55 @@ def generate_lyria(spec_text: str, target: str, song_slug: str, out_path: Path, 
     try:
         client = genai.Client(api_key=api_key)
 
-        # Lyria 3 Pro supports WAV; Clip outputs MP3 only
-        if lyria_model == "lyria-3-pro-preview":
-            # Determine extension and mime type from out_path suffix
-            suffix = out_path.suffix.lower()
-            if suffix == ".wav":
-                mime = "audio/wav"
-            else:
-                mime = "audio/mp3"
-                out_path = out_path.with_suffix(".mp3")
+        # Both Lyria models return MP3 audio — extension corrected from magic bytes later
+        out_path = out_path.with_suffix(".mp3")
+        response = client.models.generate_content(
+            model=lyria_model,
+            contents=generation_prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=["AUDIO"],
+            ),
+        )
 
-            response = client.models.generate_content(
-                model=lyria_model,
-                contents=generation_prompt,
-                config=types.GenerateContentConfig(
-                    response_modalities=["AUDIO", "TEXT"],
-                    response_mime_type=mime,
-                ),
-            )
-        else:
-            # Clip model: always MP3, no config needed
-            out_path = out_path.with_suffix(".mp3")
-            response = client.models.generate_content(
-                model=lyria_model,
-                contents=generation_prompt,
-            )
-
+        # Lyria returns via candidates[0].content.parts; .parts is not a top-level attr
         audio_data = None
-        for part in response.parts:
-            if part.inline_data is not None:
+        parts = []
+
+        # Check for content filter block before inspecting parts
+        pf = getattr(response, "prompt_feedback", None)
+        if pf and getattr(pf, "block_reason", None):
+            log.error("Lyria blocked prompt: block_reason=%s — prompt language triggered safety filter.",
+                      pf.block_reason)
+            return False
+
+        if hasattr(response, "parts") and response.parts:
+            parts = response.parts
+        elif hasattr(response, "candidates") and response.candidates:
+            content = getattr(response.candidates[0], "content", None)
+            if content and hasattr(content, "parts"):
+                parts = content.parts
+        # Debug: log structure if no audio found
+        if not parts:
+            log.warning("Response parts empty. candidates=%s text=%s",
+                        getattr(response, "candidates", None),
+                        getattr(response, "text", None))
+        for part in parts:
+            if getattr(part, "inline_data", None) is not None:
                 audio_data = part.inline_data.data
-            elif part.text:
+            elif getattr(part, "text", None):
                 log.info("Lyria returned text: %s", part.text[:200])
 
         if not audio_data:
             log.error("Lyria response contained no audio data.")
+            # Dump response repr for diagnosis
+            log.warning("Response repr: %s", repr(response)[:1000])
             return False
 
+        # Detect actual format from magic bytes and correct extension if needed
+        if audio_data[:4] == b'RIFF':
+            out_path = out_path.with_suffix(".wav")
+        else:
+            out_path = out_path.with_suffix(".mp3")
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_bytes(audio_data)
         log.info("Audio written to %s (%d bytes).", out_path, len(audio_data))
@@ -332,6 +383,49 @@ def write_spec(
     )
     out_path.write_text(header + spec_text)
     return out_path
+
+
+def push_to_gcs(audio_path: Path, song_slug: str, skip: bool = False) -> None:
+    """Push a generated audio file to GCS using gcs_sync.py.
+
+    If GCS_BUCKET is not set or --no-gcs-push was passed, log the manual
+    command instead so the user knows exactly what to run.
+    """
+    if skip:
+        log.info(
+            "GCS push skipped (--no-gcs-push). To upload manually:\n"
+            "  python scripts/gcs_sync.py push %s --tag %s",
+            audio_path,
+            song_slug,
+        )
+        return
+
+    if not os.environ.get("GCS_BUCKET"):
+        log.warning(
+            "GCS_BUCKET env var not set — skipping auto-push. Upload manually:\n"
+            "  python scripts/gcs_sync.py push %s --tag %s",
+            audio_path,
+            song_slug,
+        )
+        return
+
+    import subprocess
+
+    gcs_sync = Path(__file__).parent / "gcs_sync.py"
+    cmd = [sys.executable, str(gcs_sync), "push", str(audio_path), "--tag", song_slug]
+    log.info("Pushing to GCS: %s", " ".join(cmd))
+    result = subprocess.run(cmd, check=False)
+    if result.returncode != 0:
+        log.error(
+            "GCS push failed (exit %d). Upload manually:\n"
+            "  python scripts/gcs_sync.py push %s --tag %s",
+            result.returncode,
+            audio_path,
+            song_slug,
+        )
+    else:
+        log.info("GCS push succeeded — update the manifest in git:")
+        log.info("  git add database/gcs_manifest.json && git commit -m 'chore: upload %s to GCS'", audio_path.name)
 
 
 def main() -> None:
@@ -375,6 +469,15 @@ def main() -> None:
             "Lyria 3 model to use for --generate: "
             "'clip' (lyria-3-clip-preview, 30-second loop, MP3) or "
             "'pro' (lyria-3-pro-preview, full-length, MP3 or WAV). Default: clip."
+        ),
+    )
+    parser.add_argument(
+        "--no-gcs-push",
+        action="store_true",
+        help=(
+            "Skip automatic GCS upload after --generate. "
+            "Use this if GCS credentials are not available locally. "
+            "The gcs_sync.py push command will be printed instead."
         ),
     )
     parser.add_argument(
@@ -426,7 +529,7 @@ def main() -> None:
         }
         lyria_model_name = lyria_model_map[args.lyria_model]
         target_slug = slugify(args.target)
-        suffix = ".wav" if args.lyria_model == "pro" else ".mp3"
+        suffix = ".mp3"  # Lyria always returns MP3 regardless of model variant
         audio_path = AUDIO_OUT_DIR / f"{song_slug}_{target_slug}_{today}{suffix}"
         success = generate_lyria(spec_text, args.target, song_slug, audio_path, lyria_model_name)
         if not success:
@@ -435,6 +538,8 @@ def main() -> None:
                 "Lyria generation failed — spec file is your deliverable. "
                 "Use the GENERATION PROMPT section with an audio generator of your choice."
             )
+        else:
+            push_to_gcs(audio_path, song_slug, skip=args.no_gcs_push)
 
     if args.output == "json":
         result = {

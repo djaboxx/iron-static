@@ -1,0 +1,61 @@
+{
+  "song_slug": "rust-protocol",
+  "source_file": "/Users/darnold/git/iron-static/audio/generated/rust-protocol_ethereal-evolving-pad_2026-04-24.mp3",
+  "date": "2026-04-24",
+  "rack_name": "rust-ethereal-pad",
+  "adg_path": "/Users/darnold/git/iron-static/ableton/racks/rust-ethereal-pad.adg",
+  "slices_dir": "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24",
+  "gemini_model": "gemini-2.5-flash",
+  "chop_strategy": "I focused on capturing dynamic shifts in the airy spectral pad, highlighting moments where new rhythmic elements emerge, textures become denser or more sparse, and unexpected spectral qualities or dissonances are introduced.",
+  "duration_seconds": 98.3,
+  "chops": [
+    {
+      "start": 0.0,
+      "end": 9.0,
+      "reason": "The initial atmospheric drone, capturing its airy spectral evolution before other elements fully emerge."
+    },
+    {
+      "start": 9.5,
+      "end": 17.0,
+      "reason": "Introduction of the subtle, low rhythmic pulse and a slight filter movement in the pad, marking a density change."
+    },
+    {
+      "start": 20.0,
+      "end": 28.0,
+      "reason": "The pad takes on a darker, modulated quality with a more prominent rhythmic pulse, creating a spectral surprise."
+    },
+    {
+      "start": 31.0,
+      "end": 38.0,
+      "reason": "A textural rupture, where the rhythm softens and a shimmering, bell-like layer emerges over the fading pad."
+    },
+    {
+      "start": 40.0,
+      "end": 48.0,
+      "reason": "The abrupt introduction of an aggressive, distorted element, providing a strong spectral contrast and density change."
+    },
+    {
+      "start": 50.0,
+      "end": 58.0,
+      "reason": "A moment of sustained, dense layering, where the distortion settles into a gritty background texture, showcasing a rich spectral tapestry."
+    },
+    {
+      "start": 100.0,
+      "end": 109.0,
+      "reason": "A clear textural rupture as the heavy distortion recedes, revealing an open, sweeping, almost vocal-like pad again."
+    },
+    {
+      "start": 120.0,
+      "end": 98.3,
+      "reason": "The final section, capturing a distinct rhythmic pulse and a fading, slightly detuned pad, ending on a lingering tonal anomaly."
+    }
+  ],
+  "slices": [
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_01_9.500s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_02_20.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_03_31.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_04_40.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/rust-protocol_rust-protocol-ethereal-evolving-pad-2026-04-24_2026-04-24/other/slice_05_50.000s.wav"
+  ]
+}

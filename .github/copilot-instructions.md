@@ -133,6 +133,7 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `manual-lookup` | `.github/skills/manual-lookup/SKILL.md` | When answering questions from instrument manuals (specs, MIDI, parameters) |
 | `instrument-onboard` | `.github/skills/instrument-onboard/SKILL.md` | When adding a new instrument: folder structure, manual index, param map, SysEx wiring |
 | `gcs-audio` | `.github/skills/gcs-audio/SKILL.md` | When uploading audio files (recordings, stems, samples) to GCS, pulling them back, or checking manifest status |
+| `slice-and-rack` | `.github/skills/slice-and-rack/SKILL.md` | When chopping an audio file into pads and building an Ableton Drum Rack .adg preset |
 | `gemini-forge` | `.github/skills/gemini-forge/SKILL.md` | When generating audio specs or audio files via Gemini + Lyria for the active song |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.

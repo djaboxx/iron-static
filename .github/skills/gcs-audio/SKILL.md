@@ -37,6 +37,10 @@ The pre-commit hook blocks any staged file in `audio/` that isn't in the manifes
 | `audio/samples/drums/` | Drum samples | `audio/samples/drums/` |
 | `audio/samples/synths/` | Synth samples | `audio/samples/synths/` |
 | `audio/samples/fx/` | FX/texture samples | `audio/samples/fx/` |
+| `audio/generated/` | Lyria / forge-generated audio | `audio/generated/` |
+
+> **Note**: `audio/generated/specs/` contains `.md` spec files — these ARE committed to git normally.
+> Only the audio files (`.mp3`, `.wav`) inside `audio/generated/` go to GCS.
 
 ## Workflow
 
@@ -157,3 +161,38 @@ If `GCS_BUCKET` is empty, check the GitHub Actions repo variable or set it local
 ```bash
 export GCS_BUCKET=iron-static-files
 ```
+
+## Generated Audio (Lyria / forge-audio)
+
+`audio/generated/` has two layers:
+- `audio/generated/specs/` — spec `.md` files → **committed to git normally**
+- `audio/generated/*.mp3` / `*.wav` — Lyria output → **GCS only, never git**
+
+When `gemini_forge.py --generate` runs successfully it auto-pushes the audio file to GCS
+(if `GCS_BUCKET` is set). If not, it prints the manual command.
+
+### Manual upload after local forge run
+```bash
+# Upload a specific generated file
+python scripts/gcs_sync.py push audio/generated/rust-protocol_kick-loop_2026-04-24.mp3 --tag rust-protocol
+
+# Commit only the manifest
+git add database/gcs_manifest.json
+git commit -m "chore: upload rust-protocol_kick-loop_2026-04-24.mp3 to GCS"
+```
+
+### Pull a generated file to a new machine
+```bash
+python scripts/gcs_sync.py pull audio/generated/rust-protocol_kick-loop_2026-04-24.mp3
+```
+
+### Run forge-audio from CI (generates + auto-pushes to GCS)
+Use the `forge-audio.yml` workflow via `gh workflow run` or the GitHub Actions UI:
+```bash
+gh workflow run forge-audio.yml \
+  -f target="kick loop" \
+  -f context="grimy 808 sub, A phrygian dominant, 95 BPM" \
+  -f generate_audio=true \
+  -f lyria_model=clip
+```
+

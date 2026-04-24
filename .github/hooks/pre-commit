@@ -34,6 +34,7 @@ GCS_PATHS = [
     "audio/references/",
     "audio/samples/",
     "audio/generated/",   # Lyria / forge output — specs go to git, audio goes to GCS
+    "audio/generated/slices/",  # chop_and_rack.py slice WAVs — go to GCS, not git
 ]
 
 # Extensions that are always expected to be LFS pointers — skip size check
@@ -106,6 +107,9 @@ def is_in_gcs_path(rel_path):
         return False
     # Spec/metadata files under audio/generated/specs/ are committed normally
     if rel_path.startswith("audio/generated/specs/") and Path(rel_path).suffix in {".md", ""}:
+        return False
+    # chop_metadata.json and other non-audio files under slices/ are committed
+    if rel_path.startswith("audio/generated/slices/") and Path(rel_path).suffix in {".json", ""}:
         return False
     if rel_path.endswith(".gitkeep"):
         return False

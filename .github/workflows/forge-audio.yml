@@ -1,0 +1,93 @@
+name: Forge Audio
+
+# Generate an IRON STATIC audio spec (and optionally audio) via Gemini + Lyria 3.
+# Generated audio is uploaded to GCS immediately and never committed to git.
+# Spec .md files are committed to audio/generated/specs/ via this workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'What to generate (e.g. "kick loop", "bass texture", "pad swell")'
+        required: true
+      context:
+        description: 'Extra context for the spec (optional — e.g. "grimy 808 sub, minimal")'
+        required: false
+        default: ''
+      model:
+        description: 'Gemini model tier for spec generation'
+        required: false
+        default: 'fast'
+        type: choice
+        options:
+          - fast
+          - pro
+      generate_audio:
+        description: 'Generate audio via Lyria 3 after spec is approved'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      lyria_model:
+        description: 'Lyria model (clip=30s loop, pro=full-length)'
+        required: false
+        default: 'clip'
+        type: choice
+        options:
+          - clip
+          - pro
+      date_override:
+        description: 'Override output date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  forge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet google-genai google-cloud-storage
+
+      - name: Generate audio spec (and optionally audio)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+          GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
+        run: |
+          set -euo pipefail
+
+          ARGS="--target ${{ inputs.target }}"
+          [ -n "${{ inputs.context }}" ] && ARGS="$ARGS --context ${{ inputs.context }}"
+          ARGS="$ARGS --model ${{ inputs.model }}"
+          [ -n "${{ inputs.date_override }}" ] && ARGS="$ARGS --date ${{ inputs.date_override }}"
+
+          if [ "${{ inputs.generate_audio }}" = "true" ]; then
+            ARGS="$ARGS --generate --lyria-model ${{ inputs.lyria_model }}"
+          fi
+
+          python scripts/gemini_forge.py $ARGS
+
+      - name: Commit spec file
+        run: |
+          git config user.name "iron-static-bot"
+          git config user.email "bot@iron-static.local"
+          git add audio/generated/specs/ database/gcs_manifest.json
+          git diff --staged --quiet || git commit -m "feat(forge): generate spec for '${{ inputs.target }}' [automated]"
+          git pull --rebase origin main
+          git push

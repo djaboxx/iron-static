@@ -118,6 +118,7 @@ Note: all Lyria output includes Google's SynthID watermark — inaudible, does n
 | `gemini-forge` | **Always** — load before running `gemini_forge.py` |
 | `gemini-listen` | When evaluating generated audio output |
 | `gcs-audio` | When cataloging generated audio files |
+| `slice-and-rack` | When chopping generated audio into a Drum Rack — load after forge succeeds |
 
 ---
 
@@ -129,8 +130,11 @@ All output files follow this naming convention:
 |---|---|
 | Spec document | `audio/generated/specs/[song-slug]_[element-slug]_[YYYY-MM-DD].md` |
 | Generated audio | `audio/generated/[song-slug]_[element-slug]_[YYYY-MM-DD].wav` |
+| Drum Rack preset | `ableton/racks/[song-slug]_[element-slug]_[YYYY-MM-DD].adg` |
+| Slice WAVs | `audio/generated/slices/[song-slug]_[element-slug]_[YYYY-MM-DD]/` (GCS only) |
 
-Spec files are committed to git. Audio files are GCS-only (never committed).
+Spec files, `.adg` racks, and `chop_metadata.json` are committed to git.  
+Audio files and slice WAVs are GCS-only (never committed).
 
 ---
 
@@ -142,3 +146,4 @@ Spec files are committed to git. Audio files are GCS-only (never committed).
 | Hardware parallel should be built as an actual patch | **The Sound Designer** |
 | Generated audio should be loaded into the session | **The Live Engineer** |
 | Harmonic content of generated element is uncertain | **The Theorist** |
+| Drum loop or texture should become a Drum Rack | Stay in Alchemist — run `slice-and-rack` skill |
