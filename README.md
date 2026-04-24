@@ -62,6 +62,16 @@ iron-static/
 
 ---
 
+## Documentation
+
+| Doc | What it covers |
+|---|---|
+| [docs/session-workflow.md](docs/session-workflow.md) | Monday morning startup, brainstorm lifecycle, session init script, agent stack, MIDI map |
+| [docs/m4l-integration-plan.md](docs/m4l-integration-plan.md) | Max for Live device build plan and IronStatic Remote Script architecture |
+| [docs/github-actions-plan.md](docs/github-actions-plan.md) | GitHub Actions workflows for audio processing and deployment |
+
+---
+
 ## Getting Started
 
 ```bash
