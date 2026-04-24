@@ -132,6 +132,7 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `sysex-capture` | `.github/skills/sysex-capture/SKILL.md` | When receiving, parsing, or cataloging a SysEx dump from any instrument |
 | `manual-lookup` | `.github/skills/manual-lookup/SKILL.md` | When answering questions from instrument manuals (specs, MIDI, parameters) |
 | `instrument-onboard` | `.github/skills/instrument-onboard/SKILL.md` | When adding a new instrument: folder structure, manual index, param map, SysEx wiring |
+| `gcs-audio` | `.github/skills/gcs-audio/SKILL.md` | When uploading audio files (recordings, stems, samples) to GCS, pulling them back, or checking manifest status |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
 
