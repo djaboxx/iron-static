@@ -234,10 +234,6 @@ def main():
         "active": cmd_active,
         "set-brainstorm": cmd_set_brainstorm,
     }
-        "archive": cmd_archive,
-        "list": cmd_list,
-        "active": cmd_active,
-    }
     dispatch[args.command](args, db)
 
 

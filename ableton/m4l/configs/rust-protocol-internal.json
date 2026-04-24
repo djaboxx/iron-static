@@ -1,0 +1,32 @@
+{
+  "_song": "rust-protocol",
+  "_key": "A Phrygian Dominant",
+  "_bpm": 95,
+  "_critic_notes": [
+    "Minibrute2S: was Tension — WRONG. Bowed string model cannot riff. Changed to Analog (sawtooth, HP filter, drive = functionally correct).",
+    "Rev2-B: was Meld across Build+Climax — brainstorm has NO Rev2 in Build. Meld in Build adds unauthorized mass and dulls the cut-to-silence before Drop. Constrained to Climax only.",
+    "DFAM/Collision: needs explicit distortion chain (Saturator or Amp, pushed) in Breakdown slot to go clinical→destroyed.",
+    "Subharmonicon frantic acceleration: Operator cannot self-generate this. Must come from Digitakt pattern change.",
+    "Take5/Drift: test transient snap for stabs before committing — Drift may not land hard enough at Energy 9/10."
+  ],
+  "_rationale": {
+    "Digitakt":     "Hardware present — I-beam sample + kick/snare grid",
+    "DFAM":         "Collision: physical resonator, clinical Intro→distorted Breakdown (needs processing chain)",
+    "Subharmonicon": "Operator: FM feedback drone, A+Bb half-step crunch, breathes. Frantic acceleration = Digitakt pattern change.",
+    "Rev2-A":       "Wavetable: 8-voice unison saw, Climax only — massive detuned pad",
+    "Rev2-B":       "Meld (Fold FM): Climax only — contrasts Wavetable's static mass, gives two layers that move",
+    "Take5":        "Drift: per-voice detuning, chord stabs in Drop — test attack transient",
+    "Minibrute2S":  "Analog: sawtooth, HP filter, drive — correct spectral analog of Minibrute brief. Can riff.",
+    "Pigments":     "Pigments VST3 — granular scraping-metal texture bed, Breakdown"
+  },
+  "tracks": {
+    "Digitakt":      null,
+    "Rev2-A":        "23-Wavetable",
+    "Rev2-B":        "18-Meld",
+    "Take5":         "3-Drift",
+    "Subharmonicon":  "19-Operator",
+    "DFAM":          "2-Collision",
+    "Minibrute2S":   "1-Analog",
+    "Pigments":      "pigments"
+  }
+}

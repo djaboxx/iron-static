@@ -1,7 +1,7 @@
 ---
 description: Begin a studio session — read the active brainstorm seed, run song-review, and propose the highest-value next workflow.
 agent: The Producer
-tools: [codebase, editFiles, terminal, search, agent]
+tools: [search/codebase, edit/editFiles, terminal, search, agent]
 ---
 
 # Session Start

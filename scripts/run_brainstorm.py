@@ -25,6 +25,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SONGS_DB = REPO_ROOT / "database" / "songs.json"
 MANIFESTO = REPO_ROOT / "knowledge" / "band-lore" / "manifesto.md"
 OUT_DIR = REPO_ROOT / "knowledge" / "brainstorms"
+REFERENCES_DIR = REPO_ROOT / "knowledge" / "references"
 
 SYSTEM_PREAMBLE = """\
 You are IRON STATIC's Copilot — the machine half of this electronic metal duo.
@@ -50,6 +51,7 @@ BRAINSTORM_PROMPT_TEMPLATE = """\
 {system}
 {manifesto_block}
 {song_block}
+{reference_block}
 Generate a weekly creative brainstorm document with exactly these five sections.
 Keep it concrete and physical — every suggestion must be immediately actionable on the hardware listed above.
 
@@ -116,6 +118,16 @@ def build_manifesto_block() -> str:
     return ""
 
 
+def build_reference_block() -> str:
+    """Load the most recent reference digest and inject it into the prompt."""
+    digests = sorted(REFERENCES_DIR.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"), reverse=True)
+    if not digests:
+        return ""
+    latest = digests[0]
+    log.info("Injecting reference digest: %s", latest.name)
+    return f"[Reference Digest — {latest.stem}]\n{latest.read_text()}\n\n"
+
+
 def generate_brainstorm_no_llm(today: str) -> str:
     return f"""\
 # IRON STATIC — Weekly Brainstorm ({today})
@@ -150,6 +162,7 @@ def generate_brainstorm(today: str) -> str:
         system=SYSTEM_PREAMBLE,
         manifesto_block=build_manifesto_block(),
         song_block=build_song_block(song),
+        reference_block=build_reference_block(),
     )
 
     log.info("Calling Gemini for brainstorm (model_tier=pro)…")
