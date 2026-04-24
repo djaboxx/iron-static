@@ -50,7 +50,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --quiet google-generativeai
+          pip install --quiet google-genai
 
       - name: Run preset idea generator
         env:

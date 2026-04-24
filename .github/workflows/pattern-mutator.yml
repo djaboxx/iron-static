@@ -51,7 +51,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --quiet google-generativeai mido
+          pip install --quiet google-genai mido
 
       - name: Run pattern mutator
         env:

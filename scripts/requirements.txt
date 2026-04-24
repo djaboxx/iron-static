@@ -19,7 +19,7 @@ demucs>=4.0.0           # Meta stem separator (drums/bass/other/vocals)
 python-hcl2>=4.3.0      # HCL config file parser for session templates
 
 # LLM integration (automated workflows — not for interactive Copilot sessions)
-google-generativeai>=0.8.0
+google-genai>=1.0.0
 
 # GCS large-file sync (gcs_sync.py)
 google-cloud-storage>=2.16.0

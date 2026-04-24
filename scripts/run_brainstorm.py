@@ -141,7 +141,7 @@ def generate_brainstorm_no_llm(today: str) -> str:
 
 def generate_brainstorm(today: str) -> str:
     """Call Gemini and return the brainstorm document as a Markdown string."""
-    # Import here so --no-llm doesn't require google-generativeai installed
+    # Import here so --no-llm doesn't require google-genai installed
     sys.path.insert(0, str(REPO_ROOT / "scripts"))
     from llm_utils import complete  # noqa: PLC0415
 

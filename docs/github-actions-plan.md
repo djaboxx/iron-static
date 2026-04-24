@@ -179,7 +179,7 @@ log = logging.getLogger(__name__)
 
 def complete(prompt: str, model_tier: str = "fast", context_files: list[str] = None) -> str:
     """Send a prompt to Gemini. Returns response text."""
-    import google.generativeai as genai
+    from google import genai
 
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
@@ -203,14 +203,14 @@ def complete(prompt: str, model_tier: str = "fast", context_files: list[str] = N
             else:
                 log.warning("Context file not found: %s", path)
 
-    model = genai.GenerativeModel(model_name)
-    response = model.generate_content(full_prompt)
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(model=model_name, contents=full_prompt)
     return response.text
 ```
 
 **Install addition needed in `scripts/requirements.txt`**:
 ```
-google-generativeai>=0.8.0
+google-genai>=1.0.0
 ```
 
 ---
@@ -259,7 +259,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install google-generativeai
+        run: pip install google-genai
 
       - name: Run brainstorm script
         env:
@@ -314,7 +314,7 @@ The `run: python scripts/run_brainstorm.py` step calls a dedicated script that u
 
 ### Phase 1: Foundation (build first)
 1. `scripts/llm_utils.py` — shared LLM module
-2. Add `google-generativeai>=0.8.0` to `scripts/requirements.txt`
+2. Add `google-genai>=1.0.0` to `scripts/requirements.txt`
 3. Set `GEMINI_API_KEY` + `GH_PAT` in GitHub repo secrets
 4. `scripts/run_repo_health.py` + `repo-health.yml` — lowest risk, pure repo inspection, no AI required for the check phase (Gemini only for suggestions)
 

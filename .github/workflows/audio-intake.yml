@@ -48,7 +48,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --quiet google-generativeai librosa soundfile numpy
+          pip install --quiet google-genai librosa soundfile numpy
 
       - name: Run audio intake processor
         env:

@@ -45,7 +45,7 @@ def complete(
         EnvironmentError: If GEMINI_API_KEY is not set.
         ValueError: If model_tier is not recognized.
     """
-    import google.generativeai as genai
+    from google import genai
 
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
@@ -60,13 +60,12 @@ def complete(
             f"Unknown model_tier '{model_tier}'. Expected one of: {list(_MODEL_MAP)}"
         )
 
-    genai.configure(api_key=api_key)
+    client = genai.Client(api_key=api_key)
 
     full_prompt = _prepend_context(prompt, context_files or [])
 
     log.info("Calling Gemini model=%s prompt_chars=%d", model_name, len(full_prompt))
-    model = genai.GenerativeModel(model_name)
-    response = model.generate_content(full_prompt)
+    response = client.models.generate_content(model=model_name, contents=full_prompt)
     return response.text
 
 
