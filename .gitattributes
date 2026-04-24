@@ -1,17 +1,19 @@
-# Git LFS — track large audio/binary files without bloating repo history
-*.wav filter=lfs diff=lfs merge=lfs -text
-*.aiff filter=lfs diff=lfs merge=lfs -text
-*.aif filter=lfs diff=lfs merge=lfs -text
-*.mp3 filter=lfs diff=lfs merge=lfs -text
-*.flac filter=lfs diff=lfs merge=lfs -text
-*.ogg filter=lfs diff=lfs merge=lfs -text
-*.m4a filter=lfs diff=lfs merge=lfs -text
+# Audio files live in GCS (via gcs-sync workflow), NOT in git or LFS.
+# The pre-commit hook blocks staged audio files that aren't in database/gcs_manifest.json.
+# These attributes ensure git treats them as binary (no diff/merge) if somehow staged.
+*.wav -text
+*.aiff -text
+*.aif -text
+*.mp3 -text
+*.flac -text
+*.ogg -text
+*.m4a -text
 
-# Ableton sessions
+# Ableton sessions are large — tracked via Git LFS (session files belong in git history)
 *.als filter=lfs diff=lfs merge=lfs -text
 *.alp filter=lfs diff=lfs merge=lfs -text
 
-# PDF manuals
+# PDF manuals are tracked via Git LFS (small enough, important to version)
 *.pdf filter=lfs diff=lfs merge=lfs -text
 
 # MIDI tracked normally as text-adjacent binary

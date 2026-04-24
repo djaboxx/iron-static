@@ -1,0 +1,179 @@
+#!/usr/bin/env python3
+"""
+pre-commit hook for iron-static
+Enforces two rules:
+  1. No staged file exceeds SIZE_LIMIT_MB (default 5 MB) unless it is
+     tracked by Git LFS (pointer file only) or is a known-small exception.
+  2. Files in GCS_PATHS (audio directories) must be registered in
+     database/gcs_manifest.json before commit.
+
+Run once after cloning:
+  python scripts/install_hooks.py
+"""
+
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent  # .github/hooks → repo root
+MANIFEST_PATH = REPO_ROOT / "database" / "gcs_manifest.json"
+
+# Files larger than this trigger a block (unless LFS-tracked)
+SIZE_LIMIT_MB = 5
+
+# Directories that MUST go through GCS (not git at all)
+GCS_PATHS = [
+    "audio/recordings/raw/",
+    "audio/recordings/stems/",
+    "audio/references/",
+    "audio/samples/",
+]
+
+# Extensions that are always expected to be LFS pointers — skip size check
+LFS_EXTENSIONS = {
+    ".wav", ".aiff", ".aif", ".mp3", ".flac", ".ogg", ".m4a",
+    ".als", ".alp", ".pdf",
+}
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def get_staged_files():
+    """Return list of (repo-relative path, staged size in bytes, is_lfs_pointer)."""
+    result = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+        capture_output=True, text=True, cwd=REPO_ROOT
+    )
+    staged = []
+    for rel_path in result.stdout.splitlines():
+        rel_path = rel_path.strip()
+        if not rel_path:
+            continue
+        # Get the staged blob size (not the working tree size)
+        obj = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", "-s", rel_path],
+            capture_output=True, text=True, cwd=REPO_ROOT
+        )
+        if obj.returncode != 0:
+            continue
+        # format: <mode> <object> <stage> <path>
+        parts = obj.stdout.split()
+        if len(parts) < 2:
+            continue
+        blob_hash = parts[1]
+        size_out = subprocess.run(
+            ["git", "cat-file", "-s", blob_hash],
+            capture_output=True, text=True, cwd=REPO_ROOT
+        )
+        try:
+            byte_size = int(size_out.stdout.strip())
+        except ValueError:
+            byte_size = 0
+
+        # Detect LFS pointer: LFS pointers are < 200 bytes and start with "version https://git-lfs"
+        is_lfs = False
+        if byte_size < 200:
+            content_out = subprocess.run(
+                ["git", "cat-file", "blob", blob_hash],
+                capture_output=True, cwd=REPO_ROOT
+            )
+            if b"version https://git-lfs" in content_out.stdout[:100]:
+                is_lfs = True
+
+        staged.append((rel_path, byte_size, is_lfs))
+    return staged
+
+
+def load_manifest():
+    if MANIFEST_PATH.exists():
+        try:
+            return json.loads(MANIFEST_PATH.read_text())
+        except (json.JSONDecodeError, OSError):
+            return {"files": {}}
+    return {"files": {}}
+
+
+def is_in_gcs_path(rel_path):
+    return any(rel_path.startswith(p) for p in GCS_PATHS)
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main():
+    errors = []
+    warnings = []
+
+    staged = get_staged_files()
+    if not staged:
+        sys.exit(0)
+
+    manifest = load_manifest()
+    gcs_files = set(manifest.get("files", {}).keys())
+    limit_bytes = SIZE_LIMIT_MB * 1024 * 1024
+
+    for rel_path, byte_size, is_lfs in staged:
+        ext = Path(rel_path).suffix.lower()
+        size_mb = byte_size / (1024 * 1024)
+
+        # --- Rule 1: GCS paths must be in the manifest ---
+        if is_in_gcs_path(rel_path) and not is_lfs:
+            if rel_path not in gcs_files:
+                errors.append(
+                    f"  BLOCKED: {rel_path} ({size_mb:.1f} MB)\n"
+                    f"    → This file lives in a GCS-managed directory.\n"
+                    f"      Upload it first:  python scripts/gcs_sync.py push {Path(rel_path).parent}/ --tag <song>\n"
+                    f"      Then re-stage the updated database/gcs_manifest.json and try again."
+                )
+            continue  # Already validated for GCS path — skip size check
+
+        # --- Rule 2: Large files must be LFS-tracked ---
+        if byte_size > limit_bytes:
+            if is_lfs:
+                # Fine — it's an LFS pointer, not the real binary
+                pass
+            elif ext in LFS_EXTENSIONS:
+                # Extension is in .gitattributes but somehow not a pointer — LFS misconfigured
+                errors.append(
+                    f"  BLOCKED: {rel_path} ({size_mb:.1f} MB)\n"
+                    f"    → Extension {ext!r} should be tracked by Git LFS but the staged file is not a pointer.\n"
+                    f"      Run: git lfs track '*{ext}' && git add .gitattributes && git add {rel_path}"
+                )
+            else:
+                errors.append(
+                    f"  BLOCKED: {rel_path} ({size_mb:.1f} MB)\n"
+                    f"    → File exceeds {SIZE_LIMIT_MB} MB size limit.\n"
+                    f"      Options:\n"
+                    f"        LFS:  git lfs track '*{ext}' && git add .gitattributes && git add {rel_path}\n"
+                    f"        GCS:  python scripts/gcs_sync.py push {Path(rel_path).parent}/ --tag <song>"
+                )
+        elif byte_size > (SIZE_LIMIT_MB // 2) * 1024 * 1024:
+            # Warn if approaching the limit
+            warnings.append(f"  WARNING: {rel_path} is {size_mb:.1f} MB — approaching the {SIZE_LIMIT_MB} MB limit.")
+
+    if warnings:
+        print("\n[pre-commit] Size warnings:")
+        for w in warnings:
+            print(w)
+
+    if errors:
+        print("\n[pre-commit] COMMIT BLOCKED — large file violations:\n")
+        for e in errors:
+            print(e)
+        print(f"\nFix the issues above, then commit again.")
+        print("To bypass in an emergency (not recommended): git commit --no-verify\n")
+        sys.exit(1)
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
