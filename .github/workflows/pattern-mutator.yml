@@ -83,4 +83,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add midi/patterns/ knowledge/patterns/
           git diff --staged --quiet || git commit -m "feat(patterns): pattern mutations [automated]"
+          git pull --rebase origin main
           git push

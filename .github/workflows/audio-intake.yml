@@ -76,4 +76,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add outputs/audio_analysis/ outputs/audio_intake_manifest.json knowledge/recordings/
           git diff --staged --quiet || git commit -m "feat(audio): audio intake analysis [automated]"
+          git pull --rebase origin main
           git push

@@ -50,4 +50,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add knowledge/music-theory/pulse/
           git diff --staged --quiet || git commit -m "feat(theory): weekly theory pulse [automated]"
+          git pull --rebase origin main
           git push

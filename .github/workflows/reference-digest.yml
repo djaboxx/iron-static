@@ -50,4 +50,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add knowledge/references/
           git diff --staged --quiet || git commit -m "feat(references): weekly reference digest [automated]"
+          git pull --rebase origin main
           git push

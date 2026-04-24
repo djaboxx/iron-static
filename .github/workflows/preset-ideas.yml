@@ -82,4 +82,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add knowledge/sound-design/
           git diff --staged --quiet || git commit -m "feat(sound-design): weekly preset ideas [automated]"
+          git pull --rebase origin main
           git push

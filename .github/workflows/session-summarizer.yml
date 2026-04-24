@@ -65,4 +65,5 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add knowledge/sessions/
           git diff --staged --quiet || git commit -m "feat(sessions): session summary [automated]"
+          git pull --rebase origin main
           git push

@@ -40,6 +40,7 @@ jobs:
           git config user.email "bot@iron-static.local"
           git add outputs/repo_health.json outputs/repo_health_issues.md 2>/dev/null || true
           git diff --staged --quiet || git commit -m "chore(health): weekly repo audit [automated]"
+          git pull --rebase origin main
           git push
 
       - name: Fail if hard errors found
