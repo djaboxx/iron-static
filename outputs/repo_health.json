@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-04-23T17:11:51.601519+00:00",
+  "generated_at": "2026-04-24T01:18:17.569397+00:00",
   "summary": {
-    "pass": 47,
-    "warn": 4,
+    "pass": 52,
+    "warn": 0,
     "fail": 0
   },
   "findings": [
@@ -225,8 +225,8 @@
     {
       "check": "midi_params",
       "slug": "arturia-pigments",
-      "status": "warn",
-      "detail": "No database/midi_params/arturia-pigments.json \u2014 consider adding MIDI CC map"
+      "status": "pass",
+      "detail": "database/midi_params/arturia-pigments.json present"
     },
     {
       "check": "skill_references",
@@ -278,6 +278,12 @@
     },
     {
       "check": "skill_references",
+      "skill": "m4l-build",
+      "status": "pass",
+      "detail": "All detected file references exist"
+    },
+    {
+      "check": "skill_references",
       "skill": "manual-lookup",
       "status": "pass",
       "detail": "All detected file references exist"
@@ -291,14 +297,14 @@
     {
       "check": "skill_references",
       "skill": "music-theory",
-      "status": "warn",
-      "detail": "References to missing files: ['knowledge/music-theory/chord-vocabulary.md']"
+      "status": "pass",
+      "detail": "All detected file references exist"
     },
     {
       "check": "skill_references",
       "skill": "parse-als",
-      "status": "warn",
-      "detail": "References to missing files: ['outputs/project_summary.json', 'outputs/Project_clips.csv', 'outputs/Project_devices.json']"
+      "status": "pass",
+      "detail": "All detected file references exist"
     },
     {
       "check": "skill_references",
@@ -308,8 +314,8 @@
     },
     {
       "check": "active_song",
-      "status": "warn",
-      "detail": "No active song \u2014 Copilot will ask before generating key-specific content"
+      "status": "pass",
+      "detail": "Active song: rust-protocol (Rust Protocol)"
     }
   ]
 }
