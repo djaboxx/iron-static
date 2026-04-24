@@ -8,19 +8,28 @@
 # Listens on TCP port 9877 (same port as AbletonMCP — do not run both simultaneously).
 #
 # Commands supported:
-#   get_session_info    — read tempo, time sig, track list
+#   get_session_info    — read tempo, time sig, track list, scenes
 #   get_clip_notes      — read all notes from a clip (read-only)
 #   get_clip_info       — read clip metadata (name, length, color)
-#   setup_rig           — create/name/configure tracks from a rig definition dict
+#   find_clip_by_name   — search for a clip by name across all tracks
+#   get_track_devices   — list devices on a track
+#   get_device_params   — list parameters on a device (supports rack chain navigation)
+#   setup_rig           — create/name/configure tracks and scenes from a rig definition dict
+#   create_scene        — append or insert a named scene
 #   set_tempo           — set session tempo
 #   create_clip         — create a MIDI clip in a track/slot
 #   add_notes_to_clip   — push MIDI notes into a clip
 #   clear_clip          — remove all notes from a clip
 #   set_clip_name       — rename a clip
+#   set_device_param    — set a device parameter value (by name or index, supports rack chains)
 #   fire_clip           — start playing a clip
 #   stop_clip           — stop a clip
+#   fire_scene          — fire a scene by index
 #   start_playback      — start session
 #   stop_playback       — stop session
+#   insert_device       — insert a native Live device into a track or rack chain (Live 12.3)
+#   insert_chain        — insert a new chain into a rack device (Live 12.3)
+#   build_rack          — create an Instrument Rack and populate chains with devices (Live 12.3)
 
 from __future__ import absolute_import, print_function, unicode_literals
 
@@ -178,14 +187,29 @@ class IronStatic(ControlSurface):
                     params["name"], params.get("track_name"))
                 return response
 
+            if cmd_type == "get_track_devices":
+                response["result"] = self._get_track_devices(
+                    params["track_index"])
+                return response
+
+            if cmd_type == "get_device_params":
+                response["result"] = self._get_device_params(
+                    params["track_index"], params["device_index"],
+                    params.get("chain_index"), params.get("chain_device_index"))
+                return response
+
             # All mutating commands must run on Ableton's main thread
             MUTATING = {
-                "setup_rig", "create_track", "set_tempo",
+                "setup_rig", "create_track", "create_scene", "set_tempo",
                 "create_clip", "add_notes_to_clip", "clear_clip",
-                "set_clip_name", "fire_clip", "stop_clip",
+                "set_clip_name", "set_device_param", "batch_set_device_params",
+                "fire_clip", "stop_clip",
                 "fire_scene",
                 "set_scene_tempo", "set_scene_name",
                 "start_playback", "stop_playback",
+                "insert_device", "insert_chain", "build_rack",
+                "delete_device",
+                "load_preset",
             }
 
             if cmd_type in MUTATING:
@@ -248,6 +272,38 @@ class IronStatic(ControlSurface):
                                           params.get("numerator"), params.get("denominator"))
         elif cmd_type == "set_scene_name":
             return self._set_scene_name(params["scene_index"], params["name"])
+        elif cmd_type == "set_device_param":
+            return self._set_device_param(
+                params["track_index"], params["device_index"], params["value"],
+                param_index=params.get("param_index"),
+                param_name=params.get("param_name"),
+                chain_index=params.get("chain_index"),
+                chain_device_index=params.get("chain_device_index"))
+        elif cmd_type == "batch_set_device_params":
+            return self._batch_set_device_params(
+                params["track_index"], params["device_index"], params["operations"])
+        elif cmd_type == "create_scene":
+            return self._create_scene(
+                name=params.get("name"), index=params.get("index", -1))
+        elif cmd_type == "insert_device":
+            return self._insert_device(
+                params["track_index"], params["device_name"],
+                target_index=params.get("target_index"),
+                chain_index=params.get("chain_index"))
+        elif cmd_type == "insert_chain":
+            return self._insert_chain(
+                params["track_index"], params["device_index"],
+                index=params.get("index"),
+                name=params.get("name"))
+        elif cmd_type == "build_rack":
+            return self._build_rack(params)
+        elif cmd_type == "delete_device":
+            return self._delete_device(
+                params["track_index"], params["device_index"],
+                chain_index=params.get("chain_index"))
+        elif cmd_type == "load_preset":
+            return self._load_preset(
+                params["track_index"], params["preset_name"])
         elif cmd_type == "start_playback":
             self._song.start_playing()
             return {"playing": True}
@@ -255,6 +311,35 @@ class IronStatic(ControlSurface):
             self._song.stop_playing()
             return {"playing": False}
         raise ValueError("Unhandled mutating command: {}".format(cmd_type))
+
+    def _batch_set_device_params(self, track_index, device_index, operations):
+        """
+        Apply multiple parameter changes to a device in one main-thread call.
+
+        operations: list of dicts, each with:
+            param   — parameter name (str) or index (int)
+            value   — float value to set
+            chain_index        — (optional) int, index of rack chain
+            chain_device_index — (optional) int, device index within chain (default 0)
+        """
+        results = []
+        for op in operations:
+            raw_param = op["param"]
+            try:
+                param_index = int(raw_param)
+                param_name = None
+            except (ValueError, TypeError):
+                param_index = None
+                param_name = str(raw_param)
+            r = self._set_device_param(
+                track_index, device_index, op["value"],
+                param_index=param_index,
+                param_name=param_name,
+                chain_index=op.get("chain_index"),
+                chain_device_index=op.get("chain_device_index", 0) if "chain_index" in op else None,
+            )
+            results.append(r)
+        return {"applied": len(results), "results": results}
 
     # ------------------------------------------------------------------
     # create_track — append a single MIDI track
@@ -340,6 +425,15 @@ class IronStatic(ControlSurface):
             self._song.signature_numerator = int(num)
             self._song.signature_denominator = int(denom)
 
+        # Create/rename scenes if specified
+        if "scenes" in params:
+            scene_names = params["scenes"]
+            for i, sname in enumerate(scene_names):
+                if i >= len(self._song.scenes):
+                    self._song.create_scene(-1)
+                if i < len(self._song.scenes):
+                    self._song.scenes[i].name = sname
+
         tracks_def = params.get("tracks", [])
         existing_count = len(self._song.tracks)
 
@@ -416,11 +510,16 @@ class IronStatic(ControlSurface):
                 "mute": track.mute,
                 "arm": arm,
             })
+        scenes = []
+        for i, scene in enumerate(self._song.scenes):
+            scenes.append({"index": i, "name": scene.name})
         return {
             "tempo": self._song.tempo,
             "signature_numerator": self._song.signature_numerator,
             "signature_denominator": self._song.signature_denominator,
             "track_count": len(self._song.tracks),
+            "scene_count": len(self._song.scenes),
+            "scenes": scenes,
             "tracks": tracks,
         }
 
@@ -592,3 +691,339 @@ class IronStatic(ControlSurface):
     def _set_tempo(self, tempo):
         self._song.tempo = float(tempo)
         return {"tempo": self._song.tempo}
+
+    # ------------------------------------------------------------------
+    # Device inspection and control
+    # ------------------------------------------------------------------
+
+    def _get_track_devices(self, track_index):
+        if track_index < 0 or track_index >= len(self._song.tracks):
+            raise IndexError("Track index {} out of range".format(track_index))
+        track = self._song.tracks[track_index]
+        devices = []
+        for i, device in enumerate(track.devices):
+            can_have_chains = getattr(device, "can_have_chains", False)
+            entry = {
+                "index": i,
+                "name": device.name,
+                "class_name": getattr(device, "class_name", ""),
+                "num_parameters": len(device.parameters),
+                "can_have_chains": can_have_chains,
+            }
+            if can_have_chains:
+                entry["num_chains"] = len(device.chains)
+            devices.append(entry)
+        return {"track_index": track_index, "track_name": track.name, "devices": devices}
+
+    def _get_device(self, track_index, device_index, chain_index=None, chain_device_index=None):
+        """Resolve a device, optionally navigating into a rack chain."""
+        if track_index < 0 or track_index >= len(self._song.tracks):
+            raise IndexError("Track index {} out of range".format(track_index))
+        track = self._song.tracks[track_index]
+        if device_index < 0 or device_index >= len(track.devices):
+            raise IndexError("Device index {} out of range on track '{}'".format(
+                device_index, track.name))
+        device = track.devices[device_index]
+        if chain_index is not None:
+            chains = getattr(device, "chains", [])
+            if chain_index >= len(chains):
+                raise IndexError("Chain index {} out of range".format(chain_index))
+            chain = chains[chain_index]
+            cdx = chain_device_index if chain_device_index is not None else 0
+            if cdx >= len(chain.devices):
+                raise IndexError("Chain device index {} out of range".format(cdx))
+            device = chain.devices[cdx]
+        return device
+
+    def _get_device_params(self, track_index, device_index,
+                           chain_index=None, chain_device_index=None):
+        device = self._get_device(track_index, device_index, chain_index, chain_device_index)
+        params = []
+        for i, p in enumerate(device.parameters):
+            params.append({
+                "index": i,
+                "name": p.name,
+                "value": float(p.value),
+                "min": float(p.min),
+                "max": float(p.max),
+                "is_quantized": bool(p.is_quantized),
+            })
+        return {
+            "device_name": device.name,
+            "class_name": getattr(device, "class_name", ""),
+            "parameters": params,
+        }
+
+    def _set_device_param(self, track_index, device_index, value,
+                          param_index=None, param_name=None,
+                          chain_index=None, chain_device_index=None):
+        device = self._get_device(track_index, device_index, chain_index, chain_device_index)
+        param = None
+        if param_name is not None:
+            for p in device.parameters:
+                if p.name.lower() == param_name.lower():
+                    param = p
+                    break
+            if param is None:
+                raise ValueError("Parameter '{}' not found on device '{}'".format(
+                    param_name, device.name))
+        elif param_index is not None:
+            if param_index < 0 or param_index >= len(device.parameters):
+                raise IndexError("Parameter index {} out of range".format(param_index))
+            param = device.parameters[param_index]
+        else:
+            raise ValueError("Must specify param_index or param_name")
+        param.value = float(value)
+        return {
+            "device_name": device.name,
+            "param_name": param.name,
+            "value": float(param.value),
+        }
+
+    # ------------------------------------------------------------------
+    # Scene management
+    # ------------------------------------------------------------------
+
+    def _create_scene(self, name=None, index=-1):
+        self._song.create_scene(int(index))
+        scenes = self._song.scenes
+        scene = scenes[len(scenes) - 1] if index == -1 else scenes[int(index)]
+        if name:
+            scene.name = name
+        scene_index = len(scenes) - 1 if index == -1 else int(index)
+        return {"scene_index": scene_index, "name": scene.name}
+
+    # ------------------------------------------------------------------
+    # Device manipulation — Live 12.3 APIs
+    # ------------------------------------------------------------------
+
+    def _resolve_track(self, track_index):
+        """Return track object by index, raising IndexError if out of range."""
+        if track_index < 0 or track_index >= len(self._song.tracks):
+            raise IndexError("Track index {} out of range".format(track_index))
+        return self._song.tracks[track_index]
+
+    def _insert_device(self, track_index, device_name, target_index=None, chain_index=None):
+        """
+        Insert a native Live device by name.
+
+        If chain_index is None: inserts into the track's top-level device chain.
+        If chain_index is given: inserts into that chain of the FIRST rack device on the track
+          (device index 0 is assumed; override by passing device_index separately if needed).
+
+        Returns the new device count and the inserted device's name.
+        """
+        track = self._resolve_track(track_index)
+        if chain_index is None:
+            if target_index is not None:
+                track.insert_device(device_name, target_index)
+            else:
+                track.insert_device(device_name)
+            devices = track.devices
+        else:
+            # Insert into rack chain — assumes first device on track is the rack
+            rack = track.devices[0]
+            chains = getattr(rack, "chains", [])
+            if chain_index >= len(chains):
+                raise IndexError("Chain index {} out of range on rack '{}'".format(
+                    chain_index, rack.name))
+            chain = chains[chain_index]
+            if target_index is not None:
+                chain.insert_device(device_name, target_index)
+            else:
+                chain.insert_device(device_name)
+            devices = chain.devices
+        inserted = devices[len(devices) - 1]
+        return {
+            "device_name": inserted.name,
+            "class_name": getattr(inserted, "class_name", ""),
+            "device_count": len(devices),
+        }
+
+    def _load_preset(self, track_index, preset_name):
+        """
+        Load a browser preset (.adg / .adv / .agr) onto a track by name.
+
+        Searches Browser > Packs and Browser > User Library depth-first.
+        Accepts names with or without the file extension:
+            "808 Depth Charger Kit"   or   "808 Depth Charger Kit.adg"
+
+        Live loads the item onto the currently selected track, so we select
+        the target track first via Song.view.selected_track.
+        """
+        track = self._resolve_track(track_index)
+        self._song.view.selected_track = track
+
+        browser = self.application().browser
+
+        # Normalise: strip .adg/.adv extension for comparison, add back when searching
+        bare_name = preset_name
+        for ext in (".adg", ".adv", ".agr"):
+            if bare_name.lower().endswith(ext):
+                bare_name = bare_name[: -len(ext)]
+                break
+
+        def _find(parent, depth=0):
+            if depth > 12:          # safety: don't traverse infinitely deep
+                return None
+            try:
+                children = parent.children
+            except Exception:
+                return None
+            for item in children:
+                item_bare = item.name
+                for ext in (".adg", ".adv", ".agr"):
+                    if item_bare.lower().endswith(ext):
+                        item_bare = item_bare[: -len(ext)]
+                        break
+                if item_bare.lower() == bare_name.lower() and item.is_loadable:
+                    return item
+                found = _find(item, depth + 1)
+                if found:
+                    return found
+            return None
+
+        item = None
+        for root in [browser.packs, browser.user_library]:
+            item = _find(root)
+            if item:
+                break
+
+        if item is None:
+            raise ValueError(
+                "Preset '{}' not found in Packs or User Library".format(preset_name))
+
+        browser.load_item(item)
+        return {
+            "loaded": item.name,
+            "track": track.name,
+            "track_index": track_index,
+        }
+
+    def _insert_chain(self, track_index, device_index, index=None, name=None):
+        """
+        Insert a new empty chain into a RackDevice.
+
+        track_index:  index of the track
+        device_index: index of the RackDevice on that track
+        index:        where to insert (None = append at end)
+        name:         optional name to set on the new chain
+        """
+        track = self._resolve_track(track_index)
+        if device_index >= len(track.devices):
+            raise IndexError("Device index {} out of range on track '{}'".format(
+                device_index, track.name))
+        rack = track.devices[device_index]
+        chains = getattr(rack, "chains", None)
+        if chains is None:
+            raise ValueError("Device '{}' is not a Rack and has no chains".format(rack.name))
+        if index is not None:
+            rack.insert_chain(int(index))
+            new_chain = rack.chains[int(index)]
+            chain_index = int(index)
+        else:
+            rack.insert_chain()
+            chain_index = len(rack.chains) - 1
+            new_chain = rack.chains[chain_index]
+        if name:
+            new_chain.name = name
+        return {
+            "rack_name": rack.name,
+            "chain_index": chain_index,
+            "chain_name": new_chain.name,
+            "chain_count": len(rack.chains),
+        }
+
+    def _delete_device(self, track_index, device_index, chain_index=None):
+        """
+        Delete a device by index from a track or from a rack chain.
+
+        chain_index: if set, deletes from that chain of the first rack device on the track.
+        """
+        track = self._resolve_track(track_index)
+        if chain_index is None:
+            if device_index >= len(track.devices):
+                raise IndexError("Device index {} out of range on track '{}'".format(
+                    device_index, track.name))
+            device_name = track.devices[device_index].name
+            track.delete_device(device_index)
+            return {"deleted": device_name, "track": track.name}
+        else:
+            rack = track.devices[device_index]
+            chains = getattr(rack, "chains", [])
+            if chain_index >= len(chains):
+                raise IndexError("Chain index {} out of range".format(chain_index))
+            chain = chains[chain_index]
+            # chain_device_index not exposed here — always deletes index 0 in the chain
+            # for more control use chain_index + explicit device_index via a second param
+            device_name = chain.devices[0].name if chain.devices else "(none)"
+            chain.delete_device(0)
+            return {"deleted": device_name, "chain_index": chain_index}
+
+    def _build_rack(self, params):
+        """
+        Build an Instrument Rack with multiple chains from a spec.
+
+        params = {
+            "track_index": 5,
+            "rack_name": "DFAM Rack",          # optional — renames the rack
+            "chains": [
+                {"name": "Hit",    "device": "Collision"},
+                {"name": "Tone",   "device": "Collision"},
+                {"name": "Noise",  "device": "Collision"},
+            ]
+        }
+
+        If the track already has an Instrument Rack, adds chains to it.
+        If non-rack devices exist, deletes them first before inserting the rack.
+        """
+        track_index = params["track_index"]
+        rack_name = params.get("rack_name")
+        chain_specs = params.get("chains", [])
+
+        track = self._resolve_track(track_index)
+
+        # Find existing rack, or clear non-rack devices and create one
+        rack = None
+        for dev in track.devices:
+            if getattr(dev, "can_have_chains", False):
+                rack = dev
+                break
+
+        if rack is None:
+            # Delete any non-rack instruments sitting on the track (e.g. bare Collision)
+            # Iterate in reverse so indices stay valid after each deletion
+            devices_to_delete = [
+                i for i, dev in enumerate(track.devices)
+                if not getattr(dev, "can_have_chains", False)
+                and getattr(dev, "type", 0) == 1  # type 1 = instrument
+            ]
+            for i in reversed(devices_to_delete):
+                track.delete_device(i)
+            track.insert_device("Instrument Rack")
+            rack = track.devices[len(track.devices) - 1]
+
+        if rack_name:
+            rack.name = rack_name
+
+        created_chains = []
+        for spec in chain_specs:
+            rack.insert_chain()
+            chain_idx = len(rack.chains) - 1
+            chain = rack.chains[chain_idx]
+            if spec.get("name"):
+                chain.name = spec["name"]
+            if spec.get("device"):
+                chain.insert_device(spec["device"])
+            created_chains.append({
+                "chain_index": chain_idx,
+                "chain_name": chain.name,
+                "device": spec.get("device"),
+            })
+
+        return {
+            "track_name": track.name,
+            "rack_name": rack.name,
+            "chains_created": len(created_chains),
+            "chains": created_chains,
+        }

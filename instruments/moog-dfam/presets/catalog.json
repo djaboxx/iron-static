@@ -1,0 +1,22 @@
+{
+  "_comment": "DFAM preset catalog. The DFAM has no patch memory — all presets are Collision rack configurations (apply-preset) or panel-state documents.",
+  "instrument": "moog-dfam",
+  "presets": [
+    {
+      "slug": "dfam-rack_rust-protocol",
+      "file": "dfam-rack_rust-protocol.json",
+      "name": "DFAM Rack Rust Protocol",
+      "type": "collision-rack",
+      "song": "rust-protocol",
+      "key": "A",
+      "scale": "phrygian_dominant",
+      "bpm": 95,
+      "status": "applied",
+      "applied_date": "2026-04-24",
+      "description": "3-chain Collision Instrument Rack. Chain 0=Hit (membrane transient, A1 locked, fast attack/short decay), Chain 1=Tone (tube + membrane dual resonators, A1 with slight detuning), Chain 2=Noise (bandpass burst, velocity-sensitive, mallet+resonator disabled). Sub-bass weight via low Res 1 Tune. Industrial percussion for Rust Protocol's 95 BPM groove.",
+      "aesthetic_tags": ["industrial", "percussion", "physical-model", "phrygian-dominant"],
+      "push_command": "ableton_push.py apply-preset --track DFAM --device 0 --preset instruments/moog-dfam/presets/dfam-rack_rust-protocol.json",
+      "notes": "Res 1 Tune<Key=0 on all chains — pitch locked to A1 regardless of incoming MIDI note. Chain 2 disables Mallet and Res 1 entirely for pure noise shaping."
+    }
+  ]
+}

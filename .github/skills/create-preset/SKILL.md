@@ -60,6 +60,44 @@ Given an instrument and a sonic goal, this skill:
 }
 ```
 
+### Native Live devices in racks (JSON — pushable via apply-preset):
+```json
+{
+  "instrument": "dfam-rack",
+  "name": "DFAM Rack Rust Protocol",
+  "description": "3-chain Collision rack for DFAM: membrane hit, tube tone, noise burst.",
+  "aesthetic_tags": ["percussive", "industrial", "physical-model"],
+  "target": {"track": "DFAM", "device": 0},
+  "parameters": {},
+  "chains": {
+    "0": {
+      "_name": "Hit",
+      "Mallet Volume": 0.80,
+      "Mallet Stiffness": 0.78,
+      "Res 1 Type": 3,
+      "Res 1 Tune": -24,
+      "Res 1 Decay": 0.22
+    },
+    "1": {
+      "_name": "Tone",
+      "Res 1 Type": 6,
+      "Res 2 On/Off": 1.0,
+      "Res 2 Tune": -24
+    },
+    "2": {
+      "_name": "Noise",
+      "Mallet On/Off": 0.0,
+      "Res 1 On/Off": 0.0,
+      "Noise On/Off": 1.0,
+      "Noise Filter Type": 2
+    }
+  }
+}
+```
+Use `get-params --track <T> --device <D> --chain <N>.0` to enumerate all available parameter names before filling in values.
+
+To apply this preset to Live: `ableton_push.py apply-preset --track DFAM --device 0 --preset <path>`
+
 ### Panel-state instruments (Markdown):
 ```markdown
 # Patch: [Name]

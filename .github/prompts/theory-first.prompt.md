@@ -1,7 +1,8 @@
 ---
 description: Start from theory — analyze harmonic/rhythmic content, then arrange it, then design sounds. Full Theorist → Arranger → Sound Designer chain.
+mode: agent
 agent: The Theorist
-tools: [codebase, editFiles, search]
+tools: [search/codebase, edit/editFiles, terminal, search, read/problems]
 argument-hint: "what you want to explore (e.g. 'verse progression', 'rhythmic motif for the drop', 'bridge harmony')"
 ---
 

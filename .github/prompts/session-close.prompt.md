@@ -1,7 +1,8 @@
 ---
 description: End a studio session — The Critic evaluates all work from this session, then triggers the session summarizer to commit notes to knowledge/.
+mode: agent
 agent: The Critic
-tools: [codebase, search, terminal]
+tools: [search/codebase, search, terminal, read/problems]
 ---
 
 # Session Close Workflow

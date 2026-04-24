@@ -33,6 +33,7 @@ GCS_PATHS = [
     "audio/recordings/stems/",
     "audio/references/",
     "audio/samples/",
+    "audio/generated/",   # Lyria / forge output — specs go to git, audio goes to GCS
 ]
 
 # Extensions that are always expected to be LFS pointers — skip size check
@@ -101,7 +102,14 @@ def load_manifest():
 
 
 def is_in_gcs_path(rel_path):
-    return any(rel_path.startswith(p) for p in GCS_PATHS)
+    if not any(rel_path.startswith(p) for p in GCS_PATHS):
+        return False
+    # Spec/metadata files under audio/generated/specs/ are committed normally
+    if rel_path.startswith("audio/generated/specs/") and Path(rel_path).suffix in {".md", ""}:
+        return False
+    if rel_path.endswith(".gitkeep"):
+        return False
+    return True
 
 
 # ---------------------------------------------------------------------------

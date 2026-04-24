@@ -1,7 +1,8 @@
 ---
 description: Start a new sound design session — design a patch for a specific instrument, push to hardware, then route to The Critic.
+mode: agent
 agent: The Sound Designer
-tools: [codebase, editFiles, terminal, search]
+tools: [search/codebase, edit/editFiles, terminal, search, read/problems]
 argument-hint: "instrument name (e.g. take5, rev2, minibrute2s, pigments)"
 ---
 
@@ -19,21 +20,33 @@ Read the active song context:
 
 Design a patch for **${input:instrument:take5}** that serves the active song's harmonic context. Follow the design philosophy in your instructions — sub weight first, dark filters, noise as instrument.
 
-Document the patch as:
-- `instruments/${input:instrument}/presets/[slug]_[name]_[key].json` with a full `nrpn_dump` array
-- Add entry to `instruments/${input:instrument}/presets/catalog.json`
+**Do not write files yet.** First confirm Ableton is running.
 
-## Step 3: Push to Hardware
+## Step 3: Push — This Happens Before Documentation
 
-Push the preset using:
+For **hardware instruments** (take5, rev2, minibrute2s), push via NRPN:
 ```bash
 /Users/darnold/venv/bin/python3 scripts/push_preset.py \
   --preset instruments/${input:instrument}/presets/[new-preset].json \
   --port [PortName] --channel [channel]
 ```
-
 Default MIDI channels: take5=4, rev2=2, minibrute2s=7, pigments=8
 
-## Step 4: Hand Off
+For **in-box instruments** (pigments, or any Ableton internal device), load the `ableton-launch` and `ableton-push` skills first, then push:
+```bash
+python scripts/ableton_push.py status
+python scripts/ableton_push.py push-midi --file midi/sequences/[pattern].mid --track [TrackName] --clip 0
+python scripts/ableton_push.py fire --track [TrackName] --clip 0
+```
+
+If Ableton is not running or the bridge is not responding, tell Dave explicitly — do not silently fall back to file-only output.
+
+## Step 4: Document (after push confirmed)
+
+Once the push is confirmed:
+- `instruments/${input:instrument}/presets/[slug]_[name]_[key].json` with a full `nrpn_dump` array
+- Add entry to `instruments/${input:instrument}/presets/catalog.json`
+
+## Step 5: Hand Off
 
 After confirming the push, use the **"Critique this sound"** handoff to route to The Critic.

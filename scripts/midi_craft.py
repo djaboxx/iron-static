@@ -223,6 +223,28 @@ def generate_subharmonicon_drone(bpm: float = 95.0) -> Path:
     return output_path
 
 
+def generate_rev2a_climax(bpm: float = 95.0) -> Path:
+    """
+    Rev2-A / Wavetable — 16-bar Climax clip, sustained A2 from bar 1.
+
+    Enters immediately at the Climax onset (unlike Rev2-B which enters at bar 5).
+    Wavetable has a 1.5s attack envelope so it swells in naturally — the note
+    starts at tick 0 but the sound won't be audible until ~bar 2.
+    Channel: 2 (Rev2 Layer A default)
+    """
+    bar = ticks_per_bar()
+    total_bars = 16
+    A2 = 45  # MIDI note A2
+    ch = 1   # channel 2 (0-indexed = 1)
+
+    note_dur = total_bars * bar - 20  # holds full clip, 20-tick boundary gap
+    events = make_note_event(0, A2, 72, note_dur, channel=ch)
+
+    output_path = SEQUENCES_DIR / "rust-protocol_rev2a_climax_v1.mid"
+    write_melodic_midi(events, output_path, bpm, total_bars=total_bars)
+    return output_path
+
+
 def generate_rev2b_climax(bpm: float = 95.0) -> Path:
     """
     Rev2-B / Meld (Fold FM) — 16-bar Climax clip, enters at bar 5.
@@ -502,10 +524,11 @@ def write_midi(events: list[dict], output_path: Path, bpm: float, steps: int) ->
 
 SONG_CLIP_GENERATORS = {
     "rust-protocol": {
-        "take5":        generate_take5_drop_stabs,
-        "subharmonicon": generate_subharmonicon_drone,
-        "rev2b-climax": generate_rev2b_climax,
-        "minibrute2s":  generate_minibrute_lead,
+        "take5":         generate_take5_drop_stabs,
+        "subharmonicon":  generate_subharmonicon_drone,
+        "rev2a-climax":  generate_rev2a_climax,
+        "rev2b-climax":  generate_rev2b_climax,
+        "minibrute2s":   generate_minibrute_lead,
     }
 }
 

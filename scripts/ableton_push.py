@@ -313,9 +313,284 @@ def cmd_create_track(args, client: AbletonClient) -> None:
     print("Created track [{index}] {name}  (MIDI ch {midi_channel})".format(**result))
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
+def cmd_get_devices(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    result = client.require_success(client.send("get_track_devices", {
+        "track_index": track_index,
+    }))
+    print("\n--- DEVICES on track: {} ---".format(result.get("track_name", track_index)))
+    for d in result.get("devices", []):
+        chains = "  ({} chains)".format(d["num_chains"]) if d.get("can_have_chains") else ""
+        print("  [{index}] {name}  ({class_name})  {num_parameters} params{chains}".format(
+            chains=chains, **d))
+
+
+def cmd_get_params(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    params = {"track_index": track_index, "device_index": int(args.device)}
+    if args.chain is not None:
+        parts = args.chain.split(".")
+        params["chain_index"] = int(parts[0])
+        if len(parts) > 1:
+            params["chain_device_index"] = int(parts[1])
+    result = client.require_success(client.send("get_device_params", params))
+    print("\n--- PARAMS: {} ({}) ---".format(
+        result.get("device_name"), result.get("class_name")))
+    for p in result.get("parameters", []):
+        print("  [{index}] {name:<30} = {value:.4f}  (range {min:.2f}–{max:.2f})".format(**p))
+
+
+def cmd_set_param(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    params = {
+        "track_index": track_index,
+        "device_index": int(args.device),
+        "value": float(args.value),
+    }
+    if args.chain is not None:
+        parts = args.chain.split(".")
+        params["chain_index"] = int(parts[0])
+        if len(parts) > 1:
+            params["chain_device_index"] = int(parts[1])
+    # param_name takes priority over param_index
+    try:
+        params["param_index"] = int(args.param)
+    except ValueError:
+        params["param_name"] = args.param
+    result = client.require_success(client.send("set_device_param", params))
+    print("Set [{device_name}] {param_name} = {value:.4f}".format(**result))
+
+
+def cmd_fire_scene(args, client: AbletonClient) -> None:
+    result = client.require_success(client.send("fire_scene", {
+        "scene_index": int(args.index),
+    }))
+    print("Fired scene {}".format(result.get("scene_index")))
+
+
+def cmd_create_scene(args, client: AbletonClient) -> None:
+    params = {}
+    if args.name:
+        params["name"] = args.name
+    if args.index is not None:
+        params["index"] = int(args.index)
+    result = client.require_success(client.send("create_scene", params))
+    print("Created scene [{scene_index}] {name}".format(**result))
+
+
+def cmd_insert_device(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    params = {
+        "track_index": track_index,
+        "device_name": args.device_name,
+    }
+    if args.target_index is not None:
+        params["target_index"] = int(args.target_index)
+    if args.chain is not None:
+        params["chain_index"] = int(args.chain)
+    result = client.require_success(client.send("insert_device", params))
+    print("Inserted [{class_name}] '{device_name}' (device count: {device_count})".format(**result))
+
+
+def cmd_insert_chain(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    params = {
+        "track_index": track_index,
+        "device_index": int(args.device),
+    }
+    if args.index is not None:
+        params["index"] = int(args.index)
+    if args.name:
+        params["name"] = args.name
+    result = client.require_success(client.send("insert_chain", params))
+    print("Inserted chain [{chain_index}] '{chain_name}' into rack '{rack_name}' ({chain_count} chains total)".format(**result))
+
+
+def cmd_build_rack(args, client: AbletonClient) -> None:
+    import json as _json
+    track_index = _resolve_track_index(args.track, client)
+    params = {"track_index": track_index}
+    if args.rack_name:
+        params["rack_name"] = args.rack_name
+    if args.chains:
+        params["chains"] = _json.loads(args.chains)
+    result = client.require_success(client.send("build_rack", params))
+    print("Built rack '{}' on track '{}': {} chains created".format(
+        result["rack_name"], result["track_name"], result["chains_created"]))
+    for ch in result.get("chains", []):
+        print("  [{chain_index}] {chain_name} — {device}".format(**ch))
+
+
+def cmd_delete_device(args, client: AbletonClient) -> None:
+    track_index = _resolve_track_index(args.track, client)
+    params = {
+        "track_index": track_index,
+        "device_index": int(args.device),
+    }
+    if args.chain is not None:
+        params["chain_index"] = int(args.chain)
+    result = client.require_success(client.send("delete_device", params))
+    print("Deleted '{}' from track '{}'".format(result.get("deleted"), result.get("track", args.track)))
+
+
+def cmd_apply_preset(args, client: AbletonClient) -> None:
+    """Read a preset JSON file and batch-push all parameters to a device.
+
+    Preset format::
+
+        {
+          "name": "My Preset",
+          "parameters": {"Param Name": value, ...},
+          "chains": {
+            "0": {"Res 1 Decay": 0.22, "Mallet Volume": 0.8},
+            "1": {"Res 2 Tune": -24}
+          }
+        }
+
+    Keys starting with "_" in chain dicts are metadata and are skipped.
+    """
+    with open(args.preset, "r", encoding="utf-8") as f:
+        preset = json.load(f)
+
+    track_index = _resolve_track_index(args.track, client)
+    device_index = int(args.device)
+
+    operations = []
+    for param, value in preset.get("parameters", {}).items():
+        operations.append({"param": param, "value": float(value)})
+    for chain_str, chain_params in preset.get("chains", {}).items():
+        chain_idx = int(chain_str)
+        for param, value in chain_params.items():
+            if param.startswith("_"):
+                continue
+            operations.append({
+                "param": param,
+                "value": float(value),
+                "chain_index": chain_idx,
+                "chain_device_index": 0,
+            })
+
+    if not operations:
+        print("No parameters found in preset '{}'.".format(args.preset))
+        return
+
+    result = client.require_success(client.send("batch_set_device_params", {
+        "track_index": track_index,
+        "device_index": device_index,
+        "operations": operations,
+    }))
+    preset_name = preset.get("name", Path(args.preset).stem)
+    print("Applied {} parameters from '{}' to track '{}' device {}".format(
+        result["applied"], preset_name, args.track, device_index))
+
+
+def cmd_list_packs(args, client: AbletonClient) -> None:  # noqa: ARG001
+    """List installed Ableton packs and optionally search for presets (.adg files)."""
+    import glob as _glob
+    import os
+    import sqlite3
+
+    packs_dir = os.path.expanduser("~/Music/Ableton/Packs")
+    if not os.path.isdir(packs_dir):
+        print("No packs directory found at", packs_dir)
+        return
+
+    packs = sorted(p for p in os.listdir(packs_dir) if os.path.isdir(os.path.join(packs_dir, p)))
+    print("\n--- Installed Packs ({}) ---".format(len(packs)))
+    for pack in packs:
+        print("  {}".format(pack))
+
+    if not args.search:
+        print("\nTip: use --search <term> to find presets (e.g. --search 808)")
+        return
+
+    # Search the Live database for matching .adg preset names
+    db_dir = os.path.expanduser("~/Library/Application Support/Ableton/Live Database")
+    dbs = sorted(_glob.glob(os.path.join(db_dir, "Live-files-*.db")))
+    if not dbs:
+        print("Live database not found at", db_dir)
+        return
+    db_path = dbs[-1]  # most recent schema version
+
+    conn = sqlite3.connect(db_path)
+    rows = conn.execute(
+        "SELECT name FROM files WHERE name LIKE ? AND name LIKE '%.adg' ORDER BY name LIMIT 100",
+        ("%{}%".format(args.search),),
+    ).fetchall()
+    conn.close()
+
+    print("\n--- Presets matching '{}' ---".format(args.search))
+    found_count = 0
+    for (name,) in rows:
+        matches = _glob.glob(os.path.join(packs_dir, "**", name), recursive=True)
+        user_matches = _glob.glob(
+            os.path.expanduser("~/Music/Ableton/User Library/**/{}".format(name)), recursive=True)
+        all_matches = matches + user_matches
+        if all_matches:
+            for path in all_matches:
+                rel = path.replace(packs_dir + os.sep, "").replace(
+                    os.path.expanduser("~/Music/Ableton/") + os.sep, "[User] ")
+                print("  {}".format(rel))
+                found_count += 1
+        else:
+            print("  {} (indexed but not found on disk)".format(name))
+    print("\n{} preset(s) found.".format(found_count))
+
+
+def cmd_load_preset(args, client: AbletonClient) -> None:
+    """Load a browser preset (.adg) onto a track by name — no dragging required.
+
+    Searches Browser > Packs and User Library inside Live via the Remote Script.
+    The track must already exist. Use --track to name an existing track, or pair
+    with create-track to create it first.
+
+    Example:
+        python scripts/ableton_push.py load-preset \\
+            --track "808 Drums" --preset "808 Depth Charger Kit"
+    """
+    track_index = _resolve_track_index(args.track, client)
+    result = client.require_success(client.send("load_preset", {
+        "track_index": track_index,
+        "preset_name": args.preset,
+    }))
+    print("Loaded '{}' onto track '{}'".format(result["loaded"], result["track"]))
+
+
+def cmd_create_clip(args, client: AbletonClient) -> None:
+    """Create an empty MIDI clip in a track's clip slot.
+
+    Must be called before push-midi when the slot is empty.
+    Length is in beats (e.g. 8.0 = 2 bars at 4/4, 32.0 = 8 bars).
+
+    Example:
+        python scripts/ableton_push.py create-clip --track DFAM --clip 0 --length 32
+        python scripts/ableton_push.py create-clip --track "808 Drums" --clip 0 --length 32
+    """
+    track_index = _resolve_track_index(args.track, client)
+    result = client.require_success(client.send("create_clip", {
+        "track_index": track_index,
+        "clip_index": int(args.clip),
+        "length": float(args.length),
+    }))
+    print("Created clip in track '{}' slot {} ({} beats)".format(
+        args.track, args.clip, result.get("length", args.length)))
+
+
+def cmd_set_clip_name(args, client: AbletonClient) -> None:
+    """Name a clip in a track's clip slot.
+
+    Example:
+        python scripts/ableton_push.py set-clip-name \\
+            --track DFAM --clip 0 --name "rust-protocol groove v1"
+    """
+    track_index = _resolve_track_index(args.track, client)
+    result = client.require_success(client.send("set_clip_name", {
+        "track_index": track_index,
+        "clip_index": int(args.clip),
+        "name": args.name,
+    }))
+    print("Renamed clip to '{}'".format(result.get("name", args.name)))
+
 
 def _resolve_track_index(track_arg: str, client: AbletonClient) -> int:
     """Accept either an integer index or a track name string."""
@@ -378,6 +653,106 @@ def main() -> None:
     p_create.add_argument("--midi-channel", type=int, default=1, help="MIDI channel (default: 1)")
     p_create.add_argument("--color", type=int, default=None, help="Track color as integer")
 
+    # get-devices
+    p_getdev = sub.add_parser("get-devices", help="List devices on a track")
+    p_getdev.add_argument("--track", required=True, help="Track name or index")
+
+    # get-params
+    p_getparam = sub.add_parser("get-params", help="List parameters on a device")
+    p_getparam.add_argument("--track", required=True, help="Track name or index")
+    p_getparam.add_argument("--device", required=True, help="Device index")
+    p_getparam.add_argument("--chain", default=None,
+                            help="Chain navigation: chain_index or chain_index.device_index (e.g. 0 or 0.1)")
+
+    # set-param
+    p_setparam = sub.add_parser("set-param", help="Set a device parameter value")
+    p_setparam.add_argument("--track", required=True, help="Track name or index")
+    p_setparam.add_argument("--device", required=True, help="Device index")
+    p_setparam.add_argument("--param", required=True, help="Parameter name (e.g. 'Chain Selector') or index")
+    p_setparam.add_argument("--value", required=True, help="Value to set")
+    p_setparam.add_argument("--chain", default=None,
+                            help="Chain navigation: chain_index or chain_index.device_index")
+
+    # fire-scene
+    p_fscene = sub.add_parser("fire-scene", help="Fire a scene by index")
+    p_fscene.add_argument("--index", required=True, help="Scene index")
+
+    # create-scene
+    p_cscene = sub.add_parser("create-scene", help="Create a new scene")
+    p_cscene.add_argument("--name", default=None, help="Scene name")
+    p_cscene.add_argument("--index", type=int, default=None,
+                          help="Insert position (-1 or omit to append)")
+
+    # insert-device (Live 12.3)
+    p_idev = sub.add_parser("insert-device", help="Insert a native Live device (Live 12.3+)")
+    p_idev.add_argument("--track", required=True, help="Track name or index")
+    p_idev.add_argument("--device-name", required=True,
+                        help="Device name as shown in Live's UI (e.g. 'Collision', 'Instrument Rack')")
+    p_idev.add_argument("--target-index", default=None, type=int,
+                        help="Position in device chain (omit to append)")
+    p_idev.add_argument("--chain", default=None, type=int,
+                        help="If set, insert into this chain index of the first rack on the track")
+
+    # insert-chain (Live 12.3)
+    p_ichain = sub.add_parser("insert-chain", help="Insert a new chain into a Rack device (Live 12.3+)")
+    p_ichain.add_argument("--track", required=True, help="Track name or index")
+    p_ichain.add_argument("--device", required=True, type=int, help="Rack device index on the track")
+    p_ichain.add_argument("--index", default=None, type=int, help="Chain position (omit to append)")
+    p_ichain.add_argument("--name", default=None, help="Name for the new chain")
+
+    # build-rack (Live 12.3)
+    p_brack = sub.add_parser("build-rack", help="Create an Instrument Rack and populate chains (Live 12.3+)")
+    p_brack.add_argument("--track", required=True, help="Track name or index")
+    p_brack.add_argument("--rack-name", default=None, help="Name for the rack")
+    p_brack.add_argument("--chains", default=None,
+                         help='JSON array of chain specs: \'[{"name":"Hit","device":"Collision"}]\'')
+
+    # delete-device
+    p_deldev = sub.add_parser("delete-device", help="Delete a device from a track or rack chain")
+    p_deldev.add_argument("--track", required=True, help="Track name or index")
+    p_deldev.add_argument("--device", required=True, type=int, help="Device index to delete")
+    p_deldev.add_argument("--chain", default=None, type=int,
+                          help="If set, delete device index 0 from this chain of the rack")
+
+    # apply-preset
+    p_apreset = sub.add_parser(
+        "apply-preset",
+        help="Batch-push a preset JSON file to a device (one round-trip for all params)")
+    p_apreset.add_argument("--track", required=True, help="Track name or index")
+    p_apreset.add_argument("--device", required=True, type=int, help="Device index")
+    p_apreset.add_argument("--preset", required=True,
+                           help="Path to preset JSON file (instruments/<slug>/presets/<name>.json)")
+
+    # list-packs
+    p_lpacks = sub.add_parser(
+        "list-packs",
+        help="List installed Ableton packs and search for preset .adg files")
+    p_lpacks.add_argument("--search", default=None,
+                          help="Search term for preset .adg files (e.g. '808', 'Collision')")
+
+    # load-preset
+    p_lpreset = sub.add_parser(
+        "load-preset",
+        help="Load a browser preset (.adg) onto a track by name (no drag required)")
+    p_lpreset.add_argument("--track", required=True, help="Track name or index")
+    p_lpreset.add_argument("--preset", required=True,
+                           help="Preset name as it appears in the browser (e.g. '808 Depth Charger Kit')")
+
+    # create-clip
+    p_cclip = sub.add_parser(
+        "create-clip",
+        help="Create an empty MIDI clip in a track slot (required before push-midi)")
+    p_cclip.add_argument("--track", required=True, help="Track name or index")
+    p_cclip.add_argument("--clip", default="0", help="Clip slot index (default: 0)")
+    p_cclip.add_argument("--length", type=float, default=32.0,
+                         help="Clip length in beats (default: 32.0 = 8 bars at 4/4)")
+
+    # set-clip-name
+    p_sclipname = sub.add_parser("set-clip-name", help="Name a clip in a track slot")
+    p_sclipname.add_argument("--track", required=True, help="Track name or index")
+    p_sclipname.add_argument("--clip", default="0", help="Clip slot index (default: 0)")
+    p_sclipname.add_argument("--name", required=True, help="Clip name")
+
     args = parser.parse_args()
 
     if args.quiet:
@@ -386,14 +761,32 @@ def main() -> None:
     client = AbletonClient(host=args.host, port=args.port)
 
     dispatch = {
-        "setup-rig": cmd_setup_rig,
-        "push-midi": cmd_push_midi,
-        "fire": cmd_fire,
-        "stop": cmd_stop,
-        "set-tempo": cmd_set_tempo,
-        "status": cmd_status,
-        "create-track": cmd_create_track,
+        "setup-rig":     cmd_setup_rig,
+        "push-midi":     cmd_push_midi,
+        "fire":          cmd_fire,
+        "stop":          cmd_stop,
+        "set-tempo":     cmd_set_tempo,
+        "status":        cmd_status,
+        "create-track":  cmd_create_track,
+        "get-devices":   cmd_get_devices,
+        "get-params":    cmd_get_params,
+        "set-param":     cmd_set_param,
+        "fire-scene":    cmd_fire_scene,
+        "create-scene":  cmd_create_scene,
+        "insert-device": cmd_insert_device,
+        "insert-chain":  cmd_insert_chain,
+        "build-rack":    cmd_build_rack,
+        "delete-device": cmd_delete_device,
+        "apply-preset":  cmd_apply_preset,
+        "list-packs":    cmd_list_packs,
+        "load-preset":   cmd_load_preset,
+        "create-clip":   cmd_create_clip,
+        "set-clip-name": cmd_set_clip_name,
     }
+    # list-packs is purely local — no Live connection needed
+    if args.command == "list-packs":
+        cmd_list_packs(args, client=None)
+        return
     dispatch[args.command](args, client)
 
 

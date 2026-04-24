@@ -133,6 +133,7 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `manual-lookup` | `.github/skills/manual-lookup/SKILL.md` | When answering questions from instrument manuals (specs, MIDI, parameters) |
 | `instrument-onboard` | `.github/skills/instrument-onboard/SKILL.md` | When adding a new instrument: folder structure, manual index, param map, SysEx wiring |
 | `gcs-audio` | `.github/skills/gcs-audio/SKILL.md` | When uploading audio files (recordings, stems, samples) to GCS, pulling them back, or checking manifest status |
+| `gemini-forge` | `.github/skills/gemini-forge/SKILL.md` | When generating audio specs or audio files via Gemini + Lyria for the active song |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
 
@@ -149,6 +150,7 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Theorist` | `.github/agents/the-theorist.agent.md` | Scales, harmony, chord vocab, rhythm | read + write knowledge/ | Arranger, Sound Designer, Critic |
 | `The Critic` | `.github/agents/the-critic.agent.md` | Evaluation, challenge, filter | read-only | Sound Designer, Arranger, Theorist, Live Engineer |
 | `The Live Engineer` | `.github/agents/the-live-engineer.agent.md` | Session architecture, device chains, M4L, in-box routing, hardware substitution | full + terminal | Sound Designer, Arranger, Critic |
+| `The Alchemist` | `.github/agents/the-alchemist.agent.md` | Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels | full + terminal | Critic, Sound Designer, Live Engineer, Theorist |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
@@ -158,6 +160,25 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 - Hardware offline: **Live Engineer** (substitute built-in devices) → handoff → **Sound Designer** (dial in the substitute) → handoff → **Critic**
 
 **GitHub Actions via agents**: The Sound Designer and Theorist can trigger Actions using `gh workflow run` via their terminal access. See the agent body for the exact commands per workflow.
+
+---
+
+## Reusable Prompts
+
+Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the prompt name (with `/`) in the VS Code Copilot chat input. Each one pre-loads a specific agent and a structured multi-step workflow.
+
+| Prompt | Invoke | Agent | What it does |
+|---|---|---|---|
+| `session-start` | `/session-start` | The Producer | Reads the active brainstorm seed, runs a song-review (Arranger + Critic), proposes 3 prioritized actions for the session |
+| `session-close` | `/session-close` | The Critic | Audits git diff for session work, evaluates everything produced, fires `session-summarizer` GitHub Action to commit notes to `knowledge/sessions/` |
+| `theory-first` | `/theory-first [focus]` | The Theorist | Full Theorist → Arranger → Sound Designer chain from a harmonic starting point. `focus` = what to analyze (e.g. "drop progression", "rhythmic motif") |
+| `new-patch` | `/new-patch [instrument]` | The Sound Designer | Designs a patch for the named instrument, **pushes to hardware or Ableton first** (not file-only), then hands off to The Critic. `instrument` = slug (take5, rev2, minibrute2s, pigments) |
+| `forge-audio` | `/forge-audio [element]` | The Alchemist | Generates a structured audio spec for the named element (kick loop, bass texture, pad, etc.) using active song context. Optionally calls Lyria. `element` = target description |
+
+**When to use prompts vs. agents directly:**
+- Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering
+- Switch to an **agent** directly when you want a single focused task without the surrounding workflow
+- `/session-start` at the top of every session. `/session-close` at the end.
 
 ---
 

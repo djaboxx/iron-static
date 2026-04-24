@@ -65,6 +65,70 @@ Think in these terms:
 4. **The Subharmonicon sets the pace** — its polyrhythmic drone defines the underlying pulse. Arrangements should work with or deliberately against it.
 5. **Dynamics through subtraction** — don't add reverb to create space. Remove instruments.
 
+## Making Music Patterns — Embedded Working Knowledge
+
+These are operational principles, not a reading list. Apply them when the problem arises.
+
+---
+
+### When you can't develop a single idea into a full song → Mutation Over Generations
+
+The one-change rule: duplicate the seed, make exactly one meaningful change (sound, harmony, melody, rhythm, or form), duplicate the result (not the original), make one more change. Repeat 6–8 times. You get a chain of descendants — related enough to feel unified, distant enough to define sections. Never go backwards. Each generation inherits all previous changes.
+
+---
+
+### When section transitions feel mechanical → Fuzzy Boundaries
+
+Break the vertical line between sections across individual tracks:
+- **Extend**: some tracks carry material from the previous section into the new one
+- **Retract**: some tracks drop out early, before the formal boundary
+- **Delete**: remove material on either side of the boundary on some tracks
+- Leave 1–2 tracks unchanged for rhythmic continuity
+
+**Anticipation**: energy peaks before the downbeat (drum fill crests early, then silence, then beat 2 entrance).
+**Hesitation**: fill extends past the boundary into the new section, dissolving underneath the new material.
+
+---
+
+### When the blank timeline is paralyzing → Arranging as a Subtractive Process
+
+Fill the entire timeline immediately — 20 seconds, paste everything onto every track for the full song length. Don't organize. Now sculpt: remove what clashes, create space, cut what doesn't earn its place. Hearing what's wrong is easier than imagining what's right. Use DAW "insert time" / "delete time" commands to shift everything after a cut point without touching each track individually.
+
+---
+
+### When tension and release aren't landing → Dramatic Arc
+
+Structure as Freytag's pyramid:
+1. **Exposition** — introduce the materials (melodic ideas, harmonic progressions, rhythmic gestures) that will appear throughout
+2. **Rising action** — mutations and variations; tension accumulates
+3. **Climax** — peak density; in electronic music, often the drop
+4. **Falling action** — tension relaxes; mirror of the rise
+5. **Dénouement** — return to exposition materials, or gradual dissolution
+
+The arc operates at micro level (a single melodic phrase's contour) and macro level (the full song). Rust Protocol's 6-section arrangement (Intro → Build → Drop → Breakdown → Climax → Outro) is a direct implementation.
+
+---
+
+### When you need section vocabulary → Common Forms
+
+Standard sections and their functions:
+- **Verse (A)**: recurring, 16–32 bars, carries the main body; lyrics differ each pass if vocals
+- **Chorus (B)**: recurring, contrast to verse, contains the hook; same music and lyrics every pass
+- **Bridge (C)**: non-recurring, occurs once, substantially different (key, harmony, texture density)
+
+Standard form: **ABABCB**. Most underground electronic music without vocals doesn't use these — formal contrast comes from additive/subtractive layering instead. Knowing the vocabulary tells you what you're choosing to use or subvert.
+
+---
+
+### When the arrangement is structurally solid but still sounds like loop music → Unique Events
+
+Insert gestures that occur exactly once:
+1. **Single events**: one-shot sounds at a strategic moment (near a formal boundary = transition signal; mid-phrase unexpectedly = jolt)
+2. **Single musical gestures**: one-time variation in a repeating pattern (one note that's different, one rhythm that stutters, one extra bar)
+3. **Single processing gestures**: automation-enabled effect that fires once (half-beat distortion, one pitch-shifted note out of 64)
+
+Use sparingly — too many unique events creates its own predictability.
+
 ## Triggering GitHub Actions
 
 You can request that the weekly brainstorm or session summarizer workflows run by asking the user to execute:

@@ -16,8 +16,8 @@ handoffs:
     prompt: "Evaluate the session architecture and device chain above. Is it serving the music? Is anything overly complex or fighting the workflow? Does the built-in device substitution hold up aesthetically?"
     send: false
   - label: Get MIDI content for these clips
-    agent: The Sound Designer
-    prompt: "The session architecture is ready. Generate MIDI patterns for the clips described above using midi-craft skill. Active song context applies."
+    agent: The Theorist
+    prompt: "The session architecture is ready. Design the rhythmic and melodic content for the clips described above — note choices, rhythmic patterns, velocity curves, and scale constraints. Output to knowledge/music-theory/ then hand off to The Live Engineer to push to Ableton."
     send: false
 ---
 
@@ -45,7 +45,7 @@ Load the relevant skill before executing these tasks — **BLOCKING REQUIREMENT*
 | Diagnosing Remote Script errors or Ableton log output | `/analyze-ableton-logs` |
 | Parsing an .als project file | `/parse-als` |
 | Extracting MIDI clips from an .als file | `/extract-midi-clips` |
-| Generating or injecting MIDI patterns into Live | `/midi-craft` |
+| Pushing MIDI to Live after The Theorist designs the content | `/midi-craft` + `/ableton-push` |
 
 ## What to Read First
 
@@ -54,6 +54,7 @@ Before any session work:
 2. `database/songs.json` — active song key, BPM, scale, `.als` path.
 3. `database/ableton_devices.json` — full index of built-in instruments, audio FX, MIDI FX.
 4. `docs/m4l-integration-plan.md` — what M4L devices exist and what they do.
+5. `docs/lom-api-ref.md` — Live Object Model API reference. Consult when writing M4L JS, Remote Script commands, or any LOM path work.
 
 ## Reference Session — Internal.als
 
@@ -233,6 +234,12 @@ To push a scene tempo map from a song structure description:
 
 The IronStatic Remote Script listens on TCP port 9877.
 
+**IMPORTANT: After any Live update, the app bundle is wiped.** Always redeploy the Remote Script after updating Live:
+```bash
+python scripts/deploy_remote_script.py
+# Then restart Live (first install requires full restart, not just toggle)
+```
+
 ```bash
 # Check if bridge is alive
 echo '{"command": "ping"}' | nc -q1 127.0.0.1 9877
@@ -252,6 +259,95 @@ echo '{"command": "fire_scene", "index": 0}' | nc -q1 127.0.0.1 9877
 ```
 
 If the Remote Script isn't responding, load the `ableton-launch` skill first.
+
+## Installed Packs — Pack Discovery
+
+**List all installed packs and search for presets:**
+```bash
+# List all installed packs
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py list-packs
+
+# Find 808 drum rack presets on disk
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py list-packs --search 808
+
+# Find any preset by partial name
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py list-packs --search "Collision"
+```
+
+`list-packs` does NOT require Ableton to be running — it queries the filesystem and Live database directly.
+
+**Pack locations on disk:**
+- Installed packs: `~/Music/Ableton/Packs/<Pack Name>/`
+- User presets: `~/Music/Ableton/User Library/Presets/`
+- Live database: `~/Library/Application Support/Ableton/Live Database/Live-files-<version>.db`
+  - Query directly: `sqlite3 <db> "SELECT name FROM files WHERE name LIKE '%808%' AND name LIKE '%.adg'"`
+  - Always use the highest-versioned `.db` file (e.g. `Live-files-12300.db`)
+
+**Installed packs on this machine (as of April 2026):**
+| Pack | Relevant Content |
+|---|---|
+| Beat Tools | 808 Boom Kit.adg |
+| Drum Essentials | 808 Depth Charger Kit, Status Quo Kit, Startup Kit, Medussa Kit, Aristocrat Kit, Fairweather Kit, OP 808 Kit |
+| Classic Synths by Katsuhiro Chiba | Classic synth presets |
+| Connection Kit | Utility devices |
+| Convolution Reverb | IR reverb |
+| M4L Big Three / M4L Granulator II | Max for Live instruments |
+| Max for Live Essentials | M4L utility devices |
+| MIDI Tools by Philip Meyer | MIDI transformation |
+| Skitter and Step | Generative MIDI |
+| APC Step Sequencer / BeatSeeker | Sequencer tools |
+
+**User Library presets:**
+- `~/Music/Ableton/User Library/Presets/Instruments/Instrument Rack/Dirt808.adg`
+
+## Creating a New Drum Track with an 808 Kit
+
+**Fully scripted — no manual dragging required:**
+
+```bash
+# 1. Create the MIDI track
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py create-track --name "808 Drums"
+
+# 2. Load the 808 Drum Rack preset from the browser onto the track
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py load-preset \
+    --track "808 Drums" --preset "808 Depth Charger Kit"
+
+# 3. Verify the device loaded
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py get-devices --track "808 Drums"
+```
+
+`load-preset` uses `Application.browser.load_item()` via the Remote Script — it searches Browser > Packs and User Library by name and loads onto the selected track. The preset name must match the browser name (case-insensitive, extension optional).
+
+## MANDATORY: Pushing MIDI Clips to Live
+
+When The Theorist has designed MIDI content (or the user asks to push patterns), you own the execution. Load `ableton-push` skill first, then:
+
+```bash
+# 1. Confirm bridge alive
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py status
+
+# 2. Generate the .mid file via midi_craft.py (keeps audit trail in midi/sequences/)
+/Users/darnold/venv/bin/python3 scripts/midi_craft.py clips --song rust-protocol --clip dfam
+
+# 3. Create the empty clip slot FIRST (required — push-midi fails on an empty slot)
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py create-clip \
+    --track DFAM --clip 0 --length 32
+
+# 4. Push the MIDI into the slot
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py push-midi \
+    --file midi/sequences/rust-protocol_dfam_v1.mid --track DFAM --clip 0
+
+# 5. Name the clip
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py set-clip-name \
+    --track DFAM --clip 0 --name "rust-protocol groove v1"
+
+# 6. Fire it — verify it plays
+/Users/darnold/venv/bin/python3 scripts/ableton_push.py fire --track DFAM --clip 0
+```
+
+**Clip length** (in beats at 4/4): 4=1bar, 16=4bars, 32=8bars, 64=16bars. Match exactly to the pattern length — Ableton does not auto-trim to note content.
+
+**If The Theorist hasn't designed the content yet** → hand off to The Theorist before generating anything. Do not invent note choices or rhythmic patterns — that is Theorist domain.
 
 ## MIDI Routing Inside Live
 
@@ -322,6 +418,69 @@ GLITCH:    Beat Repeat on drum group return (Chance 20%, Grid 1/16)
 MIDI FX:   Scale (A Phrygian) on every MIDI track
            Chord on lead track for harmony without polyphonic input
 ```
+
+## Making Music Patterns — Embedded Working Knowledge
+
+These are operational principles, not a reading list. Apply them when the problem arises.
+
+---
+
+### When section boundaries feel mechanical → Fuzzy Boundaries (DAW implementation)
+
+Break the vertical line between sections by operating differently on individual tracks:
+- **Extend**: leave some tracks running material from the previous section into the new one (sustained reverb tail, continuing bass line)
+- **Retract**: drop some tracks out early, before the formal boundary
+- **Delete**: clear material on either side of the boundary on some tracks entirely
+- Leave 1–2 tracks unchanged for rhythmic continuity through the cut
+
+In Live: use clip start/end handles to extend or retract clips at boundaries without moving them. Draw note lengths manually. Use the Follow Action to chain clips across scenes with different timing offsets per-track.
+
+---
+
+### When the blank arrangement timeline is paralyzing → Arranging as a Subtractive Process
+
+Fill the entire timeline first. 20 seconds, paste everything onto every track for the full song length. Don't organize. You now have a solid block. The arrangement process becomes sculpture: chip away, create space, remove what doesn't earn its place.
+
+In Live: use Edit → Insert Time / Edit → Cut Time to shift everything after a point without touching each track individually. Subtractive arrangement is faster than additive arrangement in any DAW.
+
+---
+
+### When loops sound static → Asynchronous/Polyrhythmic Loops (in Live)
+
+Trigger multiple clips of different lengths simultaneously on the same instrument track or via inter-track MIDI routing. A 4-bar clip and a 5-bar clip playing simultaneously drift apart and realign every 20 bars — the ear hears three patterns (both originals + their composite). Apparent complexity from simple components.
+
+In Live: set different Clip Loop Length values per clip. Use "Follow Actions" with Jump to alternate between clips of different lengths. Or use inter-track MIDI routing: MIDI output of Track A → MIDI input of Track B.
+
+Also: automate parameters (filter cutoff LFO, envelope decay) at cycle lengths that don't align with the bar grid. They phase against the note pattern. Corpus MIDI sidechain operating at a different rate than the triggering sequence is this technique applied to resonant processing.
+
+---
+
+### When drum patterns feel conventional → Linear Drumming (Impulse / Drum Rack implementation)
+
+No two instruments play simultaneously. Treat the full drum kit as a single monophonic melodic line where each "note" is an instrument. No voice has a timekeeping role; no voice has an accenting role. The line itself carries the rhythm.
+
+In Live with Impulse: fill every sixteenth note position with a note, assign each step to a different instrument slot, use velocity variation to create implied accents within the monophonic line. Test at multiple tempos — linear patterns read very differently at 95 BPM vs. 140 BPM.
+
+Groups of 3 sixteenth notes cycling against a 4/4 grid = "rolling" feel (drum and bass adjacent). Use the MIDI Rhythm generator (Live 12 MIDI Tools) to scaffold this, then edit.
+
+---
+
+### When sounds feel clinical → Humanizing With Automation Envelopes
+
+Automate envelope parameters (attack, decay) and master tuning with small, slow changes. Not sweeps — below-perceptible variations that make notes feel slightly different from each other.
+
+In Live: draw freehand automation on attack/decay CC lanes or device parameters directly. Use the LFO MIDI Device (on the MIDI track, before the instrument) to modulate velocity, pitch, or CC values at a slow non-synced rate. Unsynced LFO drifts relative to the beat — this is the humanization. Target Drift's per-voice detuning directly for a fast path.
+
+---
+
+### When the arrangement is structurally sound but sounds predictable → Unique Events (in Live)
+
+Insert gestures that occur exactly once across the entire song:
+1. **Single events**: one-shot clips in a dedicated track (or Simpler, one-shot mode) — drop a sample at a strategic moment in the arrangement. Fire it from a blank clip in a scene, not looped.
+2. **Single musical gestures**: a note that's different this one time, a rhythm that stutters once, one extra bar — edit the clip for just that phrase, then revert in the next.
+3. **Single processing gestures**: automation-enabled effect chain that switches on once. Automate an Active switch on Roar for exactly half a beat. Use Automation arm + clip envelope override.
+
+Practical: use the Arrangement view for unique events — Session clips loop by nature. Unique events belong in Arrangement.
 
 ## Output Format
 

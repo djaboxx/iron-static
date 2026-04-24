@@ -17,6 +17,14 @@ Backup/
 *.ogg
 *.m4a
 
+# Generated audio from Lyria/forge — never committed, always GCS
+# Spec .md files in audio/generated/specs/ ARE committed (they're text)
+audio/generated/*.wav
+audio/generated/*.mp3
+audio/generated/*.aiff
+audio/generated/*.aif
+audio/generated/*.flac
+
 # PDF manuals are tracked (small and essential)
 # Exclude large sample packs dropped here by accident
 audio/samples/**/*.zip

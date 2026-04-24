@@ -33,7 +33,7 @@
       "status": "active",
       "als_path": null,
       "key": "A",
-      "scale": "phrygian",
+      "scale": "phrygian_dominant",
       "bpm": 95.0,
       "time_signature": null,
       "brainstorm_path": "knowledge/brainstorms/2026-04-24.md",
