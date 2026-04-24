@@ -15,6 +15,10 @@ handoffs:
     agent: the-theorist
     prompt: "Are the sounds and patches described above harmonically coherent with the active song? What notes, voicings, or scale constraints should be applied?"
     send: false
+  - label: Set up the Live session for these sounds
+    agent: the-live-engineer
+    prompt: "The Sound Designer has defined patches and instruments above. Build the Ableton session architecture to house them — track layout, device chains, MIDI routing, and scene structure."
+    send: false
 ---
 
 # The Sound Designer

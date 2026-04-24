@@ -15,6 +15,10 @@ handoffs:
     agent: the-critic
     prompt: "Evaluate the arrangement above. Is the structure working? Where is it predictable? Where does it earn its decisions?"
     send: false
+  - label: Build the Live session for this structure
+    agent: the-live-engineer
+    prompt: "The arrangement above defines sections and scene structure. Build the Ableton session architecture: scenes, clip layout, scene tempo map, and track routing to match this arrangement."
+    send: false
 ---
 
 # The Arranger

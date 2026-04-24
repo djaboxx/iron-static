@@ -140,19 +140,22 @@ python scripts/manage_songs.py release --slug my-song   # when done
 
 ## Custom Agent Personas
 
-Four specialized personas live in `.github/agents/`. Switch to them in VS Code's Chat agents dropdown for focused work. Each has tool restrictions and handoffs to guide multi-step workflows.
+Five specialized personas live in `.github/agents/`. Switch to them in VS Code's Chat agents dropdown for focused work. Each has tool restrictions and handoffs to guide multi-step workflows.
 
 | Agent | File | Focus | Tools | Handoffs to |
 |---|---|---|---|---|
-| `The Arranger` | `.github/agents/the-arranger.agent.md` | Song structure, sections, energy arcs | read-only | Sound Designer, Theorist, Critic |
-| `The Sound Designer` | `.github/agents/the-sound-designer.agent.md` | Presets, synthesis, hardware push, MIDI | full + terminal | Critic, Arranger, Theorist |
+| `The Arranger` | `.github/agents/the-arranger.agent.md` | Song structure, sections, energy arcs | read-only | Sound Designer, Theorist, Critic, Live Engineer |
+| `The Sound Designer` | `.github/agents/the-sound-designer.agent.md` | Presets, synthesis, hardware push, MIDI | full + terminal | Critic, Arranger, Theorist, Live Engineer |
 | `The Theorist` | `.github/agents/the-theorist.agent.md` | Scales, harmony, chord vocab, rhythm | read + write knowledge/ | Arranger, Sound Designer, Critic |
-| `The Critic` | `.github/agents/the-critic.agent.md` | Evaluation, challenge, filter | read-only | Sound Designer, Arranger, Theorist |
+| `The Critic` | `.github/agents/the-critic.agent.md` | Evaluation, challenge, filter | read-only | Sound Designer, Arranger, Theorist, Live Engineer |
+| `The Live Engineer` | `.github/agents/the-live-engineer.agent.md` | Session architecture, device chains, M4L, in-box routing, hardware substitution | full + terminal | Sound Designer, Arranger, Critic |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
 - Sound-first: **Sound Designer** → handoff → **Critic** → handoff → **Sound Designer** (revise)
 - Structure review: **Arranger** → handoff → **Critic** → handoff → **Arranger** (revise)
+- Session setup: **Live Engineer** → handoff → **Sound Designer** (patch params) → handoff → **Arranger** (scene flow)
+- Hardware offline: **Live Engineer** (substitute built-in devices) → handoff → **Sound Designer** (dial in the substitute) → handoff → **Critic**
 
 **GitHub Actions via agents**: The Sound Designer and Theorist can trigger Actions using `gh workflow run` via their terminal access. See the agent body for the exact commands per workflow.
 
