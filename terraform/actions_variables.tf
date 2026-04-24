@@ -5,7 +5,7 @@
 resource "github_actions_variable" "gemini_model_fast" {
   repository    = local.repository
   variable_name = "GEMINI_MODEL_FAST"
-  value         = "gemini-2.0-flash"
+  value         = "gemini-2.0-flash-lite"
 }
 
 resource "github_actions_variable" "gemini_model_pro" {
