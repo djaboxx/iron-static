@@ -21,7 +21,7 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 _MODEL_MAP = {
-    "fast": os.environ.get("GEMINI_MODEL_FAST", "gemini-2.0-flash-lite"),
+    "fast": os.environ.get("GEMINI_MODEL_FAST", "gemini-2.5-flash"),
     "pro": os.environ.get("GEMINI_MODEL_PRO", "gemini-2.5-pro"),
 }
 
