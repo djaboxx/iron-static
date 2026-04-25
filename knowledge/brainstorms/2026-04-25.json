@@ -4,28 +4,28 @@
   "source": "brainstorm",
   "tracks": [
     {
-      "artist": "Meshuggah",
-      "title": "Bleed",
-      "album": "obZen",
-      "year": 2008,
-      "reason": "The kick drum MIDI is the canonical example of a relentless, complex polyrhythmic pattern against a 4/4 pulse, establishing the required density and machine-like precision.",
-      "search_terms": "meshuggah bleed midi"
-    },
-    {
       "artist": "Gesaffelstein",
       "title": "Pursuit",
       "album": "Aleph",
       "year": 2013,
-      "reason": "The main arpeggio's MIDI provides a perfect template for the Interrogator Bass: a simple, monophonic, and aggressive sequence that drives the track through sheer force of repetition and timbre.",
+      "reason": "The relentless, monophonic, percussive synth sequence is the perfect model for the Interrogator Bass pattern and timbre.",
       "search_terms": "gesaffelstein pursuit midi"
     },
     {
-      "artist": "HEALTH",
-      "title": "STONEFIST",
-      "album": "DEATH MAGIC",
-      "year": 2015,
-      "reason": "The main drum groove's MIDI is a target for the relationship between the kick and other percussive elements\u2014how to create a powerful industrial bounce with relatively few elements.",
-      "search_terms": "health stonefist midi"
+      "artist": "Meshuggah",
+      "title": "Bleed",
+      "album": "obZen",
+      "year": 2008,
+      "reason": "The drum MIDI provides a masterclass in complex polyrhythmic layering over a 4/4 pulse, perfect for training the interaction between The Grid and The Clock.",
+      "search_terms": "meshuggah bleed midi drum"
+    },
+    {
+      "artist": "Massive Attack",
+      "title": "Angel",
+      "album": "Mezzanine",
+      "year": 1998,
+      "reason": "This track's MIDI shows how to build immense energy through layering and subtraction over a static bassline, a direct structural reference for the INTERROGATION section.",
+      "search_terms": "massive attack angel midi"
     }
   ]
 }
