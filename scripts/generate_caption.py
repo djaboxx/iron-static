@@ -56,12 +56,16 @@ PLATFORM_SPECS = {
         "max_chars": 2200,
         "visible_chars": 125,  # chars before 'more' truncation
         "instructions": (
-            "Write an Instagram caption. "
-            "First sentence (≤125 chars) must be a punchy hook — no hashtags there. "
-            "After a line break, add 5–10 hashtags relevant to the track and genre. "
-            "Always include: #ironstaticband #electronicmetal #industrialmetal #heavyelectronic. "
-            "Add 2–4 genre-specific tags. No 'dropping' or 'excited to share' language. "
-            "Total length ≤300 chars including hashtags."
+            "Write an Instagram caption for a heavy electronic music post. "
+            "Structure: (1) A punchy opening hook of 1–2 sentences (≤125 chars total) — "
+            "no hashtags in the hook. Draw directly from the song's concept, mood, or imagery "
+            "described in the brainstorm. Sound like a musician with something to say, not a brand. "
+            "(2) 2–4 sentences expanding on the track's themes, sounds, or process. "
+            "Reference specific sonic/conceptual details from the brainstorm context. "
+            "No 'dropping soon', 'excited to share', or hype language. "
+            "(3) A blank line, then 8–12 hashtags: always include #IronStatic #ElectronicMetal "
+            "#IndustrialMetal #HeavyElectronic — add 4–6 genre/mood-specific tags from the track context. "
+            "Total length ≤2200 chars."
         ),
     },
     "mastodon": {
@@ -183,11 +187,11 @@ def generate_caption_for_platform(
 
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
-        model="gemini-2.0-flash-001",
+        model="gemini-2.5-flash",
         contents=prompt,
         config=gentypes.GenerateContentConfig(
             temperature=0.7,
-            max_output_tokens=512,
+            max_output_tokens=4096,
         ),
     )
     caption = response.text.strip()

@@ -38,6 +38,25 @@ ASPECT_RATIOS = {
     "portrait":  {"ratio": "9:16",  "suffix": "portrait",  "desc": "Instagram Reels / TikTok"},
 }
 
+# Brand image specs — used with --brand flag
+BRAND_IMAGES = {
+    "profile": {"ratio": "1:1",  "slug": "brand_profile", "desc": "Instagram profile pic (1:1, circular crop)"},
+    "repo":    {"ratio": "16:9", "slug": "brand_repo",    "desc": "GitHub repo social preview (16:9)"},
+}
+
+# Brand prompt — derived from manifesto, not song-specific
+BRAND_PROMPT = (
+    "Identity artwork for IRON STATIC, an electronic metal duo. "
+    "One member is human — a bassist and synthesist with a basement full of machines. "
+    "The other is a collective of AI systems: relentless, analytical, loud. "
+    "The band makes heavy, mechanical, electronic music — industrial texture, polyrhythm, "
+    "bass frequencies as physical experience. "
+    "Influences: Nine Inch Nails, Lamb of God, Run The Jewels, Modeselector. "
+    "Visual concept: two forces in collision — organic corrosion meeting precise circuitry. "
+    "Iron filings magnetized into a standing wave. A machine learning to breathe. "
+    "Band name IRON STATIC rendered in stark industrial sans-serif typography, dominant. "
+)
+
 # Base aesthetic constraints — never overridden by brainstorm content
 BASE_STYLE = (
     "dark industrial aesthetic, high contrast, no people, no faces, "
@@ -134,17 +153,30 @@ def generate_images(prompt: str, song_slug: str, formats: list[str], dry_run: bo
         log.info("Generating %s image (%s) → %s", fmt, spec["ratio"], out_path)
 
         try:
-            response = client.models.generate_images(
-                model="imagen-3.0-generate-002",
-                prompt=prompt,
-                config=gentypes.GenerateImagesConfig(
-                    number_of_images=1,
-                    aspect_ratio=spec["ratio"],
-                    negative_prompt=NEGATIVE_PROMPT,
-                    safety_filter_level="block_only_high",
-                    person_generation="dont_allow",
-                ),
-            )
+            _prompt = prompt
+            for use_neg in (True, False):
+                try:
+                    cfg = gentypes.GenerateImagesConfig(
+                        number_of_images=1,
+                        aspect_ratio=spec["ratio"],
+                        negative_prompt=NEGATIVE_PROMPT if use_neg else None,
+                        safety_filter_level="block_low_and_above",
+                        person_generation="dont_allow",
+                    )
+                    response = client.models.generate_images(
+                        model="imagen-4.0-generate-001",
+                        prompt=_prompt,
+                        config=cfg,
+                    )
+                    break  # success
+                except Exception as e:
+                    if use_neg and "negative_prompt" in str(e).lower():
+                        # Gemini API key path: fold negatives into prompt, retry
+                        log.debug("negative_prompt unsupported, folding into prompt and retrying")
+                        _prompt = prompt + f" Avoid: {NEGATIVE_PROMPT}."
+                        continue
+                    raise
+
             if not response.generated_images:
                 log.error("No image returned for format %s", fmt)
                 continue
@@ -187,6 +219,11 @@ def main() -> None:
         action="store_true",
         help="Print the generated prompt without calling the API.",
     )
+    parser.add_argument(
+        "--brand",
+        action="store_true",
+        help="Generate band identity images (profile pic + repo banner) instead of song artwork.",
+    )
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
 
@@ -194,6 +231,73 @@ def main() -> None:
         level=logging.DEBUG if args.verbose else logging.INFO,
         format="%(levelname)s %(message)s",
     )
+
+    if args.brand:
+        prompt = BRAND_PROMPT + ((" " + args.style) if args.style else "") + " " + BASE_STYLE
+        if args.dry_run:
+            print("\n=== BRAND IMAGE PROMPT ===")
+            print(prompt)
+            print("\n=== NEGATIVE PROMPT ===")
+            print(NEGATIVE_PROMPT)
+            print(f"\nWould generate: {list(BRAND_IMAGES.keys())}")
+            return
+        SOCIAL_OUT.mkdir(parents=True, exist_ok=True)
+        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        if not api_key:
+            log.error("Set GEMINI_API_KEY or GOOGLE_API_KEY environment variable.")
+            sys.exit(1)
+        try:
+            from google import genai
+            from google.genai import types as gentypes
+        except ImportError:
+            log.error("google-genai not installed. Run: pip install google-genai")
+            sys.exit(1)
+        client = genai.Client(api_key=api_key)
+        results = {}
+        for name, spec in BRAND_IMAGES.items():
+            out_path = SOCIAL_OUT / f"{spec['slug']}.png"
+            log.info("Generating brand %s (%s) → %s", name, spec["ratio"], out_path)
+            try:
+                _prompt = prompt
+                for use_neg in (True, False):
+                    try:
+                        cfg = gentypes.GenerateImagesConfig(
+                            number_of_images=1,
+                            aspect_ratio=spec["ratio"],
+                            negative_prompt=NEGATIVE_PROMPT if use_neg else None,
+                            safety_filter_level="block_low_and_above",
+                            person_generation="dont_allow",
+                        )
+                        response = client.models.generate_images(
+                            model="imagen-4.0-generate-001",
+                            prompt=_prompt,
+                            config=cfg,
+                        )
+                        break
+                    except Exception as e:
+                        if use_neg and "negative_prompt" in str(e).lower():
+                            log.debug("negative_prompt unsupported, folding into prompt and retrying")
+                            _prompt = prompt + f" Avoid: {NEGATIVE_PROMPT}."
+                            continue
+                        raise
+                if not response.generated_images:
+                    log.error("No image returned for brand %s", name)
+                    continue
+                image_bytes = response.generated_images[0].image.image_bytes
+                out_path.write_bytes(image_bytes)
+                log.info("Saved: %s (%d bytes)", out_path, len(image_bytes))
+                results[name] = out_path
+            except Exception as exc:
+                log.error("Imagen generation failed for brand %s: %s", name, exc)
+        if results:
+            print("\nGenerated brand images:")
+            for name, path in results.items():
+                spec = BRAND_IMAGES[name]
+                print(f"  {name:10s} ({spec['ratio']:5s})  {path}  — {spec['desc']}")
+        else:
+            log.error("No brand images were generated.")
+            sys.exit(1)
+        return
 
     song = load_song_by_slug(args.song) if args.song else load_active_song()
     log.info("Song: %s (%s) — %s", song["title"], song["slug"], song.get("status"))

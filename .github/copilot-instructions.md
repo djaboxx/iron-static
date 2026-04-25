@@ -201,6 +201,7 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `checkpoint` | `/checkpoint` | Copilot | Mid-session snapshot — extracts learnings, decisions, failures, and open questions from the current conversation and writes to `knowledge/sessions/YYYY-MM-DD-learnings.md`. Invoke before context compacts or before switching to a long multi-agent workflow. |
 | `compact-learnings` | `/compact-learnings` | Copilot | Distill all `*-learnings.md` files into a single topic-organized `knowledge/sessions/learnings-digest.md` via Gemini. Run at end of any multi-checkpoint session so the next session starts with a compact reference. |
 | `show-shortcuts` | `/show-shortcuts` | Copilot | Output the complete keyboard shortcut reference for this workspace — all chord prefixes, agent bindings, and VS Code overrides. |
+| `git-commit` | `/git-commit` | Copilot | Stage and commit all pending changes — reads the diff, generates a conventional commit message, waits for Dave's approval, then commits. Does not push without confirmation. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering

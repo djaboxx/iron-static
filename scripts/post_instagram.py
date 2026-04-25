@@ -46,6 +46,15 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Load .env from repo root if present (never overrides existing env vars)
+_env_file = REPO_ROOT / ".env"
+if _env_file.exists():
+    for _line in _env_file.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _, _v = _line.partition("=")
+            os.environ.setdefault(_k.strip(), _v.strip())
 SONGS_PATH = REPO_ROOT / "database" / "songs.json"
 SOCIAL_OUT = REPO_ROOT / "outputs" / "social"
 
@@ -139,7 +148,11 @@ def _upload_to_gcs(image_path: Path) -> str:
     spec = importlib.util.spec_from_file_location(
         "gcs_sync", REPO_ROOT / "scripts" / "gcs_sync.py"
     )
-    gcs_sync = importlib.util.load_from_spec(spec) if spec else None
+    if spec:
+        gcs_sync = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcs_sync)
+    else:
+        gcs_sync = None
     # Fallback: use google-cloud-storage directly
     try:
         from google.cloud import storage as gcs
