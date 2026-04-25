@@ -43,6 +43,7 @@ Config JSON format:
 """
 
 import argparse
+import copy
 import gzip
 import json
 import logging
@@ -68,6 +69,61 @@ _ID_STRIDE = 100000  # ID slots per track. Large enough for the biggest drum rac
 # Per-track layout (relative to track_id_base):
 #   0 – 49999  : track infrastructure (template IDs, shifted by _offset_ids)
 #   50000 – 99999 : device preset IDs (normalized sequentially from base+50000)
+
+# ---------------------------------------------------------------------------
+# Branch MixerDevice template — used when reconstructing rack branches from ADG
+# BranchPresets. All Id values are 1 so _renumber_ids assigns unique IDs.
+# ---------------------------------------------------------------------------
+_BRANCH_MIXER_DEVICE_XML = """<MixerDevice>
+  <LomId Value="0" /><LomIdView Value="0" />
+  <IsExpanded Value="true" /><BreakoutIsExpanded Value="false" />
+  <On><LomId Value="0" /><Manual Value="true" />
+    <AutomationTarget Id="1"><LockEnvelope Value="0" /></AutomationTarget>
+    <MidiCCOnOffThresholds><Min Value="64" /><Max Value="127" /></MidiCCOnOffThresholds>
+  </On>
+  <ModulationSourceCount Value="0" /><ParametersListWrapper LomId="1" />
+  <Pointee Id="1" />
+  <LastSelectedTimeableIndex Value="0" /><LastSelectedClipEnvelopeIndex Value="0" />
+  <LastPresetRef><Value>
+    <AbletonDefaultPresetRef Id="1">
+      <FileRef>
+        <RelativePathType Value="0" /><RelativePath Value="" /><Path Value="" />
+        <Type Value="2" /><LivePackName Value="" /><LivePackId Value="" />
+        <OriginalFileSize Value="0" /><OriginalCrc Value="0" /><SourceHint Value="" />
+      </FileRef>
+      <DeviceId Name="AudioBranchMixerDevice" />
+    </AbletonDefaultPresetRef>
+  </Value></LastPresetRef>
+  <LockedScripts />
+  <IsFolded Value="false" /><ShouldShowPresetName Value="false" />
+  <UserName Value="" /><Annotation Value="" />
+  <SourceContext><Value /></SourceContext>
+  <MpePitchBendUsesTuning Value="true" /><ViewData Value="{}" />
+  <OverwriteProtectionNumber Value="3075" />
+  <Speaker><LomId Value="0" /><Manual Value="true" />
+    <AutomationTarget Id="1"><LockEnvelope Value="0" /></AutomationTarget>
+    <MidiCCOnOffThresholds><Min Value="64" /><Max Value="127" /></MidiCCOnOffThresholds>
+  </Speaker>
+  <Volume><LomId Value="0" /><Manual Value="1" />
+    <MidiControllerRange><Min Value="0.0003162277571" /><Max Value="1.99526238" /></MidiControllerRange>
+    <AutomationTarget Id="1"><LockEnvelope Value="0" /></AutomationTarget>
+    <ModulationTarget Id="1"><LockEnvelope Value="0" /></ModulationTarget>
+  </Volume>
+  <Panorama><LomId Value="0" /><Manual Value="0" />
+    <MidiControllerRange><Min Value="-1" /><Max Value="1" /></MidiControllerRange>
+    <AutomationTarget Id="1"><LockEnvelope Value="0" /></AutomationTarget>
+    <ModulationTarget Id="1"><LockEnvelope Value="0" /></ModulationTarget>
+  </Panorama>
+  <SendInfos />
+  <RoutingHelper><Routable>
+    <Target Value="AudioOut/None" /><UpperDisplayString Value="No Output" />
+    <LowerDisplayString Value="" />
+    <MpeSettings><ZoneType Value="0" /><FirstNoteChannel Value="1" /><LastNoteChannel Value="15" /></MpeSettings>
+    <MpePitchBendUsesTuning Value="true" />
+  </Routable><TargetEnum Value="0" /></RoutingHelper>
+  <SendsListWrapper LomId="1" />
+</MixerDevice>"""
+
 
 # ---------------------------------------------------------------------------
 # Pigments VST3 hardcoded template (no ADG exists for VST3 plugins)
@@ -161,11 +217,119 @@ def _search_library(entries: list[dict], query: str) -> dict | None:
     return None
 
 
+def _reconstruct_branches_from_adg(gp: ET.Element, device: ET.Element) -> None:
+    """Fill empty Branches in a rack device from the ADG's sibling BranchPresets.
+
+    ADG rack presets store the rack shell with zero Branches. The actual per-branch
+    content (instruments, samples, effects) lives in BranchPresets at the
+    GroupDevicePreset level. This function reads BranchPresets and builds the
+    Branches element so Live sees a fully-populated rack.
+
+    Works for both DrumGroupDevice (DrumBranch) and InstrumentGroupDevice
+    (InstrumentBranch).
+    """
+    branches_el = device.find("Branches")
+    if branches_el is None or len(list(branches_el)) > 0:
+        return  # Already populated or no Branches element
+
+    bp_el = gp.find("BranchPresets")
+    if bp_el is None or len(list(bp_el)) == 0:
+        return
+
+    is_drum = device.tag == "DrumGroupDevice"
+    branch_tag = "DrumBranch" if is_drum else "InstrumentBranch"
+    mixer_template = ET.fromstring(_BRANCH_MIXER_DEVICE_XML)
+
+    for i, bp in enumerate(bp_el):
+        # --- extract inner device -------------------------------------------
+        dp = bp.find("DevicePresets")
+        if dp is None or len(list(dp)) == 0:
+            continue
+        adp = list(dp)[0]  # First AbletonDevicePreset = the instrument
+        inner_dev_wrapper = adp.find("Device")
+        if inner_dev_wrapper is None or len(list(inner_dev_wrapper)) == 0:
+            continue
+        inner_device = copy.deepcopy(list(inner_dev_wrapper)[0])
+
+        # --- metadata --------------------------------------------------------
+        name_el = bp.find("Name")
+        name_val = name_el.get("Value", "") if name_el is not None else ""
+        zone_el = bp.find("ZoneSettings")  # has ReceivingNote for drum racks
+        bsr_el = bp.find("BranchSelectorRange")
+
+        # --- build branch element --------------------------------------------
+        branch = ET.Element(branch_tag, attrib={"Id": str(i + 1)})
+
+        ET.SubElement(branch, "LomId", attrib={"Value": "0"})
+        name_tag = ET.SubElement(branch, "Name")
+        ET.SubElement(name_tag, "EffectiveName", attrib={"Value": name_val})
+        ET.SubElement(name_tag, "UserName", attrib={"Value": ""})
+        ET.SubElement(name_tag, "Annotation", attrib={"Value": ""})
+        ET.SubElement(name_tag, "MemorizedFirstClipName", attrib={"Value": ""})
+        ET.SubElement(branch, "IsSelected", attrib={"Value": "false"})
+
+        dc = ET.SubElement(branch, "DeviceChain")
+        mtadc = ET.SubElement(dc, "MidiToAudioDeviceChain", attrib={"Id": "1"})
+        devs_el = ET.SubElement(mtadc, "Devices")
+        devs_el.append(inner_device)
+        ET.SubElement(mtadc, "SignalModulations")
+
+        if bsr_el is not None:
+            branch.append(copy.deepcopy(bsr_el))
+        else:
+            bsr = ET.SubElement(branch, "BranchSelectorRange")
+            for k in ("Min", "Max", "CrossfadeMin", "CrossfadeMax"):
+                ET.SubElement(bsr, k, attrib={"Value": "0"})
+
+        ET.SubElement(branch, "IsSoloed", attrib={"Value": "false"})
+        ET.SubElement(branch, "SessionViewBranchWidth", attrib={"Value": "74"})
+        ET.SubElement(branch, "IsHighlightedInSessionView", attrib={"Value": "false"})
+        sc = ET.SubElement(branch, "SourceContext")
+        ET.SubElement(sc, "Value")
+        ET.SubElement(branch, "Color", attrib={"Value": "-1"})
+        ET.SubElement(branch, "AutoColored", attrib={"Value": "true"})
+        ET.SubElement(branch, "AutoColorScheme", attrib={"Value": "0"})
+        ET.SubElement(branch, "SoloActivatedInSessionMixer", attrib={"Value": "false"})
+        ET.SubElement(branch, "DevicesListWrapper", attrib={"LomId": "0"})
+        branch.append(copy.deepcopy(mixer_template))
+
+        if is_drum:
+            recv_val = str(36 + i)  # default: C1 upward
+            send_val = "60"
+            choke_val = "0"
+            if zone_el is not None:
+                r = zone_el.find("ReceivingNote")
+                s = zone_el.find("SendingNote")
+                c = zone_el.find("ChokeGroup")
+                if r is not None:
+                    recv_val = r.get("Value", recv_val)
+                if s is not None:
+                    send_val = s.get("Value", send_val)
+                if c is not None:
+                    choke_val = c.get("Value", choke_val)
+            bi = ET.SubElement(branch, "BranchInfo")
+            ET.SubElement(bi, "ReceivingNote", attrib={"Value": recv_val})
+            ET.SubElement(bi, "SendingNote", attrib={"Value": send_val})
+            ET.SubElement(bi, "ChokeGroup", attrib={"Value": choke_val})
+        else:
+            zs = ET.SubElement(branch, "ZoneSettings")
+            kr = ET.SubElement(zs, "KeyRange")
+            for k, v in (("Min", "0"), ("Max", "127"), ("CrossfadeMin", "0"), ("CrossfadeMax", "127")):
+                ET.SubElement(kr, k, attrib={"Value": v})
+            vr = ET.SubElement(zs, "VelocityRange")
+            for k, v in (("Min", "1"), ("Max", "127"), ("CrossfadeMin", "1"), ("CrossfadeMax", "127")):
+                ET.SubElement(vr, k, attrib={"Value": v})
+
+        branches_el.append(branch)
+
+
 def _extract_device_from_adg(adg_path: str) -> str:
     """Extract the device XML string from a .adg file.
 
-    ADG structure:
-        <Ableton><GroupDevicePreset><Device><DeviceTag Id="0">…</DeviceTag></Device>…
+    ADG rack presets store the rack shell in GroupDevicePreset > Device, and
+    the actual per-branch content in GroupDevicePreset > BranchPresets. We
+    extract the rack shell, reconstruct its Branches from BranchPresets, then
+    serialise the fully-populated device.
 
     Returns the serialised <DeviceTag …>…</DeviceTag> XML string.
     """
@@ -176,6 +340,10 @@ def _extract_device_from_adg(adg_path: str) -> str:
     device = next(iter(dev_wrapper), None)
     if device is None:
         raise ValueError(f"No device element found in {adg_path}")
+
+    # Reconstruct branches from BranchPresets (fills the empty Branches element)
+    _reconstruct_branches_from_adg(gp, device)
+
     device_xml = ET.tostring(device, encoding="unicode")
     # Zero out stale runtime ID references that would cause "Invalid Pointee Id"
     # when Live validates the session at load time. These are repopulated by Live.

@@ -134,3 +134,144 @@ knowledge/sessions/2026-04-25-learnings.md
 ## Next Session Priority
 
 Invoke "Revise the brainstorm" handoff from The Critic to send the brainstorm back to The Alchemist with the critique as brief — the current brainstorm needs structural risk and the Machine's voice needs to arrive earlier and carry more weight.
+
+---
+
+# Session Learnings — 2026-04-25 (Checkpoint 3)
+
+*Active song: Instrumental Convergence — D aeolian @ 72.0 BPM*
+*Checkpoint: ~late session — branch reconstruction fix complete*
+
+## What We Figured Out
+
+- **ADG rack preset `Branches` is always empty — real content is in `BranchPresets`.** The single most blocking bug this session. `GroupDevicePreset > Device > DrumGroupDevice > Branches` has 0 children in every ADG rack file. The actual per-pad/per-zone devices live in a sibling element: `GroupDevicePreset > BranchPresets > [Drum|Instrument]BranchPreset[N] > DevicePresets > AbletonDevicePreset > Device > [inner device]`. This is true for ALL Core Library rack presets (drum racks and instrument racks).
+
+- **DrumBranchPreset's note mapping is in `ZoneSettings`, not `BranchInfo`.** In ADG presets, the pad-to-MIDI-note mapping is stored as `DrumBranchPreset > ZoneSettings > ReceivingNote`. In the session `.als` format, this maps to `DrumBranch > BranchInfo > ReceivingNote`. The element names differ between the ADG and session formats.
+
+- **`InstrumentBranch` uses `ZoneSettings > KeyRange + VelocityRange`, not `BranchInfo`.** Drum branches use `BranchInfo` in session format; instrument rack branches use `ZoneSettings`. This is the core structural divergence between the two rack types.
+
+- **Both branch types use `MidiToAudioDeviceChain` inside `DeviceChain` — not `AudioToAudioDeviceChain`.** Even instrument rack branches (which pass audio signals) use `MidiToAudioDeviceChain`. This was confirmed from the `2Percent.als` reference session.
+
+- **`MixerDevice` template must be included in every branch with all `Id="1"` — `_renumber_ids` handles the rest.** Each `DrumBranch`/`InstrumentBranch` needs a full `MixerDevice` element (volume, pan, routing, speaker). Using `Id="1"` throughout as a placeholder is safe — the `_renumber_ids` pass assigns real unique IDs. Without `MixerDevice`, Live refuses to load the rack.
+
+- **The fix is a new function `_reconstruct_branches_from_adg(gp, device)`** called before serialization in `_extract_device_from_adg`. It detects an empty `Branches` element, iterates `BranchPresets`, builds `DrumBranch`/`InstrumentBranch` elements, and appends them. Tested: Ironman Kit → 16 DrumBranch elements, each with 1 OriginalSimpler, correct ReceivingNote values.
+
+- **The reference session `2Percent.als` is the authoritative structural template for branch XML.** Located at `ableton/sessions/Internal Project/2Percent.als`. Contains populated `DrumGroupDevice` with full 16-branch structure. Used to extract the `MixerDevice` template and verify `DrumBranch`/`InstrumentBranch` child ordering.
+
+## What Failed and Why
+
+- **Extracting `device` from `dev_wrapper` and serializing immediately** → resulted in empty racks. Live loaded the session, showed rack devices in tracks, but all racks had no pads/instruments. Root cause was the empty `Branches` — the rack shell was there, the content was not.
+
+- **Assuming `Branches` inside the ADG `Device` would be populated** → wrong assumption. ADG is a *preset* format, not an *instance* format. Ableton appears to defer branch population to session load time when loading from the library — but `build_session.py` bypasses the library and inlines the device XML, so the `Branches` must be reconstructed manually.
+
+## Decisions Made
+
+| Decision | Reasoning |
+|---|---|
+| Use `copy.deepcopy` for each branch's inner device and MixerDevice | ET elements are mutable — sharing references between branches would cause all branches to point to the same object. `deepcopy` ensures independence. |
+| Default drum pad ReceivingNote = `36 + i` if ZoneSettings is missing | MIDI note 36 = C1 (standard kick position). Sequential assignment upward gives each pad a unique note even if the preset lacks explicit mapping. |
+| InstrumentBranch KeyRange default = full range (0–127) | Instrument rack single-branch presets (Noise Bass, pads) should respond to all notes. Narrowing the key range is the Sound Designer's call, not ours. |
+
+## Correct Configurations / Commands
+
+```bash
+# Smoke test branch reconstruction for any ADG
+python3 -c "
+import xml.etree.ElementTree as ET, sys
+sys.path.insert(0, 'scripts')
+import build_session as bs
+device_xml = bs._extract_device_from_adg('/path/to/Preset.adg')
+root = ET.fromstring(device_xml)
+branches = root.find('Branches')
+print(f'Branches: {len(list(branches))}')
+"
+
+# Full session rebuild (now produces populated racks)
+python3 scripts/build_session.py \
+  --config ableton/m4l/configs/instrumental-convergence-v1.json \
+  --out ableton/sessions/instrumental-convergence_v3.als \
+  --verbose
+```
+
+## Open Questions
+
+- [ ] Live has not confirmed whether the rebuilt v3 session loads without "corrupt" dialog — verify in Live immediately.
+- [ ] TEX_Witness_Vocal is empty (intentional) — Granulator III + Gemini TTS audio still needed.
+- [ ] Scene names still unnamed (7 scenes). Set via Remote Script or manually.
+- [ ] BASS_Interrogator: Noise Bass pitch tracking unverified. Need to confirm before programming D/G# sequence.
+- [ ] DRM_Grid_Perc_7_16: AG Techno Kit loaded but needs reprogramming to 7-step metallic loop.
+
+## Next Session Priority
+
+Confirm v3 session loads with populated racks in Live, then hand off to The Sound Designer to start `BASS_Interrogator` (D + G# tritone sequence) — it is the structural spine of INTERROGATION and nothing else in that section is evaluable until the bass is running.
+
+---
+
+# Session Learnings — 2026-04-25 (Checkpoint 4)
+
+*Active song: Instrumental Convergence — D aeolian @ 72.0 BPM*
+*Checkpoint: end of session — learnings compaction system built*
+
+## What We Figured Out
+
+- **Session learnings were being lost at context compaction — now fixed with a two-tier system.** Raw checkpoints go into `knowledge/sessions/YYYY-MM-DD-learnings.md` (append-only, multiple per session). At session end, `/compact-learnings` distills ALL learnings files into `knowledge/sessions/learnings-digest.md` via Gemini (pro tier). The digest is what the next session reads — not the raw files.
+
+- **`/session-start` Step 0 is now mandatory digest reading.** Before brainstorm, before song-review, before anything else — Copilot reads `learnings-digest.md`. If it doesn't exist, `compact_learnings.py --no-llm` generates a fallback from bullet extraction. If any `*-learnings.md` is newer than the digest, that file is also read. This is the mechanism for cross-session knowledge persistence.
+
+- **`compact_learnings.py` has a freshness check.** It skips regeneration if the digest is <12h old AND no learnings files are newer than it. Use `--force` to override. `--no-llm` skips Gemini and just extracts "What We Figured Out" bullets from each file. `--dry-run` prints without writing.
+
+- **The digest is organized by topic, not by date.** Gemini is instructed to group entries under practical topic headers ("Ableton Session Build", "ADG Preset Format", "Agent Wiring", etc.) and end with a "Critical Rules" section — the 5–7 things that must never be forgotten. This makes it scannable in 30 seconds.
+
+- **`/compact-learnings` is a new prompt** at `.github/prompts/compact-learnings.prompt.md`. It runs the script, reads the digest, verifies the Critical Rules section is correct, and flags anything missing. Should be run at end of any multi-checkpoint session.
+
+## What Failed and Why
+
+- Nothing failed in this work. The design was clear from the start of the task.
+
+## Decisions Made
+
+| Decision | Reasoning |
+|---|---|
+| Gemini `pro` tier for compaction | The digest is a high-stakes synthesis document — it needs to be accurate and well-organized. `fast` tier risks low-quality grouping that wastes more time than it saves. |
+| `--no-llm` fallback as default when API unavailable | A partial digest (raw bullets) is better than no digest. The `/session-start` Step 0 can always generate something even offline. |
+| Digest replaces per-file reading at session start | Raw learnings files grow unboundedly. If `/session-start` read all `*-learnings.md` files every time, the context cost would compound. The digest is the single compact reference. |
+| `knowledge/sessions/learnings-digest.md` as the canonical path | Same directory as the raw files. Named clearly. Referenced by exact path in `copilot-instructions.md` "Always Useful" table. |
+
+## Correct Configurations / Commands
+
+```bash
+# Generate digest with Gemini (end of session)
+python scripts/compact_learnings.py
+
+# Generate without Gemini (offline / CI fallback)
+python scripts/compact_learnings.py --no-llm
+
+# Force regenerate even if digest is fresh
+python scripts/compact_learnings.py --force
+
+# Dry run — print without writing
+python scripts/compact_learnings.py --dry-run
+```
+
+```
+# New prompt location
+.github/prompts/compact-learnings.prompt.md   → invoke as /compact-learnings
+
+# Updated prompt
+.github/prompts/session-start.prompt.md       → Step 0 now reads learnings-digest.md
+
+# Updated instructions
+.github/copilot-instructions.md               → digest in "Always Useful" table
+                                              → /compact-learnings in prompts table
+                                              → updated session-start > note
+```
+
+## Open Questions
+
+- [ ] `/compact-learnings` has not been run with live Gemini yet — `--no-llm` was tested and works, but the actual Gemini synthesis is untested this session. Run at session end to validate.
+- [ ] All session changes are still uncommitted. Should be committed before session close.
+- [ ] TEX_Witness_Vocal, scene names, BASS_Interrogator sequence, DRM_Grid_Perc_7_16 reprogramming — all still open from Checkpoint 3.
+
+## Next Session Priority
+
+Run `/compact-learnings` at the start (to generate the first real Gemini-synthesized digest), then hand off to The Sound Designer for BASS_Interrogator — the D + G# tritone is the spine of the whole arrangement.

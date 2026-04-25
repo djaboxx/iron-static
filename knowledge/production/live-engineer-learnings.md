@@ -100,3 +100,23 @@ device_xml = re.sub(
 **Rule**: New brainstorm blueprint = new track names = `build_session.py`. Modifying devices on an existing session = `generate_als.py`.
 
 ---
+
+## 2026-04-25 — ADG rack presets: `Branches` is always empty — reconstruct from `BranchPresets`
+
+**Context**: Built `instrumental-convergence_v3.als` from blueprint. All drum rack and instrument rack tracks loaded in Live but showed empty racks (no pads, no instruments).
+
+**Root cause**: In ADG rack preset files, `GroupDevicePreset > Device > [DrumGroupDevice|InstrumentGroupDevice] > Branches` is always an empty element (0 children). The actual per-branch device content lives in a sibling element: `GroupDevicePreset > BranchPresets > [Drum|Instrument]BranchPreset[N] > DevicePresets > AbletonDevicePreset > Device > [inner device]`.
+
+**What failed**: `_extract_device_from_adg` returned the rack shell with empty `Branches` — Live loaded the rack with no pads.
+
+**What worked**: Added `_reconstruct_branches_from_adg(gp, device)` that iterates `BranchPresets`, extracts the inner device from each `DevicePresets[0] > Device`, and builds complete `DrumBranch`/`InstrumentBranch` elements with a `MixerDevice` template inside `DeviceChain > MidiToAudioDeviceChain`. For drum racks, `BranchInfo > ReceivingNote` comes from `ZoneSettings > ReceivingNote` on the preset.
+
+**Key structure facts**:
+- `DrumBranchPreset`: `ZoneSettings` has `ReceivingNote`, `SendingNote`, `ChokeGroup`
+- `InstrumentBranch`: needs `ZoneSettings > KeyRange + VelocityRange` (not `BranchInfo`)
+- `MixerDevice` template must use `Id="1"` on all AutomationTarget/Pointee — `_renumber_ids` assigns real unique IDs
+- Both branch types use `DeviceChain > MidiToAudioDeviceChain > Devices` (not AudioToAudioDeviceChain)
+
+**Verification**: Ironman Kit (drum rack) → 16 DrumBranch elements, each with 1 OriginalSimpler device. ReceivingNote correct (e.g. 92).
+
+---

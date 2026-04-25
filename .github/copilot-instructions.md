@@ -195,12 +195,14 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `run-brainstorm` | `/run-brainstorm` | The Alchemist | Runs the weekly Gemini brainstorm (auto-runs feed digest first if needed), writes to `knowledge/brainstorms/`, registers on active song, and proposes the highest-value next action. |
 | `critique-brainstorm` | `/critique-brainstorm` | The Critic | Evaluates the latest brainstorm against the manifesto and active song context. Writes verdict to `knowledge/brainstorms/YYYY-MM-DD-critique.md`. Invoke after `/run-brainstorm`. |
 | `checkpoint` | `/checkpoint` | Copilot | Mid-session snapshot — extracts learnings, decisions, failures, and open questions from the current conversation and writes to `knowledge/sessions/YYYY-MM-DD-learnings.md`. Invoke before context compacts or before switching to a long multi-agent workflow. |
+| `compact-learnings` | `/compact-learnings` | Copilot | Distill all `*-learnings.md` files into a single topic-organized `knowledge/sessions/learnings-digest.md` via Gemini. Run at end of any multi-checkpoint session so the next session starts with a compact reference. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering
 - Switch to an **agent** directly when you want a single focused task without the surrounding workflow
 - `/session-start` at the top of every session. `/session-close` at the end.
 - `/checkpoint` before context fills, before switching agents for long workflows, or any time something hard was figured out.
+- `/compact-learnings` after any session with multiple checkpoints, or when `learnings-digest.md` is more than a day stale.
 
 ---
 
@@ -276,12 +278,13 @@ The more context Copilot has, the more useful it is. Here's what to provide and 
 | `outputs/live_state.json` | Trigger `session-reporter.amxd` in Live | Full track, clip, tempo, scale, device state |
 | `outputs/clips.csv` | Trigger `session-reporter.amxd` or run `extract_midi_clips.py` | MIDI clip inventory for the active song |
 | `database/songs.json` | Already in repo | Active song context — key, scale, BPM, .als path |
-| `knowledge/sessions/YYYY-MM-DD-learnings.md` | Written by `/checkpoint` | What was figured out in recent sessions — root causes, correct configs, decisions made |
+| `knowledge/sessions/learnings-digest.md` | Run `/compact-learnings` | Distilled cross-session knowledge — the compact reference Copilot reads at session start |
+| `knowledge/sessions/YYYY-MM-DD-learnings.md` | Written by `/checkpoint` | Raw checkpoint detail for the current session — read if digest is stale |
 | Current song key, tempo, time signature | Just tell me | Key-aware MIDI generation, scale-correct patterns |
 | What you're hearing / feeling | Describe it in words | Sound design suggestions, arrangement ideas, theory context |
 | Panel state of semi-modular gear | Write it down (VCO tuning, envelope settings, patch cables) | Preset reconstruction, patch sheet docs |
 
-> **At the start of every session**, Copilot should check for recent learnings files in `knowledge/sessions/` (any `*-learnings.md` file from the past 7 days) and read them before doing any substantive work. These files contain hard-won knowledge that should not have to be re-discovered.
+> **At the start of every session**, Copilot must read `knowledge/sessions/learnings-digest.md` (via `/session-start` Step 0) before any substantive work. If the digest is absent or older than the most recent `*-learnings.md` file, run `/compact-learnings` first. This file is the primary mechanism for not re-learning things already solved.
 
 ### For Pattern Work
 | Data | Format | What It Unlocks |
