@@ -30,7 +30,7 @@
     {
       "slug": "rust-protocol",
       "title": "Rust Protocol",
-      "status": "active",
+      "status": "in-progress",
       "als_path": null,
       "key": "A",
       "scale": "phrygian_dominant",
@@ -39,6 +39,19 @@
       "brainstorm_path": "knowledge/brainstorms/2026-04-24.md",
       "notes": "",
       "outputs": []
+    },
+    {
+      "slug": "instrumental-convergence",
+      "title": "Instrumental Convergence",
+      "status": "active",
+      "als_path": "ableton/sessions/instrumental-convergence-v1.als",
+      "key": "D",
+      "scale": "aeolian",
+      "bpm": 72.0,
+      "time_signature": null,
+      "notes": "",
+      "outputs": [],
+      "brainstorm_path": "knowledge/brainstorms/2026-01-instrumental-convergence.md"
     }
   ]
 }

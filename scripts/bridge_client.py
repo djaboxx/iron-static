@@ -150,6 +150,9 @@ class BridgeClient:
             params["track_name"] = track_name
         return self._cmd("find_clip_by_name", params)
 
+    def open_set(self, path):
+        return self._cmd("open_set", {"path": str(path)})
+
     def reporter_dump(self, output_path=None):
         r = self._cmd("get_session_info")
         if r.get("status") != "success":
@@ -218,6 +221,9 @@ def main():
     fn = cl_sub.add_parser("find")
     fn.add_argument("name", type=str)
     fn.add_argument("--on-track", default=None, metavar="TRACK_NAME")
+    os_p = sub.add_parser("open-set")
+    os_p.add_argument("path", type=Path)
+
     rp = sub.add_parser("reporter")
     rp_sub = rp.add_subparsers(dest="action", required=True)
     rp_sub.add_parser("dump").add_argument("output_file", type=Path, nargs="?")
@@ -251,6 +257,8 @@ def main():
             elif args.action == "info":     _print_result(b.clip_info(args.track, args.slot))
             elif args.action == "set-name": _print_result(b.clip_set_name(args.track, args.slot, args.name))
             elif args.action == "find":     _print_result(b.clip_find_by_name(args.name, getattr(args, "on_track", None)))
+        elif args.group == "open-set":
+            _print_result(b.open_set(args.path.resolve()))
         elif args.group == "reporter":
             out = str(args.output_file) if getattr(args, "output_file", None) else None
             _print_result(b.reporter_dump(out))

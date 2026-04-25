@@ -68,3 +68,4 @@ terraform/gcs.tfbackend
 
 # Logs
 *.log
+database/iron_static.db

@@ -39,6 +39,8 @@ log = logging.getLogger(__name__)
 
 LEARNED_DIR = Path("midi/patterns/learned")
 GENERATED_DIR = Path("midi/patterns/generated")
+PACKS_DIR = Path("midi/patterns/learned/packs")
+REFERENCES_DIR = Path("midi/patterns/learned/references")
 
 # --------------------------------------------------------------------------
 # Pattern analysis
@@ -298,6 +300,318 @@ def generate_from_profile(profile: dict, variation_seed: int | None = None) -> l
 
 
 # --------------------------------------------------------------------------
+# .mid file parser (for learn-file and learn-packs)
+# --------------------------------------------------------------------------
+
+def parse_mid_file(mid_path: Path) -> dict:
+    """Parse a standard .mid file into our clip note format.
+
+    Merges all tracks, returns:
+        {"notes": [...], "bpm": float, "clip_length": float}
+    where clip_length is in beats.
+    """
+    try:
+        import mido
+    except ImportError:
+        log.error("mido not installed. Run: pip install mido")
+        raise
+
+    mid = mido.MidiFile(str(mid_path))
+    ticks_per_beat = mid.ticks_per_beat
+
+    # Extract tempo from first set_tempo message across all tracks
+    tempo = 500000  # default = 120 BPM
+    for track in mid.tracks:
+        for msg in track:
+            if msg.type == "set_tempo":
+                tempo = msg.tempo
+                break
+
+    bpm = round(60_000_000 / tempo, 2)
+
+    # Merge all tracks into a single note list
+    notes = []
+    for track in mid.tracks:
+        abs_tick = 0
+        active = {}  # (channel, note) -> (start_beats, velocity)
+        for msg in track:
+            abs_tick += msg.time
+            start_beats = abs_tick / ticks_per_beat
+            if msg.type == "note_on" and msg.velocity > 0:
+                active[(msg.channel, msg.note)] = (start_beats, msg.velocity)
+            elif msg.type == "note_off" or (msg.type == "note_on" and msg.velocity == 0):
+                key = (msg.channel, msg.note)
+                if key in active:
+                    s, vel = active.pop(key)
+                    dur = start_beats - s
+                    if dur < 0.001:
+                        dur = 0.125  # default short note if malformed
+                    notes.append({
+                        "pitch": msg.note,
+                        "start_time": round(s, 4),
+                        "duration": round(dur, 4),
+                        "velocity": vel,
+                    })
+
+    # Clip length: use the MIDI file length (seconds → beats)
+    file_length_beats = mid.length * bpm / 60.0
+    if not file_length_beats or file_length_beats < 0.01:
+        file_length_beats = max(
+            (n["start_time"] + n["duration"] for n in notes),
+            default=4.0,
+        )
+    # Round to nearest bar (4 beats)
+    clip_length = max(4.0, round(file_length_beats / 4.0) * 4.0)
+
+    return {"notes": notes, "bpm": bpm, "clip_length": clip_length}
+
+
+def parse_alc_file(alc_path: Path) -> dict:
+    """Parse an Ableton Live Clip (.alc) file into our clip note format.
+
+    .alc files are gzip-compressed XML.  Notes live in <KeyTracks> where each
+    <KeyTrack> carries a <MidiKey Value="N"/> (MIDI pitch) and <Notes> with
+    <MidiNoteEvent Time="..." Duration="..." Velocity="..."/> children.
+    Clip length comes from <Loop><LoopEnd Value="N"/></Loop> (in beats).
+    Tempo from <Tempo><Manual Value="N"/></Tempo>.
+    """
+    import gzip
+    import xml.etree.ElementTree as ET
+
+    with gzip.open(str(alc_path), 'rb') as f:
+        xml_bytes = f.read()
+
+    root = ET.fromstring(xml_bytes)
+
+    # Tempo
+    bpm = 120.0
+    tempo_el = root.find('.//Tempo/Manual')
+    if tempo_el is not None:
+        try:
+            bpm = float(tempo_el.get('Value', 120.0))
+        except (TypeError, ValueError):
+            pass
+
+    # Clip length from Loop
+    clip_length = 4.0
+    loop_end = root.find('.//Loop/LoopEnd')
+    if loop_end is not None:
+        try:
+            clip_length = float(loop_end.get('Value', 4.0))
+        except (TypeError, ValueError):
+            pass
+    if clip_length < 0.01:
+        clip_length = 4.0
+
+    # Notes from KeyTracks
+    notes = []
+    for key_track in root.findall('.//KeyTrack'):
+        midi_key_el = key_track.find('MidiKey')
+        if midi_key_el is None:
+            continue
+        try:
+            pitch = int(midi_key_el.get('Value', 60))
+        except (TypeError, ValueError):
+            continue
+        for ev in key_track.findall('.//MidiNoteEvent'):
+            enabled = ev.get('IsEnabled', 'true')
+            if enabled.lower() == 'false':
+                continue
+            try:
+                start = float(ev.get('Time', 0))
+                dur = float(ev.get('Duration', 0.125))
+                vel = int(float(ev.get('Velocity', 64)))
+            except (TypeError, ValueError):
+                continue
+            notes.append({
+                'pitch': pitch,
+                'start_time': round(start, 4),
+                'duration': round(max(dur, 0.001), 4),
+                'velocity': max(1, min(127, vel)),
+            })
+
+    notes.sort(key=lambda n: n['start_time'])
+    return {'notes': notes, 'bpm': bpm, 'clip_length': clip_length}
+
+
+def parse_als_file(als_path: Path) -> list[dict]:
+    """Parse an Ableton Live Set (.als) and return all MIDI clips as a list.
+
+    Each entry:
+        {
+            "track_name": str,
+            "clip_name":  str,
+            "notes":      [...],
+            "bpm":        float,
+            "clip_length": float,
+        }
+
+    Only clips that contain at least one enabled note are included.
+    """
+    import gzip
+    import xml.etree.ElementTree as ET
+
+    with gzip.open(str(als_path), 'rb') as f:
+        xml_bytes = f.read()
+
+    root = ET.fromstring(xml_bytes)
+
+    # Global tempo (used when a clip has no per-clip tempo override)
+    bpm = 120.0
+    tempo_el = root.find('.//Tempo/Manual')
+    if tempo_el is not None:
+        try:
+            bpm = float(tempo_el.get('Value', 120.0))
+        except (TypeError, ValueError):
+            pass
+
+    clips = []
+
+    live_set = root.find('LiveSet')
+    tracks_node = live_set.find('Tracks') if live_set is not None else root.find('.//Tracks')
+    if tracks_node is None:
+        return clips
+
+    for track in tracks_node:
+        if track.tag != 'MidiTrack':
+            continue
+
+        name_el = track.find('Name/EffectiveName')
+        track_name = name_el.get('Value', '') if name_el is not None else ''
+
+        # Clips live inside ClipSlotList/ClipSlot/ClipSlot/MidiClip
+        # OR ArrangementClips/MidiClip (arrangement view)
+        midi_clips = list(track.findall('.//MidiClip'))
+
+        for mc in midi_clips:
+            # Clip name
+            cn_el = mc.find('Name')
+            clip_name = cn_el.get('Value', '') if cn_el is not None else ''
+
+            # Clip length from Loop
+            clip_length = bpm  # fallback
+            loop_end = mc.find('Loop/LoopEnd')
+            if loop_end is not None:
+                try:
+                    clip_length = float(loop_end.get('Value', 4.0))
+                except (TypeError, ValueError):
+                    clip_length = 4.0
+            else:
+                clip_length = 4.0
+            if clip_length < 0.01:
+                clip_length = 4.0
+
+            # Notes
+            notes = []
+            for key_track in mc.findall('.//KeyTrack'):
+                midi_key_el = key_track.find('MidiKey')
+                if midi_key_el is None:
+                    continue
+                try:
+                    pitch = int(midi_key_el.get('Value', 60))
+                except (TypeError, ValueError):
+                    continue
+                for ev in key_track.findall('.//MidiNoteEvent'):
+                    if ev.get('IsEnabled', 'true').lower() == 'false':
+                        continue
+                    try:
+                        start = float(ev.get('Time', 0))
+                        dur = float(ev.get('Duration', 0.125))
+                        vel = int(float(ev.get('Velocity', 64)))
+                    except (TypeError, ValueError):
+                        continue
+                    notes.append({
+                        'pitch': pitch,
+                        'start_time': round(start, 4),
+                        'duration': round(max(dur, 0.001), 4),
+                        'velocity': max(1, min(127, vel)),
+                    })
+
+            if not notes:
+                continue
+
+            notes.sort(key=lambda n: n['start_time'])
+            clips.append({
+                'track_name': track_name,
+                'clip_name': clip_name,
+                'notes': notes,
+                'bpm': bpm,
+                'clip_length': clip_length,
+            })
+
+    return clips
+
+
+def cmd_learn_session(args):
+    """Extract MIDI clips from an .als session file and learn them all."""
+    als_path = Path(args.file)
+    if not als_path.exists():
+        log.error("File not found: %s", als_path)
+        sys.exit(1)
+
+    out_dir = REFERENCES_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    session_tag = getattr(args, "tag", None) or als_path.stem
+    log.info("Parsing %s …", als_path)
+
+    try:
+        clip_list = parse_als_file(als_path)
+    except Exception as e:
+        log.error("Failed to parse %s: %s", als_path.name, e)
+        sys.exit(1)
+
+    if not clip_list:
+        print(f"No MIDI clips with notes found in {als_path.name}")
+        return
+
+    print(f"Found {len(clip_list)} MIDI clip(s) in '{als_path.stem}'. Learning …\n")
+    saved = 0
+    skipped = 0
+    song = _active_song()
+
+    for i, clip in enumerate(clip_list):
+        track_name = clip['track_name'] or f"track{i}"
+        clip_name = clip['clip_name'] or f"clip{i}"
+        tag = f"{session_tag} / {track_name} / {clip_name}"
+
+        safe_tag = (
+            tag.replace("/", "-").replace("\\", "-")
+               .replace(" ", "_").replace(":", "")[:80]
+        )
+        out_path = out_dir / f"{safe_tag}.json"
+
+        if out_path.exists() and not getattr(args, "force", False):
+            log.debug("Already learned, skipping: %s", out_path.name)
+            skipped += 1
+            continue
+
+        clip_data = {
+            "notes": clip["notes"],
+            "clip_length": clip["clip_length"],
+            "clip_name": tag,
+        }
+        song_meta = {
+            "slug": session_tag,
+            "bpm": clip["bpm"],
+            "key": song.get("key", "?"),
+            "scale": song.get("scale", "?"),
+        }
+
+        profile = build_profile(0, 0, tag, clip_data, song_meta)
+        profile["source"]["song"] = session_tag
+        profile["source"]["track_name"] = track_name
+        profile["source"]["clip_name"] = clip_name
+        profile["source"]["als_file"] = str(als_path)
+
+        out_path.write_text(json.dumps(profile, indent=2))
+        print(f"  learned: {out_path.name}  ({len(clip['notes'])} notes)")
+        saved += 1
+
+    print(f"\n{saved} profile(s) saved to {out_dir}/  |  {skipped} skipped")
+
+
+# --------------------------------------------------------------------------
 # Active song context
 # --------------------------------------------------------------------------
 
@@ -491,6 +805,137 @@ def cmd_show(args):
     print(f"\n({d['meta']['note_count']} notes stored)")
 
 
+def cmd_learn_file(args):
+    """Analyze a .mid file on disk and save a pattern profile."""
+    mid_path = Path(args.file)
+    if not mid_path.exists():
+        log.error("File not found: %s", mid_path)
+        sys.exit(1)
+
+    subdir = getattr(args, "subdir", None) or "packs"
+    out_dir = PACKS_DIR if subdir == "packs" else REFERENCES_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    tag = getattr(args, "tag", None) or mid_path.stem
+    # Sanitize tag for filesystem
+    safe_tag = tag.replace("/", "-").replace("\\", "-").replace(" ", "_")[:60]
+
+    log.info("Parsing %s …", mid_path)
+    parsed = parse_mid_file(mid_path)
+
+    song = _active_song()
+    clip_data = {
+        "notes": parsed["notes"],
+        "clip_length": parsed["clip_length"],
+        "clip_name": tag,
+    }
+    source_bpm = parsed["bpm"]
+    song_meta = {
+        "slug": safe_tag,
+        "bpm": source_bpm,
+        "key": song.get("key", "?"),
+        "scale": song.get("scale", "?"),
+    }
+
+    profile = build_profile(0, 0, tag, clip_data, song_meta)
+    # Overwrite slug with the tag name so it's meaningful
+    profile["source"]["song"] = subdir
+    profile["source"]["track_name"] = tag
+    profile["source"]["mid_file"] = str(mid_path)
+
+    fname = f"{safe_tag}.json"
+    out_path = out_dir / fname
+    out_path.write_text(json.dumps(profile, indent=2))
+    print(f"learned: {out_path}  ({len(parsed['notes'])} notes, {profile['rhythm']['density']:.0%} density, {source_bpm} BPM)")
+
+
+def cmd_learn_packs(args):
+    """Scan Ableton Pack directories for .mid files and learn them all."""
+    import os
+
+    pack_roots = []
+    if getattr(args, "pack_dir", None):
+        pack_roots.append(Path(args.pack_dir))
+    else:
+        default = Path.home() / "Music" / "Ableton" / "Packs"
+        user_lib = Path.home() / "Music" / "Ableton" / "User Library"
+        if default.exists():
+            pack_roots.append(default)
+        if user_lib.exists():
+            pack_roots.append(user_lib)
+
+    if not pack_roots:
+        log.error("No pack directories found. Specify --pack-dir explicitly.")
+        sys.exit(1)
+
+    PACKS_DIR.mkdir(parents=True, exist_ok=True)
+
+    found = []
+    for root in pack_roots:
+        for p in root.rglob("*.mid"):
+            found.append(p)
+        for p in root.rglob("*.MID"):
+            found.append(p)
+        for p in root.rglob("*.alc"):
+            found.append(p)
+        for p in root.rglob("*.ALC"):
+            found.append(p)
+
+    if not found:
+        print(f"No .mid/.alc files found under {', '.join(str(r) for r in pack_roots)}")
+        return
+
+    print(f"Found {len(found)} clip file(s) (.mid + .alc). Learning …\n")
+    saved = 0
+    skipped = 0
+    for clip_path in found:
+        # Build a descriptive tag from pack name + file name
+        parts = clip_path.parts
+        try:
+            pack_idx = next(i for i, p in enumerate(parts) if "Packs" in p or "User Library" in p)
+            tag_parts = parts[pack_idx + 1:]
+        except StopIteration:
+            tag_parts = parts[-2:]
+
+        suffix = clip_path.suffix.lower()
+        tag = " / ".join(tag_parts)
+        for ext in (".mid", ".MID", ".alc", ".ALC"):
+            tag = tag.replace(ext, "")
+
+        try:
+            if suffix == ".alc":
+                parsed = parse_alc_file(clip_path)
+            else:
+                parsed = parse_mid_file(clip_path)
+        except Exception as e:
+            log.debug("Skip %s — parse error: %s", clip_path.name, e)
+            skipped += 1
+            continue
+
+        if not parsed["notes"]:
+            log.debug("Skip %s — no notes", clip_path.name)
+            skipped += 1
+            continue
+
+        safe_tag = tag.replace("/", "-").replace("\\", "-").replace(" ", "_")[:80]
+        out_path = PACKS_DIR / f"{safe_tag}.json"
+        if out_path.exists() and not getattr(args, "force", False):
+            log.debug("Already learned, skipping: %s", out_path.name)
+            skipped += 1
+            continue
+
+        clip_data = {"notes": parsed["notes"], "clip_length": parsed["clip_length"], "clip_name": tag}
+        profile = build_profile(0, 0, tag, clip_data, {"slug": "packs", "bpm": parsed["bpm"], "key": "?", "scale": "?"})
+        profile["source"]["song"] = "packs"
+        profile["source"]["track_name"] = tag
+        profile["source"]["mid_file"] = str(clip_path)
+        out_path.write_text(json.dumps(profile, indent=2))
+        print(f"  learned: {out_path.name}  ({len(parsed['notes'])} notes)")
+        saved += 1
+
+    print(f"\n{saved} profile(s) saved to {PACKS_DIR}/  |  {skipped} skipped")
+
+
 # --------------------------------------------------------------------------
 # Entry point
 # --------------------------------------------------------------------------
@@ -533,6 +978,29 @@ def main():
     shw = sub.add_parser("show", help="Inspect a learned profile")
     shw.add_argument("--profile", required=True, metavar="PROFILE_JSON")
 
+    # learn-file
+    lf = sub.add_parser("learn-file", help="Learn a pattern from a .mid file on disk")
+    lf.add_argument("--file", required=True, metavar="PATH", help="Path to .mid file")
+    lf.add_argument("--tag", default=None, metavar="NAME",
+                    help="Descriptive name for this pattern (defaults to filename stem)")
+    lf.add_argument("--subdir", choices=["packs", "references"], default="packs",
+                    help="Sub-directory to store the profile in (default: packs)")
+
+    # learn-packs
+    lp = sub.add_parser("learn-packs", help="Scan Ableton packs for .mid/.alc files and learn them all")
+    lp.add_argument("--pack-dir", default=None, metavar="DIR",
+                    help="Override pack directory (default: ~/Music/Ableton/Packs/)")
+    lp.add_argument("--force", action="store_true",
+                    help="Re-learn files that already have a profile")
+
+    # learn-session
+    ls_ = sub.add_parser("learn-session", help="Extract and learn all MIDI clips from an Ableton .als file")
+    ls_.add_argument("--file", required=True, metavar="PATH", help="Path to .als session file")
+    ls_.add_argument("--tag", default=None, metavar="NAME",
+                     help="Session label (defaults to filename stem)")
+    ls_.add_argument("--force", action="store_true",
+                     help="Re-learn clips that already have a profile")
+
     args = p.parse_args()
     if getattr(args, "verbose", False):
         logging.getLogger().setLevel(logging.DEBUG)
@@ -545,6 +1013,12 @@ def main():
         cmd_list(args)
     elif args.command == "show":
         cmd_show(args)
+    elif args.command == "learn-file":
+        cmd_learn_file(args)
+    elif args.command == "learn-packs":
+        cmd_learn_packs(args)
+    elif args.command == "learn-session":
+        cmd_learn_session(args)
 
 
 if __name__ == "__main__":

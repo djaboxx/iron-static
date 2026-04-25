@@ -1,0 +1,63 @@
+{
+  "song_slug": "instrumental-convergence",
+  "source_file": "/Users/darnold/git/iron-static/audio/generated/instrumental-convergence_angel-choir-texture-female-voices-sacredhymnal-d-minor_2026-04-24.mp3",
+  "date": "2026-04-24",
+  "rack_name": "instrumental-convergence-angel-choir-v1",
+  "adg_path": "/Users/darnold/git/iron-static/ableton/racks/instrumental-convergence-angel-choir-v1.adg",
+  "slices_dir": "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24",
+  "gemini_model": "gemini-2.5-flash",
+  "chop_strategy": "Isolating moments of extreme harmonic tension, textural rupture, and the uncanny integration of sacred choir with abrasive electronic elements.",
+  "duration_seconds": 30.0,
+  "chops": [
+    {
+      "start": 0.0,
+      "end": 2.5,
+      "reason": "Initial dissonant wash, establishing the sacred-but-wrong tone"
+    },
+    {
+      "start": 3.8,
+      "end": 5.5,
+      "reason": "A jarring harmonic cluster, peaking in dissonant density, unsettling and unresolved"
+    },
+    {
+      "start": 5.8,
+      "end": 7.0,
+      "reason": "Abrupt sonic void and density drop, creating a feeling of suspension before a textural rupture"
+    },
+    {
+      "start": 9.0,
+      "end": 11.0,
+      "reason": "Introduction of abrasive, glitchy rhythmic static, disrupting the choir's purity"
+    },
+    {
+      "start": 13.0,
+      "end": 15.0,
+      "reason": "Choir's struggle against increasing static, a spectral battle where purity is obscured"
+    },
+    {
+      "start": 20.0,
+      "end": 22.5,
+      "reason": "Sudden, violent percussive impact disrupting the choir, leaving a dissonant, reverberant tail"
+    },
+    {
+      "start": 23.5,
+      "end": 26.0,
+      "reason": "The choir's transformation into a wailing, driving component within a newly established groove"
+    },
+    {
+      "start": 27.5,
+      "end": 30.0,
+      "reason": "A final, sustained surge of choir dissonance integrated with the full production density"
+    }
+  ],
+  "slices": [
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_01_3.800s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_02_5.800s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_03_9.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_04_13.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_05_20.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_06_23.500s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/instrumental-convergence_instrumental-convergence-angel-choir-texture-female-voices-sacredhymnal-d-minor-2026-04-24_2026-04-24/slice_07_27.500s.wav"
+  ]
+}

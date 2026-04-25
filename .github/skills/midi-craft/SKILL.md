@@ -92,6 +92,77 @@ TRACK 2 — Snare:
   ...
 ```
 
+## Using Reference Profiles to Inform Pattern Design
+
+Before designing a new pattern from scratch, check if reference profiles exist. These are rhythm, pitch, and velocity profiles extracted from real MIDI files — either from Ableton packs or downloaded from reference tracks named in the brainstorm.
+
+### Step 1 — Check what profiles exist
+
+```bash
+# List all reference profiles (from fetch_reference_midi.py + pattern_learn.py)
+ls midi/patterns/learned/references/
+
+# List all pack profiles (from pattern_learn.py learn-packs)
+ls midi/patterns/learned/packs/
+
+# Inspect any profile
+/Users/darnold/venv/bin/python3 scripts/pattern_learn.py show \
+    --profile midi/patterns/learned/references/HEALTH_-_STONEFIST.json
+```
+
+A profile contains:
+- `rhythm.density` — how full the grid is (0–100%)
+- `rhythm.grid` — dominant note grid (16th, 8th, quarter)
+- `rhythm.euclidean_approx` — [hits, steps] (e.g. [5, 16] = Euclidean 5-in-16)
+- `rhythm.swing_ratio` — amount of swing detected
+- `pitch.notes_used` — pitch set (MIDI note numbers)
+- `pitch.is_melodic` — true if range > 2 semitones
+- `velocity.mean` + `velocity.std` — dynamic range statistics
+
+### Step 2 — Read the profile and use it as a constraint
+
+When the profile shows:
+- `density=87%, grid=16th, euclidean_approx=[11,16]` → design a packed 16th-note pattern with ~11 hits per bar
+- `velocity.std=22` → strong velocity variation, don't use flat velocities
+- `pitch.notes_used=[45,48,50,52]` → the reference uses A2, C3, D3, E3 — consider the same register
+
+**You are not copying the pattern. You are matching its energy profile to a new IRON STATIC pattern.**
+
+### Step 3 — Build the pack + reference MIDI library (first time only)
+
+```bash
+# Learn MIDI from all installed Ableton packs
+/Users/darnold/venv/bin/python3 scripts/pattern_learn.py learn-packs
+
+# Generate reference digest (writes both .md and .json sidecar)
+/Users/darnold/venv/bin/python3 scripts/run_reference_digest.py
+
+# Download MIDI for the reference tracks in the digest and learn them
+/Users/darnold/venv/bin/python3 scripts/fetch_reference_midi.py
+```
+
+After the next brainstorm runs:
+```bash
+# Brainstorm generates a .json sidecar with Section 7 reference tracks
+/Users/darnold/venv/bin/python3 scripts/run_brainstorm.py
+
+# Fetch MIDI for the brainstorm's specific reference tracks
+/Users/darnold/venv/bin/python3 scripts/fetch_reference_midi.py \
+    --digest knowledge/brainstorms/YYYY-MM-DD.json
+```
+
+### How profiles connect to generation
+
+The Theorist reads profiles as **density and vocabulary targets**, not as templates. Use the profile stats to answer:
+- "How many hits per bar should this groove have?" → match `rhythm.density`
+- "How wide should the velocity range be?" → match `velocity.std`  
+- "What register?" → match `pitch.notes_used` range
+- "16th or 8th note feel?" → match `rhythm.grid`
+
+Then design a new pattern that fits those targets in the active song's key/scale/BPM.
+
+---
+
 ## Usage
 
 ### Theorist design phase (this skill)

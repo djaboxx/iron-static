@@ -1,0 +1,256 @@
+{
+  "source": {
+    "song": "Ventura",
+    "track_index": 0,
+    "track_name": "4-Battu Kit",
+    "slot_index": 0,
+    "clip_name": "clip1",
+    "als_file": "/Users/darnold/MusicScraps/Ventura Project/Ventura.als"
+  },
+  "meta": {
+    "bpm": 92.0,
+    "key": "D",
+    "scale": "aeolian",
+    "length_beats": 4.0,
+    "note_count": 19
+  },
+  "rhythm": {
+    "density": 1.875,
+    "hit_positions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.0,
+      1.5,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.0,
+      3.25,
+      3.5,
+      3.5,
+      3.75,
+      3.75
+    ],
+    "ioi": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.0,
+      0.5,
+      0.0,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.0,
+      0.25,
+      0.0,
+      0.25
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      16,
+      16
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      38,
+      40,
+      42,
+      43,
+      45
+    ],
+    "intervals": [
+      0,
+      4,
+      4,
+      2,
+      5,
+      7,
+      4,
+      4,
+      6,
+      6,
+      4,
+      2,
+      2,
+      0,
+      4,
+      3,
+      7,
+      9
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 9,
+    "pitch_distribution": {
+      "36": 9,
+      "40": 4,
+      "38": 2,
+      "43": 2,
+      "42": 1,
+      "45": 1
+    }
+  },
+  "velocity": {
+    "mean": 67.5,
+    "variance": 401.6,
+    "std": 20.0,
+    "accents": [
+      0,
+      6,
+      13
+    ],
+    "profile": [
+      100,
+      41,
+      75,
+      46,
+      46,
+      75,
+      100,
+      75,
+      41,
+      75,
+      46,
+      75,
+      75,
+      100,
+      41,
+      75,
+      75,
+      46,
+      75
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 36,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 36,
+      "start_time": 0.25,
+      "duration": 0.25,
+      "velocity": 41
+    },
+    {
+      "pitch": 40,
+      "start_time": 0.5,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 0.75,
+      "duration": 0.25,
+      "velocity": 46
+    },
+    {
+      "pitch": 38,
+      "start_time": 1.0,
+      "duration": 0.125,
+      "velocity": 46
+    },
+    {
+      "pitch": 43,
+      "start_time": 1.0,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 40,
+      "start_time": 1.5,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.75,
+      "duration": 0.25,
+      "velocity": 41
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.0,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 2.25,
+      "duration": 0.25,
+      "velocity": 46
+    },
+    {
+      "pitch": 40,
+      "start_time": 2.5,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 38,
+      "start_time": 2.75,
+      "duration": 0.25,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.25,
+      "duration": 0.25,
+      "velocity": 41
+    },
+    {
+      "pitch": 40,
+      "start_time": 3.5,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 43,
+      "start_time": 3.5,
+      "duration": 0.125,
+      "velocity": 75
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 46
+    },
+    {
+      "pitch": 45,
+      "start_time": 3.75,
+      "duration": 0.125,
+      "velocity": 75
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 ---
 name: The Alchemist
 description: Gemini audio generation specialist for IRON STATIC. Translates active song context into structured audio specs, prompts for Suno/Udio/Lyria, and optionally generates audio via the Lyria API. Evaluates results and catalogs them for use in the session.
-tools: [search/codebase, read/problems, edit/editFiles, terminal]
+tools: [search/codebase, read/problems, edit/editFiles, execute, execute/createAndRunTask, execute/runInTerminal, web/fetch, agent, todo]
+agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 handoffs:
   - label: Evaluate this audio
     agent: The Critic

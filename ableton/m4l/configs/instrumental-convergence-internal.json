@@ -1,0 +1,70 @@
+{
+  "name": "Instrumental Convergence",
+  "bpm": 72,
+  "key": "D",
+  "scale": "aeolian",
+  "scenes": 5,
+  "scene_names": [
+    "INITIALIZATION 72bpm",
+    "CHOIR ENTRY 72bpm",
+    "CONVERGENCE 72bpm",
+    "ALIGNMENT FAILURE 72bpm",
+    "GLOBAL MINIMUM 72bpm"
+  ],
+  "tracks": [
+    {
+      "name": "Sub Drone",
+      "device": "808 Drifter",
+      "color": 4,
+      "notes": "Low D drone — machine booting. Drift-based, monophonic, long release. The sub-process you can't shut down."
+    },
+    {
+      "name": "Bass Voice",
+      "device": "Analog Bass",
+      "color": 5,
+      "notes": "D Aeolian grounded bass. Filter closes over track duration. Heavy saturation — Brute Factor analog."
+    },
+    {
+      "name": "Choir Pads",
+      "device": "Choiriffic",
+      "color": 8,
+      "notes": "Warm choral-analog pad, D minor. Slightly detuned. The sacred voice — present before the machine noise takes over."
+    },
+    {
+      "name": "Choir Chops",
+      "device": "ableton/racks/instrumental-convergence-angel-choir-v1.adg",
+      "color": 9,
+      "notes": "Angel choir sample drum rack. Triggered as rhythmic events — resequenced by the machine into something wrong."
+    },
+    {
+      "name": "Harmonic Cloud",
+      "device": "Drifting Interferences",
+      "color": 7,
+      "notes": "Destabilized harmonic layer. Drift-based, pitch eroding. Rev2 Layer B analog — the optimization function working."
+    },
+    {
+      "name": "Intelligence Layer",
+      "device": "pigments",
+      "color": 12,
+      "notes": "Harmonic/Modal engine. Microtonal drift — slightly off D Aeolian. The misalignment. Gets louder as track progresses."
+    },
+    {
+      "name": "Mellow Pad",
+      "device": "ableton/racks/instrumental-convergence-mellow-pad-v1.adg",
+      "color": 6,
+      "notes": "Cold neural static. Slow attack, evolving. Intelligence without consciousness."
+    },
+    {
+      "name": "Neural Static",
+      "device": "Dark Swarm",
+      "color": 3,
+      "notes": "Machine noise texture layer. Builds through CONVERGENCE and dominates by ALIGNMENT FAILURE."
+    },
+    {
+      "name": "Percussion",
+      "device": "MPE Meld Kit",
+      "color": 2,
+      "notes": "Event-based industrial hits. Not groove — system warnings. Meld-based metallic resonance, long decay."
+    }
+  ]
+}

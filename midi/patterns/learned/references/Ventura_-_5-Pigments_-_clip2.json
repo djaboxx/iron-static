@@ -1,0 +1,130 @@
+{
+  "source": {
+    "song": "Ventura",
+    "track_index": 0,
+    "track_name": "5-Pigments",
+    "slot_index": 0,
+    "clip_name": "clip2",
+    "als_file": "/Users/darnold/MusicScraps/Ventura Project/Ventura.als"
+  },
+  "meta": {
+    "bpm": 92.0,
+    "key": "D",
+    "scale": "aeolian",
+    "length_beats": 4.0,
+    "note_count": 7
+  },
+  "rhythm": {
+    "density": 0.438,
+    "hit_positions": [
+      0.0,
+      0.0833,
+      0.4167,
+      0.5,
+      2.5,
+      2.5833,
+      3.0
+    ],
+    "ioi": [
+      0.0833,
+      0.3334,
+      0.0833,
+      2.0,
+      0.0833,
+      0.4167,
+      1.0
+    ],
+    "grid": "16th",
+    "euclidean_approx": [
+      7,
+      16
+    ],
+    "swing_ratio": 1.667
+  },
+  "pitch": {
+    "notes_used": [
+      67,
+      70,
+      72,
+      74,
+      79
+    ],
+    "intervals": [
+      3,
+      5,
+      2,
+      0,
+      5,
+      12
+    ],
+    "register": "high",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "70": 1,
+      "67": 2,
+      "72": 1,
+      "74": 2,
+      "79": 1
+    }
+  },
+  "velocity": {
+    "mean": 75.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 70,
+      "start_time": 0.0,
+      "duration": 0.0833,
+      "velocity": 75
+    },
+    {
+      "pitch": 67,
+      "start_time": 0.0833,
+      "duration": 0.0833,
+      "velocity": 75
+    },
+    {
+      "pitch": 72,
+      "start_time": 0.4167,
+      "duration": 0.0833,
+      "velocity": 75
+    },
+    {
+      "pitch": 74,
+      "start_time": 0.5,
+      "duration": 0.0833,
+      "velocity": 75
+    },
+    {
+      "pitch": 74,
+      "start_time": 2.5,
+      "duration": 0.1667,
+      "velocity": 75
+    },
+    {
+      "pitch": 79,
+      "start_time": 2.5833,
+      "duration": 0.0833,
+      "velocity": 75
+    },
+    {
+      "pitch": 67,
+      "start_time": 3.0,
+      "duration": 0.0833,
+      "velocity": 75
+    }
+  ]
+}

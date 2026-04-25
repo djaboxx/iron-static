@@ -14,6 +14,7 @@ Usage:
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -36,14 +37,11 @@ Core influences: Nine Inch Nails (industrial texture), Lamb of God (groove-metal
 One Day as a Lion (two-member urgency), Modeselector (Berlin electronic bass pressure),
 Run The Jewels (fast, political, punchy), Dr. Teeth and the Electric Mayhem (joyful chaos).
 
-The rig:
-- Elektron Digitakt MK1 — drum machine, sampler, MIDI sequencer hub (8 audio + 8 MIDI tracks)
-- Sequential Rev2 — 16-voice polyphonic analog (bi-timbral, Curtis filter), MIDI ch 2/3
-- Sequential Take 5 — compact 5-voice analog poly (punchy chords, tight leads), MIDI ch 4
-- Moog Subharmonicon — semi-modular polyrhythmic drone (2 VCOs, 4 subharmonic oscs), MIDI ch 5
-- Moog DFAM — analog percussion synth (8-step seq, Moog ladder filter), MIDI ch 6
-- Arturia Minibrute 2S — patchable mono synth + step sequencer (Steiner-Parker, Brute Factor), MIDI ch 7
-- Arturia Pigments — software poly (Wavetable + Analog + Sample engines, 4 Macros), MIDI ch 8
+IMPORTANT — brainstorms are hardware-agnostic. Describe WHAT sounds should exist and WHY
+they serve the song. Do NOT name specific instruments or synths (no "use the Rev2" or
+"Digitakt track 3"). Use sonic role language instead: "a grinding low drone", "an industrial
+percussion hit with long metallic decay", "a cold evolving pad", "a sampled noise texture".
+The Sound Designer and Live Engineer will decide HOW to make those sounds happen.
 
 """
 
@@ -52,37 +50,96 @@ BRAINSTORM_PROMPT_TEMPLATE = """\
 {manifesto_block}
 {song_block}
 {reference_block}
-Generate a weekly creative brainstorm document with exactly these five sections.
-Keep it concrete and physical — every suggestion must be immediately actionable on the hardware listed above.
+Generate a weekly creative brainstorm document with exactly these six sections.
+
+CRITICAL RULES:
+- Sections 1–4 must be hardware-agnostic. Describe sounds by their role and character,
+  never by which physical instrument makes them (no Rev2, Digitakt, DFAM, Minibrute, etc.).
+  Wrong: "the Rev2 plays a detuned pad"
+  Right: "a detuned polyphonic pad — wide stereo, slow attack, unstable pitch drift"
+- Section 6 (Session Blueprint) is the structured output that Ableton tools will parse —
+  this is the exception where sonic roles get mapped to track names and sound categories.
 
 ## 1. Song Idea
 A concept or direction for a new track (or if a song is active, an evolution of it).
-Include: working title, mood in 3 adjectives, key/scale suggestion with rationale,
-tempo range in BPM, which 3–4 instruments to feature prominently, and one unexpected
-element that would make it distinctly IRON STATIC rather than generic.
+Include: working title, mood in 3 adjectives, key/scale with rationale, tempo range in BPM,
+and one unexpected element that makes it distinctly IRON STATIC — not generic.
+Do NOT name instruments. Describe the sonic world.
 
 ## 2. Arrangement Blueprint
 A full structural layout: intro → build → drop → breakdown → climax → outro.
-For each section: duration in bars, dominant instruments, energy level (1–10),
-and the specific transition technique (e.g., filter sweep on Digitakt track 3,
-Subharmonicon sequence speeds up, Rev2 releases into silence).
+For each section: duration in bars, what KINDS of sounds are present (drones, percussion,
+textural noise, melodic fragment, etc.), energy level (1–10), and the transition technique
+described in sonic terms (e.g., "a slow high-pass sweep removes all low-frequency content",
+"the percussive grid drops out leaving only a decaying metallic resonance").
 
-## 3. Sound Design Challenge
-One specific patch to build on a named instrument. Describe the target sound in 5
-adjectives. Give 3 concrete starting-point parameter settings for that instrument
-(e.g. on the Minibrute 2S: "Brute Factor at 3 o'clock, VCO to Sawtooth, ENV to VCF
-at max, LFO1 Sine to PWM at medium depth, Attack near zero, Decay 60%").
+## 3. Sound Design Palette
+4–6 distinct sound roles this song needs. For each: a short name, 5 adjectives describing
+the target timbre, and what it does in the arrangement (drives the groove, provides low
+frequency foundation, creates textural tension, punctuates transitions, etc.).
+No instrument names. Just what the sound IS and what it DOES.
 
 ## 4. Rhythm Pattern
-A polyrhythmic or odd-meter pattern for the Digitakt (or DFAM + Subharmonicon combination).
-Describe as a step-sequence: which steps fire, total pattern length, any per-step
-parameter locks (filter, pitch, volume). If odd-meter, explain the bar grouping.
-Include a suggested BPM.
+A polyrhythmic or odd-meter pattern concept. Describe step relationships, bar groupings,
+accentuation logic, and any parameter automation (filter opens on beat 3, pitch locks
+on alternating steps, velocity accents at polyrhythm intersections). Include suggested BPM.
+Describe the groove feeling, not which machine plays it.
 
 ## 5. Conceptual Direction
 2–3 sentences about a theme, image, or emotional/political idea that fits the IRON STATIC
 worldview. This is the song's soul, not its sound — the reason it needs to exist.
 Be direct. Be uncomfortable if necessary.
+
+## 6. Session Blueprint
+This section IS hardware-aware — it maps the sonic palette to a concrete Ableton session.
+List each track needed as a YAML-style block:
+
+```yaml
+tracks:
+  - name: "[TrackName]"
+    role: "[one-line description of what this track does]"
+    sound_category: "[drums|bass|lead|pad|texture|sample|fx]"
+    palette_ref: "[which sound from Section 3 this implements]"
+    suggested_device: "[Collision|Operator|Wavetable|Meld|Simpler|Sampler|Analog|Drift|pigments|drum-rack]"
+    notes: "[any important synthesis approach or sample source hint]"
+```
+
+Also include:
+- `scenes:` — list of scene names and BPMs (one per arrangement section from Section 2)
+- `bpm:` — primary session BPM
+- `key:` and `scale:` — for the session
+
+## 7. Reference Tracks (MIDI Targets)
+3 specific, real tracks whose MIDI patterns are closest to what we're building. These are
+sources we can download MIDI files from to train the pattern generator on the actual grooves,
+progressions, and density profiles we're targeting.
+
+Choose tracks where MIDI files are likely to exist (well-known artists with documented songs).
+Rank them by relevance: the first entry should be the single closest match to our target groove.
+
+Output EXACTLY this YAML block with no variation in key names:
+
+```yaml
+reference_tracks:
+  - artist: "[exact artist name]"
+    title: "[exact track title]"
+    album: "[album name]"
+    year: [4-digit year]
+    reason: "[one sentence: why this track's MIDI patterns are relevant to what we're building]"
+    search_terms: "[artist + track in lowercase, spaced, for MIDI search]"
+  - artist: "[exact artist name]"
+    title: "[exact track title]"
+    album: "[album name]"
+    year: [4-digit year]
+    reason: "[one sentence]"
+    search_terms: "[search terms]"
+  - artist: "[exact artist name]"
+    title: "[exact track title]"
+    album: "[album name]"
+    year: [4-digit year]
+    reason: "[one sentence]"
+    search_terms: "[search terms]"
+```
 """
 
 
@@ -140,7 +197,7 @@ def generate_brainstorm_no_llm(today: str) -> str:
 ## 2. Arrangement Blueprint
 *(stub)*
 
-## 3. Sound Design Challenge
+## 3. Sound Design Palette
 *(stub)*
 
 ## 4. Rhythm Pattern
@@ -148,7 +205,68 @@ def generate_brainstorm_no_llm(today: str) -> str:
 
 ## 5. Conceptual Direction
 *(stub)*
+
+## 6. Session Blueprint
+*(stub — fill in before running `/build-session`)*
+
+```yaml
+bpm: 120
+key: C
+scale: minor
+scenes:
+  - name: "[01] Intro 120bpm"
+    bpm: 120
+tracks: []
+```
 """
+
+
+def extract_reference_tracks(content: str) -> list[dict]:
+    """Extract the Section 7 reference_tracks YAML block from a brainstorm doc."""
+    # Find the yaml block inside the reference_tracks section
+    block_match = re.search(
+        r'```yaml\s*\nreference_tracks:(.*?)```',
+        content, re.DOTALL
+    )
+    if not block_match:
+        return []
+
+    raw_yaml = "reference_tracks:" + block_match.group(1)
+    try:
+        import yaml  # type: ignore  # noqa: PLC0415
+        data = yaml.safe_load(raw_yaml)
+        return data.get("reference_tracks", []) if data else []
+    except Exception:
+        # Fallback: regex parse the simple structure
+        tracks = []
+        entry_pattern = re.compile(
+            r'-\s+artist:\s+"([^"]+)"\s+title:\s+"([^"]+)"\s+album:\s+"([^"]+)"\s+year:\s+(\d{4})'
+            r'.*?reason:\s+"([^"]+)"\s+search_terms:\s+"([^"]+)"',
+            re.DOTALL,
+        )
+        for m in entry_pattern.finditer(block_match.group(1)):
+            tracks.append({
+                "artist": m.group(1),
+                "title": m.group(2),
+                "album": m.group(3),
+                "year": int(m.group(4)),
+                "reason": m.group(5),
+                "search_terms": m.group(6),
+            })
+        return tracks
+
+
+def write_reference_tracks_sidecar(out_path: Path, tracks: list[dict], song: dict | None) -> None:
+    """Write a JSON sidecar at the same path as the brainstorm but with .json extension."""
+    json_path = out_path.with_suffix(".json")
+    payload = {
+        "date": out_path.stem,
+        "song": song.get("slug") if song else None,
+        "source": "brainstorm",
+        "tracks": tracks,
+    }
+    json_path.write_text(json.dumps(payload, indent=2))
+    log.info("Wrote reference tracks sidecar: %s  (%d tracks)", json_path.relative_to(REPO_ROOT), len(tracks))
 
 
 def generate_brainstorm(today: str) -> str:
@@ -173,7 +291,15 @@ def generate_brainstorm(today: str) -> str:
         ctx = f"*Song context: {song.get('title', song['slug'])} — {song.get('key', '?')} {song.get('scale', '?')} @ {song.get('bpm', '?')} BPM*\n\n"
     else:
         ctx = "*Song context: none active*\n\n"
-    return header + ctx + content.strip() + "\n"
+    footer = (
+        "\n\n---\n"
+        "*To build this session from the blueprint above:*\n"
+        "```bash\n"
+        "# Live Engineer: read Section 6 and generate the session\n"
+        "python3 scripts/generate_als.py --brainstorm knowledge/brainstorms/" + today + ".md\n"
+        "```\n"
+    )
+    return header + ctx + content.strip() + footer
 
 
 def main() -> None:
@@ -199,6 +325,16 @@ def main() -> None:
 
     out_path.write_text(content)
     log.info("Wrote %s", out_path.relative_to(REPO_ROOT))
+
+    # Extract Section 7 reference tracks and write JSON sidecar
+    song = get_active_song()
+    tracks = extract_reference_tracks(content)
+    if tracks:
+        write_reference_tracks_sidecar(out_path, tracks, song)
+        log.info("Run 'python scripts/fetch_reference_midi.py --digest %s' to download MIDI for these references",
+                 out_path.with_suffix(".json").relative_to(REPO_ROOT))
+    else:
+        log.debug("No reference_tracks YAML block found in brainstorm — sidecar not written")
 
     # Register brainstorm_path on the active song in songs.json
     if SONGS_DB.exists():

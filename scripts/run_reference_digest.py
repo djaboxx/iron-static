@@ -14,6 +14,7 @@ Usage:
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -125,6 +126,42 @@ def build_mixing_block() -> str:
     return ""
 
 
+def extract_tracks_json(markdown: str) -> list[dict]:
+    """Parse artist/title/album/year out of the reference digest markdown.
+
+    Matches lines like:
+        ### 1. HEALTH — "STONEFIST" (*DEATH MAGIC*, 2015)
+    """
+    pattern = re.compile(
+        r'###\s+\d+\.\s+(.+?)\s+[—–-]+\s+"(.+?)"\s+\(\*(.+?)\*,\s+(\d{4})\)',
+        re.MULTILINE,
+    )
+    tracks = []
+    for m in pattern.finditer(markdown):
+        artist, title, album, year = m.group(1), m.group(2), m.group(3), m.group(4)
+        search_terms = f"{artist.lower()} {title.lower()}"
+        tracks.append({
+            "artist": artist.strip(),
+            "title": title.strip(),
+            "album": album.strip(),
+            "year": int(year),
+            "search_terms": search_terms,
+        })
+    return tracks
+
+
+def write_json_sidecar(out_path: Path, tracks: list[dict], song: dict | None) -> None:
+    """Write a JSON sidecar alongside the .md digest for downstream tooling."""
+    json_path = out_path.with_suffix(".json")
+    payload = {
+        "date": out_path.stem,
+        "song": song.get("slug") if song else None,
+        "tracks": tracks,
+    }
+    json_path.write_text(json.dumps(payload, indent=2))
+    log.info("Wrote JSON sidecar: %s  (%d tracks)", json_path.relative_to(REPO_ROOT), len(tracks))
+
+
 def generate_no_llm(today: str) -> str:
     return f"""\
 # IRON STATIC — Reference Digest ({today})
@@ -198,6 +235,13 @@ def main() -> None:
 
     out_path.write_text(content)
     log.info("Wrote %s", out_path.relative_to(REPO_ROOT))
+
+    # Write JSON sidecar for fetch_reference_midi.py
+    tracks = extract_tracks_json(content)
+    if tracks:
+        write_json_sidecar(out_path, tracks, song)
+    else:
+        log.warning("Could not parse track metadata from digest — JSON sidecar not written")
 
 
 if __name__ == "__main__":

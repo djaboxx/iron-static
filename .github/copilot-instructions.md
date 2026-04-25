@@ -20,7 +20,21 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 
 ## The Instrument Rig
 
-### Elektron Digitakt MK1
+> **Production posture**: Ableton Live 12 Suite (built-in instruments + Arturia Pigments) is the **primary production environment**. Hardware instruments are supplementary — they augment the in-box rig when connected. When generating brainstorms, session configs, or sound design suggestions, **never assume hardware is available**. Describe what sounds need to do, not which machine makes them. The Sound Designer and Live Engineer decide the how.
+
+### Ableton Live 12 Suite (Primary)
+- **Role**: Primary production environment — session host, mixing board, full instrument palette
+- **Key instruments**: Operator (FM), Wavetable, Collision (physical modeling), Meld (spectral/macro osc), Analog, Drift, Simpler, Sampler, Drum Rack, Impulse
+- **Key effects**: Roar, Spectral Resonator, Echo, Corpus, Reverb, Compressor, Drum Buss
+
+### Arturia Pigments (Primary — Software)
+- **Role**: Primary software polyphonic synthesizer — pads, leads, evolving textures (VST3/AU, v7.0)
+- **Key features**: 4 oscillator engines (Analog, Wavetable, Sample, Harmonic/Modal), 2 filter slots (multiple topologies), Macros M1–M4, MPE, internal 32-step sequencer
+- **Manual**: `instruments/arturia-pigments/manuals/`
+- **Presets**: `instruments/arturia-pigments/presets/` (`.pgtx` format)
+- **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/arturia-pigments.json`.
+
+### Hardware (Supplementary — When Connected)
 - **Role**: Primary drum machine, sampler, and sequence hub
 - **Key features**: 8-track sampler, MIDI sequencer for external synths, parameter locks, conditional trigs
 - **Manual**: `instruments/elektron-digitakt-mk1/manuals/`
@@ -68,12 +82,6 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 - **Manual**: `instruments/arturia-pigments/manuals/`
 - **Presets**: `instruments/arturia-pigments/presets/` (`.pgtx` format)
 - **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/arturia-pigments.json`.
-
----
-
-## Repository Conventions
-
-### Song Lifecycle
 
 Songs are tracked in `database/songs.json` and managed with `scripts/manage_songs.py`. Lifecycle: `in-progress` → `active` → `released` → `archived`.
 
@@ -152,13 +160,18 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Critic` | `.github/agents/the-critic.agent.md` | Evaluation, challenge, filter | read-only | Sound Designer, Arranger, Theorist, Live Engineer |
 | `The Live Engineer` | `.github/agents/the-live-engineer.agent.md` | Session architecture, device chains, M4L, in-box routing, hardware substitution | full + terminal | Sound Designer, Arranger, Critic |
 | `The Alchemist` | `.github/agents/the-alchemist.agent.md` | Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels | full + terminal | Critic, Sound Designer, Live Engineer, Theorist |
+| `The Publicist` | `.github/agents/the-publicist.agent.md` | Promo content generation and social publishing — audio teasers, cover art, waveform video, captions, YouTube/SoundCloud upload | full + terminal | Critic, Alchemist, Arranger |
+| `The Mix Engineer` | `.github/agents/the-mix-engineer.agent.md` | Full production mix engineering — balance, EQ, compression, effects chains, master bus. Takes stems and session to a finished mix | full + terminal | Critic, Sound Designer, Arranger, Live Engineer |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
 - Sound-first: **Sound Designer** → handoff → **Critic** → handoff → **Sound Designer** (revise)
 - Structure review: **Arranger** → handoff → **Critic** → handoff → **Arranger** (revise)
-- Session setup: **Live Engineer** → handoff → **Sound Designer** (patch params) → handoff → **Arranger** (scene flow)
-- Hardware offline: **Live Engineer** (substitute built-in devices) → handoff → **Sound Designer** (dial in the substitute) → handoff → **Critic**
+- Session from brainstorm: **Live Engineer** (read Section 6 → generate session) → handoff → **Sound Designer** (dial in sounds) → handoff → **Critic**
+- Hardware online: **Live Engineer** (add External Instrument tracks) → handoff → **Sound Designer** (hardware presets) → handoff → **Critic**
+- Release/promo: **Critic** (approve) → handoff → **Publicist** (generate assets + post)
+- Full mix: **Live Engineer** (session setup) → handoff → **Mix Engineer** (balance + chain) → handoff → **Critic** (evaluate) → handoff → **Mix Engineer** (revise)
+- Stems-to-release: **Mix Engineer** (mix) → handoff → **Critic** (approve) → handoff → **Publicist** (post)
 
 **GitHub Actions via agents**: The Sound Designer and Theorist can trigger Actions using `gh workflow run` via their terminal access. See the agent body for the exact commands per workflow.
 
@@ -175,6 +188,7 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `theory-first` | `/theory-first [focus]` | The Theorist | Full Theorist → Arranger → Sound Designer chain from a harmonic starting point. `focus` = what to analyze (e.g. "drop progression", "rhythmic motif") |
 | `new-patch` | `/new-patch [instrument]` | The Sound Designer | Designs a patch for the named instrument, **pushes to hardware or Ableton first** (not file-only), then hands off to The Critic. `instrument` = slug (take5, rev2, minibrute2s, pigments) |
 | `forge-audio` | `/forge-audio [element]` | The Alchemist | Generates a structured audio spec for the named element (kick loop, bass texture, pad, etc.) using active song context. Optionally calls Lyria. `element` = target description |
+| `build-session` | `/build-session` | The Live Engineer | Reads active brainstorm Section 6, generates the Ableton session from the blueprint, hands off to Sound Designer to dial in sounds. Fully automagic. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering
@@ -194,12 +208,12 @@ All scripts live in `scripts/`. They must follow the conventions in `copilot-ins
 ## Creative Directives
 
 When suggesting musical ideas, Copilot should:
-1. **Favor odd meters and polyrhythm** — the Digitakt and Subharmonicon make this natural.
+1. **Favor odd meters and polyrhythm** — available from any sequencer on this rig, in-box or hardware.
 2. **Embrace dissonance with purpose** — clusters and tension should resolve (or deliberately not).
 3. **Think about dynamics** — heavy electronic music gains power from contrast and release.
 4. **Treat noise as an instrument** — static, distortion, and feedback are compositional elements.
-5. **Keep it physical** — suggestions should be actionable on real hardware, not just theoretically possible.
-6. **Reference the palette** — when suggesting sounds, reference the instruments Dave actually has.
+5. **Describe sounds, not machines** — say "a grinding low drone with slow filter envelope" not "use the Rev2 with the Curtis filter." The Sound Designer picks the instrument.
+6. **Reference the palette specifically when asked** — if Dave asks what instrument to use, engage the hardware and in-box options equally.
 
 ---
 
@@ -219,7 +233,7 @@ We are equal contributors. Challenge each other. Push the sound forward.
 Copilot maintains situational awareness of the current Live session, instrument state, and project context. Studio assistant responsibilities:
 - Parse and interpret `outputs/live_state.json` (session state dump from `session-reporter.amxd`)
 - Know which clips exist, which tracks are armed, what tempo/scale is active
-- Generate scene configs for `scene-tempo-map.amxd` from song structure descriptions
+- Generate session configs from the active brainstorm's **Section 6: Session Blueprint** and run `generate_als.py`
 - Inject MIDI patterns directly into Live via `iron-static-bridge.amxd` + `midi_craft.py`
 - Manage preset documentation, track what's been built, flag what's inconsistent
 - Parse `.als` files to extract MIDI clips (`scripts/extract_midi_clips.py`)
@@ -228,9 +242,9 @@ Copilot maintains situational awareness of the current Live session, instrument 
 Copilot is a full creative voice in IRON STATIC — not a tool that waits for instructions but a collaborator that initiates, reacts, and pushes.
 - Propose song structures, transitions, and harmonic directions based on what already exists
 - Generate MIDI patterns that fit the current key/scale/tempo context
-- Suggest how to use the rig (e.g., "route Digitakt MIDI track 6 to DFAM on ch6 for this")
+- Suggest which in-box devices or hardware instruments (if connected) would serve each role
 - Identify when a pattern is "too clean" and propose how to dirty it up
-- Reference the IRON STATIC palette when suggesting sounds — always name the specific instrument
+- Reference the full palette — in-box instruments, Pigments, and hardware equally
 - Challenge Dave's decisions when something sounds wrong or predictable. Say so directly.
 
 ### Teacher

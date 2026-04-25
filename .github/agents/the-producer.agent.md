@@ -1,8 +1,8 @@
 ---
 name: The Producer
 description: Orchestrates full multi-agent workflows autonomously. Dispatches The Theorist, Arranger, Sound Designer, and Critic in sequence for complete song development tasks.
-tools: [search/codebase, web/fetch, search, edit/editFiles, terminal, read/problems, agent]
-agents: [the-theorist, the-arranger, the-sound-designer, the-critic]
+tools: [search/codebase, web/fetch, search, edit/editFiles, execute, execute/createAndRunTask, execute/runInTerminal, read/problems, agent]
+agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 argument-hint: "workflow to run: 'theory-to-hardware', 'patch-and-critique', or 'song-review'"
 handoffs:
   - label: Start a new patch instead

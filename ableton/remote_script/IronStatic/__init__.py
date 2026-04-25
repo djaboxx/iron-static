@@ -30,6 +30,7 @@
 #   insert_device       — insert a native Live device into a track or rack chain (Live 12.3)
 #   insert_chain        — insert a new chain into a rack device (Live 12.3)
 #   build_rack          — create an Instrument Rack and populate chains with devices (Live 12.3)
+#   open_set            — open a .als file in Live (path must be absolute)
 
 from __future__ import absolute_import, print_function, unicode_literals
 
@@ -215,6 +216,7 @@ class IronStatic(ControlSurface):
                 "insert_device", "insert_chain", "build_rack",
                 "delete_device",
                 "load_preset",
+                "open_set",
             }
 
             if cmd_type in MUTATING:
@@ -315,7 +317,13 @@ class IronStatic(ControlSurface):
         elif cmd_type == "stop_playback":
             self._song.stop_playing()
             return {"playing": False}
+        elif cmd_type == "open_set":
+            return self._open_set(params["path"])
         raise ValueError("Unhandled mutating command: {}".format(cmd_type))
+
+    def _open_set(self, path):
+        self.application().open_file(path)
+        return {"path": path}
 
     def _batch_set_device_params(self, track_index, device_index, operations):
         """

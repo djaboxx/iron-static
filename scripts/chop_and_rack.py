@@ -296,7 +296,14 @@ def slice_audio(audio_path: Path, chop_data: dict, out_dir: Path) -> list[Path]:
 
 # Path to factory-saved Drum Rack preset used as structural template.
 # This ensures Live 12 can load the generated preset without schema errors.
-_REFERENCE_ADG = REPO_ROOT / "ableton" / "racks" / "808 Depth Charger Kit.adg"
+# Primary: ableton/rack-templates/*.adg  |  Fallback: ableton/racks/*.adg
+_REFERENCE_ADG = next(
+    (p for p in sorted((REPO_ROOT / "ableton" / "rack-templates").glob("*.adg")) if p.is_file()),
+    next(
+        (p for p in sorted((REPO_ROOT / "ableton" / "racks").glob("*.adg")) if p.is_file()),
+        REPO_ROOT / "ableton" / "rack-templates" / "drum-rack-template.adg",
+    ),
+)
 
 
 def _load_reference_templates() -> tuple[str, str, str]:
@@ -310,7 +317,7 @@ def _load_reference_templates() -> tuple[str, str, str]:
     if not _REFERENCE_ADG.exists():
         log.error(
             "Reference ADG not found: %s\n"
-            "Save a factory Drum Rack preset to ableton/racks/ as '808 Depth Charger Kit.adg'.",
+            "Save a factory Drum Rack preset .adg to ableton/rack-templates/ so it can be used as a template.",
             _REFERENCE_ADG,
         )
         sys.exit(1)
@@ -708,6 +715,27 @@ def main() -> None:
         sys.exit(1)
 
     log.info("Wrote %d slices to %s", len(slice_paths), slice_dir)
+
+    # Step 3a: Save chop metadata immediately after slicing so that re-runs
+    # (e.g. after a failed ADG build) can reuse the Gemini chop points without
+    # calling the API again.  Full metadata (including adg_path) is written
+    # again at the end once the ADG path is known.
+    meta_path = slice_dir / "chop_metadata.json"
+    if not meta_path.exists():
+        _early_meta = {
+            "song_slug": song_slug,
+            "source_file": str(audio_path.resolve()),
+            "date": today,
+            "rack_name": rack_name,
+            "slices_dir": str(slice_dir),
+            "gemini_model": args.model,
+            "chop_strategy": chop_data.get("chop_strategy"),
+            "duration_seconds": chop_data.get("duration_seconds"),
+            "chops": chop_data.get("chops", []),
+            "slices": [str(p) for p in slice_paths],
+        }
+        meta_path.write_text(json.dumps(_early_meta, indent=2))
+        log.info("Chop metadata saved (early): %s", meta_path)
 
     # Step 3: Build .adg
     # When --rack-name is provided use it as the filename so that stems and
