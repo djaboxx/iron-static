@@ -1,0 +1,140 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / Xthikz",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / Xthikz",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/Xthikz.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 32.0,
+    "note_count": 8
+  },
+  "rhythm": {
+    "density": 0.25,
+    "hit_positions": [
+      0.0,
+      4.0,
+      8.0,
+      14.0,
+      16.0,
+      20.0,
+      24.0,
+      30.0
+    ],
+    "ioi": [
+      4.0,
+      4.0,
+      6.0,
+      2.0,
+      4.0,
+      4.0,
+      6.0,
+      2.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      8,
+      128
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      60,
+      64,
+      65,
+      67,
+      72
+    ],
+    "intervals": [
+      7,
+      3,
+      1,
+      5,
+      7,
+      3,
+      8
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "60": 2,
+      "67": 2,
+      "64": 2,
+      "65": 1,
+      "72": 1
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 4.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 8.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 14.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 16.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 20.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 24.0,
+      "duration": 2.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 72,
+      "start_time": 30.0,
+      "duration": 2.0,
+      "velocity": 100
+    }
+  ]
+}

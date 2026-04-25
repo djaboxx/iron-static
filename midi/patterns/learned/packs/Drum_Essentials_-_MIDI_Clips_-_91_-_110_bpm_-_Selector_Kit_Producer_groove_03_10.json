@@ -1,0 +1,378 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Drum Essentials / MIDI Clips / 91 - 110 bpm / Selector Kit Producer groove 03_100 bpm",
+    "slot_index": 0,
+    "clip_name": "Drum Essentials / MIDI Clips / 91 - 110 bpm / Selector Kit Producer groove 03_100 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Drum Essentials/MIDI Clips/91 - 110 bpm/Selector Kit Producer groove 03_100 bpm.alc"
+  },
+  "meta": {
+    "bpm": 100.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 31
+  },
+  "rhythm": {
+    "density": 1.312,
+    "hit_positions": [
+      0.0,
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      1.0,
+      1.5,
+      1.5,
+      2.0,
+      2.0,
+      2.5,
+      2.75,
+      3.0,
+      3.0,
+      3.5,
+      3.5,
+      4.0,
+      4.0,
+      4.25,
+      4.5,
+      5.0,
+      5.0,
+      5.5,
+      5.5,
+      6.0,
+      6.0,
+      6.25,
+      6.5,
+      6.75,
+      7.0,
+      7.5
+    ],
+    "ioi": [
+      0.0,
+      0.25,
+      0.25,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.25,
+      0.25,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.25,
+      0.25,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.5,
+      0.5
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      31,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      37,
+      38,
+      42,
+      46
+    ],
+    "intervals": [
+      6,
+      5,
+      5,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      0,
+      5,
+      1,
+      4,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      1,
+      8
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 10,
+    "pitch_distribution": {
+      "36": 7,
+      "42": 14,
+      "37": 5,
+      "38": 4,
+      "46": 1
+    }
+  },
+  "velocity": {
+    "mean": 62.2,
+    "variance": 537.8,
+    "std": 23.2,
+    "accents": [
+      0,
+      1,
+      4,
+      5,
+      12,
+      13,
+      29
+    ],
+    "profile": [
+      106,
+      95,
+      51,
+      60,
+      100,
+      100,
+      57,
+      48,
+      63,
+      48,
+      31,
+      39,
+      100,
+      95,
+      40,
+      34,
+      58,
+      42,
+      40,
+      43,
+      74,
+      76,
+      50,
+      33,
+      57,
+      50,
+      51,
+      76,
+      43,
+      100,
+      69
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 36,
+      "start_time": 0.0,
+      "duration": 0.1274,
+      "velocity": 106
+    },
+    {
+      "pitch": 42,
+      "start_time": 0.0,
+      "duration": 0.1318,
+      "velocity": 95
+    },
+    {
+      "pitch": 37,
+      "start_time": 0.25,
+      "duration": 0.2206,
+      "velocity": 51
+    },
+    {
+      "pitch": 42,
+      "start_time": 0.5,
+      "duration": 0.2173,
+      "velocity": 60
+    },
+    {
+      "pitch": 38,
+      "start_time": 1.0,
+      "duration": 0.1557,
+      "velocity": 100
+    },
+    {
+      "pitch": 42,
+      "start_time": 1.0,
+      "duration": 0.1454,
+      "velocity": 100
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.5,
+      "duration": 0.1815,
+      "velocity": 57
+    },
+    {
+      "pitch": 42,
+      "start_time": 1.5,
+      "duration": 0.1743,
+      "velocity": 48
+    },
+    {
+      "pitch": 36,
+      "start_time": 2.0,
+      "duration": 0.1725,
+      "velocity": 63
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.0,
+      "duration": 0.1682,
+      "velocity": 48
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.5,
+      "duration": 0.1755,
+      "velocity": 31
+    },
+    {
+      "pitch": 37,
+      "start_time": 2.75,
+      "duration": 0.1366,
+      "velocity": 39
+    },
+    {
+      "pitch": 38,
+      "start_time": 3.0,
+      "duration": 0.2055,
+      "velocity": 100
+    },
+    {
+      "pitch": 42,
+      "start_time": 3.0,
+      "duration": 0.1859,
+      "velocity": 95
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.5,
+      "duration": 0.1588,
+      "velocity": 40
+    },
+    {
+      "pitch": 42,
+      "start_time": 3.5,
+      "duration": 0.1798,
+      "velocity": 34
+    },
+    {
+      "pitch": 36,
+      "start_time": 4.0,
+      "duration": 0.1725,
+      "velocity": 58
+    },
+    {
+      "pitch": 42,
+      "start_time": 4.0,
+      "duration": 0.183,
+      "velocity": 42
+    },
+    {
+      "pitch": 37,
+      "start_time": 4.25,
+      "duration": 0.3061,
+      "velocity": 40
+    },
+    {
+      "pitch": 42,
+      "start_time": 4.5,
+      "duration": 0.2235,
+      "velocity": 43
+    },
+    {
+      "pitch": 38,
+      "start_time": 5.0,
+      "duration": 0.2232,
+      "velocity": 74
+    },
+    {
+      "pitch": 42,
+      "start_time": 5.0,
+      "duration": 0.2054,
+      "velocity": 76
+    },
+    {
+      "pitch": 36,
+      "start_time": 5.5,
+      "duration": 0.1471,
+      "velocity": 50
+    },
+    {
+      "pitch": 42,
+      "start_time": 5.5,
+      "duration": 0.1754,
+      "velocity": 33
+    },
+    {
+      "pitch": 36,
+      "start_time": 6.0,
+      "duration": 0.1546,
+      "velocity": 57
+    },
+    {
+      "pitch": 42,
+      "start_time": 6.0,
+      "duration": 0.189,
+      "velocity": 50
+    },
+    {
+      "pitch": 37,
+      "start_time": 6.25,
+      "duration": 0.1772,
+      "velocity": 51
+    },
+    {
+      "pitch": 42,
+      "start_time": 6.5,
+      "duration": 0.2162,
+      "velocity": 76
+    },
+    {
+      "pitch": 37,
+      "start_time": 6.75,
+      "duration": 0.129,
+      "velocity": 43
+    },
+    {
+      "pitch": 38,
+      "start_time": 7.0,
+      "duration": 0.4845,
+      "velocity": 100
+    },
+    {
+      "pitch": 46,
+      "start_time": 7.5,
+      "duration": 0.483,
+      "velocity": 69
+    }
+  ]
+}

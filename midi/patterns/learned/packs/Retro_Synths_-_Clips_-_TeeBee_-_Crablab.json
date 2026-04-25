@@ -1,0 +1,272 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / Crablab",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / Crablab",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/Crablab.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 21
+  },
+  "rhythm": {
+    "density": 1.312,
+    "hit_positions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.25,
+      1.5,
+      2.0,
+      2.5,
+      2.75,
+      3.0,
+      3.5,
+      3.75,
+      4.0,
+      4.5,
+      4.75,
+      5.0,
+      5.25,
+      5.75,
+      6.25,
+      7.0,
+      7.5
+    ],
+    "ioi": [
+      0.25,
+      0.25,
+      0.25,
+      0.5,
+      0.25,
+      0.5,
+      0.5,
+      0.25,
+      0.25,
+      0.5,
+      0.25,
+      0.25,
+      0.5,
+      0.25,
+      0.25,
+      0.25,
+      0.5,
+      0.5,
+      0.75,
+      0.5,
+      0.5
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      21,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      50,
+      52,
+      60,
+      65,
+      67,
+      69
+    ],
+    "intervals": [
+      2,
+      2,
+      17,
+      0,
+      2,
+      15,
+      0,
+      15,
+      15,
+      0,
+      19,
+      0,
+      2,
+      0,
+      17,
+      2,
+      15,
+      17,
+      10,
+      9
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 19,
+    "pitch_distribution": {
+      "50": 8,
+      "52": 2,
+      "67": 5,
+      "65": 2,
+      "69": 3,
+      "60": 1
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 50,
+      "start_time": 0.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 52,
+      "start_time": 0.25,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 0.5,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 0.75,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 1.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 1.5,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 2.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 4.0,
+      "duration": 0.75,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 4.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 4.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 5.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 52,
+      "start_time": 5.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 5.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 6.25,
+      "duration": 1.0,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 7.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 7.5,
+      "duration": 0.25,
+      "velocity": 100
+    }
+  ]
+}

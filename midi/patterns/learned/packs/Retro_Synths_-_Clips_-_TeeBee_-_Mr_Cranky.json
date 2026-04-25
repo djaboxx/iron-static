@@ -1,0 +1,334 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / Mr Cranky",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / Mr Cranky",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/Mr Cranky.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 27
+  },
+  "rhythm": {
+    "density": 1.688,
+    "hit_positions": [
+      0.0,
+      0.75,
+      1.0,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.0,
+      3.25,
+      4.0,
+      4.25,
+      4.5,
+      4.75,
+      5.0,
+      5.25,
+      5.5,
+      5.75,
+      6.0,
+      6.25,
+      6.5,
+      6.75,
+      7.0,
+      7.25,
+      7.5,
+      7.75
+    ],
+    "ioi": [
+      0.75,
+      0.25,
+      0.5,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.75,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      27,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      48,
+      50,
+      55,
+      57,
+      59,
+      67
+    ],
+    "intervals": [
+      31,
+      19,
+      9,
+      9,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0,
+      0
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 31,
+    "pitch_distribution": {
+      "36": 1,
+      "67": 5,
+      "48": 4,
+      "57": 1,
+      "50": 8,
+      "55": 4,
+      "59": 4
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 36,
+      "start_time": 0.0,
+      "duration": 0.75,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 0.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 1.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 57,
+      "start_time": 1.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 1.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 2.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 2.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 4.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 4.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 4.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 4.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 55,
+      "start_time": 5.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 55,
+      "start_time": 5.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 55,
+      "start_time": 5.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 55,
+      "start_time": 5.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 59,
+      "start_time": 6.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 59,
+      "start_time": 6.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 59,
+      "start_time": 6.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 59,
+      "start_time": 6.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 7.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 7.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 7.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 7.75,
+      "duration": 0.125,
+      "velocity": 100
+    }
+  ]
+}

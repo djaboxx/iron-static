@@ -1,0 +1,235 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Drum Essentials / MIDI Clips / 111 - 130 bpm / Rockhaven Kit groove 05_124 bpm",
+    "slot_index": 0,
+    "clip_name": "Drum Essentials / MIDI Clips / 111 - 130 bpm / Rockhaven Kit groove 05_124 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Drum Essentials/MIDI Clips/111 - 130 bpm/Rockhaven Kit groove 05_124 bpm.alc"
+  },
+  "meta": {
+    "bpm": 124.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 17
+  },
+  "rhythm": {
+    "density": 1.75,
+    "hit_positions": [
+      0.0,
+      0.0,
+      0.6667,
+      1.0,
+      1.3333,
+      1.6667,
+      2.0,
+      2.0,
+      3.0,
+      3.6667,
+      4.6667,
+      5.0,
+      5.6667,
+      6.0,
+      7.0,
+      7.0,
+      7.6667
+    ],
+    "ioi": [
+      0.0,
+      0.6667,
+      0.3333,
+      0.3333,
+      0.3334,
+      0.3333,
+      0.0,
+      1.0,
+      0.6667,
+      1.0,
+      0.3333,
+      0.6667,
+      0.3333,
+      1.0,
+      0.0,
+      0.6667,
+      0.3333
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      17,
+      32
+    ],
+    "swing_ratio": 1.333
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      38,
+      42,
+      44,
+      46
+    ],
+    "intervals": [
+      6,
+      2,
+      2,
+      2,
+      8,
+      2,
+      4,
+      0,
+      2,
+      0,
+      2,
+      4,
+      8,
+      0,
+      4,
+      2
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 10,
+    "pitch_distribution": {
+      "36": 2,
+      "42": 6,
+      "44": 5,
+      "38": 3,
+      "46": 1
+    }
+  },
+  "velocity": {
+    "mean": 51.5,
+    "variance": 689.2,
+    "std": 26.3,
+    "accents": [
+      6,
+      7,
+      12,
+      13
+    ],
+    "profile": [
+      56,
+      37,
+      62,
+      27,
+      22,
+      31,
+      111,
+      86,
+      24,
+      47,
+      27,
+      42,
+      91,
+      83,
+      38,
+      61,
+      30
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 36,
+      "start_time": 0.0,
+      "duration": 0.1027,
+      "velocity": 56
+    },
+    {
+      "pitch": 42,
+      "start_time": 0.0,
+      "duration": 0.1095,
+      "velocity": 37
+    },
+    {
+      "pitch": 44,
+      "start_time": 0.6667,
+      "duration": 0.1112,
+      "velocity": 62
+    },
+    {
+      "pitch": 42,
+      "start_time": 1.0,
+      "duration": 0.1372,
+      "velocity": 27
+    },
+    {
+      "pitch": 44,
+      "start_time": 1.3333,
+      "duration": 0.087,
+      "velocity": 22
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.6667,
+      "duration": 0.0657,
+      "velocity": 31
+    },
+    {
+      "pitch": 38,
+      "start_time": 2.0,
+      "duration": 0.0911,
+      "velocity": 111
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.0,
+      "duration": 0.079,
+      "velocity": 86
+    },
+    {
+      "pitch": 42,
+      "start_time": 3.0,
+      "duration": 0.126,
+      "velocity": 24
+    },
+    {
+      "pitch": 44,
+      "start_time": 3.6667,
+      "duration": 0.0941,
+      "velocity": 47
+    },
+    {
+      "pitch": 44,
+      "start_time": 4.6667,
+      "duration": 0.0869,
+      "velocity": 27
+    },
+    {
+      "pitch": 42,
+      "start_time": 5.0,
+      "duration": 0.1373,
+      "velocity": 42
+    },
+    {
+      "pitch": 46,
+      "start_time": 5.6667,
+      "duration": 0.1193,
+      "velocity": 91
+    },
+    {
+      "pitch": 38,
+      "start_time": 6.0,
+      "duration": 0.1359,
+      "velocity": 83
+    },
+    {
+      "pitch": 38,
+      "start_time": 7.0,
+      "duration": 0.0747,
+      "velocity": 38
+    },
+    {
+      "pitch": 42,
+      "start_time": 7.0,
+      "duration": 0.1172,
+      "velocity": 61
+    },
+    {
+      "pitch": 44,
+      "start_time": 7.6667,
+      "duration": 0.083,
+      "velocity": 30
+    }
+  ]
+}

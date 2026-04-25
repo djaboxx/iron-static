@@ -1,0 +1,228 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / Bamb Dat",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / Bamb Dat",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/Bamb Dat.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 17
+  },
+  "rhythm": {
+    "density": 1.062,
+    "hit_positions": [
+      0.0,
+      0.25,
+      1.5,
+      1.75,
+      2.25,
+      2.5,
+      2.75,
+      3.0,
+      3.25,
+      3.5,
+      3.75,
+      4.0,
+      4.25,
+      5.25,
+      5.5,
+      6.0,
+      6.25
+    ],
+    "ioi": [
+      0.25,
+      1.25,
+      0.25,
+      0.5,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      1.0,
+      0.25,
+      0.5,
+      0.25,
+      1.75
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      17,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      48,
+      50,
+      57,
+      60
+    ],
+    "intervals": [
+      12,
+      0,
+      2,
+      10,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      3,
+      12,
+      2,
+      2,
+      0,
+      2
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "60": 5,
+      "48": 5,
+      "50": 3,
+      "57": 4
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 0.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 1.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 1.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 2.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 2.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 2.75,
+      "duration": 0.375,
+      "velocity": 100
+    },
+    {
+      "pitch": 57,
+      "start_time": 3.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 57,
+      "start_time": 3.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 57,
+      "start_time": 3.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 57,
+      "start_time": 3.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 4.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 4.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 5.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 5.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 48,
+      "start_time": 6.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 50,
+      "start_time": 6.25,
+      "duration": 1.5,
+      "velocity": 100
+    }
+  ]
+}

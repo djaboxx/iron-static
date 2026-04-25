@@ -1,0 +1,186 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Max for Live Essentials / Clips / Randomizer Analog",
+    "slot_index": 0,
+    "clip_name": "Max for Live Essentials / Clips / Randomizer Analog",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Max for Live Essentials/Clips/Randomizer Analog.alc"
+  },
+  "meta": {
+    "bpm": 120.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 16.0,
+    "note_count": 12
+  },
+  "rhythm": {
+    "density": 0.25,
+    "hit_positions": [
+      0.0,
+      0.0,
+      0.0,
+      4.0,
+      4.0,
+      4.0,
+      8.0,
+      8.0,
+      8.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "ioi": [
+      0.0,
+      0.0,
+      4.0,
+      0.0,
+      0.0,
+      4.0,
+      0.0,
+      0.0,
+      4.0,
+      0.0,
+      0.0,
+      4.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      12,
+      64
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      65,
+      67,
+      69,
+      71,
+      72,
+      74
+    ],
+    "intervals": [
+      4,
+      3,
+      9,
+      4,
+      3,
+      5,
+      4,
+      3,
+      9,
+      4,
+      3
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 9,
+    "pitch_distribution": {
+      "67": 2,
+      "71": 2,
+      "74": 2,
+      "65": 2,
+      "69": 2,
+      "72": 2
+    }
+  },
+  "velocity": {
+    "mean": 98.4,
+    "variance": 149.4,
+    "std": 12.2,
+    "accents": [
+      4,
+      5,
+      6
+    ],
+    "profile": [
+      90,
+      103,
+      90,
+      103,
+      111,
+      124,
+      111,
+      90,
+      90,
+      83,
+      103,
+      83
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 67,
+      "start_time": 0.0,
+      "duration": 4.0,
+      "velocity": 90
+    },
+    {
+      "pitch": 71,
+      "start_time": 0.0,
+      "duration": 4.0,
+      "velocity": 103
+    },
+    {
+      "pitch": 74,
+      "start_time": 0.0,
+      "duration": 4.0,
+      "velocity": 90
+    },
+    {
+      "pitch": 65,
+      "start_time": 4.0,
+      "duration": 4.0,
+      "velocity": 103
+    },
+    {
+      "pitch": 69,
+      "start_time": 4.0,
+      "duration": 4.0,
+      "velocity": 111
+    },
+    {
+      "pitch": 72,
+      "start_time": 4.0,
+      "duration": 4.0,
+      "velocity": 124
+    },
+    {
+      "pitch": 67,
+      "start_time": 8.0,
+      "duration": 4.0,
+      "velocity": 111
+    },
+    {
+      "pitch": 71,
+      "start_time": 8.0,
+      "duration": 4.0,
+      "velocity": 90
+    },
+    {
+      "pitch": 74,
+      "start_time": 8.0,
+      "duration": 4.0,
+      "velocity": 90
+    },
+    {
+      "pitch": 65,
+      "start_time": 12.0,
+      "duration": 4.0,
+      "velocity": 83
+    },
+    {
+      "pitch": 69,
+      "start_time": 12.0,
+      "duration": 4.0,
+      "velocity": 103
+    },
+    {
+      "pitch": 72,
+      "start_time": 12.0,
+      "duration": 4.0,
+      "velocity": 83
+    }
+  ]
+}

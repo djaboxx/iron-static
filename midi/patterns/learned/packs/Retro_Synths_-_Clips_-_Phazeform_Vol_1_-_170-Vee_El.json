@@ -1,0 +1,236 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / Phazeform Vol 1 / 170-Vee El",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / Phazeform Vol 1 / 170-Vee El",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/Phazeform Vol 1/170-Vee El.alc"
+  },
+  "meta": {
+    "bpm": 170.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 18
+  },
+  "rhythm": {
+    "density": 1.125,
+    "hit_positions": [
+      0.0,
+      0.5,
+      1.0,
+      1.75,
+      2.5,
+      3.0,
+      3.75,
+      4.0,
+      4.5,
+      4.75,
+      5.0,
+      5.5,
+      6.0,
+      6.25,
+      6.5,
+      6.75,
+      7.0,
+      7.25
+    ],
+    "ioi": [
+      0.5,
+      0.5,
+      0.75,
+      0.75,
+      0.5,
+      0.75,
+      0.25,
+      0.5,
+      0.25,
+      0.25,
+      0.5,
+      0.5,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.75
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      18,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      49,
+      51,
+      55
+    ],
+    "intervals": [
+      6,
+      4,
+      2,
+      6,
+      4,
+      2,
+      0,
+      6,
+      6,
+      2,
+      4,
+      0,
+      6,
+      0,
+      0,
+      2,
+      4
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 6,
+    "pitch_distribution": {
+      "49": 8,
+      "55": 6,
+      "51": 4
+    }
+  },
+  "velocity": {
+    "mean": 73.3,
+    "variance": 275.4,
+    "std": 16.6,
+    "accents": [],
+    "profile": [
+      88,
+      64,
+      88,
+      88,
+      64,
+      88,
+      45,
+      88,
+      64,
+      88,
+      88,
+      64,
+      64,
+      33,
+      65,
+      88,
+      88,
+      64
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 49,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 55,
+      "start_time": 0.5,
+      "duration": 0.25,
+      "velocity": 64
+    },
+    {
+      "pitch": 51,
+      "start_time": 1.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 49,
+      "start_time": 1.75,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 55,
+      "start_time": 2.5,
+      "duration": 0.25,
+      "velocity": 64
+    },
+    {
+      "pitch": 51,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 49,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 45
+    },
+    {
+      "pitch": 49,
+      "start_time": 4.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 55,
+      "start_time": 4.5,
+      "duration": 0.25,
+      "velocity": 64
+    },
+    {
+      "pitch": 49,
+      "start_time": 4.75,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 51,
+      "start_time": 5.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 55,
+      "start_time": 5.5,
+      "duration": 0.25,
+      "velocity": 64
+    },
+    {
+      "pitch": 55,
+      "start_time": 6.0,
+      "duration": 0.25,
+      "velocity": 64
+    },
+    {
+      "pitch": 49,
+      "start_time": 6.25,
+      "duration": 0.25,
+      "velocity": 33
+    },
+    {
+      "pitch": 49,
+      "start_time": 6.5,
+      "duration": 0.25,
+      "velocity": 65
+    },
+    {
+      "pitch": 49,
+      "start_time": 6.75,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 51,
+      "start_time": 7.0,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 55,
+      "start_time": 7.25,
+      "duration": 0.25,
+      "velocity": 64
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Trap Drums by Sound Oracle / MIDI Clips / 808 Bass / Tempest 808 Bass C 70 bpm",
+    "slot_index": 0,
+    "clip_name": "Trap Drums by Sound Oracle / MIDI Clips / 808 Bass / Tempest 808 Bass C 70 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Trap Drums by Sound Oracle/MIDI Clips/808 Bass/Tempest 808 Bass C 70 bpm.alc"
+  },
+  "meta": {
+    "bpm": 70.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 9
+  },
+  "rhythm": {
+    "density": 0.562,
+    "hit_positions": [
+      0.0,
+      1.5,
+      2.5,
+      3.75,
+      4.0,
+      5.5,
+      6.5,
+      7.25,
+      7.75
+    ],
+    "ioi": [
+      1.5,
+      1.0,
+      1.25,
+      0.25,
+      1.5,
+      1.0,
+      0.75,
+      0.5,
+      0.25
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      9,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      24
+    ],
+    "intervals": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "register": "low",
+    "is_melodic": false,
+    "pitch_range": 0,
+    "pitch_distribution": {
+      "24": 9
+    }
+  },
+  "velocity": {
+    "mean": 118.3,
+    "variance": 262.9,
+    "std": 16.2,
+    "accents": [],
+    "profile": [
+      127,
+      127,
+      127,
+      88,
+      127,
+      127,
+      127,
+      127,
+      88
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 24,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 1.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 2.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 88
+    },
+    {
+      "pitch": 24,
+      "start_time": 4.0,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 5.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 6.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 7.25,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 7.75,
+      "duration": 0.25,
+      "velocity": 88
+    }
+  ]
+}

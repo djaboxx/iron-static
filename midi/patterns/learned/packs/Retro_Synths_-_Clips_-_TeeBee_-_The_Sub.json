@@ -1,0 +1,282 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / The Sub",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / The Sub",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/The Sub.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 22
+  },
+  "rhythm": {
+    "density": 1.375,
+    "hit_positions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.5,
+      4.25,
+      4.75,
+      5.0,
+      5.5,
+      6.0,
+      6.25,
+      7.0,
+      7.25,
+      7.5
+    ],
+    "ioi": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.75,
+      0.75,
+      0.5,
+      0.25,
+      0.5,
+      0.5,
+      0.25,
+      0.75,
+      0.25,
+      0.25,
+      0.5
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      22,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      60,
+      63,
+      65,
+      67,
+      69,
+      71
+    ],
+    "intervals": [
+      3,
+      3,
+      7,
+      2,
+      6,
+      3,
+      7,
+      7,
+      3,
+      3,
+      9,
+      4,
+      6,
+      2,
+      9,
+      0,
+      9,
+      6,
+      2,
+      4,
+      4
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 11,
+    "pitch_distribution": {
+      "60": 7,
+      "63": 4,
+      "67": 2,
+      "69": 5,
+      "65": 3,
+      "71": 1
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 63,
+      "start_time": 0.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 0.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 0.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 1.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 63,
+      "start_time": 1.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 1.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 67,
+      "start_time": 1.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 2.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 63,
+      "start_time": 2.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 2.5,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 2.75,
+      "duration": 0.875,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 3.5,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 71,
+      "start_time": 4.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 4.75,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 5.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 5.5,
+      "duration": 0.75,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 6.0,
+      "duration": 0.75,
+      "velocity": 100
+    },
+    {
+      "pitch": 63,
+      "start_time": 6.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 7.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 7.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 65,
+      "start_time": 7.5,
+      "duration": 0.5,
+      "velocity": 100
+    }
+  ]
+}

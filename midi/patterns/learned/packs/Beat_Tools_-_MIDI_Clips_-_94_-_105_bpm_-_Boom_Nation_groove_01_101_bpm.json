@@ -1,0 +1,119 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / Boom Nation groove 01_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / Boom Nation groove 01_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/Boom Nation groove 01_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 6
+  },
+  "rhythm": {
+    "density": 0.75,
+    "hit_positions": [
+      0.0,
+      0.75,
+      1.5,
+      3.5,
+      4.0,
+      4.75
+    ],
+    "ioi": [
+      0.75,
+      0.75,
+      2.0,
+      0.5,
+      0.75,
+      3.25
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      6,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      48,
+      57,
+      60
+    ],
+    "intervals": [
+      3,
+      9,
+      0,
+      12,
+      3
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "60": 2,
+      "57": 2,
+      "48": 2
+    }
+  },
+  "velocity": {
+    "mean": 47.7,
+    "variance": 19.6,
+    "std": 4.4,
+    "accents": [
+      0,
+      5
+    ],
+    "profile": [
+      53,
+      44,
+      44,
+      43,
+      48,
+      54
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 0.0312,
+      "velocity": 53
+    },
+    {
+      "pitch": 57,
+      "start_time": 0.75,
+      "duration": 0.0417,
+      "velocity": 44
+    },
+    {
+      "pitch": 48,
+      "start_time": 1.5,
+      "duration": 0.0312,
+      "velocity": 44
+    },
+    {
+      "pitch": 48,
+      "start_time": 3.5,
+      "duration": 0.0312,
+      "velocity": 43
+    },
+    {
+      "pitch": 60,
+      "start_time": 4.0,
+      "duration": 0.0312,
+      "velocity": 48
+    },
+    {
+      "pitch": 57,
+      "start_time": 4.75,
+      "duration": 0.0417,
+      "velocity": 54
+    }
+  ]
+}

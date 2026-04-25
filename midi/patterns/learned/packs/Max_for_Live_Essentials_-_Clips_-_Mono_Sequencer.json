@@ -1,0 +1,150 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Max for Live Essentials / Clips / Mono Sequencer",
+    "slot_index": 0,
+    "clip_name": "Max for Live Essentials / Clips / Mono Sequencer",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Max for Live Essentials/Clips/Mono Sequencer.alc"
+  },
+  "meta": {
+    "bpm": 120.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 12.0,
+    "note_count": 9
+  },
+  "rhythm": {
+    "density": 0.75,
+    "hit_positions": [
+      0.0,
+      2.0,
+      2.75,
+      3.5,
+      4.0,
+      6.0,
+      6.75,
+      7.5,
+      8.0
+    ],
+    "ioi": [
+      2.0,
+      0.75,
+      0.75,
+      0.5,
+      2.0,
+      0.75,
+      0.75,
+      0.5,
+      4.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      9,
+      48
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      41,
+      45,
+      47,
+      48,
+      50
+    ],
+    "intervals": [
+      9,
+      0,
+      0,
+      5,
+      2,
+      0,
+      1,
+      7
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 9,
+    "pitch_distribution": {
+      "41": 2,
+      "50": 3,
+      "45": 1,
+      "47": 2,
+      "48": 1
+    }
+  },
+  "velocity": {
+    "mean": 113.6,
+    "variance": 124.7,
+    "std": 11.2,
+    "accents": [],
+    "profile": [
+      124,
+      124,
+      111,
+      111,
+      90,
+      124,
+      111,
+      124,
+      103
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 41,
+      "start_time": 0.0,
+      "duration": 2.0062,
+      "velocity": 124
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.0,
+      "duration": 0.2034,
+      "velocity": 124
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.75,
+      "duration": 0.186,
+      "velocity": 111
+    },
+    {
+      "pitch": 50,
+      "start_time": 3.5,
+      "duration": 0.2839,
+      "velocity": 111
+    },
+    {
+      "pitch": 45,
+      "start_time": 4.0,
+      "duration": 1.8799,
+      "velocity": 90
+    },
+    {
+      "pitch": 47,
+      "start_time": 6.0,
+      "duration": 0.2581,
+      "velocity": 124
+    },
+    {
+      "pitch": 47,
+      "start_time": 6.75,
+      "duration": 0.2758,
+      "velocity": 111
+    },
+    {
+      "pitch": 48,
+      "start_time": 7.5,
+      "duration": 0.5502,
+      "velocity": 124
+    },
+    {
+      "pitch": 41,
+      "start_time": 8.0,
+      "duration": 3.2803,
+      "velocity": 103
+    }
+  ]
+}

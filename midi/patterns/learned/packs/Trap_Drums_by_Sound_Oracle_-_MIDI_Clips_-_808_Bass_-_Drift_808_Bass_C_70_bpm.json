@@ -1,0 +1,174 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Trap Drums by Sound Oracle / MIDI Clips / 808 Bass / Drift 808 Bass C 70 bpm",
+    "slot_index": 0,
+    "clip_name": "Trap Drums by Sound Oracle / MIDI Clips / 808 Bass / Drift 808 Bass C 70 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Trap Drums by Sound Oracle/MIDI Clips/808 Bass/Drift 808 Bass C 70 bpm.alc"
+  },
+  "meta": {
+    "bpm": 70.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 12
+  },
+  "rhythm": {
+    "density": 0.75,
+    "hit_positions": [
+      0.0,
+      2.25,
+      2.5,
+      3.0,
+      3.5104,
+      3.75,
+      4.0,
+      6.25,
+      6.5,
+      7.0,
+      7.25,
+      7.75
+    ],
+    "ioi": [
+      2.25,
+      0.25,
+      0.5,
+      0.5104,
+      0.2396,
+      0.25,
+      2.25,
+      0.25,
+      0.5,
+      0.25,
+      0.5,
+      0.25
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      12,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      24,
+      36
+    ],
+    "intervals": [
+      0,
+      0,
+      12,
+      0,
+      12,
+      0,
+      0,
+      0,
+      12,
+      12,
+      0
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "24": 9,
+      "36": 3
+    }
+  },
+  "velocity": {
+    "mean": 116.8,
+    "variance": 315.2,
+    "std": 17.8,
+    "accents": [],
+    "profile": [
+      127,
+      86,
+      127,
+      127,
+      127,
+      86,
+      127,
+      86,
+      127,
+      127,
+      127,
+      127
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 24,
+      "start_time": 0.0,
+      "duration": 0.375,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 2.25,
+      "duration": 0.25,
+      "velocity": 86
+    },
+    {
+      "pitch": 24,
+      "start_time": 2.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 36,
+      "start_time": 3.5104,
+      "duration": 0.2604,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 3.75,
+      "duration": 0.25,
+      "velocity": 86
+    },
+    {
+      "pitch": 24,
+      "start_time": 4.0,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 6.25,
+      "duration": 0.25,
+      "velocity": 86
+    },
+    {
+      "pitch": 24,
+      "start_time": 6.5,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 36,
+      "start_time": 7.0,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 7.25,
+      "duration": 0.25,
+      "velocity": 127
+    },
+    {
+      "pitch": 24,
+      "start_time": 7.75,
+      "duration": 0.125,
+      "velocity": 127
+    }
+  ]
+}

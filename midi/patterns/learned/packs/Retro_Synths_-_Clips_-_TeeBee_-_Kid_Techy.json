@@ -1,0 +1,250 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Retro Synths / Clips / TeeBee / Kid Techy",
+    "slot_index": 0,
+    "clip_name": "Retro Synths / Clips / TeeBee / Kid Techy",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Retro Synths/Clips/TeeBee/Kid Techy.alc"
+  },
+  "meta": {
+    "bpm": 115.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 19
+  },
+  "rhythm": {
+    "density": 1.188,
+    "hit_positions": [
+      0.0,
+      0.5,
+      1.0,
+      1.25,
+      1.75,
+      2.0,
+      2.75,
+      3.0,
+      3.25,
+      3.75,
+      4.0,
+      4.75,
+      5.0,
+      5.5,
+      6.0,
+      6.25,
+      6.5,
+      6.75,
+      7.0
+    ],
+    "ioi": [
+      0.5,
+      0.5,
+      0.25,
+      0.5,
+      0.25,
+      0.75,
+      0.25,
+      0.25,
+      0.5,
+      0.25,
+      0.75,
+      0.25,
+      0.5,
+      0.5,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      1.0
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      19,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      60,
+      62,
+      64,
+      69,
+      72
+    ],
+    "intervals": [
+      2,
+      10,
+      12,
+      0,
+      2,
+      10,
+      12,
+      2,
+      7,
+      5,
+      5,
+      9,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "60": 5,
+      "62": 6,
+      "72": 2,
+      "69": 2,
+      "64": 4
+    }
+  },
+  "velocity": {
+    "mean": 100.0,
+    "variance": 0.0,
+    "std": 0.0,
+    "accents": [],
+    "profile": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 0.5,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 72,
+      "start_time": 1.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 1.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 1.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 2.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 72,
+      "start_time": 2.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 3.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 3.25,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 3.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 4.0,
+      "duration": 0.5,
+      "velocity": 100
+    },
+    {
+      "pitch": 69,
+      "start_time": 4.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 60,
+      "start_time": 5.0,
+      "duration": 0.75,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 5.5,
+      "duration": 0.375,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 6.0,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 6.25,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 6.5,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 64,
+      "start_time": 6.75,
+      "duration": 0.125,
+      "velocity": 100
+    },
+    {
+      "pitch": 62,
+      "start_time": 7.0,
+      "duration": 1.0,
+      "velocity": 100
+    }
+  ]
+}

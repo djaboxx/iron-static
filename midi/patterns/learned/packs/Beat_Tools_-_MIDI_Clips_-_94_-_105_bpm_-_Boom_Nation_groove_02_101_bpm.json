@@ -1,0 +1,140 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / Boom Nation groove 02_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / Boom Nation groove 02_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/Boom Nation groove 02_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 8
+  },
+  "rhythm": {
+    "density": 1.0,
+    "hit_positions": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      3.5,
+      4.0,
+      5.0,
+      6.0
+    ],
+    "ioi": [
+      1.0,
+      1.0,
+      1.0,
+      0.5,
+      0.5,
+      1.0,
+      1.0,
+      2.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      8,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      57,
+      60,
+      62,
+      64
+    ],
+    "intervals": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      4,
+      3
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 7,
+    "pitch_distribution": {
+      "64": 2,
+      "60": 3,
+      "57": 2,
+      "62": 1
+    }
+  },
+  "velocity": {
+    "mean": 43.5,
+    "variance": 172.8,
+    "std": 13.1,
+    "accents": [
+      3
+    ],
+    "profile": [
+      41,
+      37,
+      34,
+      76,
+      43,
+      36,
+      33,
+      48
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 64,
+      "start_time": 0.0,
+      "duration": 0.0312,
+      "velocity": 41
+    },
+    {
+      "pitch": 60,
+      "start_time": 1.0,
+      "duration": 0.0417,
+      "velocity": 37
+    },
+    {
+      "pitch": 57,
+      "start_time": 2.0,
+      "duration": 0.0417,
+      "velocity": 34
+    },
+    {
+      "pitch": 60,
+      "start_time": 3.0,
+      "duration": 0.0521,
+      "velocity": 76
+    },
+    {
+      "pitch": 62,
+      "start_time": 3.5,
+      "duration": 0.0938,
+      "velocity": 43
+    },
+    {
+      "pitch": 64,
+      "start_time": 4.0,
+      "duration": 0.0417,
+      "velocity": 36
+    },
+    {
+      "pitch": 60,
+      "start_time": 5.0,
+      "duration": 0.0521,
+      "velocity": 33
+    },
+    {
+      "pitch": 57,
+      "start_time": 6.0,
+      "duration": 0.0729,
+      "velocity": 48
+    }
+  ]
+}

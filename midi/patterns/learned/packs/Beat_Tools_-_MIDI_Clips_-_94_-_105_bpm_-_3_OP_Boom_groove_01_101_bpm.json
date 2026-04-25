@@ -1,0 +1,173 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 3 OP Boom groove 01_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 3 OP Boom groove 01_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/3 OP Boom groove 01_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 10
+  },
+  "rhythm": {
+    "density": 1.25,
+    "hit_positions": [
+      0.0,
+      0.75,
+      1.5,
+      2.5,
+      3.5,
+      4.0,
+      4.75,
+      5.5,
+      6.5,
+      7.5
+    ],
+    "ioi": [
+      0.75,
+      0.75,
+      1.0,
+      1.0,
+      0.5,
+      0.75,
+      0.75,
+      1.0,
+      1.0,
+      0.5
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      10,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      40,
+      43,
+      45,
+      48,
+      50,
+      52,
+      53,
+      55,
+      60
+    ],
+    "intervals": [
+      10,
+      3,
+      5,
+      5,
+      12,
+      3,
+      16,
+      4,
+      5
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 24,
+    "pitch_distribution": {
+      "60": 1,
+      "50": 1,
+      "53": 1,
+      "48": 1,
+      "43": 1,
+      "55": 1,
+      "52": 1,
+      "36": 1,
+      "40": 1,
+      "45": 1
+    }
+  },
+  "velocity": {
+    "mean": 38.7,
+    "variance": 71.0,
+    "std": 8.4,
+    "accents": [
+      5,
+      7
+    ],
+    "profile": [
+      38,
+      43,
+      43,
+      41,
+      34,
+      49,
+      43,
+      48,
+      23,
+      25
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 60,
+      "start_time": 0.0,
+      "duration": 0.0417,
+      "velocity": 38
+    },
+    {
+      "pitch": 50,
+      "start_time": 0.75,
+      "duration": 0.0625,
+      "velocity": 43
+    },
+    {
+      "pitch": 53,
+      "start_time": 1.5,
+      "duration": 0.0417,
+      "velocity": 43
+    },
+    {
+      "pitch": 48,
+      "start_time": 2.5,
+      "duration": 0.0625,
+      "velocity": 41
+    },
+    {
+      "pitch": 43,
+      "start_time": 3.5,
+      "duration": 0.0729,
+      "velocity": 34
+    },
+    {
+      "pitch": 55,
+      "start_time": 4.0,
+      "duration": 0.0521,
+      "velocity": 49
+    },
+    {
+      "pitch": 52,
+      "start_time": 4.75,
+      "duration": 0.0938,
+      "velocity": 43
+    },
+    {
+      "pitch": 36,
+      "start_time": 5.5,
+      "duration": 0.0729,
+      "velocity": 48
+    },
+    {
+      "pitch": 40,
+      "start_time": 6.5,
+      "duration": 0.0833,
+      "velocity": 23
+    },
+    {
+      "pitch": 45,
+      "start_time": 7.5,
+      "duration": 0.0417,
+      "velocity": 25
+    }
+  ]
+}

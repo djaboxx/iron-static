@@ -1,0 +1,110 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 3 OP Boom groove 03_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 3 OP Boom groove 03_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/3 OP Boom groove 03_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 4.0,
+    "note_count": 5
+  },
+  "rhythm": {
+    "density": 1.25,
+    "hit_positions": [
+      0.0,
+      1.5,
+      2.0,
+      2.75,
+      3.5
+    ],
+    "ioi": [
+      1.5,
+      0.5,
+      0.75,
+      0.75,
+      0.5
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      5,
+      16
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      40,
+      43,
+      45
+    ],
+    "intervals": [
+      9,
+      4,
+      3,
+      3
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 9,
+    "pitch_distribution": {
+      "45": 1,
+      "36": 1,
+      "40": 2,
+      "43": 1
+    }
+  },
+  "velocity": {
+    "mean": 47.0,
+    "variance": 79.2,
+    "std": 8.9,
+    "accents": [
+      3
+    ],
+    "profile": [
+      48,
+      54,
+      36,
+      59,
+      38
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 45,
+      "start_time": 0.0,
+      "duration": 0.0312,
+      "velocity": 48
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.5,
+      "duration": 0.0625,
+      "velocity": 54
+    },
+    {
+      "pitch": 40,
+      "start_time": 2.0,
+      "duration": 0.0833,
+      "velocity": 36
+    },
+    {
+      "pitch": 43,
+      "start_time": 2.75,
+      "duration": 0.0729,
+      "velocity": 59
+    },
+    {
+      "pitch": 40,
+      "start_time": 3.5,
+      "duration": 0.0625,
+      "velocity": 38
+    }
+  ]
+}

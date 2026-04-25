@@ -1,0 +1,234 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Max for Live Essentials / Clips / EnvFollow-Operator-Delay",
+    "slot_index": 0,
+    "clip_name": "Max for Live Essentials / Clips / EnvFollow-Operator-Delay",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Max for Live Essentials/Clips/EnvFollow-Operator-Delay.alc"
+  },
+  "meta": {
+    "bpm": 120.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 28.0,
+    "note_count": 17
+  },
+  "rhythm": {
+    "density": 0.429,
+    "hit_positions": [
+      0.0,
+      5.0,
+      5.5,
+      7.0,
+      11.0,
+      15.0,
+      15.0,
+      15.0,
+      19.0,
+      19.0,
+      19.5,
+      19.5,
+      21.0,
+      21.5,
+      22.0,
+      22.0,
+      23.0
+    ],
+    "ioi": [
+      5.0,
+      0.5,
+      1.5,
+      4.0,
+      4.0,
+      0.0,
+      0.0,
+      4.0,
+      0.0,
+      0.5,
+      0.0,
+      1.5,
+      0.5,
+      0.5,
+      0.0,
+      1.0,
+      5.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      17,
+      112
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      39,
+      42,
+      46,
+      49,
+      53,
+      54,
+      56
+    ],
+    "intervals": [
+      8,
+      1,
+      4,
+      10,
+      3,
+      7,
+      7,
+      14,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 17,
+    "pitch_distribution": {
+      "46": 1,
+      "54": 1,
+      "53": 1,
+      "49": 6,
+      "39": 1,
+      "42": 6,
+      "56": 1
+    }
+  },
+  "velocity": {
+    "mean": 116.4,
+    "variance": 259.7,
+    "std": 16.1,
+    "accents": [],
+    "profile": [
+      124,
+      125,
+      111,
+      127,
+      124,
+      82,
+      82,
+      83,
+      125,
+      124,
+      125,
+      124,
+      125,
+      124,
+      125,
+      125,
+      124
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 46,
+      "start_time": 0.0,
+      "duration": 5.089,
+      "velocity": 124
+    },
+    {
+      "pitch": 54,
+      "start_time": 5.0,
+      "duration": 0.1486,
+      "velocity": 125
+    },
+    {
+      "pitch": 53,
+      "start_time": 5.5,
+      "duration": 0.1341,
+      "velocity": 111
+    },
+    {
+      "pitch": 49,
+      "start_time": 7.0,
+      "duration": 3.9598,
+      "velocity": 127
+    },
+    {
+      "pitch": 39,
+      "start_time": 11.0,
+      "duration": 3.272,
+      "velocity": 124
+    },
+    {
+      "pitch": 42,
+      "start_time": 15.0,
+      "duration": 3.0522,
+      "velocity": 82
+    },
+    {
+      "pitch": 49,
+      "start_time": 15.0,
+      "duration": 2.982,
+      "velocity": 82
+    },
+    {
+      "pitch": 56,
+      "start_time": 15.0,
+      "duration": 2.9961,
+      "velocity": 83
+    },
+    {
+      "pitch": 42,
+      "start_time": 19.0,
+      "duration": 0.1477,
+      "velocity": 125
+    },
+    {
+      "pitch": 49,
+      "start_time": 19.0,
+      "duration": 0.1899,
+      "velocity": 124
+    },
+    {
+      "pitch": 42,
+      "start_time": 19.5,
+      "duration": 0.1342,
+      "velocity": 125
+    },
+    {
+      "pitch": 49,
+      "start_time": 19.5,
+      "duration": 0.2021,
+      "velocity": 124
+    },
+    {
+      "pitch": 42,
+      "start_time": 21.0,
+      "duration": 0.174,
+      "velocity": 125
+    },
+    {
+      "pitch": 49,
+      "start_time": 21.5,
+      "duration": 0.132,
+      "velocity": 124
+    },
+    {
+      "pitch": 42,
+      "start_time": 22.0,
+      "duration": 0.1221,
+      "velocity": 125
+    },
+    {
+      "pitch": 49,
+      "start_time": 22.0,
+      "duration": 0.1619,
+      "velocity": 125
+    },
+    {
+      "pitch": 42,
+      "start_time": 23.0,
+      "duration": 0.3059,
+      "velocity": 124
+    }
+  ]
+}

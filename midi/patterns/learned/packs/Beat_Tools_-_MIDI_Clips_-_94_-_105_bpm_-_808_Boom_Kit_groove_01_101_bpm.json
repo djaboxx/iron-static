@@ -1,0 +1,100 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 808 Boom Kit groove 01_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 808 Boom Kit groove 01_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/808 Boom Kit groove 01_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 4
+  },
+  "rhythm": {
+    "density": 0.5,
+    "hit_positions": [
+      0.0,
+      2.0,
+      4.0,
+      6.0
+    ],
+    "ioi": [
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      4,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      48,
+      49,
+      50,
+      51
+    ],
+    "intervals": [
+      1,
+      1,
+      1
+    ],
+    "register": "mid",
+    "is_melodic": true,
+    "pitch_range": 3,
+    "pitch_distribution": {
+      "51": 1,
+      "50": 1,
+      "49": 1,
+      "48": 1
+    }
+  },
+  "velocity": {
+    "mean": 46.2,
+    "variance": 83.2,
+    "std": 9.1,
+    "accents": [
+      1
+    ],
+    "profile": [
+      50,
+      58,
+      33,
+      44
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 51,
+      "start_time": 0.0,
+      "duration": 0.0521,
+      "velocity": 50
+    },
+    {
+      "pitch": 50,
+      "start_time": 2.0,
+      "duration": 0.0729,
+      "velocity": 58
+    },
+    {
+      "pitch": 49,
+      "start_time": 4.0,
+      "duration": 0.0625,
+      "velocity": 33
+    },
+    {
+      "pitch": 48,
+      "start_time": 6.0,
+      "duration": 0.0833,
+      "velocity": 44
+    }
+  ]
+}

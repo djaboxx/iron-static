@@ -1,0 +1,118 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 808 Boom Kit groove 02_101 bpm",
+    "slot_index": 0,
+    "clip_name": "Beat Tools / MIDI Clips / 94 - 105 bpm / 808 Boom Kit groove 02_101 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Beat Tools/MIDI Clips/94 - 105 bpm/808 Boom Kit groove 02_101 bpm.alc"
+  },
+  "meta": {
+    "bpm": 101.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 6
+  },
+  "rhythm": {
+    "density": 0.75,
+    "hit_positions": [
+      0.0,
+      1.0,
+      2.0,
+      4.0,
+      5.5,
+      6.5
+    ],
+    "ioi": [
+      1.0,
+      1.0,
+      2.0,
+      1.5,
+      1.0,
+      1.5
+    ],
+    "grid": "quarter",
+    "euclidean_approx": [
+      6,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      37,
+      41,
+      43
+    ],
+    "intervals": [
+      6,
+      4,
+      2,
+      6,
+      4
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 6,
+    "pitch_distribution": {
+      "43": 2,
+      "37": 2,
+      "41": 2
+    }
+  },
+  "velocity": {
+    "mean": 48.3,
+    "variance": 587.9,
+    "std": 24.2,
+    "accents": [
+      0
+    ],
+    "profile": [
+      100,
+      30,
+      41,
+      29,
+      39,
+      51
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 43,
+      "start_time": 0.0,
+      "duration": 0.25,
+      "velocity": 100
+    },
+    {
+      "pitch": 37,
+      "start_time": 1.0,
+      "duration": 0.0625,
+      "velocity": 30
+    },
+    {
+      "pitch": 41,
+      "start_time": 2.0,
+      "duration": 0.0729,
+      "velocity": 41
+    },
+    {
+      "pitch": 43,
+      "start_time": 4.0,
+      "duration": 0.0625,
+      "velocity": 29
+    },
+    {
+      "pitch": 37,
+      "start_time": 5.5,
+      "duration": 0.0833,
+      "velocity": 39
+    },
+    {
+      "pitch": 41,
+      "start_time": 6.5,
+      "duration": 0.0417,
+      "velocity": 51
+    }
+  ]
+}

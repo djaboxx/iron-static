@@ -1,0 +1,358 @@
+{
+  "source": {
+    "song": "packs",
+    "track_index": 0,
+    "track_name": "Drum Essentials / MIDI Clips / 131 - 160 bpm / Luminous Kit groove 04_140 bpm",
+    "slot_index": 0,
+    "clip_name": "Drum Essentials / MIDI Clips / 131 - 160 bpm / Luminous Kit groove 04_140 bpm",
+    "mid_file": "/Users/darnold/Music/Ableton/Packs/Drum Essentials/MIDI Clips/131 - 160 bpm/Luminous Kit groove 04_140 bpm.alc"
+  },
+  "meta": {
+    "bpm": 140.0,
+    "key": "?",
+    "scale": "?",
+    "length_beats": 8.0,
+    "note_count": 29
+  },
+  "rhythm": {
+    "density": 1.125,
+    "hit_positions": [
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      1.0,
+      1.0,
+      1.5,
+      2.0,
+      2.0,
+      2.0,
+      2.5,
+      2.75,
+      3.0,
+      3.0,
+      3.5,
+      4.0,
+      4.0,
+      4.5,
+      4.5,
+      5.0,
+      5.5,
+      6.0,
+      6.0,
+      6.5,
+      7.0,
+      7.0,
+      7.25,
+      7.5,
+      7.5
+    ],
+    "ioi": [
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      0.5,
+      0.25,
+      0.25,
+      0.0,
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.0,
+      0.25,
+      0.25,
+      0.0,
+      0.5
+    ],
+    "grid": "8th",
+    "euclidean_approx": [
+      29,
+      32
+    ],
+    "swing_ratio": 1.0
+  },
+  "pitch": {
+    "notes_used": [
+      36,
+      39,
+      40,
+      42,
+      43,
+      48
+    ],
+    "intervals": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      0,
+      3,
+      1,
+      2,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      3,
+      1,
+      2,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "register": "low",
+    "is_melodic": true,
+    "pitch_range": 12,
+    "pitch_distribution": {
+      "36": 6,
+      "42": 15,
+      "39": 2,
+      "40": 2,
+      "48": 1,
+      "43": 3
+    }
+  },
+  "velocity": {
+    "mean": 49.1,
+    "variance": 896.3,
+    "std": 29.9,
+    "accents": [
+      7,
+      8,
+      19,
+      22,
+      24
+    ],
+    "profile": [
+      36,
+      39,
+      22,
+      31,
+      71,
+      58,
+      47,
+      109,
+      109,
+      63,
+      19,
+      25,
+      38,
+      25,
+      18,
+      27,
+      31,
+      35,
+      34,
+      106,
+      75,
+      72,
+      99,
+      29,
+      98,
+      25,
+      21,
+      47,
+      14
+    ]
+  },
+  "notes": [
+    {
+      "pitch": 36,
+      "start_time": 0.0,
+      "duration": 0.1146,
+      "velocity": 36
+    },
+    {
+      "pitch": 42,
+      "start_time": 0.0,
+      "duration": 0.1042,
+      "velocity": 39
+    },
+    {
+      "pitch": 36,
+      "start_time": 0.5,
+      "duration": 0.0625,
+      "velocity": 22
+    },
+    {
+      "pitch": 42,
+      "start_time": 0.5,
+      "duration": 0.0833,
+      "velocity": 31
+    },
+    {
+      "pitch": 36,
+      "start_time": 1.0,
+      "duration": 0.0938,
+      "velocity": 71
+    },
+    {
+      "pitch": 42,
+      "start_time": 1.0,
+      "duration": 0.1146,
+      "velocity": 58
+    },
+    {
+      "pitch": 42,
+      "start_time": 1.5,
+      "duration": 0.0833,
+      "velocity": 47
+    },
+    {
+      "pitch": 39,
+      "start_time": 2.0,
+      "duration": 0.125,
+      "velocity": 109
+    },
+    {
+      "pitch": 40,
+      "start_time": 2.0,
+      "duration": 0.0833,
+      "velocity": 109
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.0,
+      "duration": 0.0833,
+      "velocity": 63
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.5,
+      "duration": 0.0729,
+      "velocity": 19
+    },
+    {
+      "pitch": 42,
+      "start_time": 2.75,
+      "duration": 0.0938,
+      "velocity": 25
+    },
+    {
+      "pitch": 42,
+      "start_time": 3.0,
+      "duration": 0.0833,
+      "velocity": 38
+    },
+    {
+      "pitch": 48,
+      "start_time": 3.0,
+      "duration": 0.6771,
+      "velocity": 25
+    },
+    {
+      "pitch": 42,
+      "start_time": 3.5,
+      "duration": 0.0312,
+      "velocity": 18
+    },
+    {
+      "pitch": 36,
+      "start_time": 4.0,
+      "duration": 0.0625,
+      "velocity": 27
+    },
+    {
+      "pitch": 42,
+      "start_time": 4.0,
+      "duration": 0.0417,
+      "velocity": 31
+    },
+    {
+      "pitch": 36,
+      "start_time": 4.5,
+      "duration": 0.0521,
+      "velocity": 35
+    },
+    {
+      "pitch": 42,
+      "start_time": 4.5,
+      "duration": 0.0312,
+      "velocity": 34
+    },
+    {
+      "pitch": 36,
+      "start_time": 5.0,
+      "duration": 0.0938,
+      "velocity": 106
+    },
+    {
+      "pitch": 42,
+      "start_time": 5.5,
+      "duration": 0.1146,
+      "velocity": 75
+    },
+    {
+      "pitch": 39,
+      "start_time": 6.0,
+      "duration": 0.1146,
+      "velocity": 72
+    },
+    {
+      "pitch": 40,
+      "start_time": 6.0,
+      "duration": 0.0938,
+      "velocity": 99
+    },
+    {
+      "pitch": 42,
+      "start_time": 6.5,
+      "duration": 0.0625,
+      "velocity": 29
+    },
+    {
+      "pitch": 42,
+      "start_time": 7.0,
+      "duration": 0.1146,
+      "velocity": 98
+    },
+    {
+      "pitch": 43,
+      "start_time": 7.0,
+      "duration": 0.25,
+      "velocity": 25
+    },
+    {
+      "pitch": 43,
+      "start_time": 7.25,
+      "duration": 0.25,
+      "velocity": 21
+    },
+    {
+      "pitch": 42,
+      "start_time": 7.5,
+      "duration": 0.0938,
+      "velocity": 47
+    },
+    {
+      "pitch": 43,
+      "start_time": 7.5,
+      "duration": 0.1771,
+      "velocity": 14
+    }
+  ]
+}
