@@ -3,6 +3,76 @@
 *Active song: Instrumental Convergence — D aeolian @ 72 BPM*
 *Checkpoint: 11:19*
 
+---
+
+# Session Learnings — 2026-04-25 (Checkpoint 2)
+
+*Active song: Instrumental Convergence — D aeolian @ 72.0 BPM*
+*Checkpoint: ~session end*
+
+## What We Figured Out
+
+- **`build_session.py` is the correct tool for fresh sessions — not `generate_als.py`.** `generate_als.py` requires existing track names in a base `.als`. When track names come from a new brainstorm blueprint and don't exist in any prior session, `build_session.py` creates the session from scratch using `device_library.json` fuzzy search. This distinction cost significant time before it was resolved.
+
+- **Pack ADGs store `<RelativePath>` as a container with `RelativePathElement` children. Live requires a self-closing leaf.** When `_extract_device_from_adg` parses a pack ADG (e.g. `808 Depth Charger Kit.adg`, `GranularStretch Kit.adg`), the `<RelativePath>` element contains child `<RelativePathElement>` nodes. Live's XML parser treats `RelativePath` as a "base type" (string leaf) — any children cause "Base types can't have children". The fix: replace the entire `<RelativePath>...</RelativePath>` block with `<RelativePath Value="" />` in `_extract_device_from_adg`.
+
+- **Two sequential XML errors appeared in the pack ADGs, each masking the next.** First error: "Required attribute 'Value' missing" — fixed by adding `Value=""`. Second error: "Base types can't have children" — fixed by also stripping the child nodes. The final fix handles both in one regex that replaces the entire element.
+
+- **`build_session.py` works cleanly for core library devices (no child `RelativePath` nodes).** Only pack ADGs trigger this issue. The 5 core library tracks in this session (808 Core Kit, Metallic Noise Pluck, Noise Bass, Inclement Drone Pad, Metal Pad) loaded without any XML patching needed.
+
+## What Failed and Why
+
+- **First fix: add `Value=""` to `<RelativePath>` without removing children** → Live accepted the attribute but still rejected with "Base types can't have children". Live treats `RelativePath` as a primitive string type — adding `Value=""` is necessary but not sufficient if children remain.
+
+- **`generate_als.py --list` on v1/v2/base sessions** → none of the existing sessions had the blueprint track names (Sub Drone, Bass Voice, Choir Pads, etc. instead of DRM_Grid_KickSnare, BASS_Interrogator, etc.). Wrong tool entirely.
+
+## Decisions Made
+
+| Decision | Reasoning |
+|---|---|
+| `GranularStretch Kit` as `TEX_Witness_Vocal` device | Granulator III (M4L) is not in `device_library.json` as an ADG. Closest available pack preset. Sound Designer must swap to Granulator III manually. |
+| `build_session.py` over `generate_als.py` for new sessions | No existing session has blueprint track names. `generate_als.py` is an injector (modifies existing), `build_session.py` is a builder (creates fresh). |
+| 7 scenes — one per arrangement section | FRAGMENTS / INTERROGATION P1 / P2 / ESC / REJECTION / SYSTEM FAILURE / ECHO — exact section structure from brainstorm rev-3 |
+
+## Correct Configurations / Commands
+
+```bash
+# Build a fresh session from blueprint config
+python3 scripts/build_session.py \
+  --config ableton/m4l/configs/<song-slug>-internal.json \
+  --out ableton/sessions/<song-slug>_v3.als
+
+# Dry run first — validates device resolution without writing
+python3 scripts/build_session.py \
+  --config ableton/m4l/configs/<song-slug>-internal.json \
+  --dry-run -v
+
+# Open in Live
+open 'ableton/sessions/<song-slug>_v3.als'
+```
+
+```python
+# The fix in _extract_device_from_adg (build_session.py) for pack ADGs:
+device_xml = re.sub(
+    r'<RelativePath(?!\s+Value=)[^>]*>.*?</RelativePath>',
+    '<RelativePath Value="" />',
+    device_xml,
+    flags=re.DOTALL,
+)
+```
+
+## Open Questions
+
+- [ ] `TEX_Witness_Vocal` track: needs Granulator III (M4L) loaded manually — GranularStretch Kit is a placeholder. Requires a Gemini TTS audio source to load into Granulator III.
+- [ ] Scene names are not set in the session — the 7 scenes are unnamed. Need to set via Remote Script or manually in Live: FRAGMENTS, INTERROGATION P1, INTERROGATION P2, INTERROGATION ESC, REJECTION, SYSTEM FAILURE, ECHO.
+- [ ] `BASS_Interrogator`: Sound Designer needs to program the D + G# tritone sequence. Noise Bass preset is loaded but sequence is empty.
+- [ ] `DRM_Grid_Perc_7_16`: 808 Core Kit loaded but needs reprogramming to a single metallic hit repeated 7 steps (7/16 pattern).
+- [ ] Revision-3 brainstorm has not been critiqued. Known regression: `TEX_Witness_Vocal` spec calls for "Sampler with granular mode" in rev-3 (should be Granulator III — this was correct in rev-2).
+
+## Next Session Priority
+
+Start The Sound Designer on `BASS_Interrogator` (D + G# tritone sequence + distortion chain) — it's the structural spine of INTERROGATION and nothing else in that section can be evaluated until the bass is running.
+
 ## What We Figured Out
 
 - **Agent handoff context matters.** The Alchemist's original 4 handoffs ("Evaluate this audio", "Load this into the session", etc.) were written for Lyria audio generation workflows. When the Alchemist runs a brainstorm instead, those buttons are wrong — there's no audio, and "build a hardware patch" is The Sound Designer's job. Handoffs need to be authored for the *output type*, not the *agent type*.

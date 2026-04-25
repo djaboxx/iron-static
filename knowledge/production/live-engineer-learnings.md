@@ -67,3 +67,36 @@ device_xml = re.sub(
 
 ---
 
+## 2026-04-25 — Pack ADGs have `<RelativePath>` with children; Live requires a self-closing leaf
+
+**Context**: Built `instrumental-convergence_v3.als` using `build_session.py`. Two pack devices (`808 Depth Charger Kit`, `GranularStretch Kit`) caused corrupt session errors. Core library devices (Noise Bass, Metal Pad, etc.) loaded fine.
+
+**Error sequence**: First attempt → "Required attribute 'Value' missing (at line 887)". Fixed by adding `Value=""`. Second attempt → "Base types can't have children (at line 888)". Root cause: `RelativePath` is a string primitive in Live's schema. Pack ADGs store it as a container element with `<RelativePathElement Dir="..." />` children. Both the missing attribute AND the children must be fixed.
+
+**What worked**: Replace the entire `<RelativePath ...>...</RelativePath>` block (including all children) with `<RelativePath Value="" />` in `_extract_device_from_adg`:
+```python
+device_xml = re.sub(
+    r'<RelativePath(?!\s+Value=)[^>]*>.*?</RelativePath>',
+    '<RelativePath Value="" />',
+    device_xml,
+    flags=re.DOTALL,
+)
+```
+
+**Why it matters**: This affects any pack ADG (installed pack, not core library). The core library devices use `<RelativePath Value="" />` natively. Pack devices do not. `build_session.py` now handles this automatically.
+
+**Applies to**: `build_session.py` → `_extract_device_from_adg`. `generate_als.py` uses a different device injection path and may need the same fix if pack devices are added there.
+
+---
+
+## 2026-04-25 — `build_session.py` vs `generate_als.py`: use the right tool
+
+**Context**: Spent time trying to use `generate_als.py` for an `instrumental-convergence` session with blueprint track names (DRM_Grid_KickSnare, BASS_Interrogator, etc.).
+
+**What failed**: `generate_als.py --list` on all existing sessions showed tracks with different names (Sub Drone, Bass Voice, etc.). `generate_als.py` is an **injector** — it replaces devices on tracks that already exist by name in a base `.als`.
+
+**What worked**: `build_session.py` — creates a fresh session from a JSON config. Fuzzy-searches `database/device_library.json` (1991 entries) for device presets by name. Use this whenever the brainstorm blueprint introduces new track names.
+
+**Rule**: New brainstorm blueprint = new track names = `build_session.py`. Modifying devices on an existing session = `generate_als.py`.
+
+---
