@@ -193,6 +193,7 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `build-session` | `/build-session` | The Live Engineer | Reads active brainstorm Section 6, generates the Ableton session from the blueprint, hands off to Sound Designer to dial in sounds. Fully automagic. |
 | `update-feeds` | `/update-feeds` | The Alchemist | Polls all RSS/Atom feeds, synthesizes a Gemini digest, and surfaces the 3–5 most relevant items for the active song. Flags brainstorm seed candidates from the Machine Perspective section. |
 | `run-brainstorm` | `/run-brainstorm` | The Alchemist | Runs the weekly Gemini brainstorm (auto-runs feed digest first if needed), writes to `knowledge/brainstorms/`, registers on active song, and proposes the highest-value next action. |
+| `critique-brainstorm` | `/critique-brainstorm` | The Critic | Evaluates the latest brainstorm against the manifesto and active song context. Writes verdict to `knowledge/brainstorms/YYYY-MM-DD-critique.md`. Invoke after `/run-brainstorm`. |
 | `checkpoint` | `/checkpoint` | Copilot | Mid-session snapshot — extracts learnings, decisions, failures, and open questions from the current conversation and writes to `knowledge/sessions/YYYY-MM-DD-learnings.md`. Invoke before context compacts or before switching to a long multi-agent workflow. |
 
 **When to use prompts vs. agents directly:**
