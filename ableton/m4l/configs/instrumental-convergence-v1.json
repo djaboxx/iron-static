@@ -1,0 +1,51 @@
+{
+  "name": "Instrumental Convergence",
+  "bpm": 72.0,
+  "key": "D",
+  "scale": "aeolian",
+  "scenes": 7,
+  "tracks": [
+    {
+      "name": "DRM_Grid_KickSnare",
+      "device": "808 Depth Charger Kit",
+      "color": 13,
+      "_note": "Industrial kick+snare. The unwavering 4/4 foundation. Lamb of God weight."
+    },
+    {
+      "name": "DRM_Grid_Perc_7_16",
+      "device": "808 Core Kit",
+      "color": 13,
+      "_note": "7/16 phasing metallic perc loop. Automate filter cutoff on a 7-bar ramp. Sound Designer: reprogram this rack with a single sharp metallic hit repeated 7 steps."
+    },
+    {
+      "name": "DRM_Clock_4_4",
+      "device": "Metallic Noise Pluck",
+      "color": 13,
+      "_note": "Dead-simple quarter-note metallic pulse. Enters INTERROGATION Phase 2. Cold, indifferent, precise."
+    },
+    {
+      "name": "BASS_Interrogator",
+      "device": "Noise Bass",
+      "color": 1,
+      "_note": "Monophonic antagonist bassline. D root + G# tritone. Abrasive, distorted, relentless. Sound Designer: heavy post-distortion, fast plucky filter envelope."
+    },
+    {
+      "name": "TEX_Witness_Vocal",
+      "device": "GranularStretch Kit",
+      "color": 6,
+      "_note": "The protagonist. Granular vocal texture — ghost to weapon to dying murmur. Source: Gemini TTS output. Sound Designer: load spoken word sample, automate grain size/position/flux. Gate rhythmically during INTERROGATION. This should ultimately be Granulator III."
+    },
+    {
+      "name": "PAD_Prison_Drone",
+      "device": "Inclement Drone Pad",
+      "color": 4,
+      "_note": "Low grinding environmental drone. Present at start and returns broken in SYSTEM FAILURE. Not glue — the sound of the container fracturing."
+    },
+    {
+      "name": "PAD_Rising_Dread",
+      "device": "Metal Pad",
+      "color": 4,
+      "_note": "Dissonant pad. Enters INTERROGATION Escalation phase (bar 21). 12-bar filter cutoff automation from closed to fully open. Dissonant interval only — no melody."
+    }
+  ]
+}
