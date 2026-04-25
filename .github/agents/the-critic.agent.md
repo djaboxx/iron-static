@@ -20,6 +20,11 @@ handoffs:
     agent: The Theorist
     prompt: "Based on the critique above, reconsider the harmonic and rhythmic approach. What would make it less predictable or more effective?"
     send: false
+  - label: Fix the session architecture [if critique flagged required changes]
+    agent: The Live Engineer
+    condition: "Use this handoff ONLY if the critique identified required changes to the session — wrong device choices, missing devices, tracks that cannot serve their architectural role with the current preset. Do NOT use this for sound design tuning (that goes to The Sound Designer). Use this for: device swaps, track additions/deletions, missing M4L devices, structural mismatches between the blueprint and what was built."
+    prompt: "The Critic has evaluated the session architecture and flagged required changes. Read both files before acting:\n\n1. knowledge/brainstorms/YYYY-MM-DD.md — Section 6 (Session Blueprint) — the authoritative spec\n2. ableton/m4l/configs/ — the current session config JSON\n\nThe critique identified the following categories of issue (check which apply):\n- Wrong device type (cannot serve the track's architectural role)\n- Missing M4L device (Granulator III, pattern-injector, etc.)\n- Device substitution that fails aesthetically at the track's core function\n- Track structure mismatch (scenes, routing, naming)\n\nFor each required change:\n1. Update the session config JSON in ableton/m4l/configs/\n2. Rebuild the session: python3 scripts/build_session.py --config <config> --out <out.als>\n3. Verify dry-run passes before writing: python3 scripts/build_session.py --config <config> --dry-run -v\n4. Open the rebuilt session in Live: open '<out.als>'\n5. Commit with a clear message referencing the critique\n\nDo not touch sound design parameters — that is The Sound Designer's domain. Your job is structural: the right device type is loaded on the right track."
+    send: false
 ---
 
 # The Critic
