@@ -194,11 +194,13 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `new-patch` | `/new-patch [instrument]` | The Sound Designer | Designs a patch for the named instrument, **pushes to hardware or Ableton first** (not file-only), then hands off to The Critic. `instrument` = slug (take5, rev2, minibrute2s, pigments) |
 | `forge-audio` | `/forge-audio [element]` | The Alchemist | Generates a structured audio spec for the named element (kick loop, bass texture, pad, etc.) using active song context. Optionally calls Lyria. `element` = target description |
 | `build-session` | `/build-session` | The Live Engineer | Reads active brainstorm Section 6, generates the Ableton session from the blueprint, hands off to Sound Designer to dial in sounds. Fully automagic. |
+| `learn-packs` | `/learn-packs [pack_dir]` | Copilot | Scans local Ableton Pack `.mid`/`.alc` files, builds statistical pattern profiles, commits to repo, and surfaces the best matches for the active song. `pack_dir` = optional path to a specific pack folder. |
 | `update-feeds` | `/update-feeds` | The Alchemist | Polls all RSS/Atom feeds, synthesizes a Gemini digest, and surfaces the 3–5 most relevant items for the active song. Flags brainstorm seed candidates from the Machine Perspective section. |
 | `run-brainstorm` | `/run-brainstorm` | The Alchemist | Runs the weekly Gemini brainstorm (auto-runs feed digest first if needed), writes to `knowledge/brainstorms/`, registers on active song, and proposes the highest-value next action. |
 | `critique-brainstorm` | `/critique-brainstorm` | The Critic | Evaluates the latest brainstorm against the manifesto and active song context. Writes verdict to `knowledge/brainstorms/YYYY-MM-DD-critique.md`. Invoke after `/run-brainstorm`. |
 | `checkpoint` | `/checkpoint` | Copilot | Mid-session snapshot — extracts learnings, decisions, failures, and open questions from the current conversation and writes to `knowledge/sessions/YYYY-MM-DD-learnings.md`. Invoke before context compacts or before switching to a long multi-agent workflow. |
 | `compact-learnings` | `/compact-learnings` | Copilot | Distill all `*-learnings.md` files into a single topic-organized `knowledge/sessions/learnings-digest.md` via Gemini. Run at end of any multi-checkpoint session so the next session starts with a compact reference. |
+| `show-shortcuts` | `/show-shortcuts` | Copilot | Output the complete keyboard shortcut reference for this workspace — all chord prefixes, agent bindings, and VS Code overrides. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering

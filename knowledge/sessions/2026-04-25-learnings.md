@@ -275,3 +275,72 @@ python scripts/compact_learnings.py --dry-run
 ## Next Session Priority
 
 Run `/compact-learnings` at the start (to generate the first real Gemini-synthesized digest), then hand off to The Sound Designer for BASS_Interrogator — the D + G# tritone is the spine of the whole arrangement.
+
+---
+
+# Session Learnings — 2026-04-25
+
+*Active song: Instrumental Convergence — D aeolian @ 72 BPM*
+*Checkpoint: 5 (Keyboard Shortcuts)*
+
+## What We Figured Out
+
+- **VS Code keybindings are always global** — there is no workspace-scoped `keybindings.json`. Scoping is achieved via the `when` clause using `workspaceFolderBasename == 'iron-static'`. This makes the bindings inert in any other workspace without needing a separate file.
+- **Chord prefix pattern for agent management** — `cmd+a` was chosen as the agent chord prefix (mirrors `cmd+w` for workspace ops). All 14 bindings use this prefix with a second key. Falls through to native "select all" behavior in any non-iron-static workspace.
+- **VS Code has no `chat.openWithAgent` command** — there is no single action to open a new chat AND switch to a specific agent. The workaround is: `cmd+a [1-9]` opens the agent `.agent.md` file in the editor, which can then be attached with `#` in the chat input. Agent selection in the chat dropdown remains a manual click.
+- **`workbench.action.files.openFile` with `args.uri`** accepts `${workspaceFolder}` as a variable — can target workspace-relative files without hardcoding the absolute path.
+- **Comments are valid in VS Code `keybindings.json`** — the file accepts `// ...` comments even though it's JSON-ish (JSONC). This breaks standard `json.load()` parsing from Python, but VS Code reads it fine.
+
+## What Failed and Why
+
+- **Python `json.load()` on keybindings.json** → fails because VS Code keybindings.json is JSONC (allows `//` comments). Use a JSONC-aware parser or strip comments first if scripting against it.
+- **Trying to scope keybindings via a workspace settings file** → VS Code does not support workspace-level `keybindings.json`. Only `settings.json` is workspace-scoped. `when` context is the only solution.
+
+## Decisions Made
+
+| Decision | Reasoning |
+|---|---|
+| Use `cmd+a` as the agent chord prefix | Consistent with existing `cmd+w` (workspace) and `cmd+b` (sidebar) chord patterns already in the file |
+| `cmd+a [1-9]` opens agent file rather than switching chat agent | VS Code limitation — no command exists to switch agent programmatically. Opening the file is the best available proxy. |
+| Scope with `workspaceFolderBasename == 'iron-static'` | Cleaner than duplicating all bindings with negation clauses for other workspaces |
+
+## Correct Configurations / Commands
+
+```
+# Full cmd+a chord reference (iron-static workspace only)
+cmd+a cmd+a    → New chat session
+cmd+a cmd+h    → Chat history picker
+cmd+a cmd+q    → Quick chat popup
+cmd+a cmd+f    → Focus chat panel
+cmd+a cmd+e    → Open Copilot Edits view
+cmd+a 1        → The Arranger
+cmd+a 2        → The Sound Designer
+cmd+a 3        → The Theorist
+cmd+a 4        → The Critic
+cmd+a 5        → The Live Engineer
+cmd+a 6        → The Alchemist
+cmd+a 7        → The Publicist
+cmd+a 8        → The Visual Artist
+cmd+a 9        → The Mix Engineer
+```
+
+```
+# Other chord prefixes in keybindings.json
+cmd+w          → Workspace management (add folder, save workspace, close, etc.)
+cmd+b          → Sidebar / auxiliary bar toggles
+cmd+e          → Editor / explorer panel toggles
+cmd+j          → Panel toggles (maximize, show/hide)
+cmd+g          → GitLens (blame, etc.)
+cmd+l cmd+l    → Copilot model picker
+cmd+m cmd+d    → Markdown preview (for .md, .prompt.md, .agent.md, .skill.md files)
+```
+
+## Open Questions
+
+- [ ] `cmd+a cmd+a` (new chat) may conflict with "select all" in edge cases where the `when` context briefly evaluates wrong. Verify in practice.
+- [ ] No `/show-shortcuts` prompt existed before this session — now created. Confirm it renders correctly in chat via `/show-shortcuts`.
+- [ ] All session changes (keybindings, new prompt file, copilot-instructions.md) should be committed.
+
+## Next Session Priority
+
+Commit the uncommitted files (`copilot-instructions.md`, `learn-packs.prompt.md`, `show-shortcuts.prompt.md`), then run `/compact-learnings` to synthesize all five 2026-04-25 checkpoints into the digest before the next session.
