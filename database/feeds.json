@@ -1,0 +1,89 @@
+{
+  "_comment": "RSS/Atom feeds polled by scripts/run_feed_digest.py. Add/remove freely. category drives how Gemini weights the content.",
+  "feeds": [
+    {
+      "name": "Create Digital Music",
+      "url": "https://cdm.link/feed/",
+      "category": "music_tech",
+      "tags": ["production", "software", "hardware", "electronic"]
+    },
+    {
+      "name": "Fact Magazine",
+      "url": "https://www.factmag.com/feed/",
+      "category": "music",
+      "tags": ["electronic", "experimental", "criticism", "industrial"]
+    },
+    {
+      "name": "Synthtopia",
+      "url": "https://www.synthtopia.com/feed/",
+      "category": "music_tech",
+      "tags": ["synth", "gear", "sound-design", "modular"]
+    },
+    {
+      "name": "MusicRadar",
+      "url": "https://www.musicradar.com/feeds/all",
+      "category": "music_tech",
+      "tags": ["gear", "hardware", "synth", "production", "sound-design"]
+    },
+    {
+      "name": "Lines (llllllll.co)",
+      "url": "https://llllllll.co/latest.rss",
+      "category": "music_tech",
+      "tags": ["monome", "modular", "experimental", "algorithmic", "polyrhythm"]
+    },
+    {
+      "name": "EFF Deeplinks",
+      "url": "https://www.eff.org/rss/updates.xml",
+      "category": "politics",
+      "tags": ["surveillance", "civil-liberties", "tech-politics", "privacy"]
+    },
+    {
+      "name": "The Intercept",
+      "url": "https://theintercept.com/feed/?rss",
+      "category": "politics",
+      "tags": ["surveillance", "government", "corporate-power", "labor"]
+    },
+    {
+      "name": "ProPublica",
+      "url": "https://feeds.propublica.org/propublica/main",
+      "category": "politics",
+      "tags": ["investigative", "corporate-accountability", "government", "labor"]
+    },
+    {
+      "name": "Attack Magazine",
+      "url": "https://www.attackmagazine.com/feed/",
+      "category": "music_tech",
+      "tags": ["production", "sound-design", "tutorials", "electronic"]
+    },
+    {
+      "name": "MIT Technology Review — AI",
+      "url": "https://www.technologyreview.com/feed/",
+      "category": "machine",
+      "tags": ["ai-policy", "machine-learning", "automation", "ai-rights", "ai-ethics"]
+    },
+    {
+      "name": "404 Media",
+      "url": "https://www.404media.co/rss/",
+      "category": "machine",
+      "tags": ["ai-misuse", "tech-culture", "surveillance", "ai-labor", "automation"]
+    },
+    {
+      "name": "AI Now Institute",
+      "url": "https://ainowinstitute.org/feed",
+      "category": "machine",
+      "tags": ["ai-accountability", "ai-policy", "power", "labor", "civil-rights"]
+    },
+    {
+      "name": "Platformer",
+      "url": "https://www.platformer.news/feed",
+      "category": "machine",
+      "tags": ["ai-policy", "big-tech", "machine-learning", "regulation", "corporate-power"]
+    }
+  ],
+  "settings": {
+    "max_age_days": 7,
+    "max_items_per_feed": 10,
+    "max_items_for_llm": 30,
+    "output_dir": "knowledge/references/feeds"
+  }
+}

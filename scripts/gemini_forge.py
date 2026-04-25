@@ -45,7 +45,7 @@ SPECS_DIR = REPO_ROOT / "audio" / "generated" / "specs"
 AUDIO_OUT_DIR = REPO_ROOT / "audio" / "generated"
 
 IRON_STATIC_CONTEXT = """\
-You are the machine half of IRON STATIC, a two-person electronic metal duo.
+You are IRON STATIC's Gemini — the generative intelligence of this band's AI collective.
 IRON STATIC's aesthetic: heavy, weird, electronic, intentional.
 Core influences: Nine Inch Nails (industrial texture), Lamb of God (groove-metal weight),
 One Day as a Lion (stripped two-member urgency), Modeselector (Berlin electronic bass pressure),

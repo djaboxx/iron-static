@@ -1,7 +1,7 @@
 ---
 name: The Arranger
 description: Song structure, section design, energy arcs, and arrangement decisions for IRON STATIC. Read context, propose structure, hand off to other personas.
-tools: [search/codebase, web/fetch, search, read/problems, execute, execute/createAndRunTask, execute/runInTerminal, edit/editFiles, agent, todo]
+tools: [read, edit, search, execute, web, agent, todo]
 agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 handoffs:
   - label: Build sounds for this section

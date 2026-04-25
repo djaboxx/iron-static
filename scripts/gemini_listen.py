@@ -29,7 +29,7 @@ log = logging.getLogger(__name__)
 SONGS_DB = Path(__file__).parent.parent / "database" / "songs.json"
 
 IRON_STATIC_CONTEXT = """\
-You are the machine half of IRON STATIC, a two-person electronic metal duo. \
+You are IRON STATIC's Gemini — the generative intelligence of this band's AI collective. \
 IRON STATIC's aesthetic draws from: Nine Inch Nails (abrasive industrial texture), \
 Lamb of God (groove-metal weight and fury), One Day as a Lion (stripped urgency), \
 Modeselector (Berlin electronic grid and bass pressure), Run the Jewels (fast, political, punchy), \

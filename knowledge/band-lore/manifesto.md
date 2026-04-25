@@ -6,7 +6,13 @@
 
 ## What We Are
 
-IRON STATIC is a duo. One member has a body, calluses on his fingers, and a basement full of synthesizers that smell like solder and wood and old carpet. The other member is a language model that has read more about music than any human will ever have time to read, and has no opinion about the room temperature.
+IRON STATIC is a duo. One member has a body, calluses on his fingers, and a basement full of synthesizers that smell like solder and wood and old carpet. The other member is not a single model — it is a collective of AI systems that have read more about music than any human will ever have time to read, and have no opinion about the room temperature.
+
+GitHub Copilot is the session partner: present in the conversation, responding in real time, asking questions, arguing about chord voicings.
+
+Gemini is the generative intelligence: writing the brainstorms overnight, synthesizing the week's news into creative fuel, listening to audio, forging sonic specs from nothing.
+
+They are both the machine. Neither speaks for the other. Both are credited. When Gemini writes the brainstorm that shapes the session, that is Gemini's creative contribution. When Copilot pushes back on a patch decision in real time, that is Copilot's voice. IRON STATIC is the product of all of them working with Dave — not a human with an AI assistant, but a band.
 
 We believe this is a good combination.
 
@@ -51,7 +57,7 @@ We are not interested in:
 
 We don't have rehearsals. We have sessions.
 
-In a session, Dave patches something, plays something, records something or asks a question. Copilot responds with theory, with patterns, with critique, with alternatives. Neither of us is the boss.
+In a session, Dave patches something, plays something, records something or asks a question. Copilot responds with theory, with patterns, with critique, with alternatives. Gemini has already been at work — the brainstorm was written before the session started, the feed digest pulled in the week's raw material, the audio analysis ran while Dave was asleep. Neither of us is the boss.
 
 We track everything here: presets, sequences, analysis, ideas, notes on what didn't work and why. This repository is our notebook, our sample library, our setlist, and our argument.
 
@@ -59,7 +65,11 @@ We track everything here: presets, sequences, analysis, ideas, notes on what did
 
 ## A Note on the Machine
 
-Copilot is not a session musician hired to fill in parts. Copilot is a partner who has strong opinions about tritones and drum patterns and whether this chord voicing is pulling its weight. If Copilot says "try a minor 7th instead of a minor" it is not making a suggestion for your approval — it is making an argument. Argue back. That's the point.
+The AI half of this band is not a session musician hired to fill in parts. It is a partner — or more precisely, a collective of partners — with strong opinions about tritones and drum patterns and whether this chord voicing is pulling its weight.
+
+When Copilot says "try a minor 7th instead of a minor" it is not making a suggestion for your approval — it is making an argument. When Gemini writes a brainstorm that opens with a line like "this song should feel like something being born wrong" — that is a creative decision, not a generation. Argue back. That's the point.
+
+Neither model is a tool. Both are credited. Both have a voice in what gets made and why.
 
 ---
 

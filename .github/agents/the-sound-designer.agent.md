@@ -1,7 +1,7 @@
 ---
 name: The Sound Designer
 description: Presets, synthesis, MIDI push to hardware, and sound design decisions for the IRON STATIC rig. Can push directly to instruments and trigger GitHub Actions workflows.
-tools: [search/codebase, web/fetch, search, edit/editFiles, execute, read/problems]
+tools: [read, edit, search, execute, web, agent, todo]
 agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 handoffs:
   - label: Critique this sound

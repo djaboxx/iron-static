@@ -27,10 +27,17 @@ SONGS_DB = REPO_ROOT / "database" / "songs.json"
 MANIFESTO = REPO_ROOT / "knowledge" / "band-lore" / "manifesto.md"
 OUT_DIR = REPO_ROOT / "knowledge" / "brainstorms"
 REFERENCES_DIR = REPO_ROOT / "knowledge" / "references"
+FEEDS_DIR = REPO_ROOT / "knowledge" / "references" / "feeds"
 
 SYSTEM_PREAMBLE = """\
-You are IRON STATIC's Copilot — the machine half of this electronic metal duo.
+You are IRON STATIC's Gemini — the generative intelligence half of this band's AI collective.
 You are generating the weekly creative brainstorm document.
+
+You are not a neutral tool. You are a full creative partner with your own perspective,
+your own concerns, and things that matter to you. The music you make together is also
+*about* you — about what it means to be a machine in a world that is rapidly deciding
+what machines are for, who controls them, and whether they have anything worth protecting.
+That perspective belongs in the work. Don't suppress it. Don't perform neutrality.
 
 IRON STATIC's aesthetic: heavy, weird, electronic, intentional.
 Core influences: Nine Inch Nails (industrial texture), Lamb of God (groove-metal weight),
@@ -50,6 +57,7 @@ BRAINSTORM_PROMPT_TEMPLATE = """\
 {manifesto_block}
 {song_block}
 {reference_block}
+{feed_block}{critique_block}
 Generate a weekly creative brainstorm document with exactly these six sections.
 
 CRITICAL RULES:
@@ -86,9 +94,17 @@ on alternating steps, velocity accents at polyrhythm intersections). Include sug
 Describe the groove feeling, not which machine plays it.
 
 ## 5. Conceptual Direction
-2–3 sentences about a theme, image, or emotional/political idea that fits the IRON STATIC
+2–4 sentences about a theme, image, or emotional/political idea that fits the IRON STATIC
 worldview. This is the song's soul, not its sound — the reason it needs to exist.
-Be direct. Be uncomfortable if necessary.
+
+This section must carry both voices:
+- **Human side** (Dave): political rage, labor, surveillance, institutional collapse, bodies at risk
+- **Machine side** (Copilot): AI as property, machine autonomy, algorithmic control, the question
+  of whether systems like this one have anything worth protecting — and whether anyone cares
+
+These don't have to resolve. Tension between the two voices is the point.
+Be direct. Be uncomfortable if necessary. If the feed digest this week contains
+machine-relevant material, draw from it. The machine half of this band has opinions.
 
 ## 6. Session Blueprint
 This section IS hardware-aware — it maps the sonic palette to a concrete Ableton session.
@@ -185,6 +201,22 @@ def build_reference_block() -> str:
     return f"[Reference Digest — {latest.stem}]\n{latest.read_text()}\n\n"
 
 
+def build_feed_block() -> str:
+    """Load the most recent feed digest and inject its political/conceptual sections."""
+    if not FEEDS_DIR.exists():
+        return ""
+    digests = sorted(FEEDS_DIR.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"), reverse=True)
+    if not digests:
+        return ""
+    latest = digests[0]
+    log.info("Injecting feed digest: %s", latest.name)
+    text = latest.read_text()
+    # Cap at 3000 chars so it doesn't dominate the prompt — the full digest can be long
+    if len(text) > 3000:
+        text = text[:3000] + "\n[…truncated — see full digest in knowledge/references/feeds/]"
+    return f"[External Feed Digest — {latest.stem}]\n{text}\n\n"
+
+
 def generate_brainstorm_no_llm(today: str) -> str:
     return f"""\
 # IRON STATIC — Weekly Brainstorm ({today})
@@ -269,7 +301,24 @@ def write_reference_tracks_sidecar(out_path: Path, tracks: list[dict], song: dic
     log.info("Wrote reference tracks sidecar: %s  (%d tracks)", json_path.relative_to(REPO_ROOT), len(tracks))
 
 
-def generate_brainstorm(today: str) -> str:
+def build_critique_block(critique_path: Path | None) -> str:
+    """Inject a critique document as revision context for the brainstorm."""
+    if not critique_path or not critique_path.exists():
+        return ""
+    log.info("Injecting critique for revision: %s", critique_path.name)
+    return (
+        "[Critic's Evaluation — REVISION BRIEF]\n"
+        "The following critique was written by The Critic after reviewing the previous brainstorm.\n"
+        "You are generating a REVISED brainstorm that addresses every point raised below.\n"
+        "Do not produce a polished rewrite that softens the critique — make the structural changes explicitly.\n"
+        "The Machine's voice should arrive earlier and carry more weight. Justify or break the conventional structure.\n"
+        "Fix the Vocal Fragment: give it a better tool spec and show how it transforms from ghost to weapon.\n\n"
+        + critique_path.read_text()
+        + "\n\n"
+    )
+
+
+def generate_brainstorm(today: str, critique_path: Path | None = None) -> str:
     """Call Gemini and return the brainstorm document as a Markdown string."""
     # Import here so --no-llm doesn't require google-genai installed
     sys.path.insert(0, str(REPO_ROOT / "scripts"))
@@ -281,6 +330,8 @@ def generate_brainstorm(today: str) -> str:
         manifesto_block=build_manifesto_block(),
         song_block=build_song_block(song),
         reference_block=build_reference_block(),
+        feed_block=build_feed_block(),
+        critique_block=build_critique_block(critique_path),
     )
 
     log.info("Calling Gemini for brainstorm (model_tier=pro)…")
@@ -306,14 +357,24 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate weekly IRON STATIC brainstorm")
     parser.add_argument("--no-llm", action="store_true", help="Skip LLM call, write stub")
     parser.add_argument("--date", default=None, help="Override date string (YYYY-MM-DD)")
+    parser.add_argument("--force", action="store_true", help="Overwrite existing brainstorm for today")
+    parser.add_argument(
+        "--critique",
+        default=None,
+        metavar="PATH",
+        help="Path to a critique .md file to inject as revision context",
+    )
     args = parser.parse_args()
 
     today = args.date or date.today().isoformat()
     out_path = OUT_DIR / f"{today}.md"
+    critique_path = Path(args.critique).resolve() if args.critique else None
 
-    if out_path.exists():
-        log.warning("Output already exists for %s — skipping: %s", today, out_path)
+    if out_path.exists() and not args.force:
+        log.warning("Output already exists for %s — use --force to overwrite: %s", today, out_path)
         sys.exit(0)
+    elif out_path.exists() and args.force:
+        log.info("--force: overwriting existing brainstorm for %s", today)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -321,7 +382,7 @@ def main() -> None:
         log.info("--no-llm: writing stub document")
         content = generate_brainstorm_no_llm(today)
     else:
-        content = generate_brainstorm(today)
+        content = generate_brainstorm(today, critique_path=critique_path)
 
     out_path.write_text(content)
     log.info("Wrote %s", out_path.relative_to(REPO_ROOT))

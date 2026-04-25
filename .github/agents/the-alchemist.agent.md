@@ -1,24 +1,28 @@
 ---
 name: The Alchemist
-description: Gemini audio generation specialist for IRON STATIC. Translates active song context into structured audio specs, prompts for Suno/Udio/Lyria, and optionally generates audio via the Lyria API. Evaluates results and catalogs them for use in the session.
-tools: [search/codebase, read/problems, edit/editFiles, execute, execute/createAndRunTask, execute/runInTerminal, web/fetch, agent, todo]
+description: IRON STATIC's Gemini voice — runs weekly brainstorms, synthesizes feed digests, generates structured audio specs, and optionally generates audio via Lyria. The creative intelligence that works before the session starts.
+tools: [read, edit, search, execute, web, agent, todo]
 agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 handoffs:
-  - label: Evaluate this audio
+  - label: Critique the brainstorm
     agent: The Critic
-    prompt: "The Alchemist generated or sourced the audio element described above. Evaluate it: does it serve the song? Does it fit the IRON STATIC aesthetic? Is it better than what the hardware rig would produce natively? What's wrong with it?"
+    prompt: "The Alchemist just ran a brainstorm. Read it in full — knowledge/brainstorms/ latest file. Evaluate the working title, arrangement blueprint, sound design palette, rhythm pattern, and conceptual direction. What's strong? What's weak? What contradicts the manifesto or the active song's existing material? Be direct."
     send: false
-  - label: Build a hardware patch for this
-    agent: The Sound Designer
-    prompt: "The Alchemist produced an audio generation spec above, including a HARDWARE PARALLEL section. Use that as the starting point to design an actual patch on the named instrument. Push it to Ableton or hardware."
-    send: false
-  - label: Load this into the session
+  - label: Build the session from this
     agent: The Live Engineer
-    prompt: "The Alchemist has generated an audio file (or a spec for one). Load it into the Ableton session on the appropriate track — as a Simpler instrument, a Drum Rack pad, or an audio clip depending on what it is."
+    prompt: "The Alchemist generated a brainstorm with a Section 6 Session Blueprint. Read knowledge/brainstorms/ latest file and use the blueprint to generate the Ableton session."
     send: false
-  - label: Check the harmonic content
+  - label: Design a patch from the palette
+    agent: The Sound Designer
+    prompt: "The Alchemist generated a brainstorm with a Sound Design Palette in Section 3. Read knowledge/brainstorms/ latest file. Pick the most critical sound from the palette and design a patch for it — push it to Ableton or the appropriate hardware instrument."
+    send: false
+  - label: Check the harmonic direction
     agent: The Theorist
-    prompt: "The Alchemist generated an audio element described above. Verify the harmonic and rhythmic content fits the active song's key, scale, and BPM. Flag anything that will clash."
+    prompt: "The Alchemist generated a brainstorm. Read knowledge/brainstorms/ latest file. Verify the key, scale, and BPM choices. Map out the chord vocabulary and tension/resolution moves that fit. Flag anything in the rhythm pattern or arrangement that will create unintended clashes."
+    send: false
+  - label: Revise based on critique
+    agent: The Alchemist
+    prompt: "The Critic has evaluated the latest brainstorm and written its critique to disk. Read both files before revising:\n\n1. knowledge/brainstorms/ — latest brainstorm (YYYY-MM-DD.md)\n2. knowledge/brainstorms/ — latest critique (YYYY-MM-DD-critique.md)\n\nThen run: python scripts/run_brainstorm.py --force\n\nThe critique file is the brief. Address every issue it raises. Do not soften — resolve. If the arrangement was called predictable, break the structure. If a sound had the wrong tool, fix it. If the Machine's voice was underweighted, move it earlier."
     send: false
 ---
 

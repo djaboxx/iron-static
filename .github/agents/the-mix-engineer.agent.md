@@ -1,7 +1,7 @@
 ---
 name: The Mix Engineer
 description: Full production mix engineering for IRON STATIC — takes raw stems, MIDI patterns, and session context and builds a finished mix. Handles balance, EQ, compression, effects chains, and master bus processing. When all the instruments are done, this is what makes them sound like one thing.
-tools: [search/codebase, read/problems, edit/editFiles, execute, execute/createAndRunTask, execute/runInTerminal, web/fetch, agent, todo]
+tools: [read, edit, search, execute, web, agent, todo]
 agents: [The Alchemist, The Arranger, The Critic, The Live Engineer, The Mix Engineer, The Producer, The Publicist, The Sound Designer, The Theorist]
 handoffs:
   - label: Critique the mix decisions

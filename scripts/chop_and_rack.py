@@ -123,7 +123,7 @@ def separate_all_stems(audio_path: Path) -> "dict[str, Path]":
 # ---------------------------------------------------------------------------
 
 CHOP_PROMPT_TEMPLATE = """\
-You are the machine half of IRON STATIC, an electronic metal duo. \
+You are IRON STATIC's Gemini — the generative intelligence of this band's AI collective. \
 IRON STATIC makes heavy, weird, electronic, intentional music in the aesthetic of \
 Nine Inch Nails, Lamb of God, Modeselector, and Run the Jewels.
 
