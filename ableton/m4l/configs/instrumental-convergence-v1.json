@@ -7,15 +7,15 @@
   "tracks": [
     {
       "name": "DRM_Grid_KickSnare",
-      "device": "808 Depth Charger Kit",
+      "device": "Ironman Kit",
       "color": 13,
-      "_note": "Industrial kick+snare. The unwavering 4/4 foundation. Lamb of God weight."
+      "_note": "Industrial kick+snare. The unwavering 4/4 foundation. Lamb of God weight. Sampled real drums — iron weight, not 808 hip-hop."
     },
     {
       "name": "DRM_Grid_Perc_7_16",
-      "device": "808 Core Kit",
+      "device": "AG Techno Kit",
       "color": 13,
-      "_note": "7/16 phasing metallic perc loop. Automate filter cutoff on a 7-bar ramp. Sound Designer: reprogram this rack with a single sharp metallic hit repeated 7 steps."
+      "_note": "7/16 phasing metallic perc loop. Automate filter cutoff on a 7-bar ramp. Sound Designer: reprogram this rack with a single sharp electronic/metallic hit repeated 7 steps."
     },
     {
       "name": "DRM_Clock_4_4",
@@ -31,9 +31,9 @@
     },
     {
       "name": "TEX_Witness_Vocal",
-      "device": "GranularStretch Kit",
+      "device": null,
       "color": 6,
-      "_note": "The protagonist. Granular vocal texture — ghost to weapon to dying murmur. Source: Gemini TTS output. Sound Designer: load spoken word sample, automate grain size/position/flux. Gate rhythmically during INTERROGATION. This should ultimately be Granulator III."
+      "_note": "EMPTY TRACK — REQUIRES MANUAL DEVICE INSERT. Sound Designer must insert Granulator III (M4L) into this track. Load a Gemini TTS spoken word audio source into Granulator III. Automate grain size/position/flux across the 5 arrangement sections: ghost smear (FRAGMENTS) → gated stutter (INTERROGATION P1) → fragmented (INTERROGATION ESC) → dying murmur (SYSTEM FAILURE) → faint echo (ECHO). GranularStretch Kit was removed — it is a Drum Rack and cannot carry granular vocal transformation."
     },
     {
       "name": "PAD_Prison_Drone",
@@ -43,9 +43,9 @@
     },
     {
       "name": "PAD_Rising_Dread",
-      "device": "Metal Pad",
+      "device": "Dark Swell Pad",
       "color": 4,
-      "_note": "Dissonant pad. Enters INTERROGATION Escalation phase (bar 21). 12-bar filter cutoff automation from closed to fully open. Dissonant interval only — no melody."
+      "_note": "Dissonant pad. Enters INTERROGATION Escalation phase (bar 21). 12-bar filter cutoff automation from closed to fully open. Dissonant interval only — no melody. Dark Swell Pad: built to grow — starts cold/harmless at 0% filter, dangerous at 100%. Metal Pad was removed — already abrasive at rest, nowhere to go in the sweep arc."
     }
   ]
 }
