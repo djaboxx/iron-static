@@ -202,13 +202,15 @@ def _extract_device_from_adg(adg_path: str) -> str:
         _bump_target,
         device_xml,
     )
-    # Live requires RelativePath to always carry a Value attribute (even when it has
-    # child RelativePathElement nodes). Pack ADGs omit Value in that case, which causes
-    # Live to reject the session with "Required attribute 'Value' missing".
+    # Pack ADGs store RelativePath as a container element with RelativePathElement
+    # children. Live requires RelativePath to be a simple leaf: <RelativePath Value="" />.
+    # A RelativePath with children causes "Base types can't have children"; without
+    # Value causes "Required attribute 'Value' missing". Strip children and self-close.
     device_xml = re.sub(
-        r'<RelativePath(?!\s+Value=)(\s*>)',
-        r'<RelativePath Value=""\1',
+        r'<RelativePath(?!\s+Value=)[^>]*>.*?</RelativePath>',
+        '<RelativePath Value="" />',
         device_xml,
+        flags=re.DOTALL,
     )
     return device_xml
 
