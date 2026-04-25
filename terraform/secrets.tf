@@ -29,3 +29,35 @@ resource "github_actions_secret" "gcs_sa_key" {
   secret_name     = "GCS_SA_KEY"
   plaintext_value = base64decode(google_service_account_key.github_actions.private_key)
 }
+
+# ---------------------------------------------------------------------------
+# Instagram Content Publishing API
+# ---------------------------------------------------------------------------
+# Prerequisites:
+#   1. Instagram Professional account (Business or Creator)
+#   2. Facebook Page connected to the Instagram account
+#   3. Meta app with instagram_content_publish permission approved
+#   4. Long-lived User Access Token (~60 days). Generate via:
+#      https://developers.facebook.com/tools/explorer/
+#      Required scopes: instagram_content_publish, instagram_basic, pages_show_list
+#
+# Token refresh: long-lived tokens can be refreshed before expiry via:
+#   GET /oauth/access_token?grant_type=fb_exchange_token&client_id=...&client_secret=...&fb_exchange_token=...
+#
+# Check token validity: python scripts/post_instagram.py --check-token
+#
+# Set before running terraform apply:
+#   export TF_VAR_instagram_access_token="<long-lived-token>"
+#   export TF_VAR_instagram_user_id="<numeric-user-id>"
+
+resource "github_actions_secret" "instagram_access_token" {
+  repository      = local.repository
+  secret_name     = "INSTAGRAM_ACCESS_TOKEN"
+  plaintext_value = var.instagram_access_token
+}
+
+resource "github_actions_secret" "instagram_user_id" {
+  repository      = local.repository
+  secret_name     = "INSTAGRAM_USER_ID"
+  plaintext_value = var.instagram_user_id
+}

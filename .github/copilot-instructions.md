@@ -144,6 +144,7 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `instrument-onboard` | `.github/skills/instrument-onboard/SKILL.md` | When adding a new instrument: folder structure, manual index, param map, SysEx wiring |
 | `gcs-audio` | `.github/skills/gcs-audio/SKILL.md` | When uploading audio files (recordings, stems, samples) to GCS, pulling them back, or checking manifest status |
 | `slice-and-rack` | `.github/skills/slice-and-rack/SKILL.md` | When chopping an audio file into pads and building an Ableton Drum Rack .adg preset |
+| `generate-image` | `.github/skills/generate-image/SKILL.md` | When generating cover art or promo images for any song |
 | `gemini-forge` | `.github/skills/gemini-forge/SKILL.md` | When generating audio specs or audio files via Gemini + Lyria for the active song |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
@@ -164,6 +165,7 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Alchemist` | `.github/agents/the-alchemist.agent.md` | Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels | full + terminal | Critic, Sound Designer, Live Engineer, Theorist |
 | `The Publicist` | `.github/agents/the-publicist.agent.md` | Promo content generation and social publishing — audio teasers, cover art, waveform video, captions, YouTube/SoundCloud upload | full + terminal | Critic, Alchemist, Arranger |
 | `The Mix Engineer` | `.github/agents/the-mix-engineer.agent.md` | Full production mix engineering — balance, EQ, compression, effects chains, master bus. Takes stems and session to a finished mix | full + terminal | Critic, Sound Designer, Arranger, Live Engineer |
+| `The Visual Artist` | `.github/agents/the-visual-artist.agent.md` | Cover art and promo image generation — synthesizes song context, brainstorm language, and band aesthetic into Imagen 3 prompts. Iterates until images carry the weight of the music. Upstream of The Publicist. | read + execute | Critic, Publicist, Alchemist, Arranger |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
@@ -171,7 +173,8 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 - Structure review: **Arranger** → handoff → **Critic** → handoff → **Arranger** (revise)
 - Session from brainstorm: **Live Engineer** (read Section 6 → generate session) → handoff → **Sound Designer** (dial in sounds) → handoff → **Critic**
 - Hardware online: **Live Engineer** (add External Instrument tracks) → handoff → **Sound Designer** (hardware presets) → handoff → **Critic**
-- Release/promo: **Critic** (approve) → handoff → **Publicist** (generate assets + post)
+- Release/promo: **Critic** (approve) → handoff → **Visual Artist** (generate cover art) → handoff → **Publicist** (post)
+- Image-first: **Visual Artist** (brief + generate) → handoff → **Critic** (does it match the song?) → handoff → **Publicist** (post)
 - Full mix: **Live Engineer** (session setup) → handoff → **Mix Engineer** (balance + chain) → handoff → **Critic** (evaluate) → handoff → **Mix Engineer** (revise)
 - Stems-to-release: **Mix Engineer** (mix) → handoff → **Critic** (approve) → handoff → **Publicist** (post)
 

@@ -26,3 +26,17 @@ variable "gcs_large_files_bucket" {
   description = "GCS bucket name for large IRON STATIC files (audio, samples, presets). Set via: export TF_VAR_gcs_large_files_bucket=iron-static-files"
   type        = string
 }
+
+variable "instagram_access_token" {
+  description = "Long-lived Instagram User Access Token with instagram_content_publish scope. Valid ~60 days; refresh before expiry. Generate via https://developers.facebook.com/tools/explorer/"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "instagram_user_id" {
+  description = "Numeric Instagram user ID (not username). Find via: GET /me?fields=id&access_token=<token>"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
