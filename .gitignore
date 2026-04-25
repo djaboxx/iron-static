@@ -71,3 +71,18 @@ terraform/**/*.tflog
 # Logs
 *.log
 database/iron_static.db
+
+# Manufacturer manuals — copyrighted, not redistributable. Store locally only.
+instruments/*/manuals/*.pdf
+
+# Ableton Pack derived MIDI — commercially licensed, not redistributable.
+midi/patterns/learned/packs/
+
+# Runtime session dumps — not useful in a public repo
+outputs/Ventura_*
+outputs/ventura_*
+outputs/live_state.json
+outputs/repo_health.json
+outputs/audio_intake_manifest.json
+outputs/audio_analysis/
+outputs/midi_clips/
