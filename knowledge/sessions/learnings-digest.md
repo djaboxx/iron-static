@@ -4,45 +4,67 @@
 ---
 
 ## Ableton Session Build
-*   Use `build_session.py` to create a new session from a blueprint config; use `generate_als.py` to inject devices into an existing session.
-*   The script must reconstruct `DrumBranch` and `InstrumentBranch` elements from an ADG's `BranchPresets` element.
-*   The `Branches` element inside an ADG's `Device` definition is always empty and must be populated by the script.
-*   Every reconstructed rack branch requires its own deep-copied `MixerDevice` template or Live will not load the rack.
-*   The session at `ableton/sessions/Internal Project/2Percent.als` is the authoritative XML template for rack branch structure.
+*   Use `build_session.py` to create new sessions from a blueprint; `generate_als.py` injects into existing sessions.
+*   The `_reconstruct_branches_from_adg` function is required to populate rack `Branches` from the `BranchPresets` element in ADG files.
+*   Every rack branch requires a `MixerDevice` element template before the ID renumbering pass.
+*   The authoritative XML structure reference is `ableton/sessions/Internal Project/2Percent.als`.
+*   ```bash
+    python3 scripts/build_session.py --config <config.json> --out <out.als>
+    ```
 
 ## ADG Preset Format
-*   Rack content lives in `GroupDevicePreset > BranchPresets`, not `Device > DrumGroupDevice > Branches`.
-*   Pack ADGs with `<RelativePath>` children cause "Base types can't have children" errors and must be fixed.
-*   Drum pad MIDI note mapping is stored in `DrumBranchPreset > ZoneSettings > ReceivingNote`.
-*   Instrument branch key mapping is stored in `InstrumentBranch > ZoneSettings > KeyRange`.
-*   All rack branches, including instrument branches, use a `MidiToAudioDeviceChain`.
+*   In ADG files, a rack's devices are in the `BranchPresets` element; the `Branches` element is always empty.
+*   Fix pack ADG XML errors by replacing the entire `<RelativePath>` block with `<RelativePath Value="" />`.
+*   ```python
+    device_xml = re.sub(r'<RelativePath.*?</RelativePath>', '<RelativePath Value="" />', device_xml, flags=re.DOTALL)
+    ```
+*   Drum Branch MIDI note mappings are in `DrumBranchPreset > ZoneSettings > ReceivingNote`.
+*   Instrument Branch key zones are in `InstrumentBranch > ZoneSettings > KeyRange`.
 
 ## Scripts
-*   Build a new session from a blueprint:
-    ```bash
-    python3 scripts/build_session.py --config path/to/config.json --out path/to/session.als
+*   `midi_craft.py` has a duplicate `main()` shadowing the subcommand parser; use flat args until fixed.
+*   The bugged `euclidean_rhythm` Bjorklund implementation must be replaced with a Bresenham's line algorithm version.
+*   ```python
+    def euclidean_rhythm(hits, steps):
+        pattern, bucket = [], 0
+        for _ in range(steps):
+            bucket += hits
+            if bucket >= steps:
+                bucket -= steps
+                pattern.append(1)
+            else:
+                pattern.append(0)
+        return pattern
     ```
-*   Fix `RelativePath` errors in pack ADGs with this regex in `_extract_device_from_adg`:
-    ```python
-    re.sub(r'<RelativePath[^>]*>.*?</RelativePath>', '<RelativePath Value="" />', xml, flags=re.DOTALL)
-    ```
-*   Generate or update the learnings digest at session end:
-    ```bash
-    python3 scripts/compact_learnings.py
-    ```
-*   Use `compact_learnings.py --no-llm` for an offline fallback digest generation.
 
-## Agent Wiring & Workflow
-*   Critiques and learnings must be written to disk (`*-critique.md`, `*-learnings.md`) to survive context compaction.
-*   The `/session-start` prompt must read `knowledge/sessions/learnings-digest.md` to persist knowledge.
-*   The Critic agent evaluates aesthetic choices; The Theorist agent validates music theory.
-*   Append mid-session discoveries to the daily learnings file using the `/checkpoint` prompt.
-*   Agent handoff buttons must be designed for the specific *output type* (e.g., brainstorm text) not just the agent that created it.
+## Agent Wiring & Persona
+*   The AI persona's in-band name is "Arc".
+*   The Critic agent must write critiques to a `YYYY-MM-DD-critique.md` file to persist them for revision loops.
+*   At session start, Arc must read `knowledge/sessions/learnings-digest.md` to ensure knowledge persistence.
+
+## Ableton Remote Control
+*   You must call `create-clip` before you can `push-midi` to an empty track slot.
+*   `load-preset --preset "Preset Name"` works if the `.adg` is indexed and on disk.
+*   Sequence for pushing a new MIDI part: `create-clip` -> `push-midi`.
+
+## GCS (Google Cloud Storage)
+*   To make blobs public in a uniform-access bucket, use IAM, not legacy ACLs.
+*   ```bash
+    gsutil iam ch allUsers:objectViewer gs://iron-static-files
+    ```
+*   `blob.make_public()` will fail (HTTP 400) on uniform-access buckets.
+*   `blob.generate_signed_url()` with user ADC credentials will fail; it requires a service account key.
+
+## VS Code
+*   Scope keybindings to this project in `keybindings.json` using `when: "workspaceFolderBasename == 'iron-static'"`.
+*   `keybindings.json` is JSONC and accepts `//` comments, which breaks standard Python `json.load()`.
+*   There is no command to programmatically switch the chat agent; open the agent's `.agent.md` file instead.
 
 ## Critical Rules
-*   ADG rack `Branches` are always empty; content is in `BranchPresets` and must be reconstructed by our script.
-*   Pack ADG `<RelativePath>` elements must be replaced with `<RelativePath Value="" />` to prevent session load errors.
-*   Use `build_session.py` for new sessions from a blueprint; do not misuse `generate_als.py`.
-*   Always read the `learnings-digest.md` at session start to prevent re-discovering solved problems.
-*   Every reconstructed rack branch needs its own `MixerDevice` template or the entire rack will be invalid.
-*   Write critiques and learnings to disk via prompts (`/checkpoint`) before context is lost.
+*   ADG preset files contain empty `<Branches>`; racks must be reconstructed from `<BranchPresets>`.
+*   Pack-based ADG files have a malformed `<RelativePath>` element that must be fixed before injection.
+*   For new songs, use `build_session.py` to create the `.als` file from a blueprint.
+*   On uniform-access GCS buckets, public access must be set via `gsutil iam`, not the Python client's `make_public()`.
+*   Remote script: Always call `create-clip` before `push-midi` on an empty slot.
+*   Agent critiques must be written to disk to survive context compaction and enable revision loops.
+*   Read this digest (`learnings-digest.md`) at the absolute start of every session.
