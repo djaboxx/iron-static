@@ -18,7 +18,7 @@ Usage:
   python scripts/elevenlabs_vocalist.py list
 
 Environment:
-  ELEVENLABS_API_KEY  — required
+  ELEVEN_LABS_TOKEN  — required
 
 Output:
   audio/samples/vocals/elevenlabs/[song-slug]/[phrase]_[voice-name].wav
@@ -54,9 +54,9 @@ DEFAULT_SAMPLE_TEXT = (
 
 
 def _client():
-    api_key = os.environ.get("ELEVENLABS_API_KEY")
+    api_key = os.environ.get("ELEVEN_LABS_TOKEN")
     if not api_key:
-        log.error("ELEVENLABS_API_KEY not set.")
+        log.error("ELEVEN_LABS_TOKEN not set.")
         sys.exit(1)
     from elevenlabs import ElevenLabs
     return ElevenLabs(api_key=api_key)
