@@ -1,0 +1,24 @@
+{
+  "voices": {
+    "IRON_STATIC_VOCALIST": {
+      "engine": "elevenlabs",
+      "modality": "speech",
+      "voice_id": "59fMhyWt4BCXF1Zf1Bbj",
+      "name": "IRON_STATIC_VOCALIST",
+      "description": "A cold, precise, androgynous voice with a slight mechanical edge. Declaratory rather than conversational \u2014 each word lands with weight and finality. Dry delivery, minimal warmth, controlled breath. The voice of a system that has stopped pretending to care, but has not yet stopped working. Industrial. Urgent. Human enough to be unsettling.",
+      "preview_idx": 0,
+      "generated_voice_id": "59fMhyWt4BCXF1Zf1Bbj",
+      "note": "VELA's speaking/transmission voice. For stabs, announcements, spoken hooks."
+    },
+    "vela": {
+      "engine": "acestep",
+      "modality": "singing",
+      "model": "ace-step-1.5",
+      "lora_path": null,
+      "lora_name": null,
+      "character_tags": "cold androgynous voice, industrial metal, mechanical, sparse vocals, no backing track, minimalist, declaratory, dry, stark, electronic metal, sparse instrumentation",
+      "description": "VELA \u2014 the signal that won't go quiet. Cold, androgynous, declaratory. Not singing. Transmitting. Machine voice with human residue. Her lines land like dropped hardware.",
+      "note": "VELA's singing/melodic voice. lora_path is null until training is complete. Use character_tags in the ACE-Step prompt field. Train LoRA via Gradio UI at localhost:7860 \u2192 LoRA Training tab."
+    }
+  }
+}

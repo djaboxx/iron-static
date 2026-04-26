@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "Name": "IRON STATIC Bridge",
+  "UUID": "com.iron-static.bridge",
+  "Version": "1.0.0.0",
+  "Description": "Silent script runner and live status bridge for IRON STATIC production workflow.",
+  "Author": "IRON STATIC / Arc",
+  "Category": "IRON STATIC",
+  "CategoryIcon": "imgs/plugin/category-icon",
+  "Icon": "imgs/plugin/marketplace",
+  "CodePath": "bin/plugin.js",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "7.4"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "13"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  },
+  "Actions": [
+    {
+      "Name": "Run Script",
+      "UUID": "com.iron-static.bridge.run-script",
+      "Icon": "imgs/actions/run-script/icon",
+      "Tooltip": "Runs an IRON STATIC shell script silently — no terminal popup.",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "ui/run-script.html",
+      "States": [
+        {
+          "Image": "imgs/actions/run-script/key",
+          "Title": "Run",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ]
+    },
+    {
+      "Name": "Dial Info",
+      "UUID": "com.iron-static.bridge.dial-info",
+      "Icon": "imgs/actions/dial-info/icon",
+      "Tooltip": "Shows live BPM / CC / status on the touchscreen. Updated by Python scripts via port 9879.",
+      "Controllers": ["Encoder"],
+      "Encoder": {
+        "layout": "$B2",
+        "TriggerDescription": {
+          "Rotate": "No-op (use MIDI plugin for CC)",
+          "Push": "No-op"
+        }
+      },
+      "States": [
+        {
+          "Image": "imgs/actions/dial-info/icon"
+        }
+      ]
+    }
+  ]
+}

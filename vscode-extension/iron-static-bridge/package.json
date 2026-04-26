@@ -1,0 +1,45 @@
+{
+  "name": "iron-static-bridge",
+  "displayName": "IRON STATIC Bridge",
+  "description": "Receive notifications and status updates from IRON STATIC scripts directly in VS Code.",
+  "version": "1.0.0",
+  "publisher": "iron-static",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ironStatic.showBridgeStatus",
+        "title": "IRON STATIC: Show Bridge Status"
+      },
+      {
+        "command": "ironStatic.stopBridge",
+        "title": "IRON STATIC: Stop Bridge Server"
+      }
+    ],
+    "configuration": {
+      "title": "IRON STATIC Bridge",
+      "properties": {
+        "ironStatic.bridge.port": {
+          "type": "number",
+          "default": 9880,
+          "description": "Port the VS Code bridge HTTP server listens on."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "install-ext": "node esbuild.mjs && node scripts/install.mjs",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  }
+}

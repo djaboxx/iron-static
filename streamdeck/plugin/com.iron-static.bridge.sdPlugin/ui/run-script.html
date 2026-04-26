@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Run Script</title>
+  <link rel="stylesheet" href="https://cdn.elgato.com/streamdeck/css/sdpi.css" />
+</head>
+<body>
+  <div class="sdpi-wrapper">
+    <div class="sdpi-item">
+      <div class="sdpi-item-label">Script</div>
+      <select class="sdpi-item-value" id="script">
+        <option value="01_session_start">01 — Session Start</option>
+        <option value="02_git_commit">02 — Git Commit</option>
+        <option value="03_ableton_launch">03 — Ableton Launch</option>
+        <option value="04_vela_generate">04 — VELA Generate</option>
+        <option value="05_run_brainstorm">05 — Run Brainstorm</option>
+        <option value="06_gcs_push">06 — GCS Push</option>
+        <option value="07_transport_toggle">07 — Transport Toggle</option>
+        <option value="08_health_check">08 — Health Check</option>
+      </select>
+    </div>
+  </div>
+  <script>
+    const sdSelect = document.getElementById("script");
+
+    function connectElgato() {
+      const plugin = window.connectElgatoStreamDeckSocket;
+      if (!plugin) return;
+
+      let settings = {};
+
+      plugin.on("connected", (jsonObj) => {
+        settings = jsonObj.payload?.settings ?? {};
+        if (settings.script) sdSelect.value = settings.script;
+      });
+
+      sdSelect.addEventListener("change", () => {
+        settings.script = sdSelect.value;
+        plugin.setSettings(settings);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", connectElgato);
+  </script>
+</body>
+</html>

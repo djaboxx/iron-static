@@ -4,6 +4,11 @@
       "type": "stdio",
       "command": "/Users/darnold/git/iron-static/.venv/bin/ableton-mcp",
       "env": {}
+    },
+    "elgato": {
+      "type": "stdio",
+      "command": "/usr/local/bin/elgato-mcp-server",
+      "env": {}
     }
   }
 }

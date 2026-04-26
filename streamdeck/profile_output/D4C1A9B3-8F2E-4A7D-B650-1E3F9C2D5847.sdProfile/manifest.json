@@ -1,0 +1,16 @@
+{
+  "AppIdentifier": "*",
+  "Device": {
+    "Model": "20GBD9901",
+    "UUID": "@(1)[4057/132/A00WA4241269CJ]"
+  },
+  "Name": "IRON STATIC",
+  "Pages": {
+    "Current": "A7B2C3D4-E5F6-4A8B-9C0D-1E2F3A4B5C6D",
+    "Default": "A7B2C3D4-E5F6-4A8B-9C0D-1E2F3A4B5C6D",
+    "Pages": [
+      "A7B2C3D4-E5F6-4A8B-9C0D-1E2F3A4B5C6D"
+    ]
+  },
+  "Version": "3.0"
+}

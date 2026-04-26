@@ -1,0 +1,280 @@
+{
+  "Controllers": [
+    {
+      "Actions": {
+        "0,0": {
+          "ActionID": "EDF7EB57-ABEB-4D95-ABE5-E79928E53716",
+          "LinkedTitle": false,
+          "Name": "BPM",
+          "Settings": {
+            "label": "BPM"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontSize": 10,
+              "FontStyle": "Bold",
+              "ShowTitle": true,
+              "Title": "BPM",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#00ff88"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.dial-info"
+        },
+        "1,0": {
+          "ActionID": "3BCA252C-BE28-446B-888E-8BFBB3786185",
+          "LinkedTitle": false,
+          "Name": "Bridge",
+          "Settings": {
+            "label": "Bridge"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontSize": 10,
+              "FontStyle": "Bold",
+              "ShowTitle": true,
+              "Title": "Bridge",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff9900"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.dial-info"
+        },
+        "2,0": {
+          "ActionID": "B6909D00-8CA8-40E1-A61F-0EC2D407A098",
+          "LinkedTitle": false,
+          "Name": "M1",
+          "Settings": {
+            "label": "M1"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontSize": 10,
+              "FontStyle": "Bold",
+              "ShowTitle": true,
+              "Title": "M1",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#cc44ff"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.dial-info"
+        },
+        "3,0": {
+          "ActionID": "D7B1F885-7738-4BD9-9737-80CD71055AE7",
+          "LinkedTitle": false,
+          "Name": "M2",
+          "Settings": {
+            "label": "M2"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontSize": 10,
+              "FontStyle": "Bold",
+              "ShowTitle": true,
+              "Title": "M2",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#cc44ff"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.dial-info"
+        }
+      },
+      "Type": "Encoder"
+    },
+    {
+      "Actions": {
+        "0,0": {
+          "ActionID": "9945FE70-8354-4902-B1D9-2EFD7BD32B13",
+          "LinkedTitle": false,
+          "Name": "Session Start",
+          "Settings": {
+            "script": "01_session_start"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Session\nStart",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#00ff88"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "1,0": {
+          "ActionID": "55919B0C-59DA-4E88-A459-6C37509C2F0C",
+          "LinkedTitle": false,
+          "Name": "Git Commit",
+          "Settings": {
+            "script": "02_git_commit"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Git\nCommit",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff9900"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "2,0": {
+          "ActionID": "6D26F0C1-46DC-4234-8CE0-1C0EC2574182",
+          "LinkedTitle": false,
+          "Name": "Ableton Launch",
+          "Settings": {
+            "script": "03_ableton_launch"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Ableton\nLaunch",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff4444"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "3,0": {
+          "ActionID": "5E64CD64-DBC4-4F59-AFEA-AABEE920D4B8",
+          "LinkedTitle": false,
+          "Name": "VELA Generate",
+          "Settings": {
+            "script": "04_vela_generate"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "VELA\nGenerate",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#cc44ff"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "0,1": {
+          "ActionID": "D2B3FEF9-5EFC-4440-9E7D-A3598CE3ADD3",
+          "LinkedTitle": false,
+          "Name": "Run Brainstorm",
+          "Settings": {
+            "script": "05_run_brainstorm"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Brain-\nstorm",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#44aaff"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "1,1": {
+          "ActionID": "3EBB762E-C3A2-4EAA-929D-3CB0A1CADCF2",
+          "LinkedTitle": false,
+          "Name": "GCS Push",
+          "Settings": {
+            "script": "06_gcs_push"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "GCS\nPush",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ffff44"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "2,1": {
+          "ActionID": "4E6C831F-8415-40F5-B233-A81422D787E1",
+          "LinkedTitle": false,
+          "Name": "Transport Toggle",
+          "Settings": {
+            "script": "07_transport_toggle"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Transport\nToggle",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff6600"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        },
+        "3,1": {
+          "ActionID": "E8533D7A-9A91-44D1-AD34-D9526B61BF6F",
+          "LinkedTitle": false,
+          "Name": "Health Check",
+          "Settings": {
+            "script": "08_health_check"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Health\nCheck",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#00ffff"
+            }
+          ],
+          "UUID": "com.iron-static.bridge.run-script"
+        }
+      },
+      "Type": "Keypad"
+    }
+  ],
+  "Icon": "",
+  "Name": "Main"
+}

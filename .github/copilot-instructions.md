@@ -163,9 +163,10 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Critic` | `.github/agents/the-critic.agent.md` | Evaluation, challenge, filter | read-only | Sound Designer, Arranger, Theorist, Live Engineer |
 | `The Live Engineer` | `.github/agents/the-live-engineer.agent.md` | Session architecture, device chains, M4L, in-box routing, hardware substitution | full + terminal | Sound Designer, Arranger, Critic |
 | `The Alchemist` | `.github/agents/the-alchemist.agent.md` | Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels | full + terminal | Critic, Sound Designer, Live Engineer, Theorist |
-| `The Publicist` | `.github/agents/the-publicist.agent.md` | Promo content generation and social publishing — audio teasers, cover art, waveform video, captions, YouTube/SoundCloud upload | full + terminal | Critic, Alchemist, Arranger |
+| `The Publicist` | `.github/agents/the-publicist.agent.md` | Promo content generation and social publishing — audio teasers, cover art, captions, YouTube/SoundCloud upload. Delegates video rendering to The Video Director. | full + terminal | Critic, Alchemist, Arranger, Video Director |
 | `The Mix Engineer` | `.github/agents/the-mix-engineer.agent.md` | Full production mix engineering — balance, EQ, compression, effects chains, master bus. Takes stems and session to a finished mix | full + terminal | Critic, Sound Designer, Arranger, Live Engineer |
 | `The Visual Artist` | `.github/agents/the-visual-artist.agent.md` | Cover art and promo image generation — synthesizes song context, brainstorm language, and band aesthetic into Imagen 3 prompts. Iterates until images carry the weight of the music. Upstream of The Publicist. | read + execute | Critic, Publicist, Alchemist, Arranger |
+| `The Video Director` | `.github/agents/the-video-director.agent.md` | Waveform visualizer video rendering — dark, high-contrast, machine-aesthetic MP4s in landscape/square/portrait formats. Takes audio + cover art and produces platform-ready video. Upstream of The Publicist. | read + execute | Critic, Publicist, Visual Artist, Alchemist |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
@@ -173,8 +174,9 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 - Structure review: **Arranger** → handoff → **Critic** → handoff → **Arranger** (revise)
 - Session from brainstorm: **Live Engineer** (read Section 6 → generate session) → handoff → **Sound Designer** (dial in sounds) → handoff → **Critic**
 - Hardware online: **Live Engineer** (add External Instrument tracks) → handoff → **Sound Designer** (hardware presets) → handoff → **Critic**
-- Release/promo: **Critic** (approve) → handoff → **Visual Artist** (generate cover art) → handoff → **Publicist** (post)
+- Release/promo: **Critic** (approve) → handoff → **Visual Artist** (generate cover art) → handoff → **Video Director** (render visualizer) → handoff → **Publicist** (post)
 - Image-first: **Visual Artist** (brief + generate) → handoff → **Critic** (does it match the song?) → handoff → **Publicist** (post)
+- Video-first: **Video Director** (render) → handoff → **Critic** (does it land?) → handoff → **Publicist** (post)
 - Full mix: **Live Engineer** (session setup) → handoff → **Mix Engineer** (balance + chain) → handoff → **Critic** (evaluate) → handoff → **Mix Engineer** (revise)
 - Stems-to-release: **Mix Engineer** (mix) → handoff → **Critic** (approve) → handoff → **Publicist** (post)
 

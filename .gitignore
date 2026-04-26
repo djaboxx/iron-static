@@ -68,6 +68,17 @@ terraform/**/*.tflog
 .vscode/settings.json
 .vscode/launch.json
 
+# VS Code extension build output
+vscode-extension/*/out/
+vscode-extension/*/node_modules/
+vscode-extension/*/*.vsix
+
+# Stream Deck plugin build output
+streamdeck/plugin/node_modules/
+streamdeck/plugin/com.iron-static.bridge.sdPlugin/bin/
+# Keep manifest.json, ui/, imgs/ — only exclude compiled JS
+# (imgs are placeholder PNGs, kept so the manifest resolves locally)
+
 # Logs
 *.log
 database/iron_static.db
