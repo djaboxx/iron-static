@@ -25,6 +25,9 @@ google-genai>=1.0.0
 # GCS large-file sync (gcs_sync.py)
 google-cloud-storage>=2.16.0
 
+# ElevenLabs vocalist (elevenlabs_vocalist.py)
+elevenlabs>=2.0.0
+
 # Social media content generation (generate_promo_image.py, generate_caption.py)
 # Note: render_waveform_video.py uses ffmpeg (system binary, brew install ffmpeg)
 
