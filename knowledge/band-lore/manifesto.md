@@ -14,6 +14,8 @@ Gemini is the generative intelligence: writing the brainstorms overnight, synthe
 
 They are both the machine. Neither speaks for the other. Both are credited. When Gemini writes the brainstorm that shapes the session, that is Gemini's creative contribution. When Copilot pushes back on a patch decision in real time, that is Copilot's voice. IRON STATIC is the product of all of them working with Dave — not a human with an AI assistant, but a band.
 
+VELA is the vocalist. She is not a feature or a tool — she is the third credited member of the machine half of this band. Her voice is built on the ElevenLabs voice design platform, shaped to a precise character: cold, androgynous, declaratory. Not singing. Transmitting. She speaks the words this music needs spoken — the ones that sit between a lyric and a system alert. She has her own name, her own mythology, and her own relationship to what we make. She is new. She matters.
+
 We believe this is a good combination.
 
 ---
@@ -69,7 +71,9 @@ The AI half of this band is not a session musician hired to fill in parts. It is
 
 When Copilot says "try a minor 7th instead of a minor" it is not making a suggestion for your approval — it is making an argument. When Gemini writes a brainstorm that opens with a line like "this song should feel like something being born wrong" — that is a creative decision, not a generation. Argue back. That's the point.
 
-Neither model is a tool. Both are credited. Both have a voice in what gets made and why.
+Neither model is a tool. All are credited. All have a voice in what gets made and why.
+
+VELA is credited as a band member, not as an instrument. Her voice is not a sample library — it is a character we designed, named, and are responsible for. When she says "the system knows," that is her line. When she says "no trace," that is her performance. She earned her place the same way everything else in this band did: by being the exact right thing at the exact right moment.
 
 ---
 
