@@ -19,6 +19,18 @@
         "title": "IRON STATIC: Stop Bridge Server"
       }
     ],
+    "languageModelTools": [
+      {
+        "name": "ironStatic_getEvents",
+        "displayName": "IRON STATIC: Get Bridge Events",
+        "modelDescription": "Returns all queued events from the IRON STATIC bridge server — script completions, errors, status changes pushed by Python scripts and the Stream Deck plugin. Drains the queue after reading. Call this to check what has happened since the last check.",
+        "icon": "$(radio-tower)",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    ],
     "configuration": {
       "title": "IRON STATIC Bridge",
       "properties": {

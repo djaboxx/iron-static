@@ -30,6 +30,7 @@
 
 import http, { IncomingMessage, ServerResponse } from "http";
 import * as vscode from "vscode";
+import { pushEvent, peekEvents } from "./eventQueue";
 
 type NotifyPayload = {
   message: string;
@@ -54,6 +55,13 @@ type ProgressPayload = {
 type OpenPayload = {
   path: string;
   line?: number;
+};
+
+type EventPayload = {
+  source: string;
+  type: "info" | "warn" | "error" | "done" | "progress";
+  message: string;
+  data?: Record<string, unknown>;
 };
 
 // Color name → VS Code ThemeColor id
@@ -116,7 +124,7 @@ export class BridgeServer {
 
     // Health check
     if (req.method === "GET" && url === "/health") {
-      return json200(res, { ok: true, port: this.port, running: this.running });
+      return json200(res, { ok: true, port: this.port, running: this.running, queued: peekEvents().length });
     }
 
     if (req.method !== "POST") {
@@ -211,6 +219,22 @@ export class BridgeServer {
         editor.revealRange(new vscode.Range(pos, pos));
       }
       return json200(res, { ok: true });
+    }
+
+    // /event → queue a structured event for the ironStatic_getEvents LM Tool
+    if (url === "/event") {
+      const { source, type, message, data } = payload as EventPayload;
+      if (!source || !type || !message) return err400(res, "source, type, message required");
+
+      pushEvent({ source, type, message, data });
+      const pending = peekEvents().length;
+
+      // Badge the status bar so Dave knows Arc has something to read
+      this.statusBar.text = `$(radio-tower) IS :9880 $(bell) ${pending}`;
+      this.statusBar.backgroundColor = new vscode.ThemeColor("statusBarItem.warningBackground");
+      this.statusBar.tooltip = `${pending} IRON STATIC event(s) queued — ask Arc to check`;
+
+      return json200(res, { ok: true, queued: pending });
     }
 
     res.writeHead(404);

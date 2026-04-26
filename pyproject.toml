@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iron-static"
+version = "0.1.0"
+description = "IRON STATIC studio automation library"
+requires-python = ">=3.11"
+dependencies = []  # intentionally empty — scripts/requirements.txt handles the full dev env
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+# Installs `iron-static-notify` as a CLI command
+iron-static-notify = "iron_static.notify:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["iron_static*"]

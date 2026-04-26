@@ -115,44 +115,71 @@ def _build_prompt(vela: dict, song: dict) -> str:
     return tags
 
 
-def _poll_task(task_id: str, label: str) -> dict | None:
-    """Poll until task completes or times out. Returns result dict or None on failure."""
+def _poll_task(task_id: str, label: str) -> list | None:
+    """Poll until task completes or times out.
+
+    Returns a list of result items (one per batch output) on success, or None on failure.
+    Each item has a 'file' key with a local absolute path to the generated audio.
+
+    API contract (ACE-Step 1.5):
+      POST /query_result  {"task_id_list": [task_id]}
+      Response: {"data": [{"task_id": ..., "result": "<JSON string>", "status": int}]}
+      Status: 0=running, 1=succeeded, 2=failed
+    """
     deadline = time.time() + POLL_TIMEOUT
     log.info("Polling task %s (%s)...", task_id, label)
     while time.time() < deadline:
         time.sleep(POLL_INTERVAL)
-        result = _post_json(f"{ACESTEP_BASE}/query_result", {"task_ids": [task_id]}, timeout=120)
-        task = result.get("data", {}).get(task_id, {})
-        status = task.get("status")
+        result = _post_json(f"{ACESTEP_BASE}/query_result", {"task_id_list": [task_id]}, timeout=120)
+        data_list = result.get("data", [])
+        if not isinstance(data_list, list) or not data_list:
+            log.info("  ...no result yet")
+            continue
+        item = next((x for x in data_list if x.get("task_id") == task_id), None)
+        if item is None:
+            log.info("  ...task not found in response yet")
+            continue
+        status = item.get("status")
         if status == 1:
             log.info("Task %s completed.", task_id)
-            return task
+            raw = item.get("result", "[]")
+            try:
+                parsed = json.loads(raw) if isinstance(raw, str) else raw
+                return parsed if isinstance(parsed, list) else []
+            except Exception:
+                return []
         elif status == 2:
-            log.error("Task %s failed: %s", task_id, task.get("error_message", "unknown"))
-            return None
-        elif status == 3:
-            log.error("Task %s cancelled.", task_id)
+            log.error("Task %s failed: %s", task_id, item.get("progress_text", "unknown"))
             return None
         else:
-            log.info("  ...still processing (status=%s)", status)
+            progress = item.get("progress_text", "")
+            log.info("  ...still processing (status=%s)%s", status, f" — {progress}" if progress else "")
     log.error("Task %s timed out after %ds.", task_id, POLL_TIMEOUT)
     return None
 
 
-def _download_audio(audio_url: str, dest: Path) -> bool:
-    """Download audio from ACE-Step server to local path."""
-    # audio_url may be relative (e.g. /v1/audio?path=...) or absolute
-    if audio_url.startswith("http"):
-        url = audio_url
-    else:
-        url = f"{ACESTEP_BASE}{audio_url}"
+def _download_audio(src: str, dest: Path) -> bool:
+    """Copy a generated audio file from ACE-Step server to dest.
+
+    ACE-Step returns a local absolute path in the 'file' field. Since the
+    server runs on the same machine, copy directly rather than via HTTP.
+    Falls back to HTTP download via /v1/audio if the local path doesn't exist.
+    """
+    import shutil
     dest.parent.mkdir(parents=True, exist_ok=True)
+    src_path = Path(src)
+    if src_path.is_file():
+        shutil.copy2(src_path, dest)
+        log.info("  Saved: %s", dest)
+        return True
+    # Fallback: serve via /v1/audio endpoint
+    url = src if src.startswith("http") else f"{ACESTEP_BASE}/v1/audio?path={urllib.parse.quote(src)}"
     try:
         urllib.request.urlretrieve(url, str(dest))
         log.info("  Saved: %s", dest)
         return True
     except Exception as e:
-        log.error("  Download failed (%s): %s", url, e)
+        log.error("  Download failed (src=%s): %s", src, e)
         return False
 
 
@@ -255,40 +282,39 @@ def cmd_render(args) -> None:
         if task is None:
             continue
 
-        # Download outputs
+        # Download outputs — task is a list of result items, each with a 'file' key
         safe_label = label.replace(" ", "_").replace("/", "-")
-        results = task.get("result", [])
+        results = task  # task is already the parsed list from _poll_task
         for i, item in enumerate(results):
-            audio_url = item.get("audio_url") or item.get("path")
-            if not audio_url:
+            audio_path = item.get("file") or item.get("audio_url") or item.get("path")
+            if not audio_path:
+                log.warning("  No audio path in result item %d: %s", i, item)
                 continue
             suffix = f"_{i+1}" if len(results) > 1 else ""
             dest = out_dir / f"{safe_label}_vela{suffix}.wav"
-            _download_audio(audio_url, dest)
+            _download_audio(audio_path, dest)
 
         # Optional: extract clean vocal stem
         if args.extract_stems and results:
-            first_url = results[0].get("audio_url") or results[0].get("path")
-            if first_url:
+            first_path = results[0].get("file") or results[0].get("path")
+            if first_path:
                 log.info("Extracting vocal stem for %s...", label)
                 extract_payload = {
                     "task_type": "extract",
-                    "src_audio_path": results[0].get("path", ""),
+                    "src_audio_path": first_path,
                     "prompt": prompt,
                     "audio_format": "wav",
                 }
-                # Only works if the server has the file path; skip if only URL
-                if results[0].get("path"):
-                    ex_result = _post_json(f"{ACESTEP_BASE}/release_task", extract_payload)
-                    if ex_result.get("code") == 200:
-                        ex_task_id = ex_result["data"]["task_id"]
-                        ex_task = _poll_task(ex_task_id, f"{label}_stem")
-                        if ex_task:
-                            for j, ex_item in enumerate(ex_task.get("result", [])):
-                                ex_url = ex_item.get("audio_url") or ex_item.get("path")
-                                if ex_url:
-                                    dest = out_dir / f"{safe_label}_vela_stem.wav"
-                                    _download_audio(ex_url, dest)
+                ex_result = _post_json(f"{ACESTEP_BASE}/release_task", extract_payload)
+                if ex_result.get("code") == 200:
+                    ex_task_id = ex_result["data"]["task_id"]
+                    ex_task = _poll_task(ex_task_id, f"{label}_stem")
+                    if ex_task:
+                        for j, ex_item in enumerate(ex_task):
+                            ex_path = ex_item.get("file") or ex_item.get("path")
+                            if ex_path:
+                                dest = out_dir / f"{safe_label}_vela_stem.wav"
+                                _download_audio(ex_path, dest)
 
     log.info("Done. Vocals in: %s", out_dir)
 
