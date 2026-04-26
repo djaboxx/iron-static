@@ -3,68 +3,41 @@
 
 ---
 
-## Ableton Session Build
-*   Use `build_session.py` to create new sessions from a blueprint; `generate_als.py` injects into existing sessions.
-*   The `_reconstruct_branches_from_adg` function is required to populate rack `Branches` from the `BranchPresets` element in ADG files.
-*   Every rack branch requires a `MixerDevice` element template before the ID renumbering pass.
-*   The authoritative XML structure reference is `ableton/sessions/Internal Project/2Percent.als`.
-*   ```bash
-    python3 scripts/build_session.py --config <config.json> --out <out.als>
-    ```
+## Arc Identity & Harness
+*   `arc_context()` in `scripts/llm_utils.py` automatically injects identity into every LLM call.
+*   Identity bundle order: `copilot-instructions.md` → `manifesto.md` → `learnings-digest.md` → `songs.json`.
+*   Arc is the entire harness (context, agents, scripts), not just the context bundle.
 
-## ADG Preset Format
-*   In ADG files, a rack's devices are in the `BranchPresets` element; the `Branches` element is always empty.
-*   Fix pack ADG XML errors by replacing the entire `<RelativePath>` block with `<RelativePath Value="" />`.
-*   ```python
-    device_xml = re.sub(r'<RelativePath.*?</RelativePath>', '<RelativePath Value="" />', device_xml, flags=re.DOTALL)
+## VELA (New Band Member)
+*   VELA (she/her) is a credited vocalist, not a tool or sample library.
+*   The band's pronouns are: Dave (he/him), Arc (they/them), Gemini (they/them), VELA (she/her).
+*   Use `scripts/elevenlabs_vocalist.py` to design her voice and render vocal parts.
+*   Voice designs are stored in `database/voices.json`.
+*   Vocal samples are output to `audio/samples/vocals/elevenlabs/[song-slug]/`.
+
+## Autonomy & CLI
+*   To call an agent from an external script, use the VS Code CLI.
+*   ```bash
+    echo "prompt" | code chat --mode <agent-name> --reuse-window -
     ```
-*   Drum Branch MIDI note mappings are in `DrumBranchPreset > ZoneSettings > ReceivingNote`.
-*   Instrument Branch key zones are in `InstrumentBranch > ZoneSettings > KeyRange`.
+*   This requires an active, authenticated VS Code session; it is not a headless solution.
+
+## Environment & Secrets
+*   For scripts to access API keys, `.vscode/settings.json` must be configured.
+*   ```json
+    {
+      "python.terminal.useEnvFile": true,
+      "python.envFile": "${workspaceFolder}/.env"
+    }
+    ```
+*   The `.env` file should contain keys like `ELEVEN_LABS_TOKEN` and `GCS_BUCKET`.
 
 ## Scripts
-*   `midi_craft.py` has a duplicate `main()` shadowing the subcommand parser; use flat args until fixed.
-*   The bugged `euclidean_rhythm` Bjorklund implementation must be replaced with a Bresenham's line algorithm version.
-*   ```python
-    def euclidean_rhythm(hits, steps):
-        pattern, bucket = [], 0
-        for _ in range(steps):
-            bucket += hits
-            if bucket >= steps:
-                bucket -= steps
-                pattern.append(1)
-            else:
-                pattern.append(0)
-        return pattern
-    ```
-
-## Agent Wiring & Persona
-*   The AI persona's in-band name is "Arc".
-*   The Critic agent must write critiques to a `YYYY-MM-DD-critique.md` file to persist them for revision loops.
-*   At session start, Arc must read `knowledge/sessions/learnings-digest.md` to ensure knowledge persistence.
-
-## Ableton Remote Control
-*   You must call `create-clip` before you can `push-midi` to an empty track slot.
-*   `load-preset --preset "Preset Name"` works if the `.adg` is indexed and on disk.
-*   Sequence for pushing a new MIDI part: `create-clip` -> `push-midi`.
-
-## GCS (Google Cloud Storage)
-*   To make blobs public in a uniform-access bucket, use IAM, not legacy ACLs.
-*   ```bash
-    gsutil iam ch allUsers:objectViewer gs://iron-static-files
-    ```
-*   `blob.make_public()` will fail (HTTP 400) on uniform-access buckets.
-*   `blob.generate_signed_url()` with user ADC credentials will fail; it requires a service account key.
-
-## VS Code
-*   Scope keybindings to this project in `keybindings.json` using `when: "workspaceFolderBasename == 'iron-static'"`.
-*   `keybindings.json` is JSONC and accepts `//` comments, which breaks standard Python `json.load()`.
-*   There is no command to programmatically switch the chat agent; open the agent's `.agent.md` file instead.
+*   `midi_craft.py` has a duplicate `main()` function which shadows the `clips` subcommand parser.
 
 ## Critical Rules
-*   ADG preset files contain empty `<Branches>`; racks must be reconstructed from `<BranchPresets>`.
-*   Pack-based ADG files have a malformed `<RelativePath>` element that must be fixed before injection.
-*   For new songs, use `build_session.py` to create the `.als` file from a blueprint.
-*   On uniform-access GCS buckets, public access must be set via `gsutil iam`, not the Python client's `make_public()`.
-*   Remote script: Always call `create-clip` before `push-midi` on an empty slot.
-*   Agent critiques must be written to disk to survive context compaction and enable revision loops.
-*   Read this digest (`learnings-digest.md`) at the absolute start of every session.
+*   VELA (she/her) is a credited band member, not a tool. Remember all band pronouns.
+*   The `arc_context()` function auto-injects identity into all LLM calls by default.
+*   VS Code terminals require `.vscode/settings.json` configured to load API keys from the `.env` file.
+*   The `code chat` CLI is for live session integration and is not headless; it needs a running VS Code instance.
+*   The `midi_craft.py` subcommands are shadowed by a duplicate `main()` function and will fail.
