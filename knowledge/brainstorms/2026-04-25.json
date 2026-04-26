@@ -1,31 +1,31 @@
 {
   "date": "2026-04-25",
-  "song": "instrumental-convergence",
+  "song": "ignition-point",
   "source": "brainstorm",
   "tracks": [
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Hand That Feeds",
+      "album": "With Teeth",
+      "year": 2005,
+      "reason": "Its driving, relentless 4/4 drum and bass pattern at a similar tempo is the ideal foundation for the core groove of THE ANVIL and THE SUBSTRATE.",
+      "search_terms": "nine inch nails the hand that feeds midi"
+    },
     {
       "artist": "Gesaffelstein",
       "title": "Pursuit",
       "album": "Aleph",
       "year": 2013,
-      "reason": "The relentless, monophonic, percussive synth sequence is the perfect model for the Interrogator Bass pattern and timbre.",
+      "reason": "The simple, aggressive, and highly rhythmic monophonic lead provides a perfect model for the energy and phrasing of THE SPARK's counter-melody.",
       "search_terms": "gesaffelstein pursuit midi"
     },
     {
-      "artist": "Meshuggah",
-      "title": "Bleed",
-      "album": "obZen",
-      "year": 2008,
-      "reason": "The drum MIDI provides a masterclass in complex polyrhythmic layering over a 4/4 pulse, perfect for training the interaction between The Grid and The Clock.",
-      "search_terms": "meshuggah bleed midi drum"
-    },
-    {
-      "artist": "Massive Attack",
-      "title": "Angel",
-      "album": "Mezzanine",
-      "year": 1998,
-      "reason": "This track's MIDI shows how to build immense energy through layering and subtraction over a static bassline, a direct structural reference for the INTERROGATION section.",
-      "search_terms": "massive attack angel midi"
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "reason": "The track's complex, syncopated rhythmic interplay and use of shifting percussive layers is a direct parallel for our 4/4 vs 15/16 polyrhythm.",
+      "search_terms": "modeselektor the black block midi"
     }
   ]
 }

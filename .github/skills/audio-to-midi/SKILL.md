@@ -58,7 +58,7 @@ python scripts/audio_to_midi.py audio/recordings/raw/full_mix.wav --stems --stem
 python scripts/audio_to_midi.py audio/recordings/raw/take1.wav --output midi/sequences/
 ```
 
-### Via Copilot chat
+### Via Arc chat
 
 - "Convert this bass recording to MIDI for the Subharmonicon"
 - "Split this mix into stems and give me MIDI for all of them"
@@ -72,7 +72,7 @@ midi/sequences/[source-slug]_drums_v1.mid
 midi/sequences/[source-slug]_other_v1.mid
 ```
 
-After transcription, Copilot will suggest which instrument to assign each track to based on register and content:
+After transcription, Arc will suggest which instrument to assign each track to based on register and content:
 
 ```
 TRANSCRIPTION RESULT:

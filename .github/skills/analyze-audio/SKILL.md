@@ -45,7 +45,7 @@ python scripts/analyze_audio.py audio/recordings/raw/take1.wav --focus bpm
 python scripts/analyze_audio.py audio/samples/drums/kick_heavy.wav --focus spectrum
 ```
 
-### Via Copilot chat
+### Via Arc chat
 
 Describe the audio or paste the file path and ask:
 - "Analyze this file and tell me what key and BPM it's in"
@@ -54,7 +54,7 @@ Describe the audio or paste the file path and ask:
 
 ## Analysis Outputs
 
-Copilot should return:
+Arc should return:
 
 ```
 FILE: [filename]
@@ -80,5 +80,5 @@ The script uses `librosa` for key/BPM detection and spectral analysis. Run `pyth
 ## Notes
 
 - For WAV/AIFF files stored with Git LFS, run `git lfs pull` first
-- For PDFs or reference images (e.g. a waveform screenshot), describe the content and Copilot will estimate based on description
+- For PDFs or reference images (e.g. a waveform screenshot), describe the content and Arc will estimate based on description
 - BPM detection is most accurate on isolated drum tracks; use `--focus bpm` for best results on full mixes

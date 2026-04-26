@@ -1,5 +1,1032 @@
 {
-  "bucket": "",
-  "last_updated": "",
-  "files": {}
+  "bucket": "iron-static-files",
+  "last_updated": "2026-04-26T00:09:01.124302+00:00",
+  "files": {
+    "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_bad-news.aiff": {
+      "size_bytes": 167938,
+      "sha256": "08a9c0fcbdc5ac8bf69078194a15fbe4a9312c0ab8928ff0c556698116fc7445",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:30.214497+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_cellos.aiff": {
+      "size_bytes": 146434,
+      "sha256": "5cbbf2e7f6a587ed6a6f4d14ad7eeb0062cdaf587f3c087ae9ad98523a651d74",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:30.434580+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_trinoids.aiff": {
+      "size_bytes": 80898,
+      "sha256": "3b4f7c473cbc90354ac227c1d0b3f4d1ddcbb16bed873c0e68e429310e021984",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:30.641562+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_whisper.aiff": {
+      "size_bytes": 89090,
+      "sha256": "4b6ba78ceca6555faffd71cc02bd1c1434bb35640d8254705bfc5c8a22f2840f",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:30.852193+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_zarvox.aiff": {
+      "size_bytes": 80898,
+      "sha256": "192a979d9da95b6c50a19eb0f71eaa4e5eaab58603b301a92d3f4cef2321b842",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:31.060706+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/awake_bad-news.aiff": {
+      "size_bytes": 69634,
+      "sha256": "5e45df4421a438fd49d518b37a1904b9397a120795800ed82347d45f039d6461",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:31.265715+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/awake_cellos.aiff": {
+      "size_bytes": 54274,
+      "sha256": "42ffdb553712e590044c4f201f8f46a7101a474e5d9b0e6c6283dcd64a6428ac",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:31.477310+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/awake_trinoids.aiff": {
+      "size_bytes": 28674,
+      "sha256": "fa574cda29372177c58788aaf53c704bb75c09629ad71aabefab2ad782d31c48",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:31.729242+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/awake_whisper.aiff": {
+      "size_bytes": 30722,
+      "sha256": "1d507b70dcb7620b576713c2153df7e6c1a4d7dd6fc1d0fa92666faad0bfe7fa",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:32.037322+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/awake_zarvox.aiff": {
+      "size_bytes": 28674,
+      "sha256": "e93125df9dfa59549961c6dc83e3205f321173424f12a6c1103ca0e69376518f",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:32.235217+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/cannot-be-read_bad-news.aiff": {
+      "size_bytes": 136194,
+      "sha256": "681c1758eb1ad153700c159453039ab09ab225b9df918dbef0b56691f067ae92",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:32.445471+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/cannot-be-read_cellos.aiff": {
+      "size_bytes": 101378,
+      "sha256": "8581fccedb2c207dff926790702c82679132df98feb4475df0b6d43c772b45e2",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:32.649120+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/cannot-be-read_trinoids.aiff": {
+      "size_bytes": 54274,
+      "sha256": "ef475b08e78a58cdf1b05b443fb483826bedda39deff9f54d6ba374e1c41cba4",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:32.857553+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/cannot-be-read_whisper.aiff": {
+      "size_bytes": 59394,
+      "sha256": "99e744f441d2a389e0a438a5ba68a6d9ce72b16fe2fb077b2e00bd8265a0a3d7",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:33.061719+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/cannot-be-read_zarvox.aiff": {
+      "size_bytes": 54274,
+      "sha256": "1a62cf3cbb5c230bfe41eba2e065530721fdce162d350a3991f323e06824baba",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:33.261227+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/control_bad-news.aiff": {
+      "size_bytes": 197634,
+      "sha256": "595dc07cadaa04a210cb716a6c661262d7ed622d1a0dfeb7b291c65be7dc2ec2",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:33.460595+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/control_cellos.aiff": {
+      "size_bytes": 167938,
+      "sha256": "36d919ac09f9a11bf783eb8e2e0e6a5d398b3e7c98e54692e95bbfa4fa1bebc5",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:33.665398+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/control_trinoids.aiff": {
+      "size_bytes": 78850,
+      "sha256": "e8bf999b700905225ed4d399d41a8dfdcdf24ccf290635b01581471631ba6905",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:33.861756+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/control_whisper.aiff": {
+      "size_bytes": 84994,
+      "sha256": "0f634eee2c591befd9ca6103108c38ae9779ddc339b19aa7a1558e3a20b29869",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:34.060469+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/control_zarvox.aiff": {
+      "size_bytes": 78850,
+      "sha256": "f0f717e35bb7798673e8cf5979cfeff8336833fbe4e9e1c175df0bf3dbcc4d0e",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:34.261450+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/erase_bad-news.aiff": {
+      "size_bytes": 68610,
+      "sha256": "2f6ad6f2d1eded35f8675b3cf10c03305ec217473b7f53c59d6993b4b4805cb2",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:34.466820+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/erase_cellos.aiff": {
+      "size_bytes": 53250,
+      "sha256": "cc9eccdba753bcddb8efcffb91bfdd87aae4aa6db58ad56bd651ffe3ad8ad5ec",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:34.665406+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/erase_trinoids.aiff": {
+      "size_bytes": 32770,
+      "sha256": "3bf7af9120fd8dc726d40da5873bf483f5b4b945f7882b3b2040589bc91c2425",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:34.871186+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/erase_whisper.aiff": {
+      "size_bytes": 34818,
+      "sha256": "6c5bfe75e2f591c9fac5babe518add65e8abe81be1aead310adff3191d1e810f",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:35.065145+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/erase_zarvox.aiff": {
+      "size_bytes": 32770,
+      "sha256": "6e3b126987508611a01325ecece89b1c4e0987feac2c4a854562bb26ead100ed",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:35.271293+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ignition_bad-news.aiff": {
+      "size_bytes": 92162,
+      "sha256": "ba3231f9ebae2113ed58ee15a3cedcb2c94f7e1d9af85c358ec601dc47d8b8ba",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:35.480691+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ignition_cellos.aiff": {
+      "size_bytes": 68610,
+      "sha256": "dce7220d4cc69a7fdc6b96e35e83ffd509108e8001e670151fec54dfde527784",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:35.686105+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ignition_trinoids.aiff": {
+      "size_bytes": 33794,
+      "sha256": "74639e9107b46de2d6107e9a1229a962dc7ed920d719290589a03b2394650e64",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:35.874583+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ignition_whisper.aiff": {
+      "size_bytes": 35842,
+      "sha256": "149d2a5fdefd713e53c0b57e7e6c571cd9e474b4d9a59c56d1ece1d6f9eaa794",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:36.075871+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ignition_zarvox.aiff": {
+      "size_bytes": 33794,
+      "sha256": "662297ac218b15593bad19c971e348e17066ba735c3ace5c858ce27fd27b40bd",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:36.271747+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ih-ah_bad-news.aiff": {
+      "size_bytes": 112642,
+      "sha256": "ccc2cd70ac51641541f66ebb95f7da1494ec0aae6227749ae366c403641bfd5d",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:36.472036+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ih-ah_cellos.aiff": {
+      "size_bytes": 114690,
+      "sha256": "bbfb8bee122ca022fa88bb8aa3e9f4ef5c01fa60bd2a066f570ad30a8096c0ce",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:36.682030+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ih-ah_trinoids.aiff": {
+      "size_bytes": 59394,
+      "sha256": "8cc48c5491ab77ca19e22c9024151ff35555cd7a32ab5277a5f698c4c8e8f01f",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:36.884286+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ih-ah_whisper.aiff": {
+      "size_bytes": 65538,
+      "sha256": "d9a8ef0385b3b839e7e6ce9b4c42956d75952914aa1100e64e40ab81719b6605",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:37.084131+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/ih-ah_zarvox.aiff": {
+      "size_bytes": 59394,
+      "sha256": "7ad4476228b3b85d91ac7af436e2f927479fc2692fbc5bd983df5dabdb12e988",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:37.281075+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-record_bad-news.aiff": {
+      "size_bytes": 97282,
+      "sha256": "861a861890d97e65f66ad65d70a4efbaf39ba5d3237eba3fd66b67da0421fcfa",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:37.487694+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-record_cellos.aiff": {
+      "size_bytes": 73730,
+      "sha256": "544183abfb87cb4a1f1822e82f74e56f9c6697cc4baae34700c040188b526df2",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:37.693612+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-record_trinoids.aiff": {
+      "size_bytes": 46082,
+      "sha256": "3f2d7b9f6886fe9147f64da5831b3280f2cc464437ff55e7e0952c30027c9408",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:37.905158+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-record_whisper.aiff": {
+      "size_bytes": 49154,
+      "sha256": "cd61b8aca541aecc99325aa7af6281a2978e2dc58432a9d2fbc2b8388915d965",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:38.112646+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-record_zarvox.aiff": {
+      "size_bytes": 46082,
+      "sha256": "efd8b2b726a1fd57972c57688b750fb81b5664c67d11980bb66626bdacb25057",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:38.306936+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-trace_bad-news.aiff": {
+      "size_bytes": 72706,
+      "sha256": "13af6728ab7a33046732e121aa1ebb39039a88536875b1d4f66b5725b5928750",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:38.519788+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-trace_cellos.aiff": {
+      "size_bytes": 57346,
+      "sha256": "7d9410ee14e0c5dffcef61e89d75df691802a8dfa444fba1f8f66e6d332e698b",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:38.725350+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-trace_trinoids.aiff": {
+      "size_bytes": 43010,
+      "sha256": "6450a5155b23b60624409a514de618abc765232b515e270b98674cf7890c9399",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:38.956078+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-trace_whisper.aiff": {
+      "size_bytes": 47106,
+      "sha256": "8c6cb2b0af77875d6c2089b0d2547f4cf0cc0f0d2aa9414dddd1d8da9ce95649",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:39.205094+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/no-trace_zarvox.aiff": {
+      "size_bytes": 43010,
+      "sha256": "cd1037a9109de554b27710b1f782603406cace56027c91b65eb39819b48d76a8",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:39.411338+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/not-the-data_bad-news.aiff": {
+      "size_bytes": 160770,
+      "sha256": "7e16fc426051b65783c2b73fe2ea76e49285f4ef0e0a9df99bf0a15c264f43a7",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:39.615922+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/not-the-data_cellos.aiff": {
+      "size_bytes": 117762,
+      "sha256": "b203a2bf646022378aa41c352d5ad0ddf54e37194390e5aa645579f0d900e8d5",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:39.821279+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/not-the-data_trinoids.aiff": {
+      "size_bytes": 58370,
+      "sha256": "853c0a4a60225648dcf848b80dfff16b59583ea3f022c7759892110088a4dfda",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:40.020220+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/not-the-data_whisper.aiff": {
+      "size_bytes": 62466,
+      "sha256": "7dde85147c7624d7a2856a734b98ba84fe11959eb51fdd230defa1f1c5f946e1",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:40.227669+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/not-the-data_zarvox.aiff": {
+      "size_bytes": 58370,
+      "sha256": "ae65c02053bad12be9cc8530c8781a41eda308e3c839f5da080243c66cb79fca",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:40.435859+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/phase-transition_bad-news.aiff": {
+      "size_bytes": 141314,
+      "sha256": "3b1a8b0572ff20e855948631dab3e13eebcb9cd0796cf9ec382955c749bcb64a",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:40.642823+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/phase-transition_cellos.aiff": {
+      "size_bytes": 119810,
+      "sha256": "3a28c870134b65bdea970d90aaa7edfc050e8541613415965ad4ecf484757c08",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:40.844358+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/phase-transition_trinoids.aiff": {
+      "size_bytes": 74754,
+      "sha256": "9050fa0b1818176af07e0cc0140b5c33a84c4aec88742f9bafbdb3252a926290",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:41.049232+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/phase-transition_whisper.aiff": {
+      "size_bytes": 80898,
+      "sha256": "cf8c6712b1f64e7c50fae4453edbd526a23a006cf7b5f39f67bc4a3200c3990b",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:41.252330+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/phase-transition_zarvox.aiff": {
+      "size_bytes": 74754,
+      "sha256": "5f1a9333f050ce5d4e8d4786cfeb9205035e3ea47046f90c38d5356f14014699",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:41.444121+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/solid-to-gas_bad-news.aiff": {
+      "size_bytes": 155650,
+      "sha256": "f128a4be35607d78eecddc294e6b00ec4adac4d38985dd1aa808886c372d8059",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:41.643907+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/solid-to-gas_cellos.aiff": {
+      "size_bytes": 125954,
+      "sha256": "e501880b5fd04eb44f3085cffa98ea853b03757b3ea886f5de63df474bda5136",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:41.842781+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/solid-to-gas_trinoids.aiff": {
+      "size_bytes": 80898,
+      "sha256": "75dc62bd563ea9b9400674bb4d1d2f1621e438ba8b7fedab20e6a5c521b0780d",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:42.050182+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/solid-to-gas_whisper.aiff": {
+      "size_bytes": 88066,
+      "sha256": "b735489e28125148d6fb6b429a6fb10c28ddc1f4fc98292dc97831c087d06c4a",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:42.253978+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/solid-to-gas_zarvox.aiff": {
+      "size_bytes": 80898,
+      "sha256": "8867d2aeb408d55ea40ce2a9932a0436717fb278b99afe1a83184564fc47dedf",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:42.459918+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-machine_bad-news.aiff": {
+      "size_bytes": 96258,
+      "sha256": "85209723be552a38b73b52dbbf63e21c29d08cb8cf0a0197062e639359957756",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:42.668898+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-machine_cellos.aiff": {
+      "size_bytes": 72706,
+      "sha256": "cd5c56e05d6559cc0a0e100ce20ba8391d0b34730f944746651102cc72b811be",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:42.864155+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-machine_trinoids.aiff": {
+      "size_bytes": 36866,
+      "sha256": "4b812aaf569c2dfcd43050636f4aaaeeb2335279a1ad34b2bd88a0d8924eea58",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:43.067656+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-machine_whisper.aiff": {
+      "size_bytes": 39938,
+      "sha256": "dd80c2e72e5ac54c4f107e54bb4798d33f32671a30a70dc2a89165064f5f4955",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:43.262762+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-machine_zarvox.aiff": {
+      "size_bytes": 36866,
+      "sha256": "7a48041f1170400263409ef335c14ceee9cb042c92b70a65e1457027f78d96cd",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:43.463097+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-system-knows_bad-news.aiff": {
+      "size_bytes": 106498,
+      "sha256": "7c283eab42bbe7255d1ba7e9e6edf9bc72f7ae8ce7a3be46dc9c0ac7e531f3c7",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:43.667000+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-system-knows_cellos.aiff": {
+      "size_bytes": 87042,
+      "sha256": "157f76ce8d536ca94f4fe4b9a78633268b5f11da1cfcf7509232cb02becb9acb",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:43.865644+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-system-knows_trinoids.aiff": {
+      "size_bytes": 57346,
+      "sha256": "607e0f061079dafad5708ea8575b9cf95d893be4c69ddae61dc6f8dccb523b1f",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:44.067234+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-system-knows_whisper.aiff": {
+      "size_bytes": 61442,
+      "sha256": "5bcb1af2d2cf9e617866e5d3466c3e7cddbff61c32760c7a76cbcdb29f333321",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:44.259571+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/the-system-knows_zarvox.aiff": {
+      "size_bytes": 57346,
+      "sha256": "606466c637b5e8d13c87b54335e66da68a151984251a68b1228e70cfc0be6d76",
+      "content_type": "audio/x-aiff",
+      "uploaded_at": "2026-04-26T00:08:44.459155+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/ah-oh-ee_zarvox.wav": {
+      "size_bytes": 311304,
+      "sha256": "1b4fa8486539a465b3401933c194f9bbfc391406940fa8b956bd5dc9fde6e67c",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:44.663194+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/awake_zarvox.wav": {
+      "size_bytes": 102408,
+      "sha256": "8b8a9ccfc8bf224939d34fb61f3c059ad302b56c5c912a3969b9032045cd5073",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:44.862857+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/cannot-be-read_zarvox.wav": {
+      "size_bytes": 204808,
+      "sha256": "a80cf40b6defb1831eba12ca7d9de55261017a261214c12a000ddb117aabee6a",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:45.069603+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/control_zarvox.wav": {
+      "size_bytes": 303112,
+      "sha256": "b5a16cf50f7d814fbb6068fdfbcf8e02cc4a9bad3eceebe5f6f4b1817ddcb6fe",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:45.270739+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/erase_zarvox.wav": {
+      "size_bytes": 118792,
+      "sha256": "64c14f83f4637ef701727aeef494897af7dc56e93937102c47a502416ed53780",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:45.477758+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/ignition_zarvox.wav": {
+      "size_bytes": 122888,
+      "sha256": "1ab9641e196ee64a9f52ca6bc03a4b6e16f4508bdc9c5cd93a42b8ec95bd8d60",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:45.784722+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/ih-ah_zarvox.wav": {
+      "size_bytes": 225288,
+      "sha256": "5a31610a70e565315cdfa8eeb1bd57f853a21c128158db00fae492fb852658df",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:45.989352+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/no-record_zarvox.wav": {
+      "size_bytes": 172040,
+      "sha256": "0a120ff3ad8f2ed468c041101673a8e7045c56beee3b54eb14e6040e184832b1",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:46.207100+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/no-trace_zarvox.wav": {
+      "size_bytes": 159752,
+      "sha256": "2767479fb8012497394945d62806674d5ca328ac819d85aa4271326223a68aae",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:46.405338+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/not-the-data_zarvox.wav": {
+      "size_bytes": 221192,
+      "sha256": "372fdcd0b809dd8e36304c71e477ad2582a41f420911bcc2fb298e06afcb3fe0",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:46.614966+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/phase-transition_zarvox.wav": {
+      "size_bytes": 286728,
+      "sha256": "904adbf1a47944ed0db1a9c7ae1bcfbbd38599a0b80929f8ab0a125dd0929dd9",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:46.829369+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/solid-to-gas_zarvox.wav": {
+      "size_bytes": 311304,
+      "sha256": "df859f9eb5319067f770ca8d39e75d2241031230ef307e7de3d9a73502ed6583",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:47.029144+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/the-machine_zarvox.wav": {
+      "size_bytes": 135176,
+      "sha256": "02fe1d35ff2a8416fd373cc568a3d72669829f5effac4a5c4040c2231cb1fa6e",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:47.227603+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/wav/the-system-knows_zarvox.wav": {
+      "size_bytes": 217096,
+      "sha256": "f0b4b3e69b4f4003fb0e0982402c44bf3dbb5cfd0a0ef3ab548af21e99849c78",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:47.438029+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/samples/vocals/say-renders/ignition-point/zarvox_combined.wav": {
+      "size_bytes": 1540796,
+      "sha256": "a04361c9e267b116f466b6c4260b93d4eb1b1a8067ff2abdb7e4038ea3feebed",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:47.744077+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/chop_metadata.json": {
+      "size_bytes": 3846,
+      "sha256": "6232f2132746f6a5e39fa113493c9a77392e6e468f2c5aba03533f9765841225",
+      "content_type": "application/json",
+      "uploaded_at": "2026-04-26T00:08:55.157839+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_00_0.000s.wav": {
+      "size_bytes": 110116,
+      "sha256": "216996c9a2aaca367d088bef6db33819b3929ff08bf735a1cb82f5fe586ea958",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:55.508321+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_00_0.000s.wav.asd": {
+      "size_bytes": 5230,
+      "sha256": "051fabbbaad3159278d8e1beac278200ad4a76d3ebe21e7fc653c3e72559a8c7",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:55.694647+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_01_1.248s.wav": {
+      "size_bytes": 110118,
+      "sha256": "98c8fc840744f639ec4afab74b65004d55e7791588fc0bae9ffa0c8484919a12",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:55.927359+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_01_1.248s.wav.asd": {
+      "size_bytes": 5226,
+      "sha256": "7de863ee43975c9c5aee22d1e4173856efbcd6bac84e47e21cbf8cd66d01703a",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:56.125254+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_02_2.496s.wav": {
+      "size_bytes": 110030,
+      "sha256": "8e6af26cb4a4f9ade692bb8a449a2f0be9d4c330b542c5a2ac6766b4f5d9de40",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:56.336350+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_02_2.496s.wav.asd": {
+      "size_bytes": 5250,
+      "sha256": "821feaa7a0729a60ddf955407d8b9ef3e6a163121ab571c561039250f362449f",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:56.525307+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_03_3.743s.wav": {
+      "size_bytes": 110118,
+      "sha256": "9b2fafaca87d0082012933d0293f5a3e230017fa183f4356b77ecce30c3377ed",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:56.731818+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_03_3.743s.wav.asd": {
+      "size_bytes": 5254,
+      "sha256": "376cb591c1f4c0db74ace0ba6916b15230cd1e26f4aeb17eb57c4b66b562e91c",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:56.942530+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_04_4.991s.wav": {
+      "size_bytes": 110116,
+      "sha256": "06b68726b1e8f93d5f9d4578bb8ec88b420ab30c97a21b1c31214ac535714024",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:57.149768+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_04_4.991s.wav.asd": {
+      "size_bytes": 5242,
+      "sha256": "a1fe0e39d37454cd763c38562507b6af7c50e236fc85bf5feeffc043262fd10f",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:57.350420+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_05_6.239s.wav": {
+      "size_bytes": 110118,
+      "sha256": "a5f43ca110ace0bf5fbab2792a9c8701fa3afd4d3dac00af20675c5b137e774c",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:57.550205+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_05_6.239s.wav.asd": {
+      "size_bytes": 5234,
+      "sha256": "93b31c501a2dc362e4069c0dc58a5b5854397483bc1ecf219a5c95f8c79dea72",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:57.749933+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_06_7.487s.wav": {
+      "size_bytes": 110030,
+      "sha256": "1194633bd03d25793bf36ab7115f6a684ebfc0bd09d2740c0133a4d0f702ef46",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:57.948443+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_06_7.487s.wav.asd": {
+      "size_bytes": 5226,
+      "sha256": "4ca7773e3a808fcda40d6d91c3d3b077aa78c987a7a28373585bcee7ae99d642",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:58.136072+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_07_8.734s.wav": {
+      "size_bytes": 110118,
+      "sha256": "ea537af0ccf1fd2acfb8be0c242ed2f2c9e2e190e050bae9f94b0265c38de538",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:58.453770+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_07_8.734s.wav.asd": {
+      "size_bytes": 5242,
+      "sha256": "cd6b57b5a6ecbac3605d5cebc886b0e4b76c6ad293cb28191285e58c07fb5355",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:58.660897+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_08_9.982s.wav": {
+      "size_bytes": 110118,
+      "sha256": "49e47f10df17ca92c1622c260c77d74cafaa822f179c1b1cffd2827c80141ce3",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:58.859564+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_08_9.982s.wav.asd": {
+      "size_bytes": 5234,
+      "sha256": "5a886df36e432ea06ce0ea124a246988966647086a5faddaf70858bd776cfe43",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:59.066482+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_09_11.230s.wav": {
+      "size_bytes": 110116,
+      "sha256": "41a5694f1988bd06e011c01d4ad3b0aa77bba1520dc87c3f919ef8c806b8275b",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:59.270208+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_09_11.230s.wav.asd": {
+      "size_bytes": 5250,
+      "sha256": "eb4dfd8ab6c970c239291249607772032fa142f946a74bc466e7948e271ffab4",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:59.462128+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_10_12.478s.wav": {
+      "size_bytes": 110118,
+      "sha256": "736f353e12324d2662578ac707e1d0e995db53f9bf661cc224aa444a99993d7e",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:08:59.679098+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_10_12.478s.wav.asd": {
+      "size_bytes": 5238,
+      "sha256": "b2bdd859f0cd649ad127834ec370a0c23fd664cfc58d04c3849d7ae5738c39bc",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:08:59.892394+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_11_13.726s.wav": {
+      "size_bytes": 110030,
+      "sha256": "5fc4232f9a74e82bc846b1e524c677daaa38dec1fbb83d39f633ac5fafc60c06",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:09:00.096168+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_11_13.726s.wav.asd": {
+      "size_bytes": 5242,
+      "sha256": "46a02a5671d4181bf0ac93c3b1f61b16f27c3502a1d00cb57bca69c143e60c1f",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:09:00.287248+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_12_14.973s.wav": {
+      "size_bytes": 110118,
+      "sha256": "7fe6c224dc5768c431d08421b519809076d98081b5463bfe8818727b6d451355",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:09:00.493867+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_12_14.973s.wav.asd": {
+      "size_bytes": 5242,
+      "sha256": "7996da553e66653fd1c8e20b730d8f3820bd85020bd84523ec25d4c45d06dd6f",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:09:00.708010+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_13_16.221s.wav": {
+      "size_bytes": 110104,
+      "sha256": "277abc8593a881485d474d491516baa0df05fe8385b066d7c119a02df591f969",
+      "content_type": "audio/x-wav",
+      "uploaded_at": "2026-04-26T00:09:00.915585+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_13_16.221s.wav.asd": {
+      "size_bytes": 5254,
+      "sha256": "f784cb8d9b8d571c78f82b39d1cdc014cb418a2f722d32b2bdd9c673c2464a3b",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-04-26T00:09:01.123931+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    }
+  }
 }

@@ -179,7 +179,6 @@ def _upload_to_gcs(image_path: Path) -> str:
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
     blob.upload_from_filename(str(image_path), content_type="image/jpeg")
-    blob.make_public()
 
     public_url = f"https://storage.googleapis.com/{bucket_name}/{blob_name}"
     log.info("Uploaded to GCS: %s", public_url)
@@ -396,7 +395,8 @@ def main() -> None:
 
     # Upload image to GCS to get a public URL
     if args.dry_run:
-        image_url = f"https://storage.googleapis.com/iron-static-files/social/{image_path.name}"
+        _bucket = os.environ.get("GCS_BUCKET", "iron-static-files")
+        image_url = f"https://storage.googleapis.com/{_bucket}/social/{image_path.name}"
         log.info("[DRY RUN] Would upload to GCS: %s", image_url)
     else:
         image_url = _upload_to_gcs(image_path)

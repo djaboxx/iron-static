@@ -61,7 +61,7 @@ This skill provides grounded, practical music theory answers filtered through th
 
 ## Usage
 
-### Via Copilot chat
+### Via Arc chat
 
 - "What's the difference between Phrygian and Phrygian Dominant and when would I choose one over the other?"
 - "Give me 4 chord progressions in E minor that would work for heavy electronic music"
@@ -72,7 +72,7 @@ This skill provides grounded, practical music theory answers filtered through th
 
 ## Answer Format
 
-Copilot should structure theory answers as:
+Arc should structure theory answers as:
 
 ```
 CONCEPT: [Name]

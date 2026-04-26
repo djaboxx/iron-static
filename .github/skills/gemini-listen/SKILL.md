@@ -74,7 +74,7 @@ python scripts/gemini_listen.py --file stems/bass.wav --model gemini-2.5-pro
 python scripts/gemini_listen.py --file reference.wav --no-song-context
 ```
 
-### Via Copilot chat
+### Via Arc chat
 
 Provide the audio file path and ask:
 - "Listen to this recording and tell me if it fits the IRON STATIC aesthetic"

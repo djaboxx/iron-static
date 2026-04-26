@@ -88,24 +88,22 @@ def parse_key(key_str: str) -> tuple[int, str]:
 
 
 def euclidean_rhythm(hits: int, steps: int) -> list[int]:
-    """Generate a Euclidean rhythm — evenly distribute 'hits' over 'steps'."""
-    pattern = [0] * steps
+    """Generate a Euclidean rhythm — evenly distribute 'hits' over 'steps'.
+    Uses Bresenham's line algorithm — simple, correct for all inputs."""
     if hits <= 0:
-        return pattern
+        return [0] * steps
     if hits >= steps:
         return [1] * steps
-
-    # Bjorklund's algorithm
-    groups = [[1]] * hits + [[0]] * (steps - hits)
-    while len(groups) > 1:
-        remainder = groups[len(groups) - (len(groups) % hits or hits):]
-        groups = groups[:len(groups) - len(remainder)]
-        groups = [a + b for a, b in zip(groups, remainder)] + groups[len(remainder):]
-
-    flat = []
-    for g in groups:
-        flat.extend(g)
-    return flat[:steps]
+    pattern = []
+    bucket = 0
+    for _ in range(steps):
+        bucket += hits
+        if bucket >= steps:
+            bucket -= steps
+            pattern.append(1)
+        else:
+            pattern.append(0)
+    return pattern
 
 
 # ---------------------------------------------------------------------------
@@ -689,24 +687,22 @@ def parse_key(key_str: str) -> tuple[int, str]:
 
 
 def euclidean_rhythm(hits: int, steps: int) -> list[int]:
-    """Generate a Euclidean rhythm — evenly distribute 'hits' over 'steps'."""
-    pattern = [0] * steps
+    """Generate a Euclidean rhythm — evenly distribute 'hits' over 'steps'.
+    Uses Bresenham's line algorithm — simple, correct for all inputs."""
     if hits <= 0:
-        return pattern
+        return [0] * steps
     if hits >= steps:
         return [1] * steps
-
-    # Bjorklund's algorithm
-    groups = [[1]] * hits + [[0]] * (steps - hits)
-    while len(groups) > 1:
-        remainder = groups[len(groups) - (len(groups) % hits or hits):]
-        groups = groups[:len(groups) - len(remainder)]
-        groups = [a + b for a, b in zip(groups, remainder)] + groups[len(remainder):]
-
-    flat = []
-    for g in groups:
-        flat.extend(g)
-    return flat[:steps]
+    pattern = []
+    bucket = 0
+    for _ in range(steps):
+        bucket += hits
+        if bucket >= steps:
+            bucket -= steps
+            pattern.append(1)
+        else:
+            pattern.append(0)
+    return pattern
 
 
 def generate_drum_pattern(concept: str, steps: int, bpm: float) -> list[dict]:

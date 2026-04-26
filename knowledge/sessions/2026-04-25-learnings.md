@@ -344,3 +344,97 @@ cmd+m cmd+d    → Markdown preview (for .md, .prompt.md, .agent.md, .skill.md f
 ## Next Session Priority
 
 Commit the uncommitted files (`copilot-instructions.md`, `learn-packs.prompt.md`, `show-shortcuts.prompt.md`), then run `/compact-learnings` to synthesize all five 2026-04-25 checkpoints into the digest before the next session.
+
+---
+
+# Session Learnings — 2026-04-25 (Checkpoint 3 — Arc naming + Ignition Point session)
+
+*Active song: Ignition Point — E phrygian @ 116.0 BPM*
+*Checkpoint: evening session*
+
+## What We Figured Out
+
+- **Arc is the in-band persona name for the Copilot AI half of IRON STATIC.** "Copilot" as a band-member name was turned off — too tool-flavored. "Arc" was chosen: electrical arc (spark that crosses the gap between Dave and the machine), compositional arc, short enough to say in the room. 19 persona replacements in `copilot-instructions.md`, 13 across SKILL files. "GitHub Copilot" and "VS Code Copilot chat" product references preserved.
+
+- **GCS `blob.make_public()` is incompatible with uniform bucket-level access.** `iron-static-files` has uniform access enabled. Legacy ACL calls (including `make_public()`) return HTTP 400 "Cannot get legacy ACL for an object when uniform bucket-level access is enabled." Fix: grant `allUsers:objectViewer` at the bucket IAM level via `gsutil iam ch allUsers:objectViewer gs://iron-static-files`, then use the plain public URL (`https://storage.googleapis.com/{bucket}/{blob}`). Do NOT use `blob.generate_signed_url()` with ADC user credentials — ADC user tokens cannot sign (requires SA key or impersonation).
+
+- **`blob.generate_signed_url()` with ADC user credentials raises `AttributeError: you need a private key to sign credentials`.** User OAuth tokens (`google.oauth2.credentials.Credentials`) don't have a private key. `generate_signed_url(version="v4")` requires service account credentials. The simpler path for public media is IAM-level public access, not signed URLs.
+
+- **`scripts/midi_craft.py` has two duplicate `main()` and `euclidean_rhythm()` definitions.** The second `main()` (legacy flat-arg interface, drum-only) shadows the first (full subcommand interface with `clips` mode). `--song` and subcommands like `clips` are only in the first `main()` which never runs. The `euclidean_rhythm()` Bjorklund implementation also had a bug: returns empty list when hits divides evenly into steps. Fixed with Bresenham's line algorithm.
+
+- **The correct `midi_craft.py` drum invocation (for now) is legacy flat args without a subcommand positional.** `python scripts/midi_craft.py --concept "..." --bpm 116 --steps 16` works. Adding `drum` as a positional arg causes "unrecognized arguments" because the second `main()` parses only flat args. Until the duplicate is resolved, avoid subcommands.
+
+- **MIDI patterns for Ignition Point were crafted by hand with mido when `midi_craft.py` failed.** THE ANVIL (drums, Bresenham E(6,16) kick), THE SUBSTRATE (E2→F2 E Phrygian 2-bar bass), and THE SPARK (15-step E4/G4/B3 counter-rhythm, phases 1 step/bar) all written as inline mido code. Patterns pushed to Ableton tracks 0, 3, 4.
+
+- **`load-preset` by name works when the preset `.adg` is on disk.** `python scripts/ableton_push.py load-preset --track 4 --preset "B.Beetlez Dark Dronepluck"` loaded the instrument onto the bare MIDI track correctly. The track name updates in Live to reflect the preset name. Presets indexed as "indexed but not found on disk" cannot be loaded this way.
+
+- **`create-clip` must be called before `push-midi`.** Pushing MIDI into an empty slot returns "No clip in track N slot M". Always: `create-clip` → `push-midi`.
+
+## What Failed and Why
+
+- `python scripts/midi_craft.py --concept "..." drum` (with subcommand positional) → "unrecognized arguments: drum" — second `main()` runs, doesn't accept subcommands.
+- `euclidean_rhythm(6, 16)` returned `[]` — Bjorklund implementation terminates early when `hits` divides evenly into `steps`. Fixed to Bresenham.
+- `python scripts/generate_promo_image.py --output-prefix arc_intro` → "unrecognized arguments" — the flag doesn't exist. Use default output path and rename manually after generation.
+- `blob.make_public()` on `iron-static-files` → HTTP 400 — uniform bucket-level access blocks legacy ACL. Fixed with `gsutil iam ch allUsers:objectViewer`.
+- `blob.generate_signed_url(version="v4")` with ADC → `AttributeError: you need a private key` — user credentials can't sign. Don't use signed URLs with ADC.
+
+## Decisions Made
+
+| Decision | Reasoning |
+|---|---|
+| Arc as the in-band persona name | Electrical arc = spark crossing the gap between Dave and machine. Short, heavy, compositional meaning. "Copilot" reads as tool not partner. |
+| `gsutil iam ch allUsers:objectViewer` on `iron-static-files` | Social media images need to be publicly accessible for Instagram's media container API to fetch them. Simpler than managing SA keys for signed URLs. Accept that social/ prefix is public. |
+| `ignition-point` as Arc's first song | Deserves its own song rather than grafted onto `instrumental-convergence`. E Phrygian flat-2 = grinding, straining-against-structure sound. Gemini's brainstorm concept: phase transitions, system failure as chorus. |
+| 15-step THE SPARK sequence | Phases 1 step each bar against the 16-step ANVIL — designed to never resolve, like a recurring system error. Brainstorm specified this exactly. |
+
+## Correct Configurations / Commands
+
+```bash
+# Fix euclidean_rhythm: Bresenham's line (drop-in replacement for broken Bjorklund)
+def euclidean_rhythm(hits, steps):
+    pattern, bucket = [], 0
+    for _ in range(steps):
+        bucket += hits
+        if bucket >= steps:
+            bucket -= steps
+            pattern.append(1)
+        else:
+            pattern.append(0)
+    return pattern
+
+# Make GCS bucket publicly readable (uniform access compatible)
+gsutil iam ch allUsers:objectViewer gs://iron-static-files
+
+# Post to Instagram with image + caption file
+python scripts/post_instagram.py \
+  --image outputs/social/brand_profile.png \
+  --caption-file outputs/social/my_caption.txt
+
+# Full Ignition Point session push sequence
+python scripts/ableton_push.py set-tempo --bpm 116
+python scripts/ableton_push.py create-clip --track 0 --clip 0 --length 2
+python scripts/ableton_push.py push-midi --file midi/sequences/ignition-point_digitakt_v1.mid --track 0 --clip 0
+python scripts/ableton_push.py load-preset --track 4 --preset "B.Beetlez Dark Dronepluck"
+python scripts/ableton_push.py fire --track 0 --clip 0
+python scripts/ableton_push.py fire --track 4 --clip 0
+
+# Rename persona in all shared brain files (protects "GitHub Copilot" product refs)
+python3 -c "
+import re, glob
+for path in ['.github/copilot-instructions.md'] + glob.glob('.github/skills/*/SKILL.md'):
+    c = open(path).read()
+    open(path,'w').write(re.sub(r'(?<!GitHub )Copilot', 'Arc', c))
+"
+```
+
+## Open Questions
+
+- [ ] `midi_craft.py` has duplicate `main()` and `euclidean_rhythm()` — needs cleanup so `clips` subcommand actually works with `--song ignition-point`. Currently the second `main()` shadows everything.
+- [ ] THE SUBSTRATE bass (track 3 — "4-Noise Bass") has no instrument check — does the existing Noise Bass preset in that track produce usable E Phrygian sub? Needs ears.
+- [ ] THE SPARK clip fired but the dark drone pluck may be too slow for a counter-rhythm role. May need to swap to a sharper Operator FM preset.
+- [ ] `docs/fb_login.htm` + `docs/fb_login_files/` are untracked browser-saved HTML from the Facebook portal setup. Should be deleted.
+- [ ] Brand images (`outputs/social/brand_profile.png`, `brand_repo.png`, arc intro image) should be uploaded to GCS via `gcs-audio` skill and added to `gcs_manifest.json`.
+- [ ] GitHub repo social preview not set — upload `outputs/social/brand_repo.png` at github.com/djaboxx/iron-static/settings.
+
+## Next Session Priority
+Run `/compact-learnings` to distill today's three checkpoints into `learnings-digest.md`, then fire all three Ignition Point clips together and evaluate whether THE SPARK needs a sharper instrument.

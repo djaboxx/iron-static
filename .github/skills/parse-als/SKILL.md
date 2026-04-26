@@ -12,7 +12,7 @@ Parse Ableton Live `.als` project files (gzipped XML) and extract a machine-read
 - global tempo and time signature
 - CSV export of clip ranges and a JSON index of devices
 
-This skill is intended to be used by Copilot agents to automate project audits, clip mapping, and device inventory.
+This skill is intended to be used by Arc agents to automate project audits, clip mapping, and device inventory.
 
 ## Usage
 Run the helper script:

@@ -231,6 +231,123 @@ def ask_gemini_for_chops(audio_path: Path, n_slices: int, song: dict | None,
     return result
 
 
+
+# ---------------------------------------------------------------------------
+# Critic gate — qualitative pre-chop approval via Gemini
+# ---------------------------------------------------------------------------
+
+CRITIC_QUESTION_TMPL = """You are The Critic for IRON STATIC. You are evaluating an audio sample BEFORE it is chopped and loaded into Ableton. Your job is to decide whether this sample is worth using.
+
+Original brief for this sample:
+{brief}
+
+Evaluate the sample against this brief and the IRON STATIC aesthetic. Be direct and specific.
+Answer these questions:
+1. BRIEF MATCH — does the audio actually deliver what was asked for? (yes/partial/no)
+2. IRON STATIC FIT — high / medium / low
+3. WHAT WORKS — specific elements that serve the song
+4. WHAT FAILS — specific elements that clash or miss the brief
+5. VERDICT — APPROVE or REJECT (one word, on its own line, capitalized)
+6. If REJECT: one concrete suggestion to improve the generation prompt for next time.
+
+Be harsh. A sample that doesn't fit the brief wastes everyone's time."""
+
+
+def critic_gate(audio_path: Path, brief: str, song: dict | None, model: str) -> bool:
+    """Run Gemini qualitative critique on audio BEFORE chopping.
+
+    Returns True (approved) or False (rejected). Prints the full critique to stdout.
+    Exits 1 if the verdict is REJECT, unless the caller handles the return value.
+    """
+    # Import gemini_listen inline to avoid circular deps
+    sys.path.insert(0, str(Path(__file__).parent))
+    from gemini_listen import analyze, build_prompt
+
+    question = CRITIC_QUESTION_TMPL.format(brief=brief.strip() or "(no brief provided)")
+    prompt = build_prompt(question, song)
+
+    log.info("CRITIC GATE: running qualitative audit on %s …", audio_path.name)
+    critique = analyze(audio_path, prompt, model)
+
+    print("\n" + "=" * 70)
+    print("CRITIC VERDICT")
+    print("=" * 70)
+    print(critique)
+    print("=" * 70 + "\n")
+
+    # Parse verdict — look for a line that is exactly APPROVE or REJECT
+    for line in critique.splitlines():
+        stripped = line.strip().upper()
+        if stripped in ("APPROVE", "REJECT"):
+            if stripped == "REJECT":
+                log.error("Critic rejected this sample. Fix the prompt and regenerate.")
+                return False
+            log.info("Critic approved. Proceeding to chop.")
+            return True
+
+    # If Gemini didn't give a clean verdict line, warn and let the user decide
+    log.warning("Critic did not return a clear APPROVE/REJECT verdict. Proceeding (use --no-critic to skip).")
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Local chop modes (transient detection + equal split) — no Gemini required
+# ---------------------------------------------------------------------------
+
+def compute_chops_transient(audio_path: Path, n_slices: int) -> dict:
+    """Detect onset transients via librosa and return the N strongest as chop points."""
+    try:
+        import librosa
+        import numpy as np
+    except ImportError:
+        log.error("librosa and numpy are required for --transient mode. Run: pip install librosa")
+        import sys; sys.exit(1)
+
+    log.info("Transient detection: loading %s …", audio_path.name)
+    y, sr = librosa.load(str(audio_path), sr=None, mono=True)
+    duration = len(y) / sr
+
+    onset_frames = librosa.onset.onset_detect(y=y, sr=sr, units="time", backtrack=True)
+    onset_strength = librosa.onset.onset_strength(y=y, sr=sr)
+    onset_frame_idxs = librosa.onset.onset_detect(y=y, sr=sr, units="frames", backtrack=True)
+
+    # Rank onsets by strength, pick top N-1 (pad 0 always at 0.0)
+    strengths = [onset_strength[min(f, len(onset_strength)-1)] for f in onset_frame_idxs]
+    ranked = sorted(zip(strengths, onset_frames), reverse=True)
+    picked = sorted([t for _, t in ranked[:n_slices - 1]])
+    starts = [0.0] + [t for t in picked if t > 0.05]  # drop anything < 50ms from 0
+    starts = starts[:n_slices]
+
+    chops = []
+    for i, s in enumerate(starts):
+        end = starts[i + 1] if i + 1 < len(starts) else duration
+        chops.append({"index": i, "start": round(s, 3), "end": round(end, 3),
+                      "description": f"Transient onset at {s:.3f}s"})
+
+    log.info("Transient mode: %d onsets found, using %d", len(onset_frames), len(chops))
+    return {"chops": chops, "duration_seconds": duration, "strategy": "transient-onset"}
+
+
+def compute_chops_equal(audio_path: Path, n_slices: int) -> dict:
+    """Split audio into N equal-duration slices."""
+    try:
+        import soundfile as sf
+    except ImportError:
+        log.error("soundfile is required. Run: pip install soundfile")
+        import sys; sys.exit(1)
+
+    info = sf.info(str(audio_path))
+    duration = info.frames / info.samplerate
+    step = duration / n_slices
+    chops = []
+    for i in range(n_slices):
+        s = round(i * step, 3)
+        e = round((i + 1) * step, 3)
+        chops.append({"index": i, "start": s, "end": e,
+                      "description": f"Equal slice {i+1}/{n_slices}"})
+    log.info("Equal-split mode: %d slices of %.3fs each", n_slices, step)
+    return {"chops": chops, "duration_seconds": duration, "strategy": "equal-split"}
+
 # ---------------------------------------------------------------------------
 # Audio slicing
 # ---------------------------------------------------------------------------
@@ -591,6 +708,34 @@ def main() -> None:
         help="Skip loading active song context.",
     )
     parser.add_argument(
+        "--transient",
+        action="store_true",
+        help=(
+            "Use librosa onset detection instead of Gemini for chop points. "
+            "Requires librosa. Implies --no-critic (no audio to critique before chopping)."
+        ),
+    )
+    parser.add_argument(
+        "--equal-split",
+        action="store_true",
+        help="Split audio into N equal slices instead of using Gemini. Implies --no-critic.",
+    )
+    parser.add_argument(
+        "--no-critic",
+        action="store_true",
+        help="Skip the Critic gate — chop without qualitative pre-approval.",
+    )
+    parser.add_argument(
+        "--critic-context",
+        default="",
+        metavar="TEXT",
+        help=(
+            "The original generation brief / prompt that produced this audio. "
+            "Passed to the Critic so it can evaluate whether the audio matches what was asked for. "
+            "If omitted, the --context value is used."
+        ),
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Print chop points from Gemini but do not write any files.",
@@ -619,68 +764,78 @@ def main() -> None:
     slice_dir = SLICES_DIR / f"{song_slug}_{source_slug}_{today}"
     meta_path = slice_dir / "chop_metadata.json"
 
-    # Step 1: Ask Gemini for chop points — ALWAYS from the original unseparated file.
-    # The full mix has more spectral information than any individual stem, so Gemini
-    # finds better moments here. The same timestamps are then applied to every stem.
-    #
-    # Idempotency: if valid chop metadata already exists for this slug+date, reuse it
-    # instead of calling Gemini again. This prevents a --stems re-run from overwriting
-    # good chop times with a bad Gemini response.
-    chop_data = None
-    if meta_path.exists() and not args.dry_run:
-        try:
-            existing = json.loads(meta_path.read_text())
-            # Support both {start} (new) and {time} (legacy) formats.
-            existing_starts = [
-                float(c.get("start", c.get("time", 0))) for c in existing.get("chops", [])
-            ]
-            span = (existing_starts[-1] - existing_starts[0]) if len(existing_starts) > 1 else 0
-            if span >= 1.0:
-                log.info("Reusing existing chop metadata (span=%.1fs): %s", span, meta_path)
-                chop_data = existing
-            else:
-                log.warning("Existing chop metadata span=%.3fs is too small; re-asking Gemini.", span)
-        except Exception as exc:
-            log.warning("Could not load existing chop metadata (%s); re-asking Gemini.", exc)
+    # Local chop modes bypass Gemini entirely (and skip the Critic gate)
+    if args.transient:
+        log.info("Transient mode — skipping Gemini and Critic gate.")
+        chop_data = compute_chops_transient(audio_path, n)
+    elif args.equal_split:
+        log.info("Equal-split mode — skipping Gemini and Critic gate.")
+        chop_data = compute_chops_equal(audio_path, n)
+    else:
+        chop_data = None  # will be filled by Critic+Gemini block below
 
     if chop_data is None:
-        chop_data = ask_gemini_for_chops(audio_path, n, song, args.context, args.model)
+        # Critic gate: qualitative pre-chop approval (skip with --no-critic or --dry-run)
+        if not args.no_critic and not args.dry_run:
+            brief = args.critic_context or args.context
+            approved = critic_gate(audio_path, brief, song, args.model)
+            if not approved:
+                sys.exit(1)
 
-        # Validate: if Gemini returned implausibly tiny chop times, abort immediately.
-        chop_starts = [
-            float(c.get("start", c.get("time", 0))) for c in chop_data.get("chops", [])
-        ]
-        span = (chop_starts[-1] - chop_starts[0]) if len(chop_starts) > 1 else 0
-        gemini_duration = chop_data.get("duration_seconds", 0)
-        min_expected = max(1.0, 0.1 * gemini_duration)
-        if span < min_expected:
-            log.error(
-                "Gemini returned bad chop times (span=%.3fs, estimated_duration=%.1fs). "
-                "This is a hallucinated response. Re-run to retry with a fresh Gemini call.",
-                span, gemini_duration,
-            )
-            sys.exit(1)
+        # Idempotency: reuse existing chop metadata if valid
+        if meta_path.exists() and not args.dry_run:
+            try:
+                existing = json.loads(meta_path.read_text())
+                existing_starts = [
+                    float(c.get("start", c.get("time", 0))) for c in existing.get("chops", [])
+                ]
+                span = (existing_starts[-1] - existing_starts[0]) if len(existing_starts) > 1 else 0
+                if span >= 1.0:
+                    log.info("Reusing existing chop metadata (span=%.1fs): %s", span, meta_path)
+                    chop_data = existing
+                else:
+                    log.warning("Existing chop metadata span=%.3fs is too small; re-asking Gemini.", span)
+            except Exception as exc:
+                log.warning("Could not load existing chop metadata (%s); re-asking Gemini.", exc)
 
-        # Validate: check that chops aren't mostly out-of-bounds relative to actual file duration.
-        try:
-            import soundfile as _sf
-            _info = _sf.info(str(audio_path))
-            actual_duration = _info.frames / _info.samplerate
-            out_of_bounds = sum(1 for s in chop_starts if s > actual_duration)
-            if out_of_bounds > len(chop_starts) // 2:
+        if chop_data is None:
+            chop_data = ask_gemini_for_chops(audio_path, n, song, args.context, args.model)
+
+            # Validate: if Gemini returned implausibly tiny chop times, abort immediately.
+            chop_starts = [
+                float(c.get("start", c.get("time", 0))) for c in chop_data.get("chops", [])
+            ]
+            span = (chop_starts[-1] - chop_starts[0]) if len(chop_starts) > 1 else 0
+            gemini_duration = chop_data.get("duration_seconds", 0)
+            min_expected = max(1.0, 0.1 * gemini_duration)
+            if span < min_expected:
                 log.error(
-                    "%d/%d chop starts are beyond actual file duration (%.1fs). "
-                    "Gemini estimated %.1fs — hallucinated duration. Re-run to retry.",
-                    out_of_bounds, len(chop_starts), actual_duration, gemini_duration,
+                    "Gemini returned bad chop times (span=%.3fs, estimated_duration=%.1fs). "
+                    "This is a hallucinated response. Re-run to retry with a fresh Gemini call.",
+                    span, gemini_duration,
                 )
                 sys.exit(1)
-            elif out_of_bounds > 0:
-                log.warning(
-                    "%d/%d chop starts exceed actual file duration (%.1fs) and will be skipped.",
-                    out_of_bounds, len(chop_starts), actual_duration,
-                )
-        except Exception as _e:
-            log.debug("Could not pre-validate chop bounds: %s", _e)
+
+            # Validate: check that chops aren't mostly out-of-bounds relative to actual file duration.
+            try:
+                import soundfile as _sf
+                _info = _sf.info(str(audio_path))
+                actual_duration = _info.frames / _info.samplerate
+                out_of_bounds = sum(1 for s in chop_starts if s > actual_duration)
+                if out_of_bounds > len(chop_starts) // 2:
+                    log.error(
+                        "%d/%d chop starts are beyond actual file duration (%.1fs). "
+                        "Gemini estimated %.1fs — hallucinated duration. Re-run to retry.",
+                        out_of_bounds, len(chop_starts), actual_duration, gemini_duration,
+                    )
+                    sys.exit(1)
+                elif out_of_bounds > 0:
+                    log.warning(
+                        "%d/%d chop starts exceed actual file duration (%.1fs) and will be skipped.",
+                        out_of_bounds, len(chop_starts), actual_duration,
+                    )
+            except Exception as _e:
+                log.debug("Could not pre-validate chop bounds: %s", _e)
 
     log.info("Chop strategy: %s", chop_data.get("chop_strategy", "?"))
     log.info("Estimated duration: %.2f s", chop_data.get("duration_seconds", 0))

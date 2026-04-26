@@ -86,7 +86,7 @@ python scripts/gemini_forge.py --target "snare transient" --output json
 python scripts/gemini_forge.py --target "noise texture" --no-song-context
 ```
 
-### Via Copilot chat (Alchemist agent)
+### Via Arc chat (Alchemist agent)
 
 1. Make sure `database/songs.json` has an active song
 2. Ask: "Forge a kick loop spec for this song"

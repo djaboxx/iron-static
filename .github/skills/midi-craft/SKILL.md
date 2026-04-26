@@ -187,7 +187,7 @@ The Live Engineer generates the `.mid` file and pushes it:
 /Users/darnold/venv/bin/python3 scripts/ableton_push.py fire --track [name] --clip 0
 ```
 
-### Via Copilot chat (invoke The Theorist)
+### Via Arc chat (invoke The Theorist)
 
 - "Write a 7/8 drum pattern for DFAM in A phrygian dominant at 95 BPM"
 - "Create a Rev2 bass sequence in E minor that moves every 12 steps (against a 16-step kick)"

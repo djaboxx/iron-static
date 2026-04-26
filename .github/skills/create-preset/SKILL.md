@@ -132,7 +132,7 @@ python scripts/create_preset.py --instrument rev2 --name "grind-lead" --descript
 python scripts/create_preset.py --instrument dfam --name "thud-kick" --format panel-state
 ```
 
-### Via Copilot chat
+### Via Arc chat
 
 - "Create a Rev2 preset for a slow, evolving pad in E minor — something cinematic but heavy"
 - "Document this DFAM panel state as a preset called 'Industrial Kick'"
@@ -145,7 +145,7 @@ python scripts/create_preset.py --instrument dfam --name "thud-kick" --format pa
 
 ## Script: [create_preset.py](../../scripts/create_preset.py)
 
-Reads MIDI implementation data from `instruments/[slug]/manuals/midi-impl.json` if present. Falls back to Copilot's built-in knowledge of instrument parameters.
+Reads MIDI implementation data from `instruments/[slug]/manuals/midi-impl.json` if present. Falls back to Arc's built-in knowledge of instrument parameters.
 
 ## Security Note
 
