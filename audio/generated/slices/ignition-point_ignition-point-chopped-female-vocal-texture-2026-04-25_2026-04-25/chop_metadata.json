@@ -1,0 +1,111 @@
+{
+  "song_slug": "ignition-point",
+  "source_file": "/Users/darnold/git/iron-static/audio/generated/ignition-point_chopped-female-vocal-texture_2026-04-25.mp3",
+  "date": "2026-04-25",
+  "rack_name": "ignition-ghost-vocals-v1",
+  "adg_path": "/Users/darnold/git/iron-static/ableton/racks/ignition-ghost-vocals-v1.adg",
+  "slices_dir": "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25",
+  "gemini_model": "gemini-2.5-pro",
+  "chop_strategy": "This strategy isolates a playable melodic/rhythmic sequence for the first eight pads, and a palette of contrasting textural one-shots, glitches, and impacts for the second eight.",
+  "duration_seconds": 30.35,
+  "chops": [
+    {
+      "start": 0.0,
+      "end": 0.42,
+      "reason": "Initial synth bass attack and kick; a strong, foundational hit."
+    },
+    {
+      "start": 1.4,
+      "end": 2.25,
+      "reason": "Evolving filtered textural pad swell just before the melody enters."
+    },
+    {
+      "start": 2.58,
+      "end": 3.2,
+      "reason": "First clean melodic motif from the lead synth line."
+    },
+    {
+      "start": 3.98,
+      "end": 4.6,
+      "reason": "Melodic phrase with the high arpeggiated texture underneath."
+    },
+    {
+      "start": 5.55,
+      "end": 6.24,
+      "reason": "Melodic tail resolving into the start of a new, faster arp."
+    },
+    {
+      "start": 6.6,
+      "end": 7.5,
+      "reason": "Heavy, distorted chord stab creating a significant textural shift."
+    },
+    {
+      "start": 8.8,
+      "end": 9.65,
+      "reason": "Syncopated rhythmic fragment with the lead melody weaving through."
+    },
+    {
+      "start": 11.0,
+      "end": 11.75,
+      "reason": "Final punchy melodic phrase to complete the playable sequence."
+    },
+    {
+      "start": 12.9,
+      "end": 13.88,
+      "reason": "Peak of the riser transition; a moment of pure noise and tension."
+    },
+    {
+      "start": 14.3,
+      "end": 15.3,
+      "reason": "A big, side-chained pad swell with a kick; great for textural pump."
+    },
+    {
+      "start": 17.1,
+      "end": 17.65,
+      "reason": "Glitchy, corrupted buffer-like synth stutter artifact."
+    },
+    {
+      "start": 18.9,
+      "end": 19.95,
+      "reason": "Resonant synth chord tail after the low-end drops out; a ghostly texture."
+    },
+    {
+      "start": 20.5,
+      "end": 21.6,
+      "reason": "Vocal-like formant filter texture providing a spectral surprise."
+    },
+    {
+      "start": 23.3,
+      "end": 23.6,
+      "reason": "Sharp, percussive synth stab with a fast attack, almost a snare."
+    },
+    {
+      "start": 26.6,
+      "end": 27.9,
+      "reason": "Reverb wash transition where elements blur into a dense textural cloud."
+    },
+    {
+      "start": 29.5,
+      "end": 30.3,
+      "reason": "Fast upward filter sweep immediately followed by a distorted sub drop."
+    }
+  ],
+  "slices": [
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_01_1.400s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_02_2.580s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_03_3.980s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_04_5.550s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_05_6.600s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_06_8.800s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_07_11.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_08_12.900s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_09_14.300s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_10_17.100s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_11_18.900s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_12_20.500s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_13_23.300s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_14_26.600s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/ignition-point_ignition-point-chopped-female-vocal-texture-2026-04-25_2026-04-25/slice_15_29.500s.wav"
+  ]
+}

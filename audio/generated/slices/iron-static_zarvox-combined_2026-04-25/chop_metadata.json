@@ -1,0 +1,113 @@
+{
+  "song_slug": "iron-static",
+  "source_file": "/Users/darnold/git/iron-static/audio/samples/vocals/say-renders/ignition-point/zarvox_combined.wav",
+  "date": "2026-04-25",
+  "rack_name": "ignition-zarvox-vocals-v1",
+  "adg_path": "/Users/darnold/git/iron-static/ableton/racks/ignition-zarvox-vocals-v1.adg",
+  "slices_dir": "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25",
+  "gemini_model": "gemini-2.5-flash",
+  "chop_strategy": null,
+  "duration_seconds": 17.468843537414966,
+  "chops": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 1.248,
+      "description": "Equal slice 1/14"
+    },
+    {
+      "index": 1,
+      "start": 1.248,
+      "end": 2.496,
+      "description": "Equal slice 2/14"
+    },
+    {
+      "index": 2,
+      "start": 2.496,
+      "end": 3.743,
+      "description": "Equal slice 3/14"
+    },
+    {
+      "index": 3,
+      "start": 3.743,
+      "end": 4.991,
+      "description": "Equal slice 4/14"
+    },
+    {
+      "index": 4,
+      "start": 4.991,
+      "end": 6.239,
+      "description": "Equal slice 5/14"
+    },
+    {
+      "index": 5,
+      "start": 6.239,
+      "end": 7.487,
+      "description": "Equal slice 6/14"
+    },
+    {
+      "index": 6,
+      "start": 7.487,
+      "end": 8.734,
+      "description": "Equal slice 7/14"
+    },
+    {
+      "index": 7,
+      "start": 8.734,
+      "end": 9.982,
+      "description": "Equal slice 8/14"
+    },
+    {
+      "index": 8,
+      "start": 9.982,
+      "end": 11.23,
+      "description": "Equal slice 9/14"
+    },
+    {
+      "index": 9,
+      "start": 11.23,
+      "end": 12.478,
+      "description": "Equal slice 10/14"
+    },
+    {
+      "index": 10,
+      "start": 12.478,
+      "end": 13.726,
+      "description": "Equal slice 11/14"
+    },
+    {
+      "index": 11,
+      "start": 13.726,
+      "end": 14.973,
+      "description": "Equal slice 12/14"
+    },
+    {
+      "index": 12,
+      "start": 14.973,
+      "end": 16.221,
+      "description": "Equal slice 13/14"
+    },
+    {
+      "index": 13,
+      "start": 16.221,
+      "end": 17.469,
+      "description": "Equal slice 14/14"
+    }
+  ],
+  "slices": [
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_00_0.000s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_01_1.248s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_02_2.496s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_03_3.743s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_04_4.991s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_05_6.239s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_06_7.487s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_07_8.734s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_08_9.982s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_09_11.230s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_10_12.478s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_11_13.726s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_12_14.973s.wav",
+    "/Users/darnold/git/iron-static/audio/generated/slices/iron-static_zarvox-combined_2026-04-25/slice_13_16.221s.wav"
+  ]
+}
