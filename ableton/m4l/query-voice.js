@@ -5,6 +5,7 @@
 
 autowatch = 1;
 outlets = 1;   // outlet 0 = status string
+inlets  = 1;
 
 var _track_idx = -1;
 var _resolved  = false;
@@ -12,27 +13,24 @@ var _resolved  = false;
 // ── init ─────────────────────────────────────────────────────────────────────
 
 function bang() {
-    _resolve_track();
+    _init();
 }
 
-function _resolve_track() {
+function _init() {
     _resolved  = false;
     _track_idx = -1;
 
-    var ls = new LiveAPI(null, "live_set");
-    var n  = ls.getcount("tracks");
-
-    for (var i = 0; i < n; i++) {
-        var t    = new LiveAPI(null, "live_set tracks " + i);
-        var name = t.get("name");
-        if (name && name[0] === "Query Arp") {
-            _track_idx = i;
-            _resolved  = true;
-            outlet(0, "status", "QUERY VOICE bound · Query Arp = track " + i);
-            return;
-        }
+    // Ask Live where THIS device lives — path = "live_set tracks N devices M"
+    var me     = new LiveAPI(null, "this_device");
+    var myPath = me.path ? me.path.toString() : "";
+    var m      = myPath.match(/tracks\s+(\d+)/);
+    if (m) {
+        _track_idx = parseInt(m[1], 10);
+        _resolved  = true;
+        outlet(0, "status", "QUERY VOICE bound · track=" + _track_idx);
+    } else {
+        outlet(0, "status", "ERR: path=" + myPath);
     }
-    outlet(0, "status", "ERR: Query Arp track not found");
 }
 
 // ── LOM param setter ─────────────────────────────────────────────────────────
@@ -62,7 +60,7 @@ function _set(dev, param, val) {
 //       A Tone Filter[56] 0.50→0.25 (subtle brightness drop as grit rises)
 
 function texture(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(0,  8, v * 0.80);
     _set(0,  9, v * v);
     _set(0, 56, 0.50 - v * 0.25);
@@ -74,7 +72,7 @@ function texture(v) {
 //       A Filter Q    [16]  0.20→0.80  (resonance builds as gate closes)
 
 function tension(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(0, 15, 0.90 - v * 0.65);
     _set(0, 16, 0.20 + v * 0.60);
 }
@@ -86,7 +84,7 @@ function tension(v) {
 //       A Amp Sustain [43]  0.00→0.25  (sustain body at long settings)
 
 function breath(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(0, 37, v * 0.45);
     _set(0, 39, 0.05 + v * 0.55);
     _set(0, 43, v * 0.25);
@@ -99,7 +97,7 @@ function breath(v) {
 //       Roar Blend        [5]   0.30→0.80
 
 function burn(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(1,  1, 0.25 + v * 0.75);
     _set(1, 11, v * 0.85);
     _set(1,  5, 0.30 + v * 0.50);
@@ -111,7 +109,7 @@ function burn(v) {
 //       Echo LP Freq  [31]  0.75→0.30  (darkens as feedback grows)
 
 function tail(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(2, 16, v * 0.80);
     _set(2, 31, 0.75 - v * 0.45);
 }
@@ -122,7 +120,7 @@ function tail(v) {
 //       Meld A LFO1 Rate [22]  0.08→0.58
 
 function drift(v) {
-    if (!_resolved) _resolve_track();
+    if (!_resolved) _init();
     _set(0,  6, 0.15 + v * 0.75);
     _set(0, 22, 0.08 + v * 0.50);
 }

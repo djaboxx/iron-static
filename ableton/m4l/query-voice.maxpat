@@ -171,114 +171,150 @@
         "box": {
           "id": "obj-dial-texture",
           "maxclass": "live.dial",
-          "long_name": "Texture",
-          "short_name": "TEX",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.2],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [450.0, 20.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [30.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [30.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Texture",
+              "parameter_shortname": "TEX",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.2],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
         "box": {
           "id": "obj-dial-tension",
           "maxclass": "live.dial",
-          "long_name": "Tension",
-          "short_name": "TNS",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.28],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [450.0, 75.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [128.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [128.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Tension",
+              "parameter_shortname": "TNS",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.28],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
         "box": {
           "id": "obj-dial-breath",
           "maxclass": "live.dial",
-          "long_name": "Breath",
-          "short_name": "BRH",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.05],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [450.0, 130.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [226.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [226.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Breath",
+              "parameter_shortname": "BRH",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.05],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
         "box": {
           "id": "obj-dial-burn",
           "maxclass": "live.dial",
-          "long_name": "Burn",
-          "short_name": "BRN",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.57],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [510.0, 20.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [324.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [324.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Burn",
+              "parameter_shortname": "BRN",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.57],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
         "box": {
           "id": "obj-dial-tail",
           "maxclass": "live.dial",
-          "long_name": "Tail",
-          "short_name": "TAIL",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.48],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [510.0, 75.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [422.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [422.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Tail",
+              "parameter_shortname": "TAIL",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.48],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
         "box": {
           "id": "obj-dial-drift",
           "maxclass": "live.dial",
-          "long_name": "Drift",
-          "short_name": "DRF",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "parameter_enable": 1,
-          "initial_enable": 1,
-          "initial": [0.63],
           "numinlets": 1,
           "numoutlets": 2,
           "outlettype": ["", "dictionary"],
           "patching_rect": [510.0, 130.0, 44.0, 44.0],
           "presentation": 1,
-          "presentation_rect": [520.0, 60.0, 44.0, 44.0]
+          "presentation_rect": [520.0, 60.0, 44.0, 44.0],
+          "parameter_enable": 1,
+          "saved_attribute_attributes": {
+            "valueof": {
+              "parameter_longname": "Drift",
+              "parameter_shortname": "DRF",
+              "parameter_minimum": 0.0,
+              "parameter_maximum": 1.0,
+              "parameter_initial": [0.63],
+              "parameter_initial_enable": 1,
+              "parameter_type": 0,
+              "parameter_unitstyle": 0
+            }
+          }
         }
       },
       {
