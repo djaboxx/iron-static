@@ -121,3 +121,35 @@ jobs:
           echo ""
           echo "=== CONTENT PREVIEW ==="
           cat "${{ inputs.content_file }}" || echo "File not found: ${{ inputs.content_file }}"
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Final: Slack notification
+  # ─────────────────────────────────────────────────────────────────────────
+  notify-slack:
+    name: Slack notification
+    needs: [post-instagram, post-tiktok, post-patreon]
+    if: always() && vars.SLACK_NOTIFICATIONS_ENABLED != 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Notify Slack
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          STATUS="success"
+          if [ "${{ needs.post-instagram.result }}" = "failure" ] || \
+             [ "${{ needs.post-tiktok.result }}" = "failure" ] || \
+             [ "${{ needs.post-patreon.result }}" = "failure" ]; then
+            STATUS="failure"
+          fi
+          TEXT="Instagram: ${{ needs.post-instagram.result }} · TikTok: ${{ needs.post-tiktok.result }} · Patreon: ${{ needs.post-patreon.result }}"
+          python3 scripts/notify_slack.py \
+            --title "Social Post" \
+            --status "$STATUS" \
+            --text "$TEXT" \
+            --workflow "social-post.yml" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

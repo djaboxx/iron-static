@@ -4,12 +4,19 @@ This directory contains structured knowledge databases for the IRON STATIC rig. 
 
 ## Files
 
-| File | Contents |
-|---|---|
-| `instruments.json` | Canonical instrument registry with specs and MIDI channel assignments |
-| `songs.json` | Song registry — lifecycle tracking from in-progress through release to archive |
-| `presets_index.json` | Index of all presets across instruments |
-| `sessions.json` | Session log — what was worked on, what came out of it |
+| File | Contents | Managed by |
+|---|---|---|
+| `instruments.json` | Canonical instrument registry with specs and MIDI channel assignments | hand-edited |
+| `songs.json` | Song registry — lifecycle tracking from in-progress through release to archive | `scripts/manage_songs.py` |
+| `voices.json` | Voice/persona registry — VELA and any future named voices, with prompts and MIDI ranges | hand-edited |
+| `feeds.json` | RSS/Atom feed registry consumed by `feed-digest.yml` and `scripts/run_feed_digest.py` | hand-edited |
+| `plugins.json` | VST/AU plugin inventory scanned from the system | `scripts/scan_plugins.py` |
+| `ableton_devices.json` | Live 12 stock device parameter map (Operator, Wavetable, Drum Rack, etc.) | `scripts/discover_devices.py` |
+| `device_library.json` | Combined library of native + plugin devices used for session generation | `scripts/build_db.py` |
+| `pack_presets.json` | Index of `.alc`/`.adg`/`.mid` content from installed Ableton Packs | `scripts/index_pack_presets.py` |
+| `gcs_manifest.json` | Manifest of audio assets stored in the GCS bucket (path → checksum/size/uploaded_at) | `scripts/gcs_sync.py` |
+| `iron_static.db` | SQLite mirror of selected JSON tables for fast queries (built on demand) | `scripts/build_db.py` |
+| `midi_params/` | Per-instrument MIDI CC and parameter maps (`<slug>.json`) used by `push_preset.py`, `midi_control.py` | hand-edited / extracted from manuals |
 
 ---
 

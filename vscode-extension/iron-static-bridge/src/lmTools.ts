@@ -26,6 +26,7 @@
  *   iron-static_listWorkflows          — enumerate .github/workflows/*.yml
  *   iron-static_listSkills             — enumerate .github/skills/<name>/SKILL.md
  *   iron-static_invokeSkill            — read a named skill's SKILL.md in full
+ *   iron-static_getHomework            — open prerequisite tasks from database/homework.json
  */
 
 import * as vscode from "vscode";
@@ -34,6 +35,7 @@ import * as path from "path";
 import * as http from "http";
 import * as net from "net";
 import * as cp from "child_process";
+import { getAllHomework } from "./homeworkScheduler";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -1153,6 +1155,66 @@ class InvokeSkillTool implements vscode.LanguageModelTool<InvokeSkillInput> {
 }
 
 // ---------------------------------------------------------------------------
+// GetHomeworkTool
+// ---------------------------------------------------------------------------
+
+class GetHomeworkTool implements vscode.LanguageModelTool<Record<string, never>> {
+  async invoke(
+    _options: vscode.LanguageModelToolInvocationOptions<Record<string, never>>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const root = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+    if (!root) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart("No workspace open."),
+      ]);
+    }
+    const all = getAllHomework(root);
+    const open = all.filter((i) => !i.done);
+    const done = all.filter((i) => i.done);
+
+    const lines: string[] = [
+      `# IRON STATIC Homework — Prerequisites`,
+      ``,
+      `${open.length} open · ${done.length} complete · ${all.length} total`,
+      ``,
+    ];
+
+    if (open.length === 0) {
+      lines.push("All prerequisite tasks are complete. 🎉");
+    } else {
+      lines.push("## Open Items");
+      for (const item of open) {
+        const icon = item.priority === "high" ? "🔴" : item.priority === "medium" ? "🟡" : "🟢";
+        lines.push(`### ${icon} ${item.title}`);
+        lines.push(`- **ID**: \`${item.id}\``);
+        lines.push(`- **Category**: ${item.category}`);
+        lines.push(`- **Priority**: ${item.priority}`);
+        if (item.blocksWorkflow) {
+          lines.push(`- **Blocks**: \`${item.blocksWorkflow}\``);
+        }
+        lines.push(`- **Notes**: ${item.notes}`);
+        lines.push(``);
+      }
+    }
+
+    if (done.length > 0) {
+      lines.push("## Completed");
+      for (const item of done) {
+        lines.push(`- ~~${item.title}~~ (\`${item.id}\`)`);
+      }
+    }
+
+    lines.push(``);
+    lines.push(`To mark an item done: run command \`ironStatic.markHomeworkDone\` or set \`"done": true\` in \`database/homework.json\`.`);
+
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(lines.join("\n")),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Registration
 // ---------------------------------------------------------------------------
 
@@ -1185,5 +1247,7 @@ export function registerLmTools(context: vscode.ExtensionContext): void {
     // Skills introspection
     vscode.lm.registerTool("iron-static_listSkills", new ListSkillsTool()),
     vscode.lm.registerTool("iron-static_invokeSkill", new InvokeSkillTool()),
+    // Homework / prerequisites
+    vscode.lm.registerTool("iron-static_getHomework", new GetHomeworkTool()),
   );
 }

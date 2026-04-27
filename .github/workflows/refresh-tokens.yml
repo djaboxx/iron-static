@@ -90,3 +90,30 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "If tokens were refreshed without \`--update-secrets\`, copy the printed values" >> "$GITHUB_STEP_SUMMARY"
           echo "from the job log and update GitHub Secrets manually." >> "$GITHUB_STEP_SUMMARY"
+
+  notify-slack:
+    name: Slack notification
+    needs: [refresh-tokens]
+    if: always() && vars.SLACK_NOTIFICATIONS_ENABLED != 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Notify Slack
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          STATUS="success"
+          if [ "${{ needs.refresh-tokens.result }}" = "failure" ]; then
+            STATUS="warning"
+          fi
+          TEXT="Platform: ${{ inputs.platform || 'all (scheduled)' }} · Result: ${{ needs.refresh-tokens.result }}"
+          python3 scripts/notify_slack.py \
+            --title "Token Refresh" \
+            --status "$STATUS" \
+            --text "$TEXT" \
+            --workflow "refresh-tokens.yml" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

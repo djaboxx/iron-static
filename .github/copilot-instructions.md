@@ -146,7 +146,11 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `slice-and-rack` | `.github/skills/slice-and-rack/SKILL.md` | When chopping an audio file into pads and building an Ableton Drum Rack .adg preset |
 | `generate-image` | `.github/skills/generate-image/SKILL.md` | When generating cover art or promo images for any song |
 | `gemini-forge` | `.github/skills/gemini-forge/SKILL.md` | When generating audio specs or audio files via Gemini + Lyria for the active song |
+| `gemini-listen` | `.github/skills/gemini-listen/SKILL.md` | When asking qualitative aesthetic questions about audio that librosa can't answer (is this heavy enough, does it fit, what's fighting the mix) |
 | `platform-publish` | `.github/skills/platform-publish/SKILL.md` | When publishing a release or social content to Bandcamp, SoundCloud, YouTube, Patreon, Instagram, TikTok, or Spotify |
+| `extract-midi-clips` | `.github/skills/extract-midi-clips/SKILL.md` | When extracting MIDI clips from `.als` files into standard `.mid` files |
+| `parse-als` | `.github/skills/parse-als/SKILL.md` | When inspecting an `.als` project file's tracks, clips, tempo, or device inventory |
+| `m4l-build` | `.github/skills/m4l-build/SKILL.md` | When building, packaging, or deploying a Max for Live device (.maxpat → .amxd) |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
 
@@ -154,10 +158,11 @@ python scripts/manage_songs.py release --slug my-song   # when done
 
 ## Custom Agent Personas
 
-Five specialized personas live in `.github/agents/`. Switch to them in VS Code's Chat agents dropdown for focused work. Each has tool restrictions and handoffs to guide multi-step workflows.
+Thirteen specialized personas live in `.github/agents/`. Switch to them in VS Code's Chat agents dropdown for focused work. Each has tool restrictions and handoffs to guide multi-step workflows.
 
 | Agent | File | Focus | Tools | Handoffs to |
 |---|---|---|---|---|
+| `The Producer` | `.github/agents/the-producer.agent.md` | Orchestrates multi-agent workflows autonomously (theory-to-hardware, patch-and-critique, song-review) | full + terminal | Theorist, Arranger, Sound Designer, Critic |
 | `The Arranger` | `.github/agents/the-arranger.agent.md` | Song structure, sections, energy arcs | read-only | Sound Designer, Theorist, Critic, Live Engineer |
 | `The Sound Designer` | `.github/agents/the-sound-designer.agent.md` | Presets, synthesis, hardware push, MIDI | full + terminal | Critic, Arranger, Theorist, Live Engineer |
 | `The Theorist` | `.github/agents/the-theorist.agent.md` | Scales, harmony, chord vocab, rhythm | read + write knowledge/ | Arranger, Sound Designer, Critic |
@@ -169,6 +174,7 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Mix Engineer` | `.github/agents/the-mix-engineer.agent.md` | Full production mix engineering — balance, EQ, compression, effects chains, master bus. Takes stems and session to a finished mix | full + terminal | Critic, Sound Designer, Arranger, Live Engineer |
 | `The Visual Artist` | `.github/agents/the-visual-artist.agent.md` | Cover art and promo image generation — synthesizes song context, brainstorm language, and band aesthetic into Imagen 3 prompts. Iterates until images carry the weight of the music. Upstream of The Publicist. | read + execute | Critic, Publicist, Alchemist, Arranger |
 | `The Video Director` | `.github/agents/the-video-director.agent.md` | Waveform visualizer video rendering — dark, high-contrast, machine-aesthetic MP4s in landscape/square/portrait formats. Takes audio + cover art and produces platform-ready video. Upstream of The Publicist. | read + execute | Critic, Publicist, Visual Artist, Alchemist |
+| `The ACE-Step` | `.github/agents/the-ace-step.agent.md` | Local ACE-Step audio generation — text-to-music, VELA vocal rendering, LoRA/LoKr training, music repaint, stem ops. Fully local on M3 Max. Owns the generation half of the VELA pipeline. | full + terminal | Critic, Alchemist, Sound Designer, Live Engineer |
 
 **Typical workflow chains:**
 - Theory first: **Theorist** → handoff → **Arranger** → handoff → **Sound Designer** → handoff → **Critic**
@@ -188,7 +194,7 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 
 ## Reusable Prompts
 
-Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the prompt name (with `/`) in the VS Code Copilot chat input. Each one pre-loads a specific agent and a structured multi-step workflow.
+Eighteen slash-command prompts live in `.github/prompts/`. Invoke them by typing the prompt name (with `/`) in the VS Code Copilot chat input. Each one pre-loads a specific agent and a structured multi-step workflow.
 
 | Prompt | Invoke | Agent | What it does |
 |---|---|---|---|
@@ -208,6 +214,8 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `git-commit` | `/git-commit` | Arc | Stage and commit all pending changes — reads the diff, generates a conventional commit message, waits for Dave's approval, then commits. Does not push without confirmation. |
 | `release-track` | `/release-track` | The Publicist | Full release pipeline — asset checklist, generate copy via Gemini, trigger publish-release.yml for selected platforms, hand off to Critic for approval. |
 | `movement-post` | `/movement-post [topic]` | The Community Manager | Generate movement-building social/Patreon/blog content for a given topic. Reads manifesto + movement-plan, drafts per-platform copy, saves to outputs/social/. |
+| `build-rack` | `/build-rack [track]` | The Sound Designer | Build an Instrument Rack on a named track from a chain spec, auto-removes existing non-rack instruments first, pushes to Ableton immediately. `track` = track name (DFAM, Pigments, Take5, etc.). |
+| `push-streamdeck` | `/push-streamdeck` | Arc | Generate the Stream Deck profile (D4C1A9B3) via `streamdeck/generate_profile.py --install --restart`. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering
@@ -329,14 +337,20 @@ The more context Arc has, the more useful it is. Here's what to provide and when
 
 See `docs/m4l-integration-plan.md` for the full build plan. Summary:
 
-### M4L Devices (Priority Order)
+### M4L Devices
+
+**Built and deployed** (in `ableton/m4l/`):
 1. `session-reporter.amxd` — dumps `outputs/live_state.json` on demand
 2. `iron-static-bridge.amxd` — OSC UDP bridge (port 7400/7401) for Python ↔ Live comms
 3. `pattern-injector.amxd` — writes notes from `midi_craft.py` into live clips
+
+**Planned / not yet built** (priority order):
 4. `scene-tempo-map.amxd` — applies tempo + time sig to all scenes from JSON config
 5. `pigments-macro-lens.amxd` — reads Pigments plugin state, emits CC20–23
 6. `scale-broadcaster.amxd` — broadcasts root_note/scale_name as CC on ch16
 7. `arm-dispatcher.amxd` — maps Digitakt MIDI notes to track arm/disarm
+
+> Most session-level orchestration that was originally planned for M4L now happens through the **IronStatic Remote Script** (TCP bridge, port 9877) — see below. Build new `.amxd` devices only when the work genuinely needs in-Live realtime processing.
 
 ### AMXD File Location
 `ableton/m4l/` in this repo. JSON configs at `ableton/m4l/configs/`.

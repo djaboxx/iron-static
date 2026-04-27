@@ -149,6 +149,35 @@ Set these at: `https://github.com/djaboxx/iron-static/settings/secrets/actions`
 
 ---
 
+### 9–15. Additional Workflows (Built After This Plan)
+
+These workflows were added after the original plan was written. They are fully built and live; this section catalogs them so the workflow inventory stays complete.
+
+| # | Workflow | Trigger | Purpose |
+|---|---|---|---|
+| 9 | `feed-digest.yml` | Schedule (daily) + manual | Polls all RSS/Atom feeds in `database/feeds.json`, synthesizes a Gemini digest, surfaces items relevant to the active song. Driven by `scripts/run_feed_digest.py`. Invoked via `/update-feeds`. |
+| 10 | `forge-audio.yml` | Manual | Generates audio for the active song via Gemini + Lyria using `scripts/gemini_forge.py`. Invoked via `/forge-audio [element]`. |
+| 11 | `gcs-sync.yml` | Manual / push to `audio/` | Syncs audio assets to/from the GCS bucket via `scripts/gcs_sync.py`, updates `database/gcs_manifest.json`. |
+| 12 | `publish-release.yml` | Manual | Full release pipeline — uploads to Bandcamp, SoundCloud, YouTube, Patreon, Spotify (DistroKid). Driven by the `post_*.py` script family. Invoked via `/release-track`. |
+| 13 | `social-post.yml` | Manual / schedule | Posts movement content to Instagram, TikTok, Patreon. Driven by `post_instagram.py`, `post_tiktok.py`, `post_patreon.py`. |
+| 14 | `dispatch-workers.yml` | Manual | Master dispatcher — fans out to multiple publishing/processing workflows in parallel. |
+| 15 | `refresh-tokens.yml` | Schedule (monthly, 1st @ 09:00 UTC) + manual | Rotates Instagram (60-day) and TikTok (24h access / 365-day refresh) tokens. Updates GitHub Secrets via `gh secret set`. Driven by `scripts/refresh_tokens.py`. |
+
+**Additional secrets required** for workflows 9–15 (beyond `GEMINI_API_KEY` and `GH_PAT`):
+
+```
+GCS_BUCKET, GCS_SA_KEY
+BANDCAMP_*, SOUNDCLOUD_CLIENT_ID, SOUNDCLOUD_CLIENT_SECRET
+YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN
+PATREON_ACCESS_TOKEN, PATREON_CAMPAIGN_ID
+INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_ACCOUNT_ID
+TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_REFRESH_TOKEN, TIKTOK_ACCESS_TOKEN
+```
+
+See `knowledge/band-lore/movement-plan.md` for full per-platform setup, OAuth flow notes, and script-level details.
+
+---
+
 ## LLM Routing: Gemini vs. GitHub Copilot
 
 All automated workflows use **Gemini** (`gemini-2.5-pro` for complex tasks, `gemini-2.0-flash` for simple/fast tasks). GitHub Copilot is reserved for interactive VS Code sessions.

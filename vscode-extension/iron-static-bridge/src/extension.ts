@@ -18,6 +18,7 @@ import { BridgeServer } from "./server";
 import { peekEvents } from "./eventQueue";
 import { registerChatParticipants } from "./chatParticipants";
 import { registerLmTools } from "./lmTools";
+import { registerHomeworkScheduler } from "./homeworkScheduler";
 
 let server: BridgeServer | undefined;
 let statusBarItem: vscode.StatusBarItem;
@@ -53,6 +54,12 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // Language model tools — automatically invoked by agent mode
   registerLmTools(context);
+
+  // Homework scheduler — prerequisite reminders
+  const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+  if (workspaceRoot) {
+    registerHomeworkScheduler(context, workspaceRoot);
+  }
 
   // Commands
   context.subscriptions.push(

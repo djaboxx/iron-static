@@ -252,3 +252,37 @@ jobs:
           git add database/songs.json
           git diff --cached --quiet || git commit -m "release: mark ${{ inputs.song_slug }} as released"
           git push
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 6: Slack notification
+  # ─────────────────────────────────────────────────────────────────────────
+  notify-slack:
+    name: Slack notification
+    needs: [update-database]
+    if: always() && vars.SLACK_NOTIFICATIONS_ENABLED != 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Notify Slack
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          STATUS="success"
+          if [ "${{ needs.update-database.result }}" = "failure" ] || \
+             [ "${{ needs.post-soundcloud.result }}" = "failure" ] || \
+             [ "${{ needs.post-youtube.result }}" = "failure" ] || \
+             [ "${{ needs.post-patreon.result }}" = "failure" ]; then
+            STATUS="failure"
+          fi
+          TEXT="SoundCloud: ${{ needs.post-soundcloud.result }} · YouTube: ${{ needs.post-youtube.result }} · Patreon: ${{ needs.post-patreon.result }}"
+          python3 scripts/notify_slack.py \
+            --title "Publish Release" \
+            --status "$STATUS" \
+            --text "$TEXT" \
+            --song-slug "${{ inputs.song_slug }}" \
+            --workflow "publish-release.yml" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

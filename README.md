@@ -10,6 +10,15 @@ This repository **is** the band's brain. It holds instrument knowledge, producti
 
 ## Instruments in the Rig
 
+### Primary (in-the-box)
+
+| Instrument | Role |
+|---|---|
+| **Ableton Live 12 Suite** | Session host, mixing board, full instrument palette (Operator, Wavetable, Collision, Meld, Drum Rack, Drift, Simpler, Sampler, Impulse) |
+| **Arturia Pigments (VST3/AU)** | Primary software polysynth — pads, leads, evolving textures |
+
+### Hardware (supplementary, when connected)
+
 | Instrument | Role |
 |---|---|
 | **Elektron Digitakt MK1** | Drum machine / sampler / sequencer brain |
@@ -26,38 +35,42 @@ This repository **is** the band's brain. It holds instrument knowledge, producti
 ```
 iron-static/
 ├── .github/
-│   ├── copilot-instructions.md   ← The shared brain instructions for Copilot
-│   └── skills/                   ← Copilot agent skills
-│       ├── analyze-audio/        ← Analyze audio files for key, BPM, frequency content
-│       ├── create-preset/        ← Generate instrument presets from MIDI implementation charts
-│       ├── midi-craft/           ← Compose and generate MIDI sequences and patterns
-│       └── music-theory/         ← Query music theory knowledge (scales, chords, grooves)
+│   ├── copilot-instructions.md   ← The shared brain instructions for Copilot/Arc
+│   ├── agents/                   ← Custom agent personas (Producer, Theorist, Critic, etc.)
+│   ├── prompts/                  ← Slash-command workflows (/session-start, /forge-audio, ...)
+│   ├── skills/                   ← Copilot skill modules (analyze-audio, midi-craft, ...)
+│   └── workflows/                ← GitHub Actions (brainstorms, releases, social, token refresh)
 ├── instruments/                  ← Per-instrument manuals, MIDI maps, and presets
 │   ├── elektron-digitakt-mk1/
 │   ├── sequential-rev2/
 │   ├── sequential-take5/
 │   ├── moog-subharmonicon/
 │   ├── moog-dfam/
-│   └── arturia-minibrute-2s/
+│   ├── arturia-minibrute-2s/
+│   ├── arturia-pigments/
+│   └── vela/                     ← VELA vocalist persona, voice design, takes
 ├── audio/
 │   ├── samples/                  ← Organized sample library (drums, synths, fx)
 │   ├── references/               ← Reference tracks for mix/arrangement targets
-│   └── recordings/               ← Raw takes and rendered stems
-├── midi/
-│   ├── sequences/                ← Full song MIDI sequences
-│   ├── patterns/                 ← Reusable pattern fragments
-│   └── templates/                ← Starting-point MIDI templates
+│   ├── recordings/               ← Raw takes and rendered stems
+│   └── generated/                ← Lyria / ACE-Step output
+├── midi/                         ← Sequences, patterns, templates (.mid)
 ├── ableton/
-│   ├── sessions/                 ← Ableton Live project files
+│   ├── sessions/                 ← Ableton Live project files (.als)
 │   ├── templates/                ← Session templates
-│   └── racks/                    ← Instrument and effect racks (.adg)
-├── knowledge/
-│   ├── music-theory/             ← Scales, modes, chord progressions, rhythmic vocabulary
-│   ├── sound-design/             ← Synthesis techniques per instrument
-│   ├── production/               ← Mixing, arrangement, and mastering notes
-│   └── band-lore/                ← Vision, manifesto, creative decisions
-├── database/                     ← JSON/SQLite knowledge databases
-└── scripts/                      ← Python automation (audio analysis, preset gen, MIDI tools)
+│   ├── racks/                    ← Instrument and effect racks (.adg)
+│   ├── rack-templates/           ← HCL specs for procedurally built racks
+│   ├── m4l/                      ← Max for Live devices (.amxd)
+│   └── remote_script/            ← IronStatic Python Remote Script (TCP bridge, port 9877)
+├── knowledge/                    ← Music theory, sound design, production, sessions, brainstorms
+├── database/                     ← JSON registries (instruments, songs, plugins, voices, GCS manifest)
+├── scripts/                      ← Python automation (60+ scripts: audio, MIDI, publishing, Gemini)
+├── outputs/                      ← Generated artifacts (live_state.json, audio analysis, social drafts)
+├── docs/                         ← Architecture and workflow documentation
+├── vscode-extension/             ← IRON STATIC VS Code extension (LM tools, Stream Deck control)
+├── streamdeck/                   ← Elgato Stream Deck profile generator and assets
+├── terraform/                    ← Infrastructure-as-code for GCS, secrets, and external services
+└── iron_static/                  ← Installable Python package (notification helpers, shared utils)
 ```
 
 ---

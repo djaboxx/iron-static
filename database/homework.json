@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "description": "Prerequisite tasks Dave needs to complete before certain IRON STATIC pipelines can run. Arc reads this list and uses it to flag blockers. Mark 'done' true when complete.",
+  "items": [
+    {
+      "id": "bandcamp-account",
+      "title": "Set up Bandcamp artist account",
+      "category": "platform",
+      "priority": "high",
+      "done": false,
+      "notes": "bandcamp.com/signup → Artist account. Name: IRON STATIC. URL: ironstaticband.bandcamp.com. Set up Stripe payout. Required before publish-release.yml can post to Bandcamp.",
+      "blocksWorkflow": "publish-release.yml"
+    },
+    {
+      "id": "soundcloud-secrets",
+      "title": "Add SOUNDCLOUD_CLIENT_ID and SOUNDCLOUD_CLIENT_SECRET to GitHub Secrets",
+      "category": "secrets",
+      "priority": "high",
+      "done": false,
+      "notes": "Register an app at soundcloud.com/you/apps. Copy client_id and client_secret. Set at github.com/djaboxx/iron-static/settings/secrets/actions. Blocks scripts/post_soundcloud.py.",
+      "blocksWorkflow": "publish-release.yml"
+    },
+    {
+      "id": "youtube-oauth",
+      "title": "Generate YouTube OAuth refresh token (post_youtube.py --auth-setup)",
+      "category": "platform",
+      "priority": "high",
+      "done": false,
+      "notes": "Create a project in Google Cloud Console → enable YouTube Data API v3 → create OAuth2 credentials (Desktop app type) → run: python scripts/post_youtube.py --auth-setup. Copy the printed refresh token into YOUTUBE_REFRESH_TOKEN GitHub Secret. Also set YOUTUBE_CLIENT_ID and YOUTUBE_CLIENT_SECRET.",
+      "blocksWorkflow": "publish-release.yml"
+    },
+    {
+      "id": "patreon-secrets",
+      "title": "Add PATREON_ACCESS_TOKEN and PATREON_CAMPAIGN_ID to GitHub Secrets",
+      "category": "secrets",
+      "priority": "high",
+      "done": false,
+      "notes": "Go to patreon.com/portal → Creator Access Token. Get campaign ID from the Patreon API or portal URL. Both go into GitHub Secrets. Blocks scripts/post_patreon.py and publish-release.yml.",
+      "blocksWorkflow": "publish-release.yml"
+    },
+    {
+      "id": "instagram-token",
+      "title": "Generate Instagram access token and add to GitHub Secrets",
+      "category": "platform",
+      "priority": "medium",
+      "done": false,
+      "notes": "Create a Meta Developer app. Add Instagram Basic Display product. Generate a long-lived token. Set INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_ACCOUNT_ID in GitHub Secrets. Token expires in 60 days — refresh-tokens.yml rotates it monthly.",
+      "blocksWorkflow": "social-post.yml"
+    },
+    {
+      "id": "tiktok-app-approval",
+      "title": "Get TikTok developer app approved and add TIKTOK_* secrets",
+      "category": "platform",
+      "priority": "medium",
+      "done": false,
+      "notes": "Apply at developers.tiktok.com for Content Posting API access. Once approved, get TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_REFRESH_TOKEN, and TIKTOK_ACCESS_TOKEN. Set all four as GitHub Secrets. TikTok API approval can take days or weeks.",
+      "blocksWorkflow": "social-post.yml"
+    },
+    {
+      "id": "gcs-bucket-setup",
+      "title": "Create GCS bucket and generate service account key",
+      "category": "infrastructure",
+      "priority": "high",
+      "done": false,
+      "notes": "In Google Cloud Console: create a bucket (e.g. iron-static-audio). Create a service account with Storage Object Admin role. Generate a JSON key. Set GCS_BUCKET=<bucket-name> and GCS_SA_KEY=<json-key-content> in GitHub Secrets. Also needed locally in .env. Blocks gcs-sync.yml and audio publishing.",
+      "blocksWorkflow": "gcs-sync.yml"
+    },
+    {
+      "id": "github-actions-runner",
+      "title": "Set up self-hosted GitHub Actions runner on M3 Mac (for ACE-Step jobs)",
+      "category": "infrastructure",
+      "priority": "medium",
+      "done": false,
+      "notes": "Go to github.com/djaboxx/iron-static/settings/actions/runners → New self-hosted runner → macOS ARM64. Follow setup steps. Install as a service (./svc.sh install && ./svc.sh start). Required for any workflow job with runs-on: self-hosted. See docs/github-actions-plan.md for full setup commands.",
+      "blocksWorkflow": "forge-audio.yml"
+    },
+    {
+      "id": "distrokid-account",
+      "title": "Set up DistroKid account for Spotify/Apple Music distribution",
+      "category": "platform",
+      "priority": "low",
+      "done": false,
+      "notes": "$22/year at distrokid.com. Unlimited releases, 100% royalties. Required before any track can reach Spotify or Apple Music. Not automated — manual upload per release. No API currently needed.",
+      "blocksWorkflow": null
+    },
+    {
+      "id": "vela-lora-training",
+      "title": "Record VELA vocal takes and run LoRA training",
+      "category": "creative",
+      "priority": "medium",
+      "done": false,
+      "notes": "Record vocal takes into instruments/vela/takes/ per the style spec in instruments/vela/. Then run the ACE-Step LoRA training job via The ACE-Step agent. Blocks all VELA vocal generation with her actual voice. Generic voice works without this step.",
+      "blocksWorkflow": null
+    },
+    {
+      "id": "slack-webhook",
+      "title": "Create Slack app and add SLACK_WEBHOOK_URL to GitHub Secrets",
+      "category": "infrastructure",
+      "priority": "low",
+      "done": false,
+      "notes": "Go to api.slack.com/apps → Create New App → From scratch → choose your workspace. Under Incoming Webhooks, activate and add a webhook for the channel you want notifications in. Copy the Webhook URL. Set SLACK_WEBHOOK_URL as a GitHub Secret and add it to .env for local use.",
+      "blocksWorkflow": null
+    }
+  ]
+}

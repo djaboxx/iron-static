@@ -4,9 +4,16 @@
   "description": "Receive notifications and status updates from IRON STATIC scripts directly in VS Code.",
   "version": "1.0.0",
   "publisher": "iron-static",
-  "engines": { "vscode": "^1.90.0" },
-  "categories": ["Other", "AI"],
-  "activationEvents": ["onStartupFinished"],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "AI"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "chatParticipants": [
@@ -49,14 +56,14 @@
         "id": "iron-static.the-alchemist",
         "name": "the-alchemist",
         "fullName": "The Alchemist",
-        "description": "Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels, and brainstorms for IRON STATIC.",
+        "description": "Gemini audio generation \u2014 specs, prompts for Suno/Udio/Lyria, hardware parallels, and brainstorms for IRON STATIC.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-mix-engineer",
         "name": "the-mix-engineer",
         "fullName": "The Mix Engineer",
-        "description": "Full production mix engineering — balance, EQ, compression, effects chains, master bus for IRON STATIC.",
+        "description": "Full production mix engineering \u2014 balance, EQ, compression, effects chains, master bus for IRON STATIC.",
         "isSticky": true
       },
       {
@@ -70,35 +77,35 @@
         "id": "iron-static.the-video-director",
         "name": "the-video-director",
         "fullName": "The Video Director",
-        "description": "Waveform visualizer video rendering for IRON STATIC — dark, high-contrast, machine-aesthetic MP4s.",
+        "description": "Waveform visualizer video rendering for IRON STATIC \u2014 dark, high-contrast, machine-aesthetic MP4s.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-publicist",
         "name": "the-publicist",
         "fullName": "The Publicist",
-        "description": "Promo content generation and social media publishing for IRON STATIC — audio teasers, cover art, captions.",
+        "description": "Promo content generation and social media publishing for IRON STATIC \u2014 audio teasers, cover art, captions.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-community-manager",
         "name": "the-community-manager",
         "fullName": "The Community Manager",
-        "description": "Movement growth, social content strategy, and platform publishing for IRON STATIC — writes content that builds the human-machine creative partnership movement.",
+        "description": "Movement growth, social content strategy, and platform publishing for IRON STATIC \u2014 writes content that builds the human-machine creative partnership movement.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-producer",
         "name": "the-producer",
         "fullName": "The Producer",
-        "description": "Orchestrates full multi-agent workflows for IRON STATIC — theory, arrangement, sound design, and critique in sequence.",
+        "description": "Orchestrates full multi-agent workflows for IRON STATIC \u2014 theory, arrangement, sound design, and critique in sequence.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-ace-step",
         "name": "the-ace-step",
         "fullName": "The ACE-Step",
-        "description": "Local ACE-Step audio generation — text-to-music, VELA vocal rendering, LoRA training, and music repaint for IRON STATIC. Free. Local. M3 Max.",
+        "description": "Local ACE-Step audio generation \u2014 text-to-music, VELA vocal rendering, LoRA training, and music repaint for IRON STATIC. Free. Local. M3 Max.",
         "isSticky": true
       }
     ],
@@ -107,247 +114,532 @@
         "name": "iron-static_getActiveSong",
         "displayName": "IRON STATIC: Get Active Song",
         "modelDescription": "Returns the active song's title, slug, key, scale, BPM, time signature, .als path, and brainstorm path from the IRON STATIC project database. Call this whenever you need to know what song is currently being worked on.",
-        "tags": ["iron-static", "song", "context"]
+        "tags": [
+          "iron-static",
+          "song",
+          "context"
+        ]
       },
       {
         "name": "iron-static_getLiveState",
         "displayName": "IRON STATIC: Get Live Session State",
-        "modelDescription": "Returns the current Ableton Live session state — tracks, armed tracks, active clips, tempo, scale, and device list — from outputs/live_state.json. Call this when the user asks about the current session, what's in Ableton, or which tracks are active.",
-        "tags": ["iron-static", "ableton", "session"]
+        "modelDescription": "Returns the current Ableton Live session state \u2014 tracks, armed tracks, active clips, tempo, scale, and device list \u2014 from outputs/live_state.json. Call this when the user asks about the current session, what's in Ableton, or which tracks are active.",
+        "tags": [
+          "iron-static",
+          "ableton",
+          "session"
+        ]
       },
       {
         "name": "iron-static_getVelaConfig",
         "displayName": "IRON STATIC: Get VELA Voice Config",
         "modelDescription": "Returns VELA's ACE-Step voice configuration: character tags, lora_name, lora_path, and whether LoRA training is complete. Call this before any VELA vocal generation task.",
-        "tags": ["iron-static", "vela", "vocals"]
+        "tags": [
+          "iron-static",
+          "vela",
+          "vocals"
+        ]
       },
       {
         "name": "iron-static_checkAceStepHealth",
         "displayName": "IRON STATIC: Check ACE-Step Server Health",
         "modelDescription": "Checks whether the local ACE-Step audio generation server is running at 127.0.0.1:8001. Returns running status and how to start it if not running. Always call this before submitting an ACE-Step generation job.",
-        "tags": ["iron-static", "acestep", "audio"]
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio"
+        ]
       },
       {
         "name": "iron-static_getAceStepStats",
         "displayName": "IRON STATIC: Get ACE-Step Server Stats",
         "modelDescription": "Returns ACE-Step server runtime statistics: total jobs, queued, running, succeeded, failed, queue size, and average job duration in seconds. Call this to estimate wait time before submitting a generation job.",
-        "tags": ["iron-static", "acestep", "audio"]
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio"
+        ]
       },
       {
         "name": "iron-static_submitAceStepJob",
         "displayName": "IRON STATIC: Submit ACE-Step Generation Job",
         "modelDescription": "Submits an audio generation job to the local ACE-Step server. Parameters: prompt (style tags string), lyrics (optional, use [inst] for instrumental), task_type (text2music/cover/repaint), duration_seconds, batch_size, thinking (always true for best quality), lora_name (for VELA voice). Returns a task_id to poll with iron-static_pollAceStepJob.",
-        "tags": ["iron-static", "acestep", "audio", "generation"],
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio",
+          "generation"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "prompt": { "type": "string", "description": "Style tags for generation, e.g. 'industrial metal, electronic, heavy, 116bpm, E phrygian'" },
-            "lyrics": { "type": "string", "description": "Lyric text with [Verse]/[Chorus] markers, or [inst] for instrumental" },
-            "task_type": { "type": "string", "enum": ["text2music", "cover", "repaint", "lego", "extract", "complete"] },
-            "duration_seconds": { "type": "number", "description": "Output clip length in seconds (default 30)" },
-            "batch_size": { "type": "integer", "description": "Number of variants to generate (1-8, default 1)" },
-            "thinking": { "type": "boolean", "description": "Enable 5Hz LM for best quality (default true)" },
-            "lora_name": { "type": "string", "description": "LoRA adapter name for VELA voice (from getVelaConfig)" },
-            "model": { "type": "string", "description": "Model override: acestep-v15-base or acestep-v15-turbo" }
+            "prompt": {
+              "type": "string",
+              "description": "Style tags for generation, e.g. 'industrial metal, electronic, heavy, 116bpm, E phrygian'"
+            },
+            "lyrics": {
+              "type": "string",
+              "description": "Lyric text with [Verse]/[Chorus] markers, or [inst] for instrumental"
+            },
+            "task_type": {
+              "type": "string",
+              "enum": [
+                "text2music",
+                "cover",
+                "repaint",
+                "lego",
+                "extract",
+                "complete"
+              ]
+            },
+            "duration_seconds": {
+              "type": "number",
+              "description": "Output clip length in seconds (default 30)"
+            },
+            "batch_size": {
+              "type": "integer",
+              "description": "Number of variants to generate (1-8, default 1)"
+            },
+            "thinking": {
+              "type": "boolean",
+              "description": "Enable 5Hz LM for best quality (default true)"
+            },
+            "lora_name": {
+              "type": "string",
+              "description": "LoRA adapter name for VELA voice (from getVelaConfig)"
+            },
+            "model": {
+              "type": "string",
+              "description": "Model override: acestep-v15-base or acestep-v15-turbo"
+            }
           },
-          "required": ["prompt"]
+          "required": [
+            "prompt"
+          ]
         }
       },
       {
         "name": "iron-static_pollAceStepJob",
         "displayName": "IRON STATIC: Poll ACE-Step Job Status",
         "modelDescription": "Polls the status of an ACE-Step generation job by task_id. Returns status (queued/running/succeeded/failed), audio_url when complete, and download instructions. Call repeatedly every 5-10 seconds until status is succeeded or failed.",
-        "tags": ["iron-static", "acestep", "audio"],
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "task_id": { "type": "string", "description": "Task ID returned by iron-static_submitAceStepJob" }
+            "task_id": {
+              "type": "string",
+              "description": "Task ID returned by iron-static_submitAceStepJob"
+            }
           },
-          "required": ["task_id"]
+          "required": [
+            "task_id"
+          ]
         }
       },
       {
         "name": "iron-static_runIronStaticScript",
         "displayName": "IRON STATIC: Run Script",
         "modelDescription": "Runs an allowlisted IRON STATIC Python script from the scripts/ directory. Allowlist: gemini_forge.py, vela_vocalist.py, midi_craft.py, manage_songs.py, analyze_audio.py, gcs_sync.py, build_session.py. Returns stdout, stderr, and exit code. Use this to invoke the full Python pipeline from agent mode.",
-        "tags": ["iron-static", "scripts", "pipeline"],
+        "tags": [
+          "iron-static",
+          "scripts",
+          "pipeline"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "script": { "type": "string", "description": "Script filename (e.g. gemini_forge.py)" },
-            "args": { "type": "array", "items": { "type": "string" }, "description": "Command-line arguments (e.g. ['--target', 'kick loop', '--acestep'])" }
+            "script": {
+              "type": "string",
+              "description": "Script filename (e.g. gemini_forge.py)"
+            },
+            "args": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Command-line arguments (e.g. ['--target', 'kick loop', '--acestep'])"
+            }
           },
-          "required": ["script"]
+          "required": [
+            "script"
+          ]
         }
       },
       {
         "name": "iron-static_startAceStepServer",
         "displayName": "IRON STATIC: Start ACE-Step Server",
         "modelDescription": "Starts the local ACE-Step music generation server at 127.0.0.1:8001 if it is not already running. Waits up to 30 seconds for health. Call this automatically before any iron-static_submitAceStepJob or iron-static_generateForSong call when iron-static_checkAceStepHealth shows the server is offline.",
-        "tags": ["iron-static", "acestep", "audio"]
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio"
+        ]
       },
       {
         "name": "iron-static_generateForSong",
         "displayName": "IRON STATIC: Generate Audio for Active Song",
-        "modelDescription": "One-shot generation tool: reads the active song's key, scale, and BPM, builds the correct IRON STATIC style-tag prompt automatically, and submits an ACE-Step job. Use this for all song-specific generation requests — kicks, bass, pads, drones, VELA vocals. Returns task_id and the suggested output path in audio/generated/.",
-        "tags": ["iron-static", "acestep", "audio", "generation"],
+        "modelDescription": "One-shot generation tool: reads the active song's key, scale, and BPM, builds the correct IRON STATIC style-tag prompt automatically, and submits an ACE-Step job. Use this for all song-specific generation requests \u2014 kicks, bass, pads, drones, VELA vocals. Returns task_id and the suggested output path in audio/generated/.",
+        "tags": [
+          "iron-static",
+          "acestep",
+          "audio",
+          "generation"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "description": { "type": "string", "description": "What the audio should sound like — adjectives, textures, references (e.g. 'grinding distorted bass with slow filter sweep')" },
-            "role": { "type": "string", "description": "Functional role: kick, bass, pad, lead, drone, texture, vocals, fx, full-mix" },
-            "lyrics": { "type": "string", "description": "Lyric text for vocal parts. Use [inst] for instrumental (default)." },
-            "duration_seconds": { "type": "number", "description": "Clip length in seconds (default 30)" },
-            "batch_size": { "type": "integer", "description": "Number of variants to generate (default 1)" },
-            "use_vela_voice": { "type": "boolean", "description": "Apply VELA's LoRA voice adapter for vocal parts (default false)" }
+            "description": {
+              "type": "string",
+              "description": "What the audio should sound like \u2014 adjectives, textures, references (e.g. 'grinding distorted bass with slow filter sweep')"
+            },
+            "role": {
+              "type": "string",
+              "description": "Functional role: kick, bass, pad, lead, drone, texture, vocals, fx, full-mix"
+            },
+            "lyrics": {
+              "type": "string",
+              "description": "Lyric text for vocal parts. Use [inst] for instrumental (default)."
+            },
+            "duration_seconds": {
+              "type": "number",
+              "description": "Clip length in seconds (default 30)"
+            },
+            "batch_size": {
+              "type": "integer",
+              "description": "Number of variants to generate (default 1)"
+            },
+            "use_vela_voice": {
+              "type": "boolean",
+              "description": "Apply VELA's LoRA voice adapter for vocal parts (default false)"
+            }
           },
-          "required": ["description", "role"]
+          "required": [
+            "description",
+            "role"
+          ]
         }
       },
       {
         "name": "iron-static_abletonGetSessionInfo",
         "displayName": "IRON STATIC: Ableton Session Info (Live)",
-        "modelDescription": "Gets fresh Ableton Live session state via direct TCP connection to the IronStatic Remote Script on port 9877 — not from the stale outputs/live_state.json file. Returns tempo, time signature, tracks (names, types, armed state), scenes, and playing state. Call this when you need current session state or when the user asks what's in Ableton right now.",
-        "tags": ["iron-static", "ableton", "session"]
+        "modelDescription": "Gets fresh Ableton Live session state via direct TCP connection to the IronStatic Remote Script on port 9877 \u2014 not from the stale outputs/live_state.json file. Returns tempo, time signature, tracks (names, types, armed state), scenes, and playing state. Call this when you need current session state or when the user asks what's in Ableton right now.",
+        "tags": [
+          "iron-static",
+          "ableton",
+          "session"
+        ]
       },
       {
         "name": "iron-static_abletonTransport",
         "displayName": "IRON STATIC: Ableton Transport Control",
         "modelDescription": "Controls Ableton Live transport: start playback (play), stop playback (stop), or set the session tempo (set_tempo with tempo in BPM). Sends commands directly via the IronStatic Remote Script bridge on port 9877.",
-        "tags": ["iron-static", "ableton", "transport"],
+        "tags": [
+          "iron-static",
+          "ableton",
+          "transport"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "action": { "type": "string", "enum": ["play", "stop", "set_tempo"] },
-            "tempo": { "type": "number", "description": "BPM — required when action is set_tempo" }
+            "action": {
+              "type": "string",
+              "enum": [
+                "play",
+                "stop",
+                "set_tempo"
+              ]
+            },
+            "tempo": {
+              "type": "number",
+              "description": "BPM \u2014 required when action is set_tempo"
+            }
           },
-          "required": ["action"]
+          "required": [
+            "action"
+          ]
         }
       },
       {
         "name": "iron-static_abletonClip",
         "displayName": "IRON STATIC: Ableton Clip Control",
         "modelDescription": "Full clip lifecycle in Ableton Live via the IronStatic bridge. Actions: create (empty clip), write (push MIDI notes, replaces existing), fire (start playing), stop, clear (erase notes), get_notes (read all notes), get_info (name/length/color), set_name, find_by_name (search across all tracks). Use write to inject MIDI patterns directly into Live clips.",
-        "tags": ["iron-static", "ableton", "midi", "clips"],
+        "tags": [
+          "iron-static",
+          "ableton",
+          "midi",
+          "clips"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "action": { "type": "string", "enum": ["create", "write", "fire", "stop", "clear", "get_notes", "get_info", "set_name", "find_by_name"] },
-            "track_index": { "type": "integer", "description": "0-based track index" },
-            "clip_index": { "type": "integer", "description": "0-based clip slot index" },
-            "length_beats": { "type": "number", "description": "Clip length in beats for create action (default 8)" },
+            "action": {
+              "type": "string",
+              "enum": [
+                "create",
+                "write",
+                "fire",
+                "stop",
+                "clear",
+                "get_notes",
+                "get_info",
+                "set_name",
+                "find_by_name"
+              ]
+            },
+            "track_index": {
+              "type": "integer",
+              "description": "0-based track index"
+            },
+            "clip_index": {
+              "type": "integer",
+              "description": "0-based clip slot index"
+            },
+            "length_beats": {
+              "type": "number",
+              "description": "Clip length in beats for create action (default 8)"
+            },
             "notes": {
               "type": "array",
               "description": "MIDI notes for write action",
               "items": {
                 "type": "object",
                 "properties": {
-                  "pitch": { "type": "integer", "description": "MIDI note number 0-127" },
-                  "start_time": { "type": "number", "description": "Beat position from clip start" },
-                  "duration": { "type": "number", "description": "Duration in beats" },
-                  "velocity": { "type": "integer", "description": "Velocity 0-127" },
-                  "mute": { "type": "boolean" }
+                  "pitch": {
+                    "type": "integer",
+                    "description": "MIDI note number 0-127"
+                  },
+                  "start_time": {
+                    "type": "number",
+                    "description": "Beat position from clip start"
+                  },
+                  "duration": {
+                    "type": "number",
+                    "description": "Duration in beats"
+                  },
+                  "velocity": {
+                    "type": "integer",
+                    "description": "Velocity 0-127"
+                  },
+                  "mute": {
+                    "type": "boolean"
+                  }
                 },
-                "required": ["pitch", "start_time", "duration", "velocity", "mute"]
+                "required": [
+                  "pitch",
+                  "start_time",
+                  "duration",
+                  "velocity",
+                  "mute"
+                ]
               }
             },
-            "name": { "type": "string", "description": "Clip name — required for set_name and find_by_name" },
-            "track_name": { "type": "string", "description": "Optional track name filter for find_by_name" }
+            "name": {
+              "type": "string",
+              "description": "Clip name \u2014 required for set_name and find_by_name"
+            },
+            "track_name": {
+              "type": "string",
+              "description": "Optional track name filter for find_by_name"
+            }
           },
-          "required": ["action"]
+          "required": [
+            "action"
+          ]
         }
       },
       {
         "name": "iron-static_abletonDeviceParam",
         "displayName": "IRON STATIC: Ableton Device Parameter",
         "modelDescription": "Get or set a parameter on an Ableton device (instrument, effect, or rack chain device). Action 'get' lists all parameters and their current values. Action 'set' changes a parameter by name or index. Supports rack chain navigation via chain_index and chain_device_index. Use this to automate instrument parameters from agent mode.",
-        "tags": ["iron-static", "ableton", "devices"],
+        "tags": [
+          "iron-static",
+          "ableton",
+          "devices"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "action": { "type": "string", "enum": ["get", "set"] },
-            "track_index": { "type": "integer" },
-            "device_index": { "type": "integer" },
-            "chain_index": { "type": "integer", "description": "Chain index inside an Instrument Rack (optional)" },
-            "chain_device_index": { "type": "integer", "description": "Device index within that chain (optional)" },
-            "param_name": { "type": "string", "description": "Parameter name for set action" },
-            "param_index": { "type": "integer", "description": "Parameter index alternative to param_name" },
-            "value": { "type": "number", "description": "Target value for set action" }
+            "action": {
+              "type": "string",
+              "enum": [
+                "get",
+                "set"
+              ]
+            },
+            "track_index": {
+              "type": "integer"
+            },
+            "device_index": {
+              "type": "integer"
+            },
+            "chain_index": {
+              "type": "integer",
+              "description": "Chain index inside an Instrument Rack (optional)"
+            },
+            "chain_device_index": {
+              "type": "integer",
+              "description": "Device index within that chain (optional)"
+            },
+            "param_name": {
+              "type": "string",
+              "description": "Parameter name for set action"
+            },
+            "param_index": {
+              "type": "integer",
+              "description": "Parameter index alternative to param_name"
+            },
+            "value": {
+              "type": "number",
+              "description": "Target value for set action"
+            }
           },
-          "required": ["action", "track_index", "device_index"]
+          "required": [
+            "action",
+            "track_index",
+            "device_index"
+          ]
         }
       },
       {
         "name": "iron-static_abletonFireScene",
         "displayName": "IRON STATIC: Ableton Fire Scene",
-        "modelDescription": "Fires a scene in Ableton Live by index — launches all clips in that row simultaneously. Use this to trigger arrangement sections or test pattern combinations.",
-        "tags": ["iron-static", "ableton", "scenes"],
+        "modelDescription": "Fires a scene in Ableton Live by index \u2014 launches all clips in that row simultaneously. Use this to trigger arrangement sections or test pattern combinations.",
+        "tags": [
+          "iron-static",
+          "ableton",
+          "scenes"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "scene_index": { "type": "integer", "description": "0-based scene index" }
+            "scene_index": {
+              "type": "integer",
+              "description": "0-based scene index"
+            }
           },
-          "required": ["scene_index"]
+          "required": [
+            "scene_index"
+          ]
         }
       },
       {
         "name": "iron-static_triggerWorkflow",
         "displayName": "IRON STATIC: Trigger GitHub Actions Workflow",
         "modelDescription": "Trigger an IRON STATIC GitHub Actions workflow via 'gh workflow run'. Use for brainstorm generation, audio forging, session summarization, publishing, and social posting. Only allowlisted workflows can be triggered.",
-        "tags": ["iron-static", "github-actions", "workflow"],
+        "tags": [
+          "iron-static",
+          "github-actions",
+          "workflow"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "workflow": { "type": "string", "description": "Workflow filename, e.g. forge-audio.yml or publish-release.yml" },
+            "workflow": {
+              "type": "string",
+              "description": "Workflow filename, e.g. forge-audio.yml or publish-release.yml"
+            },
             "fields": {
               "type": "object",
               "description": "Key/value pairs passed as --field arguments (e.g. {\"song_slug\": \"ignition-point\"})",
-              "additionalProperties": { "type": "string" }
+              "additionalProperties": {
+                "type": "string"
+              }
             }
           },
-          "required": ["workflow"]
+          "required": [
+            "workflow"
+          ]
         }
       },
       {
         "name": "iron-static_getWorkflowStatus",
         "displayName": "IRON STATIC: Get Workflow Run Status",
-        "modelDescription": "List recent runs of a named GitHub Actions workflow — status, conclusion, and timestamps. Use to check if a forge-audio, publish-release, or brainstorm run completed.",
-        "tags": ["iron-static", "github-actions", "workflow"],
+        "modelDescription": "List recent runs of a named GitHub Actions workflow \u2014 status, conclusion, and timestamps. Use to check if a forge-audio, publish-release, or brainstorm run completed.",
+        "tags": [
+          "iron-static",
+          "github-actions",
+          "workflow"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "workflow": { "type": "string", "description": "Workflow filename, e.g. forge-audio.yml" },
-            "limit": { "type": "integer", "description": "Number of recent runs to return (default 3)", "default": 3 }
+            "workflow": {
+              "type": "string",
+              "description": "Workflow filename, e.g. forge-audio.yml"
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Number of recent runs to return (default 3)",
+              "default": 3
+            }
           },
-          "required": ["workflow"]
+          "required": [
+            "workflow"
+          ]
         }
       },
       {
         "name": "iron-static_listWorkflows",
         "displayName": "IRON STATIC: List Available Workflows",
         "modelDescription": "Enumerate all GitHub Actions workflow files in .github/workflows/ with their names and allowlist status. Use to discover what automation is available before triggering.",
-        "tags": ["iron-static", "github-actions", "workflow"],
-        "inputSchema": { "type": "object", "properties": {} }
+        "tags": [
+          "iron-static",
+          "github-actions",
+          "workflow"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
       },
       {
         "name": "iron-static_listSkills",
         "displayName": "IRON STATIC: List Arc Skills",
         "modelDescription": "List all Arc skills in .github/skills/ with their names and description summary. Use to discover what specialized workflows are available before loading one.",
-        "tags": ["iron-static", "skills"],
-        "inputSchema": { "type": "object", "properties": {} }
+        "tags": [
+          "iron-static",
+          "skills"
+        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
       },
       {
         "name": "iron-static_invokeSkill",
         "displayName": "IRON STATIC: Invoke (Load) a Skill",
         "modelDescription": "Read and return the full content of a named skill's SKILL.md file. Use this to load skill instructions before executing specialized workflows like midi-craft, create-preset, ableton-push, etc.",
-        "tags": ["iron-static", "skills"],
+        "tags": [
+          "iron-static",
+          "skills"
+        ],
         "inputSchema": {
           "type": "object",
           "properties": {
-            "skill": { "type": "string", "description": "Skill folder name, e.g. midi-craft, create-preset, ableton-push" }
+            "skill": {
+              "type": "string",
+              "description": "Skill folder name, e.g. midi-craft, create-preset, ableton-push"
+            }
           },
-          "required": ["skill"]
+          "required": [
+            "skill"
+          ]
         }
+      },
+      {
+        "name": "iron-static_getHomework",
+        "displayName": "IRON STATIC: Get Homework",
+        "modelDescription": "Returns the list of outstanding prerequisite tasks (homework) Dave needs to complete before IRON STATIC pipelines can run \u2014 platform accounts, GitHub Secrets, infrastructure setup, creative prerequisites. Call this when the user asks what is blocking progress, what needs to be set up, or what prerequisites remain.",
+        "tags": [
+          "iron-static",
+          "homework",
+          "prerequisites",
+          "setup"
+        ]
       }
     ],
     "commands": [
@@ -362,6 +654,21 @@
       {
         "command": "ironStatic.startBridge",
         "title": "IRON STATIC: Start Bridge Server"
+      },
+      {
+        "command": "ironStatic.showHomework",
+        "title": "IRON STATIC: Show Homework",
+        "category": "IRON STATIC"
+      },
+      {
+        "command": "ironStatic.openHomework",
+        "title": "IRON STATIC: Open Homework File",
+        "category": "IRON STATIC"
+      },
+      {
+        "command": "ironStatic.markHomeworkDone",
+        "title": "IRON STATIC: Mark Homework Item Done",
+        "category": "IRON STATIC"
       }
     ],
     "configuration": {
@@ -371,6 +678,16 @@
           "type": "number",
           "default": 9880,
           "description": "Port the VS Code bridge HTTP server listens on."
+        },
+        "ironStatic.homework.showOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a startup reminder if there are open IRON STATIC homework items (once per day)."
+        },
+        "ironStatic.homework.reminderIntervalHours": {
+          "type": "number",
+          "default": 0,
+          "description": "How often (in hours) to remind about open homework items during a session. Set to 0 to disable interval reminders."
         }
       }
     }
