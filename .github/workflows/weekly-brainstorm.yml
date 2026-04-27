@@ -48,7 +48,7 @@ jobs:
         run: |
           git config user.name "iron-static-bot"
           git config user.email "bot@iron-static.local"
-          git add knowledge/brainstorms/
+          git add knowledge/brainstorms/ database/songs.json
           git diff --staged --quiet || git commit -m "feat(brainstorm): weekly creative brainstorm [automated]"
           git pull --rebase origin main
           git push

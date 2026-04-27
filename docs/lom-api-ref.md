@@ -1,8 +1,9 @@
 # Live Object Model (LOM) — API Reference
 
-> Source: https://docs.cycling74.com/apiref/lom/  
+> Source: https://docs.cycling74.com/apiref/lom/ + https://docs.cycling74.com/userguide/m4l/live_api_overview/  
 > Ableton Live version: **12.3.5** (docs date)  
-> Indexed: 2025 — IRON STATIC reference copy
+> Last refreshed: 2026-04-27 — maintained by `scripts/refresh_lom_docs.py`  
+> Run `python scripts/refresh_lom_docs.py` to pull latest from cycling74.com
 
 ## Overview
 
@@ -11,6 +12,174 @@ The LOM is a hierarchy of objects representing everything in a Live Set. Access 
 - `live_app` → the Application object
 
 Objects are accessed via path strings like `live_set tracks 2 devices 0 chains 1 devices 0`.
+
+---
+
+## Live API Concepts
+
+These are the foundational concepts from the [Live API Overview](https://docs.cycling74.com/userguide/m4l/live_api_overview/). Understand these before using the LOM reference below.
+
+### Root Objects
+
+All absolute paths begin with one of four root objects:
+
+| Root | Accesses |
+|---|---|
+| `live_set` | The current Live Set — tracks, clips, scenes, transport, scale |
+| `live_app` | The Live application — browser, zoom, view state |
+| `control_surfaces N` | Control surface features for controller N |
+| `this_device` | The device containing the `live.path` object — relative pathing |
+
+`goto this_device canonical_parent` is the standard way to get a device's own track.
+
+### Object Paths
+
+Objects are identified by path strings. Paths are space-separated, no quotes, 0-indexed lists:
+
+```
+live_set tracks 2 clip_slots 0 clip
+live_set scenes 0 clip_slots 2 clip          ← same clip, different path
+live_set view detail_clip                    ← same clip, view path
+```
+
+Multiple paths can reach the same object. Only one is the canonical path.
+
+### Canonical Path and Canonical Parent
+
+Every object has a **canonical path** — the unique, stable path used by LOM. It is the path shown with bold connectors in the LOM reference graph. Example: `live_set tracks 3` is canonical; `live_set view selected_track` is not (it changes as selection changes).
+
+Every object also has a `canonical_parent` child. Send `goto this_device canonical_parent` to `live.path` to navigate to the track containing your device.
+
+### Object IDs
+
+An ID identifies a specific Live object instance (e.g., a particular track or clip):
+
+- IDs are assigned by `live.path` when it first navigates to an object
+- IDs look like `id 3` — a list of the symbol `id` and an integer
+- `id 0` means "no object" (path doesn't exist)
+- IDs are **only valid within a single device** and are **not stored** — after reloading a device, re-navigate to get fresh IDs
+- If an object is deleted and a new one created in its place, the new object gets a new ID
+
+### Children, Properties, and Functions
+
+Every LOM object has:
+
+- **Children**: sub-objects accessed by name. Singular names (`master_track`) = single object. Plural (`tracks`, `scenes`) = list. Use `getcount child_name` to count list members.
+- **Properties**: the object's current state. Get via `get property_name`, set via `set property_name value`. Not all are settable. Many are observable via `live.observer`.
+- **Functions**: callable via `call function_name [args...]` on `live.object`. The return value exits the left outlet.
+
+Send `getinfo` to `live.object` to see all children, properties, and functions for the current object.
+
+### Datatypes
+
+| Type | Description |
+|---|---|
+| `bool` | 0 = false, 1 = true |
+| `int` | 32-bit signed integer |
+| `float` | 32-bit float |
+| `double` | 64-bit float — used for timing values |
+| `beats` | Song beat time in quarter notes (double) |
+| `time` | Song time in seconds (double). `time = beats * 60 / bpm`. Sometimes milliseconds: `time = 1000 * beats * 60 / bpm` |
+| `symbol` | Unicode string. Use double quotes for spaces: `set name "My Track"`. Escape quotes with `\"`. |
+| `list` | Space-separated list of the types above |
+
+### Notifications
+
+Changes in Live send **spontaneous notifications** to Max devices — no incoming message is required. The notification includes:
+- Object ID when the object at a path changes (e.g., selected track changes)
+- New value when an observed property changes
+
+**Critical constraint**: Changes to the Live Set **cannot be triggered from a notification handler**. The Max console shows: `Changes cannot be triggered by notifications`. Fix: put `deferlow` between the notification outlet and the change logic.
+
+---
+
+## Max Objects (live.path / live.object / live.observer / live.remote~)
+
+Four Max objects work together to access Live. Always initialize via `live.thisdevice`, never `loadbang`.
+
+| Object | Role |
+|---|---|
+| `live.path` | Navigate the LOM hierarchy. Sends object IDs to its left outlet. Second outlet sends ID when path's object changes (for dynamic paths like `selected_track`). |
+| `live.object` | Operate on an object whose ID came from `live.path`. `get`, `set`, `call`, `getinfo`, `getcount`. |
+| `live.observer` | Monitor a property of the object from `live.path`. Set `property` argument → fires on every change. |
+| `live.remote~` | Real-time parameter control. Feeds a DeviceParameter value with **no undo entry, no automation effect**. For continuous control (knobs, faders). |
+
+**Typical wiring:**
+```
+live.thisdevice → [bang] → live.path [goto live_set tracks 0 ...]
+live.path [left outlet: id] → live.object [right inlet]
+live.path [left outlet: id] → live.observer [right inlet]
+live.path [second outlet: id follows path] → deferlow → live.object [right inlet]
+```
+
+The second outlet of `live.path` is used for **dynamic paths** (e.g., `selected_track`). Always insert `deferlow` between second outlet and any other Live API object.
+
+### live.path Messages
+- `goto <path>` — navigate to path; emits ID from left outlet
+- `getcount <child>` — count children at current path
+- `getid` — re-emit current ID
+
+### live.object Messages
+- `get <property>` — emit property value from left outlet
+- `set <property> <value>` — set property
+- `call <function> [args...]` — call function, return value from left outlet
+- `getinfo` — emit all children, properties, functions of current object
+- `getpath` — emit canonical path of current object
+
+### live.observer Messages
+- Set property name as argument or via message `property <name>`
+- Fires current value on connect; fires again on every change
+
+### live.remote~ Notes
+- Receives `id N` from `live.path` left outlet
+- Left inlet: signal or message with new float value
+- **No undo. No automation.** Use for real-time hands-on control only.
+- Cannot target all parameters — only `DeviceParameter` objects
+
+---
+
+## LiveAPI JavaScript Class
+
+Use in `js` objects. Equivalent to wiring `live.path` + `live.object` + `live.observer` in code.
+
+**Never instantiate in global code.** Use `live.thisdevice` → JS function to ensure Live API is ready.
+
+```javascript
+// Constructor
+var api = new LiveAPI(callback_fn, "live_set tracks 0");
+
+// Properties
+api.id          // current object ID (number)
+api.path        // current path (quoted string)
+api.unquotedpath // current path (unquoted)
+api.type        // type of current object (string)
+api.children    // array of child names (string[])
+api.info        // full info string (like getinfo)
+api.valid       // 1 if current path resolves to an object
+api.property    // observed property name — set to start observing
+api.proptype    // type of currently observed property (read-only)
+api.mode        // 0=follows object (default), 1=follows UI position
+
+// Methods
+api.goto("live_set tracks 1 devices 0")   // navigate
+api.get("name")                            // returns value or array
+api.getstring("name")                      // returns as String
+api.set("name", "My Track")               // set property
+api.call("fire")                           // call function
+api.call("add_new_notes", {"notes": [...]}) // call with dict
+api.getcount("devices")                    // count child list
+```
+
+**Callback**: the function passed as first argument fires when the observed property changes or the path's object changes:
+```javascript
+function my_callback(args) {
+    post("changed:", args, "\n");
+}
+var api = new LiveAPI(my_callback, "live_set view selected_track");
+api.property = "name";  // now fires on every track name change
+```
+
+---
 
 ---
 
