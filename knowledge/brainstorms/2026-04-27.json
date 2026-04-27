@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-27",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The relentless, driving 16th-note arpeggiator and aggressive, simple synth timbre is a direct model for our 'Corrupted Lead'.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Hand That Feeds",
+      "album": "With Teeth",
+      "year": 2005,
+      "reason": "Its driving, layered industrial rock groove and simple, powerful bassline provide a perfect template for building intensity through layering.",
+      "search_terms": "nine inch nails the hand that feeds midi"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "Shipwreck",
+      "album": "Monkeytown",
+      "year": 2011,
+      "reason": "The complex, skittering percussion and deep, physical sub-bass demonstrate the balance of chaos and weight we're aiming for.",
+      "search_terms": "modeselektor shipwreck midi"
+    }
+  ]
+}
