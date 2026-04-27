@@ -1,0 +1,13 @@
+{
+  "name": "Echo — Query Ping",
+  "instrument": "Echo",
+  "description": "Eighth-note synced delay. Moderate feedback creates the call-and-response query feel without washing the arp rhythm. LP filter on repeats darkens each echo decay.",
+  "parameters": {
+    "L 16th": 2.0,
+    "R 16th": 2.0,
+    "Feedback": 0.38,
+    "LP Freq": 0.55,
+    "HP Freq": 0.25,
+    "Dry Wet": 0.25
+  }
+}

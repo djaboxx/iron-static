@@ -1,0 +1,11 @@
+{
+  "name": "Roar — Query Arp Drive",
+  "instrument": "Roar",
+  "description": "Asymmetric stage 1 shaping. Pushes the detuned Meld saws into harmonic saturation without full clipping. Blend 68% wet to preserve attack transient.",
+  "parameters": {
+    "Drive": 0.68,
+    "Shaper 1 Type": 3.0,
+    "Shaper 1 Amt": 0.62,
+    "Blend": 0.68
+  }
+}
