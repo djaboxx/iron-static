@@ -1,3 +1,5 @@
+![IRON STATIC](outputs/social/brand_repo.png)
+
 # IRON STATIC
 
 > *An electronic metal duo. Human hands. Machine mind. One shared brain.*

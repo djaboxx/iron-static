@@ -669,6 +669,11 @@
         "command": "ironStatic.markHomeworkDone",
         "title": "IRON STATIC: Mark Homework Item Done",
         "category": "IRON STATIC"
+      },
+      {
+        "command": "ironStatic.openRecorder",
+        "title": "IRON STATIC: Open Audio Recorder",
+        "category": "IRON STATIC"
       }
     ],
     "configuration": {
@@ -688,6 +693,11 @@
           "type": "number",
           "default": 0,
           "description": "How often (in hours) to remind about open homework items during a session. Set to 0 to disable interval reminders."
+        },
+        "ironStatic.recorder.outputDirectory": {
+          "type": "string",
+          "default": "audio/recordings/raw",
+          "description": "Workspace-relative path where recorder saves WAV files."
         }
       }
     }

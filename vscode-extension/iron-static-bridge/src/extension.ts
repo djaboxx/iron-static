@@ -19,6 +19,7 @@ import { peekEvents } from "./eventQueue";
 import { registerChatParticipants } from "./chatParticipants";
 import { registerLmTools } from "./lmTools";
 import { registerHomeworkScheduler } from "./homeworkScheduler";
+import { registerAudioRecorder } from "./audioRecorder";
 
 let server: BridgeServer | undefined;
 let statusBarItem: vscode.StatusBarItem;
@@ -59,6 +60,7 @@ export function activate(context: vscode.ExtensionContext): void {
   const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
   if (workspaceRoot) {
     registerHomeworkScheduler(context, workspaceRoot);
+    registerAudioRecorder(context, workspaceRoot);
   }
 
   // Commands
