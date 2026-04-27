@@ -57,14 +57,14 @@
       "slug": "ignition-point",
       "title": "Ignition Point",
       "status": "active",
-      "als_path": null,
+      "als_path": "ableton/sessions/ignition-point-v1.als",
       "key": "E",
       "scale": "phrygian",
-      "bpm": 116.0,
+      "bpm": 108.0,
       "time_signature": null,
       "notes": "",
       "outputs": [],
-      "brainstorm_path": "knowledge/brainstorms/2026-04-25.md"
+      "brainstorm_path": "knowledge/brainstorms/2026-04-26.md"
     }
   ]
 }

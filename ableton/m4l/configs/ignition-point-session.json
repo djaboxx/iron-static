@@ -1,0 +1,15 @@
+{
+  "name": "ignition-point-v1",
+  "bpm": 108.0,
+  "key": "E",
+  "scale": "phrygian",
+  "scenes": 8,
+  "tracks": [
+    {"name": "[Drone] 3AM",        "device": null,     "color": 4,  "notes": "Wavetable — cold glassy pad, slow LFO on wavetable position + filter cutoff"},
+    {"name": "[Perc] SpineScroll", "device": "Built-In","color": 11, "notes": "Drum Rack — 4/4 grid + separate 7/8 chain, short metallic samples + noise bursts"},
+    {"name": "[Bass] SubPulse",    "device": null,     "color": 9,  "notes": "Operator — pure sine oscillator, sidechain to kick"},
+    {"name": "[Arp] Query",        "device": null,     "color": 13, "notes": "Meld Fold FM — aggressive plucky arp, detuned, driven hard into distortion"},
+    {"name": "[Vocal] VELA",       "device": null,     "color": 0,  "notes": "Sampler — clean vocal playback, minimal chain for max contrast"},
+    {"name": "[FX] CorruptedVocal","device": null,     "color": 7,  "notes": "Granulator III (M4L) — NOT Sampler. Load from Packs > Granulator III. Resample VELA into it as source, automate Pos, Size, Spray, Pitch for chaotic inhuman fracture."}
+  ]
+}

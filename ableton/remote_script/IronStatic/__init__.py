@@ -926,9 +926,9 @@ class IronStatic(ControlSurface):
 
         browser = self.application().browser
 
-        # Normalise: strip .adg/.adv extension for comparison, add back when searching
+        # Normalise: strip .adg/.adv/.agr/.amxd extension for comparison
         bare_name = preset_name
-        for ext in (".adg", ".adv", ".agr"):
+        for ext in (".adg", ".adv", ".agr", ".amxd"):
             if bare_name.lower().endswith(ext):
                 bare_name = bare_name[: -len(ext)]
                 break
@@ -942,7 +942,7 @@ class IronStatic(ControlSurface):
                 return None
             for item in children:
                 item_bare = item.name
-                for ext in (".adg", ".adv", ".agr"):
+                for ext in (".adg", ".adv", ".agr", ".amxd"):
                     if item_bare.lower().endswith(ext):
                         item_bare = item_bare[: -len(ext)]
                         break

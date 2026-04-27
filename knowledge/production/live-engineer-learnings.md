@@ -120,3 +120,30 @@ device_xml = re.sub(
 **Verification**: Ironman Kit (drum rack) → 16 DrumBranch elements, each with 1 OriginalSimpler device. ReceivingNote correct (e.g. 92).
 
 ---
+
+## 2026-04-27 — build_session.py is the correct tool for new sessions with custom track names
+
+**Context**: Tried to use `generate_als.py` for a new song session from brainstorm Blueprint. It failed — all 6 tracks "not found" in base ALS because track names like `[Drone] 3AM` don't exist in Internal.als.
+
+**What worked**: `build_session.py --config <json> --out <path>` creates brand-new tracks with custom names. Config format:
+```json
+{
+  "name": "session-name",
+  "bpm": 108.0,
+  "key": "E",
+  "scale": "phrygian",
+  "scenes": 8,
+  "tracks": [
+    {"name": "[Drone] 3AM",  "device": null,      "color": 4},
+    {"name": "[Perc] Beat",  "device": "Built-In", "color": 11}
+  ]
+}
+```
+- `null` = empty MIDI track (Sound Designer drags device in Live)
+- `"Built-In"` = blank core Drum Rack (from device_library.json)
+- `"pigments"` = Arturia Pigments VST3 (hardcoded template)
+- Wavetable, Operator, Meld are NOT in device_library.json as blank instruments → use `null` + handoff note
+
+**Why it matters**: `generate_als.py` = inject devices into EXISTING tracks in a base ALS. `build_session.py` = CREATE new tracks with custom names. Wrong tool wastes time — DRY RUN showed 0 matches all silently skipped.
+
+**Verify**: `EffectiveName` values in ALS are correct even when `ableton_push.py status` shows old session. Live may ask to save previous session on `open`. BPM in songs.json was 116 (old) — update to 108 to match brainstorm.
