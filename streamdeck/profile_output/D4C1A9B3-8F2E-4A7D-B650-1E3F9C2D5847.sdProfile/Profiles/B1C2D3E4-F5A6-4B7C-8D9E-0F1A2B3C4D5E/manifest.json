@@ -3,7 +3,7 @@
     {
       "Actions": {
         "0,0": {
-          "ActionID": "12EC7C8A-3115-4ED3-BFEB-CEDA84BC50A3",
+          "ActionID": "E6384114-AF0B-4484-8AF3-2F73BC40AB63",
           "LinkedTitle": false,
           "Name": "BPM",
           "Settings": {
@@ -23,7 +23,7 @@
           "UUID": "com.iron-static.bridge.dial-info"
         },
         "1,0": {
-          "ActionID": "D20085E4-1118-4958-AB58-50DB03F8B125",
+          "ActionID": "E3292AC4-4551-47F4-BA5B-D88DCFE7D0D2",
           "LinkedTitle": false,
           "Name": "Bridge",
           "Settings": {
@@ -43,7 +43,7 @@
           "UUID": "com.iron-static.bridge.dial-info"
         },
         "2,0": {
-          "ActionID": "64F0174F-0C9D-44BA-8799-BFC68790ED3D",
+          "ActionID": "0718EDBE-A834-4826-B5A8-114B42101A7B",
           "LinkedTitle": false,
           "Name": "M1",
           "Settings": {
@@ -63,7 +63,7 @@
           "UUID": "com.iron-static.bridge.dial-info"
         },
         "3,0": {
-          "ActionID": "ABD849A2-C4F5-4CDF-B712-A9FEC2EFAB9A",
+          "ActionID": "3888A318-EC22-4B97-A75B-A9F25B2A8AB1",
           "LinkedTitle": false,
           "Name": "M2",
           "Settings": {
@@ -88,11 +88,12 @@
     {
       "Actions": {
         "0,0": {
-          "ActionID": "61039AA2-5DBC-4855-B8DC-A6532DEF00EC",
+          "ActionID": "6CB6A556-25E8-48C9-969C-4ED8FAE5F533",
           "LinkedTitle": false,
           "Name": "Session Start",
           "Settings": {
-            "script": "01_session_start"
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/session-start.prompt.md\"}]"
           },
           "State": 0,
           "States": [
@@ -108,14 +109,63 @@
               "TitleColor": "#00ff88"
             }
           ],
-          "UUID": "com.iron-static.bridge.run-script"
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
         },
         "1,0": {
-          "ActionID": "0BDEF211-4071-4BF8-8466-9841EB9CE76E",
+          "ActionID": "DDBB542C-4FC3-45F8-A0D9-D014E22E6556",
+          "LinkedTitle": false,
+          "Name": "Session Close",
+          "Settings": {
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/session-close.prompt.md\"}]"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Session\nClose",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff4444"
+            }
+          ],
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
+        },
+        "2,0": {
+          "ActionID": "0E28AEC2-FE2B-4399-BBA2-A8FA12F2AB1E",
+          "LinkedTitle": false,
+          "Name": "Checkpoint",
+          "Settings": {
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/checkpoint.prompt.md\"}]"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "Check-\npoint",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#ff9900"
+            }
+          ],
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
+        },
+        "3,0": {
+          "ActionID": "676B91A9-4E83-43AD-9BCC-E4DAE207AF6B",
           "LinkedTitle": false,
           "Name": "Git Commit",
           "Settings": {
-            "script": "02_git_commit"
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/git-commit.prompt.md\"}]"
           },
           "State": 0,
           "States": [
@@ -128,63 +178,18 @@
               "ShowTitle": true,
               "Title": "Git\nCommit",
               "TitleAlignment": "bottom",
-              "TitleColor": "#ff9900"
+              "TitleColor": "#ffff44"
             }
           ],
-          "UUID": "com.iron-static.bridge.run-script"
-        },
-        "2,0": {
-          "ActionID": "E90ADD98-DF43-45DC-A2E7-E2C76F0FB5AB",
-          "LinkedTitle": false,
-          "Name": "Ableton Launch",
-          "Settings": {
-            "script": "03_ableton_launch"
-          },
-          "State": 0,
-          "States": [
-            {
-              "FontFamily": "",
-              "FontSize": 12,
-              "FontStyle": "Bold",
-              "FontUnderline": false,
-              "OutlineThickness": 2,
-              "ShowTitle": true,
-              "Title": "Ableton\nLaunch",
-              "TitleAlignment": "bottom",
-              "TitleColor": "#ff4444"
-            }
-          ],
-          "UUID": "com.iron-static.bridge.run-script"
-        },
-        "3,0": {
-          "ActionID": "774674B4-F96B-4F13-8D9D-13293ABA7960",
-          "LinkedTitle": false,
-          "Name": "VELA Generate",
-          "Settings": {
-            "script": "04_vela_generate"
-          },
-          "State": 0,
-          "States": [
-            {
-              "FontFamily": "",
-              "FontSize": 12,
-              "FontStyle": "Bold",
-              "FontUnderline": false,
-              "OutlineThickness": 2,
-              "ShowTitle": true,
-              "Title": "VELA\nGenerate",
-              "TitleAlignment": "bottom",
-              "TitleColor": "#cc44ff"
-            }
-          ],
-          "UUID": "com.iron-static.bridge.run-script"
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
         },
         "0,1": {
-          "ActionID": "099E0D9E-A394-41E5-B122-A992B69B24E0",
+          "ActionID": "DE4C058C-EBD8-4EB6-B5FA-50CCC85E45DB",
           "LinkedTitle": false,
           "Name": "Run Brainstorm",
           "Settings": {
-            "script": "05_run_brainstorm"
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/run-brainstorm.prompt.md\"}]"
           },
           "State": 0,
           "States": [
@@ -200,14 +205,15 @@
               "TitleColor": "#44aaff"
             }
           ],
-          "UUID": "com.iron-static.bridge.run-script"
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
         },
         "1,1": {
-          "ActionID": "EE172E4C-4D85-4E66-BDDC-FDC941C4925C",
+          "ActionID": "A2227E43-9507-4034-8801-B9EBDBB0E756",
           "LinkedTitle": false,
-          "Name": "GCS Push",
+          "Name": "Forge Audio",
           "Settings": {
-            "script": "06_gcs_push"
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/forge-audio.prompt.md\"}]"
           },
           "State": 0,
           "States": [
@@ -218,19 +224,20 @@
               "FontUnderline": false,
               "OutlineThickness": 2,
               "ShowTitle": true,
-              "Title": "GCS\nPush",
+              "Title": "Forge\nAudio",
               "TitleAlignment": "bottom",
-              "TitleColor": "#ffff44"
+              "TitleColor": "#cc44ff"
             }
           ],
-          "UUID": "com.iron-static.bridge.run-script"
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
         },
         "2,1": {
-          "ActionID": "C71ACA0E-3A1F-462A-A2CB-FC2A4F9E0825",
+          "ActionID": "36D874B1-BF55-4533-9A23-8F88625A939F",
           "LinkedTitle": false,
-          "Name": "Transport Toggle",
+          "Name": "Build Session",
           "Settings": {
-            "script": "07_transport_toggle"
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/build-session.prompt.md\"}]"
           },
           "State": 0,
           "States": [
@@ -241,40 +248,41 @@
               "FontUnderline": false,
               "OutlineThickness": 2,
               "ShowTitle": true,
-              "Title": "Transport\nToggle",
+              "Title": "Build\nSession",
+              "TitleAlignment": "bottom",
+              "TitleColor": "#44ffcc"
+            }
+          ],
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
+        },
+        "3,1": {
+          "ActionID": "B2959D61-5331-40D3-837D-C6A8AF0E2953",
+          "LinkedTitle": false,
+          "Name": "New Patch",
+          "Settings": {
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": "[{\"filePath\": \"/Users/darnold/git/iron-static/.github/prompts/new-patch.prompt.md\"}]"
+          },
+          "State": 0,
+          "States": [
+            {
+              "FontFamily": "",
+              "FontSize": 12,
+              "FontStyle": "Bold",
+              "FontUnderline": false,
+              "OutlineThickness": 2,
+              "ShowTitle": true,
+              "Title": "New\nPatch",
               "TitleAlignment": "bottom",
               "TitleColor": "#ff6600"
             }
           ],
-          "UUID": "com.iron-static.bridge.run-script"
-        },
-        "3,1": {
-          "ActionID": "6ED444A8-62A0-484C-885E-680D0B178C91",
-          "LinkedTitle": false,
-          "Name": "Health Check",
-          "Settings": {
-            "script": "08_health_check"
-          },
-          "State": 0,
-          "States": [
-            {
-              "FontFamily": "",
-              "FontSize": 12,
-              "FontStyle": "Bold",
-              "FontUnderline": false,
-              "OutlineThickness": 2,
-              "ShowTitle": true,
-              "Title": "Health\nCheck",
-              "TitleAlignment": "bottom",
-              "TitleColor": "#00ffff"
-            }
-          ],
-          "UUID": "com.iron-static.bridge.run-script"
+          "UUID": "com.nicollasr.streamdeckvsc.executecommand"
         }
       },
       "Type": "Keypad"
     }
   ],
   "Icon": "",
-  "Name": "Shell"
+  "Name": "Copilot"
 }

@@ -22,6 +22,7 @@ import argparse
 import json
 import logging
 import os
+import random
 import sys
 from pathlib import Path
 
@@ -30,6 +31,9 @@ log = logging.getLogger(__name__)
 REPO_ROOT = Path(__file__).parent.parent
 SONGS_PATH = REPO_ROOT / "database" / "songs.json"
 SOCIAL_OUT = REPO_ROOT / "outputs" / "social"
+VISUAL_IDENTITY_DIR = REPO_ROOT / "knowledge" / "visual-identity"
+
+MAX_STYLE_REFS = 3  # Imagen API limit for style reference images
 
 # Aspect ratio → Imagen parameter
 ASPECT_RATIOS = {
@@ -124,11 +128,33 @@ def build_image_prompt(song: dict, brainstorm: str, extra_style: str = "") -> st
     return prompt
 
 
-def generate_images(prompt: str, song_slug: str, formats: list[str], dry_run: bool) -> dict[str, Path]:
-    """Call Gemini Imagen 3 for each requested format. Returns {format: output_path}."""
+def load_style_ref_bytes(ref_paths: list[Path]) -> list[tuple[str, bytes]]:
+    """Load image files as (filename, bytes) tuples for multimodal prompting."""
+    result = []
+    for p in ref_paths[:MAX_STYLE_REFS]:
+        if not p.exists():
+            log.warning("Style ref not found, skipping: %s", p)
+            continue
+        result.append((p.name, p.read_bytes()))
+        log.info("Style ref: %s", p.name)
+    return result
+
+
+def generate_images(
+    prompt: str,
+    song_slug: str,
+    formats: list[str],
+    dry_run: bool,
+    style_refs: list[Path] | None = None,
+) -> dict[str, Path]:
+    """Call Imagen for each requested format. Uses edit_image with style refs when provided.
+    Returns {format: output_path}.
+    """
     if dry_run:
         log.info("DRY RUN — prompt:\n%s", prompt)
         log.info("Would generate: %s", formats)
+        if style_refs:
+            log.info("Style refs: %s", [str(p) for p in style_refs])
         return {}
 
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
@@ -146,6 +172,11 @@ def generate_images(prompt: str, song_slug: str, formats: list[str], dry_run: bo
     client = genai.Client(api_key=api_key)
     SOCIAL_OUT.mkdir(parents=True, exist_ok=True)
 
+    loaded_refs = load_style_ref_bytes(style_refs) if style_refs else []
+    use_style_ref = bool(loaded_refs)
+    if use_style_ref:
+        log.info("Using style-reference generate_content with %d ref(s)", len(loaded_refs))
+
     results = {}
     for fmt in formats:
         spec = ASPECT_RATIOS[fmt]
@@ -153,35 +184,66 @@ def generate_images(prompt: str, song_slug: str, formats: list[str], dry_run: bo
         log.info("Generating %s image (%s) → %s", fmt, spec["ratio"], out_path)
 
         try:
-            _prompt = prompt
-            for use_neg in (True, False):
-                try:
-                    cfg = gentypes.GenerateImagesConfig(
-                        number_of_images=1,
-                        aspect_ratio=spec["ratio"],
-                        negative_prompt=NEGATIVE_PROMPT if use_neg else None,
-                        safety_filter_level="block_low_and_above",
-                        person_generation="dont_allow",
+            if use_style_ref:
+                # Style-anchored: pass refs as multimodal context to gemini image generation
+                contents = []
+                for name, img_bytes in loaded_refs:
+                    contents.append(
+                        gentypes.Part.from_bytes(data=img_bytes, mime_type="image/png")
                     )
-                    response = client.models.generate_images(
-                        model="imagen-4.0-generate-001",
-                        prompt=_prompt,
-                        config=cfg,
-                    )
-                    break  # success
-                except Exception as e:
-                    if use_neg and "negative_prompt" in str(e).lower():
-                        # Gemini API key path: fold negatives into prompt, retry
-                        log.debug("negative_prompt unsupported, folding into prompt and retrying")
-                        _prompt = prompt + f" Avoid: {NEGATIVE_PROMPT}."
-                        continue
-                    raise
+                style_instruction = (
+                    f"Generate new album artwork in the exact visual style of the reference images above. "
+                    f"Match the dark industrial palette, texture density, contrast, and composition style. "
+                    f"{prompt} "
+                    f"Aspect ratio: {spec['ratio']}. "
+                    f"Do not include people or faces. "
+                    f"Avoid: {NEGATIVE_PROMPT}."
+                )
+                contents.append(gentypes.Part.from_text(text=style_instruction))
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash-image",
+                    contents=contents,
+                    config=gentypes.GenerateContentConfig(
+                        response_modalities=["IMAGE", "TEXT"],
+                    ),
+                )
+                image_bytes = None
+                for part in response.candidates[0].content.parts:
+                    if part.inline_data and part.inline_data.mime_type.startswith("image/"):
+                        image_bytes = part.inline_data.data
+                        break
+                if not image_bytes:
+                    log.error("No image returned for format %s", fmt)
+                    continue
+            else:
+                # Standard text-to-image generation
+                _prompt = prompt
+                for use_neg in (True, False):
+                    try:
+                        cfg = gentypes.GenerateImagesConfig(
+                            number_of_images=1,
+                            aspect_ratio=spec["ratio"],
+                            negative_prompt=NEGATIVE_PROMPT if use_neg else None,
+                            safety_filter_level="block_low_and_above",
+                            person_generation="dont_allow",
+                        )
+                        response = client.models.generate_images(
+                            model="imagen-4.0-generate-001",
+                            prompt=_prompt,
+                            config=cfg,
+                        )
+                        break
+                    except Exception as e:
+                        if use_neg and "negative_prompt" in str(e).lower():
+                            log.debug("negative_prompt unsupported, folding into prompt and retrying")
+                            _prompt = prompt + f" Avoid: {NEGATIVE_PROMPT}."
+                            continue
+                        raise
+                if not response.generated_images:
+                    log.error("No image returned for format %s", fmt)
+                    continue
+                image_bytes = response.generated_images[0].image.image_bytes
 
-            if not response.generated_images:
-                log.error("No image returned for format %s", fmt)
-                continue
-
-            image_bytes = response.generated_images[0].image.image_bytes
             out_path.write_bytes(image_bytes)
             log.info("Saved: %s (%d bytes)", out_path, len(image_bytes))
             results[fmt] = out_path
@@ -213,6 +275,25 @@ def main() -> None:
         choices=list(ASPECT_RATIOS.keys()),
         default=list(ASPECT_RATIOS.keys()),
         help="Which aspect ratios to generate. Default: all three.",
+    )
+    parser.add_argument(
+        "--style-ref",
+        nargs="+",
+        metavar="PATH",
+        default=[],
+        help=(
+            "Path(s) to PNG style reference images (up to 3). "
+            "Switches generation to edit_image with style anchoring. "
+            "Example: --style-ref knowledge/visual-identity/anchor-01.png"
+        ),
+    )
+    parser.add_argument(
+        "--use-identity",
+        action="store_true",
+        help=(
+            f"Auto-load all PNGs from {VISUAL_IDENTITY_DIR.relative_to(REPO_ROOT)} "
+            f"as style refs (up to {MAX_STYLE_REFS}). Equivalent to --style-ref with all identity images."
+        ),
     )
     parser.add_argument(
         "--dry-run",
@@ -311,15 +392,43 @@ def main() -> None:
     brainstorm = read_brainstorm(song)
     prompt = build_image_prompt(song, brainstorm, args.style)
 
+    # Resolve style reference image paths
+    style_ref_paths: list[Path] = []
+    if args.use_identity:
+        if VISUAL_IDENTITY_DIR.exists():
+            all_identity = list(VISUAL_IDENTITY_DIR.glob("*.png"))
+            k = min(MAX_STYLE_REFS, len(all_identity))
+            style_ref_paths = random.sample(all_identity, k) if k else []
+            if not style_ref_paths:
+                log.warning(
+                    "--use-identity set but no PNGs found in %s. "
+                    "Add seed images to that folder first.",
+                    VISUAL_IDENTITY_DIR,
+                )
+        else:
+            log.warning(
+                "--use-identity set but %s does not exist. "
+                "Create it and add seed images first.",
+                VISUAL_IDENTITY_DIR,
+            )
+    elif args.style_ref:
+        style_ref_paths = [Path(p) for p in args.style_ref]
+
     if args.dry_run:
         print("\n=== IMAGE PROMPT ===")
         print(prompt)
         print("\n=== NEGATIVE PROMPT ===")
         print(NEGATIVE_PROMPT)
         print(f"\nWould generate formats: {args.formats}")
+        if style_ref_paths:
+            print(f"\nStyle refs ({len(style_ref_paths)}):")
+            for p in style_ref_paths:
+                print(f"  {p}")
+        else:
+            print("\nNo style refs — standard text-to-image generation.")
         return
 
-    results = generate_images(prompt, song["slug"], args.formats, args.dry_run)
+    results = generate_images(prompt, song["slug"], args.formats, args.dry_run, style_ref_paths or None)
 
     if results:
         print("\nGenerated:")

@@ -68,10 +68,21 @@ The name you choose becomes the `--target` argument and the output filename.
 python scripts/gemini_forge.py \
   --target "[element name]" \
   [--context "extra mood/constraint words"] \
-  [--model pro]        # use pro for complex harmonic/textural elements
-  [--generate]         # generate audio via Lyria 3 (uses GEMINI_API_KEY, no extra setup)
-  [--lyria-model clip] # clip = 30-second loop (default); pro = full-length WAV
-  [--output json]      # add if you need machine-readable output for chaining
+  [--model pro]           # use pro for complex harmonic/textural elements
+  [--generate]            # generate audio via Lyria 3 (paid, uses GEMINI_API_KEY)
+  [--lyria-model clip]    # clip = 30-second loop (default); pro = full-length WAV
+  [--acestep]             # generate audio via local ACE-Step server (FREE, localhost:8001)
+  [--acestep-duration 30] # ACE-Step clip length in seconds (default: 30)
+  [--acestep-batch 2]     # number of ACE-Step variants to generate (default: 1)
+  [--output json]         # add if you need machine-readable output for chaining
+```
+
+**Cost guidance**: `--generate` (Lyria 3) is billable per call via GEMINI_API_KEY.  
+`--acestep` is **free** — runs locally using the ACE-Step model at `~/tools/ACE-Step-1.5`.  
+Both flags can be combined to get a Lyria take AND an ACE-Step take in one run.  
+Start ACE-Step server with:
+```bash
+unset VIRTUAL_ENV && cd ~/tools/ACE-Step-1.5 && nohup bash start_api_server_macos.sh > /tmp/acestep-api.log 2>&1 &
 ```
 
 **Step 3 — Read the spec output.**
@@ -112,7 +123,7 @@ Note: all Lyria output includes Google's SynthID watermark — inaudible, does n
 
 | Script | What it does |
 |---|---|
-| `python scripts/gemini_forge.py` | Generate spec (always) + attempt Lyria audio (with `--generate`) |
+| `python scripts/gemini_forge.py` | Generate spec (always) + optional Lyria audio (`--generate`, paid) + optional ACE-Step audio (`--acestep`, free) |
 | `python scripts/gemini_listen.py` | Evaluate existing audio for IRON STATIC fit (load `gemini-listen` skill) |
 | `python scripts/manage_songs.py list` | Check active song |
 

@@ -61,3 +61,35 @@ resource "github_actions_secret" "instagram_user_id" {
   secret_name     = "INSTAGRAM_USER_ID"
   plaintext_value = var.instagram_user_id
 }
+
+# ---------------------------------------------------------------------------
+# YouTube Data API v3
+# ---------------------------------------------------------------------------
+# Prerequisites:
+#   1. Google Cloud project with YouTube Data API v3 enabled
+#   2. OAuth 2.0 Client ID (Desktop app type) created in Cloud Console
+#   3. Run: python scripts/generate_youtube_token.py
+#      (opens browser for one-time authorization, prints all three values)
+#
+# Set before running terraform apply:
+#   export TF_VAR_youtube_client_id="<client-id>"
+#   export TF_VAR_youtube_client_secret="<client-secret>"
+#   export TF_VAR_youtube_refresh_token="<refresh-token>"
+
+resource "github_actions_secret" "youtube_client_id" {
+  repository      = local.repository
+  secret_name     = "YOUTUBE_CLIENT_ID"
+  plaintext_value = var.youtube_client_id
+}
+
+resource "github_actions_secret" "youtube_client_secret" {
+  repository      = local.repository
+  secret_name     = "YOUTUBE_CLIENT_SECRET"
+  plaintext_value = var.youtube_client_secret
+}
+
+resource "github_actions_secret" "youtube_refresh_token" {
+  repository      = local.repository
+  secret_name     = "YOUTUBE_REFRESH_TOKEN"
+  plaintext_value = var.youtube_refresh_token
+}

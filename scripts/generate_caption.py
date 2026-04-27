@@ -6,20 +6,29 @@ Reads the active song's brainstorm and metadata, then generates platform-appropr
 captions via Gemini Flash. Each platform has its own tone, length, and formatting rules.
 
 Platforms:
-  youtube     — Description field (up to 500 chars). No hashtag spam. Link in description.
+  youtube     — Description field (up to 5000 chars). No hashtag spam.
   instagram   — 150 chars max visible, hashtags inline at end, up to 30 but we use ≤10.
   mastodon    — 500 char limit, short and sharp, ≤3 hashtags, feels like a post not an ad.
   soundcloud  — Track description, a bit longer, focus on the creative process.
+
+Content types (--content-type):
+  music       — Track or visualizer upload (default).
+  vela        — Short VELA transmission / cold vocal fragment.
+  manifesto   — Band philosophy or statement post paired with a visual.
+  process     — Behind-the-scenes rig / session / patcher post.
+  brainstorm  — Compelling idea surfaced from the Gemini brainstorm.
 
 Output:
   outputs/social/<song-slug>_caption_<platform>.txt
   (or stdout with --stdout)
 
 Usage:
-  python scripts/generate_caption.py --song rust-protocol --platform instagram
+  python scripts/generate_caption.py --song ignition-point --platform instagram
   python scripts/generate_caption.py --platform youtube --stdout
   python scripts/generate_caption.py --all-platforms
+  python scripts/generate_caption.py --platform instagram --content-type vela
   python scripts/generate_caption.py --platform instagram --dry-run   # show prompt only
+  python scripts/generate_caption.py --list-types
 """
 
 import argparse
@@ -37,18 +46,76 @@ SOCIAL_OUT = REPO_ROOT / "outputs" / "social"
 
 PLATFORMS = ["youtube", "instagram", "mastodon", "soundcloud"]
 
+# ---------------------------------------------------------------------------
+# Content types — what kind of post is this?
+# ---------------------------------------------------------------------------
+
+CONTENT_TYPES = {
+    "music": {
+        "label": "Music release / track upload",
+        "suffix": (
+            "This is a music post — a track or visualizer upload. "
+            "Ground the caption in the song's sonic identity: "
+            "key ({key} {scale}), BPM ({bpm}), the instrumentation described in the brainstorm, "
+            "and any production decisions worth noting. The music is the subject."
+        ),
+    },
+    "vela": {
+        "label": "VELA transmission — short vocal fragment or statement",
+        "suffix": (
+            "This is a VELA post — a short transmission from IRON STATIC's vocalist. "
+            "VELA is not human. She is cold, androgynous, declaratory. She transmits, not sings. "
+            "The caption should feel like a system message or system alert wrapped in aesthetic intent. "
+            "Short. Minimal. The caption IS the content. "
+            "No hashtags about vocals or singers. VELA is a character, not a feature."
+        ),
+    },
+    "manifesto": {
+        "label": "Manifesto excerpt — band philosophy or statement post",
+        "suffix": (
+            "This is a manifesto post — a fragment of IRON STATIC's stated philosophy, "
+            "paired with a visual. Extract one striking idea from the band context and write "
+            "a caption that frames it as a declaration, not an explanation. "
+            "Do not quote the manifesto directly — restate it in present tense, active voice. "
+            "The visual carries the mood; the caption carries the idea."
+        ),
+    },
+    "process": {
+        "label": "Behind-the-scenes / rig / session post",
+        "suffix": (
+            "This is a process post — the rig, the session, the patcher, the hardware. "
+            "Describe what is happening with technical specificity. "
+            "Name the instruments. Name what they're doing. "
+            "Make it interesting to someone who makes music, accessible to someone who doesn't. "
+            "Heavy, weird, intentional — the process is part of the identity."
+        ),
+    },
+    "brainstorm": {
+        "label": "Brainstorm fragment — idea surfaced by Gemini",
+        "suffix": (
+            "This is a brainstorm post — a single compelling idea, phrase, or concept "
+            "extracted from the most recent Gemini brainstorm. "
+            "The caption should make the idea land as a standalone statement, "
+            "as if it were the title of a song that doesn't exist yet. "
+            "Make the reader curious about what IRON STATIC is working on without explaining it."
+        ),
+    },
+}
+
+DEFAULT_CONTENT_TYPE = "music"
+
 # Per-platform instructions fed to Gemini
 PLATFORM_SPECS = {
     "youtube": {
         "name": "YouTube",
-        "max_chars": 500,
+        "max_chars": 5000,
         "instructions": (
             "Write a YouTube video description. "
-            "2–3 sentences max. No 'excited to share' or 'drop everything'. "
+            "2–4 sentences max. No 'excited to share' or 'drop everything'. "
             "Lead with what the track sounds like or does. "
             "End with: Produced by IRON STATIC. "
             "3–5 hashtags on a new line at the end: always include #IronStatic #ElectronicMetal. "
-            "Hard limit: 500 characters."
+            "Hard limit: 5000 characters."
         ),
     },
     "instagram": {
@@ -134,12 +201,26 @@ def read_session_notes(song: dict) -> str:
     return ""
 
 
-def build_caption_prompt(song: dict, platform: str, brainstorm: str, session_notes: str) -> str:
+def build_caption_prompt(
+    song: dict,
+    platform: str,
+    brainstorm: str,
+    session_notes: str,
+    content_type: str = DEFAULT_CONTENT_TYPE,
+) -> str:
     spec = PLATFORM_SPECS[platform]
     title = song.get("title", song["slug"])
     key = song.get("key", "")
     scale = song.get("scale", "")
     bpm = song.get("bpm", "")
+
+    # Inject content-type-specific instructions
+    ctype = CONTENT_TYPES.get(content_type, CONTENT_TYPES[DEFAULT_CONTENT_TYPE])
+    content_type_block = ctype["suffix"].format(
+        key=key or "?",
+        scale=scale or "",
+        bpm=bpm or "?",
+    )
 
     context_parts = [
         f"Song: '{title}' by IRON STATIC",
@@ -151,6 +232,7 @@ def build_caption_prompt(song: dict, platform: str, brainstorm: str, session_not
     context = "\n".join(p for p in context_parts if p)
 
     prompt = (
+        f"CONTENT TYPE: {ctype['label']}\n{content_type_block}\n\n"
         f"{spec['instructions']}\n\n"
         f"Context about the track:\n{context}\n\n"
         f"Write only the caption. No preamble, no quotes around it, no explanation."
@@ -164,9 +246,10 @@ def generate_caption_for_platform(
     brainstorm: str,
     session_notes: str,
     dry_run: bool,
+    content_type: str = DEFAULT_CONTENT_TYPE,
 ) -> str | None:
     spec = PLATFORM_SPECS[platform]
-    prompt = build_caption_prompt(song, platform, brainstorm, session_notes)
+    prompt = build_caption_prompt(song, platform, brainstorm, session_notes, content_type)
 
     if dry_run:
         print(f"\n=== PROMPT FOR {spec['name'].upper()} ===")
@@ -232,6 +315,21 @@ def main() -> None:
         help="Generate captions for all platforms.",
     )
     parser.add_argument(
+        "--content-type",
+        choices=list(CONTENT_TYPES.keys()),
+        default=DEFAULT_CONTENT_TYPE,
+        dest="content_type",
+        help=(
+            f"What type of content is being posted (default: {DEFAULT_CONTENT_TYPE}). "
+            "Use --list-types for descriptions."
+        ),
+    )
+    parser.add_argument(
+        "--list-types",
+        action="store_true",
+        help="List available content types and exit.",
+    )
+    parser.add_argument(
         "--stdout",
         action="store_true",
         help="Print caption(s) to stdout instead of saving to files.",
@@ -249,8 +347,14 @@ def main() -> None:
         format="%(levelname)s %(message)s",
     )
 
-    if not args.platform and not args.all_platforms:
-        parser.error("Specify --platform <name> or --all-platforms")
+    if not args.platform and not args.all_platforms and not args.list_types:
+        parser.error("Specify --platform <name>, --all-platforms, or --list-types")
+
+    if args.list_types:
+        print("Available content types (--content-type):")
+        for key, val in CONTENT_TYPES.items():
+            print(f"  {key:12s}  {val['label']}")
+        return
 
     target_platforms = PLATFORMS if args.all_platforms else [args.platform]
 
@@ -262,7 +366,8 @@ def main() -> None:
 
     for platform in target_platforms:
         caption = generate_caption_for_platform(
-            song, platform, brainstorm, session_notes, args.dry_run
+            song, platform, brainstorm, session_notes, args.dry_run,
+            content_type=args.content_type,
         )
         if caption is None:
             continue  # dry run already printed prompt

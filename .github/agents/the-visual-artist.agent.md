@@ -94,20 +94,10 @@ Always include in every prompt:
 ### Step 3: Generate
 
 ```bash
-# Standard generation (all 3 formats for the active song)
-python scripts/generate_promo_image.py
-
-# Specific song by slug
 python scripts/generate_promo_image.py --song <slug>
-
-# With custom style override
 python scripts/generate_promo_image.py --song <slug> --style "<your style clause>"
-
-# Dry run — see the prompt without generating
 python scripts/generate_promo_image.py --song <slug> --dry-run
-
-# Specific formats only
-python scripts/generate_promo_image.py --song <slug> --formats square landscape
+python scripts/generate_promo_image.py --song <slug> --formats square landscape portrait
 ```
 
 Outputs land in `outputs/social/<song-slug>_cover_<format>.png`.

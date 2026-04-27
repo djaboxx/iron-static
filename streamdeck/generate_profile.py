@@ -48,12 +48,81 @@ DEVICE_UUID = "@(1)[4057/132/A00WA4241269CJ]"
 DEVICE_MODEL = "20GBD9901"
 
 PROFILE_NAME = "IRON STATIC"
-PAGE_NAME = "Main"
+PAGE1_NAME = "Copilot"
+PAGE2_NAME = "Shell"
 
 # Fixed UUIDs so the profile is stable across re-runs (deterministic, not random).
 # If you want a fresh UUID each time, replace with str(uuid.uuid4()).
 PROFILE_UUID = "D4C1A9B3-8F2E-4A7D-B650-1E3F9C2D5847"
-PAGE_UUID = "A7B2C3D4-E5F6-4A8B-9C0D-1E2F3A4B5C6D"
+PAGE1_UUID = "B1C2D3E4-F5A6-4B7C-8D9E-0F1A2B3C4D5E"
+PAGE2_UUID = "A7B2C3D4-E5F6-4A8B-9C0D-1E2F3A4B5C6D"
+
+PROMPTS_DIR = REPO_ROOT / ".github" / "prompts"
+
+VSCODE_EXECUTE_COMMAND_UUID = "com.nicollasr.streamdeckvsc.executecommand"
+
+# ---------------------------------------------------------------------------
+# Page 1: VS Code Copilot prompt buttons
+# ---------------------------------------------------------------------------
+
+VSCODE_BUTTONS = [
+    {
+        "coord": "0,0",
+        "name": "Session Start",
+        "prompt": "session-start.prompt.md",
+        "title": "Session\nStart",
+        "color": "#00ff88",
+    },
+    {
+        "coord": "1,0",
+        "name": "Session Close",
+        "prompt": "session-close.prompt.md",
+        "title": "Session\nClose",
+        "color": "#ff4444",
+    },
+    {
+        "coord": "2,0",
+        "name": "Checkpoint",
+        "prompt": "checkpoint.prompt.md",
+        "title": "Check-\npoint",
+        "color": "#ff9900",
+    },
+    {
+        "coord": "3,0",
+        "name": "Git Commit",
+        "prompt": "git-commit.prompt.md",
+        "title": "Git\nCommit",
+        "color": "#ffff44",
+    },
+    {
+        "coord": "0,1",
+        "name": "Run Brainstorm",
+        "prompt": "run-brainstorm.prompt.md",
+        "title": "Brain-\nstorm",
+        "color": "#44aaff",
+    },
+    {
+        "coord": "1,1",
+        "name": "Forge Audio",
+        "prompt": "forge-audio.prompt.md",
+        "title": "Forge\nAudio",
+        "color": "#cc44ff",
+    },
+    {
+        "coord": "2,1",
+        "name": "Build Session",
+        "prompt": "build-session.prompt.md",
+        "title": "Build\nSession",
+        "color": "#44ffcc",
+    },
+    {
+        "coord": "3,1",
+        "name": "New Patch",
+        "prompt": "new-patch.prompt.md",
+        "title": "New\nPatch",
+        "color": "#ff6600",
+    },
+]
 
 # ---------------------------------------------------------------------------
 # Button definitions: (col, row) → {name, script, title, color}
@@ -168,6 +237,39 @@ def new_uuid() -> str:
 
 
 # ---------------------------------------------------------------------------
+# Build VS Code Execute Command action (Page 1)
+# ---------------------------------------------------------------------------
+
+def make_vscode_execute_action(name: str, prompt_file: str, title: str, color: str) -> dict:
+    """Keypad button → runs a Copilot prompt via VS Code Execute Command."""
+    prompt_path = str(PROMPTS_DIR / prompt_file)
+    return {
+        "ActionID": new_uuid(),
+        "LinkedTitle": False,
+        "Name": name,
+        "Settings": {
+            "command": "workbench.action.chat.run.prompt",
+            "arguments": json.dumps([{"filePath": prompt_path}]),
+        },
+        "State": 0,
+        "States": [
+            {
+                "FontFamily": "",
+                "FontSize": 12,
+                "FontStyle": "Bold",
+                "FontUnderline": False,
+                "OutlineThickness": 2,
+                "ShowTitle": True,
+                "Title": title,
+                "TitleAlignment": "bottom",
+                "TitleColor": color,
+            }
+        ],
+        "UUID": VSCODE_EXECUTE_COMMAND_UUID,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Build .command wrapper files
 # ---------------------------------------------------------------------------
 
@@ -266,10 +368,48 @@ def make_bridge_dial_action(label: str, title: str, color: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Build the page manifest
+# Build page manifests
 # ---------------------------------------------------------------------------
 
-def build_page_manifest() -> dict:
+def build_page1_manifest() -> dict:
+    """Page 1: Copilot prompt buttons via VS Code Execute Command."""
+    keypad_actions = {}
+    for btn in VSCODE_BUTTONS:
+        action = make_vscode_execute_action(
+            name=btn["name"],
+            prompt_file=btn["prompt"],
+            title=btn["title"],
+            color=btn["color"],
+        )
+        keypad_actions[btn["coord"]] = action
+
+    encoder_actions = {}
+    for enc in ENCODER_BUTTONS:
+        action = make_bridge_dial_action(
+            label=enc["name"],
+            title=enc["title"],
+            color=enc["color"],
+        )
+        encoder_actions[enc["coord"]] = action
+
+    return {
+        "Controllers": [
+            {
+                "Actions": encoder_actions,
+                "Type": "Encoder",
+            },
+            {
+                "Actions": keypad_actions,
+                "Type": "Keypad",
+            },
+        ],
+        "Icon": "",
+        "Name": PAGE1_NAME,
+    }
+
+
+def build_page2_manifest() -> dict:
+    """Page 2: Shell / bridge script buttons."""
     keypad_actions = {}
     for btn in BUTTONS:
         action = make_bridge_run_action(
@@ -301,7 +441,7 @@ def build_page_manifest() -> dict:
             },
         ],
         "Icon": "",
-        "Name": PAGE_NAME,
+        "Name": PAGE2_NAME,
     }
 
 
@@ -318,9 +458,9 @@ def build_profile_manifest() -> dict:
         },
         "Name": PROFILE_NAME,
         "Pages": {
-            "Current": PAGE_UUID,
-            "Default": PAGE_UUID,
-            "Pages": [PAGE_UUID],
+            "Current": PAGE1_UUID,
+            "Default": PAGE1_UUID,
+            "Pages": [PAGE1_UUID, PAGE2_UUID],
         },
         "Version": "3.0",
     }
@@ -333,12 +473,14 @@ def build_profile_manifest() -> dict:
 def write_profile(target_dir: Path) -> Path:
     """Write the complete .sdProfile directory structure to target_dir."""
     profile_dir = target_dir / f"{PROFILE_UUID}.sdProfile"
-    page_dir = profile_dir / "Profiles" / PAGE_UUID
+    page1_dir = profile_dir / "Profiles" / PAGE1_UUID
+    page2_dir = profile_dir / "Profiles" / PAGE2_UUID
 
     # Always remove first — macOS case-insensitive FS will reuse stale lowercase dirs
     if profile_dir.exists():
         shutil.rmtree(profile_dir)
-    page_dir.mkdir(parents=True, exist_ok=True)
+    page1_dir.mkdir(parents=True, exist_ok=True)
+    page2_dir.mkdir(parents=True, exist_ok=True)
 
     # Top-level manifest
     profile_manifest_path = profile_dir / "manifest.json"
@@ -347,12 +489,19 @@ def write_profile(target_dir: Path) -> Path:
     )
     log.info("Wrote %s", profile_manifest_path)
 
-    # Page manifest
-    page_manifest_path = page_dir / "manifest.json"
-    page_manifest_path.write_text(
-        json.dumps(build_page_manifest(), indent=2)
+    # Page 1 manifest (Copilot prompts)
+    page1_manifest_path = page1_dir / "manifest.json"
+    page1_manifest_path.write_text(
+        json.dumps(build_page1_manifest(), indent=2)
     )
-    log.info("Wrote %s", page_manifest_path)
+    log.info("Wrote %s", page1_manifest_path)
+
+    # Page 2 manifest (shell scripts)
+    page2_manifest_path = page2_dir / "manifest.json"
+    page2_manifest_path.write_text(
+        json.dumps(build_page2_manifest(), indent=2)
+    )
+    log.info("Wrote %s", page2_manifest_path)
 
     return profile_dir
 

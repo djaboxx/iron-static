@@ -1,0 +1,254 @@
+name: Publish Release
+
+# Orchestrate a full IRON STATIC track release:
+#   1. Generate release copy via Gemini
+#   2. Post to selected platforms (Bandcamp prep, SoundCloud, YouTube, Patreon)
+#   3. Commit published_urls back to songs.json
+#
+# Audio and video assets must already exist in GCS / outputs/social/.
+# Run generate-image and Video Director workflows first if they don't.
+
+on:
+  workflow_dispatch:
+    inputs:
+      song_slug:
+        description: 'Song slug from database/songs.json (e.g. ignition-point)'
+        required: true
+      platforms:
+        description: 'Comma-separated platforms: soundcloud,youtube,patreon,instagram'
+        required: false
+        default: 'soundcloud,youtube,patreon'
+      dry_run:
+        description: 'Dry run — generate copy and validate assets without posting'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      copy_model:
+        description: 'Gemini model for copy generation'
+        required: false
+        default: 'pro'
+        type: choice
+        options:
+          - fast
+          - pro
+
+permissions:
+  contents: write
+
+jobs:
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 1: Validate assets and generate release copy
+  # ─────────────────────────────────────────────────────────────────────────
+  prepare:
+    name: Validate assets + generate copy
+    runs-on: ubuntu-latest
+
+    outputs:
+      copy_ready: ${{ steps.generate.outputs.copy_ready }}
+      track_title: ${{ steps.generate.outputs.track_title }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet google-genai google-cloud-storage
+
+      - name: Validate song exists
+        run: |
+          python3 -c "
+          import json, sys
+          db = json.load(open('database/songs.json'))
+          songs = db.get('songs', db) if isinstance(db, dict) else db
+          match = next((s for s in songs if s['slug'] == '${{ inputs.song_slug }}'), None)
+          if not match:
+              print('ERROR: slug ${{ inputs.song_slug }} not found in songs.json')
+              sys.exit(1)
+          print(f'Found: {match[\"title\"]} ({match[\"status\"]})')
+          "
+
+      - name: Generate release copy
+        id: generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+          GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/generate_caption.py \
+            --song-slug "${{ inputs.song_slug }}" \
+            --platforms "${{ inputs.platforms }}" \
+            --model "${{ inputs.copy_model }}" \
+            --output "outputs/social/${{ inputs.song_slug }}_release_copy.md"
+          echo "copy_ready=true" >> "$GITHUB_OUTPUT"
+          # Extract title for downstream jobs
+          TITLE=$(python3 -c "
+          import json
+          db = json.load(open('database/songs.json'))
+          songs = db.get('songs', db) if isinstance(db, dict) else db
+          match = next(s for s in songs if s['slug'] == '${{ inputs.song_slug }}')
+          print(match['title'])
+          ")
+          echo "track_title=$TITLE" >> "$GITHUB_OUTPUT"
+
+      - name: Commit release copy
+        if: inputs.dry_run == 'false'
+        run: |
+          git config user.name "IRON STATIC Bot"
+          git config user.email "bot@iron-static.local"
+          git add outputs/social/
+          git diff --cached --quiet || git commit -m "release: generate copy for ${{ inputs.song_slug }}"
+          git push
+
+      - name: Upload copy artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-copy
+          path: outputs/social/${{ inputs.song_slug }}_release_copy.md
+          retention-days: 30
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 2: Post to SoundCloud (parallel with YouTube)
+  # ─────────────────────────────────────────────────────────────────────────
+  post-soundcloud:
+    name: Post to SoundCloud
+    needs: prepare
+    if: |
+      needs.prepare.outputs.copy_ready == 'true' &&
+      inputs.dry_run == 'false' &&
+      contains(inputs.platforms, 'soundcloud')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install --quiet google-cloud-storage requests
+      - name: Download release copy
+        uses: actions/download-artifact@v4
+        with:
+          name: release-copy
+          path: outputs/social/
+      - name: Post to SoundCloud
+        env:
+          SOUNDCLOUD_CLIENT_ID: ${{ secrets.SOUNDCLOUD_CLIENT_ID }}
+          SOUNDCLOUD_ACCESS_TOKEN: ${{ secrets.SOUNDCLOUD_ACCESS_TOKEN }}
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+          GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
+        run: |
+          python3 scripts/post_soundcloud.py \
+            --song-slug "${{ inputs.song_slug }}" \
+            --copy outputs/social/${{ inputs.song_slug }}_release_copy.md \
+            --dry-run false
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 3: Post to YouTube (parallel with SoundCloud)
+  # ─────────────────────────────────────────────────────────────────────────
+  post-youtube:
+    name: Post to YouTube
+    needs: prepare
+    if: |
+      needs.prepare.outputs.copy_ready == 'true' &&
+      inputs.dry_run == 'false' &&
+      contains(inputs.platforms, 'youtube')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install --quiet google-api-python-client google-auth-oauthlib google-cloud-storage
+      - name: Download release copy
+        uses: actions/download-artifact@v4
+        with:
+          name: release-copy
+          path: outputs/social/
+      - name: Post to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+          GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
+        run: |
+          python3 scripts/post_youtube.py \
+            --song-slug "${{ inputs.song_slug }}" \
+            --copy outputs/social/${{ inputs.song_slug }}_release_copy.md \
+            --video-format landscape
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 4: Post to Patreon (after SoundCloud + YouTube succeed)
+  # ─────────────────────────────────────────────────────────────────────────
+  post-patreon:
+    name: Post to Patreon
+    needs: [prepare, post-soundcloud, post-youtube]
+    if: |
+      always() &&
+      needs.prepare.outputs.copy_ready == 'true' &&
+      inputs.dry_run == 'false' &&
+      contains(inputs.platforms, 'patreon')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install --quiet requests
+      - name: Download release copy
+        uses: actions/download-artifact@v4
+        with:
+          name: release-copy
+          path: outputs/social/
+      - name: Post to Patreon
+        env:
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+        run: |
+          python3 scripts/post_patreon.py \
+            --song-slug "${{ inputs.song_slug }}" \
+            --copy outputs/social/${{ inputs.song_slug }}_release_copy.md \
+            --tier public
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 5: Update songs.json with published URLs (final)
+  # ─────────────────────────────────────────────────────────────────────────
+  update-database:
+    name: Update songs.json
+    needs: [post-soundcloud, post-youtube, post-patreon]
+    if: always() && inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Update published_urls in songs.json
+        run: |
+          python3 scripts/manage_songs.py \
+            release --slug "${{ inputs.song_slug }}" \
+            --published-at "$(date -u +%Y-%m-%d)"
+      - name: Commit
+        run: |
+          git config user.name "IRON STATIC Bot"
+          git config user.email "bot@iron-static.local"
+          git add database/songs.json
+          git diff --cached --quiet || git commit -m "release: mark ${{ inputs.song_slug }} as released"
+          git push

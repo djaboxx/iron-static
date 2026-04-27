@@ -27,6 +27,10 @@ import logging
 import os
 import re
 import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from datetime import date
 from pathlib import Path
 
@@ -43,6 +47,10 @@ BRAINSTORMS_DIR = REPO_ROOT / "knowledge" / "brainstorms"
 REFERENCES_DIR = REPO_ROOT / "knowledge" / "references"
 SPECS_DIR = REPO_ROOT / "audio" / "generated" / "specs"
 AUDIO_OUT_DIR = REPO_ROOT / "audio" / "generated"
+
+ACESTEP_BASE = os.environ.get("ACESTEP_BASE", "http://127.0.0.1:8001")
+ACESTEP_POLL_INTERVAL = 5   # seconds between status polls
+ACESTEP_POLL_TIMEOUT = 600  # 10 minutes max
 
 IRON_STATIC_CONTEXT = """\
 You are IRON STATIC's Gemini — the generative intelligence of this band's AI collective.
@@ -200,6 +208,238 @@ def build_prompt(
         target=target,
         extra_context_block=extra_context_block,
     )
+
+
+def _acestep_post(url: str, payload: dict, timeout: int = 60) -> dict:
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _acestep_poll(base: str, task_id: str) -> list | None:
+    """Poll ACE-Step until task completes or times out.
+
+    Returns a list of result items on success, None on failure/timeout.
+    Each item has a 'file' key with a local absolute path to the audio.
+
+    API contract (ACE-Step 1.5):
+      POST /query_result  {"task_id_list": [task_id]}
+      Response: {"data": [{"task_id": ..., "result": "<JSON str>", "status": int}]}
+      Status: 0=running, 1=succeeded, 2=failed
+    """
+    deadline = time.time() + ACESTEP_POLL_TIMEOUT
+    log.info("Polling ACE-Step task %s...", task_id)
+    while time.time() < deadline:
+        time.sleep(ACESTEP_POLL_INTERVAL)
+        try:
+            result = _acestep_post(
+                f"{base}/query_result",
+                {"task_id_list": [task_id]},
+                timeout=120,
+            )
+        except Exception as e:
+            log.warning("  Poll request failed: %s — retrying...", e)
+            continue
+        data_list = result.get("data", [])
+        if not isinstance(data_list, list) or not data_list:
+            log.info("  ...no result yet")
+            continue
+        item = next((x for x in data_list if x.get("task_id") == task_id), None)
+        if item is None:
+            log.info("  ...task not found in response yet")
+            continue
+        status = item.get("status")
+        if status == 1:
+            log.info("ACE-Step task %s completed.", task_id)
+            raw = item.get("result", "[]")
+            try:
+                parsed = json.loads(raw) if isinstance(raw, str) else raw
+                return parsed if isinstance(parsed, list) else []
+            except Exception:
+                return []
+        elif status == 2:
+            log.error("ACE-Step task %s failed: %s", task_id, item.get("progress_text", "unknown"))
+            return None
+        else:
+            progress = item.get("progress_text", "")
+            log.info("  ...processing (status=%s)%s", status, f" — {progress}" if progress else "")
+    log.error("ACE-Step task %s timed out after %ds.", task_id, ACESTEP_POLL_TIMEOUT)
+    return None
+
+
+def _acestep_download(src: str, dest: Path, base: str) -> bool:
+    """Copy a generated audio file from ACE-Step server to dest.
+
+    ACE-Step returns 'file' as a relative URL: /v1/audio?path=<url-encoded-local-path>
+    Extracts and decodes the local path, then copies with shutil.
+    Falls back to HTTP download if local path is unavailable.
+    """
+    import shutil
+
+    dest.parent.mkdir(parents=True, exist_ok=True)
+
+    local_path: Path | None = None
+    if "/v1/audio" in src:
+        parsed = urllib.parse.urlparse(src if src.startswith("http") else f"http://x{src}")
+        qs = urllib.parse.parse_qs(parsed.query)
+        raw = qs.get("path", [None])[0]
+        if raw:
+            local_path = Path(urllib.parse.unquote(raw))
+    elif src and not src.startswith("http"):
+        local_path = Path(src)
+
+    if local_path and local_path.is_file():
+        shutil.copy2(local_path, dest)
+        log.info("Saved: %s", dest)
+        return True
+
+    url = src if src.startswith("http") else f"{base}{src}"
+    try:
+        urllib.request.urlretrieve(url, str(dest))
+        log.info("Saved: %s", dest)
+        return True
+    except Exception as e:
+        log.error("Download failed (src=%s): %s", src, e)
+        return False
+
+
+def _build_acestep_tags(spec_text: str, song: dict | None) -> str:
+    """Build an ACE-Step tags string from the spec and active song context.
+
+    ACE-Step tags are comma-separated style/genre/mood/instrument descriptors.
+    We extract the GENERATION PROMPT section (which is already written for music
+    generators) and condense it into a short tag cloud, then layer in technical
+    parameters from the spec and the active song context.
+    """
+    tags: list[str] = [
+        "instrumental",
+        "no vocals",
+        "electronic metal",
+        "industrial",
+        "dark electronic",
+        "heavy",
+    ]
+
+    # Layer in song key/scale/BPM context
+    if song:
+        bpm = song.get("bpm")
+        key = song.get("key", "")
+        scale = song.get("scale", "")
+        if bpm:
+            tags.append(f"{bpm} BPM")
+        if key and scale:
+            tags.append(f"{key} {scale}")
+        elif key:
+            tags.append(key)
+
+    # Extract GENERATION PROMPT section for texture/mood vocabulary
+    gen_match = re.search(r"## GENERATION PROMPT\s*\n+(.*?)(?=##|\Z)", spec_text, re.DOTALL)
+    if gen_match:
+        gp = gen_match.group(1).strip()
+        # Pull adjective/noun clusters — strip artist references and overly verbose phrases
+        adjectives = re.findall(r"\b(?:grinding|corroded|abrasive|granular|sub|heavy|dark|crushing|"
+                                r"mechanical|metallic|pulsing|distorted|saturated|sparse|dense|"
+                                r"textural|atmospheric|layered|evolving|modulated|harsh|raw|"
+                                r"industrial|noise|drone|ambient|tension|chaotic|rhythmic|"
+                                r"percussive|syncopated|driving|slow|fast|minimal|maximal)\b",
+                                gp, re.IGNORECASE)
+        seen: set[str] = set()
+        for adj in adjectives:
+            low = adj.lower()
+            if low not in seen:
+                tags.append(low)
+                seen.add(low)
+
+    # Add frequency focus from TECHNICAL PARAMETERS if present
+    tp_match = re.search(r"## TECHNICAL PARAMETERS\s*\n+(.*?)(?=##|\Z)", spec_text, re.DOTALL)
+    if tp_match:
+        tp = tp_match.group(1)
+        freq_m = re.search(r"Frequency focus\s*:\s*(.+)", tp, re.IGNORECASE)
+        if freq_m:
+            tags.append(freq_m.group(1).strip().rstrip("."))
+
+    return ", ".join(dict.fromkeys(tags))  # deduplicate, preserve order
+
+
+def generate_acestep(
+    spec_text: str,
+    target: str,
+    song: dict | None,
+    out_path: Path,
+    duration: float,
+    batch_size: int,
+    base: str,
+) -> bool:
+    """Generate audio via local ACE-Step API server.
+
+    Submits a task to /release_task with instrumental tags derived from the
+    forge spec, polls until complete, and downloads the first result.
+
+    Returns True on success, False on failure.
+    """
+    try:
+        urllib.request.urlopen(f"{base}/health", timeout=5)
+    except Exception as e:
+        log.error(
+            "Cannot reach ACE-Step at %s: %s\n"
+            "Start with: unset VIRTUAL_ENV && cd ~/tools/ACE-Step-1.5 && "
+            "nohup bash start_api_server_macos.sh > /tmp/acestep-api.log 2>&1 &",
+            base, e,
+        )
+        return False
+
+    tags = _build_acestep_tags(spec_text, song)
+    log.info("ACE-Step tags: %s", tags)
+
+    payload: dict = {
+        "prompt": tags,
+        "lyrics": "",          # instrumental — no lyrics
+        "audio_format": "wav",
+        "audio_duration": duration,
+        "batch_size": batch_size,
+    }
+    if song:
+        bpm = song.get("bpm")
+        key = song.get("key", "")
+        scale = song.get("scale", "")
+        if bpm:
+            payload["bpm"] = int(bpm)
+        if key and scale:
+            payload["key_scale"] = f"{key} {scale}"
+
+    log.info("Submitting ACE-Step task (duration=%.0fs, batch=%d)...", duration, batch_size)
+    result = _acestep_post(f"{base}/release_task", payload)
+    if result.get("code") != 200:
+        log.error("ACE-Step task submission failed: %s", result.get("error", result))
+        return False
+
+    task_id = result["data"]["task_id"]
+    log.info("ACE-Step task ID: %s", task_id)
+
+    task = _acestep_poll(base, task_id)
+    if task is None:
+        return False
+
+    # Download the first result (batch_size outputs → take all, name with suffix)
+    saved_any = False
+    for i, item in enumerate(task):
+        audio_src = item.get("file") or item.get("audio_url") or item.get("path")
+        if not audio_src:
+            log.warning("No audio path in ACE-Step result item %d: %s", i, item)
+            continue
+        suffix = f"_{i + 1}" if len(task) > 1 else ""
+        dest = out_path.with_stem(out_path.stem + suffix) if suffix else out_path
+        if _acestep_download(audio_src, dest, base):
+            saved_any = True
+            out_path = dest  # update to first successfully saved path
+
+    return saved_any
 
 
 def call_gemini(prompt: str, model_tier: str) -> str:
@@ -481,6 +721,35 @@ def main() -> None:
         ),
     )
     parser.add_argument(
+        "--acestep",
+        action="store_true",
+        help=(
+            "Generate audio via the local ACE-Step API server (free, runs on your machine). "
+            "Requires ACE-Step running at localhost:8001 (or ACESTEP_BASE env var). "
+            "Writes a .wav to audio/generated/. Can be combined with --generate to run both."
+        ),
+    )
+    parser.add_argument(
+        "--acestep-duration",
+        type=float,
+        default=30.0,
+        metavar="SECONDS",
+        help="Audio duration in seconds for ACE-Step generation (default: 30.0).",
+    )
+    parser.add_argument(
+        "--acestep-batch",
+        type=int,
+        default=1,
+        metavar="N",
+        help="Number of ACE-Step outputs to generate per run (default: 1).",
+    )
+    parser.add_argument(
+        "--acestep-url",
+        default=None,
+        metavar="URL",
+        help="ACE-Step API base URL (default: ACESTEP_BASE env var or http://127.0.0.1:8001).",
+    )
+    parser.add_argument(
         "--no-song-context",
         action="store_true",
         help="Skip loading active song context. Produces a generic IRON STATIC spec.",
@@ -541,6 +810,30 @@ def main() -> None:
         else:
             push_to_gcs(audio_path, song_slug, skip=args.no_gcs_push)
 
+    acestep_path = None
+    if args.acestep:
+        acestep_base = args.acestep_url or ACESTEP_BASE
+        target_slug = slugify(args.target)
+        acestep_out = AUDIO_OUT_DIR / f"{song_slug}_{target_slug}_{today}_acestep.wav"
+        success = generate_acestep(
+            spec_text,
+            args.target,
+            active_song,
+            acestep_out,
+            duration=args.acestep_duration,
+            batch_size=args.acestep_batch,
+            base=acestep_base,
+        )
+        if success:
+            acestep_path = acestep_out
+            push_to_gcs(acestep_path, song_slug, skip=args.no_gcs_push)
+        else:
+            log.info(
+                "ACE-Step generation failed. Start server with:\n"
+                "  unset VIRTUAL_ENV && cd ~/tools/ACE-Step-1.5 && "
+                "nohup bash start_api_server_macos.sh > /tmp/acestep-api.log 2>&1 &"
+            )
+
     if args.output == "json":
         result = {
             "song_slug": song_slug,
@@ -548,6 +841,7 @@ def main() -> None:
             "date": today,
             "spec_path": str(spec_path),
             "audio_path": str(audio_path) if audio_path else None,
+            "acestep_path": str(acestep_path) if acestep_path else None,
             "spec": spec_text,
         }
         print(json.dumps(result, indent=2))
@@ -555,7 +849,9 @@ def main() -> None:
         print(spec_text)
         print(f"\n---\nSpec saved: {spec_path}", file=sys.stderr)
         if audio_path:
-            print(f"Audio saved: {audio_path}", file=sys.stderr)
+            print(f"Lyria audio: {audio_path}", file=sys.stderr)
+        if acestep_path:
+            print(f"ACE-Step audio: {acestep_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":

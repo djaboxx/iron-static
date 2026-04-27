@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 vela_vocalist.py — ACE-Step API wrapper for VELA vocal generation.
 
@@ -161,19 +162,31 @@ def _poll_task(task_id: str, label: str) -> list | None:
 def _download_audio(src: str, dest: Path) -> bool:
     """Copy a generated audio file from ACE-Step server to dest.
 
-    ACE-Step returns a local absolute path in the 'file' field. Since the
-    server runs on the same machine, copy directly rather than via HTTP.
-    Falls back to HTTP download via /v1/audio if the local path doesn't exist.
+    ACE-Step returns 'file' as a relative URL: /v1/audio?path=<url-encoded-local-path>
+    Extract and decode the local path, then copy directly with shutil.
+    Falls back to HTTP download only if the local path cannot be resolved.
     """
     import shutil
     dest.parent.mkdir(parents=True, exist_ok=True)
-    src_path = Path(src)
-    if src_path.is_file():
-        shutil.copy2(src_path, dest)
+
+    # Extract local path from /v1/audio?path=<url-encoded-path>
+    local_path: Path | None = None
+    if "/v1/audio" in src:
+        parsed = urllib.parse.urlparse(src if src.startswith("http") else f"http://x{src}")
+        qs = urllib.parse.parse_qs(parsed.query)
+        raw = qs.get("path", [None])[0]
+        if raw:
+            local_path = Path(urllib.parse.unquote(raw))
+    elif src and not src.startswith("http"):
+        local_path = Path(src)
+
+    if local_path and local_path.is_file():
+        shutil.copy2(local_path, dest)
         log.info("  Saved: %s", dest)
         return True
-    # Fallback: serve via /v1/audio endpoint
-    url = src if src.startswith("http") else f"{ACESTEP_BASE}/v1/audio?path={urllib.parse.quote(src)}"
+
+    # Fallback: HTTP download
+    url = src if src.startswith("http") else f"{ACESTEP_BASE}{src}"
     try:
         urllib.request.urlretrieve(url, str(dest))
         log.info("  Saved: %s", dest)
@@ -285,6 +298,7 @@ def cmd_render(args) -> None:
         # Download outputs — task is a list of result items, each with a 'file' key
         safe_label = label.replace(" ", "_").replace("/", "-")
         results = task  # task is already the parsed list from _poll_task
+        saved_files: list[Path] = []
         for i, item in enumerate(results):
             audio_path = item.get("file") or item.get("audio_url") or item.get("path")
             if not audio_path:
@@ -292,29 +306,40 @@ def cmd_render(args) -> None:
                 continue
             suffix = f"_{i+1}" if len(results) > 1 else ""
             dest = out_dir / f"{safe_label}_vela{suffix}.wav"
-            _download_audio(audio_path, dest)
+            if _download_audio(audio_path, dest):
+                saved_files.append(dest)
 
-        # Optional: extract clean vocal stem
-        if args.extract_stems and results:
-            first_path = results[0].get("file") or results[0].get("path")
-            if first_path:
-                log.info("Extracting vocal stem for %s...", label)
+        # Extract vocal stem from each saved file
+        do_extract = getattr(args, "vocals_only", False) or getattr(args, "extract_stems", False)
+        if do_extract and saved_files:
+            for src_file in saved_files:
+                log.info("Extracting vocal stem from %s...", src_file.name)
                 extract_payload = {
                     "task_type": "extract",
-                    "src_audio_path": first_path,
+                    "track_name": "vocals",
+                    "src_audio_path": str(src_file),
                     "prompt": prompt,
                     "audio_format": "wav",
+                    "audio_duration": duration,
                 }
                 ex_result = _post_json(f"{ACESTEP_BASE}/release_task", extract_payload)
-                if ex_result.get("code") == 200:
-                    ex_task_id = ex_result["data"]["task_id"]
-                    ex_task = _poll_task(ex_task_id, f"{label}_stem")
-                    if ex_task:
-                        for j, ex_item in enumerate(ex_task):
-                            ex_path = ex_item.get("file") or ex_item.get("path")
-                            if ex_path:
-                                dest = out_dir / f"{safe_label}_vela_stem.wav"
-                                _download_audio(ex_path, dest)
+                if ex_result.get("code") != 200:
+                    log.error("  Stem extract submission failed: %s", ex_result.get("error"))
+                    continue
+                ex_task_id = ex_result["data"]["task_id"]
+                ex_task = _poll_task(ex_task_id, f"{src_file.stem}_vocal")
+                if not ex_task:
+                    continue
+                ex_path = ex_task[0].get("file") or ex_task[0].get("path")
+                if not ex_path:
+                    continue
+                if getattr(args, "vocals_only", False):
+                    # Replace the full mix with the vocal stem in-place
+                    stem_dest = src_file
+                    log.info("  Replacing with vocal stem: %s", stem_dest.name)
+                else:
+                    stem_dest = src_file.with_name(src_file.stem + "_vocal_stem.wav")
+                _download_audio(ex_path, stem_dest)
 
     log.info("Done. Vocals in: %s", out_dir)
 
@@ -341,7 +366,8 @@ def main():
     p_render.add_argument("--phrases-file", help="JSON array of {label, lyrics} objects")
     p_render.add_argument("--duration", type=float, default=30.0, help="Target audio duration in seconds (default: 30)")
     p_render.add_argument("--batch-size", type=int, default=3, help="Variations to generate per phrase (default: 3)")
-    p_render.add_argument("--extract-stems", action="store_true", help="Also extract clean vocal stem via ACE-Step extract task")
+    p_render.add_argument("--vocals-only", action="store_true", help="Extract vocal stem and replace full mix (recommended for LoRA training)")
+    p_render.add_argument("--extract-stems", action="store_true", help="Also save clean vocal stem alongside full mix")
 
     args = parser.parse_args()
     dispatch = {"health": cmd_health, "status": cmd_status, "render": cmd_render}

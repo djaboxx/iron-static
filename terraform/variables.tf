@@ -40,3 +40,24 @@ variable "instagram_user_id" {
   sensitive   = true
   default     = ""
 }
+
+variable "youtube_client_id" {
+  description = "YouTube OAuth 2.0 client ID. From Google Cloud Console OAuth 2.0 Desktop client. Generate token with: python scripts/generate_youtube_token.py"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "youtube_client_secret" {
+  description = "YouTube OAuth 2.0 client secret. Paired with youtube_client_id."
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "youtube_refresh_token" {
+  description = "YouTube OAuth 2.0 refresh token. Does not expire unless revoked. Obtained by running python scripts/generate_youtube_token.py."
+  type        = string
+  sensitive   = true
+  default     = ""
+}

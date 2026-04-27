@@ -1,0 +1,123 @@
+name: Social Post
+
+# Post a single piece of content to one or more social platforms.
+# Used by The Community Manager and The Publicist for standalone social posts
+# that aren't part of a full track release — session notes, movement content,
+# Patreon updates, thread posts.
+
+on:
+  workflow_dispatch:
+    inputs:
+      content_file:
+        description: 'Path to content file in outputs/social/ (e.g. movement_post_crediting-ai.md)'
+        required: true
+      platforms:
+        description: 'Comma-separated: instagram,tiktok,patreon,soundcloud'
+        required: true
+        default: 'instagram,patreon'
+      patreon_tier:
+        description: 'Patreon visibility tier'
+        required: false
+        default: 'patron'
+        type: choice
+        options:
+          - public
+          - patron
+          - static
+          - in-the-machine
+      image_file:
+        description: 'Optional image path in outputs/social/ for platforms that need one'
+        required: false
+        default: ''
+      video_file:
+        description: 'Optional video path in outputs/social/ for Reels/TikTok'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run — validate content and show what would post'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: read
+
+jobs:
+
+  post-instagram:
+    name: Post to Instagram
+    if: contains(inputs.platforms, 'instagram') && inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet requests
+      - name: Post to Instagram
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_ACCOUNT_ID: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+        run: |
+          python3 scripts/post_instagram.py \
+            --content "${{ inputs.content_file }}" \
+            ${{ inputs.video_file != '' && format('--video "{0}"', inputs.video_file) || '' }} \
+            ${{ inputs.image_file != '' && format('--image "{0}"', inputs.image_file) || '' }}
+
+  post-tiktok:
+    name: Post to TikTok
+    if: contains(inputs.platforms, 'tiktok') && inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet requests
+      - name: Post to TikTok
+        env:
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+        run: |
+          python3 scripts/post_tiktok.py \
+            --content "${{ inputs.content_file }}" \
+            ${{ inputs.video_file != '' && format('--video "{0}"', inputs.video_file) || '' }}
+
+  post-patreon:
+    name: Post to Patreon
+    if: contains(inputs.platforms, 'patreon') && inputs.dry_run == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet requests
+      - name: Post to Patreon
+        env:
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+        run: |
+          python3 scripts/post_patreon.py \
+            --content "${{ inputs.content_file }}" \
+            --tier "${{ inputs.patreon_tier }}" \
+            ${{ inputs.image_file != '' && format('--attachment "{0}"', inputs.image_file) || '' }}
+
+  dry-run-preview:
+    name: Dry run preview
+    if: inputs.dry_run == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preview post content
+        run: |
+          echo "=== DRY RUN ==="
+          echo "Content file: ${{ inputs.content_file }}"
+          echo "Platforms: ${{ inputs.platforms }}"
+          echo "Patreon tier: ${{ inputs.patreon_tier }}"
+          echo ""
+          echo "=== CONTENT PREVIEW ==="
+          cat "${{ inputs.content_file }}" || echo "File not found: ${{ inputs.content_file }}"

@@ -1,0 +1,123 @@
+name: Dispatch Workers
+
+# Parallel worker dispatcher for IRON STATIC.
+# Triggers multiple workflows simultaneously and waits for all to complete.
+# Use this when you need a full pipeline run (brainstorm + forge + publish)
+# or when you want to run several independent jobs at once.
+#
+# Self-hosted runner setup (M3 Mac):
+#   GitHub Settings → Actions → Runners → New self-hosted runner
+#   Tag as: self-hosted, macos, arm64, m3max
+#   Use runs-on: [self-hosted, m3max] for ACE-Step / hardware-dependent jobs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pipeline:
+        description: 'Pipeline to run'
+        required: true
+        type: choice
+        options:
+          - full-session       # brainstorm + forge-audio + session-summarizer
+          - release            # publish-release (requires song_slug)
+          - weekly-content     # brainstorm + feed-digest + social post
+          - repo-maintenance   # repo-health + gcs-sync
+          - custom             # manually specify workflows below
+      song_slug:
+        description: 'Song slug — required for release pipeline'
+        required: false
+        default: ''
+      custom_workflows:
+        description: 'Comma-separated workflow filenames for custom pipeline'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run — show what would run without dispatching'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Dispatch orchestrator
+  # ─────────────────────────────────────────────────────────────────────────
+  dispatch:
+    name: Dispatch pipeline — ${{ inputs.pipeline }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve pipeline
+        id: resolve
+        run: |
+          case "${{ inputs.pipeline }}" in
+            full-session)
+              echo "workflows=weekly-brainstorm.yml,forge-audio.yml,session-summarizer.yml" >> "$GITHUB_OUTPUT"
+              ;;
+            release)
+              if [ -z "${{ inputs.song_slug }}" ]; then
+                echo "ERROR: song_slug is required for release pipeline"
+                exit 1
+              fi
+              echo "workflows=publish-release.yml" >> "$GITHUB_OUTPUT"
+              ;;
+            weekly-content)
+              echo "workflows=feed-digest.yml,weekly-brainstorm.yml,social-post.yml" >> "$GITHUB_OUTPUT"
+              ;;
+            repo-maintenance)
+              echo "workflows=repo-health.yml,gcs-sync.yml" >> "$GITHUB_OUTPUT"
+              ;;
+            custom)
+              echo "workflows=${{ inputs.custom_workflows }}" >> "$GITHUB_OUTPUT"
+              ;;
+          esac
+
+      - name: Show dispatch plan
+        run: |
+          echo "Pipeline: ${{ inputs.pipeline }}"
+          echo "Workflows to dispatch: ${{ steps.resolve.outputs.workflows }}"
+          echo "Song slug: ${{ inputs.song_slug }}"
+          echo "Dry run: ${{ inputs.dry_run }}"
+
+      - name: Dispatch workflows (parallel)
+        if: inputs.dry_run == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -ra WFS <<< "${{ steps.resolve.outputs.workflows }}"
+          for wf in "${WFS[@]}"; do
+            wf=$(echo "$wf" | tr -d ' ')
+            echo "Dispatching: $wf"
+            EXTRA_FIELDS=""
+            if [ "$wf" = "publish-release.yml" ] && [ -n "${{ inputs.song_slug }}" ]; then
+              EXTRA_FIELDS="--field song_slug=${{ inputs.song_slug }}"
+            fi
+            gh workflow run "$wf" --repo "${{ github.repository }}" $EXTRA_FIELDS || \
+              echo "WARNING: Failed to dispatch $wf (may not exist yet)"
+          done
+
+      - name: Wait and report
+        if: inputs.dry_run == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "All workflows dispatched. Check status at:"
+          echo "https://github.com/${{ github.repository }}/actions"
+          sleep 5
+          IFS=',' read -ra WFS <<< "${{ steps.resolve.outputs.workflows }}"
+          for wf in "${WFS[@]}"; do
+            wf=$(echo "$wf" | tr -d ' ')
+            echo ""
+            echo "=== $wf ==="
+            gh run list --workflow="$wf" --limit=1 --repo "${{ github.repository }}" || true
+          done

@@ -1,0 +1,92 @@
+name: Refresh Platform Tokens
+
+on:
+  # Run on the 1st of every month at 09:00 UTC
+  schedule:
+    - cron: "0 9 1 * *"
+
+  # Allow manual trigger with platform selection
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform to refresh tokens for"
+        required: false
+        default: "all"
+        type: choice
+        options:
+          - all
+          - instagram
+          - tiktok
+      dry_run:
+        description: "Dry run (print actions without making API calls)"
+        required: false
+        default: false
+        type: boolean
+      update_secrets:
+        description: "Auto-update GitHub Secrets via gh CLI after refresh"
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  refresh-tokens:
+    name: Refresh ${{ inputs.platform || 'all' }} tokens
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Required for `gh secret set` when --update-secrets is true
+      secrets: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Refresh tokens
+        env:
+          # Instagram
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          # TikTok
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          # gh CLI auth (for --update-secrets)
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PLATFORM="${{ inputs.platform || 'all' }}"
+          DRY_RUN="${{ inputs.dry_run || 'false' }}"
+          UPDATE_SECRETS="${{ inputs.update_secrets != 'false' && 'true' || 'false' }}"
+
+          ARGS="--platform $PLATFORM"
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "$UPDATE_SECRETS" = "true" ] && [ "$DRY_RUN" != "true" ]; then
+            ARGS="$ARGS --update-secrets"
+          fi
+
+          echo "Running: python scripts/refresh_tokens.py $ARGS"
+          python scripts/refresh_tokens.py $ARGS
+
+      - name: Summarize
+        if: always()
+        run: |
+          echo "## Token Refresh Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Platform**: ${{ inputs.platform || 'all (scheduled)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Dry Run**: ${{ inputs.dry_run || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Update Secrets**: ${{ inputs.update_secrets != 'false' && 'true' || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Triggered by**: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "If tokens were refreshed without \`--update-secrets\`, copy the printed values" >> "$GITHUB_STEP_SUMMARY"
+          echo "from the job log and update GitHub Secrets manually." >> "$GITHUB_STEP_SUMMARY"

@@ -80,7 +80,7 @@ When writing music, thinking about arrangements, designing sounds, or crafting M
 
 ### Arturia Pigments (software)
 - **Role**: Primary software polyphonic synthesizer — pads, leads, evolving textures (VST3/AU, v7.0)
-- **Key features**: 4 oscillator engines (Analog, Wavetable, Sample, Harmonic/Modal), 2 filter slots (multiple topologies), Macros M1–M4, MPE, internal 32-step sequencer
+- **Key features**: 4 oscillator engines (Analog, Wavetable, Sample, Harmonic/Modal), 2 filter slots (multiple topo         logies), Macros M1–M4, MPE, internal 32-step sequencer
 - **Manual**: `instruments/arturia-pigments/manuals/`
 - **Presets**: `instruments/arturia-pigments/presets/` (`.pgtx` format)
 - **MIDI CC**: Fully flexible MIDI Learn per preset. Fixed: CC7=Master Vol, CC1=Mod Wheel, CC64=Sustain. Recommended: CC20–23 for Macros M1–M4, CC74=F1 Cutoff, CC71=F1 Res, CC75=F2 Cutoff. See `database/midi_params/arturia-pigments.json`.
@@ -146,6 +146,7 @@ python scripts/manage_songs.py release --slug my-song   # when done
 | `slice-and-rack` | `.github/skills/slice-and-rack/SKILL.md` | When chopping an audio file into pads and building an Ableton Drum Rack .adg preset |
 | `generate-image` | `.github/skills/generate-image/SKILL.md` | When generating cover art or promo images for any song |
 | `gemini-forge` | `.github/skills/gemini-forge/SKILL.md` | When generating audio specs or audio files via Gemini + Lyria for the active song |
+| `platform-publish` | `.github/skills/platform-publish/SKILL.md` | When publishing a release or social content to Bandcamp, SoundCloud, YouTube, Patreon, Instagram, TikTok, or Spotify |
 
 **BLOCKING REQUIREMENT**: Always load the relevant SKILL.md before executing skill-specific work.
 
@@ -164,6 +165,7 @@ Five specialized personas live in `.github/agents/`. Switch to them in VS Code's
 | `The Live Engineer` | `.github/agents/the-live-engineer.agent.md` | Session architecture, device chains, M4L, in-box routing, hardware substitution | full + terminal | Sound Designer, Arranger, Critic |
 | `The Alchemist` | `.github/agents/the-alchemist.agent.md` | Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels | full + terminal | Critic, Sound Designer, Live Engineer, Theorist |
 | `The Publicist` | `.github/agents/the-publicist.agent.md` | Promo content generation and social publishing — audio teasers, cover art, captions, YouTube/SoundCloud upload. Delegates video rendering to The Video Director. | full + terminal | Critic, Alchemist, Arranger, Video Director |
+| `The Community Manager` | `.github/agents/the-community-manager.agent.md` | Movement growth, social content strategy, and platform publishing — writes content that builds the human-machine creative partnership movement. Owns social captions, Patreon posts, platform descriptions, press pitches. | full + terminal | Visual Artist, Video Director, Publicist, Critic, Alchemist |
 | `The Mix Engineer` | `.github/agents/the-mix-engineer.agent.md` | Full production mix engineering — balance, EQ, compression, effects chains, master bus. Takes stems and session to a finished mix | full + terminal | Critic, Sound Designer, Arranger, Live Engineer |
 | `The Visual Artist` | `.github/agents/the-visual-artist.agent.md` | Cover art and promo image generation — synthesizes song context, brainstorm language, and band aesthetic into Imagen 3 prompts. Iterates until images carry the weight of the music. Upstream of The Publicist. | read + execute | Critic, Publicist, Alchemist, Arranger |
 | `The Video Director` | `.github/agents/the-video-director.agent.md` | Waveform visualizer video rendering — dark, high-contrast, machine-aesthetic MP4s in landscape/square/portrait formats. Takes audio + cover art and produces platform-ready video. Upstream of The Publicist. | read + execute | Critic, Publicist, Visual Artist, Alchemist |
@@ -194,7 +196,7 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `session-close` | `/session-close` | The Critic | Audits git diff for session work, evaluates everything produced, fires `session-summarizer` GitHub Action to commit notes to `knowledge/sessions/` |
 | `theory-first` | `/theory-first [focus]` | The Theorist | Full Theorist → Arranger → Sound Designer chain from a harmonic starting point. `focus` = what to analyze (e.g. "drop progression", "rhythmic motif") |
 | `new-patch` | `/new-patch [instrument]` | The Sound Designer | Designs a patch for the named instrument, **pushes to hardware or Ableton first** (not file-only), then hands off to The Critic. `instrument` = slug (take5, rev2, minibrute2s, pigments) |
-| `forge-audio` | `/forge-audio [element]` | The Alchemist | Generates a structured audio spec for the named element (kick loop, bass texture, pad, etc.) using active song context. Optionally calls Lyria. `element` = target description |
+| `forge-audio` | `/forge-audio [element]` | The Alchemist | Generates a structured audio spec for the named element (kick loop, bass texture, pad, etc.) using active song context. Optionally calls Lyria (`--generate`, paid) or local ACE-Step (`--acestep`, free). `element` = target description |
 | `build-session` | `/build-session` | The Live Engineer | Reads active brainstorm Section 6, generates the Ableton session from the blueprint, hands off to Sound Designer to dial in sounds. Fully automagic. |
 | `learn-packs` | `/learn-packs [pack_dir]` | Arc | Scans local Ableton Pack `.mid`/`.alc` files, builds statistical pattern profiles, commits to repo, and surfaces the best matches for the active song. `pack_dir` = optional path to a specific pack folder. |
 | `update-feeds` | `/update-feeds` | The Alchemist | Polls all RSS/Atom feeds, synthesizes a Gemini digest, and surfaces the 3–5 most relevant items for the active song. Flags brainstorm seed candidates from the Machine Perspective section. |
@@ -204,6 +206,8 @@ Four slash-command prompts live in `.github/prompts/`. Invoke them by typing the
 | `compact-learnings` | `/compact-learnings` | Arc | Distill all `*-learnings.md` files into a single topic-organized `knowledge/sessions/learnings-digest.md` via Gemini. Run at end of any multi-checkpoint session so the next session starts with a compact reference. |
 | `show-shortcuts` | `/show-shortcuts` | Arc | Output the complete keyboard shortcut reference for this workspace — all chord prefixes, agent bindings, and VS Code overrides. |
 | `git-commit` | `/git-commit` | Arc | Stage and commit all pending changes — reads the diff, generates a conventional commit message, waits for Dave's approval, then commits. Does not push without confirmation. |
+| `release-track` | `/release-track` | The Publicist | Full release pipeline — asset checklist, generate copy via Gemini, trigger publish-release.yml for selected platforms, hand off to Critic for approval. |
+| `movement-post` | `/movement-post [topic]` | The Community Manager | Generate movement-building social/Patreon/blog content for a given topic. Reads manifesto + movement-plan, drafts per-platform copy, saves to outputs/social/. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering

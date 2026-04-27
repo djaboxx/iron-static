@@ -4,13 +4,6 @@
  * Starts an HTTP server on port 9880 (configurable).
  * Python scripts POST here to push notifications and events into VS Code.
  *
- * Also registers an LM Tool — `ironStatic_getEvents` — so that Copilot
- * (Arc) can pull queued events directly without any user action required.
- *
- * Flow:
- *   Python script → POST /event → event queue (in memory)
- *   Arc           → calls ironStatic_getEvents tool → queue drains → Arc sees events
- *
  * API:
  *   GET  /health              → 200 { ok: true, port }
  *   POST /notify              → VS Code notification (info / warn / error)
@@ -22,7 +15,9 @@
 
 import * as vscode from "vscode";
 import { BridgeServer } from "./server";
-import { drainEvents, peekEvents } from "./eventQueue";
+import { peekEvents } from "./eventQueue";
+import { registerChatParticipants } from "./chatParticipants";
+import { registerLmTools } from "./lmTools";
 
 let server: BridgeServer | undefined;
 let statusBarItem: vscode.StatusBarItem;
@@ -53,6 +48,12 @@ export function activate(context: vscode.ExtensionContext): void {
     statusBarItem.text = "$(warning) IS Bridge offline";
   });
 
+  // Chat participants — one per IRON STATIC agent persona
+  registerChatParticipants(context);
+
+  // Language model tools — automatically invoked by agent mode
+  registerLmTools(context);
+
   // Commands
   context.subscriptions.push(
     vscode.commands.registerCommand("ironStatic.showBridgeStatus", () => {
@@ -65,41 +66,31 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand("ironStatic.stopBridge", () => {
       server?.stop();
       statusBarItem.text = "$(circle-slash) IS Bridge stopped";
+      statusBarItem.backgroundColor = undefined;
+    }),
+    vscode.commands.registerCommand("ironStatic.startBridge", async () => {
+      if (server?.running) {
+        vscode.window.showInformationMessage("IRON STATIC Bridge is already running.");
+        return;
+      }
+      server = new BridgeServer(port, statusBarItem);
+      try {
+        await server.start();
+        statusBarItem.text = "$(radio-tower) IS :9880";
+        statusBarItem.backgroundColor = undefined;
+        statusBarItem.tooltip = `IRON STATIC Bridge — listening on port ${port}`;
+        vscode.window.showInformationMessage(`IRON STATIC Bridge started on port ${port}.`);
+      } catch (err) {
+        vscode.window.showErrorMessage(
+          `IRON STATIC Bridge failed to start on port ${port}: ${(err as Error).message}`
+        );
+        statusBarItem.text = "$(warning) IS Bridge offline";
+      }
     })
   );
 
-  // Register the LM Tool so Copilot (Arc) can pull queued events
-  // Requires VS Code 1.93+ — guard so older versions don't crash
-  if (typeof vscode.lm !== "undefined" && "registerTool" in vscode.lm) {
-    const tool = (vscode.lm as typeof vscode.lm & {
-      registerTool(name: string, impl: vscode.LanguageModelTool<void>): vscode.Disposable;
-    }).registerTool("ironStatic_getEvents", {
-      prepareInvocation(_options, _token) {
-        const count = peekEvents().length;
-        return {
-          invocationMessage:
-            count > 0
-              ? `Draining ${count} IRON STATIC event(s) from bridge queue`
-              : "No pending IRON STATIC events",
-        };
-      },
-      invoke(_options, _token) {
-        const events = drainEvents();
-        // Update status bar to reflect cleared queue
-        statusBarItem.text = "$(radio-tower) IS :9880";
-        statusBarItem.backgroundColor = undefined;
-        return new vscode.LanguageModelToolResult([
-          new vscode.LanguageModelTextPart(
-            events.length === 0
-              ? "No events queued."
-              : JSON.stringify(events, null, 2)
-          ),
-        ]);
-      },
-    });
-    context.subscriptions.push(tool);
-  }
 }
+
 
 export function deactivate(): void {
   server?.stop();
