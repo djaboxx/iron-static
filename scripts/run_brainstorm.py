@@ -57,7 +57,7 @@ BRAINSTORM_PROMPT_TEMPLATE = """\
 {manifesto_block}
 {song_block}
 {reference_block}
-{feed_block}{critique_block}
+{feed_block}{seed_block}{critique_block}
 Generate a weekly creative brainstorm document with exactly these six sections.
 
 CRITICAL RULES:
@@ -301,8 +301,32 @@ def write_reference_tracks_sidecar(out_path: Path, tracks: list[dict], song: dic
     log.info("Wrote reference tracks sidecar: %s  (%d tracks)", json_path.relative_to(REPO_ROOT), len(tracks))
 
 
+def build_seed_block(seed_text: str | None) -> str:
+    """Inject a vocal/recording transcription as a creative seed for the brainstorm."""
+    if not seed_text or not seed_text.strip():
+        return ""
+    log.info("Seeding brainstorm from transcription (%d chars)", len(seed_text))
+    return (
+        "[Creative Seed — Vocal Recording Transcription]\n"
+        "The following text was transcribed from a vocal recording made during the session.\n"
+        "Treat it as raw creative material: a phrase, a fragment, a starting point.\n"
+        "Let it influence the song concept, the vocal role, the energy, or the arrangement.\n"
+        "Do not quote it verbatim in the brainstorm — transform it.\n\n"
+        + seed_text.strip()
+        + "\n\n"
+    )
+
+def build_seed_audio_instruction() -> str:
+    """Return the instruction block that accompanies an uploaded audio seed file."""
+    return (
+        "[Creative Seed \u2014 Vocal Recording (Audio)]\n"
+        "An audio recording from the current session is attached above.\n"
+        "Listen to it as a full creative partner would: the words, the fragments, the energy, the feel.\n"
+        "Use it as raw material \u2014 let it shape the song concept, the vocal role, the arrangement direction.\n"
+        "Do not describe or transcribe the recording. Transform what you hear into the brainstorm.\n\n"
+    )
+
 def build_critique_block(critique_path: Path | None) -> str:
-    """Inject a critique document as revision context for the brainstorm."""
     if not critique_path or not critique_path.exists():
         return ""
     log.info("Injecting critique for revision: %s", critique_path.name)
@@ -318,24 +342,47 @@ def build_critique_block(critique_path: Path | None) -> str:
     )
 
 
-def generate_brainstorm(today: str, critique_path: Path | None = None) -> str:
-    """Call Gemini and return the brainstorm document as a Markdown string."""
+def generate_brainstorm(
+    today: str,
+    critique_path: Path | None = None,
+    seed_text: str | None = None,
+    seed_audio_path: Path | None = None,
+) -> str:
+    """Call Gemini and return the brainstorm document as a Markdown string.
+
+    When seed_audio_path is provided, the audio file is uploaded to the Gemini
+    Files API and passed alongside the prompt — no transcription required.
+    When seed_text is provided instead, it is injected as a text context block.
+    """
     # Import here so --no-llm doesn't require google-genai installed
     sys.path.insert(0, str(REPO_ROOT / "scripts"))
-    from llm_utils import complete  # noqa: PLC0415
 
     song = get_active_song()
+
+    # Build seed block: audio instruction + optional text transcription (or text only)
+    if seed_audio_path and seed_audio_path.exists():
+        seed_block = build_seed_audio_instruction() + build_seed_block(seed_text)
+    else:
+        seed_block = build_seed_block(seed_text)
+
     prompt = BRAINSTORM_PROMPT_TEMPLATE.format(
         system=SYSTEM_PREAMBLE,
         manifesto_block=build_manifesto_block(),
         song_block=build_song_block(song),
         reference_block=build_reference_block(),
         feed_block=build_feed_block(),
+        seed_block=seed_block,
         critique_block=build_critique_block(critique_path),
     )
 
-    log.info("Calling Gemini for brainstorm (model_tier=pro)…")
-    content = complete(prompt, model_tier="pro")
+    log.info("Calling Gemini for brainstorm (model_tier=pro)\u2026")
+    if seed_audio_path and seed_audio_path.exists():
+        from llm_utils import complete_with_audio  # noqa: PLC0415
+        log.info("Audio seed: %s", seed_audio_path.name)
+        content = complete_with_audio(prompt, str(seed_audio_path), model_tier="pro")
+    else:
+        from llm_utils import complete  # noqa: PLC0415
+        content = complete(prompt, model_tier="pro")
 
     header = f"# IRON STATIC — Weekly Brainstorm ({today})\n\n"
     if song:
@@ -359,6 +406,18 @@ def main() -> None:
     parser.add_argument("--date", default=None, help="Override date string (YYYY-MM-DD)")
     parser.add_argument("--force", action="store_true", help="Overwrite existing brainstorm for today")
     parser.add_argument(
+        "--seed",
+        default=None,
+        metavar="TEXT",
+        help="Raw seed text (e.g. a vocal transcription) to inject as creative material",
+    )
+    parser.add_argument(
+        "--seed-audio",
+        default=None,
+        metavar="FILE",
+        help="Path to an audio file to upload as a creative seed (sent directly to Gemini, no transcription)",
+    )
+    parser.add_argument(
         "--critique",
         default=None,
         metavar="PATH",
@@ -369,6 +428,7 @@ def main() -> None:
     today = args.date or date.today().isoformat()
     out_path = OUT_DIR / f"{today}.md"
     critique_path = Path(args.critique).resolve() if args.critique else None
+    seed_audio_path = Path(args.seed_audio).resolve() if args.seed_audio else None
 
     if out_path.exists() and not args.force:
         log.warning("Output already exists for %s — use --force to overwrite: %s", today, out_path)
@@ -382,7 +442,12 @@ def main() -> None:
         log.info("--no-llm: writing stub document")
         content = generate_brainstorm_no_llm(today)
     else:
-        content = generate_brainstorm(today, critique_path=critique_path)
+        content = generate_brainstorm(
+            today,
+            critique_path=critique_path,
+            seed_text=args.seed,
+            seed_audio_path=seed_audio_path,
+        )
 
     out_path.write_text(content)
     log.info("Wrote %s", out_path.relative_to(REPO_ROOT))

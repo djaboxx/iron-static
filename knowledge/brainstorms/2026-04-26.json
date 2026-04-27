@@ -1,0 +1,31 @@
+{
+  "date": "2026-04-26",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The aggressive, plucky, and relentlessly driving monophonic arp is the exact energy target for our 'Query Arp'.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Hand That Feeds",
+      "album": "With Teeth",
+      "year": 2005,
+      "reason": "Its driving 4/4 rock structure built on a simple, pulsing synth bass provides a strong model for our verse/chorus dynamic.",
+      "search_terms": "nine inch nails the hand that feeds midi"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "reason": "This track is a masterclass in building a heavy, mid-tempo groove with complex, layered percussion and immense sonic weight.",
+      "search_terms": "modeselektor the black block midi"
+    }
+  ]
+}

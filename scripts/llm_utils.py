@@ -125,6 +125,58 @@ def complete(
     return response.text
 
 
+def complete_with_audio(
+    prompt: str,
+    audio_path: str,
+    model_tier: str = "pro",
+) -> str:
+    """Send a prompt to Gemini with an uploaded audio file as additional context.
+
+    Uploads the audio file via the Gemini Files API, runs the prompt alongside it,
+    then deletes the uploaded file.  Uses 'pro' tier by default since audio analysis
+    benefits from the larger context window.
+
+    Args:
+        prompt: The text prompt to send alongside the audio.
+        audio_path: Absolute path to the audio file (wav, mp3, aiff, flac, ogg).
+        model_tier: "fast" or "pro" (default: "pro").
+
+    Returns:
+        Response text from Gemini.
+    """
+    from google import genai
+
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise EnvironmentError(
+            "GEMINI_API_KEY not set — required for automated workflows."
+        )
+
+    model_name = _MODEL_MAP.get(model_tier)
+    if not model_name:
+        raise ValueError(f"Unknown model_tier '{model_tier}'. Expected one of: {list(_MODEL_MAP)}")
+
+    client = genai.Client(api_key=api_key)
+
+    log.info("Uploading audio to Gemini Files API: %s", audio_path)
+    audio_file = client.files.upload(file=audio_path)
+    log.info("File uploaded: %s", audio_file.name)
+
+    log.info("Calling Gemini model=%s with audio seed", model_name)
+    response = client.models.generate_content(
+        model=model_name,
+        contents=[audio_file, prompt],
+    )
+
+    try:
+        client.files.delete(name=audio_file.name)
+        log.info("Uploaded file deleted from Gemini Files API.")
+    except Exception as exc:
+        log.warning("Could not delete uploaded file: %s", exc)
+
+    return response.text
+
+
 def _prepend_context(prompt: str, context_files: list[str]) -> str:
     """Prepend file contents as labeled context blocks before the main prompt."""
     blocks = []

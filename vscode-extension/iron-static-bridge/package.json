@@ -106,8 +106,13 @@
         "name": "the-ace-step",
         "fullName": "The ACE-Step",
         "description": "Local ACE-Step audio generation \u2014 text-to-music, VELA vocal rendering, LoRA training, and music repaint for IRON STATIC. Free. Local. M3 Max.",
-        "isSticky": true
-      }
+        "isSticky": true      },
+      {
+        "id": "iron-static.the-writer",
+        "name": "the-writer",
+        "fullName": "The Writer",
+        "description": "Prose, lyrics, bios, press copy, and conceptual writing for IRON STATIC — grounded in the manifesto, calibrated to the active song. Fields the prompt, writes the text using GPT, hands back to Arc for action.",
+        "isSticky": true      }
     ],
     "languageModelTools": [
       {

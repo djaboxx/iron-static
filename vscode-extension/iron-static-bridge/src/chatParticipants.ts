@@ -19,6 +19,8 @@ interface AgentDef {
   fullName: string;
   agentFile: string;
   icon: string;
+  /** Optional preferred model family — overrides the default claude-sonnet selection */
+  preferredModelFamily?: string;
 }
 
 const AGENTS: AgentDef[] = [
@@ -112,6 +114,15 @@ const AGENTS: AgentDef[] = [
     fullName: "The ACE-Step",
     agentFile: ".github/agents/the-ace-step.agent.md",
     icon: "music",
+  },
+  {
+    id: "iron-static.the-writer",
+    name: "the-writer",
+    fullName: "The Writer",
+    agentFile: ".github/agents/the-writer.agent.md",
+    icon: "edit",
+    // GPT models are preferred for prose and lyric generation
+    preferredModelFamily: "gpt-4.1",
   },
 ];
 
@@ -231,11 +242,26 @@ export function registerChatParticipants(context: vscode.ExtensionContext): void
         songContext || "No active song.",
       ].join("\n");
 
-      // Select model — prefer claude, fall back to any copilot model
-      let models = await vscode.lm.selectChatModels({
-        vendor: "copilot",
-        family: "claude-sonnet-4-5",
-      });
+      // Select model — Writer prefers GPT for prose; all others prefer Claude
+      let models = agent.preferredModelFamily
+        ? await vscode.lm.selectChatModels({
+            vendor: "copilot",
+            family: agent.preferredModelFamily,
+          })
+        : [];
+      // Fallback chain: gpt-4o → claude-sonnet → any copilot model
+      if (!models.length && agent.preferredModelFamily) {
+        models = await vscode.lm.selectChatModels({
+          vendor: "copilot",
+          family: "gpt-4o",
+        });
+      }
+      if (!models.length) {
+        models = await vscode.lm.selectChatModels({
+          vendor: "copilot",
+          family: "claude-sonnet-4-5",
+        });
+      }
       if (!models.length) {
         models = await vscode.lm.selectChatModels({ vendor: "copilot" });
       }

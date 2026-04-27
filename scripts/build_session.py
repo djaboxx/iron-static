@@ -530,7 +530,7 @@ def _clone_track(
     )
     xml = re.sub(
         r'(<UserName\s+Value=")[^"]*"',
-        r'\g<1>"',
+        rf'\g<1>{_escape_xml_attr(name)}"',
         xml,
         count=1,
     )

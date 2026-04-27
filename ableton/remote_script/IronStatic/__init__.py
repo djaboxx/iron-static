@@ -217,6 +217,7 @@ class IronStatic(ControlSurface):
                 "delete_device",
                 "load_preset",
                 "open_set",
+                "rename_track",
             }
 
             if cmd_type in MUTATING:
@@ -319,11 +320,19 @@ class IronStatic(ControlSurface):
             return {"playing": False}
         elif cmd_type == "open_set":
             return self._open_set(params["path"])
+        elif cmd_type == "rename_track":
+            return self._rename_track(params["track_index"], params["name"])
         raise ValueError("Unhandled mutating command: {}".format(cmd_type))
 
     def _open_set(self, path):
         self.application().open_file(path)
         return {"path": path}
+
+    def _rename_track(self, track_index, name):
+        track = self._resolve_track(track_index)
+        old_name = track.name
+        track.name = name
+        return {"track_index": track_index, "old_name": old_name, "new_name": name}
 
     def _batch_set_device_params(self, track_index, device_index, operations):
         """

@@ -101,7 +101,7 @@ def analyze(file_path: Path, prompt: str, model: str) -> str:
     client = genai.Client(api_key=api_key)
 
     log.info("Uploading %s to Gemini Files API…", file_path.name)
-    audio_file = client.files.upload(path=str(file_path))
+    audio_file = client.files.upload(file=str(file_path))
     log.info("File uploaded: %s", audio_file.name)
 
     log.info("Requesting analysis from %s…", model)
