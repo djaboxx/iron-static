@@ -147,3 +147,23 @@ device_xml = re.sub(
 **Why it matters**: `generate_als.py` = inject devices into EXISTING tracks in a base ALS. `build_session.py` = CREATE new tracks with custom names. Wrong tool wastes time — DRY RUN showed 0 matches all silently skipped.
 
 **Verify**: `EffectiveName` values in ALS are correct even when `ableton_push.py status` shows old session. Live may ask to save previous session on `open`. BPM in songs.json was 116 (old) — update to 108 to match brainstorm.
+
+---
+
+## 2026-04-27 — `create-track` auto-loads Pigments (default instrument template); must delete before `insert-device`
+
+**Context**: Created a new MIDI track via `create-track --name "Query Arp"`, then immediately tried `insert-device --device-name "Meld"`. Got error: "Device chains cannot have more than one instrument each."
+
+**What worked**: Always run `get-devices --track X` after `create-track`. Ableton's default MIDI track template may already have an instrument (in this session, Arturia Pigments was auto-populated). Delete it first: `delete-device --track X --device 0`, then insert the intended instrument.
+
+**Why it matters**: `create-track` does not create a blank track — it uses whatever Live's default template has loaded. Never assume a new track is empty.
+
+---
+
+## 2026-04-27 — `apply-preset` works on non-rack native devices with flat `parameters` key
+
+**Context**: Needed to batch-push 36 parameters to Meld (non-rack instrument) in one round-trip.
+
+**What worked**: `apply-preset --track X --device N --preset path/to/file.json` with JSON format `{"name": "...", "parameters": {"Param Name": value, ...}}`. No `chains` key needed for non-rack devices. All parameter names must match exactly the names returned by `get-params`.
+
+**Why it matters**: Confirmed the `apply-preset` command is not limited to rack devices — it works on any native device with a flat `parameters` map. Saves round-trip overhead vs individual `set-param` calls, and creates a named preset file for the audit trail.
