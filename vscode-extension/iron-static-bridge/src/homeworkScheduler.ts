@@ -94,14 +94,14 @@ function updateStatusBar(pendingCount: number): void {
   } else {
     statusBarItem.text = `$(warning) ${pendingCount} homework`;
     statusBarItem.tooltip = `${pendingCount} IRON STATIC prerequisite task${pendingCount === 1 ? "" : "s"} outstanding — click to review`;
-    statusBarItem.backgroundColor = new vscode.ThemeColor(
+    const hasHighPriority =
       pendingCount > 0 &&
-        loadHomework(
-          vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? ""
-        )?.items.filter((i) => !i.done && i.priority === "high").length
-        ? "statusBarItem.warningBackground"
-        : undefined
-    );
+      !!(loadHomework(
+        vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? ""
+      )?.items.filter((i) => !i.done && i.priority === "high").length);
+    statusBarItem.backgroundColor = hasHighPriority
+      ? new vscode.ThemeColor("statusBarItem.warningBackground")
+      : undefined;
   }
 }
 

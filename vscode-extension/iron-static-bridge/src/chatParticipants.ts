@@ -189,7 +189,7 @@ function loadAgentSystemPrompt(agentFile: string, workspaceRoot: string): string
 
 /** Build the prior conversation history for multi-turn context */
 function buildHistory(
-  history: readonly vscode.ChatRequestTurn[],
+  history: readonly (vscode.ChatRequestTurn | vscode.ChatResponseTurn)[],
   agentFullName: string
 ): vscode.LanguageModelChatMessage[] {
   const messages: vscode.LanguageModelChatMessage[] = [];

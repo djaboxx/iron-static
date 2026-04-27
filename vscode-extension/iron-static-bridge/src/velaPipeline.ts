@@ -564,7 +564,7 @@ export async function seedBrainstormFromTranscription(
   transcription: string,
   workspaceRoot: string
 ): Promise<void> {
-  const python = await findPython();
+  const python = await findPython(workspaceRoot);
   const scriptPath = path.join(workspaceRoot, "scripts", "run_brainstorm.py");
 
   if (!fs.existsSync(scriptPath)) {
