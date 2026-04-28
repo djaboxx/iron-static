@@ -81,36 +81,39 @@ ls outputs/social/ | grep [slug]
 
 ### Step 2: Render
 
-```bash
-# Standard render — all 3 formats with cover art
-python scripts/render_waveform_video.py \
-  --audio audio/generated/[slug]_teaser.mp3 \
-  --cover outputs/social/[slug]_cover_landscape.png \
-  --format landscape square portrait \
-  --output outputs/social/[slug]_visualizer
+Call `iron-static_renderWaveformVideo` directly — no Python scripts:
 
-# Landscape only (YouTube priority)
-python scripts/render_waveform_video.py \
-  --audio audio/generated/[slug]_teaser.mp3 \
-  --cover outputs/social/[slug]_cover_landscape.png \
-  --format landscape
+```json
+// Standard render — all 3 formats with cover art
+{
+  "tool": "iron-static_renderWaveformVideo",
+  "audio_path": "audio/generated/[slug]_teaser.mp3",
+  "cover_path": "outputs/social/[slug]_cover_landscape.png",
+  "formats": ["landscape", "square", "portrait"]
+}
 
-# Without cover art (waveform on solid black)
-python scripts/render_waveform_video.py \
-  --audio audio/generated/[slug]_teaser.mp3 \
-  --format landscape square portrait
+// Landscape only (YouTube priority)
+{
+  "tool": "iron-static_renderWaveformVideo",
+  "audio_path": "audio/generated/[slug]_teaser.mp3",
+  "cover_path": "outputs/social/[slug]_cover_landscape.png",
+  "formats": ["landscape"]
+}
 
-# Duration cap (social teaser)
-python scripts/render_waveform_video.py \
-  --audio audio/[slug].wav \
-  --format portrait \
-  --duration 30
+// Without cover art (waveform on solid black)
+{
+  "tool": "iron-static_renderWaveformVideo",
+  "audio_path": "audio/generated/[slug]_teaser.mp3",
+  "formats": ["landscape", "square", "portrait"]
+}
 
-# Dry run — print ffmpeg command without rendering
-python scripts/render_waveform_video.py \
-  --audio audio/generated/[slug]_teaser.mp3 \
-  --format landscape \
-  --dry-run
+// Duration cap (social teaser)
+{
+  "tool": "iron-static_renderWaveformVideo",
+  "audio_path": "audio/generated/[slug]_teaser.mp3",
+  "formats": ["portrait"],
+  "duration": 30
+}
 ```
 
 Outputs land in `outputs/social/`:
@@ -134,6 +137,58 @@ When satisfied, hand off to The Publicist with:
 - File paths for all rendered formats
 - Which platform gets which format
 - Whether captions have been generated yet (if not, The Publicist generates them)
+
+---
+
+## Veo 3 AI Video Generation
+
+For AI-generated video content (not waveform visualizer), use `scripts/generate_promo_video.py`.
+
+### When to use Veo vs. the waveform visualizer
+
+| Use waveform visualizer | Use Veo 3 |
+|---|---|
+| Audio-first — show the actual sound | Concept-first — show the aesthetic, not the waveform |
+| Track release video | Social teaser / mood piece |
+| Fast turnaround (no API wait) | Higher impact, more memorable |
+| Any length | Max 8s per clip — plan multi-clip edits |
+
+### Veo workflow
+
+```bash
+# Active song, landscape (text-to-video)
+python scripts/generate_promo_video.py
+
+# Specific song + portrait format for Reels/TikTok
+python scripts/generate_promo_video.py --song [slug] --format portrait
+
+# Animate cover art (image-to-video)
+python scripts/generate_promo_video.py \
+  --image outputs/social/[slug]_cover_square.png \
+  --format portrait
+
+# Extra style clause
+python scripts/generate_promo_video.py \
+  --style "corroded iron filaments dissolving into particle static, extreme slow motion"
+
+# Multiple clips at once (generates v1, v2, v3)
+python scripts/generate_promo_video.py --count 3
+
+# HD + include Veo's own audio (Veo 3 only)
+python scripts/generate_promo_video.py --hd --with-audio
+
+# Dry run — print prompt without API call
+python scripts/generate_promo_video.py --dry-run
+```
+
+Outputs land in `outputs/social/`:
+- `[slug]_veo_landscape_v1.mp4` — 16:9 (YouTube)
+- `[slug]_veo_square_v1.mp4` — 1:1 (Instagram feed)
+- `[slug]_veo_portrait_v1.mp4` — 9:16 (Reels/TikTok)
+
+**Generation time**: 60–120s per clip. The script polls automatically.
+
+**Audio**: By default `--with-audio` is OFF — we supply brand audio in post. If you want silent Veo clips, combine them with audio via `ffmpeg -i clip.mp4 -i audio.mp3 -shortest -c:v copy -c:a aac output.mp4`.
 
 ---
 
@@ -161,11 +216,13 @@ These don't exist yet. Flag when ready to build:
 
 ---
 
-## Scripts Status
+## LM Tools Status
 
-| Script | Status | Notes |
+| Tool | Status | Notes |
 |---|---|---|
-| `scripts/render_waveform_video.py` | ✅ Live | ffmpeg waveform visualizer, all 3 formats |
+| `iron-static_buildVideoPrompt` | ✅ Live | Gemini Flash → cinematic Veo 3 prompt. **Always run before generatePromoVideo.** |
+| `iron-static_generatePromoVideo` | ✅ Live | Veo 3 AI video gen — text-to-video and image-to-video; polls operation, saves MP4 to outputs/social/ |
+| `iron-static_renderWaveformVideo` | ✅ Live | ffmpeg waveform visualizer, all 3 formats, direct binary spawn |
 | `scripts/post_youtube.py` | ⬜ Not built | YouTube Data API v3 + OAuth — build when needed |
 
 When asked to build `post_youtube.py`, implement it following `scripts/` conventions:

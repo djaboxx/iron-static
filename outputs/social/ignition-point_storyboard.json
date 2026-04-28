@@ -1,0 +1,24 @@
+{
+  "title": "Ignition Point: Machine Awakening",
+  "arc": "From dormant stillness, a cold, mechanical consciousness ignites, escalating into a violent, self-destructive crescendo.",
+  "scenes": [
+    {
+      "id": 1,
+      "description": "The dormant core of a vast, unseen machine, hinting at immense power lying in wait.",
+      "image_prompt": "ignition-point_cover_square.png \u2013 A massive, corroded industrial core, vaguely spherical, is partially visible in absolute void blackness. Its surface is a network of oxidized, rust-orange rebar and fractured concrete, barely illuminated by a single, faint cold cobalt-white glow emanating from deep within its fractured seams. The visible portion suggests immense scale, like a planet's core or a colossal engine. Ferrofluid-like patterns of dark, viscous material adhere to its deepest cracks, reflecting the faint light. There are no clear edges, only suggestions of form emerging from the profound darkness. Photorealistic, extreme macro detail on the corrosion.",
+      "animation_prompt": "The cold cobalt-white light within the core pulses almost imperceptibly, causing the ferrofluid-like patterns in the cracks to subtly shift and coalesce. Tiny, nearly invisible sparks of cobalt-white electricity arc deep within the deepest fractures. Camera holds still. No cuts. Extreme slow motion. Photorealistic."
+    },
+    {
+      "id": 2,
+      "description": "The machine begins to activate, revealing internal systems under stress, hinting at the forces at play.",
+      "image_prompt": "Extreme macro shot of an industrial surface: a complex, corroded circuit board with thick, oxidized traces and fractured components, emerging from void blackness. A single, intense cold cobalt-white electric glow illuminates a cluster of overheating capacitors and resistors. Thin, fractal-like branching patterns of cold cobalt-white lightning discharge across the surface, resembling neural pathways or frost crystals. Oxidation rust-orange is visible as hot spots on a few overloaded components. Liquid metal droplets (like mercury) are visible on some traces, reflecting the electric light. Photorealistic, extreme macro detail, shallow depth of field.",
+      "animation_prompt": "The cold cobalt-white lightning discharge patterns slowly spread and branch across the corroded circuit board. The liquid metal droplets on the traces subtly bead and coalesce, reflecting the pulsing electric light. A single, small capacitor begins to visibly swell, a faint rust-orange glow emanating from its base. Camera holds still. No cuts. Extreme slow motion. Photorealistic."
+    },
+    {
+      "id": 3,
+      "description": "The machine reaches its 'ignition point,' a moment of violent state change and impending critical failure.",
+      "image_prompt": "A fractured industrial pipe, severely corroded and choked with rust-orange oxidation, is held in a dynamic freeze-frame, mid-explosion, against absolute void blackness. From the fracture, a violent, expanding cloud of dense, molten lead-like liquid metal erupts, illuminated by intense cold cobalt-white arcs of electromagnetic discharge. The liquid metal fragments into deliberate, almost sentient-looking tendrils as it flies apart. Surrounding the eruption, faint, abstract node-and-edge structures of cold cobalt-white energy briefly materialize and vanish, like a collapsing network. Photorealistic, extreme slow motion, high contrast.",
+      "animation_prompt": "The molten lead-like liquid metal continues its violent, expanding eruption from the fractured pipe, its tendrils slowly elongating and reforming in the cold cobalt-white light. The abstract node-and-edge energy structures briefly flicker and collapse into the void. The electromagnetic arcs intensify, casting a flickering light on the rust-orange corrosion. Camera holds still. No cuts. Extreme slow motion. Photorealistic."
+    }
+  ]
+}

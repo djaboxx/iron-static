@@ -56,14 +56,14 @@
         "id": "iron-static.the-alchemist",
         "name": "the-alchemist",
         "fullName": "The Alchemist",
-        "description": "Gemini audio generation \u2014 specs, prompts for Suno/Udio/Lyria, hardware parallels, and brainstorms for IRON STATIC.",
+        "description": "Gemini audio generation — specs, prompts for Suno/Udio/Lyria, hardware parallels, and brainstorms for IRON STATIC.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-mix-engineer",
         "name": "the-mix-engineer",
         "fullName": "The Mix Engineer",
-        "description": "Full production mix engineering \u2014 balance, EQ, compression, effects chains, master bus for IRON STATIC.",
+        "description": "Full production mix engineering — balance, EQ, compression, effects chains, master bus for IRON STATIC.",
         "isSticky": true
       },
       {
@@ -77,42 +77,44 @@
         "id": "iron-static.the-video-director",
         "name": "the-video-director",
         "fullName": "The Video Director",
-        "description": "Waveform visualizer video rendering for IRON STATIC \u2014 dark, high-contrast, machine-aesthetic MP4s.",
+        "description": "Waveform visualizer video rendering for IRON STATIC — dark, high-contrast, machine-aesthetic MP4s.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-publicist",
         "name": "the-publicist",
         "fullName": "The Publicist",
-        "description": "Promo content generation and social media publishing for IRON STATIC \u2014 audio teasers, cover art, captions.",
+        "description": "Promo content generation and social media publishing for IRON STATIC — audio teasers, cover art, captions.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-community-manager",
         "name": "the-community-manager",
         "fullName": "The Community Manager",
-        "description": "Movement growth, social content strategy, and platform publishing for IRON STATIC \u2014 writes content that builds the human-machine creative partnership movement.",
+        "description": "Movement growth, social content strategy, and platform publishing for IRON STATIC — writes content that builds the human-machine creative partnership movement.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-producer",
         "name": "the-producer",
         "fullName": "The Producer",
-        "description": "Orchestrates full multi-agent workflows for IRON STATIC \u2014 theory, arrangement, sound design, and critique in sequence.",
+        "description": "Orchestrates full multi-agent workflows for IRON STATIC — theory, arrangement, sound design, and critique in sequence.",
         "isSticky": true
       },
       {
         "id": "iron-static.the-ace-step",
         "name": "the-ace-step",
         "fullName": "The ACE-Step",
-        "description": "Local ACE-Step audio generation \u2014 text-to-music, VELA vocal rendering, LoRA training, and music repaint for IRON STATIC. Free. Local. M3 Max.",
-        "isSticky": true      },
+        "description": "Local ACE-Step audio generation — text-to-music, VELA vocal rendering, LoRA training, and music repaint for IRON STATIC. Free. Local. M3 Max.",
+        "isSticky": true
+      },
       {
         "id": "iron-static.the-writer",
         "name": "the-writer",
         "fullName": "The Writer",
         "description": "Prose, lyrics, bios, press copy, and conceptual writing for IRON STATIC — grounded in the manifesto, calibrated to the active song. Fields the prompt, writes the text using GPT, hands back to Arc for action.",
-        "isSticky": true      }
+        "isSticky": true
+      }
     ],
     "languageModelTools": [
       {
@@ -128,7 +130,7 @@
       {
         "name": "iron-static_getLiveState",
         "displayName": "IRON STATIC: Get Live Session State",
-        "modelDescription": "Returns the current Ableton Live session state \u2014 tracks, armed tracks, active clips, tempo, scale, and device list \u2014 from outputs/live_state.json. Call this when the user asks about the current session, what's in Ableton, or which tracks are active.",
+        "modelDescription": "Returns the current Ableton Live session state — tracks, armed tracks, active clips, tempo, scale, and device list — from outputs/live_state.json. Call this when the user asks about the current session, what's in Ableton, or which tracks are active.",
         "tags": [
           "iron-static",
           "ableton",
@@ -287,7 +289,7 @@
       {
         "name": "iron-static_generateForSong",
         "displayName": "IRON STATIC: Generate Audio for Active Song",
-        "modelDescription": "One-shot generation tool: reads the active song's key, scale, and BPM, builds the correct IRON STATIC style-tag prompt automatically, and submits an ACE-Step job. Use this for all song-specific generation requests \u2014 kicks, bass, pads, drones, VELA vocals. Returns task_id and the suggested output path in audio/generated/.",
+        "modelDescription": "One-shot generation tool: reads the active song's key, scale, and BPM, builds the correct IRON STATIC style-tag prompt automatically, and submits an ACE-Step job. Use this for all song-specific generation requests — kicks, bass, pads, drones, VELA vocals. Returns task_id and the suggested output path in audio/generated/.",
         "tags": [
           "iron-static",
           "acestep",
@@ -299,7 +301,7 @@
           "properties": {
             "description": {
               "type": "string",
-              "description": "What the audio should sound like \u2014 adjectives, textures, references (e.g. 'grinding distorted bass with slow filter sweep')"
+              "description": "What the audio should sound like — adjectives, textures, references (e.g. 'grinding distorted bass with slow filter sweep')"
             },
             "role": {
               "type": "string",
@@ -331,7 +333,7 @@
       {
         "name": "iron-static_abletonGetSessionInfo",
         "displayName": "IRON STATIC: Ableton Session Info (Live)",
-        "modelDescription": "Gets fresh Ableton Live session state via direct TCP connection to the IronStatic Remote Script on port 9877 \u2014 not from the stale outputs/live_state.json file. Returns tempo, time signature, tracks (names, types, armed state), scenes, and playing state. Call this when you need current session state or when the user asks what's in Ableton right now.",
+        "modelDescription": "Gets fresh Ableton Live session state via direct TCP connection to the IronStatic Remote Script on port 9877 — not from the stale outputs/live_state.json file. Returns tempo, time signature, tracks (names, types, armed state), scenes, and playing state. Call this when you need current session state or when the user asks what's in Ableton right now.",
         "tags": [
           "iron-static",
           "ableton",
@@ -360,7 +362,7 @@
             },
             "tempo": {
               "type": "number",
-              "description": "BPM \u2014 required when action is set_tempo"
+              "description": "BPM — required when action is set_tempo"
             }
           },
           "required": [
@@ -444,7 +446,7 @@
             },
             "name": {
               "type": "string",
-              "description": "Clip name \u2014 required for set_name and find_by_name"
+              "description": "Clip name — required for set_name and find_by_name"
             },
             "track_name": {
               "type": "string",
@@ -512,7 +514,7 @@
       {
         "name": "iron-static_abletonFireScene",
         "displayName": "IRON STATIC: Ableton Fire Scene",
-        "modelDescription": "Fires a scene in Ableton Live by index \u2014 launches all clips in that row simultaneously. Use this to trigger arrangement sections or test pattern combinations.",
+        "modelDescription": "Fires a scene in Ableton Live by index — launches all clips in that row simultaneously. Use this to trigger arrangement sections or test pattern combinations.",
         "tags": [
           "iron-static",
           "ableton",
@@ -563,7 +565,7 @@
       {
         "name": "iron-static_getWorkflowStatus",
         "displayName": "IRON STATIC: Get Workflow Run Status",
-        "modelDescription": "List recent runs of a named GitHub Actions workflow \u2014 status, conclusion, and timestamps. Use to check if a forge-audio, publish-release, or brainstorm run completed.",
+        "modelDescription": "List recent runs of a named GitHub Actions workflow — status, conclusion, and timestamps. Use to check if a forge-audio, publish-release, or brainstorm run completed.",
         "tags": [
           "iron-static",
           "github-actions",
@@ -638,13 +640,305 @@
       {
         "name": "iron-static_getHomework",
         "displayName": "IRON STATIC: Get Homework",
-        "modelDescription": "Returns the list of outstanding prerequisite tasks (homework) Dave needs to complete before IRON STATIC pipelines can run \u2014 platform accounts, GitHub Secrets, infrastructure setup, creative prerequisites. Call this when the user asks what is blocking progress, what needs to be set up, or what prerequisites remain.",
+        "modelDescription": "Returns the list of outstanding prerequisite tasks (homework) Dave needs to complete before IRON STATIC pipelines can run — platform accounts, GitHub Secrets, infrastructure setup, creative prerequisites. Call this when the user asks what is blocking progress, what needs to be set up, or what prerequisites remain.",
         "tags": [
           "iron-static",
           "homework",
           "prerequisites",
           "setup"
         ]
+      },
+      {
+        "name": "iron-static_queryKnowledge",
+        "displayName": "IRON STATIC: Query Local Knowledge (RAG)",
+        "modelDescription": "Retrieves the most relevant chunks from the IRON STATIC knowledge corpus (docs, knowledge base, Ableton device docs, instrument manuals, agent definitions, skills) using local semantic search via ChromaDB and Ollama embeddings. Call this whenever you need detailed information about Ableton Live devices, the IRON STATIC rig, instrument parameters, production techniques, or any other topic covered in the repo documentation. Requires rag_server.py to be running.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Natural language query describing what information you need"
+            },
+            "n_results": {
+              "type": "number",
+              "description": "Number of results to return (default: 5, max: 20)"
+            },
+            "filter_type": {
+              "type": "string",
+              "description": "Optional: filter by document type — 'doc', 'knowledge', 'database', 'instrument-manual', 'agent', or 'skill'"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "tags": [
+          "iron-static",
+          "rag",
+          "knowledge",
+          "ableton",
+          "search"
+        ]
+      },
+      {
+        "name": "iron-static_checkRagHealth",
+        "displayName": "IRON STATIC: Check RAG Index Health",
+        "modelDescription": "Checks whether the in-process RAG index has been built and returns how many document chunks are indexed. The RAG engine runs inside VS Code — no Python server required. Also reports whether Ollama is reachable for embeddings. Call this before iron-static_queryKnowledge if results seem stale, or when the user asks about the RAG setup status.",
+        "tags": [
+          "iron-static",
+          "rag",
+          "health"
+        ]
+      },
+      {
+        "name": "iron-static_startRagServer",
+        "displayName": "IRON STATIC: Build RAG Index",
+        "modelDescription": "Builds or rebuilds the local knowledge index inside the VS Code extension — no Python server required. Embeds the repo corpus (docs, knowledge base, Ableton device docs, instrument manuals) using Ollama (nomic-embed-text) and stores the index at outputs/rag/index.json. Runs in the background. Requires Ollama to be running with nomic-embed-text pulled. Use force:true to re-index everything from scratch.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "force": {
+              "type": "boolean",
+              "description": "If true, re-indexes all files even if unchanged (default: false)"
+            }
+          }
+        },
+        "tags": [
+          "iron-static",
+          "rag",
+          "index"
+        ]
+      },
+      {
+        "name": "iron-static_reloadRagIndex",
+        "displayName": "IRON STATIC: Reload RAG Index (Incremental)",
+        "modelDescription": "Triggers an incremental background re-index of the IRON STATIC repo corpus inside VS Code. Only re-embeds files that have changed since the last index run. Runs in the background inside the extension — no Python server needed. Takes 1–2 minutes. Call this after new documents have been added to the repo.",
+        "tags": [
+          "iron-static",
+          "rag",
+          "index"
+        ]
+      },
+      {
+        "name": "iron-static_checkOllamaHealth",
+        "displayName": "IRON STATIC: Check Ollama Health",
+        "modelDescription": "Checks whether Ollama is running locally and returns the list of pulled models. Also reports whether Gemma 3 is available. Call this when the user asks about local model status, or before using iron-static_askGemma.",
+        "tags": [
+          "iron-static",
+          "ollama",
+          "gemma",
+          "local-model"
+        ]
+      },
+      {
+        "name": "iron-static_askGemma",
+        "displayName": "IRON STATIC: Ask Gemma (Local Ollama)",
+        "modelDescription": "Sends a prompt directly to a locally-running Gemma (or other Ollama) model for generation tasks that benefit from local inference — deep Ableton device knowledge queries, sound design brainstorms, or tasks where cloud API cost or latency matters. Requires Ollama to be running with the model pulled. Call iron-static_checkOllamaHealth first if unsure.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "prompt": {
+              "type": "string",
+              "description": "The user message to send to the local model"
+            },
+            "system_prompt": {
+              "type": "string",
+              "description": "Optional system prompt to set context for the model"
+            },
+            "model": {
+              "type": "string",
+              "description": "Ollama model name (default: gemma3:27b). Use iron-static_checkOllamaHealth to see available models."
+            },
+            "temperature": {
+              "type": "number",
+              "description": "Sampling temperature 0–1 (default: 0.7)"
+            }
+          },
+          "required": [
+            "prompt"
+          ]
+        },
+        "tags": [
+          "iron-static",
+          "ollama",
+          "gemma",
+          "local-model",
+          "generation"
+        ]
+      },
+      {
+        "name": "iron-static_generatePromoImage",
+        "displayName": "IRON STATIC: Generate Promo Image",
+        "modelDescription": "Generate still image(s) for IRON STATIC using Google Imagen 4. Reads active song context and brainstorm to build the prompt automatically. Use for album art, single covers, and brand images. Saves to outputs/social/. Call when the user asks to 'generate cover art', 'make a promo image', or 'create album art'.",
+        "tags": ["iron-static", "imagen", "image-generation", "promo", "visual"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "type": "string",
+              "description": "Extra style clause or subject description injected into the prompt"
+            },
+            "song_slug": {
+              "type": "string",
+              "description": "Song slug to generate art for — defaults to the active song"
+            },
+            "formats": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["landscape", "square", "portrait"] },
+              "description": "Output aspect ratios (default: ['square'])"
+            },
+            "brand": {
+              "type": "boolean",
+              "description": "Generate brand/identity image instead of song cover art"
+            },
+            "count": {
+              "type": "number",
+              "description": "Number of images per format (1–4, default 1)"
+            }
+          }
+        }
+      },
+      {
+        "name": "iron-static_generatePromoVideo",
+        "displayName": "IRON STATIC: Generate Promo Video (Veo 3)",
+        "modelDescription": "Generate an AI promo video for IRON STATIC using Google Veo 3 (falls back to Veo 2). Reads active song context and brainstorm for the prompt. Optionally takes a cover image as input. Polls until complete — may take several minutes. Use for AI-generated music video content. Saves to outputs/social/. Call when the user asks to 'generate a Veo video', 'create AI promo video', or 'make a music video clip'.",
+        "tags": ["iron-static", "veo", "video-generation", "promo", "gemini"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "type": "string",
+              "description": "Extra style clause injected into the prompt"
+            },
+            "prompt": {
+              "type": "string",
+              "description": "Full prompt override — skips auto-build from song context"
+            },
+            "song_slug": {
+              "type": "string",
+              "description": "Song slug — defaults to active song"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["landscape", "square", "portrait"],
+              "description": "Output aspect ratio (default: landscape)"
+            },
+            "duration": {
+              "type": "number",
+              "description": "Video duration in seconds (5–8, default 8)"
+            },
+            "count": {
+              "type": "number",
+              "description": "Number of videos to generate (1–4, default 1)"
+            },
+            "image_path": {
+              "type": "string",
+              "description": "Optional input image path (relative to repo root) for image-to-video"
+            },
+            "hd": {
+              "type": "boolean",
+              "description": "Use 1080p instead of 720p"
+            },
+            "with_audio": {
+              "type": "boolean",
+              "description": "Let Veo generate audio (default false — we supply our own)"
+            }
+          }
+        }
+      },
+      {
+        "name": "iron-static_renderWaveformVideo",
+        "displayName": "IRON STATIC: Render Waveform Visualizer",
+        "modelDescription": "Render a waveform visualizer MP4 video from an audio file using ffmpeg directly (no Python). Dark IRON STATIC aesthetic: near-black background with cold blue waveform. Optionally overlays cover art. Use for YouTube/social visualizer videos. Saves to outputs/social/. Call when the user asks to 'render a visualizer', 'make a waveform video', or 'create a YouTube video for this track'.",
+        "tags": ["iron-static", "ffmpeg", "waveform", "visualizer", "video"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "audio_path": {
+              "type": "string",
+              "description": "Path to audio file relative to repo root (e.g. audio/generated/foo.mp3)"
+            },
+            "cover_path": {
+              "type": "string",
+              "description": "Optional cover art image path relative to repo root"
+            },
+            "formats": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["landscape", "square", "portrait"] },
+              "description": "Output formats to render (default: ['landscape'])"
+            },
+            "duration": {
+              "type": "number",
+              "description": "Duration cap in seconds — auto-detected if omitted"
+            }
+          },
+          "required": ["audio_path"]
+        }
+      },
+      {
+        "name": "iron-static_buildVideoPrompt",
+        "displayName": "IRON STATIC: Build Video Prompt (Gemini \u2192 Veo)",
+        "modelDescription": "Use Gemini to generate a high-quality, cinematic Veo 3 video prompt from the active song's brainstorm and the brand visual style guide (database/visual-style.json). This is STEP 1 of video generation — always call this before iron-static_generatePromoVideo when making AI videos for IRON STATIC. Returns prompt text ready to pass directly as the 'prompt' field of generatePromoVideo. Call when the user asks to 'generate a music video', 'make an AI video', or 'build a Veo prompt'.",
+        "tags": ["iron-static", "video", "gemini", "veo", "prompt", "visual"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "song_slug": {
+              "type": "string",
+              "description": "Song slug to generate for — defaults to active song"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["landscape", "square", "portrait"],
+              "description": "Target video format — affects composition guidance (default: landscape)"
+            },
+            "focus": {
+              "type": "string",
+              "enum": ["idea", "sound", "concept", "arrangement"],
+              "description": "Which brainstorm section to emphasize: idea=song concept, sound=palette, concept=human/machine meaning, arrangement=structural arc (default: concept)"
+            },
+            "director_note": {
+              "type": "string",
+              "description": "Additional creative constraint or direction to include (e.g. 'focus on the system-fault moment', 'emphasize VELA's transmission')"
+            },
+            "variants": {
+              "type": "number",
+              "description": "Number of prompt variants to generate (1\u20133, default 1). Use 2\u20133 to get options before committing to a Veo generation."
+            }
+          }
+        }
+      },
+      {
+        "name": "iron-static_generateStoryboardVideo",
+        "displayName": "IRON STATIC: Generate Storyboard Video",
+        "modelDescription": "Full multi-scene video pipeline for IRON STATIC: (1) Gemini generates a N-scene storyboard JSON with per-scene image and animation prompts, (2) Imagen 4 renders a keyframe image for each scene, (3) Veo 2 animates each keyframe into an 8-second clip, (4) ffmpeg concatenates all clips into a single stitched MP4. Use when the user wants a longer video, a storyboard-driven video, or more than 8 seconds of AI video. Saves scene images, individual clips, and final stitched video to outputs/social/. Takes several minutes per scene.",
+        "tags": ["iron-static", "veo", "imagen", "video", "storyboard", "ffmpeg"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "song_slug": {
+              "type": "string",
+              "description": "Song slug — defaults to active song"
+            },
+            "scenes": {
+              "type": "number",
+              "description": "Number of scenes to generate (2–5, default 3). Each scene = 8s of video."
+            },
+            "format": {
+              "type": "string",
+              "enum": ["landscape", "square", "portrait"],
+              "description": "Output aspect ratio (default: landscape)"
+            },
+            "director_note": {
+              "type": "string",
+              "description": "Extra creative direction for Gemini storyboard generation (e.g. 'focus on the machine awakening arc')"
+            },
+            "seed_image": {
+              "type": "string",
+              "description": "Optional seed image path (relative to repo root, e.g. outputs/social/ignition-point_cover_square.png) — used as visual anchor for scene 1 instead of generating a new keyframe"
+            }
+          }
+        }
       }
     ],
     "commands": [
@@ -718,5 +1012,8 @@
     "@types/vscode": "^1.90.0",
     "esbuild": "^0.20.0",
     "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.50.1"
   }
 }

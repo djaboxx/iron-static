@@ -12,6 +12,7 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
 import * as path from "path";
+import { queryRag, formatRagContext } from "./ragClient";
 
 interface AgentDef {
   id: string;
@@ -21,6 +22,12 @@ interface AgentDef {
   icon: string;
   /** Optional preferred model family — overrides the default claude-sonnet selection */
   preferredModelFamily?: string;
+  /**
+   * If true, the chat handler will run a RAG query against the local
+   * knowledge index and inject the top results as additional context.
+   * Best for knowledge-dense agents: Live Engineer, Sound Designer, Theorist.
+   */
+  useRag?: boolean;
 }
 
 const AGENTS: AgentDef[] = [
@@ -44,6 +51,7 @@ const AGENTS: AgentDef[] = [
     fullName: "The Sound Designer",
     agentFile: ".github/agents/the-sound-designer.agent.md",
     icon: "settings-gear",
+    useRag: true,
   },
   {
     id: "iron-static.the-theorist",
@@ -51,6 +59,7 @@ const AGENTS: AgentDef[] = [
     fullName: "The Theorist",
     agentFile: ".github/agents/the-theorist.agent.md",
     icon: "book",
+    useRag: true,
   },
   {
     id: "iron-static.the-live-engineer",
@@ -58,6 +67,7 @@ const AGENTS: AgentDef[] = [
     fullName: "The Live Engineer",
     agentFile: ".github/agents/the-live-engineer.agent.md",
     icon: "circuit-board",
+    useRag: true,
   },
   {
     id: "iron-static.the-alchemist",
@@ -234,12 +244,20 @@ export function registerChatParticipants(context: vscode.ExtensionContext): void
       const systemPrompt = loadAgentSystemPrompt(agent.agentFile, workspaceRoot);
       const songContext = getActiveSongContext(workspaceRoot);
 
+      // RAG context injection — only for knowledge-dense agents (useRag: true)
+      let ragContext = "";
+      if (agent.useRag) {
+        const ragResults = await queryRag(request.prompt, { nResults: 4 });
+        ragContext = formatRagContext(ragResults);
+      }
+
       const systemBlock = [
         systemPrompt,
         "",
         "---",
         "## Current Session Context",
         songContext || "No active song.",
+        ...(ragContext ? ["", "---", ragContext] : []),
       ].join("\n");
 
       // Select model — Writer prefers GPT for prose; all others prefer Claude

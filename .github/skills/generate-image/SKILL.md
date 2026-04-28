@@ -1,7 +1,7 @@
 # Skill: generate-image
 
-Generate cover art and promo images for IRON STATIC using Gemini Imagen 3.
-All imagery derives from active song context, brainstorm language, and band aesthetic.
+Generate cover art and promo images for IRON STATIC using the `iron-static_generatePromoImage` LM tool (native Imagen 4 via `@google/genai` — no Python script).
+All imagery derives from active song context, brainstorm language, and the brand visual style guide at `database/visual-style.json`.
 
 ## When to use this skill
 
@@ -20,25 +20,31 @@ All imagery derives from active song context, brainstorm language, and band aest
 | `[brainstorm_path]` from songs.json | The conceptual brief — mine for thematic language |
 | `knowledge/references/YYYY-MM-DD.md` (most recent) | Visual reference artists currently in scope |
 
-## The Script
+## Using the LM Tool
 
-```bash
-# Active song, all 3 formats
-python scripts/generate_promo_image.py
+Call `iron-static_generatePromoImage` directly. The tool reads active song context and brainstorm automatically.
 
-# Specific song
-python scripts/generate_promo_image.py --song <slug>
+```json
+// Active song, square (default)
+{ "tool": "iron-static_generatePromoImage" }
 
-# With style override (most useful for iteration)
-python scripts/generate_promo_image.py --song <slug> --style "<style clause>"
+// Specific song
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>" }
 
-# Dry run — print prompt only
-python scripts/generate_promo_image.py --song <slug> --dry-run
+// With style override (most useful for iteration)
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>", "style": "<style clause>" }
 
-# Specific formats
-python scripts/generate_promo_image.py --song <slug> --formats square
-python scripts/generate_promo_image.py --song <slug> --formats square landscape portrait
+// Multiple formats at once
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>", "formats": ["square", "landscape", "portrait"] }
+
+// Brand image (not song-specific)
+{ "tool": "iron-static_generatePromoImage", "brand": true, "formats": ["square"] }
+
+// Generate multiple variants for comparison
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>", "formats": ["square"], "count": 4 }
 ```
+
+**To preview the prompt before generating**: pass a `style` clause and look at the `prompt` field in the tool response — it shows exactly what Imagen received.
 
 ## Output Paths
 
@@ -80,9 +86,9 @@ The script does this automatically. Use `--dry-run` to see the full assembled pr
 ## Iteration Strategy
 
 If the first result is too generic:
-1. Run `--dry-run` to see what prompt was used
+1. Check the `prompt` field returned by the tool — it shows exactly what Imagen received
 2. Identify the weakest element (usually missing song-specific texture)
-3. Add a `--style` clause with one concrete, specific visual element from the brainstorm
+3. Re-invoke with a `style` clause adding one concrete, specific visual element from the brainstorm
 4. Regenerate — one change at a time
 
 Example style clauses that work for IRON STATIC:
@@ -115,5 +121,5 @@ Append to `knowledge/sound-design/visual-notes.md`:
 
 ## Environment
 
-Requires `GEMINI_API_KEY` or `GOOGLE_API_KEY`. Uses `imagen-3.0-generate-002`.
-`person_generation` is locked to `dont_allow`.
+Requires `GEMINI_API_KEY` or `GOOGLE_API_KEY` in the shell environment — the extension reads it from `process.env`. Uses `imagen-4.0-generate-001`.
+`person_generation` is locked to `dont_allow`. Brand visual constraints are in `database/visual-style.json`.

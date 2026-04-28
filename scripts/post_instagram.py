@@ -2,13 +2,17 @@
 """
 post_instagram.py — Instagram Content Publishing API client for IRON STATIC.
 
-Posts a single image with caption to an Instagram Professional account via the
-Meta Graph API Content Publishing flow:
-  Step 1: Create a media container (POST /{user_id}/media)
-  Step 2: Publish the container (POST /{user_id}/media_publish)
+Posts images, Reels (video), and profile photo updates to an Instagram Professional
+account via the Meta Graph API Content Publishing flow:
+  Step 1: Upload file to GCS (public URL required by Meta)
+  Step 2: Create a media container (POST /{user_id}/media)
+  Step 3: Publish the container (POST /{user_id}/media_publish)
 
-The image must be a publicly accessible URL. This script uploads the local image
-to GCS first (if it is not already a URL), then uses the GCS public URL.
+For Reels: uses media_type=REELS with video_url.
+For profile photo: uses POST /{page_id}/picture (requires FACEBOOK_PAGE_ID env var).
+
+The file must be a publicly accessible URL. This script uploads the local file
+to GCS first, then uses the GCS public URL.
 
 Requirements:
   - Instagram Professional account (Business or Creator)
@@ -19,13 +23,15 @@ Requirements:
 Environment variables (required):
   INSTAGRAM_ACCESS_TOKEN   — long-lived user access token from Meta app
   INSTAGRAM_USER_ID        — numeric Instagram user ID (not username)
-  GCS_BUCKET               — bucket name (for image hosting; already used by gcs_sync.py)
+  GCS_BUCKET               — bucket name (for file hosting; already used by gcs_sync.py)
   GCS_SA_KEY               — service account JSON key (already used by gcs_sync.py)
+  FACEBOOK_PAGE_ID         — (optional) Facebook Page ID for profile photo updates
 
 Usage:
-  python scripts/post_instagram.py --image outputs/social/instrumental-convergence_cover_square.png
   python scripts/post_instagram.py --image outputs/social/IC_square.png --caption-file outputs/social/IC_caption_instagram.txt
   python scripts/post_instagram.py --song instrumental-convergence   # auto-resolve image + caption
+  python scripts/post_instagram.py --reel outputs/social/recorder-ui_square.mp4 --caption-file outputs/social/recorder-ui_caption_instagram.txt
+  python scripts/post_instagram.py --update-profile-photo outputs/social/brand_profile_2026.png
   python scripts/post_instagram.py --image ... --dry-run             # print API calls without executing
   python scripts/post_instagram.py --check-token                     # verify token validity + expiry
 
@@ -63,6 +69,11 @@ GRAPH_API_BASE = "https://graph.facebook.com/v22.0"
 # Instagram image requirements (enforced server-side; stated here for early validation)
 MAX_IMAGE_BYTES = 8 * 1024 * 1024   # 8 MB
 SUPPORTED_FORMATS = {".jpg", ".jpeg"}
+SUPPORTED_VIDEO_FORMATS = {".mp4", ".mov"}
+MAX_REEL_BYTES = 1 * 1024 * 1024 * 1024  # 1 GB Instagram limit
+
+# Caption file metadata header separator (lines up to and including second '---' are stripped)
+CAPTION_HEADER_SEP = "---"
 
 # Container status polling
 CONTAINER_POLL_INTERVAL = 5   # seconds between status checks
@@ -138,22 +149,11 @@ def check_token(access_token: str) -> None:
 # Image upload: local file → GCS public URL
 # ---------------------------------------------------------------------------
 
-def _upload_to_gcs(image_path: Path) -> str:
-    """Upload image to GCS and return the public URL.
+def _upload_to_gcs(file_path: Path, content_type: str = "image/jpeg") -> str:
+    """Upload a file to GCS and return the public URL.
 
-    Re-uses the gcs_sync.py GCS client infrastructure. Uploads to
-    social/<filename> prefix in the bucket and returns the public URL.
+    Uploads to social/<filename> prefix in the bucket.
     """
-    import importlib.util
-    spec = importlib.util.spec_from_file_location(
-        "gcs_sync", REPO_ROOT / "scripts" / "gcs_sync.py"
-    )
-    if spec:
-        gcs_sync = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(gcs_sync)
-    else:
-        gcs_sync = None
-    # Fallback: use google-cloud-storage directly
     try:
         from google.cloud import storage as gcs
     except ImportError:
@@ -175,10 +175,10 @@ def _upload_to_gcs(image_path: Path) -> str:
     else:
         client = gcs.Client()  # uses ADC
 
-    blob_name = f"social/{image_path.name}"
+    blob_name = f"social/{file_path.name}"
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
-    blob.upload_from_filename(str(image_path), content_type="image/jpeg")
+    blob.upload_from_filename(str(file_path), content_type=content_type)
 
     public_url = f"https://storage.googleapis.com/{bucket_name}/{blob_name}"
     log.info("Uploaded to GCS: %s", public_url)
@@ -189,18 +189,24 @@ def _upload_to_gcs(image_path: Path) -> str:
 # Core publishing flow
 # ---------------------------------------------------------------------------
 
-def create_container(user_id: str, image_url: str, caption: str, access_token: str, dry_run: bool) -> str:
+def create_container(user_id: str, media_url: str, caption: str, access_token: str,
+                     dry_run: bool, media_type: str = "IMAGE") -> str:
     """Step 1: Create a media container. Returns container ID."""
-    log.info("Creating media container for image: %s", image_url)
+    log.info("Creating %s media container: %s", media_type, media_url)
     if dry_run:
-        log.info("[DRY RUN] POST /%s/media  image_url=%s  caption=%.80s...", user_id, image_url, caption)
+        log.info("[DRY RUN] POST /%s/media  media_type=%s  url=%s  caption=%.80s...",
+                 user_id, media_type, media_url, caption)
         return "DRY_RUN_CONTAINER_ID"
 
-    result = _graph_post(f"/{user_id}/media", {
-        "image_url": image_url,
-        "caption": caption,
-        "access_token": access_token,
-    })
+    params: dict = {"caption": caption, "access_token": access_token}
+    if media_type == "REELS":
+        params["media_type"] = "REELS"
+        params["video_url"] = media_url
+        params["share_to_feed"] = "true"
+    else:
+        params["image_url"] = media_url
+
+    result = _graph_post(f"/{user_id}/media", params)
     if "error" in result:
         log.error("Container creation failed: %s", result["error"].get("message"))
         sys.exit(1)
@@ -254,6 +260,43 @@ def publish_container(user_id: str, container_id: str, access_token: str, dry_ru
 
 
 # ---------------------------------------------------------------------------
+# Profile photo update
+# ---------------------------------------------------------------------------
+
+def update_profile_photo(photo_path: Path, access_token: str, dry_run: bool) -> None:
+    """Update Instagram profile photo via the linked Facebook Page.
+
+    Requires FACEBOOK_PAGE_ID env var. The Page profile picture syncs to Instagram.
+    Needs pages_manage_posts or pages_manage_engagement permission.
+    """
+    page_id = _get_env("FACEBOOK_PAGE_ID")
+    if not page_id:
+        log.error("FACEBOOK_PAGE_ID env var required for profile photo update.")
+        sys.exit(1)
+
+    log.info("Uploading profile photo to GCS ...")
+    if dry_run:
+        photo_url = f"https://storage.googleapis.com/dry-run/social/{photo_path.name}"
+        log.info("[DRY RUN] Would upload to GCS: %s", photo_url)
+    else:
+        photo_url = _upload_to_gcs(photo_path, content_type="image/png")
+
+    log.info("Setting Facebook Page profile picture (will sync to Instagram) ...")
+    if dry_run:
+        log.info("[DRY RUN] POST /%s/picture  url=%s", page_id, photo_url)
+        return
+
+    result = _graph_post(f"/{page_id}/picture", {
+        "url": photo_url,
+        "access_token": access_token,
+    })
+    if "error" in result:
+        log.error("Profile photo update failed: %s", result["error"].get("message"))
+        sys.exit(1)
+    log.info("Profile photo updated. Result: %s", result)
+
+
+# ---------------------------------------------------------------------------
 # Song / file resolution
 # ---------------------------------------------------------------------------
 
@@ -292,6 +335,18 @@ def _resolve_image(args, song: dict | None) -> Path:
     sys.exit(1)
 
 
+def _strip_caption_header(text: str) -> str:
+    """Strip the metadata header block (lines up to and including second '---') from caption text."""
+    lines = text.splitlines()
+    sep_count = 0
+    for i, line in enumerate(lines):
+        if line.strip().startswith(CAPTION_HEADER_SEP):
+            sep_count += 1
+            if sep_count >= 2:
+                return "\n".join(lines[i + 1:]).strip()
+    return text.strip()
+
+
 def _resolve_caption(args, song: dict | None, image_path: Path) -> str:
     # Explicit caption file
     if args.caption_file:
@@ -299,7 +354,7 @@ def _resolve_caption(args, song: dict | None, image_path: Path) -> str:
         if not p.is_absolute():
             p = REPO_ROOT / p
         if p.exists():
-            return p.read_text(encoding="utf-8").strip()
+            return _strip_caption_header(p.read_text(encoding="utf-8"))
         log.error("Caption file not found: %s", p)
         sys.exit(1)
 
@@ -313,7 +368,7 @@ def _resolve_caption(args, song: dict | None, image_path: Path) -> str:
         candidate = SOCIAL_OUT / f"{slug}_caption_instagram.txt"
         if candidate.exists():
             log.info("Auto-resolved caption: %s", candidate)
-            return candidate.read_text(encoding="utf-8").strip()
+            return _strip_caption_header(candidate.read_text(encoding="utf-8"))
         log.warning("No caption file found. Generating one now ...")
         import subprocess
         result = subprocess.run(
@@ -328,7 +383,7 @@ def _resolve_caption(args, song: dict | None, image_path: Path) -> str:
     return ""
 
 
-def _validate_image(image_path: Path) -> None:
+def _validate_image(image_path: Path) -> Path:
     """Validate image meets Instagram requirements before uploading."""
     if image_path.suffix.lower() not in SUPPORTED_FORMATS:
         # Instagram requires JPEG. PNG files need conversion.
@@ -355,14 +410,29 @@ def _validate_image(image_path: Path) -> None:
     return image_path
 
 
+def _validate_reel(video_path: Path) -> Path:
+    """Validate video meets Instagram Reel requirements."""
+    if video_path.suffix.lower() not in SUPPORTED_VIDEO_FORMATS:
+        log.error("Unsupported video format: %s. Supported: %s", video_path.suffix, SUPPORTED_VIDEO_FORMATS)
+        sys.exit(1)
+    size = video_path.stat().st_size
+    if size > MAX_REEL_BYTES:
+        log.error("Video exceeds 1GB limit: %d bytes", size)
+        sys.exit(1)
+    return video_path
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Post an image to Instagram via Meta Graph API.")
+    parser = argparse.ArgumentParser(description="Post images, Reels, or update profile photo on Instagram.")
     parser.add_argument("--song", help="Song slug (auto-resolves image + caption for that song).")
     parser.add_argument("--image", help="Path to the image file to post (PNG or JPEG).")
+    parser.add_argument("--reel", help="Path to the MP4 video file to post as a Reel.")
+    parser.add_argument("--update-profile-photo", metavar="PHOTO",
+                        help="Path to image to set as Instagram profile photo (requires FACEBOOK_PAGE_ID).")
     parser.add_argument("--caption", help="Caption text (overrides auto-resolve).")
     parser.add_argument("--caption-file", help="Path to a .txt file containing the caption.")
     parser.add_argument("--dry-run", action="store_true", help="Print API calls without executing.")
@@ -380,9 +450,59 @@ def main() -> None:
         check_token(access_token)
         return
 
+    # --- Profile photo update (independent of post flow) ---
+    if args.update_profile_photo:
+        photo_path = Path(args.update_profile_photo)
+        if not photo_path.is_absolute():
+            photo_path = REPO_ROOT / photo_path
+        if not photo_path.exists():
+            log.error("Profile photo not found: %s", photo_path)
+            sys.exit(1)
+        update_profile_photo(photo_path, access_token, args.dry_run)
+        if not args.reel and not args.image and not args.song:
+            return  # profile-photo-only run
+
+    # --- Reel posting ---
+    if args.reel:
+        reel_path = Path(args.reel)
+        if not reel_path.is_absolute():
+            reel_path = REPO_ROOT / reel_path
+        if not reel_path.exists():
+            log.error("Reel video not found: %s", reel_path)
+            sys.exit(1)
+        reel_path = _validate_reel(reel_path)
+        caption = _resolve_caption(args, None, reel_path)
+
+        log.info("Reel: %s", reel_path)
+        log.info("Caption (%d chars): %.120s ...", len(caption), caption)
+
+        if args.dry_run:
+            _bucket = os.environ.get("GCS_BUCKET", "iron-static-files")
+            video_url = f"https://storage.googleapis.com/{_bucket}/social/{reel_path.name}"
+            log.info("[DRY RUN] Would upload to GCS: %s", video_url)
+        else:
+            video_url = _upload_to_gcs(reel_path, content_type="video/mp4")
+
+        container_id = create_container(user_id, video_url, caption, access_token,
+                                        args.dry_run, media_type="REELS")
+        wait_for_container(container_id, access_token, args.dry_run)
+        media_id = publish_container(user_id, container_id, access_token, args.dry_run)
+
+        if not args.dry_run:
+            log.info("Reel posted to Instagram. Media ID: %s", media_id)
+            log.info("View at: https://www.instagram.com/")
+            # Log media ID
+            log_path = reel_path.parent / f"{reel_path.stem}_post_log.txt"
+            log_path.write_text(f"media_id={media_id}\nposted_at={time.strftime('%Y-%m-%dT%H:%M:%S')}\n")
+            log.info("Logged to: %s", log_path)
+        else:
+            log.info("[DRY RUN] Complete. No Reel was posted.")
+        return
+
+    # --- Image posting (original flow) ---
     song = _load_song(args.song)
     if song is None and not args.image:
-        log.error("No active song and no --image specified.")
+        log.error("No active song and no --image or --reel specified.")
         sys.exit(1)
 
     image_path = _resolve_image(args, song)
@@ -393,7 +513,6 @@ def main() -> None:
     log.info("Image: %s", image_path)
     log.info("Caption (%d chars): %.120s ...", len(caption), caption)
 
-    # Upload image to GCS to get a public URL
     if args.dry_run:
         _bucket = os.environ.get("GCS_BUCKET", "iron-static-files")
         image_url = f"https://storage.googleapis.com/{_bucket}/social/{image_path.name}"
@@ -401,7 +520,6 @@ def main() -> None:
     else:
         image_url = _upload_to_gcs(image_path)
 
-    # Two-step: create container → publish
     container_id = create_container(user_id, image_url, caption, access_token, args.dry_run)
     wait_for_container(container_id, access_token, args.dry_run)
     media_id = publish_container(user_id, container_id, access_token, args.dry_run)

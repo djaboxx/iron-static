@@ -110,11 +110,11 @@ Output lands in `audio/generated/`. Push to GCS via `scripts/gcs_sync.py`.
 
 ### 2. Cover Art / Promo Image
 
-Delegate to The Visual Artist (preferred) or run directly:
-```bash
-python scripts/generate_promo_image.py --song [slug]
+Delegate to The Visual Artist (preferred) or invoke directly:
+```json
+{ "tool": "iron-static_generatePromoImage", "song_slug": "[slug]" }
 ```
-Outputs to `outputs/social/[slug]_cover_square.png` (and landscape/portrait).
+Outputs to `outputs/social/[slug]_cover_square_v1.png` (and landscape/portrait variants if `formats` is set).
 Image prompts must be derived from brainstorm language — no generic stock-photo prompts.
 
 ### 3. Waveform Visualizer (video)
@@ -218,16 +218,18 @@ Ready to post manually:
 
 ---
 
-## Scripts Status
+## Scripts & LM Tools Status
 
-| Script | Status | Notes |
+| Tool / Script | Status | Notes |
 |---|---|---|
+| `iron-static_generatePromoImage` | ✅ Live | Imagen 4 cover art \u2014 supersedes `generate_promo_image.py` |
+| `iron-static_renderWaveformVideo` | ✅ Live | Owned by The Video Director — do not invoke from here |
+| `iron-static_buildVideoPrompt` | ✅ Live | Owned by The Video Director — Step 1 of AI video |
+| `iron-static_generatePromoVideo` | ✅ Live | Owned by The Video Director — Step 2 of AI video |
 | `scripts/gemini_forge.py` | ✅ Live | Audio generation |
 | `scripts/gcs_sync.py` | ✅ Live | GCS upload |
-| `scripts/generate_promo_image.py` | ✅ Live | Gemini Imagen 3 cover art |
 | `scripts/generate_caption.py` | ✅ Live | Gemini Flash caption gen |
 | `scripts/post_instagram.py` | ✅ Live | Instagram Content Publishing API |
-| `scripts/render_waveform_video.py` | ✅ Live | Owned by The Video Director — do not run from here |
 | `scripts/post_youtube.py` | ⬜ Not built | YouTube Data API v3 + OAuth |
 | `scripts/post_soundcloud.py` | ⬜ Not built | SoundCloud API + OAuth |
 | `scripts/post_mastodon.py` | ⬜ Not built | Mastodon API, easiest to build |

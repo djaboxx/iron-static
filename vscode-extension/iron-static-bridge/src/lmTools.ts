@@ -18,6 +18,12 @@
  *   iron-static_generateForSong        — One-shot: song context → prompt → ACE-Step job
  *   iron-static_abletonGetSessionInfo  — Fresh Ableton session info via TCP bridge (port 9877)
  *   iron-static_abletonTransport       — Play/stop/set tempo in Ableton via TCP bridge
+ *   iron-static_queryKnowledge         — RAG: retrieve relevant docs from local ChromaDB index
+ *   iron-static_checkRagHealth         — RAG: server health + indexed doc count
+ *   iron-static_startRagServer         — RAG: start rag_server.py if not running
+ *   iron-static_reloadRagIndex         — RAG: trigger background re-index via rag_index.py
+ *   iron-static_checkOllamaHealth      — Ollama: list locally-pulled models
+ *   iron-static_askGemma               — Ollama: send a prompt directly to a local Gemma model
  *   iron-static_abletonClip            — Create, write, fire, stop, clear, or read clips
  *   iron-static_abletonDeviceParam     — Get or set a device parameter value
  *   iron-static_abletonFireScene       — Fire a scene in Ableton
@@ -27,6 +33,10 @@
  *   iron-static_listSkills             — enumerate .github/skills/<name>/SKILL.md
  *   iron-static_invokeSkill            — read a named skill's SKILL.md in full
  *   iron-static_getHomework            — open prerequisite tasks from database/homework.json
+ *   iron-static_buildVideoPrompt        — Gemini Flash → rich cinematic Veo 3 prompt (STEP 1 of AI video)
+ *   iron-static_generatePromoImage     — Imagen 4 still image generation (native @google/genai)
+ *   iron-static_generatePromoVideo     — Veo 3 AI video generation (native @google/genai, async poll)
+ *   iron-static_renderWaveformVideo    — ffmpeg waveform visualizer (direct binary spawn)
  */
 
 import * as vscode from "vscode";
@@ -36,6 +46,10 @@ import * as http from "http";
 import * as net from "net";
 import * as cp from "child_process";
 import { getAllHomework } from "./homeworkScheduler";
+import { queryRag, checkRagHealth, triggerRagReload, formatRagContext } from "./ragClient";
+import { getRagEngine } from "./ragEngine";
+import { ollamaChat, checkOllamaHealth, DEFAULT_MODEL as OLLAMA_DEFAULT_MODEL } from "./gemmaClient";
+import { GeneratePromoImageTool, GeneratePromoVideoTool, RenderWaveformVideoTool, BuildVideoPromptTool, GenerateStoryboardVideoTool } from "./contentTools";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -51,6 +65,7 @@ const SCRIPT_ALLOWLIST: ReadonlySet<string> = new Set([
   "analyze_audio.py",
   "gcs_sync.py",
   "build_session.py",
+  "storyboard_video.py",
 ]);
 
 // ---------------------------------------------------------------------------
@@ -1218,6 +1233,255 @@ class GetHomeworkTool implements vscode.LanguageModelTool<Record<string, never>>
 // Registration
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Tool: queryKnowledge (RAG)
+// ---------------------------------------------------------------------------
+
+interface QueryKnowledgeInput {
+  query: string;
+  n_results?: number;
+  filter_type?: string;
+}
+
+class QueryKnowledgeTool implements vscode.LanguageModelTool<QueryKnowledgeInput> {
+  async invoke(
+    options: vscode.LanguageModelToolInvocationOptions<QueryKnowledgeInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const { query, n_results = 5, filter_type } = options.input;
+    if (!query?.trim()) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(JSON.stringify({ error: "query is required" })),
+      ]);
+    }
+    const results = await queryRag(query, { nResults: n_results, filterType: filter_type });
+    if (!results.length) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(
+          JSON.stringify({
+            results: [],
+            message: "No results found. The RAG server may not be running — use iron-static_startRagServer to start it, or check that rag_index.py has been run.",
+          })
+        ),
+      ]);
+    }
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(
+        formatRagContext(results) + "\n\n" + JSON.stringify({ result_count: results.length })
+      ),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tool: checkRagHealth
+// ---------------------------------------------------------------------------
+
+interface CheckRagHealthInput {
+  // No input required
+}
+
+class CheckRagHealthTool implements vscode.LanguageModelTool<CheckRagHealthInput> {
+  async invoke(
+    _options: vscode.LanguageModelToolInvocationOptions<CheckRagHealthInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const root = getWorkspaceRoot();
+    const engine = getRagEngine(root);
+    const h = await engine.health();
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(
+        JSON.stringify({
+          indexed: h.indexed,
+          docs_indexed: h.docs,
+          embedding_model: h.model,
+          ollama_reachable: h.ollamaReachable,
+          index_path: h.indexPath,
+          currently_indexing: engine.isIndexing,
+          how_to_index: !h.indexed
+            ? "Use iron-static_startRagServer to build the index (runs inside VS Code, no Python server needed)"
+            : null,
+          how_to_start_ollama: !h.ollamaReachable
+            ? "ollama serve  (then: ollama pull nomic-embed-text)"
+            : null,
+        })
+      ),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tool: startRagServer  (now triggers in-process indexing — no Python server)
+// ---------------------------------------------------------------------------
+
+interface StartRagServerInput {
+  /** Re-index all files even if content hash is unchanged */
+  force?: boolean;
+}
+
+class StartRagServerTool implements vscode.LanguageModelTool<StartRagServerInput> {
+  async invoke(
+    options: vscode.LanguageModelToolInvocationOptions<StartRagServerInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const root = getWorkspaceRoot();
+    const engine = getRagEngine(root);
+
+    if (engine.isIndexing) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(
+          JSON.stringify({ ok: true, message: "Indexing already in progress — check back shortly." })
+        ),
+      ]);
+    }
+
+    const force = options.input?.force ?? false;
+    const before = await engine.health();
+
+    if (before.indexed && !force) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(
+          JSON.stringify({
+            already_indexed: true,
+            docs: before.docs,
+            message: "Index already exists. Use force:true to re-index everything, or iron-static_reloadRagIndex for incremental.",
+          })
+        ),
+      ]);
+    }
+
+    // Start indexing in background — fire and forget
+    const logLines: string[] = [];
+    engine
+      .index({
+        force,
+        onProgress: (msg) => {
+          logLines.push(msg);
+          console.log("[RAG]", msg);
+        },
+      })
+      .catch((e) => console.error("[RAG] index error:", e));
+
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(
+        JSON.stringify({
+          ok: true,
+          message: `Indexing started in background (force=${force}). The index runs inside VS Code — no Python server needed. Check iron-static_checkRagHealth to see progress.`,
+          ollama_required: "Ollama must be running with nomic-embed-text pulled: ollama pull nomic-embed-text",
+        })
+      ),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tool: reloadRagIndex
+// ---------------------------------------------------------------------------
+
+interface ReloadRagIndexInput {
+  // No input required
+}
+
+class ReloadRagIndexTool implements vscode.LanguageModelTool<ReloadRagIndexInput> {
+  async invoke(
+    _options: vscode.LanguageModelToolInvocationOptions<ReloadRagIndexInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    await triggerRagReload();
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(
+        JSON.stringify({
+          ok: true,
+          message: "Incremental re-index started in background inside VS Code. Only changed files will be re-embedded. Check iron-static_checkRagHealth for status.",
+        })
+      ),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tool: checkOllamaHealth
+// ---------------------------------------------------------------------------
+
+interface CheckOllamaHealthInput {
+  // No input required
+}
+
+class CheckOllamaHealthTool implements vscode.LanguageModelTool<CheckOllamaHealthInput> {
+  async invoke(
+    _options: vscode.LanguageModelToolInvocationOptions<CheckOllamaHealthInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const health = await checkOllamaHealth();
+    return new vscode.LanguageModelToolResult([
+      new vscode.LanguageModelTextPart(
+        JSON.stringify({
+          running: health.running,
+          models: health.models,
+          recommended_model: OLLAMA_DEFAULT_MODEL,
+          gemma_pulled: health.models.some((m) => m.startsWith("gemma")),
+          how_to_start: health.running ? null : "ollama serve",
+          how_to_pull: health.models.some((m) => m.startsWith("gemma"))
+            ? null
+            : `ollama pull ${OLLAMA_DEFAULT_MODEL}`,
+        })
+      ),
+    ]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tool: askGemma
+// ---------------------------------------------------------------------------
+
+interface AskGemmaInput {
+  prompt: string;
+  system_prompt?: string;
+  model?: string;
+  temperature?: number;
+}
+
+class AskGemmaTool implements vscode.LanguageModelTool<AskGemmaInput> {
+  async invoke(
+    options: vscode.LanguageModelToolInvocationOptions<AskGemmaInput>,
+    _token: vscode.CancellationToken
+  ): Promise<vscode.LanguageModelToolResult> {
+    const { prompt, system_prompt, model, temperature } = options.input;
+    if (!prompt?.trim()) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(JSON.stringify({ error: "prompt is required" })),
+      ]);
+    }
+
+    const messages: Array<{ role: "system" | "user" | "assistant"; content: string }> = [];
+    if (system_prompt?.trim()) {
+      messages.push({ role: "system", content: system_prompt });
+    }
+    messages.push({ role: "user", content: prompt });
+
+    try {
+      const response = await ollamaChat(messages, {
+        model: model ?? OLLAMA_DEFAULT_MODEL,
+        temperature: temperature ?? 0.7,
+      });
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(
+          JSON.stringify({ model: model ?? OLLAMA_DEFAULT_MODEL, response })
+        ),
+      ]);
+    } catch (err) {
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(
+          JSON.stringify({
+            error: (err as Error).message,
+            hint: "Make sure Ollama is running (ollama serve) and the model is pulled (ollama pull gemma3:27b).",
+          })
+        ),
+      ]);
+    }
+  }
+}
+
 export function registerLmTools(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     // Context readers
@@ -1249,5 +1513,19 @@ export function registerLmTools(context: vscode.ExtensionContext): void {
     vscode.lm.registerTool("iron-static_invokeSkill", new InvokeSkillTool()),
     // Homework / prerequisites
     vscode.lm.registerTool("iron-static_getHomework", new GetHomeworkTool()),
+    // RAG — local knowledge retrieval
+    vscode.lm.registerTool("iron-static_queryKnowledge", new QueryKnowledgeTool()),
+    vscode.lm.registerTool("iron-static_checkRagHealth", new CheckRagHealthTool()),
+    vscode.lm.registerTool("iron-static_startRagServer", new StartRagServerTool()),
+    vscode.lm.registerTool("iron-static_reloadRagIndex", new ReloadRagIndexTool()),
+    // Ollama / local Gemma
+    vscode.lm.registerTool("iron-static_checkOllamaHealth", new CheckOllamaHealthTool()),
+    vscode.lm.registerTool("iron-static_askGemma", new AskGemmaTool()),
+    // Content generation — native SDK/binary, no Python shelling
+    vscode.lm.registerTool("iron-static_buildVideoPrompt", new BuildVideoPromptTool()),
+    vscode.lm.registerTool("iron-static_generatePromoImage", new GeneratePromoImageTool()),
+    vscode.lm.registerTool("iron-static_generatePromoVideo", new GeneratePromoVideoTool()),
+    vscode.lm.registerTool("iron-static_renderWaveformVideo", new RenderWaveformVideoTool()),
+    vscode.lm.registerTool("iron-static_generateStoryboardVideo", new GenerateStoryboardVideoTool()),
   );
 }

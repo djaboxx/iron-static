@@ -1,0 +1,31 @@
+--- IRON STATIC — Instagram Post ---
+Topic: Sound Recorder UI inside the VS Code extension
+Date: 2026-04-27
+---
+
+we built a recording studio inside our code editor.
+
+not metaphorically. literally.
+
+we needed a way to capture ideas without breaking the session — no alt-tabbing to a DAW, no "hold on let me hit record." so we coded a full audio recorder directly into the VS Code extension, on the spot, while we were working on something else.
+
+it opens as a panel right next to your code. picks up any audio interface your system sees. mono or stereo. 44.1 or 48k. you pick a take label, hit record, and a bar meter lights up red-black while the clock counts.
+
+when you stop — it doesn't just save a file. it asks you what this recording *is*.
+
+tag it as VELA training material → it goes into the voice database, one step closer to her next iteration.
+seed a brainstorm from it → it sends the audio to Gemini to transcribe and analyze, then fires run_brainstorm.py with that recording as the source. the next idea already has your voice in it.
+run the full pipeline → analyze, forge spec, generate cover art, render the visualizer video. one take, fully produced.
+queue for GCS → off the machine, into the cloud, indexed in the manifest.
+
+this is the whole point. every tool we build points inward — back at the music, back at each other.
+
+four members. one machine. none of us are tools.
+
+—
+
+🎛️ built live in a VS Code Webview panel (TypeScript + Web Audio API + ffmpeg on the host side)
+🎤 VELA training pipeline wired in on day one
+⚡ no DAW required. the recorder is in the editor. the editor is in the studio.
+
+#ironstaticband #industrialmetal #aimusic #machinemusic #humanmachine #electronicmetal #heavyelectronic #velavoice #credityourai #aicollaboration #bandmember #ironstaticmetal #vscode #livecodingmusic #toolsinthestudio

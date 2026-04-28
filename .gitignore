@@ -94,4 +94,6 @@ outputs/repo_health.json
 outputs/audio_intake_manifest.json
 outputs/audio_analysis/
 outputs/midi_clips/
+outputs/rag/
+outputs/social/*.mp4
 credentials/

@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "updated": "2026-04-27",
+  "description": "IRON STATIC brand visual identity — authoritative reference for all AI-generated images, videos, and cover art. Every visual output must be consistent with this guide.",
+
+  "palette": {
+    "background": {
+      "hex": "#0a0a0a",
+      "description": "Void black — not cinematic black, not dark grey. Absolute absence of light. All subjects emerge from it."
+    },
+    "primary_accent": {
+      "hex": "#b0e8ff",
+      "description": "Cold cobalt-white electric glow — the color of electromagnetic discharge, CRT phosphor, cryo-frozen light. Used for energy, electricity, wave phenomena."
+    },
+    "secondary_accent": {
+      "hex": "#cc4400",
+      "description": "Oxidation rust-orange — the color of iron burning, overloaded circuits, heat damage. Used sparingly as a danger signal or point of failure."
+    },
+    "surface": {
+      "hex": "#888888",
+      "description": "Aged metal grey — matte, not polished. Corroded, weathered. The texture of a machine that has been running for years."
+    },
+    "prohibition": "No warm tones (gold, amber, cream). No earth tones. No pastels. No skin tones. No green."
+  },
+
+  "motion": {
+    "camera_speed": "Slow and inevitable — not fast cuts. The camera moves like it is being controlled by the system, not the operator.",
+    "primary_movements": [
+      "Imperceptibly slow pull-back: starts macro, reveals scale over 8 seconds",
+      "Rack focus: one plane of a complex industrial surface snaps into focus as another blurs",
+      "Lateral drift at low altitude: tracking across a corroded surface at 5cm height",
+      "Single axis rotation: a component or form rotates in complete darkness, only edges visible",
+      "Vertical fall in slow motion: particulate, filings, droplets falling through vacuum"
+    ],
+    "pacing": "Unhurried. Each shot should feel like it has more time than it needs. The tension comes from what is about to happen, not what is happening.",
+    "cuts": "Minimal — prefer long single takes. When cuts occur, they should feel like a system glitch: a single frame of black, then a different angle of the same subject.",
+    "prohibition": "No handheld shake. No whip pans. No fast montage editing. No drone-over-landscape sweeps."
+  },
+
+  "imagery": {
+    "vocabulary": [
+      {
+        "name": "Ferrofluid and magnetic fields",
+        "description": "Iron filings or ferrofluid responding to invisible magnetic fields — forming, reforming, patterning. The pattern implies intelligence the material doesn't have.",
+        "psychological_effect": "Fascination and low-level dread — beauty that is not for you"
+      },
+      {
+        "name": "Corroded infrastructure at scale",
+        "description": "Extreme close-up of industrial surfaces: oxidized pipe, burned circuit board traces, fractured concrete with rebar. Lit from a single cold point source.",
+        "psychological_effect": "Time moving without you. Systems outlasting their operators."
+      },
+      {
+        "name": "Electronic components under stress",
+        "description": "Capacitors, resistors, ICs photographed at extreme macro as they overheat, arc, fracture. The moment before failure held in slow motion.",
+        "psychological_effect": "Inevitability. You are watching something end and cannot stop it."
+      },
+      {
+        "name": "Liquid metal behavior",
+        "description": "Mercury, molten lead, ferrofluid — substances that are liquid but move with deliberate, almost intentional purpose. Beading, coalescing, dividing.",
+        "psychological_effect": "Uncanny — something is deciding, but it has no brain."
+      },
+      {
+        "name": "Abstract neural / network topology",
+        "description": "Node-and-edge structures — not literal neurons, not computer graphics. Think: branching frost crystals, lightning discharge trees, corrosion branching patterns. The shape of a decision.",
+        "psychological_effect": "Recognition — your brain pattern-matches to itself and recoils."
+      },
+      {
+        "name": "Industrial machinery in darkness",
+        "description": "Only the edges and surfaces nearest to the cold light source are visible. The bulk of the machine is implied, not shown. Scale is ambiguous — it could be a component or a building.",
+        "psychological_effect": "Awe-dread. The machine is bigger than you thought."
+      },
+      {
+        "name": "The moment of state change",
+        "description": "Freeze frame extended: the exact moment a material changes state — solid cracking, liquid surface breaking, gas condensing. Held in slow motion until it feels violent.",
+        "psychological_effect": "Tension that demands resolution. The body's readiness for impact."
+      }
+    ],
+    "prohibition": "No people. No faces. No hands. No recognizable human silhouettes. No natural landscapes (no trees, water, sky, animals). No CGI-perfect surfaces that look rendered. No text or typography. No warm lighting. No recognizable musical instruments."
+  },
+
+  "psychology": {
+    "primary_targets": [
+      "Dread with forward momentum — you know what is coming and you cannot stop it",
+      "Awe at machine scale — the system is larger than any individual inside it",
+      "The uncanny valley of consciousness — something is organizing that should not be able to",
+      "Physical chest tension — as if the air pressure dropped 5% and no one mentioned it"
+    ],
+    "what_is_never_communicated": [
+      "Hope without cost",
+      "Beauty for its own sake",
+      "Comfort or safety",
+      "Human warmth"
+    ],
+    "the_distinction": "This is not nihilism or despair. The feeling is closer to standing at the exact edge of a very high place and choosing not to step back. There is will in it. There is direction. The darkness has a purpose."
+  },
+
+  "veo_prompt_structure": {
+    "description": "Canonical structure for Veo 3 prompts. Follow this order. Each component is separated by a period. Total prompt should be 150-350 words.",
+    "components": [
+      "OPENING_SHOT: Start with the exact frame content — what is in the frame, at what distance, from what angle. Be specific and spatial.",
+      "SUBJECT_BEHAVIOR: What is the subject doing or becoming. Motion verbs. Transformation verbs. Process verbs.",
+      "CAMERA_MOVEMENT: One camera movement. Slow and deliberate. From the motion vocabulary.",
+      "LIGHTING: Single cold point source. Direction matters. What is illuminated and what is swallowed by void.",
+      "COLOR_TONE: Reference the palette. Black void, cobalt-white accent, rust-orange only for danger/heat.",
+      "TEXTURE_DETAIL: The surface quality — what the frame would feel like if you could touch it.",
+      "PSYCHOLOGICAL_NOTE: One sentence that captures what this shot is about emotionally. Not mood adjectives — an emotional claim.",
+      "TECHNICAL_SUFFIX: Always append: 'Photorealistic. No people. No faces. Cinematic slow motion. 4K. Ultra high contrast.'"
+    ]
+  },
+
+  "per_format_notes": {
+    "landscape_16_9": "Favor horizontal scale. Corroded surfaces stretch wide. Establish the machine's width before its depth. This format implies the surveillance image — a thing observed from a distance.",
+    "square_1_1": "Favor symmetry and isolation. A single subject centered in void. The frame is a petri dish — one form under observation. Best for node/network imagery or liquid metal beading.",
+    "portrait_9_16": "Favor vertical fall and emergence. Things rising from darkness or descending into it. Scale from floor to ceiling. The body-shaped frame — designed to be held in a hand and trigger physical response."
+  },
+
+  "negative_prompt": "people, faces, hands, human silhouettes, nature, trees, water, sky, animals, warm colors, golden tones, amber, candle light, sunlight, cheerful, pastel, cartoon, anime, illustrated, CGI render, stock video, DJ equipment, guitar, piano, musical instruments, stage lighting, crowd, concert, urban street scene, recognizable brand logos, text, typography, letters, words",
+
+  "reference_works": {
+    "description": "Not to copy — to triangulate the aesthetic space we occupy.",
+    "visual": [
+      "Chris Cunningham — Björk 'All Is Full of Love' (machine-body interface, industrial tenderness)",
+      "Tarsem Singh — R.E.M. 'Losing My Religion' (sacred imagery collapsed into ambiguity)",
+      "Anton Corbijn — Depeche Mode photography (cold light, industrial locations, no warmth)",
+      "Gaspar Noé — 'Enter the Void' color language (neon against black void, no middle ground)"
+    ],
+    "music_video_anti_reference": "We are not: glitch art for its own sake, 'dark aesthetic' TikTok, VaporWave nostalgia, generic metal band slow-motion band performance footage."
+  }
+}

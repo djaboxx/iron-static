@@ -216,6 +216,7 @@ Eighteen slash-command prompts live in `.github/prompts/`. Invoke them by typing
 | `movement-post` | `/movement-post [topic]` | The Community Manager | Generate movement-building social/Patreon/blog content for a given topic. Reads manifesto + movement-plan, drafts per-platform copy, saves to outputs/social/. |
 | `build-rack` | `/build-rack [track]` | The Sound Designer | Build an Instrument Rack on a named track from a chain spec, auto-removes existing non-rack instruments first, pushes to Ableton immediately. `track` = track name (DFAM, Pigments, Take5, etc.). |
 | `push-streamdeck` | `/push-streamdeck` | Arc | Generate the Stream Deck profile (D4C1A9B3) via `streamdeck/generate_profile.py --install --restart`. |
+| `social-post` | `/social-post [topic]` | The Publicist | Full Instagram Reel promo chain for any song feature or band moment — caption, cover image (Visual Artist), brand audio check, video render with 48kHz audio (Video Director), Reel post, optional profile photo update. `topic` = what the post is about. |
 
 **When to use prompts vs. agents directly:**
 - Use a **prompt** when you want a full multi-step workflow to run end-to-end with minimal steering
@@ -226,11 +227,38 @@ Eighteen slash-command prompts live in `.github/prompts/`. Invoke them by typing
 
 ---
 
+## Development Philosophy — Extension First
+
+**New features belong in the VS Code extension, not Python scripts.**
+
+The `vscode-extension/iron-static-bridge` extension is the primary home for new capabilities:
+- **New data/API feature** → add an LM tool in `src/lmTools.ts` + `package.json` `languageModelTools`
+- **New command** → register in `src/extension.ts`, callable from prompt files via `run_vscode_command`
+- **New agent capability** → LM tool + schema in package.json, then agents can call it automatically
+
+Existing Python scripts in `scripts/` stay as-is but no new scripts should be written for new features. Exception: one-time data migration or bulk batch operations that have no interactive UI component.
+
+### Extension Pattern
+```typescript
+// lmTools.ts — add a new tool
+context.subscriptions.push(
+  vscode.lm.registerTool('iron-static_myTool', {
+    async invoke(options, token) {
+      const input = options.input as { param: string };
+      // implementation
+      return new vscode.LanguageModelToolResult([new vscode.LanguageModelTextPart(result)]);
+    }
+  })
+);
+```
+Then add the schema to `package.json` `contributes.languageModelTools` and rebuild with `npm run build`.
+
 ## Scripts & Automation
 
-All scripts live in `scripts/`. They must follow the conventions in `copilot-instructions.md`:
+Existing scripts live in `scripts/`. They follow these conventions:
 - Python 3, `argparse`, logging, idempotent, no embedded secrets.
 - Dependencies in `scripts/requirements.txt`.
+- **Do not add new scripts for new features** — extend the VS Code extension instead.
 
 ---
 

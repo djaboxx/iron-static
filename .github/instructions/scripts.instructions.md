@@ -4,6 +4,11 @@ description: Python scripting standards for all IRON STATIC automation scripts.
 applyTo: "scripts/**"
 ---
 
+## Architecture note
+
+**New features belong in the VS Code extension (`vscode-extension/iron-static-bridge`), not here.**
+Add LM tools to `src/lmTools.ts` + `package.json` schema and rebuild. Only write a new Python script for one-time batch operations with no interactive component. If in doubt, build it in the extension.
+
 ## Language and tooling
 - Python 3.10+. Do not use Python 2 idioms.
 - All scripts must be runnable with `/Users/darnold/venv/bin/python3` (project venv).

@@ -40,5 +40,13 @@ google-auth-oauthlib>=1.0.0
 # RSS/Atom feed polling (run_feed_digest.py)
 feedparser>=6.0.0
 
+# Local RAG — knowledge indexing and retrieval (rag_index.py, rag_server.py)
+chromadb>=0.5.0         # persistent local vector store
+ollama>=0.3.0           # Ollama Python client (embedding + generation)
+
+# HTML parsing and conversion (fetch_api_docs.py)
+beautifulsoup4>=4.12.0
+html2text>=2024.2.26
+
 # General utilities
 argparse  # stdlib in Python 3.2+

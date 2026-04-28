@@ -74,7 +74,7 @@ Present the brief to Dave before generating. Wait for approval or revision.
 
 ### Step 2: Build the Imagen Prompt
 
-Use `generate_promo_image.py` which builds prompts from song context automatically. For custom prompts, the prompt structure is:
+Call `iron-static_generatePromoImage` — it builds the prompt from song context and `database/visual-style.json` automatically. For custom prompts, include a `style` clause:
 
 ```
 [Subject]: [what the image contains]
@@ -93,14 +93,22 @@ Always include in every prompt:
 
 ### Step 3: Generate
 
-```bash
-python scripts/generate_promo_image.py --song <slug>
-python scripts/generate_promo_image.py --song <slug> --style "<your style clause>"
-python scripts/generate_promo_image.py --song <slug> --dry-run
-python scripts/generate_promo_image.py --song <slug> --formats square landscape portrait
+Call the `iron-static_generatePromoImage` LM tool directly — no Python scripts:
+
+```json
+// Active song, all 3 formats
+{ "tool": "iron-static_generatePromoImage", "formats": ["square", "landscape", "portrait"] }
+
+// Specific song with style override
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>", "style": "<your style clause>" }
+
+// Multiple variants for comparison
+{ "tool": "iron-static_generatePromoImage", "song_slug": "<slug>", "formats": ["square"], "count": 4 }
+
+// Preview prompt: check the 'prompt' field in the tool response before generating
 ```
 
-Outputs land in `outputs/social/<song-slug>_cover_<format>.png`.
+Outputs land in `outputs/social/<song-slug>_cover_<format>_v1.png`.
 
 ### Step 4: Iterate
 

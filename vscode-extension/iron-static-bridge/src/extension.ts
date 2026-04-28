@@ -20,6 +20,7 @@ import { registerChatParticipants } from "./chatParticipants";
 import { registerLmTools } from "./lmTools";
 import { registerHomeworkScheduler } from "./homeworkScheduler";
 import { registerAudioRecorder } from "./audioRecorder";
+import { getRagEngine } from "./ragEngine";
 
 let server: BridgeServer | undefined;
 let statusBarItem: vscode.StatusBarItem;
@@ -61,6 +62,26 @@ export function activate(context: vscode.ExtensionContext): void {
   if (workspaceRoot) {
     registerHomeworkScheduler(context, workspaceRoot);
     registerAudioRecorder(context, workspaceRoot);
+
+    // RAG — build index on activation if not already built (background, non-blocking)
+    const ragEngine = getRagEngine(workspaceRoot);
+    ragEngine.health().then((h) => {
+      if (!h.indexed && h.ollamaReachable) {
+        statusBarItem.text = "$(sync~spin) IS indexing…";
+        ragEngine
+          .index({ onProgress: (msg) => console.log("[RAG]", msg) })
+          .then((result) => {
+            statusBarItem.text = "$(radio-tower) IS :9880";
+            if (result.added > 0) {
+              console.log(`[RAG] Index built: ${result.added} chunks.`);
+            }
+          })
+          .catch((e) => {
+            statusBarItem.text = "$(radio-tower) IS :9880";
+            console.warn("[RAG] Auto-index failed:", e);
+          });
+      }
+    }).catch(() => { /* Ollama not running — silent */ });
   }
 
   // Commands
