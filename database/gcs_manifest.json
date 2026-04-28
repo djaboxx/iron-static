@@ -1,6 +1,6 @@
 {
   "bucket": "iron-static-files",
-  "last_updated": "2026-04-26T00:39:32.212119+00:00",
+  "last_updated": "2026-04-28T23:07:18.351868+00:00",
   "files": {
     "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_bad-news.aiff": {
       "size_bytes": 167938,
@@ -2563,6 +2563,339 @@
       "sha256": "0c398e18aec3b24e4aebc534766171b81688ef87538bb2935864299f412b488e",
       "content_type": "application/octet-stream",
       "uploaded_at": "2026-04-26T00:39:32.211919+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/arc_intro_caption_instagram.txt": {
+      "size_bytes": 892,
+      "sha256": "596d0958d6e789dbd7b57360a3ef1ddddb508fe97b048b579b699e9f2abf4387",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:00.026450+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/band_statement_caption_instagram.txt": {
+      "size_bytes": 915,
+      "sha256": "77cc421ad2c915a82a365b08e10cb236e8f525cf174ca601d71b20392f941ec5",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:00.318154+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/brand_profile.jpg": {
+      "size_bytes": 518813,
+      "sha256": "1b79ad9879033c2c01442ea16eaf267902ef846e7a0802fe3c4bc5311028b6f7",
+      "content_type": "image/jpeg",
+      "uploaded_at": "2026-04-28T23:07:00.927449+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/brand_profile.png": {
+      "size_bytes": 1398387,
+      "sha256": "b4b9e3d431c535069481757448855103e1645945d8be209621e4d5677abc44fc",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:01.335968+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/brand_profile_2026.png": {
+      "size_bytes": 1706335,
+      "sha256": "d51680164ccee63a72b3273666ddc3701fa3a91035dd0ebbfea0aeb239c0ff21",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:01.672561+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/brand_repo.png": {
+      "size_bytes": 1128798,
+      "sha256": "697f331b68b17fa4e01cf68a0274c586a9b88e4c2d210378084c79ede212cf6d",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:01.996771+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_cover_square.png": {
+      "size_bytes": 909166,
+      "sha256": "db7610a072a07b71c335b203235c1b1b5c65482d1965f115feeb77bbfe8001dc",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:02.353740+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard.json": {
+      "size_bytes": 3907,
+      "sha256": "97095c1cf43707a7eebb34882975e89579d3cf3e1b2b4b4ac800db7d048baf56",
+      "content_type": "application/json",
+      "uploaded_at": "2026-04-28T23:07:02.628412+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_landscape_v1.mp4": {
+      "size_bytes": 7830690,
+      "sha256": "67432070eff0e87f4881dfe2b4d37c369d0191e64e53fdc1731a8478cb7070e2",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:03.166146+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_landscape_v2.mp4": {
+      "size_bytes": 7042524,
+      "sha256": "774d8a4bc0a47562a172b67f9c55bcba6c8c4bccf09aa5f9139438c0e930e468",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:03.703232+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_landscape_v3.mp4": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:03.927842+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_landscape_v4.mp4": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:04.165009+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene1.mp4": {
+      "size_bytes": 3305173,
+      "sha256": "0f3de721c3ceac30ba1ca2d3faa4c13aa3db4d2df32d3ed29877369b23f51d36",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:04.607339+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene1.png": {
+      "size_bytes": 1667932,
+      "sha256": "53221b2a3305c08061ff4bd2042d6eee42ce69ad0354f87e1b3455dd8b7d8cc5",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:04.940600+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene2.mp4": {
+      "size_bytes": 3689548,
+      "sha256": "01ffca012bcc321a271b91767bebbf15e544878e93d1c3828d715e782bb27e83",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:05.326852+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene2.png": {
+      "size_bytes": 2003810,
+      "sha256": "150544056d774fd0b68d7a96025ef6c653fc5fa49d4e9b9da0a57c0c59db51a6",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:05.701976+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene3.mp4": {
+      "size_bytes": 4006085,
+      "sha256": "85ebcf18566821750bbd28e6fed0ca3a2e0f26d531ce3db0f9243dd647e205e7",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:06.122150+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_storyboard_scene3.png": {
+      "size_bytes": 1484136,
+      "sha256": "bdb18399296e6d475f4b3753d5dd8f804c68f859265790f7e9ee55076faedd7b",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:06.521824+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_veo_landscape_v1.mp4": {
+      "size_bytes": 1990394,
+      "sha256": "ef753eee708a869c52cddf6f7d9bb0863bd4dd9a9d4089fe92018de90f6c9749",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:06.929229+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_veo_landscape_v2.mp4": {
+      "size_bytes": 2628206,
+      "sha256": "ce8e11cd214f6e9fd2550e88d70aa2c6d68e84060cf55e3ebf8ea04e65377c7a",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:07.265531+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_visualizer_landscape.mp4": {
+      "size_bytes": 46135663,
+      "sha256": "1ef2fc4e85c164cb1043ce46338fa0ac1f67327e8c8573bc9a8c7ffb6ee87d38",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:09.232058+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_visualizer_portrait.mp4": {
+      "size_bytes": 47032890,
+      "sha256": "191732b415988829179527312f4822474b7bea3e1986d1bff20fab920af39fef",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:11.244663+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/ignition-point_visualizer_square.mp4": {
+      "size_bytes": 40320217,
+      "sha256": "f9f9124860221a569d06e79f1a8a5538189f490b034bd05fba75eeda09796183",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:13.753059+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/instrumental-convergence_caption_instagram.txt": {
+      "size_bytes": 646,
+      "sha256": "24d282b3dff1e6538b940a255dfaa0d0ebd2aeed91a63106e34e8be075f47e91",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:14.011288+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/instrumental-convergence_cover_landscape.png": {
+      "size_bytes": 1306489,
+      "sha256": "954fe078236cb5230b46da43877ae21036060bd4e6cfa6f958fde4e41e9d62ed",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:14.387594+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/instrumental-convergence_cover_portrait.png": {
+      "size_bytes": 1465219,
+      "sha256": "d981058ded0dffa74e2ee56ed30cc0df964ce953b11d6d94110e0939f9e47d2b",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:14.761002+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/instrumental-convergence_cover_square.jpg": {
+      "size_bytes": 187448,
+      "sha256": "09b563a908214aa466461e9b3cb2c7966a77946e53f3a5adb75142a2019739c3",
+      "content_type": "image/jpeg",
+      "uploaded_at": "2026-04-28T23:07:15.023924+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/instrumental-convergence_cover_square.png": {
+      "size_bytes": 903978,
+      "sha256": "e30741b5dad4a6e6e8a8e38522ab1d781a3e9ae7f07045e442c24ed73a0e4e48",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:15.352863+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/meditation_visualizer_landscape.mp4": {
+      "size_bytes": 3089090,
+      "sha256": "6026e5a5dfa741a11f86410f4a04b11bf10040c857a3c0831e1f9454c59976fc",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:15.753844+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/meditation_visualizer_square.mp4": {
+      "size_bytes": 2728920,
+      "sha256": "072e967a5bfbbd61ccdd53ea001fd097c7c231ecf759916551b11459589c85ed",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:16.146766+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_caption_instagram.txt": {
+      "size_bytes": 1861,
+      "sha256": "0d5af442a522b3b9923272ad49989899d2e92920af5cfbc62396fdbf30b0feec",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:16.449298+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_cover_square.jpg": {
+      "size_bytes": 287654,
+      "sha256": "e29e88803eed860aa4f04f22b2b2423afbed5ca0366ebf117712b54ed76a2a87",
+      "content_type": "image/jpeg",
+      "uploaded_at": "2026-04-28T23:07:16.722931+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_cover_square.png": {
+      "size_bytes": 970437,
+      "sha256": "359313ee963eb7d89bf011859542a06d037bdf9a88a4f0eb88f77e621d8ce06e",
+      "content_type": "image/png",
+      "uploaded_at": "2026-04-28T23:07:17.086031+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_portrait.mp4": {
+      "size_bytes": 3464110,
+      "sha256": "c3f399e2f100f03286bc3612f04c136142e2916904ff5db6d1ca06f64e6cf0fb",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:17.456897+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_square.mp4": {
+      "size_bytes": 3448528,
+      "sha256": "0e8dbb18eac56ea8cb2b770c253ac1b137be64a483fdb9784a599137859a4a1c",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-04-28T23:07:17.828196+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/recorder-ui_square_post_log.txt": {
+      "size_bytes": 57,
+      "sha256": "5818b3ee0ce720eaf6c11152793fc4f860d73a12360a6de24ec456c26db05130",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:18.076163+00:00",
+      "tags": [
+        "ignition-point"
+      ]
+    },
+    "outputs/social/vela-announcement_caption_instagram.txt": {
+      "size_bytes": 851,
+      "sha256": "cdbb30fd0f8911093e7cd77df09785b8a1466cdef201eb1eecc3c1d1f6af2c38",
+      "content_type": "text/plain",
+      "uploaded_at": "2026-04-28T23:07:18.351495+00:00",
       "tags": [
         "ignition-point"
       ]
