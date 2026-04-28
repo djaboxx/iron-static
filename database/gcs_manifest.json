@@ -1,6 +1,6 @@
 {
   "bucket": "iron-static-files",
-  "last_updated": "2026-04-28T23:07:18.351868+00:00",
+  "last_updated": "2026-04-28T23:11:10.314555+00:00",
   "files": {
     "audio/samples/vocals/say-renders/ignition-point/ah-oh-ee_bad-news.aiff": {
       "size_bytes": 167938,
@@ -2898,6 +2898,24 @@
       "uploaded_at": "2026-04-28T23:07:18.351495+00:00",
       "tags": [
         "ignition-point"
+      ]
+    },
+    "docs/api/ableton/live12-manual-en.pdf": {
+      "size_bytes": 87585316,
+      "sha256": "10a65e490ff6888e390e7ad6cb458390edbb037e2dbf119190a570725ce0ea88",
+      "content_type": "application/pdf",
+      "uploaded_at": "2026-04-28T23:11:07.385639+00:00",
+      "tags": [
+        "ableton-docs"
+      ]
+    },
+    "knowledge/ResolveManual.pdf": {
+      "size_bytes": 8968645,
+      "sha256": "a42806a1d826e4ed613e7a99124095c3ec0081357104b47a59b0ecfc5993a23e",
+      "content_type": "application/pdf",
+      "uploaded_at": "2026-04-28T23:11:10.314362+00:00",
+      "tags": [
+        "knowledge"
       ]
     }
   }

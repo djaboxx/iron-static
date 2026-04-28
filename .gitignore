@@ -8,7 +8,7 @@
 *.als.bak
 Backup/
 
-# Audio (large binaries — track with Git LFS instead)
+# Audio (large binaries — tracked in GCS via gcs_sync.py, NOT in git)
 *.wav
 *.aiff
 *.aif
@@ -30,7 +30,9 @@ audio/generated/slices/**/*.mp3
 # Ableton Analysis Files — auto-generated sidecar files, never committed
 **/*.asd
 
-# PDF manuals are tracked (small and essential)
+# PDF manuals — large PDFs live in GCS (database/gcs_manifest.json tracks them).
+# The pre-commit hook blocks staged PDFs not registered there.
+*.pdf
 # Exclude large sample packs dropped here by accident
 audio/samples/**/*.zip
 audio/samples/**/*.rar
