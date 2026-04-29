@@ -1,0 +1,250 @@
+{
+  // ─────────────────────────────────────────────────────────────────────────────
+  // IRON STATIC — workspace snippets
+  // Covers: Python scripts, JSON databases, Markdown presets, MIDI patterns
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  // ── Python ──────────────────────────────────────────────────────────────────
+
+  "Iron Static Script Header": {
+    "scope": "python",
+    "prefix": "is-script",
+    "description": "Standard Iron Static Python script header with argparse + logging",
+    "body": [
+      "#!/usr/bin/env python3",
+      "\"\"\"",
+      "${1:One-line description of what this script does.}",
+      "",
+      "Usage:",
+      "  python scripts/${TM_FILENAME_BASE}.py ${2:--flag value}",
+      "\"\"\"",
+      "",
+      "import argparse",
+      "import logging",
+      "import sys",
+      "from pathlib import Path",
+      "",
+      "REPO_ROOT = Path(__file__).parent.parent",
+      "",
+      "logging.basicConfig(level=logging.INFO, format=\"%(levelname)s: %(message)s\")",
+      "log = logging.getLogger(__name__)",
+      "",
+      "",
+      "def main():",
+      "    parser = argparse.ArgumentParser(description=\"${1}\")",
+      "    parser.add_argument(\"${3:--arg}\", help=\"${4:description}\")",
+      "    args = parser.parse_args()",
+      "    $0",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    main()"
+    ]
+  },
+
+  "GCS Push Block": {
+    "scope": "python",
+    "prefix": "is-gcs-push",
+    "description": "GCS push + manifest update pattern",
+    "body": [
+      "from pathlib import Path",
+      "import subprocess, sys",
+      "",
+      "def push_to_gcs(path: Path, tag: str) -> None:",
+      "    result = subprocess.run(",
+      "        [sys.executable, \"scripts/gcs_sync.py\", \"push\", str(path), \"--tag\", tag],",
+      "        cwd=REPO_ROOT,",
+      "        capture_output=True, text=True",
+      "    )",
+      "    if result.returncode != 0:",
+      "        log.error(\"GCS push failed: %s\", result.stderr)",
+      "        sys.exit(1)",
+      "    log.info(\"Pushed %s to GCS [tag: %s]\", path, tag)"
+    ]
+  },
+
+  "Remote Script Command Handler": {
+    "scope": "python",
+    "prefix": "is-rs-cmd",
+    "description": "IronStatic Remote Script command handler pattern",
+    "body": [
+      "elif cmd == \"${1:command_name}\":",
+      "    ${2:param} = data.get(\"${2:param}\")",
+      "    if ${2:param} is None:",
+      "        return {\"error\": \"missing param: ${2:param}\"}",
+      "    $0",
+      "    return {\"status\": \"ok\", \"${2:param}\": ${2:param}}"
+    ]
+  },
+
+  "Bridge Client Call": {
+    "scope": "python",
+    "prefix": "is-bridge",
+    "description": "IronStatic bridge client call via bridge_client.py",
+    "body": [
+      "from scripts.bridge_client import send_command",
+      "",
+      "result = send_command(\"${1:command}\", {",
+      "    \"${2:param}\": ${3:value},",
+      "})",
+      "if \"error\" in result:",
+      "    log.error(\"Bridge error: %s\", result[\"error\"])",
+      "    sys.exit(1)"
+    ]
+  },
+
+  // ── JSON ────────────────────────────────────────────────────────────────────
+
+  "Song Entry": {
+    "scope": "json",
+    "prefix": "is-song",
+    "description": "New entry for database/songs.json",
+    "body": [
+      "{",
+      "  \"slug\": \"${1:song-slug}\",",
+      "  \"title\": \"${2:Song Title}\",",
+      "  \"status\": \"${3|in-progress,active,released,archived|}\",",
+      "  \"key\": \"${4|C,C#,D,D#,E,F,F#,G,G#,A,A#,B|}\",",
+      "  \"scale\": \"${5|phrygian,minor,dorian,locrian,mixolydian,major|}\",",
+      "  \"bpm\": ${6:138},",
+      "  \"time_signature\": \"${7:4/4}\",",
+      "  \"als_path\": \"ableton/sessions/${1}/${1}.als\",",
+      "  \"brainstorm\": null,",
+      "  \"created\": \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}\",",
+      "  \"notes\": \"${8:}\",",
+      "  \"tags\": [${9}]",
+      "}"
+    ]
+  },
+
+  "GCS Manifest Entry": {
+    "scope": "json",
+    "prefix": "is-gcs-entry",
+    "description": "Manual entry for database/gcs_manifest.json files block",
+    "body": [
+      "\"${1:path/to/file.wav}\": {",
+      "  \"gcs_path\": \"${1}\",",
+      "  \"sha256\": \"${2:hash}\",",
+      "  \"size\": ${3:0},",
+      "  \"tag\": \"${4:song-slug}\",",
+      "  \"uploaded\": \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}Z\"",
+      "}"
+    ]
+  },
+
+  "Pigments Preset Param": {
+    "scope": "json",
+    "prefix": "is-pigments-param",
+    "description": "Parameter entry for an Arturia Pigments preset JSON",
+    "body": [
+      "{",
+      "  \"name\": \"${1:param_name}\",",
+      "  \"cc\": ${2:20},",
+      "  \"min\": ${3:0},",
+      "  \"max\": ${4:127},",
+      "  \"default\": ${5:64},",
+      "  \"description\": \"${6:What this controls}\"",
+      "}"
+    ]
+  },
+
+  // ── Markdown ─────────────────────────────────────────────────────────────────
+
+  "Preset Panel-State Doc": {
+    "scope": "markdown",
+    "prefix": "is-preset",
+    "description": "Panel-state preset documentation for semi-modular gear",
+    "body": [
+      "# ${1:Instrument} — ${2:Preset Name}",
+      "",
+      "**Song**: ${3:song-slug}  ",
+      "**BPM**: ${4:138}  ",
+      "**Key**: ${5:E Phrygian}  ",
+      "**Date**: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "",
+      "## Panel State",
+      "",
+      "| Section | Parameter | Value |",
+      "|---|---|---|",
+      "| ${6:VCO 1} | ${7:Tune} | ${8:0} |",
+      "",
+      "## Patch Matrix",
+      "",
+      "| From | To | Level |",
+      "|---|---|---|",
+      "| ${9:source} | ${10:dest} | ${11:full} |",
+      "",
+      "## Notes",
+      "",
+      "${12:Describe the sound: what it does, where it sits in the mix, what to watch out for.}",
+      "",
+      "## How to Reconstruct",
+      "",
+      "1. ${13:Step one}",
+      "$0"
+    ]
+  },
+
+  "Session Learning Entry": {
+    "scope": "markdown",
+    "prefix": "is-learning",
+    "description": "Single learning entry for knowledge/sessions/ files",
+    "body": [
+      "## ${1:Topic}",
+      "",
+      "**Date**: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}  ",
+      "**Song context**: ${2:song-slug}",
+      "",
+      "**What was learned**: ${3:Describe the insight, discovery, or decision.}",
+      "",
+      "**Why it matters**: ${4:How this affects future sessions or workflow.}",
+      "",
+      "**Relevant files**: `${5:path/to/file}`",
+      "$0"
+    ]
+  },
+
+  "Agent Handoff Note": {
+    "scope": "markdown",
+    "prefix": "is-handoff",
+    "description": "Handoff block for agent .md files",
+    "body": [
+      "## Handoff to ${1:Agent Name}",
+      "",
+      "**Trigger**: ${2:When this handoff should happen}",
+      "",
+      "**Pass along**:",
+      "- ${3:Key context item}",
+      "- ${4:What was decided}",
+      "",
+      "**Ask them to**: ${5:Specific task or question}",
+      "$0"
+    ]
+  },
+
+  // ── MIDI / Pattern ───────────────────────────────────────────────────────────
+
+  "MIDI Pattern Spec": {
+    "scope": "markdown,json",
+    "prefix": "is-pattern",
+    "description": "MIDI pattern spec block for midi-craft workflow",
+    "body": [
+      "### Pattern: ${1:pattern-name}",
+      "",
+      "- **Instrument**: ${2:pigments / operator / take5}",
+      "- **MIDI Channel**: ${3:8}",
+      "- **Length**: ${4:2} bars @ ${5:138} BPM",
+      "- **Key/Scale**: ${6:E Phrygian}",
+      "- **Role**: ${7:bass / lead / pad / perc}",
+      "",
+      "**Notes** (pitch, beat, duration, velocity):",
+      "",
+      "| Pitch | Beat | Dur | Vel |",
+      "|---|---|---|---|",
+      "| ${8:E2} | 1.0 | 0.5 | ${9:100} |",
+      "",
+      "**Feel**: ${10:Describe the rhythmic and tonal intent.}",
+      "$0"
+    ]
+  }
+}

@@ -67,7 +67,7 @@ terraform/**/*.tflog
 # terraform/.terraform.lock.hcl is intentionally committed (provider version lock)
 
 # VS Code
-.vscode/settings.json
+# settings.json and snippets are committed — they ARE the Iron Static workspace profile
 .vscode/launch.json
 
 # VS Code extension build output

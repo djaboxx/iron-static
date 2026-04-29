@@ -1,0 +1,209 @@
+{
+  // ---------------------------------------------------------------------------
+  // IRON STATIC — workspace profile
+  // Dave Arnold / Arc / VELA
+  // Visual identity: void black (#0a0a0a) · cold cobalt (#b0e8ff) · rust orange (#cc4400)
+  // ---------------------------------------------------------------------------
+
+  // ── Copilot / Chat ──────────────────────────────────────────────────────────
+  "github.copilot.chat.agent.runTasks": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.tools.autoApprove": true,
+  "chat.permissions.default": "autopilot",
+  "chat.promptFiles": true,
+
+  // ── Python ──────────────────────────────────────────────────────────────────
+  "terminal.integrated.allowWorkspaceConfiguration": true,
+  "python.terminal.useEnvFile": true,
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  // ── Editor ──────────────────────────────────────────────────────────────────
+  "editor.formatOnSave": false,
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Menlo, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 1.65,
+  "editor.letterSpacing": 0.3,
+  "editor.cursorStyle": "line",
+  "editor.cursorBlinking": "smooth",
+  "editor.minimap.enabled": false,
+  "editor.scrollBeyondLastLine": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.quickSuggestions": { "other": "off" },
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 100,
+  "editor.rulers": [100],
+
+  // ── Files ───────────────────────────────────────────────────────────────────
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.venv": true,
+    "**/*.egg-info": true
+  },
+  "files.associations": {
+    "*.als": "binary",
+    "*.mid": "binary",
+    "*.pgtx": "json",
+    "*.agent.md": "markdown",
+    "*.prompt.md": "markdown",
+    "*.instructions.md": "markdown",
+    "SKILL.md": "markdown"
+  },
+
+  // ── Explorer ─────────────────────────────────────────────────────────────────
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.als": "${capture}.als.bak",
+    "database/songs.json": "database/gcs_manifest.json, database/instruments.json, database/voices.json, database/visual-style.json",
+    ".gitignore": ".gitattributes, .github"
+  },
+
+  // ── Terminal ─────────────────────────────────────────────────────────────────
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "'JetBrains Mono', 'Fira Code', Menlo, monospace",
+  "terminal.integrated.lineHeight": 1.4,
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.env.osx": {
+    "IRON_STATIC_ROOT": "${workspaceFolder}",
+    "GCS_BUCKET": "iron-static-files"
+  },
+
+  // ── Theme + Brand Colors ─────────────────────────────────────────────────────
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.startupEditor": "none",
+  "workbench.colorCustomizations": {
+    "[GitHub Dark Default]": {
+      // Backgrounds — void black
+      "editor.background":                      "#0a0a0a",
+      "editorGutter.background":                "#0a0a0a",
+      "sideBar.background":                     "#0d0d0d",
+      "sideBarSectionHeader.background":        "#111111",
+      "activityBar.background":                 "#0a0a0a",
+      "panel.background":                       "#0a0a0a",
+      "terminal.background":                    "#0a0a0a",
+      "statusBar.background":                   "#0a0a0a",
+      "statusBar.noFolderBackground":           "#0a0a0a",
+      "statusBar.debuggingBackground":          "#cc4400",
+      "titleBar.activeBackground":              "#0a0a0a",
+      "titleBar.inactiveBackground":            "#0a0a0a",
+      "tab.inactiveBackground":                 "#0a0a0a",
+      "tab.activeBackground":                   "#111111",
+      "editorGroupHeader.tabsBackground":       "#0a0a0a",
+      "breadcrumb.background":                  "#0a0a0a",
+      "notifications.background":               "#111111",
+      "notificationCenterHeader.background":    "#0a0a0a",
+      "quickInput.background":                  "#111111",
+      "dropdown.background":                    "#111111",
+      "input.background":                       "#111111",
+
+      // Cold cobalt accents — primary energy
+      "statusBar.foreground":                   "#b0e8ff",
+      "statusBarItem.hoverBackground":          "#b0e8ff22",
+      "titleBar.activeForeground":              "#b0e8ff",
+      "tab.activeForeground":                   "#b0e8ff",
+      "tab.activeBorder":                       "#b0e8ff",
+      "editorCursor.foreground":                "#b0e8ff",
+      "terminal.foreground":                    "#b0e8ff",
+      "terminal.ansiCyan":                      "#b0e8ff",
+      "terminal.ansiBrightCyan":                "#d4f1ff",
+      "terminal.ansiBlue":                      "#7abfda",
+      "terminal.ansiBrightBlue":                "#b0e8ff",
+      "panelTitle.activeForeground":            "#b0e8ff",
+      "panelTitle.activeBorder":                "#b0e8ff",
+      "breadcrumb.activeSelectionForeground":   "#b0e8ff",
+      "list.activeSelectionForeground":         "#b0e8ff",
+      "list.activeSelectionBackground":         "#b0e8ff18",
+      "list.highlightForeground":               "#b0e8ff",
+      "list.focusForeground":                   "#b0e8ff",
+      "focusBorder":                            "#b0e8ff44",
+      "selection.background":                   "#b0e8ff22",
+      "editor.selectionBackground":             "#b0e8ff22",
+      "editor.selectionHighlightBackground":    "#b0e8ff11",
+      "editor.findMatchBackground":             "#cc440055",
+      "editor.findMatchHighlightBackground":    "#b0e8ff20",
+      "editor.lineHighlightBackground":         "#111111",
+      "editorLineNumber.activeForeground":      "#888888",
+      "editorLineNumber.foreground":            "#333333",
+      "editorBracketMatch.background":          "#b0e8ff18",
+      "editorBracketMatch.border":              "#b0e8ff66",
+      "scrollbarSlider.background":             "#88888830",
+      "scrollbarSlider.hoverBackground":        "#b0e8ff30",
+      "scrollbarSlider.activeBackground":       "#b0e8ff55",
+      "activityBar.foreground":                 "#b0e8ff",
+      "activityBar.inactiveForeground":         "#444444",
+      "activityBarBadge.background":            "#cc4400",
+      "activityBarBadge.foreground":            "#0a0a0a",
+
+      // Rust orange — danger / badge / debug
+      "badge.background":                       "#cc4400",
+      "badge.foreground":                       "#0a0a0a",
+      "errorForeground":                        "#cc4400",
+      "notificationsErrorIcon.foreground":      "#cc4400",
+      "editorError.foreground":                 "#cc4400",
+      "editorWarning.foreground":               "#b0e8ff99",
+
+      // Metal grey — secondary text
+      "sideBar.foreground":                     "#888888",
+      "tab.inactiveForeground":                 "#555555",
+      "breadcrumb.foreground":                  "#555555",
+      "statusBarItem.remoteBackground":         "#b0e8ff22",
+      "statusBarItem.remoteForeground":         "#b0e8ff",
+
+      // Git decorations
+      "gitDecoration.modifiedResourceForeground":  "#b0e8ff",
+      "gitDecoration.addedResourceForeground":     "#b0e8ff88",
+      "gitDecoration.deletedResourceForeground":   "#cc4400",
+      "gitDecoration.untrackedResourceForeground": "#888888",
+      "gitDecoration.ignoredResourceForeground":   "#333333"
+    }
+  },
+
+  // ── Token color overrides (syntax) ───────────────────────────────────────────
+  "editor.tokenColorCustomizations": {
+    "[GitHub Dark Default]": {
+      "textMateRules": [
+        {
+          "scope": ["comment", "punctuation.definition.comment"],
+          "settings": { "foreground": "#444444", "fontStyle": "italic" }
+        },
+        {
+          "scope": ["string", "string.quoted"],
+          "settings": { "foreground": "#b0e8ffcc" }
+        },
+        {
+          "scope": ["keyword", "storage.type", "storage.modifier"],
+          "settings": { "foreground": "#b0e8ff", "fontStyle": "bold" }
+        },
+        {
+          "scope": ["entity.name.function", "support.function"],
+          "settings": { "foreground": "#d4f1ff" }
+        },
+        {
+          "scope": ["variable.parameter"],
+          "settings": { "foreground": "#888888" }
+        },
+        {
+          "scope": ["constant.numeric", "constant.language"],
+          "settings": { "foreground": "#cc4400" }
+        },
+        {
+          "scope": ["entity.name.type", "entity.name.class", "support.class"],
+          "settings": { "foreground": "#b0e8ff", "fontStyle": "bold" }
+        }
+      ]
+    }
+  }
+}
