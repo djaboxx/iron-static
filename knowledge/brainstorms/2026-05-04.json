@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-04",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "Its relentless 16th-note bass and brutally simple, impactful drum programming are the target for our core groove's foundation.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "The stuttering, bit-crushed drum machine feel and the arrangement's dynamic shift from broken to chaotic are key structural influences.",
+      "search_terms": "nine inch nails the becoming midi"
+    },
+    {
+      "artist": "Boys Noize",
+      "title": "Overthrow",
+      "album": "Mayday",
+      "year": 2016,
+      "reason": "The aggressive, distorted, and percussive nature of the main monophonic synth line is the ideal timbral and rhythmic target for our 'Shard Lead'.",
+      "search_terms": "boys noize overthrow midi"
+    }
+  ]
+}
