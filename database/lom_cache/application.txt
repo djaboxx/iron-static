@@ -1,0 +1,134 @@
+Application - Live Object Model | Cycling &#x27;74 Documentation
+
+User Guide
+
+Reference 
+
+API Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+
+Object Reference
+Object & Operator Reference
+Learn
+
+User Guide
+
+Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+Object & Operator Reference
+Learn
+Switch Theme
+
+Live Object ModelApplicationApplication.ViewChainChainMixerDeviceClipClip.ViewClipSlotCompressorDeviceControlSurfaceCuePointDeviceDevice.ViewDeviceIODeviceParameterDriftDeviceDrumCellDeviceDrumChainDrumPadEq8DeviceEq8Device.ViewGrooveGroovePoolHybridReverbDeviceLooperDeviceMaxDeviceMeldDeviceMixerDevicePluginDeviceRackDeviceRackDevice.ViewRoarDeviceSampleSceneShifterDeviceSimplerDeviceSimplerDevice.ViewSongSong.ViewSpectralResonatorDeviceTakeLanethis_deviceTrackTrack.ViewTuningSystemWavetableDeviceOn this page
+Canonical Path
+
+Children
+view 
+control_surfaces 
+
+Properties
+current_dialog_button_count 
+current_dialog_message 
+open_dialog_count 
+average_process_usage 
+peak_process_usage 
+
+Functions
+get_bugfix_version
+get_document
+get_major_version
+get_minor_version
+get_version_string
+press_current_dialog_button
+Application
+
+This class represents the Live application. It is reachable by the root path live_app.
+
+Canonical Path
+
+live_app
+
+Children
+
+view Application.View read-only
+
+control_surfaces list of ControlSurface read-onlyobserve
+
+A list of the control surfaces currently selected in Live&#x27;s Preferences. 
+
+If None is selected in any of the slots or the script is inactive (e.g. when Push2 is selected, but no Push is connected), id 0 will be returned at those indices.
+
+Properties
+
+current_dialog_button_count int read-only
+
+The number of buttons in the current message box.
+
+current_dialog_message symbol read-only
+
+The text of the current message box (empty if no message box is currently shown).
+
+open_dialog_count int read-onlyobserve
+
+The number of dialog boxes shown.
+
+average_process_usage float read-onlyobserve
+
+Reports Live&#x27;s average CPU load.
+
+Note that Live&#x27;s CPU meter shows the audio processing load but not Live&#x27;s overall CPU usage.
+
+peak_process_usage float read-onlyobserve
+
+Reports Live&#x27;s peak CPU load.
+
+Note that Live&#x27;s CPU meter shows the audio processing load but not Live&#x27;s overall CPU usage.
+
+Functions
+
+get_bugfix_version
+
+Returns: the 2 in Live 9.1.2.
+
+get_document
+
+Returns: the current Live Set.
+
+get_major_version
+
+Returns: the 9 in Live 9.1.2.
+
+get_minor_version
+
+Returns: the 1 in Live 9.1.2.
+
+get_version_string
+
+Returns: the text 9.1.2 in Live 9.1.2.
+
+press_current_dialog_button
+
+Parameter: index
+
+Press the button with the given index in the current dialog box.
+
+Resources
+RNBO Documentation
+PDF Documentation
+Legacy Documentation
+Cycling &#x27;74 Website
+
+Support
+Knowledge Base
+Report an issue
+
+Communities
+Cycling &#x27;74 Forums
+Max Discord
+Legal Info
+Privacy Policy
+Copyright © 2024 Cycling &#x27;74

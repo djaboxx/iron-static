@@ -1,0 +1,180 @@
+ClipSlot - Live Object Model | Cycling &#x27;74 Documentation
+
+User Guide
+
+Reference 
+
+API Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+
+Object Reference
+Object & Operator Reference
+Learn
+
+User Guide
+
+Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+Object & Operator Reference
+Learn
+Switch Theme
+
+Live Object ModelApplicationApplication.ViewChainChainMixerDeviceClipClip.ViewClipSlotCompressorDeviceControlSurfaceCuePointDeviceDevice.ViewDeviceIODeviceParameterDriftDeviceDrumCellDeviceDrumChainDrumPadEq8DeviceEq8Device.ViewGrooveGroovePoolHybridReverbDeviceLooperDeviceMaxDeviceMeldDeviceMixerDevicePluginDeviceRackDeviceRackDevice.ViewRoarDeviceSampleSceneShifterDeviceSimplerDeviceSimplerDevice.ViewSongSong.ViewSpectralResonatorDeviceTakeLanethis_deviceTrackTrack.ViewTuningSystemWavetableDeviceOn this page
+Canonical Path
+
+Children
+clip 
+
+Properties
+color 
+color_index 
+controls_other_clips 
+has_clip 
+has_stop_button 
+is_group_slot 
+is_playing 
+is_recording 
+is_triggered 
+playing_status 
+will_record_on_start 
+
+Functions
+create_audio_clip
+create_clip
+delete_clip
+duplicate_clip_to
+fire
+set_fire_button_state
+stop
+ClipSlot
+
+This class represents an entry in Live&#x27;s Session View matrix. 
+
+The properties playing_status, is_playing and is_recording are useful for clip slots of Group Tracks. These are always empty and represent the state of the clips in the tracks within the Group Track.
+
+Canonical Path
+
+live_set tracks N clip_slots M
+
+Children
+
+clip Clip read-only
+
+id 0 if slot is empty
+
+Properties
+
+color long read-onlyobserve
+
+The color of the first clip in the Group Track if the clip slot is a Group Track slot.
+
+color_index long read-onlyobserve
+
+The color index of the first clip in the Group Track if the clip slot is a Group Track slot.
+
+controls_other_clips bool read-onlyobserve
+
+1 for a Group Track slot that has non-deactivated clips in the tracks within its group. 
+
+Control of empty clip slots doesn&#x27;t count.
+
+has_clip bool read-onlyobserve
+
+1 = a clip exists in this clip slot.
+
+has_stop_button bool observe
+
+1 = this clip stops its track (or tracks within a Group Track).
+
+is_group_slot bool read-only
+
+1 = this clip slot is a Group Track slot.
+
+is_playing bool read-only
+
+1 = playing_status != 0, otherwise 0.
+
+is_recording bool read-only
+
+1 = playing_status == 2, otherwise 0.
+
+is_triggered bool read-onlyobserve
+
+1 = clip slot button (Clip Launch, Clip Stop or Clip Record) or button of contained clip are blinking.
+
+playing_status int read-onlyobserve
+
+0 = all clips in tracks within a Group Track stopped or all tracks within a Group Track are empty. 
+
+1 = at least one clip in a track within a Group Track is playing. 
+
+2 = at least one clip in a track within a Group Track is playing or recording. 
+
+Equals 0 if this is not a clip slot of a Group Track.
+
+will_record_on_start bool read-only
+
+1 = clip slot will record on start.
+
+Functions
+
+create_audio_clip
+
+Parameter: path
+
+Given an absolute path to a valid audio file in a supported format, creates an audio clip that references the file in the clip slot. Throws an error if the clip slot doesn&#x27;t belong to an audio track or if the track is frozen.
+
+create_clip
+
+Parameter: length
+
+Length is given in beats and must be a greater value than 0.0. Can only be called on empty clip slots in MIDI tracks.
+
+delete_clip
+
+Deletes the contained clip.
+
+duplicate_clip_to
+
+Parameter: target_clip_slot [ClipSlot] 
+
+Duplicates the slot&#x27;s clip to the given clip slot, overriding the target clip slot&#x27;s clip if it&#x27;s not empty.
+
+fire
+
+Parameter: record_length (optional)
+
+launch_quantization (optional)
+
+Fires the clip or triggers the Stop Button, if any. Starts recording if slot is empty and track is armed. Starts recording of armed and empty tracks within a Group Track if Preferences->Launch->Start Recording on Scene Launch is ON. If record_length is provided, the slot will record for the given length in beats. launch_quantization overrides the global quantization if provided.
+
+set_fire_button_state
+
+Parameter: state [bool] 
+
+1 = Live simulates pressing of Clip Launch button until the state is set to 0 or until the slot is stopped otherwise.
+
+stop
+
+Stops playing or recording clips in this track or the tracks within the group, if any. It doesn&#x27;t matter on which slot of the track you call this function.
+
+Resources
+RNBO Documentation
+PDF Documentation
+Legacy Documentation
+Cycling &#x27;74 Website
+
+Support
+Knowledge Base
+Report an issue
+
+Communities
+Cycling &#x27;74 Forums
+Max Discord
+Legal Info
+Privacy Policy
+Copyright © 2024 Cycling &#x27;74

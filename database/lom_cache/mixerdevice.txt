@@ -1,0 +1,108 @@
+MixerDevice - Live Object Model | Cycling &#x27;74 Documentation
+
+User Guide
+
+Reference 
+
+API Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+
+Object Reference
+Object & Operator Reference
+Learn
+
+User Guide
+
+Reference
+Max JavaScript API
+Live Object Model
+Node for Max API
+Object & Operator Reference
+Learn
+Switch Theme
+
+Live Object ModelApplicationApplication.ViewChainChainMixerDeviceClipClip.ViewClipSlotCompressorDeviceControlSurfaceCuePointDeviceDevice.ViewDeviceIODeviceParameterDriftDeviceDrumCellDeviceDrumChainDrumPadEq8DeviceEq8Device.ViewGrooveGroovePoolHybridReverbDeviceLooperDeviceMaxDeviceMeldDeviceMixerDevicePluginDeviceRackDeviceRackDevice.ViewRoarDeviceSampleSceneShifterDeviceSimplerDeviceSimplerDevice.ViewSongSong.ViewSpectralResonatorDeviceTakeLanethis_deviceTrackTrack.ViewTuningSystemWavetableDeviceOn this page
+Canonical Path
+
+Children
+sends 
+cue_volume 
+crossfader 
+left_split_stereo 
+panning 
+right_split_stereo 
+song_tempo 
+track_activator 
+volume 
+
+Properties
+crossfade_assign 
+panning_mode 
+MixerDevice
+
+This class represents a mixer device in Live. It provides access to volume, panning and other DeviceParameter objects. See DeviceParameter to learn how to modify them.
+
+Canonical Path
+
+live_set tracks N mixer_device
+
+Children
+
+sends list of DeviceParameter read-onlyobserve
+
+One send per return track.
+
+cue_volume DeviceParameter read-only
+
+[in master track only]
+
+crossfader DeviceParameter read-only
+
+[in master track only]
+
+left_split_stereo DeviceParameter read-only
+
+The Track&#x27;s Left Split Stereo Pan Parameter.
+
+panning DeviceParameter read-only
+
+right_split_stereo DeviceParameter read-only
+
+The Track&#x27;s Right Split Stereo Pan Parameter.
+
+song_tempo DeviceParameter read-only
+
+[in master track only]
+
+track_activator DeviceParameter read-only
+
+volume DeviceParameter read-only
+
+Properties
+
+crossfade_assign int observe
+
+0 = A, 1 = none, 2 = B [not in master track]
+
+panning_mode int observe
+
+Access to the Track mixer&#x27;s pan mode: 0 = Stereo, 1 = Split Stereo.
+
+Resources
+RNBO Documentation
+PDF Documentation
+Legacy Documentation
+Cycling &#x27;74 Website
+
+Support
+Knowledge Base
+Report an issue
+
+Communities
+Cycling &#x27;74 Forums
+Max Discord
+Legal Info
+Privacy Policy
+Copyright © 2024 Cycling &#x27;74
