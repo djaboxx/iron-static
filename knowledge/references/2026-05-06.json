@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-06",
+  "song": "ignition-point",
+  "tracks": [
+    {
+      "artist": "Lamb of God",
+      "title": "Redneck",
+      "album": "Sacrament",
+      "year": 2006,
+      "search_terms": "lamb of god redneck"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "search_terms": "modeselektor the black block"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "search_terms": "nine inch nails the becoming"
+    },
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "search_terms": "gesaffelstein pursuit"
+    },
+    {
+      "artist": "One Day As A Lion",
+      "title": "One Day As A Lion",
+      "album": "One Day As A Lion",
+      "year": 2008,
+      "search_terms": "one day as a lion one day as a lion"
+    }
+  ]
+}
