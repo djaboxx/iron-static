@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-11",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The relentless, driving, and plucky synth arpeggio is a perfect MIDI target for the 'Corrupted Bassline'.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "Its broken, stuttering, and dense drum programming provides a blueprint for the textural feel of the 'Scrap Metal Percussion' layer.",
+      "search_terms": "nine inch nails the becoming midi"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "reason": "The MIDI demonstrates the ideal separation and interplay between a heavy kick and a driving, mid-range bassline.",
+      "search_terms": "modeselektor the black block midi"
+    }
+  ]
+}
