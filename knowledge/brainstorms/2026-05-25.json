@@ -1,0 +1,31 @@
+{
+  "date": "2026-05-25",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The relentless, singular, mono-synth bassline is the perfect model for our 'Pressure Bass' groove and intensity.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "The Prodigy",
+      "title": "Omen",
+      "album": "Invaders Must Die",
+      "year": 2009,
+      "reason": "Its layered breakbeat provides a perfect density and aggression target for our 'System Glitch Percussion'.",
+      "search_terms": "the prodigy omen midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Hand That Feeds",
+      "album": "With Teeth",
+      "year": 2005,
+      "reason": "This track's driving, slightly swung 16th-note bass pattern is a great structural reference for a heavy mid-tempo groove.",
+      "search_terms": "nine inch nails the hand that feeds midi"
+    }
+  ]
+}
