@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-01",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "The Mars Volta",
+      "title": "Wax Simulacra",
+      "album": "The Bedlam in Goliath",
+      "year": 2008,
+      "reason": "Its frantic, precise, and polyrhythmic drumming is the target feel for our programmed beats' controlled chaos.",
+      "search_terms": "the mars volta wax simulacra midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "March of the Pigs",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "The track's odd-meter rhythmic tension and extreme dynamic shifts from verse to chorus are a perfect structural model.",
+      "search_terms": "nine inch nails march of the pigs midi"
+    },
+    {
+      "artist": "HEALTH",
+      "title": "STONEFIST",
+      "album": "DEATH MAGIC",
+      "year": 2015,
+      "reason": "Provides a modern blueprint for industrial arrangement, specifically the use of negative space to make heavy sections hit harder.",
+      "search_terms": "health stonefist midi"
+    }
+  ]
+}
