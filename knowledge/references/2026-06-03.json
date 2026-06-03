@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-03",
+  "song": "ignition-point",
+  "tracks": [
+    {
+      "artist": "Fear Factory",
+      "title": "Demanufacture",
+      "album": "Demanufacture",
+      "year": 1995,
+      "search_terms": "fear factory demanufacture"
+    },
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "search_terms": "gesaffelstein pursuit"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "search_terms": "nine inch nails the becoming"
+    },
+    {
+      "artist": "Aphex Twin",
+      "title": "Come to Daddy (Pappy Mix)",
+      "album": "Come To Daddy EP",
+      "year": 1997,
+      "search_terms": "aphex twin come to daddy (pappy mix)"
+    },
+    {
+      "artist": "One Day As A Lion",
+      "title": "Wild International",
+      "album": "One Day As A Lion EP",
+      "year": 2008,
+      "search_terms": "one day as a lion wild international"
+    }
+  ]
+}
