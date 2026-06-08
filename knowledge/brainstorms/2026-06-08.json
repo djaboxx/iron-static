@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-08",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Fear Factory",
+      "title": "Demanufacture",
+      "album": "Demanufacture",
+      "year": 1995,
+      "reason": "The gold standard for a tight, staccato kick/bass rhythmic lock that drives the entire track with machine precision.",
+      "search_terms": "fear factory demanufacture midi"
+    },
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The aggressive, saturated, and dominant bassline provides a perfect model for our Gated Driver's timbre and energy.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "Its use of destructively processed loops as a core rhythmic element is the direct target for our Broken Glitch Loop.",
+      "search_terms": "nine inch nails the becoming midi"
+    }
+  ]
+}
