@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-15",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gojira",
+      "title": "Silvera",
+      "album": "Magma",
+      "year": 2016,
+      "reason": "Its drum patterns are a masterclass in intricate, machine-precise groove that is still incredibly heavy and human-feeling.",
+      "search_terms": "gojira silvera midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "The rhythmic interplay between the drums and the gated, industrial synth textures is a primary target for our percussive layers.",
+      "search_terms": "nine inch nails the becoming midi"
+    },
+    {
+      "artist": "Run The Jewels",
+      "title": "Close Your Eyes (And Count to Fuck)",
+      "album": "Run The Jewels 2",
+      "year": 2014,
+      "reason": "The drum programming demonstrates maximum impact from a minimalist kit, perfect for studying how to build our core groove.",
+      "search_terms": "run the jewels close your eyes midi"
+    }
+  ]
+}
