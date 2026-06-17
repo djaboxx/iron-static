@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-17",
+  "song": "ignition-point",
+  "tracks": [
+    {
+      "artist": "Fear Factory",
+      "title": "Demanufacture",
+      "album": "Demanufacture",
+      "year": 1995,
+      "search_terms": "fear factory demanufacture"
+    },
+    {
+      "artist": "The Bug",
+      "title": "Skeng (feat. Flowdan)",
+      "album": "London Zoo",
+      "year": 2008,
+      "search_terms": "the bug skeng (feat. flowdan)"
+    },
+    {
+      "artist": "Ben Frost",
+      "title": "Nolan",
+      "album": "A U R O R A",
+      "year": 2014,
+      "search_terms": "ben frost nolan"
+    },
+    {
+      "artist": "Clark",
+      "title": "Peak Erupt",
+      "album": "Death Peak",
+      "year": 2017,
+      "search_terms": "clark peak erupt"
+    },
+    {
+      "artist": "Run The Jewels",
+      "title": "Blockbuster Night, Pt. 1",
+      "album": "Run the Jewels 2",
+      "year": 2014,
+      "search_terms": "run the jewels blockbuster night, pt. 1"
+    }
+  ]
+}
