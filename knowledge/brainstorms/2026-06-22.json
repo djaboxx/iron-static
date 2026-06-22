@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-22",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Fear Factory",
+      "title": "Demanufacture",
+      "album": "Demanufacture",
+      "year": 1995,
+      "reason": "The gold standard for surgically tight, syncopated kick and rhythm guitar patterns that feel like a machine gun.",
+      "search_terms": "fear factory demanufacture midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Hand That Feeds",
+      "album": "With Teeth",
+      "year": 2005,
+      "reason": "Its driving, relentless bass synth and drum groove provide a perfect model for our verse sections' energy.",
+      "search_terms": "nine inch nails the hand that feeds midi"
+    },
+    {
+      "artist": "Aphex Twin",
+      "title": "Come to Daddy (Pappy Mix)",
+      "album": "Come to Daddy",
+      "year": 1997,
+      "reason": "The chaotic, stuttering, and impossibly fast drum programming is the ideal source material for the 'Error Lead' and textural glitches.",
+      "search_terms": "aphex twin come to daddy midi"
+    }
+  ]
+}
