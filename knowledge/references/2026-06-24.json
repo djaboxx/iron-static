@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-24",
+  "song": "ignition-point",
+  "tracks": [
+    {
+      "artist": "Lamb of God",
+      "title": "Laid to Rest",
+      "album": "Ashes of the Wake",
+      "year": 2004,
+      "search_terms": "lamb of god laid to rest"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "search_terms": "modeselektor the black block"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "Mr. Self Destruct",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "search_terms": "nine inch nails mr. self destruct"
+    },
+    {
+      "artist": "HEALTH",
+      "title": "FEEL NOTHING",
+      "album": "VOL. 4 :: SLAVES OF FEAR",
+      "year": 2019,
+      "search_terms": "health feel nothing"
+    },
+    {
+      "artist": "One Day As A Lion",
+      "title": "Wild International",
+      "album": "One Day As A Lion",
+      "year": 2008,
+      "search_terms": "one day as a lion wild international"
+    }
+  ]
+}
