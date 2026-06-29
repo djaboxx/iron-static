@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-29",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Lamb of God",
+      "title": "Laid to Rest",
+      "album": "Ashes of the Wake",
+      "year": 2004,
+      "reason": "Its mid-tempo, stutter-step kick patterns and locked-in groove are the exact rhythmic foundation we need for the main beat.",
+      "search_terms": "lamb of god laid to rest midi"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "Mr. Self Destruct",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "reason": "The complex layering of percussive noise and industrial loops provides a perfect model for our non-kit rhythmic parts.",
+      "search_terms": "nine inch nails mr self destruct midi"
+    },
+    {
+      "artist": "HEALTH",
+      "title": "FEEL NOTHING",
+      "album": "VOL. 4 :: SLAVES OF FEAR",
+      "year": 2019,
+      "reason": "The track's use of a punishing, detuned, and abrasive synth lead as the main hook is a direct parallel for our 'Unstable Digital Lead'.",
+      "search_terms": "health feel nothing midi"
+    }
+  ]
+}
