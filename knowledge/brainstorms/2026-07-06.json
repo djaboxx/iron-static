@@ -1,0 +1,31 @@
+{
+  "date": "2026-07-06",
+  "song": "ignition-point",
+  "source": "brainstorm",
+  "tracks": [
+    {
+      "artist": "Gesaffelstein",
+      "title": "Pursuit",
+      "album": "Aleph",
+      "year": 2013,
+      "reason": "The main bassline is the perfect model for a simple, aggressive, heavily-distorted mono-synth pattern that drives an entire track.",
+      "search_terms": "gesaffelstein pursuit midi"
+    },
+    {
+      "artist": "The Bug",
+      "title": "Skeng",
+      "album": "London Zoo",
+      "year": 2008,
+      "reason": "Its rhythmic structure demonstrates maximum weight from minimal elements, and the kick/sub separation is a key target for our low end.",
+      "search_terms": "the bug skeng midi"
+    },
+    {
+      "artist": "Moderat",
+      "title": "A New Error",
+      "album": "Moderat",
+      "year": 2009,
+      "reason": "The arpeggiated melodic cell and masterful layering provide a blueprint for building tension and release over a long-form arrangement.",
+      "search_terms": "moderat a new error midi"
+    }
+  ]
+}
