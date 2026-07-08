@@ -1,0 +1,41 @@
+{
+  "date": "2026-07-08",
+  "song": "ignition-point",
+  "tracks": [
+    {
+      "artist": "Lamb of God",
+      "title": "Laid to Rest",
+      "album": "Ashes of the Wake",
+      "year": 2004,
+      "search_terms": "lamb of god laid to rest"
+    },
+    {
+      "artist": "Modeselektor",
+      "title": "The Black Block",
+      "album": "Happy Birthday!",
+      "year": 2007,
+      "search_terms": "modeselektor the black block"
+    },
+    {
+      "artist": "Nine Inch Nails",
+      "title": "The Becoming",
+      "album": "The Downward Spiral",
+      "year": 1994,
+      "search_terms": "nine inch nails the becoming"
+    },
+    {
+      "artist": "The Dillinger Escape Plan",
+      "title": "One of Us Is the Killer",
+      "album": "One of Us Is the Killer",
+      "year": 2013,
+      "search_terms": "the dillinger escape plan one of us is the killer"
+    },
+    {
+      "artist": "One Day as a Lion",
+      "title": "Wild International",
+      "album": "One Day as a Lion",
+      "year": 2008,
+      "search_terms": "one day as a lion wild international"
+    }
+  ]
+}
