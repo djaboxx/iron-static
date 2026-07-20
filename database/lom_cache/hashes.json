@@ -1,71 +1,71 @@
 {
   "application": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "0f892dbf148d362051f32f47ba1490738f61f75588db2c664f6d5b51541f34ca",
     "url": "https://docs.cycling74.com/apiref/lom/application/"
   },
   "chain": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "d51e4b7a78c05818f9c8d1be57ffa68ea5f0e27cee3f98171b420b6a82c1f6e3",
     "url": "https://docs.cycling74.com/apiref/lom/chain/"
   },
   "clip": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "c4415257f0f2b15060fd17c2f893f606d72b5c37c63f97f8245c2d876f40d257",
     "url": "https://docs.cycling74.com/apiref/lom/clip/"
   },
   "clipslot": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "b8d4f04e5d034a7b4c2e40fd3b5e25ae5ec537787ac4cea0c50921c6009e0a3e",
     "url": "https://docs.cycling74.com/apiref/lom/clipslot/"
   },
   "device": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "aea2c4660346d228db830a98a158e4b90696a760c948c86e9703291320676825",
     "url": "https://docs.cycling74.com/apiref/lom/device/"
   },
   "deviceparameter": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "50460fff0b09f19bf9fe343eda71575776b12eb2a610d2fcd8762bdc707c7f1b",
     "url": "https://docs.cycling74.com/apiref/lom/deviceparameter/"
   },
   "liveapi-js": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "bf4135136c2680fd867c4c094b0327a45c4065904781accdfb891c5de8607bc0",
     "url": "https://docs.cycling74.com/apiref/js/liveapi/"
   },
   "lom-index": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "3719cc593d66f51e4f96c7ce9989056d76e52e731f54f1e1beb0e69110780786",
     "url": "https://docs.cycling74.com/apiref/lom/"
   },
   "mixerdevice": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "8e730443f8e25cf03c4545f00ef0c85c149968de50d47459629b06d1ef2fbac8",
     "url": "https://docs.cycling74.com/apiref/lom/mixerdevice/"
   },
   "overview": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "399651b0111d715039c84bac870b31a1b25785fedde06ae2fd96a48fbc925f04",
     "url": "https://docs.cycling74.com/userguide/m4l/live_api_overview/"
   },
   "rackdevice": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "be5cc44358c762f2189b0de4dad1fab7ee5cbc69d2d181d75ed48a2a06d2b8b8",
     "url": "https://docs.cycling74.com/apiref/lom/rackdevice/"
   },
   "scene": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "51178357f2d2678e1098d1f8536c9bdcd9f3c922cb24d4ca59bc521100867a0e",
     "url": "https://docs.cycling74.com/apiref/lom/scene/"
   },
   "song": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "e0650b66a3f3cfc2eecc4290f6f688f6eb449c46144193d1689dc7add99d6e6a",
     "url": "https://docs.cycling74.com/apiref/lom/song/"
   },
   "track": {
-    "fetched_at": "2026-07-13T07:13:09.993438+00:00",
+    "fetched_at": "2026-07-20T07:10:49.263360+00:00",
     "hash": "7ab21112ca534400b6b02e5f399b440ad3cf0aba924e3912a94e0b47557382cf",
     "url": "https://docs.cycling74.com/apiref/lom/track/"
   }
