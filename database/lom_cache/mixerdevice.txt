@@ -50,43 +50,65 @@ live_set tracks N mixer_device
 
 Children
 
-sends list of DeviceParameter read-onlyobserve
+sends list of DeviceParameter
+
+Access: getobserve
 
 One send per return track.
 
-cue_volume DeviceParameter read-only
+cue_volume DeviceParameter
+
+Access: get
 
 [in master track only]
 
-crossfader DeviceParameter read-only
+crossfader DeviceParameter
+
+Access: get
 
 [in master track only]
 
-left_split_stereo DeviceParameter read-only
+left_split_stereo DeviceParameter
+
+Access: get
 
 The Track&#x27;s Left Split Stereo Pan Parameter.
 
-panning DeviceParameter read-only
+panning DeviceParameter
 
-right_split_stereo DeviceParameter read-only
+Access: get
+
+right_split_stereo DeviceParameter
+
+Access: get
 
 The Track&#x27;s Right Split Stereo Pan Parameter.
 
-song_tempo DeviceParameter read-only
+song_tempo DeviceParameter
+
+Access: get
 
 [in master track only]
 
-track_activator DeviceParameter read-only
+track_activator DeviceParameter
 
-volume DeviceParameter read-only
+Access: get
+
+volume DeviceParameter
+
+Access: get
 
 Properties
 
-crossfade_assign int observe
+crossfade_assign int
+
+Access: getsetobserve
 
 0 = A, 1 = none, 2 = B [not in master track]
 
-panning_mode int observe
+panning_mode int
+
+Access: getsetobserve
 
 Access to the Track mixer&#x27;s pan mode: 0 = Stereo, 1 = Split Stereo.
 

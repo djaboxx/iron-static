@@ -62,51 +62,73 @@ live_set tracks N clip_slots M
 
 Children
 
-clip Clip read-only
+clip Clip
+
+Access: get
 
 id 0 if slot is empty
 
 Properties
 
-color long read-onlyobserve
+color long
+
+Access: getobserve
 
 The color of the first clip in the Group Track if the clip slot is a Group Track slot.
 
-color_index long read-onlyobserve
+color_index long
+
+Access: getobserve
 
 The color index of the first clip in the Group Track if the clip slot is a Group Track slot.
 
-controls_other_clips bool read-onlyobserve
+controls_other_clips bool
+
+Access: getobserve
 
 1 for a Group Track slot that has non-deactivated clips in the tracks within its group. 
 
 Control of empty clip slots doesn&#x27;t count.
 
-has_clip bool read-onlyobserve
+has_clip bool
+
+Access: getobserve
 
 1 = a clip exists in this clip slot.
 
-has_stop_button bool observe
+has_stop_button bool
+
+Access: getsetobserve
 
 1 = this clip stops its track (or tracks within a Group Track).
 
-is_group_slot bool read-only
+is_group_slot bool
+
+Access: get
 
 1 = this clip slot is a Group Track slot.
 
-is_playing bool read-only
+is_playing bool
+
+Access: get
 
 1 = playing_status != 0, otherwise 0.
 
-is_recording bool read-only
+is_recording bool
+
+Access: get
 
 1 = playing_status == 2, otherwise 0.
 
-is_triggered bool read-onlyobserve
+is_triggered bool
+
+Access: getobserve
 
 1 = clip slot button (Clip Launch, Clip Stop or Clip Record) or button of contained clip are blinking.
 
-playing_status int read-onlyobserve
+playing_status int
+
+Access: getobserve
 
 0 = all clips in tracks within a Group Track stopped or all tracks within a Group Track are empty. 
 
@@ -116,7 +138,9 @@ playing_status int read-onlyobserve
 
 Equals 0 if this is not a clip slot of a Group Track.
 
-will_record_on_start bool read-only
+will_record_on_start bool
+
+Access: get
 
 1 = clip slot will record on start.
 

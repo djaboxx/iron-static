@@ -62,45 +62,71 @@ live_set tracks N devices M return_chains L devices K chains P ...
 
 Children
 
-devices Device read-onlyobserve
+devices Device
 
-mixer_device ChainMixerDevice read-only
+Access: getobserve
+
+mixer_device ChainMixerDevice
+
+Access: get
 
 Properties
 
-color int observe
+color int
+
+Access: getsetobserve
 
 The RGB value of the chain&#x27;s color in the form 0x00rrggbb or (2^16 * red) + (2^8) * green + blue, where red, green and blue are values from 0 (dark) to 255 (light). 
 
 When setting the RGB value, the nearest color from the color chooser is taken.
 
-color_index long observe
+color_index long
+
+Access: getsetobserve
 
 The color index of the chain.
 
-is_auto_colored bool observe
+is_auto_colored bool
+
+Access: getsetobserve
 
 1 = the chain will always have the color of the containing track or chain.
 
-has_audio_input bool read-only
+has_audio_input bool
 
-has_audio_output bool read-only
+Access: get
 
-has_midi_input bool read-only
+has_audio_output bool
 
-has_midi_output bool read-only
+Access: get
 
-mute bool observe
+has_midi_input bool
+
+Access: get
+
+has_midi_output bool
+
+Access: get
+
+mute bool
+
+Access: getsetobserve
 
 1 = muted (Chain Activator off)
 
-muted_via_solo bool read-onlyobserve
+muted_via_solo bool
+
+Access: getobserve
 
 1 = muted due to another chain being soloed.
 
-name unicode observe
+name unicode
 
-solo bool observe
+Access: getsetobserve
+
+solo bool
+
+Access: getsetobserve
 
 1 = soloed (Solo switch on) 
 

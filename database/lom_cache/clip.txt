@@ -120,103 +120,147 @@ live_set tracks N arrangement_clips M
 
 Children
 
-view Clip.View read-only
+view Clip.View
+
+Access: get
 
 Properties
 
-available_warp_modes list read-only
+available_warp_modes list
+
+Access: get
 
 Returns the list of indexes of the Warp Modes available for the clip. Only valid for audio clips.
 
-color int observe
+color int
+
+Access: getsetobserve
 
 The RGB value of the clip&#x27;s color in the form 0x00rrggbb or (2^16 * red) + (2^8) * green + blue, where red, green and blue are values from 0 (dark) to 255 (light). 
 
 When setting the RGB value, the nearest color from the clip color chooser is taken.
 
-color_index int observe
+color_index int
+
+Access: getsetobserve
 
 The clip&#x27;s color index.
 
-end_marker float observe
+end_marker float
+
+Access: getsetobserve
 
 The end marker of the clip in beats, independent of the loop state. Cannot be set before the start marker.
 
-end_time float read-onlyobserve
+end_time float
+
+Access: getobserve
 
 The end time of the clip. For Session View clips, if Loop is on, this is the Loop End, otherwise it&#x27;s the End Marker. For Arrangement View clips, this is always the position of the clip&#x27;s rightmost edge in the Arrangement.
 
-gain float observe
+gain float
+
+Access: getsetobserve
 
 The gain of the clip (range is 0.0 to 1.0). Only valid for audio clips.
 
-gain_display_string symbol read-only
+gain_display_string symbol
+
+Access: get
 
 Get the gain display value of the clip as a string (e.g. "1.3 dB"). Can only be called on audio clips.
 
-file_path symbol read-only
+file_path symbol
+
+Access: get
 
 Get the location of the audio file represented by the clip. Only available for audio clips.
 
-groove Groove observe
+groove Groove
+
+Access: getsetobserve
 
 Get/set/observe access to the groove associated with this clip. 
 
 Available since Live 11.0.
 
-has_envelopes bool read-onlyobserve
+has_envelopes bool
+
+Access: getobserve
 
 Get/observe whether the clip has any automation.
 
-has_groove bool read-only
+has_groove bool
+
+Access: get
 
 Returns true if a groove is associated with this clip. 
 
 Available since Live 11.0.
 
-is_session_clip bool read-only
+is_session_clip bool
+
+Access: get
 
 1 = The clip is a Session clip. 
 
 A clip can be either an Arrangement or a Session clip.
 
-is_arrangement_clip bool read-only
+is_arrangement_clip bool
+
+Access: get
 
 1 = The clip is an Arrangement clip. 
 
 A clip can be either an Arrangement or a Session clip.
 
-is_take_lane_clip bool read-only
+is_take_lane_clip bool
+
+Access: get
 
 1 = The clip is a Take Lane clip. 
 
 Returns true if the clip is on a Take Lane. Take Lane clips are also Arrangement clips.
 
-is_audio_clip bool read-only
+is_audio_clip bool
+
+Access: get
 
 0 = MIDI clip, 1 = audio clip
 
-is_midi_clip bool read-only
+is_midi_clip bool
+
+Access: get
 
 The opposite of is_audio_clip.
 
-is_overdubbing bool read-onlyobserve
+is_overdubbing bool
+
+Access: getobserve
 
 1 = clip is overdubbing.
 
-is_playing bool 
+is_playing bool
+
+Access: getset
 
 1 = clip is playing or recording.
 
-is_recording bool read-onlyobserve
+is_recording bool
+
+Access: getobserve
 
 1 = clip is recording.
 
-is_triggered bool read-only
+is_triggered bool
+
+Access: get
 
 1 = Clip Launch button is blinking.
 
-launch_mode int observe
+launch_mode int
+
+Access: getsetobserve
 
 The Launch Mode of the Clip as an integer index. Available Launch Modes are: 
 
@@ -230,7 +274,9 @@ The Launch Mode of the Clip as an integer index. Available Launch Modes are:
 
 Available since Live 11.0.
 
-launch_quantization int observe
+launch_quantization int
+
+Access: getsetobserve
 
 The Launch Quantization of the Clip as an integer index. Available Launch Quantization values are: 
 
@@ -266,27 +312,37 @@ The Launch Quantization of the Clip as an integer index. Available Launch Quanti
 
 Available since Live 11.0.
 
-legato bool observe
+legato bool
+
+Access: getsetobserve
 
 1 = Legato Mode switch in the Clip&#x27;s Launch settings is on. 
 
 Available since Live 11.0.
 
-length float read-only
+length float
+
+Access: get
 
 For looped clips: loop length in beats. Otherwise it&#x27;s the distance in beats from start to end marker. Makes no sense for unwarped audio clips.
 
-loop_end float observe
+loop_end float
+
+Access: getsetobserve
 
 For looped clips: loop end. 
 
 For unlooped clips: clip end.
 
-loop_jump bang observe
+loop_jump bang
+
+Access: observe
 
 Bangs when the clip play position is crossing the loop start marker (possibly projected into the loop).
 
-loop_start float observe
+loop_start float
+
+Access: getsetobserve
 
 For looped clips: loop start. 
 
@@ -294,23 +350,33 @@ For unlooped clips: clip start.
 
 loop_start and loop_end are in absolute clip beat time if clip is MIDI or warped. The 1.1.1 position has beat time 0. If the clip is unwarped audio, they are given in seconds, 0 is the time of the first sample in the audio material.
 
-looping bool observe
+looping bool
+
+Access: getsetobserve
 
 1 = clip is looped. Unwarped audio cannot be looped.
 
-muted bool observe
+muted bool
+
+Access: getsetobserve
 
 1 = muted (i.e. the Clip Activator button of the clip is off).
 
-name symbol observe
+name symbol
 
-notes bang observe
+Access: getsetobserve
+
+notes bang
+
+Access: observe
 
 Observer sends bang when the list of notes changes. 
 
 Available for MIDI clips only.
 
-warp_markers dict/bang read-onlyobserve
+warp_markers dict/bang
+
+Access: getobserve
 
 Observing this property outputs a bang when the Warp Markers change.
 
@@ -336,19 +402,25 @@ Available for audio clips only.
 
 Getting is available since Live 11.0.
 
-pitch_coarse int observe
+pitch_coarse int
+
+Access: getsetobserve
 
 Pitch shift in semitones ("Transpose"), -48 ... 48. 
 
 Available for audio clips only.
 
-pitch_fine float observe
+pitch_fine float
+
+Access: getsetobserve
 
 Extra pitch shift in cents ("Detune"), -50 ... 49. 
 
 Available for audio clips only.
 
-playing_position float read-onlyobserve
+playing_position float
+
+Access: getobserve
 
 Current playing position of the clip. 
 
@@ -358,35 +430,53 @@ For unwarped audio clips, the position is given in seconds, according to the tim
 
 Stopped clips have a playing position of 0.
 
-playing_status bang observe
+playing_status bang
+
+Access: observe
 
 Observer sends bang when playing/trigger status changes.
 
-position float read-onlyobserve
+position float
+
+Access: getobserve
 
 Get and set the clip&#x27;s loop position. The value will always equal loop_start, however setting this property, unlike setting loop_start, preserves the loop length.
 
-ram_mode bool observe
+ram_mode bool
+
+Access: getsetobserve
 
 1 = an audio clip’s RAM switch is enabled.
 
-sample_length int read-only
+sample_length int
+
+Access: get
 
 Length of the Clip&#x27;s sample, in samples.
 
-sample_rate float read-only
+sample_rate float
+
+Access: get
 
 Get the Clip&#x27;s sample rate.
 
-signature_denominator int observe
+signature_denominator int
 
-signature_numerator int observe
+Access: getsetobserve
 
-start_marker float observe
+signature_numerator int
+
+Access: getsetobserve
+
+start_marker float
+
+Access: getsetobserve
 
 The start marker of the clip in beats, independent of the loop state. Cannot be set behind the end marker.
 
-start_time float read-onlyobserve
+start_time float
+
+Access: getobserve
 
 The start time of the clip, relative to the global song time. The value is in beats. 
 
@@ -394,13 +484,17 @@ For Arrangement View clips, this is the offset within the arrangement. For Sessi
 
 When a Session View clip&#x27;s playback position was offset by clicking in its time ruler in the Clip Detail View or moving its start marker, its start_time may be negative. This allows using the start_time as an offset when calculating the clip&#x27;s current playback position based on the global song time.
 
-velocity_amount float observe
+velocity_amount float
+
+Access: getsetobserve
 
 How much the velocity of the note that triggers the clip affects its volume, 0 = no effect, 1 = full effect. 
 
 Available since Live 11.0.
 
-warp_mode int observe
+warp_mode int
+
+Access: getsetobserve
 
 The Warp Mode of the clip as an integer index. Available Warp Modes are: 
 
@@ -420,7 +514,9 @@ The Warp Mode of the clip as an integer index. Available Warp Modes are:
 
 Available for audio clips only.
 
-warping bool observe
+warping bool
+
+Access: getsetobserve
 
 1 = Warp switch is on. 
 
@@ -428,7 +524,9 @@ Available for audio clips only.
 
 Technical note: Internally, Live will defer the setting of this property. This has the consequence that if you are sequencing API calls from a single event, the actual order of operations may differ from what you&#x27;d intuitively expect. Most of the time this should be transparent to you, but if you run into issues, please report them.
 
-will_record_on_start bool read-only
+will_record_on_start bool
+
+Access: get
 
 1 for MIDI clips which are in triggered state, with the track armed and MIDI Arrangement Overdub on.
 

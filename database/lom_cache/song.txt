@@ -132,71 +132,107 @@ live_set
 
 Children
 
-cue_points list of CuePoint read-onlyobserve
+cue_points list of CuePoint
+
+Access: getobserve
 
 Cue points are the markers in the Arrangement to which you can jump.
 
-return_tracks list of Track read-onlyobserve
+return_tracks list of Track
 
-scenes list of Scene read-onlyobserve
+Access: getobserve
 
-tracks list of Track read-onlyobserve
+scenes list of Scene
 
-visible_tracks list of Track read-onlyobserve
+Access: getobserve
+
+tracks list of Track
+
+Access: getobserve
+
+visible_tracks list of Track
+
+Access: getobserve
 
 A track is visible if it&#x27;s not part of a folded group. If a track is scrolled out of view it&#x27;s still considered visible.
 
-master_track Track read-only
+master_track Track
 
-view Song.View read-only
+Access: get
 
-groove_pool GroovePool read-only
+view Song.View
+
+Access: get
+
+groove_pool GroovePool
+
+Access: get
 
 Live&#x27;s groove pool. 
 
 Available since Live 11.0.
 
-tuning_system TuningSystem read-onlyobserve
+tuning_system TuningSystem
+
+Access: getobserve
 
 Live&#x27;s currently active tuning system.
 
 Properties
 
-appointed_device Device read-onlyobserve
+appointed_device Device
+
+Access: getobserve
 
 The appointed device is the one used by a control surface unless the control surface itself chooses which device to use. It is marked by a blue hand.
 
-arrangement_overdub bool observe
+arrangement_overdub bool
+
+Access: getsetobserve
 
 Get/set the state of the MIDI Arrangement Overdub button.
 
-back_to_arranger bool observe
+back_to_arranger bool
+
+Access: getsetobserve
 
 Get/set/observe the current state of the Back to Arrangement button located in Live&#x27;s transport bar (1 = highlighted). This button is used to indicate that the current state of the playback differs from what is stored in the Arrangement. 
 
 Setting this property to 0 will make Live go back to playing the content of the arrangement.
 
-can_capture_midi bool read-onlyobserve
+can_capture_midi bool
+
+Access: getobserve
 
 1 = Recently played MIDI material exists that can be captured into a Live Track. See capture_midi.
 
-can_jump_to_next_cue bool read-onlyobserve
+can_jump_to_next_cue bool
+
+Access: getobserve
 
 0 = there is no cue point to the right of the current one, or none at all.
 
-can_jump_to_prev_cue bool read-onlyobserve
+can_jump_to_prev_cue bool
+
+Access: getobserve
 
 0 = there is no cue point to the left of the current one, or none at all.
 
-can_redo bool read-only
+can_redo bool
+
+Access: get
 
 1 = there is something in the history to redo.
 
-can_undo bool read-only
+can_undo bool
+
+Access: get
 
 1 = there is something in the history to undo.
 
-clip_trigger_quantization int observe
+clip_trigger_quantization int
+
+Access: getsetobserve
 
 Reflects the quantization setting in the transport bar. 
 
@@ -228,7 +264,9 @@ Reflects the quantization setting in the transport bar.
 
 13 = 1/32
 
-count_in_duration int read-onlyobserve
+count_in_duration int
+
+Access: getobserve
 
 The duration of the Metronome&#x27;s Count-In setting as an index, mapped as follows: 
 
@@ -240,63 +278,93 @@ The duration of the Metronome&#x27;s Count-In setting as an index, mapped as fol
 
 3 = 4 Bars
 
-current_song_time float observe
+current_song_time float
+
+Access: getsetobserve
 
 The playing position in the Live Set, in beats.
 
-exclusive_arm bool read-only
+exclusive_arm bool
+
+Access: get
 
 Current status of the exclusive Arm option set in the Live preferences.
 
-exclusive_solo bool read-only
+exclusive_solo bool
+
+Access: get
 
 Current status of the exclusive Solo option set in the Live preferences.
 
-file_path symbol read-only
+file_path symbol
+
+Access: get
 
 The path to the current Live Set, in OS-native format. If the Live Set hasn&#x27;t been saved, the path is empty.
 
-groove_amount float observe
+groove_amount float
+
+Access: getsetobserve
 
 The groove amount from the current set&#x27;s groove pool (0. - 1.0).
 
-is_ableton_link_enabled bool observe
+is_ableton_link_enabled bool
+
+Access: getsetobserve
 
 Enable/disable Ableton Link. The Link toggle in the Live&#x27;s transport bar must be visible to enable Link.
 
-is_ableton_link_start_stop_sync_enabled bool observe
+is_ableton_link_start_stop_sync_enabled bool
+
+Access: getsetobserve
 
 Enable/disable Ableton Link Start Stop Sync.
 
-is_counting_in bool read-onlyobserve
+is_counting_in bool
+
+Access: getobserve
 
 1 = the Metronome is currently counting in.
 
-is_playing bool observe
+is_playing bool
+
+Access: getsetobserve
 
 Get/set if Live&#x27;s transport is running.
 
-last_event_time float read-only
+last_event_time float
+
+Access: get
 
 The beat time of the last event (i.e. automation breakpoint, clip end, cue point, loop end) in the Arrangement.
 
-loop bool observe
+loop bool
+
+Access: getsetobserve
 
 Get/set the enabled state of the Arrangement loop.
 
-loop_length float observe
+loop_length float
+
+Access: getsetobserve
 
 Arrangement loop length in beats.
 
-loop_start float observe
+loop_start float
+
+Access: getsetobserve
 
 Arrangement loop start in beats.
 
-metronome bool observe
+metronome bool
+
+Access: getsetobserve
 
 Get/set the enabled state of the metronome.
 
-midi_recording_quantization int observe
+midi_recording_quantization int
+
+Access: getsetobserve
 
 Get/set the current Record Quantization value. 
 
@@ -318,51 +386,75 @@ Get/set the current Record Quantization value.
 
 8 = 1/32
 
-name symbol read-only
+name symbol
+
+Access: get
 
 The name of the current Live Set. If the Live Set hasn&#x27;t been saved, the name is empty.
 
-nudge_down bool observe
+nudge_down bool
+
+Access: getsetobserve
 
 1 = the Tempo Nudge Down button in the transport bar is currently pressed.
 
-nudge_up bool observe
+nudge_up bool
+
+Access: getsetobserve
 
 1 = the Tempo Nudge Up button in the transport bar is currently pressed.
 
-tempo_follower_enabled bool observe
+tempo_follower_enabled bool
+
+Access: getsetobserve
 
 1 = the Tempo Follower controls the tempo. The Tempo Follower Toggle must be made visible in the preferences for this property to be effective.
 
-overdub bool observe
+overdub bool
+
+Access: getsetobserve
 
 1 = MIDI Arrangement Overdub is enabled in the transport.
 
-punch_in bool observe
+punch_in bool
+
+Access: getsetobserve
 
 1 = the Punch-In button is enabled in the transport.
 
-punch_out bool observe
+punch_out bool
+
+Access: getsetobserve
 
 1 = the Punch-Out button is enabled in the transport.
 
-re_enable_automation_enabled bool read-onlyobserve
+re_enable_automation_enabled bool
+
+Access: getobserve
 
 1 = the Re-Enable Automation button is on.
 
-record_mode bool observe
+record_mode bool
+
+Access: getsetobserve
 
 1 = the Arrangement Record button is on.
 
-root_note int observe
+root_note int
+
+Access: getsetobserve
 
 The root note of the scale currently selected in Live. The root note can be a number between 0 and 11, where 0 = C and 11 = B.
 
-scale_intervals list read-onlyobserve
+scale_intervals list
+
+Access: getobserve
 
 A list of integers representing the intervals in Live&#x27;s current scale (see scale_name and scale_mode). An interval is expressed as the difference between the scale degree at the list index and the first scale degree.
 
-scale_mode bool observe
+scale_mode bool
+
+Access: getsetobserve
 
 Access to the Scale Mode setting in Live.
 
@@ -370,43 +462,65 @@ When on, key tracks that belong to the currently selected scale are highlighted 
 
 See also root_note, scale_name, and scale_intervals.
 
-scale_name unicode observe
+scale_name unicode
+
+Access: getsetobserve
 
 The name of the scale selected in Live, as displayed in the Current Scale Name chooser.
 
-select_on_launch bool read-only
+select_on_launch bool
+
+Access: get
 
 1 = the "Select on Launch" option is set in Live&#x27;s preferences.
 
-session_automation_record bool observe
+session_automation_record bool
+
+Access: getsetobserve
 
 The state of the Automation Arm button.
 
-session_record bool observe
+session_record bool
+
+Access: getsetobserve
 
 The state of the Session Overdub button.
 
-session_record_status int read-onlyobserve
+session_record_status int
+
+Access: getobserve
 
 Reflects the state of the Session Record button.
 
-signature_denominator int observe
+signature_denominator int
 
-signature_numerator int observe
+Access: getsetobserve
 
-song_length float read-onlyobserve
+signature_numerator int
+
+Access: getsetobserve
+
+song_length float
+
+Access: getobserve
 
 A little more than last_event_time, in beats.
 
-start_time float observe
+start_time float
+
+Access: getsetobserve
 
 The position in the Live Set where playing will start, in beats.
 
-swing_amount float observe
+swing_amount float
+
+Access: getsetobserve
 
 Range: 0.0 - 1.0; affects MIDI Recording Quantization and all direct calls to Clip.quantize.
 
-tempo float observe
+tempo float
+
+Access: getsetobserve
 
 Current tempo of the Live Set in BPM, 20.0 ... 999.0. The tempo may be automated, so it can change depending on the current song time.
 

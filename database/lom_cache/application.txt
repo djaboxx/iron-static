@@ -54,9 +54,13 @@ live_app
 
 Children
 
-view Application.View read-only
+view Application.View
 
-control_surfaces list of ControlSurface read-onlyobserve
+Access: get
+
+control_surfaces list of ControlSurface
+
+Access: getobserve
 
 A list of the control surfaces currently selected in Live&#x27;s Preferences. 
 
@@ -64,25 +68,35 @@ If None is selected in any of the slots or the script is inactive (e.g. when Pus
 
 Properties
 
-current_dialog_button_count int read-only
+current_dialog_button_count int
+
+Access: get
 
 The number of buttons in the current message box.
 
-current_dialog_message symbol read-only
+current_dialog_message symbol
+
+Access: get
 
 The text of the current message box (empty if no message box is currently shown).
 
-open_dialog_count int read-onlyobserve
+open_dialog_count int
+
+Access: getobserve
 
 The number of dialog boxes shown.
 
-average_process_usage float read-onlyobserve
+average_process_usage float
+
+Access: getobserve
 
 Reports Live&#x27;s average CPU load.
 
 Note that Live&#x27;s CPU meter shows the audio processing load but not Live&#x27;s overall CPU usage.
 
-peak_process_usage float read-onlyobserve
+peak_process_usage float
+
+Access: getobserve
 
 Reports Live&#x27;s peak CPU load.
 

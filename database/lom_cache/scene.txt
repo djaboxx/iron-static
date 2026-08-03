@@ -55,39 +55,55 @@ live_set scenes N
 
 Children
 
-clip_slots list of ClipSlot read-onlyobserve
+clip_slots list of ClipSlot
+
+Access: getobserve
 
 Properties
 
-color int observe
+color int
+
+Access: getsetobserve
 
 The RGB value of the scene&#x27;s color in the form 0x00rrggbb or (2^16 * red) + (2^8) * green + blue, where red, green and blue are values from 0 (dark) to 255 (light). 
 
 When setting the RGB value, the nearest color from the Scene color chooser is taken.
 
-color_index long observe
+color_index long
+
+Access: getsetobserve
 
 The color index of the scene.
 
-is_empty bool read-only
+is_empty bool
+
+Access: get
 
 1 = none of the slots in the scene is filled.
 
-is_triggered bool read-onlyobserve
+is_triggered bool
+
+Access: getobserve
 
 1 = scene is blinking.
 
-name symbol observe
+name symbol
+
+Access: getsetobserve
 
 The name of the scene.
 
-tempo float observe
+tempo float
+
+Access: getsetobserve
 
 The scene&#x27;s tempo. 
 
 Returns -1 if the scene tempo is disabled.
 
-tempo_enabled bool observe
+tempo_enabled bool
+
+Access: getsetobserve
 
 The active state of the scene tempo. 
 
@@ -95,19 +111,25 @@ When disabled, the scene will use the song&#x27;s tempo,
 
 and the tempo value returned will be -1.
 
-time_signature_numerator int observe
+time_signature_numerator int
+
+Access: getsetobserve
 
 The scene&#x27;s time signature numerator. 
 
 Returns -1 if the scene time signature is disabled.
 
-time_signature_denominator int observe
+time_signature_denominator int
+
+Access: getsetobserve
 
 The scene&#x27;s time signature denominator. 
 
 Returns -1 if the scene time signature is disabled.
 
-time_signature_enabled bool observe
+time_signature_enabled bool
+
+Access: getsetobserve
 
 The active state of the scene time signature. 
 

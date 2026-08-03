@@ -2,8 +2,10 @@
 
 > Source: https://docs.cycling74.com/apiref/lom/ + https://docs.cycling74.com/userguide/m4l/live_api_overview/  
 > Ableton Live version: **12.3.5** (docs date)  
-> Last refreshed: 2026-05-04 — maintained by `scripts/refresh_lom_docs.py`  
+> Last refreshed: 2026-08-03 — maintained by `scripts/refresh_lom_docs.py`  
 > Run `python scripts/refresh_lom_docs.py` to pull latest from cycling74.com
+
+> **Drift detected 2026-08-03**: pages changed: song, track, device, rackdevice, chain, clip, clipslot, scene, deviceparameter, mixerdevice, application. Review and update manually.
 
 > **Drift detected 2026-05-04**: pages changed: overview, lom-index, song, track, device, rackdevice, chain, clip, clipslot, scene, deviceparameter, mixerdevice, application, liveapi-js. Review and update manually.
 

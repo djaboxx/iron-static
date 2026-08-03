@@ -59,59 +59,83 @@ A RackDevice is a type of Device, meaning that it has all the children, properti
 
 Children
 
-chain_selector DeviceParameter read-only
+chain_selector DeviceParameter
+
+Access: get
 
 Convenience accessor for the Rack&#x27;s chain selector.
 
-chains list of Chain read-onlyobserve
+chains list of Chain
+
+Access: getobserve
 
 The Rack&#x27;s chains.
 
-drum_pads list of DrumPad read-onlyobserve
+drum_pads list of DrumPad
+
+Access: getobserve
 
 All 128 Drum Pads for the topmost Drum Rack. Inner Drum Racks return a list of 0 entries.
 
-return_chains list of Chain read-onlyobserve
+return_chains list of Chain
+
+Access: getobserve
 
 The Rack&#x27;s return chains.
 
-visible_drum_pads list of DrumPad read-onlyobserve
+visible_drum_pads list of DrumPad
+
+Access: getobserve
 
 All 16 visible DrumPads for the topmost Drum Rack. Inner Drum Racks return a list of 0 entries.
 
 Properties
 
-can_show_chains bool read-only
+can_show_chains bool
+
+Access: get
 
 1 = The Rack contains an instrument device that is capable of showing its chains in Session View.
 
-has_drum_pads bool read-onlyobserve
+has_drum_pads bool
+
+Access: getobserve
 
 1 = the device is a Drum Rack with pads. A nested Drum Rack is a Drum Rack without pads. 
 
 Only available for Drum Racks.
 
-has_macro_mappings bool read-onlyobserve
+has_macro_mappings bool
+
+Access: getobserve
 
 1 = any of a Rack&#x27;s Macros are mapped to a parameter.
 
-is_showing_chains bool observe
+is_showing_chains bool
+
+Access: getsetobserve
 
 1 = The Rack contains an instrument device that is showing its chains in Session View.
 
-variation_count int read-onlyobserve
+variation_count int
+
+Access: getobserve
 
 The number of currently stored macro variations. 
 
 Available since Live 11.0.
 
-selected_variation_index int 
+selected_variation_index int
+
+Access: getset
 
 Get/set the currently selected variation. 
 
 Available since Live 11.0.
 
-visible_macro_count int read-onlyobserve
+visible_macro_count int
+
+Access: getobserve
 
 The number of currently visible macros.
 

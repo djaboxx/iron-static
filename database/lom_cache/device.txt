@@ -60,59 +60,85 @@ live_set tracks N devices M return_chains L devices K
 
 Children
 
-parameters list of DeviceParameter read-onlyobserve
+parameters list of DeviceParameter
+
+Access: getobserve
 
 Only automatable parameters are accessible. See DeviceParameter to learn how to modify them.
 
-view Device.View read-only
+view Device.View
+
+Access: get
 
 Properties
 
-can_have_chains bool read-only
+can_have_chains bool
+
+Access: get
 
 0 for a single device 
 
 1 for a device Rack
 
-can_have_drum_pads bool read-only
+can_have_drum_pads bool
+
+Access: get
 
 1 for Drum Racks
 
-class_display_name symbol read-only
+class_display_name symbol
+
+Access: get
 
 Get the original name of the device (e.g. Operator, Auto Filter).
 
-class_name symbol read-only
+class_name symbol
+
+Access: get
 
 Live device type such as MidiChord, Operator, Limiter, MxDeviceAudioEffect, or PluginDevice.
 
-is_active bool read-onlyobserve
+is_active bool
+
+Access: getobserve
 
 0 = either the device itself or its enclosing Rack device is off.
 
-name symbol observe
+name symbol
+
+Access: getsetobserve
 
 This is the string shown in the title bar of the device.
 
-type int read-only
+type int
+
+Access: get
 
 The type of the device. Possible types are: 0 = undefined, 1 = instrument, 2 = audio_effect, 4 = midi_effect.
 
-latency_in_samples int read-onlyobserve
+latency_in_samples int
+
+Access: getobserve
 
 Device latency in samples.
 
-latency_in_ms float read-onlyobserve
+latency_in_ms float
+
+Access: getobserve
 
 Device latency in milliseconds.
 
-can_compare_ab bool read-only
+can_compare_ab bool
+
+Access: get
 
 1 for devices that support the AB Compare feature. 0 otherwise. 
 
 Available since Live 12.3.
 
-is_using_compare_preset_b bool observe
+is_using_compare_preset_b bool
+
+Access: getsetobserve
 
 1 if the device has compare preset B loaded. 0 otherwise. 
 

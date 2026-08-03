@@ -54,7 +54,9 @@ live_set tracks N devices M parameters L
 
 Properties
 
-automation_state int read-onlyobserve
+automation_state int
+
+Access: getobserve
 
 Get the automation state of the parameter. 
 
@@ -64,19 +66,25 @@ Get the automation state of the parameter.
 
 2 = automation overridden.
 
-default_value float read-only
+default_value float
+
+Access: get
 
 Get the default value for this parameter. 
 
 Only available for parameters that aren&#x27;t quantized (see is_quantized).
 
-is_enabled bool read-only
+is_enabled bool
+
+Access: get
 
 1 = the parameter value can be modified directly by the user, by sending set to a live.object, by automation or by an assigned MIDI message or keystroke. 
 
 Parameters can be disabled because they are macro-controlled, or they are controlled by a live-remote~ object, or because Live thinks that they should not be moved.
 
-is_quantized bool read-only
+is_quantized bool
+
+Access: get
 
 1 for booleans and enums 
 
@@ -84,23 +92,33 @@ is_quantized bool read-only
 
 Although parameters like MidiPitch.Pitch appear quantized to the user, they actually have an is_quantized value of 0.
 
-max float read-only
+max float
+
+Access: get
 
 Largest allowed value.
 
-min float read-only
+min float
+
+Access: get
 
 Lowest allowed value.
 
-name symbol read-only
+name symbol
+
+Access: get
 
 The short parameter name as shown in the (closed) automation chooser.
 
-original_name symbol read-only
+original_name symbol
+
+Access: get
 
 The name of a Macro parameter before its assignment.
 
-state int read-onlyobserve
+state int
+
+Access: getobserve
 
 The active state of the parameter. 
 
@@ -110,15 +128,21 @@ The active state of the parameter.
 
 2 = the parameter cannot be changed.
 
-value float observe
+value float
+
+Access: getsetobserve
 
 The internal value between min and max. Use display_value for the value as visible in the GUI.
 
-display_value float observe
+display_value float
+
+Access: getsetobserve
 
 The value as visible in the GUI.
 
-value_items StringVector read-only
+value_items StringVector
+
+Access: get
 
 Get a list of the possible values for this parameter. 
 

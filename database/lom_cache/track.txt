@@ -100,37 +100,55 @@ live_set tracks N
 
 Children
 
-take_lanes list of TakeLane read-onlyobserve
+take_lanes list of TakeLane
+
+Access: getobserve
 
 The list of this track&#x27;s take lanes
 
-clip_slots list of ClipSlot read-onlyobserve
+clip_slots list of ClipSlot
 
-arrangement_clips list of Clip read-onlyobserve
+Access: getobserve
+
+arrangement_clips list of Clip
+
+Access: getobserve
 
 The list of this track&#x27;s Arrangement View clip IDs 
 
 Available since Live 11.0.
 
-devices list of Device read-onlyobserve
+devices list of Device
+
+Access: getobserve
 
 Includes mixer device.
 
-group_track Track read-only
+group_track Track
+
+Access: get
 
 The Group Track, if the Track is grouped. If it is not, id 0 is returned.
 
-mixer_device MixerDevice read-only
+mixer_device MixerDevice
 
-view Track.View read-only
+Access: get
+
+view Track.View
+
+Access: get
 
 Properties
 
-arm bool observe
+arm bool
+
+Access: getsetobserve
 
 1 = track is armed for recording. [not in return/master tracks]
 
-available_input_routing_channels dictionary read-onlyobserve
+available_input_routing_channels dictionary
+
+Access: getobserve
 
 The list of available source channels for the track&#x27;s input routing. It&#x27;s represented as a dictionary with the following key:
 
@@ -140,7 +158,9 @@ The list contains dictionaries as described in input_routing_channel.
 
 Only available on MIDI and audio tracks.
 
-available_input_routing_types dictionary read-onlyobserve
+available_input_routing_types dictionary
+
+Access: getobserve
 
 The list of available source types for the track&#x27;s input routing. It&#x27;s represented as a dictionary with the following key:
 
@@ -150,7 +170,9 @@ The list contains dictionaries as described in input_routing_type.
 
 Only available on MIDI and audio tracks.
 
-available_output_routing_channels dictionary read-onlyobserve
+available_output_routing_channels dictionary
+
+Access: getobserve
 
 The list of available target channels for the track&#x27;s output routing. It&#x27;s represented as a dictionary with the following key:
 
@@ -160,7 +182,9 @@ The list contains dictionaries as described in output_routing_channel.
 
 Not available on the master track.
 
-available_output_routing_types dictionary read-onlyobserve
+available_output_routing_types dictionary
+
+Access: getobserve
 
 The list of available target types for the track&#x27;s output routing. It&#x27;s represented as a dictionary with the following key:
 
@@ -170,35 +194,49 @@ The list contains dictionaries as described in output_routing_type.
 
 Not available on the master track.
 
-back_to_arranger bool observe
+back_to_arranger bool
+
+Access: getsetobserve
 
 Get/set/observe the current state of the Single Track Back to Arrangement button (1 = highlighted). This button is used to indicate that the current state of the playback differs from what is stored in the Arrangement. 
 
 Setting this property to 0 will make Live go back to playing the track&#x27;s arrangement content. For group tracks, this means that all of the tracks that belong to the group and any subgroups will go back to playing the arrangement.
 
-can_be_armed bool read-only
+can_be_armed bool
+
+Access: get
 
 0 for return and master tracks.
 
-can_be_frozen bool read-only
+can_be_frozen bool
+
+Access: get
 
 1 = the track can be frozen, 0 = otherwise.
 
-can_show_chains bool read-only
+can_show_chains bool
+
+Access: get
 
 1 = the track contains an Instrument Rack device that can show chains in Session View.
 
-color int observe
+color int
+
+Access: getsetobserve
 
 The RGB value of the track&#x27;s color in the form 0x00rrggbb or (2^16 * red) + (2^8) * green + blue, where red, green and blue are values from 0 (dark) to 255 (light). 
 
 When setting the RGB value, the nearest color from the track color chooser is taken.
 
-color_index long observe
+color_index long
+
+Access: getsetobserve
 
 The color index of the track.
 
-fired_slot_index int read-onlyobserve
+fired_slot_index int
+
+Access: getobserve
 
 Reflects the blinking clip slot. 
 
@@ -208,45 +246,65 @@ First clip slot has index 0.
 
 [not in return/master tracks]
 
-fold_state int 
+fold_state int
+
+Access: getset
 
 0 = tracks within the Group Track are visible, 1 = Group Track is folded and the tracks within the Group Track are hidden 
 
 [only available if is_foldable = 1]
 
-has_audio_input bool read-only
+has_audio_input bool
+
+Access: get
 
 1 for audio tracks.
 
-has_audio_output bool read-only
+has_audio_output bool
+
+Access: get
 
 1 for audio tracks and MIDI tracks with instruments.
 
-has_midi_input bool read-only
+has_midi_input bool
+
+Access: get
 
 1 for MIDI tracks.
 
-has_midi_output bool read-only
+has_midi_output bool
+
+Access: get
 
 1 for MIDI tracks with no instruments and no audio effects.
 
-implicit_arm bool observe
+implicit_arm bool
+
+Access: getsetobserve
 
 A second arm state, only used by Push so far.
 
-input_meter_left float read-onlyobserve
+input_meter_left float
+
+Access: getobserve
 
 Smoothed momentary peak value of left channel input meter, 0.0 to 1.0. For tracks with audio output only. This value corresponds to the meters shown in Live. Please take into account that the left/right audio meters put a significant load onto the GUI part of Live.
 
-input_meter_level float read-onlyobserve
+input_meter_level float
+
+Access: getobserve
 
 Hold peak value of input meters of audio and MIDI tracks, 0.0 ... 1.0. For audio tracks it is the maximum of the left and right channels. The hold time is 1 second.
 
-input_meter_right float read-onlyobserve
+input_meter_right float
+
+Access: getobserve
 
 Smoothed momentary peak value of right channel input meter, 0.0 to 1.0. For tracks with audio output only. This value corresponds to the meters shown in Live.
 
-input_routing_channel dictionary observe
+input_routing_channel dictionary
+
+Access: getsetobserve
 
 The currently selected source channel for the track&#x27;s input routing. It&#x27;s represented as a dictionary with the following keys:
 
@@ -258,7 +316,9 @@ Can be set to all values found in the track&#x27;s available_input_routing_chann
 
 Only available on MIDI and audio tracks.
 
-input_routing_type dictionary observe
+input_routing_type dictionary
+
+Access: getsetobserve
 
 The currently selected source type for the track&#x27;s input routing. It&#x27;s represented as a dictionary with the following keys:
 
@@ -270,57 +330,85 @@ Can be set to all values found in the track&#x27;s available_input_routing_types
 
 Only available on MIDI and audio tracks.
 
-is_foldable bool read-only
+is_foldable bool
+
+Access: get
 
 1 = track can be (un)folded to hide or reveal the contained tracks. This is currently the case for Group Tracks. Instrument and Drum Racks return 0 although they can be opened/closed. This will be fixed in a later release.
 
-is_frozen bool read-onlyobserve
+is_frozen bool
+
+Access: getobserve
 
 1 = the track is currently frozen.
 
-is_grouped bool read-only
+is_grouped bool
+
+Access: get
 
 1 = the track is contained within a Group Track.
 
-is_part_of_selection bool read-only
+is_part_of_selection bool
 
-is_showing_chains bool observe
+Access: get
+
+is_showing_chains bool
+
+Access: getsetobserve
 
 Get or set whether a track with an Instrument Rack device is currently showing its chains in Session View.
 
-is_visible bool read-only
+is_visible bool
+
+Access: get
 
 0 = track is hidden in a folded Group Track.
 
-mute bool observe
+mute bool
+
+Access: getsetobserve
 
 [not in master track]
 
-muted_via_solo bool read-onlyobserve
+muted_via_solo bool
+
+Access: getobserve
 
 1 = the track or chain is muted due to Solo being active on at least one other track.
 
-name symbol observe
+name symbol
+
+Access: getsetobserve
 
 As shown in track header.
 
-output_meter_left float read-onlyobserve
+output_meter_left float
+
+Access: getobserve
 
 Smoothed momentary peak value of left channel output meter, 0.0 to 1.0. For tracks with audio output only. This value corresponds to the meters shown in Live. Please take into account that the left/right audio meters add a significant load to Live GUI resource usage.
 
-output_meter_level float read-onlyobserve
+output_meter_level float
+
+Access: getobserve
 
 Hold peak value of output meters of audio and MIDI tracks, 0.0 to 1.0. For audio tracks, it is the maximum of the left and right channels. The hold time is 1 second.
 
-output_meter_right float read-onlyobserve
+output_meter_right float
+
+Access: getobserve
 
 Smoothed momentary peak value of right channel output meter, 0.0 to 1.0. For tracks with audio output only. This value corresponds to the meters shown in Live.
 
-performance_impact float read-onlyobserve
+performance_impact float
+
+Access: getobserve
 
 Reports the performance impact of this track.
 
-output_routing_channel dictionary observe
+output_routing_channel dictionary
+
+Access: getsetobserve
 
 The currently selected target channel for the track&#x27;s output routing. It&#x27;s represented as a dictionary with the following keys:
 
@@ -332,7 +420,9 @@ Can be set to all values found in the track&#x27;s available_output_routing_chan
 
 Not available on the master track.
 
-output_routing_type dictionary observe
+output_routing_type dictionary
+
+Access: getsetobserve
 
 The currently selected target type for the track&#x27;s output routing. It&#x27;s represented as a dictionary with the following keys:
 
@@ -344,11 +434,15 @@ Can be set to all values found in the track&#x27;s available_output_routing_type
 
 Not available on the master track.
 
-playing_slot_index int read-onlyobserve
+playing_slot_index int
+
+Access: getobserve
 
 First slot has index 0, -2 = Clip Stop slot fired in Session View, -1 = Arrangement recording with no Session clip playing. [not in return/master tracks]
 
-solo bool observe
+solo bool
+
+Access: getsetobserve
 
 Remark: when setting this property, the exclusive Solo logic is bypassed, so you have to unsolo the other tracks yourself. [not in master track]
 
