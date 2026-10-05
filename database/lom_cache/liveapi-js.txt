@@ -5,6 +5,7 @@ User Guide
 Reference 
 
 API Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -16,6 +17,7 @@ Learn
 User Guide
 
 Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -23,11 +25,142 @@ Object & Operator Reference
 Learn
 Switch Theme
 
-Max JS APIBasic2dStrokeStyleParameterNamesBuffercpostDictDrawingPrimitiveTypeerrorFileFileTypesFolderGlobalImageJitter3dUtilsInterfaceJitter3dUtilsTypesJitterEventJitterEventTypesJitterListenerJitterMatrixJitterObjectjsthisLineStrokeStyleParameterNamesLiveAPIMaxMaxobjMaxobjConnectionMaxobjListenerMaxobjListenerDataMaxStringmessnamedMGraphicsMGraphicsMatrixHandleMGraphicsPathHandleMGraphicsSVGParameterInfoProviderParameterInfoProviderDataParameterListenerParameterListenerDataPatcherPatternPointerEventPolyBufferpostProgressEventSketchSnapshotAPISQLiteSQLResultTaskWindXMLHttpRequestOn this page
-Constructors
+Max JS API
 
-Properties
+Globals
+console
+globalThis
+Jitter3DUtils
+max
+mgraphics
+sketch
+
+Functions
+clearImmediate()
+clearInterval()
+clearTimeout()
+cpost()
+error()
+fetch()
+messnamed()
+post()
+queueMicrotask()
+setImmediate()
+setInterval()
+setTimeout()
+
+Built-In Modules
+buffer
+dgram
+http
+https
+net
+tls
+
+Classes
+AbortController
+AbortSignal
+Blob
+Buffer
+Dict
+EventSource
+File
+Folder
+FormData
+Global
+Headers
+Image
+JitterListener
+JitterMatrix
+JitterObject
+LiveAPI
+MaxArray
+MaxFFT
+MaxFFT2D
+Maxobj
+MaxobjListener
+MaxString
+MGraphics
+MGraphicsSVG
+ParameterInfoProvider
+ParameterListener
+Patcher
+PolyBuffer
+ReadableStream
+Request
+Response
+Rx256
+Sketch
+SnapshotAPI
+SQLite
+SQLResult
+Task
+TextDecoder
+TextEncoder
+TransformStream
+URL
+URLSearchParams
+WebSocket
+WebSocketServer
+WritableStream
+XMLHttpRequest
+
+Interfaces
+AddressInfo
+AttributeOptions
+Console
+EventSourceMessageEvent
+Jitter3dUtilsInterface
+JitterEvent
+jsthis
+Max
+MaxFFT2DOptions
+MaxFFTOptions
+MaxobjConnection
+MaxobjListenerData
+NetworkError
+ParameterInfoProviderData
+ParameterListenerData
+Pattern
+PointerEvent
+ProgressEvent
+ReadableStreamDefaultReader
+ReadableStreamReadResult
+RequestInit
+WebSocketCloseEvent
+WebSocketConnection
+WebSocketErrorEvent
+WebSocketMessageEvent
+Wind
+WritableStreamDefaultWriter
+XMLHttpRequestUpload
+
+Type Aliases
+Basic2dStrokeStyleParameterNames
+BodyInit
+DrawingPrimitiveType
+FileAccess
+FileEndianness
+FileFourCharacterCode
+FileLineEndingStyle
+HeadersInit
+Jitter3dUtilsMat16
+Jitter3dUtilsVec3
+Jitter3dUtilsVec4
+JitterEventType
+LineStrokeStyleParameterNames
+MGraphicsMatrixHandle
+MGraphicsPathHandle
+RequestCredentials
+RequestRedirectOn this page
+Index
+new LiveAPI()
+call()
 children 
+get()
+getcount()
+getstring()
+goto()
 id 
 info 
 mode 
@@ -35,17 +168,10 @@ patcher
 path 
 property 
 proptype 
+set()
 type 
 unquotedpath 
 valid 
-
-Methods
-call
-get
-getcount
-getstring
-goto
-set
 class LiveAPI
 
 A means of communicating with the Live API from JavaScript.
@@ -79,7 +205,51 @@ function sample_callback(args) {
  post("callback called with arguments:", args, "\n");
 }
 
+Index
+
 Constructors
+
+new LiveAPI(callback, path)
+
+Properties
+
+children
+
+id
+
+info
+
+mode
+
+patcher
+
+path
+
+property
+
+proptype
+
+type
+
+unquotedpath
+
+valid
+
+Methods
+
+call(fn, arguments)
+
+get(property)
+
+getcount(child)
+
+getstring(property)
+
+goto(path)
+
+set(property, value)
+
+new LiveAPI(callback, path)
 
 new LiveAPI(callback?: Function, path?: string);
 
@@ -97,11 +267,94 @@ optional path
 string
 the object in Live pointed to by the LiveAPI object (e.g. "live_set tracks 0 devices 0") or a valid LiveAPI object id
 
-Properties
+call(fn, arguments)
+
+Calls the given function of the current object, optionally with a list of arguments.
+
+call(fn: string, ...arguments: any[]): any;
+
+Name
+Type
+Description
+
+fn
+string
+the name of the Live API function to call
+
+arguments
+any[]
+any arguments to the function
+
+Return Value
+any
 
 children string[]
 
 An array of children of the object at the current path
+
+get(property)
+
+Returns the value or list of values of the specified property of the current object.
+
+get(property: string): number | number[];
+
+Name
+Type
+Description
+
+property
+string
+the object&#x27;s property
+
+Return Value
+number | number[]
+
+getcount(child)
+
+The count of children of the object at the current path
+
+getcount(child: string): number;
+
+Name
+Type
+Description
+
+child
+string
+the child to count children of
+
+Return Value
+number
+
+getstring(property)
+
+Returns the value or list of values of the specified property of the current object as a String object.
+
+getstring(property: string): string | string[];
+
+Name
+Type
+Description
+
+property
+string
+the object&#x27;s property
+
+Return Value
+string | string[]
+
+goto(path)
+
+Navigates to the path and causes the id of the object at that path out be sent to the callback function defined in the Constructor. If there is no object at the path, id 0 is sent.
+
+goto(path: string): void;
+
+Name
+Type
+Description
+
+path
+string
 
 id number
 
@@ -139,110 +392,7 @@ The type of the currently observed property or child
 
 The types of the properties and children are given in the Live Object Model.
 
-type string read-only
-
-The type of the object at the current path
-
-Please see the Live API Overview and Live Object Model documents for more information.
-
-unquotedpath string
-
-The path to the Live object referred to by the LiveAPI object, without any quoting (the path property contains a quoted path)
-
-These paths are dependent on the currently open Set in Live, but are otherwise stable: live_set tracks 0 devices 0 will always refer to the first device of the first track of the open Live Set.
-
-valid number read-only
-
-Whether the LiveAPI object refers to a valid Live object
-
-Methods
-
-call
-
-Calls the given function of the current object, optionally with a list of arguments.
-
-call(fn: string, ...arguments: any[]): any;
-
-Name
-Type
-Description
-
-fn
-string
-the name of the Live API function to call
-
-arguments
-any[]
-any arguments to the function
-
-Return Value
-any
-
-get
-
-Returns the value or list of values of the specified property of the current object.
-
-get(property: string): number | number[];
-
-Name
-Type
-Description
-
-property
-string
-the object&#x27;s property
-
-Return Value
-number | number[]
-
-getcount
-
-The count of children of the object at the current path
-
-getcount(child: string): number;
-
-Name
-Type
-Description
-
-child
-string
-the child to count children of
-
-Return Value
-number
-
-getstring
-
-Returns the value or list of values of the specified property of the current object as a String object.
-
-getstring(property: string): string | string[];
-
-Name
-Type
-Description
-
-property
-string
-the object&#x27;s property
-
-Return Value
-string | string[]
-
-goto
-
-Navigates to the path and causes the id of the object at that path out be sent to the callback function defined in the Constructor. If there is no object at the path, id 0 is sent.
-
-goto(path: string): void;
-
-Name
-Type
-Description
-
-path
-string
-
-set
+set(property, value)
 
 Sets the value or list of values of the specified property of the current object.
 
@@ -259,6 +409,22 @@ the object&#x27;s property to set
 value
 any
 the new value or values of the property
+
+type string read-only
+
+The type of the object at the current path
+
+Please see the Live API Overview and Live Object Model documents for more information.
+
+unquotedpath string
+
+The path to the Live object referred to by the LiveAPI object, without any quoting (the path property contains a quoted path)
+
+These paths are dependent on the currently open Set in Live, but are otherwise stable: live_set tracks 0 devices 0 will always refer to the first device of the first track of the open Live Set.
+
+valid number read-only
+
+Whether the LiveAPI object refers to a valid Live object
 
 Resources
 RNBO Documentation

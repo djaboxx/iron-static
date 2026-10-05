@@ -5,6 +5,7 @@ User Guide
 Reference 
 
 API Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -16,6 +17,7 @@ Learn
 User Guide
 
 Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -162,8 +164,6 @@ insert_chain
 Parameters: index [int] (optional) 
 
 Attempts to insert a new chain at the given index, or at the end of the chain list if no index is provided. Throws an error if insertion is not possible. 
-
-Side note: A chain inserted into a Drum Rack will have an initial MIDI In Note setting of "All Notes" (see DrumChain.in_note). You likely want the chain to be triggered when a specific pad is played; the way to achieve this is to set the in_note to the note value that corresponds to the pad. 
 
 Available since Live 12.3.
 

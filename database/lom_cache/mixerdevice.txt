@@ -5,6 +5,7 @@ User Guide
 Reference 
 
 API Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -16,6 +17,7 @@ Learn
 User Guide
 
 Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API

@@ -5,6 +5,7 @@ User Guide
 Reference 
 
 API Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -16,6 +17,7 @@ Learn
 User Guide
 
 Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -31,7 +33,7 @@ LOM - The Live Object Model
 Objects which comprise the Live API described by their structure, properties and functions.
 The Live Object Model lists a number of Live object classes with their properties and functions, as well as their parent-child relations through which a hierarchy is formed. Please refer to the Live API overview chapterfor definitions of the basic Live API terms and a list of the Max objects used to access it. 
 
-This document refers to Ableton Live version 12.3.5
+This document refers to Ableton Live version 12.4.5
 
 Object Model Overview
 

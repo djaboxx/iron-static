@@ -5,6 +5,7 @@ User Guide
 Reference 
 
 API Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -16,6 +17,7 @@ Learn
 User Guide
 
 Reference
+jweb MaxBridge API
 Max JavaScript API
 Live Object Model
 Node for Max API
@@ -498,7 +500,7 @@ duplicate_clip_to_arrangement
 
 Parameters: clip``destination_time [float] 
 
-Duplicate the given clip to the Arrangement, placing it at the given destination_time in beats.
+Duplicate the given clip to the Arrangement, placing it at the given destination_time in beats. The source clip can be a session or an arrangement clip.
 
 insert_device
 
